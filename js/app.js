@@ -5,25 +5,34 @@
  * ---------------------------------------------------------
 /**
  * APP.js - Le Cerveau de l'Application
- * Coordination entre Engines, UI et Storage.
+ * Coordination entre les moteurs de jeu, l'interface et le stockage local.
  */
 const App = {
     state: {
-        currentGrade: null, currentTheme: null, currentExercise: null,
-        currentQuestion: 0, score: 0, userInput: "", 
-        targetAnswer: null, problemData: null, timer: null,
-        isUppercase: true, frenchLib: null 
+        currentGrade: null, 
+        currentTheme: null, 
+        currentExercise: null,
+        currentQuestion: 0, 
+        score: 0, 
+        userInput: "", 
+        targetAnswer: null, 
+        problemData: null, 
+        timer: null,
+        isUppercase: true,
+        frenchLib: null 
     },
 
     async init() {
         try {
+            // Chargement de la bibliothèque de ressources (Français/Lecture)
             const res = await fetch('data/french_lib.json');
             this.state.frenchLib = await res.json();
         } catch (e) { console.error("Erreur bibliothèque :", e); }
 
+        // Initialisation des écouteurs du clavier virtuel
         UI.initKeyboard((v, t) => this.handleInput(v, t));
         
-        // Gestion des clics sur la zone de jeu (pour les cibles/bulles)
+        // Gestion des clics sur les éléments de jeu (ex: bulles du carré magique)
         const pz = document.getElementById('math-problem');
         if (pz) pz.onclick = (e) => { 
             const k = e.target.closest('.key'); 
@@ -32,11 +41,12 @@ const App = {
         
         document.getElementById('btn-results-menu').onclick = () => UI.showScreen('screen-themes');
         
+        // Chargement des profils
         const profs = Storage.getProfiles();
         profs.length ? this.renderProfilesScreen() : UI.showScreen('screen-profiles');
     },
 
-    // --- NAVIGATION & PROFILS ---
+    // --- PROFILS & NAVIGATION ---
     createProfile() {
         const el = document.getElementById('new-profile-name'), n = el.value.trim();
         if (n) { Storage.addProfile(n); el.value = ""; this.renderProfilesScreen(); }
@@ -96,6 +106,7 @@ const App = {
         UI.updateKeyboardLayout(pD.inputType || "numeric", pD.data);
         UI.updateGameDisplay(pD, "", (this.state.currentQuestion / cfg.questions) * 100);
 
+        // Timer spécifique pour l'exercice "oiseau"
         if (pD.visualType === 'bird') {
             this.state.timer = setTimeout(() => this.handleInput("timeout"), (cfg.vitesse || 8) * 1000);
         }
@@ -110,31 +121,34 @@ const App = {
 
         const { inputType, data } = this.state.problemData;
 
-        // Gestion Entrées Spéciales (Sélection de bulles / QCM / Boolean)
+        // 1. Cas particulier : Sélection (Carré Magique)
         if (inputType === 'selection') {
             if (val === 'ok') return this.validateAnswer();
             const idx = parseInt(target?.getAttribute('data-idx')), sel = data.selectedIndices;
             if (!isNaN(idx)) {
                 const p = sel.indexOf(idx); p > -1 ? sel.splice(p, 1) : sel.push(idx);
+                // La somme est stockée dans userInput pour l'affichage en direct
                 this.state.userInput = sel.reduce((a, i) => a + data.numbers[i], 0).toString();
             }
-        } else if (inputType === "boolean" || inputType === "qcm") {
+        } 
+        // 2. Cas particulier : Vrai/Faux ou QCM
+        else if (inputType === "boolean" || inputType === "qcm") {
             this.state.userInput = val; return this.validateAnswer();
         } 
-        // Gestion Clavier (Alpha et Numérique)
+        // 3. Saisie standard (Clavier Alpha ou Numérique)
         else {
             if (val === 'backspace' || val === 'del') {
                 this.state.userInput = this.state.userInput.slice(0, -1);
+                // Si on efface tout, on repasse en majuscule par défaut
                 if (inputType === 'alpha' && !this.state.userInput.length) { 
                     this.state.isUppercase = true; UI.updateKeyboardLayout('alpha'); 
                 }
             } else if (val === 'ok') {
                 if (this.state.userInput.length > 0) this.validateAnswer();
             } else {
-                const lim = 15; // Sécurité longueur max
-                if (this.state.userInput.length < lim) {
+                if (this.state.userInput.length < 15) {
                     this.state.userInput += val;
-                    // Auto-minuscule après la première lettre en mode alpha
+                    // Auto-minuscule après le premier caractère en mode texte
                     if (inputType === 'alpha' && this.state.userInput.length === 1) { 
                         this.state.isUppercase = false; UI.updateKeyboardLayout('alpha'); 
                     }
@@ -147,36 +161,37 @@ const App = {
     validateAnswer(hasAnswered = true) {
         if (this.state.timer) clearTimeout(this.state.timer);
         const { inputType, visualType } = this.state.problemData, d = document.getElementById('user-answer');
-        let isC = false;
+        let isCorrect = false;
 
-        // 1. Comparaison normalisée (Accents et Casse)
-        const norm = s => s ? s.toString().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase().trim() : "";
+        // Normalisation intelligente pour la comparaison (ignore accents et casse)
+        const normalize = s => s ? s.toString().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase().trim() : "";
         
         if (inputType === 'alpha' || inputType === 'qcm') {
-            isC = hasAnswered && (norm(this.state.userInput) === norm(this.state.targetAnswer));
+            isCorrect = hasAnswered && (normalize(this.state.userInput) === normalize(this.state.targetAnswer));
         } else {
-            isC = hasAnswered && (parseInt(this.state.userInput) === parseInt(this.state.targetAnswer));
+            isCorrect = hasAnswered && (parseInt(this.state.userInput) === parseInt(this.state.targetAnswer));
         }
 
-        if (isC) this.state.score++;
+        if (isCorrect) this.state.score++;
         
-        // 2. Feedback Visuel
-        let v = isC ? this.state.userInput : this.state.targetAnswer;
-        d.style.color = isC ? 'var(--success)' : 'var(--secondary)';
+        // Préparation de l'affichage du feedback
+        let displayVal = isCorrect ? this.state.userInput : this.state.targetAnswer;
+        d.style.color = isCorrect ? 'var(--success)' : 'var(--secondary)';
         
         if (visualType === 'clock') {
-            let s = v.toString().padStart(4, "0");
+            let s = displayVal.toString().padStart(4, "0");
             d.innerHTML = `<div class="clock-digit-block">${s.slice(0, 2)}</div><span class="clock-separator">:</span><div class="clock-digit-block">${s.slice(2, 4)}</div>`;
         } else {
-            d.innerText = v;
-            // Pour le français, on retire le forçage majuscule si c'est une correction
+            d.innerText = displayVal;
+            // On retire le style majuscule pour le français afin de montrer la bonne orthographe
             d.style.textTransform = (inputType === 'alpha') ? "none" : "uppercase";
         }
 
+        // Délai avant la question suivante (court si juste, plus long si erreur pour laisser lire)
         setTimeout(() => {
             d.style.color = 'var(--primary)';
             this.state.currentQuestion < this.state.currentExercise.params.questions ? this.generateNextQuestion() : this.showFinalResults();
-        }, isC ? 1000 : 2500);
+        }, isCorrect ? 1000 : 2500);
     },
 
     showFinalResults() {
