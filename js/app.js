@@ -1,3 +1,9 @@
+/* * ---------------------------------------------------------
+ * DEVOIR NUMÉRIQUE - Système Éducatif Minimaliste
+ * Certifié Original - © 2026
+ * Signature ID: DN-JS-2026-STABLE
+ * ---------------------------------------------------------
+ */
 /**
  * APP.js - Le Cerveau de l'Application
  * Coordination entre Engines, UI et Storage.
@@ -210,3 +216,4 @@ const App = {
 
 window.App = App;
 window.onload = () => App.init();
+
