@@ -77,7 +77,7 @@ const App = {
 
     async loadGrade(g) {
         UI.updateHeader(`${g.title} - ${Storage.getCurrentUser()}`);
-        const r = await fetch(g.dataFile), d = await r.json();
+        const r = await fetch(g.file), d = await r.json();
         this.state.currentGrade = d;
         UI.renderMenu('themes-list', d.themes, t => this.selectTheme(t));
         UI.showScreen('screen-themes');
@@ -217,4 +217,5 @@ const App = {
 
 window.App = App;
 window.onload = () => App.init();
+
 
