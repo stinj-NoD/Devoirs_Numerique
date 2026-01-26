@@ -60,12 +60,16 @@ const App = {
         UI.showScreen('screen-grades');
     },
 
-    async loadGrade(g) {
+async loadGrade(g) {
         UI.updateHeader(`${g.title} - ${Storage.getCurrentUser()}`);
-        const r = await fetch(g.dataFile), d = await r.json();
-        this.state.currentGrade = d;
-        UI.renderMenu('themes-list', d.themes, t => this.selectTheme(t));
-        UI.showScreen('screen-themes');
+        try {
+            // --- CORRECTION 2 : Utilisation de g.file au lieu de g.dataFile ---
+            const r = await fetch(g.file); 
+            const d = await r.json();
+            this.state.currentGrade = d;
+            UI.renderMenu('themes-list', d.themes, t => this.selectTheme(t));
+            UI.showScreen('screen-themes');
+        } catch (e) { console.error(e); alert("Erreur chargement classe"); }
     },
 
     selectTheme(t) {
@@ -191,3 +195,4 @@ const App = {
 
 window.App = App;
 window.onload = () => App.init();
+
