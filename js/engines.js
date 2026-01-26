@@ -276,4 +276,5 @@ function numberToFrench(n) {
     if (r > 0) result += getBelowThousand(r);
 
     return result.trim();
+
 }
