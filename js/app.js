@@ -113,50 +113,56 @@ const App = {
     },
 
     handleInput(val, target = null) {
-        if (val === "timeout") return this.validateAnswer(false);
-        if (val === 'shift') { 
-            this.state.isUppercase = !this.state.isUppercase; 
-            return UI.updateKeyboardLayout('alpha'); 
-        }
+    if (!this.state.problemData) return; // Sécurité si aucun exercice n'est chargé
+    if (val === "timeout") return this.validateAnswer(false);
+    
+    if (val === 'shift') { 
+        this.state.isUppercase = !this.state.isUppercase; 
+        return UI.updateKeyboardLayout('alpha'); 
+    }
 
-        const { inputType, data } = this.state.problemData;
+    const { inputType, data } = this.state.problemData;
 
-        // 1. Cas particulier : Sélection (Carré Magique)
-        if (inputType === 'selection') {
-            if (val === 'ok') return this.validateAnswer();
-            const idx = parseInt(target?.getAttribute('data-idx')), sel = data.selectedIndices;
-            if (!isNaN(idx)) {
-                const p = sel.indexOf(idx); p > -1 ? sel.splice(p, 1) : sel.push(idx);
-                // La somme est stockée dans userInput pour l'affichage en direct
-                this.state.userInput = sel.reduce((a, i) => a + data.numbers[i], 0).toString();
+    // 1. Mode Sélection (Carré Magique) - On vérifie que 'data' existe
+    if (inputType === 'selection' && data && data.numbers) {
+        if (val === 'ok') return this.validateAnswer();
+        const idx = parseInt(target?.getAttribute('data-idx'));
+        if (!isNaN(idx)) {
+            const sel = data.selectedIndices || [];
+            const pos = sel.indexOf(idx);
+            pos > -1 ? sel.splice(pos, 1) : sel.push(idx);
+            data.selectedIndices = sel; // Mise à jour explicite
+            this.state.userInput = sel.reduce((a, i) => a + data.numbers[i], 0).toString();
+        }
+    } 
+    // 2. Mode QCM / Vrai-Faux
+    else if (inputType === "boolean" || inputType === "qcm") {
+        this.state.userInput = val; 
+        return this.validateAnswer();
+    } 
+    // 3. Saisie Standard (Maths, Conjugaison, Orthographe)
+    else {
+        if (val === 'backspace' || val === 'del') {
+            this.state.userInput = this.state.userInput.slice(0, -1);
+            if (inputType === 'alpha' && !this.state.userInput.length) { 
+                this.state.isUppercase = true; UI.updateKeyboardLayout('alpha'); 
             }
-        } 
-        // 2. Cas particulier : Vrai/Faux ou QCM
-        else if (inputType === "boolean" || inputType === "qcm") {
-            this.state.userInput = val; return this.validateAnswer();
-        } 
-        // 3. Saisie standard (Clavier Alpha ou Numérique)
-        else {
-            if (val === 'backspace' || val === 'del') {
-                this.state.userInput = this.state.userInput.slice(0, -1);
-                // Si on efface tout, on repasse en majuscule par défaut
-                if (inputType === 'alpha' && !this.state.userInput.length) { 
-                    this.state.isUppercase = true; UI.updateKeyboardLayout('alpha'); 
-                }
-            } else if (val === 'ok') {
-                if (this.state.userInput.length > 0) this.validateAnswer();
-            } else {
-                if (this.state.userInput.length < 15) {
-                    this.state.userInput += val;
-                    // Auto-minuscule après le premier caractère en mode texte
-                    if (inputType === 'alpha' && this.state.userInput.length === 1) { 
-                        this.state.isUppercase = false; UI.updateKeyboardLayout('alpha'); 
-                    }
+        } else if (val === 'ok') {
+            if (this.state.userInput.length > 0) this.validateAnswer();
+        } else {
+            if (this.state.userInput.length < 15) {
+                this.state.userInput += val;
+                // Auto-minuscule pour le français
+                if (inputType === 'alpha' && this.state.userInput.length === 1) { 
+                    this.state.isUppercase = false; UI.updateKeyboardLayout('alpha'); 
                 }
             }
         }
-        UI.updateGameDisplay(this.state.problemData, this.state.userInput, (this.state.currentQuestion / this.state.currentExercise.params.questions) * 100);
-    },
+    }
+    
+    // Mise à jour systémathique de l'UI après chaque clic
+    UI.updateGameDisplay(this.state.problemData, this.state.userInput, (this.state.currentQuestion / this.state.currentExercise.params.questions) * 100);
+}
 
     validateAnswer(hasAnswered = true) {
         if (this.state.timer) clearTimeout(this.state.timer);
@@ -211,3 +217,4 @@ const App = {
 
 window.App = App;
 window.onload = () => App.init();
+
