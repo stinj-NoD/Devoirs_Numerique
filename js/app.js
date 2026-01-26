@@ -1,10 +1,16 @@
-/* * ---------------------------------------------------------
- * DEVOIR NUMÉRIQUE - Système Éducatif Minimaliste
- * Certifié Original - © 2026
- * Signature ID: DN-JS-2026-STABLE
- * ---------------------------------------------------------
-/**
- * APP.js - Le Cerveau de l'Application (Version avec Bibliothèque Externe)
+/*
+ * Devoir Numérique
+ * Copyright (C) 2026 [Stinj-NoD]
+ *
+ * Ce programme est un logiciel libre : vous pouvez le redistribuer et/ou le modifier
+ * selon les termes de la Licence Publique Générale GNU publiée par la
+ * Free Software Foundation, soit la version 3 de la licence, soit
+ * (à votre gré) toute version ultérieure.
+ *
+ * Ce programme est distribué dans l'espoir qu'il sera utile,
+ * mais SANS AUCUNE GARANTIE ; sans même la garantie implicite de
+ * COMMERCIALISATION ou D'ADÉQUATION À UN USAGE PARTICULIER.
+ * Voir la Licence Publique Générale GNU pour plus de détails.
  */
 const App = {
     state: {
@@ -21,9 +27,16 @@ const App = {
             this.state.frenchLib = await res.json();
         } catch (e) { console.error("Erreur bibliothèque :", e); }
 
+        // Initialisation de la navigation et du clavier
+        if (UI.initNavigation) UI.initNavigation();
         UI.initKeyboard((v, t) => this.handleInput(v, t));
+        
+        // Gestionnaire global pour les éléments interactifs (sécurité)
         const pz = document.getElementById('math-problem');
-        if (pz) pz.onclick = (e) => { const k = e.target.closest('.key'); if (k) this.handleInput(k.getAttribute('data-val'), k); };
+        if (pz) pz.onclick = (e) => { 
+            const k = e.target.closest('.key'); 
+            if (k) this.handleInput(k.getAttribute('data-val'), k); 
+        };
         
         const br = document.getElementById('btn-results-menu');
         if (br) br.onclick = () => UI.showScreen('screen-themes');
@@ -93,6 +106,12 @@ const App = {
         const pD = Engines.run(this.state.currentExercise.engine, cfg, this.state.frenchLib);
         
         this.state.problemData = pD; this.state.targetAnswer = pD.answer;
+        
+        // Initialisation correcte des indices sélectionnés pour le Carré Magique
+        if (pD.visualType === 'square' && !pD.data.selectedIndices) {
+            pD.data.selectedIndices = [];
+        }
+
         UI.updateKeyboardLayout(pD.inputType || "numeric", pD.data);
         UI.updateGameDisplay(pD, "", (this.state.currentQuestion / cfg.questions) * 100);
 
@@ -105,21 +124,43 @@ const App = {
 
         const { inputType, visualType, data } = this.state.problemData;
 
-        if (inputType === 'selection') {
-            if (val === 'ok') return this.validateAnswer();
-            const idx = parseInt(target?.getAttribute('data-idx')), sel = data.selectedIndices;
+        // --- CORRECTION CLIC CARRÉ MAGIQUE ---
+        if (val === 'card-click' && target) {
+            const idx = parseInt(target.getAttribute('data-idx'));
             if (!isNaN(idx)) {
-                const p = sel.indexOf(idx); p > -1 ? sel.splice(p, 1) : sel.push(idx);
-                this.state.userInput = sel.reduce((a, i) => a + data.numbers[i], 0).toString();
+                // Initialisation de sûreté
+                if (!data.selectedIndices) data.selectedIndices = [];
+                
+                // Toggle (Ajout / Suppression)
+                const pos = data.selectedIndices.indexOf(idx);
+                if (pos > -1) data.selectedIndices.splice(pos, 1);
+                else data.selectedIndices.push(idx);
+
+                // Calcul de la somme
+                const sum = data.selectedIndices.reduce((acc, i) => acc + data.numbers[i], 0);
+                this.state.userInput = sum.toString();
+
+                // Mise à jour visuelle immédiate
+                UI.updateGameDisplay(this.state.problemData, this.state.userInput, (this.state.currentQuestion / this.state.currentExercise.params.questions) * 100);
             }
-        } else if (inputType === "boolean" || inputType === "qcm") {
+            return;
+        }
+        // -------------------------------------
+
+        if (inputType === 'selection') {
+            // Validation manuelle via le bouton OK du clavier
+            if (val === 'ok') return this.validateAnswer();
+        } 
+        else if (inputType === "boolean" || inputType === "qcm") {
             this.state.userInput = val; return this.validateAnswer();
-        } else {
+        } 
+        else {
             if (val === 'backspace' || val === 'del') {
                 this.state.userInput = this.state.userInput.slice(0, -1);
                 if (inputType === 'alpha' && !this.state.userInput.length) { this.state.isUppercase = true; UI.updateKeyboardLayout('alpha'); }
-            } else if (val === 'ok') return this.validateAnswer();
-            else {
+            } else if (val === 'ok') {
+                return this.validateAnswer();
+            } else {
                 const lim = (visualType === 'clock') ? 4 : this.state.targetAnswer.toString().length;
                 if (this.state.userInput.length < Math.max(lim, 5)) {
                     this.state.userInput += val;
@@ -127,10 +168,11 @@ const App = {
                 }
             }
         }
+        
         UI.updateGameDisplay(this.state.problemData, this.state.userInput, (this.state.currentQuestion / this.state.currentExercise.params.questions) * 100);
     },
 
-validateAnswer(hasAnswered = true) {
+    validateAnswer(hasAnswered = true) {
         if (this.state.timer) clearTimeout(this.state.timer);
         const { inputType, visualType } = this.state.problemData, d = document.getElementById('user-answer');
         let isC = false;
@@ -138,30 +180,28 @@ validateAnswer(hasAnswered = true) {
         // 1. Comparaison intelligente
         if (inputType === 'alpha' || inputType === 'qcm') {
             const norm = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
-            // Pour l'orthographe (alpha) on normalise, pour le QCM (homophones) on compare le texte brut
             const u = inputType === 'alpha' ? norm(this.state.userInput) : this.state.userInput;
             const t = inputType === 'alpha' ? norm(this.state.targetAnswer.toString()) : this.state.targetAnswer.toString();
             isC = hasAnswered && (u === t);
         } else {
-            // Pour les maths, on garde la comparaison de nombres
             isC = hasAnswered && (parseInt(this.state.userInput) === parseInt(this.state.targetAnswer));
         }
 
         if (isC) this.state.score++;
         
-        // 2. Préparation de la réponse à afficher
+        // 2. Préparation réponse
         let v = isC ? this.state.userInput : this.state.targetAnswer;
         
-        // 3. FORCE LE STYLE VISUEL (Correction pour ta capture)
+        // 3. Style visuel réponse
         if (inputType === 'alpha' || inputType === 'qcm') {
-            v = v.toString().toLowerCase(); // On met la variable en minuscule
-            d.style.textTransform = "none"; // On annule le forçage majuscule du CSS
-            d.style.display = "inline-block"; // On s'assure que c'est visible
+            v = v.toString().toLowerCase(); 
+            d.style.textTransform = "none"; 
+            d.style.display = "flex"; 
         } else {
-            d.style.textTransform = "uppercase"; // On remet en majuscule pour les autres jeux si besoin
+            d.style.textTransform = "uppercase"; 
         }
 
-        // 4. Rendu HTML
+        // 4. Rendu HTML Réponse
         if (visualType === 'clock') {
             let s = v.toString().padStart(4, "0");
             d.innerHTML = `<div class="clock-digit-block">${s.slice(0, 2)}</div><span class="clock-separator">:</span><div class="clock-digit-block">${s.slice(2, 4)}</div>`;
@@ -169,7 +209,7 @@ validateAnswer(hasAnswered = true) {
             d.innerText = v;
         }
 
-        // 5. Couleur et Feedback
+        // 5. Feedback
         d.style.color = isC ? 'var(--success)' : 'var(--secondary)';
         setTimeout(() => {
             d.style.color = 'var(--primary)';

@@ -1,13 +1,17 @@
-/* * ---------------------------------------------------------
- * DEVOIR NUMÉRIQUE - Système Éducatif Minimaliste
- * Certifié Original - © 2026
- * Signature ID: DN-JS-2026-STABLE
- * ---------------------------------------------------------
-/**
- * ENGINES.js - L'Usine de Contenu
- * Gestion dynamique des exercices et de la conjugaison pédagogique
+/*
+ * Devoir Numérique
+ * Copyright (C) 2026 [Stinj-NoD]
+ *
+ * Ce programme est un logiciel libre : vous pouvez le redistribuer et/ou le modifier
+ * selon les termes de la Licence Publique Générale GNU publiée par la
+ * Free Software Foundation, soit la version 3 de la licence, soit
+ * (à votre gré) toute version ultérieure.
+ *
+ * Ce programme est distribué dans l'espoir qu'il sera utile,
+ * mais SANS AUCUNE GARANTIE ; sans même la garantie implicite de
+ * COMMERCIALISATION ou D'ADÉQUATION À UN USAGE PARTICULIER.
+ * Voir la Licence Publique Générale GNU pour plus de détails.
  */
-
 const Engines = {
     /**
      * Point d'entrée unique
@@ -96,8 +100,27 @@ const Engines = {
 
                 case 'cibles': 
                     let touches = [];
-                    for (let i = 0; i < p.nbFleches; i++) touches.push(p.zones[Math.floor(Math.random() * p.zones.length)]);
-                    return { isVisual: true, visualType: p.skin === 'money' ? 'money' : 'target', inputType: 'numeric', data: { zonesDefinitions: p.zones, hits: touches }, answer: touches.reduce((acc, val) => acc + val, 0) };
+                    // On pré-calcule l'angle ici pour qu'il ne bouge plus jamais
+                    for (let i = 0; i < p.nbFleches; i++) {
+                        const val = p.zones[Math.floor(Math.random() * p.zones.length)];
+                        // Calcul de l'angle fixe (répartition équitable + petit décalage aléatoire)
+                        const fixedAngle = (i * (360 / p.nbFleches) + (Math.random() * 20)) * (Math.PI / 180);
+                        touches.push({ val: val, angle: fixedAngle });
+                    }
+                    
+                    // Calcul de la réponse (attention, on accède maintenant à .val)
+                    const totalSum = touches.reduce((acc, item) => acc + item.val, 0);
+
+                    return { 
+                        isVisual: true, 
+                        visualType: p.skin === 'money' ? 'money' : 'target', 
+                        inputType: 'numeric', 
+                        data: { 
+                            zonesDefinitions: p.zones, 
+                            hits: touches // On envoie le tableau d'objets avec les angles figés
+                        }, 
+                        answer: totalSum 
+                    };
 
                 default:
                     return { question: "Calcul inconnu", answer: 0, inputType: 'numeric' };
@@ -251,10 +274,25 @@ const Engines = {
             return { isVisual: true, visualType: 'counting', inputType: 'numeric', data: { tens: Math.floor(target / 10), units: target % 10 }, answer: target };
         },
 
-        compare(p) {
-            const a = Math.floor(Math.random() * p.range);
-            const b = Math.floor(Math.random() * p.range);
-            return { question: `${a} > ${b} ?`, answer: a > b ? 1 : 0, inputType: "boolean" };
+compare(p) {
+            // Sécurité si range n'est pas défini
+            const max = p.range || 100;
+            const a = Math.floor(Math.random() * max);
+            const b = Math.floor(Math.random() * max);
+            
+            let ans;
+            if (a < b) ans = "<";
+            else if (a > b) ans = ">";
+            else ans = "=";
+
+            return { 
+                // On met "..." en gris clair pour montrer qu'il faut compléter
+                question: `${a} <span style='color:#A0AEC0; font-weight:normal'>...</span> ${b}`, 
+                answer: ans, 
+                // IMPORTANT : "qcm" force app.js à comparer des Textes et non des Nombres
+                inputType: "qcm", 
+                data: { choices: ["<", "=", ">"] } 
+            };
         },
 
         reading(p, lib) {
