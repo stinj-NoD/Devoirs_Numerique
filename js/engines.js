@@ -1,3 +1,9 @@
+/* * ---------------------------------------------------------
+ * DEVOIR NUMÉRIQUE - Système Éducatif Minimaliste
+ * Certifié Original - © 2026
+ * Signature ID: DN-JS-2026-STABLE
+ * ---------------------------------------------------------
+ */
 /**
  * ENGINES.js - L'Usine de Contenu
  * Gestion dynamique des exercices et de la conjugaison pédagogique
@@ -278,3 +284,4 @@ function numberToFrench(n) {
     return result.trim();
 
 }
+
