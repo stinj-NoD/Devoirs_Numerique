@@ -3,7 +3,6 @@
  * Certifié Original - © 2026
  * Signature ID: DN-JS-2026-STABLE
  * ---------------------------------------------------------
- */
 /**
  * ENGINES.js - L'Usine de Contenu
  * Gestion dynamique des exercices et de la conjugaison pédagogique
@@ -19,6 +18,7 @@ const Engines = {
                 if (params.type === 'spelling') return this.generators.spelling(params, lib);
                 if (params.type === 'clock') return this.generators.clock(params);
                 if (params.type === 'fraction-view') return this.generators.fractionView(params);
+                if (params.type === 'carre-somme') return this.generators.carreSomme(params);
                 return this.generators.calculate(params);
             case 'choice-engine':
                 if (params.type === 'homophone-duel') return this.generators.homophones(params, lib);
@@ -38,118 +38,7 @@ const Engines = {
     },
 
     generators: {
-        spelling(p, lib) {
-            const category = p.category || 'animals';
-            const pool = lib.spelling[category] || lib.spelling.animals;
-            const picked = pool[Math.floor(Math.random() * pool.length)];
-            return {
-                isVisual: true,
-                visualType: 'spelling',
-                inputType: 'alpha',
-                data: { imageUrl: picked.img, word: picked.word, icon: picked.icon },
-                answer: picked.word
-            };
-        },
-
-conjugation(p, lib) {
-    const pronouns = ["JE", "TU", "IL", "ELLE", "ON", "NOUS", "VOUS", "ILS", "ELLES"];
-    const availableTenses = p.tenses || ["présent"];
-    const selectedTense = availableTenses[Math.floor(Math.random() * availableTenses.length)].toLowerCase();
-    const isCompound = (selectedTense === 'passé composé');
-
-    // 1. Mapping des catégories (Ex: present_1, future_2, pc_3_freq)
-    let category = p.category || 'present_1';
-    if (category.startsWith('etre_avoir')) {
-        const suffix = (selectedTense === 'futur') ? '_f' : (selectedTense === 'imparfait') ? '_imp' : '_p';
-        category = 'etre_avoir' + suffix;
-    } else {
-        const prefixMap = { 'présent': 'present', 'futur': 'future', 'imparfait': 'imparfait', 'passé composé': 'pc' };
-        const prefix = prefixMap[selectedTense] || 'present';
-        // Détecte le groupe (_1, _2, _3) dans la catégorie d'origine
-        const groupMatch = p.category.match(/_(\d|3_freq)/);
-        if (groupMatch) category = prefix + groupMatch[0];
-    }
-
-    if (!lib.conjugation[category]) {
-        console.warn(`Catégorie manquante : ${category}. Repli sur ${p.category}`);
-        category = p.category;
-    }
-
-    const pool = lib.conjugation[category];
-    const verb = pool[Math.floor(Math.random() * pool.length)];
-    const pIdx = Math.floor(Math.random() * pronouns.length);
-    const m = [0, 1, 2, 2, 2, 3, 4, 5, 5]; // Mapping 9 pronoms -> 6 formes
-    const cIdx = m[pIdx];
-
-    let answer = "";
-    let displayData = { 
-        pronoun: pronouns[pIdx], infinitive: verb.infinitive, icon: verb.icon,
-        tense: selectedTense.toUpperCase(), isCompound: isCompound
-    };
-
-    if (isCompound) {
-        // Logique Passé Composé (Auxiliaire + Participe + Accords)
-        const auxData = lib.conjugation.etre_avoir_p.find(v => v.infinitive.toLowerCase() === verb.aux.toLowerCase());
-        const auxiliary = auxData.full[cIdx];
-        let pp = verb.pp; 
-        if (verb.aux === 'être') {
-            if (pIdx === 3) pp += "E";       // ELLE
-            if (pIdx === 5) pp += "S";       // NOUS
-            if (pIdx === 6) pp += "S";       // VOUS
-            if (pIdx === 7) pp += "S";       // ILS
-            if (pIdx === 8) pp += "ES";      // ELLES
-        }
-        answer = `${auxiliary} ${pp}`;
-        displayData.participle = pp; 
-    } else {
-        answer = verb.full ? verb.full[cIdx] : verb.base + verb.endings[cIdx];
-    }
-
-    return {
-        isVisual: true, visualType: 'conjugation', inputType: 'alpha',
-        tense: selectedTense.toUpperCase(), answer: answer, data: displayData
-    };
-},
-
-        homophones(p, lib) {
-            const pool = lib.homophones[p.category];
-            const picked = pool[Math.floor(Math.random() * pool.length)];
-            return {
-                isVisual: false,
-                question: picked.sentence,
-                answer: picked.answer,
-                inputType: "qcm",
-                data: { choices: p.choices }
-            };
-        },
-
-        clock(p) {
-            const hours24 = Math.floor(Math.random() * 24);
-            const minutes = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55][Math.floor(Math.random() * 12)];
-            const isDay = hours24 >= 8 && hours24 < 20;
-            const hStr = hours24.toString().padStart(2, '0');
-            const mStr = minutes.toString().padStart(2, '0');
-            return {
-                isVisual: true,
-                visualType: 'clock',
-                inputType: 'numeric',
-                data: { hours: hours24, minutes: minutes, periodIcon: isDay ? "☀️" : "🌙", periodText: isDay ? "Après-midi / Jour" : "Matin / Nuit" },
-                answer: parseInt(hStr + mStr)
-            };
-        },
-
-        fractionView(p) {
-            const denom = p.maxDenom || 8;
-            const d = Math.floor(Math.random() * (denom - 2)) + 2; 
-            const n = Math.floor(Math.random() * (d - 1)) + 1;
-            return {
-                isVisual: true,
-                visualType: 'fraction',
-                inputType: 'numeric',
-                data: { n, d },
-                answer: n
-            };
-        },
+        // --- GÉNÉRATEURS MATHÉMATIQUES ---
 
         calculate(p) {
             let a, b, total;
@@ -205,15 +94,6 @@ conjugation(p, lib) {
                     let choices = [total, total + 1, total - 1].sort(() => Math.random() - 0.5);
                     return { isVisual: true, visualType: 'bird', inputType: 'qcm', data: { question: `${a} + ${b}`, choices: choices, duration: p.vitesse || 8 }, answer: total };
 
-                case 'carre-somme':
-                    const target = rnd(p.targetMin, p.targetMax);
-                    const grid = [rnd(1, target - 1), target - rnd(1, target - 1)]; // Simplifié pour l'exemple
-                    while (grid.length < p.gridSize) {
-                        let d = rnd(1, p.targetMax);
-                        if (d !== target) grid.push(d);
-                    }
-                    return { isVisual: true, visualType: 'square', inputType: 'selection', data: { target: target, numbers: grid.sort(() => Math.random() - 0.5), selectedIndices: [] }, answer: target };
-                
                 case 'cibles': 
                     let touches = [];
                     for (let i = 0; i < p.nbFleches; i++) touches.push(p.zones[Math.floor(Math.random() * p.zones.length)]);
@@ -222,6 +102,146 @@ conjugation(p, lib) {
                 default:
                     return { question: "Calcul inconnu", answer: 0, inputType: 'numeric' };
             }
+        },
+
+        carreSomme(p) {
+            const rnd = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+            const target = rnd(p.targetMin, p.targetMax);
+            const size = p.gridSize || 9;
+            let numbers = [];
+            
+            // 1. Génération d'une solution garantie (3 nombres)
+            let n1 = rnd(Math.floor(target * 0.1), Math.floor(target * 0.4));
+            let n2 = rnd(Math.floor(target * 0.1), Math.floor(target * 0.4));
+            let n3 = target - (n1 + n2);
+            
+            // Sécurité : si n3 est trop petit ou négatif, on ajuste
+            if (n3 <= 0) { n1 = Math.floor(target/3); n2 = Math.floor(target/3); n3 = target - (n1+n2); }
+            
+            numbers.push(n1, n2, n3);
+
+            // 2. Remplissage avec du "bruit" (faux nombres)
+            while (numbers.length < size) {
+                let noise = rnd(2, target - 2);
+                if (!numbers.includes(noise)) numbers.push(noise);
+            }
+
+            // 3. Mélange de la grille
+            const grid = numbers.sort(() => Math.random() - 0.5);
+
+            return {
+                isVisual: true,
+                visualType: 'square',
+                inputType: 'selection',
+                answer: target,
+                data: { target: target, numbers: grid, selectedIndices: [] }
+            };
+        },
+
+        // --- GÉNÉRATEURS FRANÇAIS & AUTRES ---
+
+        conjugation(p, lib) {
+            const pronouns = ["JE", "TU", "IL", "ELLE", "ON", "NOUS", "VOUS", "ILS", "ELLES"];
+            const availableTenses = p.tenses || ["présent"];
+            const selectedTense = availableTenses[Math.floor(Math.random() * availableTenses.length)].toLowerCase();
+            const isCompound = (selectedTense === 'passé composé');
+
+            let category = p.category || 'present_1';
+            if (category.startsWith('etre_avoir')) {
+                const suffix = (selectedTense === 'futur') ? '_f' : (selectedTense === 'imparfait') ? '_imp' : '_p';
+                category = 'etre_avoir' + suffix;
+            } else {
+                const prefixMap = { 'présent': 'present', 'futur': 'future', 'imparfait': 'imparfait', 'passé composé': 'pc' };
+                const prefix = prefixMap[selectedTense] || 'present';
+                const groupMatch = p.category.match(/_(\d|3_freq)/);
+                if (groupMatch) category = prefix + groupMatch[0];
+            }
+
+            if (!lib.conjugation[category]) category = p.category;
+
+            const pool = lib.conjugation[category];
+            const verb = pool[Math.floor(Math.random() * pool.length)];
+            const pIdx = Math.floor(Math.random() * pronouns.length);
+            const m = [0, 1, 2, 2, 2, 3, 4, 5, 5]; 
+            const cIdx = m[pIdx];
+
+            let answer = "";
+            let displayData = { 
+                pronoun: pronouns[pIdx], infinitive: verb.infinitive, icon: verb.icon,
+                tense: selectedTense.toUpperCase(), isCompound: isCompound
+            };
+
+            if (isCompound) {
+                const auxData = lib.conjugation.etre_avoir_p.find(v => v.infinitive.toLowerCase() === verb.aux.toLowerCase());
+                const auxiliary = auxData.full[cIdx];
+                let pp = verb.pp; 
+                if (verb.aux === 'être') {
+                    if (pIdx === 3) pp += "E";
+                    if ([5, 6, 7].includes(pIdx)) pp += "S";
+                    if (pIdx === 8) pp += "ES";
+                }
+                answer = `${auxiliary} ${pp}`;
+            } else {
+                answer = verb.full ? verb.full[cIdx] : verb.base + verb.endings[cIdx];
+            }
+
+            return {
+                isVisual: true, visualType: 'conjugation', inputType: 'alpha',
+                tense: selectedTense.toUpperCase(), answer: answer, data: displayData
+            };
+        },
+
+        spelling(p, lib) {
+            const category = p.category || 'animals';
+            const pool = lib.spelling[category] || lib.spelling.animals;
+            const picked = pool[Math.floor(Math.random() * pool.length)];
+            return {
+                isVisual: true,
+                visualType: 'spelling',
+                inputType: 'alpha',
+                data: { imageUrl: picked.img, word: picked.word, icon: picked.icon },
+                answer: picked.word
+            };
+        },
+
+        homophones(p, lib) {
+            const pool = lib.homophones[p.category];
+            const picked = pool[Math.floor(Math.random() * pool.length)];
+            return {
+                isVisual: false,
+                question: picked.sentence,
+                answer: picked.answer,
+                inputType: "qcm",
+                data: { choices: p.choices }
+            };
+        },
+
+        clock(p) {
+            const hours24 = Math.floor(Math.random() * 24);
+            const minutes = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55][Math.floor(Math.random() * 12)];
+            const isDay = hours24 >= 8 && hours24 < 20;
+            const hStr = hours24.toString().padStart(2, '0');
+            const mStr = minutes.toString().padStart(2, '0');
+            return {
+                isVisual: true,
+                visualType: 'clock',
+                inputType: 'numeric',
+                data: { hours: hours24, minutes: minutes, periodIcon: isDay ? "☀️" : "🌙", periodText: isDay ? "Après-midi / Jour" : "Matin / Nuit" },
+                answer: parseInt(hStr + mStr)
+            };
+        },
+
+        fractionView(p) {
+            const denom = p.maxDenom || 8;
+            const d = Math.floor(Math.random() * (denom - 2)) + 2; 
+            const n = Math.floor(Math.random() * (d - 1)) + 1;
+            return {
+                isVisual: true,
+                visualType: 'fraction',
+                inputType: 'numeric',
+                data: { n, d },
+                answer: n
+            };
         },
 
         counting(p) {
@@ -282,6 +302,4 @@ function numberToFrench(n) {
     if (r > 0) result += getBelowThousand(r);
 
     return result.trim();
-
 }
-
