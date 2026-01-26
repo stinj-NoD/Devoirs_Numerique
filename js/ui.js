@@ -1,3 +1,9 @@
+/* * ---------------------------------------------------------
+ * DEVOIR NUMÉRIQUE - Système Éducatif Minimaliste
+ * Certifié Original - © 2026
+ * Signature ID: DN-JS-2026-STABLE
+ * ---------------------------------------------------------
+ */
 /**
  * UI.js - Gestionnaire d'Interface Utilisateur (Version Intégrale Vérifiée)
  */
@@ -289,3 +295,4 @@ UI.btnBack.onclick = () => {
     const cur = document.querySelector('.screen.active').id; 
     if (map[cur]) UI.showScreen(map[cur]);
 };
+
