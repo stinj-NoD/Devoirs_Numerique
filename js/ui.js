@@ -84,56 +84,48 @@ const UI = {
     },
 
     updateGameDisplay(p, input, prog) {
-        const problemZone = document.getElementById('math-problem'), 
-              answerZone = document.getElementById('user-answer');
-        
-        problemZone.innerHTML = ""; 
-        answerZone.innerHTML = ""; 
-        
-        Object.assign(answerZone.style, { 
-            borderBottom: "none", display: "flex", justifyContent: "center", 
-            alignItems: "center", gap: "10px", minHeight: "1.5em", margin: "0 auto" 
-        });
+    const problemZone = document.getElementById('math-problem'), 
+          answerZone = document.getElementById('user-answer');
+    
+    // On nettoie avant de redessiner
+    problemZone.innerHTML = ""; 
+    // On ne vide answerZone.innerHTML que si ce n'est pas une horloge pour éviter les clignotements
+    if (p.visualType !== 'clock') answerZone.innerHTML = ""; 
+    
+    // Style de base
+    Object.assign(answerZone.style, { display: "flex", color: "var(--primary)" });
 
-        if (p.isVisual) {
-            const drawMethods = { 
-                clock:'drawClock', spelling:'drawSpelling', conjugation:'drawConjugation', 
-                target:'drawSvgTarget', money:'drawMoney', bird:'drawBird', 
-                square:'drawSquare', reading: 'drawReading', counting: 'drawCounting', fraction: 'drawFraction'
-            };
+    if (p.isVisual) {
+        const drawMethods = { 
+            clock:'drawClock', spelling:'drawSpelling', conjugation:'drawConjugation', 
+            target:'drawSvgTarget', money:'drawMoney', bird:'drawBird', 
+            square:'drawSquare', reading: 'drawReading', counting: 'drawCounting', fraction: 'drawFraction'
+        };
+        problemZone.innerHTML = this[drawMethods[p.visualType]](p.data, input);
+    } else {
+        problemZone.innerHTML = p.question || ""; 
+    }
 
-            let badge = "";
-            if (p.tense) {
-                const colors = { 'PRÉSENT': '#4A90E2', 'FUTUR': '#F5A623', 'IMPARFAIT': '#7ED321', 'PASSÉ COMPOSÉ': '#9B59B6' };
-                badge = `<div class="tense-badge" style="background:${colors[p.tense.toUpperCase()] || 'var(--dark)'}">${p.tense}</div>`;
-            }
-            problemZone.innerHTML = badge + this[drawMethods[p.visualType]](p.data, input);
-        } else {
-            problemZone.innerHTML = p.question || ""; 
-        }
+    // Gestion de l'affichage de la saisie selon le type
+    if (p.visualType === 'clock') {
+        let s = input.padEnd(4, "_");
+        answerZone.innerHTML = `<div class="clock-digit-block">${s.slice(0, 2)}</div><span class="clock-separator">:</span><div class="clock-digit-block">${s.slice(2, 4)}</div>`;
+    } 
+    else if (p.inputType === "selection") {
+        answerZone.innerHTML = `Somme : <b>${input || 0}</b> / ${p.data.target}`;
+    }
+    else if (p.inputType === "numeric") {
+        answerZone.style.borderBottom = "6px solid var(--primary)";
+        answerZone.innerText = input || "\u00A0"; // Espace insécable pour garder la hauteur
+    } 
+    else {
+        // En mode alpha (Conjugaison/Orthographe), le texte s'inscrit directement 
+        // dans le moteur (problemZone), donc on cache la zone du bas.
+        answerZone.style.display = "none";
+    }
 
-        // --- GESTION DES DISPLAYS DE RÉPONSE ---
-        if (p.visualType === 'clock') {
-            let s = input.padEnd(4, "_");
-            answerZone.innerHTML = `<div class="clock-digit-block">${s.slice(0, 2)}</div><span class="clock-separator">:</span><div class="clock-digit-block">${s.slice(2, 4)}</div>`;
-        } 
-        else if (p.inputType === "selection") {
-            Object.assign(answerZone.style, { display: "inline-block", fontSize: "1.5rem", color: "var(--dark)" });
-            answerZone.innerHTML = `Somme : <b>${input || 0}</b> / ${p.data.target}`;
-        }
-        else if (p.inputType === "numeric") {
-            Object.assign(answerZone.style, { 
-                display: "inline-block", width: "fit-content", minWidth: "120px", 
-                borderBottom: "6px solid var(--primary)", padding: "0 10px" 
-            });
-            answerZone.innerText = input || "\u00A0";
-        } 
-        else {
-            answerZone.style.display = "none";
-        }
-
-        document.getElementById('game-progress').style.width = prog + "%";
-    },
+    document.getElementById('game-progress').style.width = prog + "%";
+}
 
     // --- MOTEURS DE RENDU ---
 
@@ -283,3 +275,4 @@ UI.btnBack.onclick = () => {
     const cur = document.querySelector('.screen.active').id; 
     if (map[cur]) UI.showScreen(map[cur]);
 };
+
