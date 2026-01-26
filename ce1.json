@@ -1,0 +1,95 @@
+{
+  "gradeId": "ce1",
+  "title": "CE1",
+  "themes": [
+    {
+      "id": "ce1-tables",
+      "title": "Multiplication",
+      "icon": "✖️",
+      "exercises": [
+        { "id": "mult-2", "title": "Table de 2", "subtitle": "Les doubles", "engine": "math-input", "params": { "type": "mult", "table": 2, "questions": 10 }},
+        { "id": "mult-3", "title": "Table de 3", "subtitle": "Les triples", "engine": "math-input", "params": { "type": "mult", "table": 3, "questions": 10 }},
+        { "id": "mult-4", "title": "Table de 4", "subtitle": "Les quadruples", "engine": "math-input", "params": { "type": "mult", "table": 4, "questions": 10 }},
+        { "id": "mult-5", "title": "Table de 5", "subtitle": "De 5 en 5", "engine": "math-input", "params": { "type": "mult", "table": 5, "questions": 10 }},
+        { "id": "mult-10", "title": "Table de 10", "subtitle": "Ajouter un zéro", "engine": "math-input", "params": { "type": "mult", "table": 10, "questions": 10 }}
+      ]
+    },
+    {
+      "id": "ce1-maths-logique",
+      "title": "Nombres & Calculs",
+      "icon": "🚀",
+      "exercises": [
+        { "id": "add-100", "title": "Compléments à 100", "subtitle": "Dizaines entières", "engine": "math-input", "params": { "type": "add-trou", "min": 10, "max": 100, "questions": 10 }},
+        { "id": "add-chrono", "title": "L'Oiseau Rapide", "subtitle": "Vitesse : 5s", "engine": "math-input", "params": { "type": "oiseau-math", "min": 10, "max": 30, "vitesse": 5, "questions": 10 }},
+        { "id": "comp-ce1-1", "title": "Comparer < 100", "subtitle": "Signes > et <", "engine": "choice-engine", "params": { "range": 100, "questions": 10 }},
+        { "id": "bank-ce1-1", "title": "Le Marché", "subtitle": "Pièces et billets", "engine": "math-input", "params": { "type": "cibles", "skin": "money", "zones": [1, 2, 5, 10, 20], "nbFleches": 5, "questions": 5 }},
+        { "id": "carre-ce1-1", "title": "Carré Expert", "subtitle": "Cible 50", "engine": "math-input", "params": { "type": "carre-somme", "targetMin": 50, "targetMax": 50, "gridSize": 9, "showSum": false, "questions": 5 }}
+      ]
+    },
+    {
+      "id": "ce1-francais-ortho",
+      "title": "Français : Orthographe",
+      "icon": "✍️",
+      "exercises": [
+        { "id": "ce1-sp-animaux", "title": "Dictée Animaux", "subtitle": "Orthographe", "engine": "math-input", "params": { "type": "spelling", "category": "animals", "questions": 8 }},
+        { "id": "ce1-sp-corps", "title": "Le Corps", "subtitle": "Dictée de mots", "engine": "math-input", "params": { "type": "spelling", "category": "corps", "questions": 8 }},
+        { "id": "ce1-homo-aa", "title": "a ou à ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "a_à", "choices": ["a", "à"], "questions": 10 }},
+        { "id": "ce1-homo-et", "title": "et ou est ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "et_est", "choices": ["et", "est"], "questions": 10 }}
+      ]
+    },
+    {
+      "id": "ce1-conjugaison",
+      "title": "Français : Conjugaison",
+      "icon": "⏳",
+      "exercises": [
+        { 
+          "id": "ce1-conj-base", 
+          "title": "Les Indispensables", 
+          "subtitle": "Être et Avoir au présent", 
+          "engine": "conjugation", 
+          "params": { "category": "etre_avoir_p", "verbs": ["être", "avoir"], "tenses": ["présent"], "questions": 5 }
+        },
+        { 
+          "id": "ce1-conj-er-facile", 
+          "title": "Verbes en -ER (1)", 
+          "subtitle": "Chanter, Jouer, Parler...", 
+          "engine": "conjugation", 
+          "params": { "category": "present_1", "verbs": ["chanter", "jouer", "parler", "marcher", "aimer", "dessiner"], "tenses": ["présent"], "questions": 5 }
+        },
+        { 
+          "id": "ce1-conj-aller", 
+          "title": "Le verbe ALLER", 
+          "subtitle": "Un faux ami en -ER", 
+          "engine": "conjugation", 
+          "params": { 
+            "category": "present_3_freq", 
+            "verbs": ["aller"], 
+            "tenses": ["présent"], 
+            "questions": 5 
+          }
+        },
+        { 
+          "id": "ce1-conj-er-action", 
+          "title": "Verbes en -ER (2)", 
+          "subtitle": "Cacher, Grimper, Sauter...", 
+          "engine": "conjugation", 
+          "params": { "category": "present_1", "verbs": ["cacher", "grimper", "sauter", "tomber", "chercher", "trouver"], "tenses": ["présent"], "questions": 5 }
+        },
+        { 
+          "id": "ce1-conj-er-regles", 
+          "title": "Le Cas du 'Nous'", 
+          "subtitle": "Manger (-ger) et Lancer (-cer)", 
+          "engine": "conjugation", 
+          "params": { "category": "present_1", "verbs": ["manger", "nager", "ranger", "lancer", "placer", "voyager"], "tenses": ["présent"], "questions": 6 }
+        },
+        { 
+          "id": "ce1-conj-expert", 
+          "title": "Défi Verbe-o-tron", 
+          "subtitle": "Tous les verbes mélangés", 
+          "engine": "conjugation", 
+          "params": { "category": "present_1", "questions": 10 }
+        }
+      ]
+    }
+  ]
+}

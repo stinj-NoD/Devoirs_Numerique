@@ -1,0 +1,116 @@
+{
+  "gradeId": "ce2",
+  "title": "CE2",
+  "themes": [
+    {
+      "id": "ce2-tables",
+      "title": "Tables de Multiplication",
+      "icon": "✖️",
+      "exercises": [
+        { "id": "ce2-m2", "title": "Table de 2", "subtitle": "Les doubles", "engine": "math-input", "params": { "type": "mult", "table": 2, "questions": 10 }},
+        { "id": "ce2-m3", "title": "Table de 3", "subtitle": "Les triples", "engine": "math-input", "params": { "type": "mult", "table": 3, "questions": 10 }},
+        { "id": "ce2-m4", "title": "Table de 4", "subtitle": "Calcul", "engine": "math-input", "params": { "type": "mult", "table": 4, "questions": 10 }},
+        { "id": "ce2-m5", "title": "Table de 5", "subtitle": "Calcul", "engine": "math-input", "params": { "type": "mult", "table": 5, "questions": 10 }},
+        { "id": "ce2-m6", "title": "Table de 6", "subtitle": "Calcul", "engine": "math-input", "params": { "type": "mult", "table": 6, "questions": 10 }},
+        { "id": "ce2-m7", "title": "Table de 7", "subtitle": "Calcul", "engine": "math-input", "params": { "type": "mult", "table": 7, "questions": 10 }},
+        { "id": "ce2-m8", "title": "Table de 8", "subtitle": "Calcul", "engine": "math-input", "params": { "type": "mult", "table": 8, "questions": 10 }},
+        { "id": "ce2-m9", "title": "Table de 9", "subtitle": "Calcul", "engine": "math-input", "params": { "type": "mult", "table": 9, "questions": 10 }}
+      ]
+    },
+    {
+      "id": "ce2-maths-divers",
+      "title": "Calculs & Logique",
+      "icon": "🔢",
+      "exercises": [
+        { "id": "ce2-cible-1", "title": "Le Compte est bon", "subtitle": "Atteindre la cible", "engine": "math-input", "params": { "type": "cibles", "zones": [10, 20, 50], "nbFleches": 5, "questions": 5 }},
+        { "id": "ce2-comp-100", "title": "Compléments à 100", "subtitle": "Calcul mental rapide", "engine": "math-input", "params": { "type": "complement", "target": 100, "questions": 10 }},
+        { "id": "ce2-clock", "title": "L'Horloge", "subtitle": "Lire l'heure", "engine": "clock", "params": { "questions": 5 }}
+      ]
+    },
+    {
+      "id": "ce2-grammaire",
+      "title": "Orthographe & Grammaire",
+      "icon": "✍️",
+      "exercises": [
+        { "id": "ce2-h-et", "title": "Et ou Est ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "et_est", "choices": ["et", "est"], "questions": 8 }},
+        { "id": "ce2-h-a", "title": "A ou À ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "a_à", "choices": ["a", "à"], "questions": 8 }},
+        { "id": "ce2-h-son", "title": "Son ou Sont ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "son_sont", "choices": ["son", "sont"], "questions": 8 }},
+        { "id": "ce2-h-on", "title": "On ou Ont ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "on_ont", "choices": ["on", "ont"], "questions": 8 }},
+        { "id": "ce2-h-ou", "title": "Ou ou Où ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "ou_où", "choices": ["ou", "où"], "questions": 8 }}
+      ]
+    },
+    {
+      "id": "ce2-conjugaison",
+      "title": "Conjugaison",
+      "icon": "🗣️",
+      "exercises": [
+{ 
+      "id": "ce2-conj-pres-all", 
+      "title": "Rappel : Le Présent", 
+      "subtitle": "Tous les verbes en -ER", 
+      "engine": "conjugation", 
+      "params": { "category": "present_1", "tenses": ["présent"], "questions": 10 }
+    },
+    { 
+      "id": "ce2-conj-etre-avoir-futur", 
+      "title": "Futur : Être et Avoir", 
+      "subtitle": "Demain, je serai...", 
+      "engine": "conjugation", 
+      "params": { "category": "etre_avoir_f", "verbs": ["être", "avoir"], "tenses": ["futur"], "questions": 6 }
+    },
+    { 
+      "id": "ce2-conj-futur-er", 
+      "title": "Futur : Verbes en -ER", 
+      "subtitle": "Infinitif + terminaison", 
+      "engine": "conjugation", 
+      "params": { "category": "future_1", "tenses": ["futur"], "questions": 8 }
+    },
+    { 
+      "id": "ce2-conj-imp-ea", 
+      "title": "Imparfait : Auxiliaires", 
+      "subtitle": "Autrefois, j'étais...", 
+      "engine": "conjugation", 
+      "params": { "category": "etre_avoir_imp", "tenses": ["imparfait"], "questions": 6 }
+        },
+        { 
+          "id": "ce2-conj-imp-er", 
+          "title": "Imparfait : Verbes en -ER", 
+          "subtitle": "Terminaisons en -AIS", 
+          "engine": "conjugation", 
+          "params": { "category": "imparfait_1", "tenses": ["imparfait"], "questions": 8 }
+        },
+        { 
+          "id": "ce2-conj-defi-temps", 
+          "title": "Défi : Présent ou Futur ?", 
+          "subtitle": "Attention au temps !", 
+          "engine": "conjugation", 
+          "params": { "category": "future_1", "tenses": ["présent", "futur"], "questions": 10 }
+        },
+        { 
+      "id": "ce2-conj-p3-freq", 
+      "title": "Le 3ème groupe (1)", 
+      "subtitle": "Dire, Faire, Aller...", 
+      "engine": "conjugation", 
+      "params": { 
+        "category": "present_3_freq", 
+        "verbs": ["aller", "faire", "dire", "venir"], 
+        "tenses": ["présent"], 
+        "questions": 8 
+      }
+    },
+    { 
+      "id": "ce2-conj-p3-pouvoir", 
+      "title": "Le 3ème groupe (2)", 
+      "subtitle": "Pouvoir, Vouloir, Prendre...", 
+      "engine": "conjugation", 
+      "params": { 
+        "category": "present_3_freq", 
+        "verbs": ["pouvoir", "vouloir", "prendre", "voir"], 
+        "tenses": ["présent"], 
+        "questions": 8 
+      }
+    }
+      ]
+    }
+  ]
+}

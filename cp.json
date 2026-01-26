@@ -1,0 +1,83 @@
+{
+  "gradeId": "cp",
+  "title": "CP",
+  "themes": [
+    {
+      "id": "cp-parcours-addition",
+      "title": "Parcours : Addition",
+      "icon": "➕",
+      "exercises": [
+        { "id": "add-1", "title": "Étape 1", "subtitle": "Sommes < 10", "engine": "math-input", "params": { "type": "add-simple", "maxSum": 10, "questions": 5 }},
+        { "id": "add-2", "title": "Étape 2", "subtitle": "Sommes < 20", "engine": "math-input", "params": { "type": "add-simple", "maxSum": 20, "questions": 5 }},
+        { "id": "add-3", "title": "Étape 3", "subtitle": "Additions à trou", "engine": "math-input", "params": { "type": "add-trou", "min": 1, "max": 50, "questions": 5 }}
+      ]
+    },
+    {
+      "id": "cp-parcours-soustraction",
+      "title": "Parcours : Soustraction",
+      "icon": "➖",
+      "exercises": [
+        { "id": "sub-1", "title": "Étape 1", "subtitle": "Retirer < 10", "engine": "math-input", "params": { "type": "sub-simple", "min": 1, "max": 10, "questions": 5 }},
+        { "id": "sub-2", "title": "Étape 2", "subtitle": "Retirer < 20", "engine": "math-input", "params": { "type": "sub-simple", "min": 1, "max": 20, "questions": 5 }}
+      ]
+    },
+    {
+      "id": "cp-nombres-comparaison",
+      "title": "Nombres & Comparaison",
+      "icon": "🔢",
+      "exercises": [
+        { "id": "math-count-1", "title": "Compter", "subtitle": "Dizaines (0-20)", "engine": "counting", "params": { "min": 1, "max": 20, "questions": 5 }},
+        { "id": "math-count-2", "title": "Grands Nombres", "subtitle": "Jusqu'à 99", "engine": "counting", "params": { "min": 20, "max": 99, "questions": 5 }},
+        { "id": "comp-1", "title": "Comparer : Niv 1", "subtitle": "Nombres < 10", "engine": "choice-engine", "params": { "range": 10, "questions": 5 }},
+        { "id": "comp-2", "title": "Comparer : Niv 2", "subtitle": "Nombres < 20", "engine": "choice-engine", "params": { "range": 20, "questions": 5 }},
+        { "id": "comp-3", "title": "Comparer : Niv 3", "subtitle": "Nombres < 50", "engine": "choice-engine", "params": { "range": 50, "questions": 5 }}
+      ]
+    },
+    {
+      "id": "cp-cibles-monnaie",
+      "title": "Cibles & Monnaie",
+      "icon": "🎯",
+      "exercises": [
+        { "id": "cible-1", "title": "Cible : Niv 1", "subtitle": "2 flèches (1, 2, 5)", "engine": "math-input", "params": { "type": "cibles", "zones": [1, 2, 5], "nbFleches": 2, "questions": 5 }},
+        { "id": "cible-2", "title": "Cible : Niv 2", "subtitle": "2 flèches (3 à 8)", "engine": "math-input", "params": { "type": "cibles", "zones": [3, 4, 6, 8], "nbFleches": 2, "questions": 5 }},
+        { "id": "cible-3", "title": "Cible : Niv 3", "subtitle": "3 flèches (2, 5, 10)", "engine": "math-input", "params": { "type": "cibles", "zones": [2, 5, 10], "nbFleches": 3, "questions": 5 }},
+        { "id": "banquier-1", "title": "Le Marché", "subtitle": "Pièces (1€, 2€)", "engine": "math-input", "params": { "type": "cibles", "skin": "money", "zones": [1, 2], "nbFleches": 3, "questions": 5 }},
+        { "id": "banquier-2", "title": "La Caisse", "subtitle": "Pièces et billets", "engine": "math-input", "params": { "type": "cibles", "skin": "money", "zones": [1, 2, 5, 10], "nbFleches": 3, "questions": 5 }}
+      ]
+    },
+    {
+      "id": "cp-defis-logique",
+      "title": "Défis & Logique",
+      "icon": "🧩",
+      "exercises": [
+        { "id": "oiseau-1", "title": "L'Oiseau Rapide", "subtitle": "Vitesse : 8s", "engine": "math-input", "params": { "type": "oiseau-math", "min": 1, "max": 10, "vitesse": 8, "questions": 5 }},
+        { "id": "carre-1", "title": "Carré Magique 1", "subtitle": "Aide visuelle", "engine": "math-input", "params": { "type": "carre-somme", "targetMin": 10, "targetMax": 10, "gridSize": 4, "showSum": true, "questions": 5 }},
+        { "id": "carre-2", "title": "Carré Magique 2", "subtitle": "Calcul mental", "engine": "math-input", "params": { "type": "carre-somme", "targetMin": 10, "targetMax": 10, "gridSize": 4, "showSum": false, "questions": 5 }}
+      ]
+    },
+    {
+      "id": "cp-lecture-taoki",
+      "title": "Lecture (Taoki)",
+      "icon": "🐉",
+      "exercises": [
+        { "id": "fr-taoki-1", "title": "Étape 1", "subtitle": "Sons [a], [i], [r]", "engine": "reading", "params": { "category": "taoki_p1", "questions": 5 }},
+        { "id": "fr-taoki-2", "title": "Étape 2", "subtitle": "Sons [l], [p]", "engine": "reading", "params": { "category": "taoki_p1_l_p", "questions": 5 }},
+        { "id": "fr-taoki-3", "title": "Étape 3", "subtitle": "Sons [o], [u], [s]", "engine": "reading", "params": { "category": "taoki_p1_o_u_s", "questions": 5 }},
+        { "id": "fr-taoki-4", "title": "Étape 4", "subtitle": "Sons [m], [f], [t]", "engine": "reading", "params": { "category": "taoki_p1_m_f_t", "questions": 5 }},
+        { "id": "fr-taoki-5", "title": "Étape 5", "subtitle": "Sons [n], [v], [d]", "engine": "reading", "params": { "category": "taoki_p1_n_v_d", "questions": 5 }},
+        { "id": "fr-taoki-6", "title": "Sons Complexes", "subtitle": "OU, CH, ON", "engine": "reading", "params": { "category": "taoki_p2_ou_ch_on", "questions": 5 }}
+      ]
+    },
+    {
+      "id": "cp-orthographe",
+      "title": "Dictée d'Images",
+      "icon": "✍️",
+      "exercises": [
+        { "id": "fr-animaux", "title": "Les Animaux", "subtitle": "Écris le nom", "engine": "math-input", "params": { "type": "spelling", "category": "animals", "questions": 5 }},
+        { "id": "fr-corps", "title": "Le Corps", "subtitle": "Écris le nom", "engine": "math-input", "params": { "type": "spelling", "category": "corps", "questions": 5 }},
+        { "id": "fr-food", "title": "Manger", "subtitle": "Écris le nom", "engine": "math-input", "params": { "type": "spelling", "category": "food", "questions": 5 }},
+        { "id": "fr-transp", "title": "Transports", "subtitle": "Écris le nom", "engine": "math-input", "params": { "type": "spelling", "category": "transport", "questions": 5 }}
+      ]
+    }
+  ]
+}

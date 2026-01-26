@@ -1,0 +1,61 @@
+{
+  "gradeId": "cm1",
+  "title": "CM1",
+  "themes": [
+    {
+      "id": "cm1-maths",
+      "title": "Mathématiques",
+      "icon": "📐",
+      "exercises": [
+        { "id": "cm1-frac-1", "title": "Fractions", "subtitle": "Lecture visuelle", "engine": "math-input", "params": { "type": "fraction-view", "maxDenom": 8, "questions": 10 }},
+        { "id": "cm1-dec-1", "title": "Décimaux", "subtitle": "Chiffre des dixièmes/centièmes", "engine": "math-input", "params": { "type": "decimal-place", "questions": 10 }},
+        { "id": "cm1-m-big", "title": "Grands Nombres", "subtitle": "Dictée jusqu'au million", "engine": "math-input", "params": { "type": "dictée-nombres", "max": 1000000, "questions": 5 }}
+      ]
+    },
+    {
+      "id": "cm1-francais",
+      "title": "Français",
+      "icon": "📖",
+      "exercises": [
+        { "id": "cm1-h-ce", "title": "Ce ou Se ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "ce_se", "choices": ["ce", "se"], "questions": 10 }},
+        { "id": "cm1-h-ces", "title": "Ces ou Ses ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "ces_ses", "choices": ["ces", "ses"], "questions": 10 }},
+        { "id": "cm1-c-imp", "title": "L'Imparfait", "subtitle": "Verbes en -ER", "engine": "conjugation", "params": { "category": "imparfait_1", "tenses": ["imparfait"], "questions": 10 }},
+        { 
+          "id": "cm1-c-pc-avoir", 
+          "title": "Passé Composé (1)", 
+          "subtitle": "Auxiliaire Avoir", 
+          "engine": "conjugation", 
+          "params": { "category": "pc_1", "verbs": ["manger", "chanter", "jouer", "chercher", "trouver"], "tenses": ["passé composé"], "questions": 5 }
+        },
+        { 
+          "id": "cm1-c-pc-etre", 
+          "title": "Passé Composé (2)", 
+          "subtitle": "Auxiliaire Être", 
+          "engine": "conjugation", 
+          "params": { "category": "pc_1", "verbs": ["tomber", "monter", "arriver", "entrer", "rester"], "tenses": ["passé composé"], "questions": 5 }
+        },
+        { 
+          "id": "cm1-c-pc-mix", 
+          "title": "Passé Composé (Mix)", 
+          "subtitle": "Avoir ou Être ?", 
+          "engine": "conjugation", 
+          "params": { "category": "pc_1", "tenses": ["passé composé"], "questions": 10 }
+        },
+        { 
+          "id": "cm1-c-pc-3", 
+          "title": "Passé Composé (Expert)", 
+          "subtitle": "3ème groupe (fait, dit, vu...)", 
+          "engine": "conjugation", 
+          "params": { "category": "pc_3_freq", "tenses": ["passé composé"], "questions": 10 }
+        },
+        { 
+          "id": "cm1-conj-ir", 
+          "title": "Le 2ème groupe", 
+          "subtitle": "Finir, Choisir... en -ISS", 
+          "engine": "conjugation", 
+          "params": { "category": "present_2", "tenses": ["présent"], "questions": 8 }
+        }
+      ]
+    }
+  ]
+}
