@@ -2,16 +2,17 @@ const CACHE_NAME = 'devoir-num-v1';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
-  './app.js',
-  './ui.js',
-  './engines.js',
-  './storage.js',
+  './manifest.json',
+  './js/app.js',     // Dossier /js/
+  './js/ui.js',
+  './js/engines.js',
+  './js/storage.js',
+  './data/index.json', // Dossier /data/
   './data/cp.json',
   './data/ce1.json',
   './data/ce2.json',
   './data/cm1.json',
   './data/cm2.json',
-  './data/french_lib.json',
   'https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap'
 ];
 
