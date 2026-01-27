@@ -174,7 +174,8 @@ renderAlphaKeyboard() {
         const kb = document.getElementById('keyboard-num');
         kb.style.display = "grid";
         // Si 2 choix, 2 colonnes. Si plus, on avise (ici max 2 colonnes pour les homophones pour que ce soit gros)
-        kb.style.gridTemplateColumns = choices.length > 2 ? "1fr 1fr" : `repeat(${choices.length}, 1fr)`;
+        /*kb.style.gridTemplateColumns = choices.length > 2 ? "1fr 1fr" : `repeat(${choices.length}, 1fr)`;*/
+        kb.style.gridTemplateColumns = `repeat(${choices.length}, 1fr)`;
         kb.style.gap = "15px";
 
         kb.innerHTML = choices.map(v => {
@@ -397,4 +398,5 @@ drawSquare(d) {
 };
 
 // Initialisation au chargement
+
 window.addEventListener('DOMContentLoaded', () => UI.initNavigation());
