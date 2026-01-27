@@ -355,6 +355,127 @@
     @keyframes flyAcross { from { left: -150px; } to { left: 110%; } }
     @keyframes birdWave { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-30px); } }
     @keyframes blink { 50% { opacity: 0.3; } }
+
+    
+    /*--------------Ajustement mobile-----------------------------*/
+/* ===================================================== */
+/* === CORRECTIFS MOBILES – BASE TON CODE ACTUEL === */
+/* ===================================================== */
+
+/* --- Viewport mobile réel (corrige 100vh) --- */
+html, body {
+    height: 100%;
+}
+
+body {
+    min-height: 100dvh;
+    overflow: hidden;
+}
+
+#app {
+    min-height: 100dvh;
+    height: auto;
+}
+
+/* --- Scroll mobile propre --- */
+.screen {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* --- Zone de jeu : moins de centrage vertical sur petits écrans --- */
+@media (max-width: 480px) {
+    .game-zone {
+        justify-content: flex-start;
+        padding-top: 10px;
+    }
+}
+
+/* --- Hauteurs souples (remplace les min-height rigides sans casser le style) --- */
+.math-problem {
+    min-height: clamp(90px, 22vh, 150px);
+}
+
+.answer-display {
+    min-height: clamp(3rem, 10vh, 4.5rem);
+}
+
+#user-answer {
+    min-height: clamp(60px, 12vh, 80px);
+}
+
+.verb-input-zone {
+    min-height: clamp(2.5rem, 8vh, 4rem);
+}
+
+.clock-digit-block {
+    min-height: clamp(60px, 10vh, 85px);
+}
+
+/* --- Typographie fluide (mêmes proportions visuelles) --- */
+.math-problem {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+}
+
+.answer-display {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+}
+
+.reading-container {
+    font-size: clamp(2.6rem, 7vw, 4.5rem);
+}
+
+.verb-body {
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+}
+
+/* --- Clavier mobile plus compact mais toujours confortable --- */
+@media (max-width: 480px) {
+    .keyboard-container {
+        max-height: 38dvh;
+        padding: 6px;
+    }
+
+    .key {
+        min-height: 44px;
+        font-size: 1.4rem;
+    }
+
+    .letter-key {
+        height: 40px;
+        font-size: 0.95rem;
+    }
+}
+
+/* --- Orientation paysage mobile (cas critique) --- */
+@media (orientation: landscape) and (max-height: 600px) {
+    .keyboard-container {
+        max-height: 35dvh;
+    }
+
+    .math-problem {
+        font-size: 2.4rem;
+    }
+
+    .reading-container {
+        font-size: 2.6rem;
+    }
+}
+
+/* --- Sécurité anti débordement horizontal --- */
+#app, .screen {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* --- Base typographique adaptative globale --- */
+html {
+    font-size: clamp(14px, 1.1vw, 18px);
+}
+
+    
+    
 </style>
 </head>
 <body>
@@ -436,3 +557,4 @@
 
 </body>
 </html>
+
