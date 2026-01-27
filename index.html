@@ -127,15 +127,7 @@
         margin: 0 auto;
     }
 
-    /* #keyboard-num { grid-template-columns: repeat(3, 1fr); } */
-    #keyboard-num[style*="grid-template-columns: repeat(3"] {
-    gap: 5px; /* On réduit l'espace entre les boutons */
-}
-
-#keyboard-num[style*="grid-template-columns: repeat(3"] .key {
-    padding: 8px 0;
-    font-size: clamp(1.2rem, 4vw, 1.6rem); /* S'adapte si c'est trop serré */
-}
+    #keyboard-num { grid-template-columns: repeat(3, 1fr); }
     #keyboard-boolean { grid-template-columns: 1fr 1fr; }
 
     .key { 
@@ -565,6 +557,7 @@ html {
 
 </body>
 </html>
+
 
 
 
