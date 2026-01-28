@@ -212,44 +212,44 @@ renderAlphaKeyboard() {
 
     // --- MOTEURS DE RENDU VISUELS ---
 updateGameDisplay(p, input, prog) {
-        const problemZone = document.getElementById('math-problem');
-        const answerZone = document.getElementById('user-answer');
-        if (!problemZone || !answerZone) return;
+    const problemZone = document.getElementById('math-problem');
+    const answerZone = document.getElementById('user-answer');
+    if (!problemZone || !answerZone) return;
 
-        problemZone.innerHTML = "";
-        answerZone.innerHTML = "";
+    problemZone.innerHTML = "";
+    answerZone.innerHTML = "";
 
-        // 1. DESSIN DU PROBLÈME
-        if (p.isVisual) {
-            const drawMethods = { 
-                clock:'drawClock', spelling:'drawSpelling', conjugation:'drawConjugation', 
-                target:'drawSvgTarget', money:'drawMoney', bird:'drawBird', 
-                square:'drawSquare', reading: 'drawReading', counting: 'drawCounting', fraction: 'drawFraction'
-            };
-            const method = drawMethods[p.visualType];
-            if (this[method]) {
-                let badge = p.tense ? `<div class="tense-badge" style="background:var(--primary)">${p.tense}</div>` : "";
-                problemZone.innerHTML = badge + this[method](p.data, input);
-            }
-
-            // --- FIX CARRÉ MAGIQUE : Rendre les cartes cliquables ---
-            if (p.visualType === 'square') {
-                const cards = problemZone.querySelectorAll('.number-card');
-                cards.forEach(card => {
-                    card.onclick = (e) => {
-                        // On appelle la méthode de App.js qui gère l'input
-                        if (typeof App !== 'undefined' && App.handleInput) {
-                            // On passe l'élément complet pour récupérer data-idx
-                            App.handleInput('card-click', card); 
-                        }
-                    };
-                });
-            }
-            // ---------------------------------------------------------
-
-        } else {
-            problemZone.innerHTML = `<div style="padding:10px">${p.question || ""}</div>`;
+    // 1. DESSIN DU PROBLÈME
+    if (p.isVisual) {
+        const drawMethods = { 
+            clock:'drawClock', spelling:'drawSpelling', conjugation:'drawConjugation', 
+            target:'drawSvgTarget', money:'drawMoney', bird:'drawBird', 
+            square:'drawSquare', reading: 'drawReading', counting: 'drawCounting', fraction: 'drawFraction'
+        };
+        const method = drawMethods[p.visualType];
+        
+        if (this[method]) {
+            // OPTIMISATION : On passe le tense dans les data pour que drawConjugation y accède
+            const renderData = { ...p.data, tense: p.tense }; 
+            
+            // On retire "badge +" car le badge est maintenant géré DANS la méthode draw
+            problemZone.innerHTML = this[method](renderData, input);
         }
+
+        // --- Le reste du code pour le carré magique reste inchangé ---
+        if (p.visualType === 'square') {
+            const cards = problemZone.querySelectorAll('.number-card');
+            cards.forEach(card => {
+                card.onclick = (e) => {
+                    if (typeof App !== 'undefined' && App.handleInput) {
+                        App.handleInput('card-click', card); 
+                    }
+                };
+            });
+        }
+    } else {
+        problemZone.innerHTML = `<div style="padding:10px">${p.question || ""}</div>`;
+    }
 
         // 2. AFFICHAGE DE LA RÉPONSE / INPUT
         if (p.visualType === 'clock') {
@@ -449,6 +449,7 @@ drawConjugation(d, i) {
 // Initialisation au chargement
 
 window.addEventListener('DOMContentLoaded', () => UI.initNavigation());
+
 
 
 
