@@ -305,6 +305,7 @@ compare(p) {
 
 /**
  * UTILITAIRE : Convertit un nombre en lettres (Français)
+ * Support jusqu'aux Milliards pour le CM2
  */
 function numberToFrench(n) {
     if (n === 0) return "zéro";
@@ -331,10 +332,20 @@ function numberToFrench(n) {
     };
 
     let result = "";
-    let m = Math.floor(n / 1000000);
-    let k = Math.floor((n % 1000000) / 1000);
-    let r = n % 1000;
+    
+    // Gestion des Milliards (10^9)
+    let b = Math.floor(n / 1000000000);
+    let restB = n % 1000000000;
+    
+    // Gestion des Millions (10^6)
+    let m = Math.floor(restB / 1000000);
+    let restM = restB % 1000000;
+    
+    // Gestion des Milliers (10^3)
+    let k = Math.floor(restM / 1000);
+    let r = restM % 1000;
 
+    if (b > 0) result += getBelowThousand(b) + " milliard" + (b > 1 ? "s" : "") + " ";
     if (m > 0) result += getBelowThousand(m) + " million" + (m > 1 ? "s" : "") + " ";
     if (k > 0) result += (k === 1 ? "" : getBelowThousand(k) + " ") + "mille ";
     if (r > 0) result += getBelowThousand(r);
