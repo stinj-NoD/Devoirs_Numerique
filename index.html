@@ -201,10 +201,32 @@
         .compound-inputs { flex-direction: column; gap: 8px; }
         .pp-zone, .aux-zone { min-width: 100%; }
     }
+    /* Ce style ne s'appliquera qu'à l'exercice d'orthographe */
+.spelling-container {
+    display: flex;
+    flex-direction: column; /* Empilement vertical */
+    align-items: center;    /* Centrage horizontal */
+    gap: 20px;              /* Espace entre l'image et les cases */
+    width: 100%;
+}
+
+.spelling-media img {
+    max-width: 150px;       /* Taille adaptée aux tablettes */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.spelling-slots {
+    display: flex;
+    flex-wrap: wrap;        /* Permet de passer à la ligne si le mot est long */
+    justify-content: center;
+    gap: 8px;
+}
     /* --- FRANCAIS : ORTHOGRAPHE --- */
-    .spelling-media { width: 180px; height: 180px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; background: #f8fafc; border-radius: 20px; border: 2px solid #edf2f7; }
+    /* .spelling-media { width: 180px; height: 180px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; background: #f8fafc; border-radius: 20px; border: 2px solid #edf2f7; }
     .spelling-placeholder { font-size: 5rem; }
-    .spelling-image { width: 100%; height: 100%; object-fit: contain; border-radius: 18px; }
+    .spelling-image { width: 100%; height: 100%; object-fit: contain; border-radius: 18px; }*/
     .letter-slot { font-size: 2.2rem; font-weight: bold; margin: 0 4px; border-bottom: 4px solid var(--primary); width: 35px; display: inline-block; color: var(--dark); }
     .verb-machine { background: #2D3748; color: white; padding: 30px; border-radius: 20px; width: 100%; max-width: 400px; box-shadow: 0 10px 0 #1A202C; margin: 0 auto; }
     .verb-header { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 25px; border-bottom: 2px dashed #4A5568; padding-bottom: 15px; }
@@ -498,6 +520,7 @@ html {
 
 </body>
 </html>
+
 
 
 
