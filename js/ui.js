@@ -112,7 +112,7 @@ const UI = {
         }
     },
 
-    updateKeyboardLayout(type, data = null) {
+updateKeyboardLayout(type, data = null) {
         const numKb = document.getElementById('keyboard-num');
         const boolKb = document.getElementById('keyboard-boolean');
         const answerZone = document.getElementById('user-answer');
@@ -120,22 +120,38 @@ const UI = {
 
         if (!container || !numKb) return;
 
-        // Reset pour éviter les chevauchements
+        // Reset visuel
         numKb.style.display = "none";
         if (boolKb) boolKb.style.display = "none";
         answerZone.style.display = "flex";
 
         if (type === "boolean" || type === "qcm") {
-            this.renderQCM(data ? data.choices : ["VRAI", "FAUX"]);
+            // --- CORRECTION DU BUG DES BOUTONS DISPARUS ---
+            // On cherche la liste des choix (choices). 
+            // Selon le moteur, elle peut être dans data.choices ou data.data.choices.
+            let choices = ["VRAI", "FAUX"];
+            
+            if (data) {
+                if (data.choices) {
+                    choices = data.choices;
+                } else if (data.data && data.data.choices) {
+                    choices = data.data.choices;
+                }
+            }
+
+            this.renderQCM(choices);
             numKb.style.display = "grid";
-            answerZone.style.display = "none";
+            answerZone.style.display = "none"; // On cache la zone de texte pour les QCM
+            
         } else if (type === "selection") {
             numKb.innerHTML = `<button class="key action ok" data-val="ok" style="grid-column: 1 / -1; height: 65px;">VALIDER LA SÉLECTION</button>`;
             numKb.style.display = "grid";
             numKb.style.gridTemplateColumns = "1fr";
+            
         } else if (type === "alpha") {
             this.renderAlphaKeyboard();
             numKb.style.display = "block";
+            
         } else {
             this.restoreNumericKeyboard();
             numKb.style.display = "grid";
@@ -385,6 +401,7 @@ const UI = {
 };
 
 window.addEventListener('DOMContentLoaded', () => UI.initNavigation());
+
 
 
 
