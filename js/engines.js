@@ -306,32 +306,83 @@ calculate(p) {
         },
 
 compare(p) {
-            // Sécurité si range n'est pas défini
-            const max = p.range || 100;
-            const a = Math.floor(Math.random() * max);
-            const b = Math.floor(Math.random() * max);
-            
-            let ans;
-            if (a < b) ans = "<";
-            else if (a > b) ans = ">";
-            else ans = "=";
+            let n1, n2, symbol;
+            let d1, d2; // Variables pour l'affichage (chaînes de caractères)
+
+            // --- CAS 1 : MODE DÉCIMAUX (CM2) ---
+            if (p.type === 'compare-decimals') {
+                const base = Math.floor(Math.random() * 100); 
+                const variant = Math.random();
+                
+                if (variant < 0.3) {
+                    // PIÈGE ÉGALITÉ : 4,5 vs 4,50
+                    n1 = base + 0.5; 
+                    n2 = base + 0.5; 
+                    
+                    // Astuce d'affichage : on force le zéro inutile
+                    d1 = n1.toString().replace('.', ',');
+                    d2 = n1.toString().replace('.', ',') + "0";
+                    
+                    // On mélange qui a le zéro
+                    if (Math.random() > 0.5) [d1, d2] = [d2, d1];
+
+                } else if (variant < 0.6) {
+                    // TRÈS PROCHE : 12,8 vs 12,9
+                    n1 = base + Number((Math.random()).toFixed(1));
+                    n2 = n1 + (Math.random() < 0.5 ? 0.1 : -0.1);
+                    
+                    // Arrondi pour éviter les bugs de virgule flottante JS
+                    n1 = Math.round(n1 * 10) / 10;
+                    n2 = Math.round(n2 * 10) / 10;
+                    
+                    d1 = n1.toString().replace('.', ',');
+                    d2 = n2.toString().replace('.', ',');
+
+                } else {
+                    // PIÈGE LONGUEUR : 12,5 vs 12,45 (5 est plus grand que 45 ici !)
+                    n1 = base + Number((Math.random() * 0.9).toFixed(1)); // ex: 12.5
+                    n2 = base + Number((Math.random() * 0.9).toFixed(2)); // ex: 12.45
+                    
+                    d1 = n1.toString().replace('.', ',');
+                    d2 = n2.toString().replace('.', ',');
+                }
+
+            } else {
+                // --- CAS 2 : MODE ENTIERS (CP/CE1) ---
+                // C'est ta logique originale
+                const max = p.range || 100;
+                n1 = Math.floor(Math.random() * max);
+                // 20% de chance d'avoir une égalité pour forcer l'attention
+                n2 = (Math.random() < 0.2) ? n1 : Math.floor(Math.random() * max);
+                
+                d1 = n1.toString();
+                d2 = n2.toString();
+            }
+
+            // Calcul du symbole (Réponse)
+            if (n1 > n2) symbol = ">";
+            else if (n1 < n2) symbol = "<";
+            else symbol = "=";
 
             return { 
-                // On met "..." en gris clair pour montrer qu'il faut compléter
-                question: `${a} <span style='color:#A0AEC0; font-weight:normal'>...</span> ${b}`, 
-                answer: ans, 
-                // IMPORTANT : "qcm" force app.js à comparer des Textes et non des Nombres
+                // On stylise un peu la question pour qu'elle soit bien lisible
+                question: `<div style="display:flex; align-items:center; justify-content:center; gap:20px; font-size:2.5rem; font-weight:bold;">
+                    <span>${d1}</span>
+                    <span style='color:#A0AEC0; font-size:2rem'>...</span>
+                    <span>${d2}</span>
+                </div>`, 
+                
+                answer: symbol, 
+                
+                // IMPORTANT : "qcm" force app.js à afficher les boutons < = >
                 inputType: "qcm", 
+                
+                // On met isVisual: false car c'est du texte pur (géré par le 'else' de ui.js)
+                isVisual: false,
+                
                 data: { choices: ["<", "=", ">"] } 
             };
-        },
-
-        reading(p, lib) {
-            const category = lib.reading[p.category] || lib.reading.taoki_p1;
-            const item = category[Math.floor(Math.random() * category.length)];
-            return { isVisual: true, visualType: 'reading', inputType: 'boolean', data: item, answer: 1 };
         }
-    }
 };
 
 /**
@@ -383,4 +434,5 @@ function numberToFrench(n) {
 
     return result.trim();
 }
+
 
