@@ -509,7 +509,16 @@ body {
 html {
     font-size: clamp(14px, 1.1vw, 18px);
 }
-   
+   /* FORCE MINUSCULE PARTOUT DANS LA ZONE DE RÉPONSE */
+#user-answer {
+    text-transform: none !important; /* Annule toute majuscule automatique */
+    font-variant: normal !important; /* Annule les "Petites Majuscules" */
+}
+
+/* On s'assure aussi que l'input (si c'en est un) ne capitalise pas */
+input, textarea {
+    text-transform: none !important;
+}
 </style>
 </head>
 <body>
@@ -596,6 +605,7 @@ html {
 
 </body>
 </html>
+
 
 
 
