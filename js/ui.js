@@ -420,7 +420,7 @@ drawSpelling(d, input) {
                 ${slots}
             </div>
         </div>`;
-}
+},
 
     drawConjugation(d, i) {
         const isCompound = d.isCompound;
@@ -439,6 +439,7 @@ drawSpelling(d, input) {
 // Initialisation au chargement
 
 window.addEventListener('DOMContentLoaded', () => UI.initNavigation());
+
 
 
 
