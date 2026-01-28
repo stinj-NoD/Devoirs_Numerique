@@ -382,7 +382,7 @@ compare(p) {
                 
                 data: { choices: ["<", "=", ">"] } 
             };
-        }
+        },
 };
 
 /**
@@ -434,5 +434,6 @@ function numberToFrench(n) {
 
     return result.trim();
 }
+
 
 
