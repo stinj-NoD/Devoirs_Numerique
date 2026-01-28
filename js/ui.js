@@ -326,13 +326,20 @@ drawMoney(d) {
         return h + '</div>';
     },
 
-    drawClock(d) {
-        const s=160, c=s/2, r=70, ma=(d.minutes/60)*360, ha=((d.hours%12)/12)*360+(d.minutes/60)*30;
-        let svg=`<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}"><circle cx="${c}" cy="${c}" r="${r}" fill="white" stroke="var(--dark)" stroke-width="3"/>`;
-        for (let i=1; i<=12; i++) { const a=(i*30)*(Math.PI/180), x=c+(r-12)*Math.sin(a), y=c-(r-12)*Math.cos(a); svg+=`<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="central" font-size="10px" font-weight="bold">${i}</text>`; }
-        svg+=`<line x1="${c}" y1="${c}" x2="${c+35*Math.sin(ha*Math.PI/180)}" y2="${c-35*Math.cos(ha*Math.PI/180)}" stroke="var(--dark)" stroke-width="5" stroke-linecap="round"/><line x1="${c}" y1="${c}" x2="${c+50*Math.sin(ma*Math.PI/180)}" y2="${c-50*Math.cos(ma*Math.PI/180)}" stroke="var(--secondary)" stroke-width="3" stroke-linecap="round"/></svg>`;
-        return svg;
-    },
+drawClock(d) {
+    const s=160, c=s/2, r=70, ma=(d.minutes/60)*360, ha=((d.hours%12)/12)*360+(d.minutes/60)*30;
+    const periodInfo = `<div class="period-badge" style="background:var(--primary); color:white; padding:5px 15px; border-radius:20px; font-weight:bold; margin-bottom:15px; font-size:0.9rem;">
+        ${d.periodIcon} ${d.periodText}
+    </div>`;
+    let svg=`<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}"><circle cx="${c}" cy="${c}" r="${r}" fill="white" stroke="var(--dark)" stroke-width="3"/>`;
+    for (let i=1; i<=12; i++) { 
+        const a=(i*30)*(Math.PI/180), x=c+(r-12)*Math.sin(a), y=c-(r-12)*Math.cos(a); 
+        svg+=`<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="central" font-size="10px" font-weight="bold">${i}</text>`; 
+    }
+    svg+=`<line x1="${c}" y1="${c}" x2="${c+35*Math.sin(ha*Math.PI/180)}" y2="${c-35*Math.cos(ha*Math.PI/180)}" stroke="var(--dark)" stroke-width="5" stroke-linecap="round"/>`;
+    svg+=`<line x1="${c}" y1="${c}" x2="${c+50*Math.sin(ma*Math.PI/180)}" y2="${c-50*Math.cos(ma*Math.PI/180)}" stroke="var(--secondary)" stroke-width="3" stroke-linecap="round"/></svg>`;
+    return `<div style="display:flex; flex-direction:column; align-items:center;">${periodInfo}${svg}</div>`;
+}
 
 drawSquare(d) {
         // d.numbers est le tableau de chiffres, d.target est la cible
@@ -400,3 +407,4 @@ drawSquare(d) {
 // Initialisation au chargement
 
 window.addEventListener('DOMContentLoaded', () => UI.initNavigation());
+
