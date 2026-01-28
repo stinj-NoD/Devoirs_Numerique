@@ -17,6 +17,11 @@ const Engines = {
      * Point d'entrée unique
      */
     run(type, params, lib) {
+        // GESTION DES ALIAS (SÉCURITÉ)
+        if (type === 'compare' || type === 'choice') type = 'choice-engine';
+        if (type === 'oiseau') { type = 'math-input'; params.type = 'oiseau-math'; }
+        if (type === 'taoki' || type === 'lecture') type = 'reading';
+
         switch (type) {
             case 'math-input':
                 if (params.type === 'spelling') return this.generators.spelling(params, lib);
@@ -44,7 +49,7 @@ const Engines = {
     generators: {
         // --- GÉNÉRATEURS MATHÉMATIQUES ---
 
-calculate(p) {
+        calculate(p) {
             let a, b, total;
             const rnd = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -98,11 +103,8 @@ calculate(p) {
                     
                     if(op === "/") {
                         // DIVISION PAR 10, 100, 1000
-                        // On choisit le diviseur (10, 100 ou 1000)
                         const diviseur = p.operands[Math.floor(Math.random() * p.operands.length)];
-                        // On choisit une réponse entière (ex: 45)
                         const answer = rnd(5, 200); 
-                        // On reconstruit le dividende (ex: 4500)
                         const dividend = answer * diviseur;
                         
                         return { 
@@ -112,9 +114,8 @@ calculate(p) {
                         };
                     } else {
                         // MULTIPLICATION AVANCÉE (Tables 11 à 15)
-                        const val1 = rnd(p.range[0], p.range[1]); // ex: 12
+                        const val1 = rnd(p.range[0], p.range[1]); 
                         let val2;
-                        
                         // 20% de chance de tomber sur un carré (ex: 12x12), sinon x2 à x10
                         if (Math.random() < 0.2) {
                             val2 = val1;
@@ -164,31 +165,24 @@ calculate(p) {
             const size = p.gridSize || 9;
             let numbers = [];
             
-            // 1. Génération d'une solution garantie (3 nombres)
+            // 1. Solution garantie
             let n1 = rnd(Math.floor(target * 0.1), Math.floor(target * 0.4));
             let n2 = rnd(Math.floor(target * 0.1), Math.floor(target * 0.4));
             let n3 = target - (n1 + n2);
-            
-            // Sécurité : si n3 est trop petit ou négatif, on ajuste
             if (n3 <= 0) { n1 = Math.floor(target/3); n2 = Math.floor(target/3); n3 = target - (n1+n2); }
-            
             numbers.push(n1, n2, n3);
 
-            // 2. Remplissage avec du "bruit" (faux nombres)
+            // 2. Bruit
             while (numbers.length < size) {
                 let noise = rnd(2, target - 2);
                 if (!numbers.includes(noise)) numbers.push(noise);
             }
 
-            // 3. Mélange de la grille
             const grid = numbers.sort(() => Math.random() - 0.5);
 
             return {
-                isVisual: true,
-                visualType: 'square',
-                inputType: 'selection',
-                answer: target,
-                data: { target: target, numbers: grid, selectedIndices: [] }
+                isVisual: true, visualType: 'square', inputType: 'selection',
+                answer: target, data: { target: target, numbers: grid, selectedIndices: [] }
             };
         },
 
@@ -250,9 +244,7 @@ calculate(p) {
             const pool = lib.spelling[category] || lib.spelling.animals;
             const picked = pool[Math.floor(Math.random() * pool.length)];
             return {
-                isVisual: true,
-                visualType: 'spelling',
-                inputType: 'alpha',
+                isVisual: true, visualType: 'spelling', inputType: 'alpha',
                 data: { imageUrl: picked.img, word: picked.word, icon: picked.icon },
                 answer: picked.word
             };
@@ -262,9 +254,9 @@ calculate(p) {
             const pool = lib.homophones[p.category];
             const picked = pool[Math.floor(Math.random() * pool.length)];
             return {
-                isVisual: false,
-                question: picked.sentence,
-                answer: picked.answer,
+                isVisual: true, visualType: 'homophones', // Corrigé : True pour déclencher l'affichage visuel (texte) dans ui.js
+                question: `<span class="small-question">${picked.q.replace('...', '___')}</span>`,
+                answer: picked.a,
                 inputType: "qcm",
                 data: { choices: p.choices }
             };
@@ -277,9 +269,7 @@ calculate(p) {
             const hStr = hours24.toString().padStart(2, '0');
             const mStr = minutes.toString().padStart(2, '0');
             return {
-                isVisual: true,
-                visualType: 'clock',
-                inputType: 'numeric',
+                isVisual: true, visualType: 'clock', inputType: 'numeric',
                 data: { hours: hours24, minutes: minutes, periodIcon: isDay ? "☀️" : "🌙", periodText: isDay ? "Après-midi / Jour" : "Matin / Nuit" },
                 answer: parseInt(hStr + mStr)
             };
@@ -290,11 +280,8 @@ calculate(p) {
             const d = Math.floor(Math.random() * (denom - 2)) + 2; 
             const n = Math.floor(Math.random() * (d - 1)) + 1;
             return {
-                isVisual: true,
-                visualType: 'fraction',
-                inputType: 'numeric',
-                data: { n, d },
-                answer: n
+                isVisual: true, visualType: 'fraction', inputType: 'numeric',
+                data: { n, d }, answer: n
             };
         },
 
@@ -305,9 +292,9 @@ calculate(p) {
             return { isVisual: true, visualType: 'counting', inputType: 'numeric', data: { tens: Math.floor(target / 10), units: target % 10 }, answer: target };
         },
 
-compare(p) {
+        compare(p) {
             let n1, n2, symbol;
-            let d1, d2; // Variables pour l'affichage (chaînes de caractères)
+            let d1, d2; 
 
             // --- CAS 1 : MODE DÉCIMAUX (CM2) ---
             if (p.type === 'compare-decimals') {
@@ -315,75 +302,48 @@ compare(p) {
                 const variant = Math.random();
                 
                 if (variant < 0.3) {
-                    // PIÈGE ÉGALITÉ : 4,5 vs 4,50
-                    n1 = base + 0.5; 
-                    n2 = base + 0.5; 
-                    
-                    // Astuce d'affichage : on force le zéro inutile
+                    n1 = base + 0.5; n2 = base + 0.5; 
                     d1 = n1.toString().replace('.', ',');
                     d2 = n1.toString().replace('.', ',') + "0";
-                    
-                    // On mélange qui a le zéro
                     if (Math.random() > 0.5) [d1, d2] = [d2, d1];
-
                 } else if (variant < 0.6) {
-                    // TRÈS PROCHE : 12,8 vs 12,9
                     n1 = base + Number((Math.random()).toFixed(1));
                     n2 = n1 + (Math.random() < 0.5 ? 0.1 : -0.1);
-                    
-                    // Arrondi pour éviter les bugs de virgule flottante JS
-                    n1 = Math.round(n1 * 10) / 10;
-                    n2 = Math.round(n2 * 10) / 10;
-                    
+                    n1 = Math.round(n1 * 10) / 10; n2 = Math.round(n2 * 10) / 10;
                     d1 = n1.toString().replace('.', ',');
                     d2 = n2.toString().replace('.', ',');
-
                 } else {
-                    // PIÈGE LONGUEUR : 12,5 vs 12,45 (5 est plus grand que 45 ici !)
-                    n1 = base + Number((Math.random() * 0.9).toFixed(1)); // ex: 12.5
-                    n2 = base + Number((Math.random() * 0.9).toFixed(2)); // ex: 12.45
-                    
+                    n1 = base + Number((Math.random() * 0.9).toFixed(1)); 
+                    n2 = base + Number((Math.random() * 0.9).toFixed(2)); 
                     d1 = n1.toString().replace('.', ',');
                     d2 = n2.toString().replace('.', ',');
                 }
-
             } else {
-                // --- CAS 2 : MODE ENTIERS (CP/CE1) ---
-                // C'est ta logique originale
+                // --- CAS 2 : MODE ENTIERS ---
                 const max = p.range || 100;
                 n1 = Math.floor(Math.random() * max);
-                // 20% de chance d'avoir une égalité pour forcer l'attention
                 n2 = (Math.random() < 0.2) ? n1 : Math.floor(Math.random() * max);
-                
-                d1 = n1.toString();
-                d2 = n2.toString();
+                d1 = n1.toString(); d2 = n2.toString();
             }
 
-            // Calcul du symbole (Réponse)
-            if (n1 > n2) symbol = ">";
-            else if (n1 < n2) symbol = "<";
-            else symbol = "=";
+            if (n1 > n2) symbol = ">"; else if (n1 < n2) symbol = "<"; else symbol = "=";
 
             return { 
-                // On stylise un peu la question pour qu'elle soit bien lisible
                 question: `<div style="display:flex; align-items:center; justify-content:center; gap:20px; font-size:2.5rem; font-weight:bold;">
-                    <span>${d1}</span>
-                    <span style='color:#A0AEC0; font-size:2rem'>...</span>
-                    <span>${d2}</span>
+                    <span>${d1}</span><span style='color:#A0AEC0; font-size:2rem'>...</span><span>${d2}</span>
                 </div>`, 
-                
-                answer: symbol, 
-                
-                // IMPORTANT : "qcm" force app.js à afficher les boutons < = >
-                inputType: "qcm", 
-                
-                // On met isVisual: false car c'est du texte pur (géré par le 'else' de ui.js)
-                isVisual: false,
-                
+                answer: symbol, inputType: "qcm", isVisual: false,
                 data: { choices: ["<", "=", ">"] } 
             };
         },
-};
+        
+        reading(p, lib) {
+             const category = lib.reading[p.category] || lib.reading.taoki_p1;
+             const item = category[Math.floor(Math.random() * category.length)];
+             return { isVisual: true, visualType: 'reading', inputType: 'boolean', data: item, answer: 1 };
+        }
+    } // Fin generators
+}; // <--- C'EST ICI QU'IL MANQUAIT L'ACCOLADE ET LE POINT VIRGULE !
 
 /**
  * UTILITAIRE : Convertit un nombre en lettres (Français)
@@ -414,18 +374,9 @@ function numberToFrench(n) {
     };
 
     let result = "";
-    
-    // Gestion des Milliards (10^9)
-    let b = Math.floor(n / 1000000000);
-    let restB = n % 1000000000;
-    
-    // Gestion des Millions (10^6)
-    let m = Math.floor(restB / 1000000);
-    let restM = restB % 1000000;
-    
-    // Gestion des Milliers (10^3)
-    let k = Math.floor(restM / 1000);
-    let r = restM % 1000;
+    let b = Math.floor(n / 1000000000); let restB = n % 1000000000;
+    let m = Math.floor(restB / 1000000); let restM = restB % 1000000;
+    let k = Math.floor(restM / 1000); let r = restM % 1000;
 
     if (b > 0) result += getBelowThousand(b) + " milliard" + (b > 1 ? "s" : "") + " ";
     if (m > 0) result += getBelowThousand(m) + " million" + (m > 1 ? "s" : "") + " ";
@@ -434,6 +385,3 @@ function numberToFrench(n) {
 
     return result.trim();
 }
-
-
-
