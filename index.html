@@ -36,18 +36,14 @@
         --taoki-red: #FF6B6B;
         --taoki-silent: #D1D5DB;
     }
-
     * { box-sizing: border-box; font-family: 'Quicksand', sans-serif; -webkit-tap-highlight-color: transparent; }
-
     body { background: var(--bg); margin: 0; display: flex; justify-content: center; height: 100vh; overflow: hidden; }
-
     #app { 
         width: 100%; max-width: 600px; background: var(--white); 
         display: flex; flex-direction: column; position: relative;
         box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         height: 100vh; /* Important pour le calage du clavier en bas */
     }
-
     header {
         background: var(--primary); color: white; padding: 15px;
         display: flex; align-items: center; justify-content: space-between;
@@ -56,12 +52,9 @@
     }
     .btn-header { background: rgba(255,255,255,0.2); border: none; color: white; padding: 10px 15px; border-radius: 8px; cursor: pointer; font-size: 1.1rem; }
     #btn-back { visibility: hidden; }
-
     .screen { display: none; flex-direction: column; height: 100%; padding: 20px; text-align: center; overflow-y: auto; }
     .active { display: flex; }
-
     .grid-menu { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
-    
     .card {
         background: var(--white); border: 2px solid #E2E8F0; border-radius: 18px;
         padding: 25px 15px; cursor: pointer; transition: all 0.2s ease;
@@ -76,14 +69,12 @@
         justify-content: center;
         text-align: center;
     }
-
     .card-title { font-weight: 700; font-size: 1.2rem; color: var(--dark); display: block; }
     .card-subtitle { font-size: 0.9rem; color: #718096; margin-top: 2px; display: block; }
     .menu-stars {
         color: #FFD700; font-size: 0.9rem; letter-spacing: 2px;
         background: rgba(255, 215, 0, 0.1); padding: 2px 8px; border-radius: 10px; margin-left: 10px;
     }
-
     /* --- Zone de Jeu & Progrès --- */
     .game-zone { 
         margin: auto 0; 
@@ -105,7 +96,6 @@
     }
     .progress-container { width: 100%; height: 10px; background: #E2E8F0; border-radius: 5px; margin-bottom: 15px; flex-shrink: 0; }
     .progress-bar { height: 100%; background: var(--success); width: 0%; border-radius: 5px; transition: width 0.3s; }
-
     /* ========================================= */
     /* --- ZONE CLAVIER (CORRIGÉE & AJUSTÉE) --- */
     /* ========================================= */
@@ -118,7 +108,6 @@
         max-height: 45vh; 
         overflow-y: auto;
     }
-
     .keyboard-layout { 
         display: none; /* JS gère l'affichage (grid/block) */
         gap: 8px; 
@@ -126,10 +115,8 @@
         max-width: 500px; /* Centrage joli sur tablette */
         margin: 0 auto;
     }
-
     #keyboard-num { grid-template-columns: repeat(3, 1fr); }
     #keyboard-boolean { grid-template-columns: 1fr 1fr; }
-
     .key { 
         padding: 12px 0; 
         font-size: 1.6rem; 
@@ -145,11 +132,9 @@
         align-items: center; 
         justify-content: center;
     }
-
     .key:active { transform: translateY(3px); box-shadow: none; background: #EDF2F7; }
     .key.action { background: var(--primary); color: white; box-shadow: 0 4px 0 #2B6CB0; }
     .key.del { background: var(--secondary); color: white; box-shadow: 0 4px 0 #C53030; }
-    
     /* CORRECTION MAJEURE : On retire le 'span 2' pour que OK s'aligne bien sur 3 colonnes */
     .key.ok { 
         grid-column: auto; 
@@ -157,7 +142,6 @@
         color: white;
         box-shadow: 0 4px 0 #2F855A;
     }
-
     /* --- CLAVIER AZERTY & ACCENTS (AJUSTÉ) --- */
     .alpha-keyboard { 
         display: flex; 
@@ -191,8 +175,6 @@
         .letter-key { height: 38px; font-size: 0.9rem; }
         .math-problem { font-size: 2.5rem; min-height: 100px; }
     }
-    /* ========================================= */
-
     /* --- LE VERBE-O-TRON (CONJUGAISON) --- */
     .tense-badge {
         display: inline-block; padding: 4px 14px; border-radius: 20px; color: white;
@@ -209,19 +191,16 @@
     .verb-body { font-size: 1.8rem; font-family: 'Courier New', Courier, monospace; display: flex; align-items: center; }
     .pronoun-tag { color: #a0aec0; margin-right: 20px; min-width: 80px; }
     .verb-input-zone { color: var(--primary); border-bottom: 3px solid var(--primary); min-width: 160px; display: inline-block; min-height: 1.2em; }
-    
     .compound-layout { display: flex; align-items: center; gap: 10px; }
     .compound-inputs { display: flex; gap: 15px; flex: 1; }
     .aux-zone { min-width: 100px; border-bottom: 3px solid #718096 !important; color: #cbd5e0; text-align: center; }
     .pp-zone { flex: 2; min-width: 180px; border-bottom: 3px solid var(--primary) !important; }
     .hint-text { font-size: 0.75rem; color: #718096; margin-top: 15px; text-align: center; font-style: italic; width: 100%; }
-
     @media (max-width: 500px) {
         .verb-body { font-size: 1.4rem; }
         .compound-inputs { flex-direction: column; gap: 8px; }
         .pp-zone, .aux-zone { min-width: 100%; }
     }
-
     /* --- FRANCAIS : ORTHOGRAPHE --- */
     .spelling-media { width: 180px; height: 180px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; background: #f8fafc; border-radius: 20px; border: 2px solid #edf2f7; }
     .spelling-placeholder { font-size: 5rem; }
@@ -235,13 +214,11 @@
     .pronoun-tag { background: var(--secondary); padding: 5px 20px; border-radius: 50px; font-size: 1.4rem; font-weight: bold; }
     .verb-input-zone { font-size: 3rem; color: #F6E05E; min-height: 4rem; letter-spacing: 5px; font-family: 'Courier New', monospace; }
     .verb-instruction { margin-top: 20px; font-size: 0.8rem; opacity: 0.7; text-transform: uppercase; }
-
     /* --- LE CARRÉ --- */
     .square-grid { display: grid; grid-template-columns: repeat(var(--cols, 2), 1fr); gap: 20px; margin: 25px auto; width: 100%; max-width: 350px; }
     .number-card { background: var(--primary); color: white; font-size: 2.5rem; padding: 20px; border-radius: 15px; cursor: pointer; box-shadow: 0 5px 0 #2b6cb0; }
     .number-card.selected { background: var(--success); transform: translateY(3px); box-shadow: none; }
     .target-badge { background: var(--dark); color: white; padding: 10px 20px; border-radius: 50px; font-size: 1.2rem; margin-bottom: 20px; display: inline-block; }
-
     /* --- LE BANQUIER --- */
     .money-table { width: 100%; height: 280px; background: #fdfdfd; border-radius: 20px; position: relative; border: 2px solid #edf2f7; overflow: hidden; }
     .coin { 
@@ -257,7 +234,6 @@
         animation: coinDrop 0.5s ease-out backwards;
     }
     .bill::before { content: '€'; position: absolute; right: 8px; bottom: 5px; font-size: 1.4rem; opacity: 0.3; }
-
     /* --- L'OISEAU --- */
     .sky-container { width: 100%; height: 220px; background: linear-gradient(#cae9f5, #e9f2f5); position: relative; overflow: hidden; border-radius: 15px; border: 2px solid #bcd; }
     .bird-container { position: absolute; animation: flyAcross linear forwards; display: flex; flex-direction: column; align-items: center; z-index: 10; }
@@ -268,14 +244,12 @@
     }
     .bird-bubble::after { content: ''; position: absolute; bottom: -10px; left: 50%; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid white; transform: translateX(-50%); }
     .cloud { position: absolute; font-size: 2.5rem; opacity: 0.5; z-index: 1; }
-
     /* --- RESULTATS & PROFIL --- */
     .stars-container { display: flex; justify-content: center; gap: 15px; margin: 30px 0; min-height: 80px; }
     .star { font-size: 5rem; color: #E2E8F0; transition: all 0.5s; transform: scale(0); }
     .star.active { color: #FFD700; text-shadow: 0 0 20px rgba(255, 215, 0, 0.5); animation: starPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
     .profile-card { position: relative; }
     .btn-delete-profile { position: absolute; top: -5px; right: -5px; background: #E53E3E; color: white; border: none; border-radius: 50%; width: 24px; height: 24px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0,0,0,0.2); opacity: 0.8; }
-
     /* Masque le formatage spécial quand on n'est pas sur l'horloge */
     .clock-exercise { display: flex; flex-direction: column; align-items: center; }
     .clock-instruction { font-size: 1.5rem; font-weight: bold; margin-top: 10px; }
@@ -288,55 +262,44 @@
     #user-answer { min-height: 80px; width: 100%; display: flex; justify-content: center; align-items: center; }
     .clock-digit-block { background: #edf2f7; padding: 10px 15px; border-radius: 12px; min-width: 85px; font-size: 2.8rem; font-weight: bold; color: var(--primary); text-align: center; }
     .clock-separator { font-size: 3rem; font-weight: bold; color: var(--primary); }
-    
     .reading-container {
         font-size: 4.5rem; font-weight: 700; letter-spacing: 2px;
         display: flex; flex-wrap: wrap; justify-content: center; align-items: center; text-align: center;
         line-height: 1.2; width: 100%; max-width: 100vw; padding: 10px; margin: 0 auto;
     }
     .syll-0, .syll-1 { display: inline-block; white-space: nowrap; }
-
     @media (max-width: 600px) {
         .reading-container { font-size: 3.2rem; }
     }
     .char-silent { color: #D1D5DB; }
     .reading-space { display: inline-block; width: 1.2rem; }
-    
     .counting-area { display: flex; gap: 15px; justify-content: center; align-items: flex-end; padding: 20px; min-height: 220px; }
     .ten-bar { width: 35px; display: flex; flex-direction: column-reverse; border: 2px solid #2D3748; border-radius: 4px; overflow: hidden; }
-
     .small-question { display: block; font-size: 1.6rem !important; line-height: 1.3; color: #4A5568; max-width: 95%; margin: 0 auto; }
     .small-question b { display: block; font-size: 1.9rem; color: var(--primary); margin-top: 10px; }
-
     @media (max-width: 600px) {
         .small-question { font-size: 1.3rem !important; }
         .small-question b { font-size: 1.5rem; }
     }
-
     .fraction-display { display: flex; flex-direction: column; align-items: center; gap: 15px; }
     .fraction-question { font-size: 1.3rem; font-weight: bold; color: var(--dark); }
     .fraction-formula { font-size: 1.8rem; padding: 10px 20px; background: var(--grey-light); border-radius: 10px; border: 2px dashed var(--primary); }
-    
     .cube { height: 18px; width: 100%; border: 1px solid rgba(0,0,0,0.1); background: var(--primary); }
     .units-grid { display: grid; grid-template-columns: repeat(2, 20px); gap: 4px; }
     .cube.unit { width: 20px; height: 20px; background: #ECC94B; border-radius: 3px; border: 2px solid #2D3748; }
-
     /* --- COULEURS SPÉCIFIQUES BOUTONS --- */
-    
     /* VRAI : Vert */
     .btn-true { 
         background: var(--success) !important; 
         color: white !important; 
         box-shadow: 0 4px 0 #2F855A !important; 
     }
-    
     /* FAUX : Rouge */
     .btn-false { 
         background: var(--secondary) !important; 
         color: white !important; 
         box-shadow: 0 4px 0 #C53030 !important; 
     }
-
     /* NEUTRE (Homophones, Choix multiples) : Blanc comme les chiffres */
     .btn-neutral {
         background: var(--white) !important;
@@ -344,7 +307,6 @@
         box-shadow: 0 4px 0 #CBD5E0 !important;
         border: 2px solid #E2E8F0; /* Petit bord pour bien les délimiter */
     }
-    
     /* Effet d'enfoncement pour tous */
     .btn-true:active, .btn-false:active, .btn-neutral:active {
         transform: translateY(3px);
@@ -355,35 +317,24 @@
     @keyframes flyAcross { from { left: -150px; } to { left: 110%; } }
     @keyframes birdWave { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-30px); } }
     @keyframes blink { 50% { opacity: 0.3; } }
-
-    
-    /*--------------Ajustement mobile-----------------------------*/
-/* ===================================================== */
-/* === CORRECTIFS MOBILES – BASE TON CODE ACTUEL === */
-/* ===================================================== */
-
 /* --- Viewport mobile réel (corrige 100vh) --- */
 html, body {
     height: 100%;
 }
-
 body {
     min-height: 100dvh;
     overflow: hidden;
 }
-
 #app {
     min-height: 100dvh;
     height: auto;
 }
-
 /* --- Scroll mobile propre --- */
 .screen {
     overflow-y: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
 }
-
 /* --- Zone de jeu : moins de centrage vertical sur petits écrans --- */
 @media (max-width: 480px) {
     .game-zone {
@@ -391,45 +342,35 @@ body {
         padding-top: 10px;
     }
 }
-
 /* --- Hauteurs souples (remplace les min-height rigides sans casser le style) --- */
 .math-problem {
     min-height: clamp(90px, 22vh, 150px);
 }
-
 .answer-display {
     min-height: clamp(3rem, 10vh, 4.5rem);
 }
-
 #user-answer {
     min-height: clamp(60px, 12vh, 80px);
 }
-
 .verb-input-zone {
     min-height: clamp(2.5rem, 8vh, 4rem);
 }
-
 .clock-digit-block {
     min-height: clamp(60px, 10vh, 85px);
 }
-
 /* --- Typographie fluide (mêmes proportions visuelles) --- */
 .math-problem {
     font-size: clamp(2.4rem, 6vw, 4rem);
 }
-
 .answer-display {
     font-size: clamp(2.2rem, 5vw, 3.5rem);
 }
-
 .reading-container {
     font-size: clamp(2.6rem, 7vw, 4.5rem);
 }
-
 .verb-body {
     font-size: clamp(1.3rem, 4vw, 1.8rem);
 }
-
 /* --- Clavier mobile plus compact mais toujours confortable --- */
 @media (max-width: 480px) {
     .keyboard-container {
@@ -447,7 +388,6 @@ body {
         font-size: 0.95rem;
     }
 }
-
 /* --- Orientation paysage mobile (cas critique) --- */
 @media (orientation: landscape) and (max-height: 600px) {
     .keyboard-container {
@@ -462,20 +402,16 @@ body {
         font-size: 2.6rem;
     }
 }
-
 /* --- Sécurité anti débordement horizontal --- */
 #app, .screen {
     max-width: 100%;
     overflow-x: hidden;
 }
-
 /* --- Base typographique adaptative globale --- */
 html {
     font-size: clamp(14px, 1.1vw, 18px);
 }
-
-    
-    
+   
 </style>
 </head>
 <body>
@@ -495,6 +431,11 @@ html {
             <input type="text" id="new-profile-name" placeholder="Prénom de l'enfant" 
                    style="padding: 10px; border-radius: 8px; border: 1px solid #ddd; width: 70%;">
             <button onclick="App.createProfile()" class="btn-add">+</button>
+        </div>
+        <div style="margin-top: 50px; text-align: center;">
+            <button id="btn-debug-reset" style="background: none; border: 1px solid #cbd5e0; color: #a0aec0; padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; cursor: pointer; opacity: 0.6;">
+                ⚙️ Réinitialiser l'application (Dev)
+            </button>
         </div>
     </section>
 
@@ -557,6 +498,7 @@ html {
 
 </body>
 </html>
+
 
 
 
