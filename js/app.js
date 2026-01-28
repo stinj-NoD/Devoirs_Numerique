@@ -174,14 +174,15 @@ const App = {
         
         let v = isC ? this.state.userInput : this.state.targetAnswer;
         
-        // Feedback visuel
+// On normalise la réponse visuelle
         if (inputType === 'alpha' || inputType === 'qcm') {
             v = v.toString().toLowerCase(); 
-            d.style.textTransform = "none"; // On force le minuscule visuellement
-            d.style.display = "flex"; 
-        } else {
-            d.style.textTransform = "uppercase"; // Pour les maths on garde le style block
         }
+        
+        // ON FORCE "NONE" PARTOUT. 
+        // Les maths (123) s'afficheront pareil, et le texte (abc) restera en minuscule.
+        d.style.textTransform = "none"; 
+        d.style.display = "flex";
 
         if (visualType === 'clock') {
             let s = v.toString().padStart(4, "0");
@@ -211,3 +212,4 @@ const App = {
 
 window.App = App;
 window.onload = () => App.init();
+
