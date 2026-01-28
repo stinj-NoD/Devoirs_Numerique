@@ -12,10 +12,6 @@
  * COMMERCIALISATION ou D'ADÉQUATION À UN USAGE PARTICULIER.
  * Voir la Licence Publique Générale GNU pour plus de détails.
  */
-/*
- * Devoir Numérique
- * Copyright (C) 2026 [Stinj-NoD]
- */
 const UI = {
     // Éléments mis à jour dynamiquement
     get screens() { return document.querySelectorAll('.screen'); },
@@ -401,6 +397,7 @@ updateKeyboardLayout(type, data = null) {
 };
 
 window.addEventListener('DOMContentLoaded', () => UI.initNavigation());
+
 
 
 
