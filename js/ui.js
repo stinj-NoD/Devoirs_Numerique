@@ -422,11 +422,21 @@ drawSpelling(d, input) {
         </div>`;
 },
 
-    drawConjugation(d, i) {
-        const isCompound = d.isCompound;
-        const parts = i.split(" ");
-        return `<div class="verb-machine"><div class="verb-infinitive">${d.infinitive}</div><div class="verb-body"><span class="pronoun-tag">${d.pronoun}</span><span class="verb-input-zone">${parts.join(" ") || "..."}</span></div></div>`;
-    },
+drawConjugation(d, i) {
+    const parts = i.split(" ");
+    // On récupère le temps (d.tense) pour l'afficher dans le badge
+    return `
+        <div class="conjugation-container">
+            <div class="tense-badge" style="background:var(--primary)">${d.tense}</div>
+            <div class="verb-machine">
+                <div class="verb-infinitive">${d.infinitive}</div>
+                <div class="verb-body">
+                    <span class="pronoun-tag">${d.pronoun}</span>
+                    <span class="verb-input-zone">${parts.join(" ") || "..."}</span>
+                </div>
+            </div>
+        </div>`;
+},
 
     renderStars(score, total) {
         const container = document.getElementById('stars-container');
@@ -439,6 +449,7 @@ drawSpelling(d, input) {
 // Initialisation au chargement
 
 window.addEventListener('DOMContentLoaded', () => UI.initNavigation());
+
 
 
 
