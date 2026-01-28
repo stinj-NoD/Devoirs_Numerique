@@ -1,16 +1,6 @@
 /*
  * Devoir Numérique
  * Copyright (C) 2026 [Stinj-NoD]
- *
- * Ce programme est un logiciel libre : vous pouvez le redistribuer et/ou le modifier
- * selon les termes de la Licence Publique Générale GNU publiée par la
- * Free Software Foundation, soit la version 3 de la licence, soit
- * (à votre gré) toute version ultérieure.
- *
- * Ce programme est distribué dans l'espoir qu'il sera utile,
- * mais SANS AUCUNE GARANTIE ; sans même la garantie implicite de
- * COMMERCIALISATION ou D'ADÉQUATION À UN USAGE PARTICULIER.
- * Voir la Licence Publique Générale GNU pour plus de détails.
  */
 const App = {
     state: {
@@ -27,11 +17,9 @@ const App = {
             this.state.frenchLib = await res.json();
         } catch (e) { console.error("Erreur bibliothèque :", e); }
 
-        // Initialisation de la navigation et du clavier
         if (UI.initNavigation) UI.initNavigation();
         UI.initKeyboard((v, t) => this.handleInput(v, t));
         
-        // Gestionnaire global pour les éléments interactifs (sécurité)
         const pz = document.getElementById('math-problem');
         if (pz) pz.onclick = (e) => { 
             const k = e.target.closest('.key'); 
@@ -100,19 +88,31 @@ const App = {
 
     generateNextQuestion() {
         if (this.state.timer) clearTimeout(this.state.timer);
-        this.state.currentQuestion++; this.state.userInput = ""; this.state.isUppercase = true; 
+        this.state.currentQuestion++; this.state.userInput = ""; 
         
         const cfg = this.state.currentExercise.params;
         const pD = Engines.run(this.state.currentExercise.engine, cfg, this.state.frenchLib);
         
         this.state.problemData = pD; this.state.targetAnswer = pD.answer;
         
-        // Initialisation correcte des indices sélectionnés pour le Carré Magique
+        // --- MODIF 1 : GESTION INITIALE MINUSCULE/MAJUSCULE ---
+        // Si l'exercice force les minuscules (ex: conjugaison), on part en lowercase.
+        // Sinon, on part en Uppercase par défaut (Comportement standard)
+        if (pD.forceLowercase) {
+            this.state.isUppercase = false;
+        } else {
+            this.state.isUppercase = true;
+        }
+
+        // Initialisation Carré Magique
         if (pD.visualType === 'square' && !pD.data.selectedIndices) {
             pD.data.selectedIndices = [];
         }
 
-        UI.updateKeyboardLayout(pD.inputType || "numeric", pD.data);
+        // --- MODIF 2 : ON ENVOIE TOUT L'OBJET pD (IMPORTANT) ---
+        // Cela permet à ui.js de lire pD.forceLowercase
+        UI.updateKeyboardLayout(pD.inputType || "numeric", pD);
+        
         UI.updateGameDisplay(pD, "", (this.state.currentQuestion / cfg.questions) * 100);
 
         if (pD.visualType === 'bird') this.state.timer = setTimeout(() => this.handleInput("timeout"), (cfg.vitesse || 8) * 1000);
@@ -120,35 +120,32 @@ const App = {
 
     handleInput(val, target = null) {
         if (val === "timeout") return this.validateAnswer(false);
-        if (val === 'shift') { this.state.isUppercase = !this.state.isUppercase; return UI.updateKeyboardLayout('alpha'); }
+        
+        // Gestion manuelle du Shift
+        if (val === 'shift') { 
+            this.state.isUppercase = !this.state.isUppercase; 
+            // On repasse pD pour ne pas perdre le contexte
+            return UI.updateKeyboardLayout('alpha', this.state.problemData); 
+        }
 
         const { inputType, visualType, data } = this.state.problemData;
 
-        // --- CORRECTION CLIC CARRÉ MAGIQUE ---
+        // --- Clic Carré Magique ---
         if (val === 'card-click' && target) {
             const idx = parseInt(target.getAttribute('data-idx'));
             if (!isNaN(idx)) {
-                // Initialisation de sûreté
                 if (!data.selectedIndices) data.selectedIndices = [];
-                
-                // Toggle (Ajout / Suppression)
                 const pos = data.selectedIndices.indexOf(idx);
                 if (pos > -1) data.selectedIndices.splice(pos, 1);
                 else data.selectedIndices.push(idx);
-
-                // Calcul de la somme
                 const sum = data.selectedIndices.reduce((acc, i) => acc + data.numbers[i], 0);
                 this.state.userInput = sum.toString();
-
-                // Mise à jour visuelle immédiate
                 UI.updateGameDisplay(this.state.problemData, this.state.userInput, (this.state.currentQuestion / this.state.currentExercise.params.questions) * 100);
             }
             return;
         }
-        // -------------------------------------
 
         if (inputType === 'selection') {
-            // Validation manuelle via le bouton OK du clavier
             if (val === 'ok') return this.validateAnswer();
         } 
         else if (inputType === "boolean" || inputType === "qcm") {
@@ -157,14 +154,18 @@ const App = {
         else {
             if (val === 'backspace' || val === 'del') {
                 this.state.userInput = this.state.userInput.slice(0, -1);
-                if (inputType === 'alpha' && !this.state.userInput.length) { this.state.isUppercase = true; UI.updateKeyboardLayout('alpha'); }
+                // --- MODIF 3 : SUPPRESSION DU RESET MAJUSCULE ---
+                // J'ai supprimé la ligne qui remettait isUppercase=true quand on effaçait tout.
             } else if (val === 'ok') {
                 return this.validateAnswer();
             } else {
                 const lim = (visualType === 'clock') ? 4 : this.state.targetAnswer.toString().length;
-                if (this.state.userInput.length < Math.max(lim, 5)) {
+                // J'ai augmenté un peu la limite de caractères pour les phrases plus longues
+                if (this.state.userInput.length < Math.max(lim, 20)) {
                     this.state.userInput += val;
-                    if (inputType === 'alpha' && this.state.userInput.length === 1) { this.state.isUppercase = false; UI.updateKeyboardLayout('alpha'); }
+                    // --- MODIF 4 : SUPPRESSION DE L'AUTO-SWITCH ---
+                    // J'ai supprimé le bloc qui passait isUppercase=false après 1 caractère.
+                    // Le clavier reste donc dans l'état où l'utilisateur l'a mis (ou l'état forcé).
                 }
             }
         }
@@ -177,7 +178,6 @@ const App = {
         const { inputType, visualType } = this.state.problemData, d = document.getElementById('user-answer');
         let isC = false;
 
-        // 1. Comparaison intelligente
         if (inputType === 'alpha' || inputType === 'qcm') {
             const norm = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
             const u = inputType === 'alpha' ? norm(this.state.userInput) : this.state.userInput;
@@ -189,10 +189,8 @@ const App = {
 
         if (isC) this.state.score++;
         
-        // 2. Préparation réponse
         let v = isC ? this.state.userInput : this.state.targetAnswer;
         
-        // 3. Style visuel réponse
         if (inputType === 'alpha' || inputType === 'qcm') {
             v = v.toString().toLowerCase(); 
             d.style.textTransform = "none"; 
@@ -201,7 +199,6 @@ const App = {
             d.style.textTransform = "uppercase"; 
         }
 
-        // 4. Rendu HTML Réponse
         if (visualType === 'clock') {
             let s = v.toString().padStart(4, "0");
             d.innerHTML = `<div class="clock-digit-block">${s.slice(0, 2)}</div><span class="clock-separator">:</span><div class="clock-digit-block">${s.slice(2, 4)}</div>`;
@@ -209,7 +206,6 @@ const App = {
             d.innerText = v;
         }
 
-        // 5. Feedback
         d.style.color = isC ? 'var(--success)' : 'var(--secondary)';
         setTimeout(() => {
             d.style.color = 'var(--primary)';
