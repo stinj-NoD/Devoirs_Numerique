@@ -339,7 +339,7 @@ drawClock(d) {
     svg+=`<line x1="${c}" y1="${c}" x2="${c+35*Math.sin(ha*Math.PI/180)}" y2="${c-35*Math.cos(ha*Math.PI/180)}" stroke="var(--dark)" stroke-width="5" stroke-linecap="round"/>`;
     svg+=`<line x1="${c}" y1="${c}" x2="${c+50*Math.sin(ma*Math.PI/180)}" y2="${c-50*Math.cos(ma*Math.PI/180)}" stroke="var(--secondary)" stroke-width="3" stroke-linecap="round"/></svg>`;
     return `<div style="display:flex; flex-direction:column; align-items:center;">${periodInfo}${svg}</div>`;
-}
+},
 
 drawSquare(d) {
         // d.numbers est le tableau de chiffres, d.target est la cible
@@ -407,4 +407,5 @@ drawSquare(d) {
 // Initialisation au chargement
 
 window.addEventListener('DOMContentLoaded', () => UI.initNavigation());
+
 
