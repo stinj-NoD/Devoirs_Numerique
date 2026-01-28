@@ -404,10 +404,23 @@ drawSquare(d) {
         return `<div class="fraction-display"><svg viewBox="0 0 160 160" width="140" height="140">${paths}</svg><div class="fraction-formula" style="font-size:1.5rem; margin-top:10px">... / ${d.d}</div></div>`;
     },
 
-    drawSpelling(d, input) {
-        const slots = d.word.split("").map((_, idx) => `<span class="letter-slot">${input[idx] || "_"}</span>`).join("");
-        return `<div class="spelling-media"><img src="${d.imageUrl}" class="spelling-image" onerror="this.nextElementSibling.style.display='flex';this.style.display='none'"><div style="display:none;font-size:3rem">${d.icon||'❓'}</div></div><div class="spelling-slots">${slots}</div>`;
-    },
+drawSpelling(d, input) {
+    const slots = d.word.split("").map((_, idx) => 
+        `<span class="letter-slot">${input[idx] || "_"}</span>`
+    ).join("");
+
+    // On enveloppe les deux blocs dans une div parent "spelling-container"
+    return `
+        <div class="spelling-container">
+            <div class="spelling-media">
+                <img src="${d.imageUrl}" class="spelling-image" onerror="this.nextElementSibling.style.display='flex';this.style.display='none'">
+                <div style="display:none;font-size:3rem">${d.icon||'❓'}</div>
+            </div>
+            <div class="spelling-slots">
+                ${slots}
+            </div>
+        </div>`;
+}
 
     drawConjugation(d, i) {
         const isCompound = d.isCompound;
@@ -426,6 +439,7 @@ drawSquare(d) {
 // Initialisation au chargement
 
 window.addEventListener('DOMContentLoaded', () => UI.initNavigation());
+
 
 
 
