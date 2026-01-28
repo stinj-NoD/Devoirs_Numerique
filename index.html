@@ -176,6 +176,82 @@
         .math-problem { font-size: 2.5rem; min-height: 100px; }
     }
     /* --- LE VERBE-O-TRON (CONJUGAISON) --- */
+
+    /* --- LE VERBE-O-TRON (CONJUGAISON) --- */
+
+/* Le container global qui empile le badge et la machine */
+.conjugation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+}
+
+.tense-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.verb-machine {
+    background: #2D3748;
+    color: white;
+    padding: 25px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 8px 0 #1A202C; /* Effet de profondeur */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre tout le contenu interne */
+}
+
+.verb-infinitive {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #63B3ED; /* Bleu clair pour bien ressortir */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center; /* Force le centrage du texte */
+    width: 100%;
+    border-bottom: 2px dashed #4A5568;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.verb-body {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centre le bloc Pronom + Input */
+    gap: 20px;
+    width: 100%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.pronoun-tag {
+    color: #A0AEC0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    min-width: 90px;
+    text-align: right; /* Aligne le pronom vers la zone de saisie */
+}
+
+.verb-input-zone {
+    color: #F6E05E; /* Jaune rétro pour la zone d'écriture */
+    font-size: 2.2rem;
+    font-weight: bold;
+    border-bottom: 3px solid #F6E05E;
+    min-width: 180px;
+    min-height: 2.8rem;
+    text-align: left;
+}
+    
     /*.tense-badge {
         display: inline-block; padding: 4px 14px; border-radius: 20px; color: white;
         font-size: 0.85rem; font-weight: 800; margin-bottom: 15px; text-transform: uppercase;
@@ -520,6 +596,7 @@ html {
 
 </body>
 </html>
+
 
 
 
