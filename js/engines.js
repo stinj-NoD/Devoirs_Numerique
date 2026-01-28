@@ -44,7 +44,7 @@ const Engines = {
     generators: {
         // --- GÉNÉRATEURS MATHÉMATIQUES ---
 
-        calculate(p) {
+calculate(p) {
             let a, b, total;
             const rnd = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -92,6 +92,44 @@ const Engines = {
                         inputType: 'numeric' 
                     };
 
+                // --- AJOUT CM2 : CALCUL MENTAL (Division & Tables Supérieures) ---
+                case 'calc-mental': 
+                    let op = p.operator || "x";
+                    
+                    if(op === "/") {
+                        // DIVISION PAR 10, 100, 1000
+                        // On choisit le diviseur (10, 100 ou 1000)
+                        const diviseur = p.operands[Math.floor(Math.random() * p.operands.length)];
+                        // On choisit une réponse entière (ex: 45)
+                        const answer = rnd(5, 200); 
+                        // On reconstruit le dividende (ex: 4500)
+                        const dividend = answer * diviseur;
+                        
+                        return { 
+                            question: `${dividend} : ${diviseur} = ?`, 
+                            answer: answer, 
+                            inputType: 'numeric' 
+                        };
+                    } else {
+                        // MULTIPLICATION AVANCÉE (Tables 11 à 15)
+                        const val1 = rnd(p.range[0], p.range[1]); // ex: 12
+                        let val2;
+                        
+                        // 20% de chance de tomber sur un carré (ex: 12x12), sinon x2 à x10
+                        if (Math.random() < 0.2) {
+                            val2 = val1;
+                        } else {
+                            val2 = rnd(2, 10);
+                        }
+                        
+                        return { 
+                            question: `${val1} × ${val2} = ?`, 
+                            answer: val1 * val2, 
+                            inputType: 'numeric' 
+                        };
+                    }
+                // -------------------------------------------------------------
+
                 case 'oiseau-math':
                     a = rnd(p.min, p.max); b = rnd(p.min, p.max);
                     total = a + b;
@@ -100,25 +138,18 @@ const Engines = {
 
                 case 'cibles': 
                     let touches = [];
-                    // On pré-calcule l'angle ici pour qu'il ne bouge plus jamais
                     for (let i = 0; i < p.nbFleches; i++) {
                         const val = p.zones[Math.floor(Math.random() * p.zones.length)];
-                        // Calcul de l'angle fixe (répartition équitable + petit décalage aléatoire)
                         const fixedAngle = (i * (360 / p.nbFleches) + (Math.random() * 20)) * (Math.PI / 180);
                         touches.push({ val: val, angle: fixedAngle });
                     }
-                    
-                    // Calcul de la réponse (attention, on accède maintenant à .val)
                     const totalSum = touches.reduce((acc, item) => acc + item.val, 0);
 
                     return { 
                         isVisual: true, 
                         visualType: p.skin === 'money' ? 'money' : 'target', 
                         inputType: 'numeric', 
-                        data: { 
-                            zonesDefinitions: p.zones, 
-                            hits: touches // On envoie le tableau d'objets avec les angles figés
-                        }, 
+                        data: { zonesDefinitions: p.zones, hits: touches }, 
                         answer: totalSum 
                     };
 
@@ -352,3 +383,4 @@ function numberToFrench(n) {
 
     return result.trim();
 }
+
