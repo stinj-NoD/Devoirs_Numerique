@@ -84,6 +84,25 @@ const UI = {
                 if (map[cur]) this.showScreen(map[cur]);
             };
         }
+        const btnReset = document.getElementById('btn-debug-reset');
+        if (btnReset) {
+            btnReset.onclick = () => {
+                if (confirm("⚠️ Vider tout le cache ? (Profils, scores et fichiers seront supprimés)")) {
+                    // 1. Vide les données (LocalStorage)
+                    localStorage.clear();
+                    
+                    // 2. Vide le cache des fichiers (Service Workers)
+                    if ('caches' in window) {
+                        caches.keys().then(names => {
+                            for (let name of names) caches.delete(name);
+                        });
+                    }
+                    
+                    // 3. Redémarrage propre
+                    location.href = location.pathname + '?reload=' + Date.now();
+                }
+            };
+        }
     },
 
     initKeyboard(callback) {
@@ -407,5 +426,6 @@ drawSquare(d) {
 // Initialisation au chargement
 
 window.addEventListener('DOMContentLoaded', () => UI.initNavigation());
+
 
 
