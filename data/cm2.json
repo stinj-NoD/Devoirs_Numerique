@@ -1,0 +1,121 @@
+{
+  "gradeId": "cm2",
+  "themes": [
+    {
+      "id": "math_cm2",
+      "nom": "Mathématiques",
+      "icon": "📐",
+      "exercises": [
+        {
+          "id": "cm2_grands_nombres",
+          "title": "Les Milliards",
+          "subtitle": "Dictée de nombres entiers",
+          "engine": "math-input",
+          "params": { 
+            "type": "dictée-nombres", 
+            "min": 1000000, 
+            "max": 9999999999, 
+            "questions": 10 
+          }
+        },
+        {
+          "id": "cm2_division_mentale",
+          "title": "Division Mentale",
+          "subtitle": "Diviser par 10, 100, 1000",
+          "engine": "math-input",
+          "params": { 
+            "type": "calc-mental", 
+            "operator": "/", 
+            "operands": [10, 100, 1000],
+            "questions": 10 
+          }
+        },
+        {
+          "id": "cm2_decimaux_compare",
+          "title": "Décimaux",
+          "subtitle": "Comparer (ex: 4,5 ... 4,05)",
+          "engine": "choice-engine",
+          "params": { 
+            "type": "compare-decimals", 
+            "questions": 10 
+          }
+        },
+        {
+          "id": "cm2_tables_x",
+          "title": "Tables x11 à x15",
+          "subtitle": "Calcul mental avancé",
+          "engine": "math-input",
+          "params": { 
+            "type": "calc-mental",
+            "operator": "x",
+            "range": [11, 15],
+            "questions": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "francais_cm2",
+      "nom": "Français",
+      "icon": "📚",
+      "exercises": [
+        {
+          "id": "cm2_conj_present_3",
+          "title": "Présent 3e Groupe",
+          "subtitle": "Verbes fréquents & Irréguliers",
+          "engine": "conjugation",
+          "params": { 
+            "category": "present_3_freq", 
+            "tenses": ["présent"], 
+            "questions": 10 
+          }
+        },
+        {
+          "id": "cm2_conj_future",
+          "title": "Futur Simple",
+          "subtitle": "Tous les verbes du 1er groupe",
+          "engine": "conjugation",
+          "params": { 
+            "category": "future_1", 
+            "tenses": ["futur"], 
+            "questions": 10 
+          }
+        },
+        {
+          "id": "cm2_conj_imparfait",
+          "title": "L'Imparfait",
+          "subtitle": "Attention aux exceptions !",
+          "engine": "conjugation",
+          "params": { 
+            "category": "imparfait_1", 
+            "tenses": ["imparfait"], 
+            "questions": 10 
+          }
+        },
+        {
+          "id": "cm2_conj_pc",
+          "title": "Passé Composé",
+          "subtitle": "Auxiliaire + Participe Passé",
+          "engine": "conjugation",
+          "params": { 
+            "category": "pc_1", 
+            "tenses": ["passé-composé"], 
+            "questions": 10 
+          }
+        },
+        {
+          "id": "cm2_homophones",
+          "title": "Homophones",
+          "subtitle": "ces/ses, c'est/s'est...",
+          "engine": "choice-engine",
+          "params": { 
+            "type": "homophone-duel", 
+            "category": "cm2_complexe", 
+            "choices": ["ces", "ses"], 
+            "questions": 10 
+          }
+        }
+      ]
+    }
+  ]
+}
