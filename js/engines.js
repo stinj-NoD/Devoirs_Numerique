@@ -251,56 +251,48 @@ const Engines = {
         },
 
 homophones(p, lib) {
-            // 1. SÉCURITÉ : Vérifier si la bibliothèque est chargée
-            if (!lib) {
+            // 1. SÉCURITÉ DE BASE
+            // Si la catégorie n'existe pas, on renvoie une erreur visuelle propre
+            if (!lib || !lib.homophones || !lib.homophones[p.category]) {
                 return {
                     isVisual: false,
-                    question: "Erreur : La bibliothèque 'french_lib.json' n'est pas chargée.",
+                    question: `Erreur: Catégorie '${p.category}' introuvable dans french_lib`,
                     answer: "ok", inputType: "info"
                 };
             }
 
-            // 2. SÉCURITÉ : Vérifier si la section homophones existe
-            if (!lib.homophones) {
-                return {
-                    isVisual: false,
-                    question: "Erreur : Section 'homophones' manquante dans le fichier JSON.",
-                    answer: "ok", inputType: "info"
-                };
-            }
-
-            // 3. SÉCURITÉ : Vérifier si la catégorie spécifique existe (ex: 'ses_ces')
-            if (!lib.homophones[p.category]) {
-                console.warn(`Catégorie introuvable : ${p.category}`);
-                return {
-                    isVisual: true,
-                    visualType: 'homophones',
-                    question: `<div style="color:red; font-weight:bold;">
-                        Erreur : La catégorie <u>${p.category}</u><br>
-                        n'existe pas dans french_lib.json
-                    </div>`,
-                    answer: "ok",
-                    inputType: "selection",
-                    data: { choices: [] }
-                };
-            }
-
-            // Si tout va bien, on lance l'exercice
             const pool = lib.homophones[p.category];
             const picked = pool[Math.floor(Math.random() * pool.length)];
 
-            // SÉCURITÉ : On vérifie qu'on a bien récupéré une phrase
-            if (!picked || !picked.q) {
-                return { isVisual: false, question: "Erreur : Phrase vide", answer: "ok", inputType: "info" };
+            // 2. ADAPTATION AUTOMATIQUE AUX DONNÉES (C'est ici la correction)
+            // On cherche le texte dans "sentence" (ton format), ou "q", ou "question"
+            const rawQuestion = picked.sentence || picked.q || picked.question;
+            const rawAnswer = picked.answer || picked.a;
+
+            if (!rawQuestion) {
+                return { isVisual: false, question: "Erreur : Champ 'sentence' vide", answer: "ok", inputType: "info" };
+            }
+
+            // 3. GESTION DES CHOIX (Boutons)
+            // Si les choix ne sont pas envoyés par l'exercice, on essaie de les deviner via le nom de catégorie (ex: on_ont -> ["on", "ont"])
+            let choices = p.choices;
+            if (!choices || choices.length === 0) {
+                 if (p.category.includes('_')) choices = p.category.split('_');
+                 else choices = ["Choix 1", "Choix 2"];
             }
 
             return {
                 isVisual: true, 
-                visualType: 'homophones', // Déclenche l'affichage texte dans ui.js
-                question: `<span class="small-question">${picked.q.replace('...', '___')}</span>`,
-                answer: picked.a,
-                inputType: "qcm",
-                data: { choices: p.choices || ["?"] } // Fallback si pas de choix
+                visualType: 'homophones', // Active l'affichage texte
+                
+                // On remplace les '...' OU les '___' par une jolie zone de réponse
+                question: `<span class="small-question">${rawQuestion.replace(/(\.\.\.|___)/g, '<span style="color:var(--primary)">_____</span>')}</span>`,
+                
+                answer: rawAnswer,
+                
+                // FORCE LE CLAVIER DE CHOIX (et vire le clavier numérique)
+                inputType: "qcm", 
+                data: { choices: choices }
             };
         },
 
@@ -427,4 +419,5 @@ function numberToFrench(n) {
 
     return result.trim();
 }
+
 
