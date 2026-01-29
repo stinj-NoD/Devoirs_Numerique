@@ -250,15 +250,57 @@ const Engines = {
             };
         },
 
-        homophones(p, lib) {
+homophones(p, lib) {
+            // 1. SÉCURITÉ : Vérifier si la bibliothèque est chargée
+            if (!lib) {
+                return {
+                    isVisual: false,
+                    question: "Erreur : La bibliothèque 'french_lib.json' n'est pas chargée.",
+                    answer: "ok", inputType: "info"
+                };
+            }
+
+            // 2. SÉCURITÉ : Vérifier si la section homophones existe
+            if (!lib.homophones) {
+                return {
+                    isVisual: false,
+                    question: "Erreur : Section 'homophones' manquante dans le fichier JSON.",
+                    answer: "ok", inputType: "info"
+                };
+            }
+
+            // 3. SÉCURITÉ : Vérifier si la catégorie spécifique existe (ex: 'ses_ces')
+            if (!lib.homophones[p.category]) {
+                console.warn(`Catégorie introuvable : ${p.category}`);
+                return {
+                    isVisual: true,
+                    visualType: 'homophones',
+                    question: `<div style="color:red; font-weight:bold;">
+                        Erreur : La catégorie <u>${p.category}</u><br>
+                        n'existe pas dans french_lib.json
+                    </div>`,
+                    answer: "ok",
+                    inputType: "selection",
+                    data: { choices: [] }
+                };
+            }
+
+            // Si tout va bien, on lance l'exercice
             const pool = lib.homophones[p.category];
             const picked = pool[Math.floor(Math.random() * pool.length)];
+
+            // SÉCURITÉ : On vérifie qu'on a bien récupéré une phrase
+            if (!picked || !picked.q) {
+                return { isVisual: false, question: "Erreur : Phrase vide", answer: "ok", inputType: "info" };
+            }
+
             return {
-                isVisual: true, visualType: 'homophones', // Corrigé : True pour déclencher l'affichage visuel (texte) dans ui.js
+                isVisual: true, 
+                visualType: 'homophones', // Déclenche l'affichage texte dans ui.js
                 question: `<span class="small-question">${picked.q.replace('...', '___')}</span>`,
                 answer: picked.a,
                 inputType: "qcm",
-                data: { choices: p.choices }
+                data: { choices: p.choices || ["?"] } // Fallback si pas de choix
             };
         },
 
@@ -385,3 +427,4 @@ function numberToFrench(n) {
 
     return result.trim();
 }
+
