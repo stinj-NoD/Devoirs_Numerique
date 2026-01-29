@@ -576,51 +576,6 @@ input, textarea {
     transform: translateY(4px); /* Le bouton s'enfonce */
     box-shadow: none; /* L'ombre disparaît */
 }
-
-/* --- FIX MOBILE : HAUTEUR DYNAMIQUE --- */
-body, html, #app {
-    /* Utilise la hauteur dynamique réelle (exclut la barre d'adresse) */
-    height: 100dvh; 
-    /* Fallback pour vieux navigateurs */
-    height: 100vh; 
-    overflow: hidden; /* Empêche le scroll global */
-}
-
-/* --- LE CONTENEUR DU CLAVIER --- */
-.keyboard-container {
-    width: 100%;
-    /* Largeur max pour mobile par défaut */
-    max-width: 600px; 
-    margin: 0 auto;
-    /* Gère la "Zone Sûre" en bas (iPhone X, Android Gestures) */
-    padding-bottom: env(safe-area-inset-bottom); 
-    /* Petit padding supplémentaire pour éviter que ça colle au bord */
-    padding-bottom: 10px; 
-}
-
-/* --- CLAVIER SUR TABLETTE / DESKTOP (> 768px) --- */
-@media (min-width: 768px) {
-    .keyboard-container {
-        /* On élargit le clavier */
-        max-width: 900px !important; 
-        padding-bottom: 20px;
-    }
-
-    /* On grandit les touches */
-    .key {
-        font-size: 1.5rem !important; /* Texte plus gros */
-        padding: 15px 0 !important;   /* Touches plus hautes */
-    }
-
-    /* Pour le clavier alphabétique, on donne de la hauteur */
-    .kb-row {
-        gap: 8px !important; /* Plus d'espace entre les touches */
-    }
-    
-    .alpha-keyboard .key {
-        height: 55px !important; /* Touches lettres plus hautes sur tablette */
-    }
-}
 </style>
 </head>
 <body>
@@ -708,6 +663,7 @@ body, html, #app {
 
 </body>
 </html>
+
 
 
 
