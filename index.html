@@ -519,6 +519,66 @@ html {
 input, textarea {
     text-transform: none !important;
 }
+    /* --- ZONE CRÉATION PROFIL --- */
+
+.new-profile-card {
+    display: flex; /* Aligne input et bouton sur la même ligne */
+    align-items: center;
+    gap: 15px; /* Espace entre le champ et le bouton */
+    background: #ffffff !important; /* Fond blanc pur */
+    border: none !important; /* On retire les pointillés gris */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* Belle ombre douce */
+    padding: 15px !important;
+    margin-top: 30px;
+    border-radius: 20px !important;
+}
+
+/* Le champ de saisie */
+#new-profile-name {
+    flex: 1; /* Prend toute la largeur disponible */
+    padding: 15px 20px;
+    font-size: 1.2rem; /* Texte plus gros */
+    border: 2px solid #e2e8f0;
+    border-radius: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+    background: #f8fafc;
+    color: #2d3748;
+}
+
+#new-profile-name:focus {
+    border-color: var(--primary); /* S'allume quand on clique dedans */
+    background: white;
+}
+
+/* Le Gros Bouton + */
+.btn-add-profile {
+    width: 60px;  /* Largeur fixe */
+    height: 60px; /* Hauteur fixe = bouton carré/rond */
+    background: var(--success, #48bb78); /* Vert (ou ta variable success) */
+    color: white;
+    font-size: 2.5rem; /* Un très gros "+" */
+    font-weight: bold;
+    border: none;
+    border-radius: 15px; /* Bords arrondis */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0; /* Centre parfaitement le + verticalement */
+    padding-bottom: 8px; /* Petit ajustement visuel du + */
+    box-shadow: 0 4px 0 #2f855a; /* Effet 3D (bouton enfonçable) */
+    transition: all 0.1s;
+}
+
+/* Effet quand on clique sur le bouton */
+.btn-add-profile:active {
+    transform: translateY(4px); /* Le bouton s'enfonce */
+    box-shadow: none; /* L'ombre disparaît */
+}
+
+/* Mobile : Si l'écran est vraiment petit, on garde cette disposition
+   car flex:1 sur l'input gère la place automatiquement. */
 </style>
 </head>
 <body>
@@ -534,11 +594,12 @@ input, textarea {
         <h1>Qui va jouer ?</h1>
         <div id="profiles-list" class="grid-menu"></div>
         
-        <div class="card" style="margin-top: 30px; background: #f8fafc; border: 2px dashed #cbd5e0;">
-            <input type="text" id="new-profile-name" placeholder="Prénom de l'enfant" 
-                   style="padding: 10px; border-radius: 8px; border: 1px solid #ddd; width: 70%;">
-            <button onclick="App.createProfile()" class="btn-add">+</button>
-        </div>
+<div class="card new-profile-card">
+    <input type="text" id="new-profile-name" placeholder="Prénom de l'enfant" autocomplete="off">
+    <button onclick="App.createProfile()" class="btn-add-profile">
+        +
+    </button>
+</div>
         <div style="margin-top: 50px; text-align: center;">
             <button id="btn-debug-reset" style="background: none; border: 1px solid #cbd5e0; color: #a0aec0; padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; cursor: pointer; opacity: 0.6;">
                 ⚙️ Réinitialiser l'application (Dev)
@@ -605,6 +666,7 @@ input, textarea {
 
 </body>
 </html>
+
 
 
 
