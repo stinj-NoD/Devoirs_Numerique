@@ -1,24 +1,12 @@
 /*
  * Devoir Numérique
  * Copyright (C) 2026 [Stinj-NoD]
- *
- * Ce programme est un logiciel libre : vous pouvez le redistribuer et/ou le modifier
- * selon les termes de la Licence Publique Générale GNU publiée par la
- * Free Software Foundation, soit la version 3 de la licence, soit
- * (à votre gré) toute version ultérieure.
- *
- * Ce programme est distribué dans l'espoir qu'il sera utile,
- * mais SANS AUCUNE GARANTIE ; sans même la garantie implicite de
- * COMMERCIALISATION ou D'ADÉQUATION À UN USAGE PARTICULIER.
- * Voir la Licence Publique Générale GNU pour plus de détails.
  */
 const UI = {
-    // Éléments mis à jour dynamiquement
     get screens() { return document.querySelectorAll('.screen'); },
     get btnBack() { return document.getElementById('btn-back'); },
     get btnHome() { return document.getElementById('btn-home'); },
 
-    // --- NAVIGATION ---
     showScreen(id) {
         this.screens.forEach(s => {
             if (s.id === id) {
@@ -65,7 +53,6 @@ const UI = {
         });
     },
 
-    // --- CŒUR DU JEU & CLAVIERS ---
     initNavigation() {
         if (this.btnHome) {
             this.btnHome.onclick = () => location.reload();
@@ -85,7 +72,7 @@ const UI = {
         const btnReset = document.getElementById('btn-debug-reset');
         if (btnReset) {
             btnReset.onclick = () => {
-                if (confirm("⚠️ Vider tout le cache ? (Profils, scores et fichiers seront supprimés)")) {
+                if (confirm("⚠️ Vider tout le cache ?")) {
                     localStorage.clear();
                     if ('caches' in window) {
                         caches.keys().then(names => {
@@ -108,7 +95,7 @@ const UI = {
         }
     },
 
-updateKeyboardLayout(type, data = null) {
+    updateKeyboardLayout(type, data = null) {
         const numKb = document.getElementById('keyboard-num');
         const boolKb = document.getElementById('keyboard-boolean');
         const answerZone = document.getElementById('user-answer');
@@ -116,31 +103,24 @@ updateKeyboardLayout(type, data = null) {
 
         if (!container || !numKb) return;
 
-        // Reset visuel
         numKb.style.display = "none";
         if (boolKb) boolKb.style.display = "none";
         answerZone.style.display = "flex";
 
         if (type === "boolean" || type === "qcm") {
-            // --- CORRECTION DU BUG DES BOUTONS DISPARUS ---
-            // On cherche la liste des choix (choices). 
-            // Selon le moteur, elle peut être dans data.choices ou data.data.choices.
             let choices = ["VRAI", "FAUX"];
-            
             if (data) {
-                if (data.choices) {
-                    choices = data.choices;
-                } else if (data.data && data.data.choices) {
-                    choices = data.data.choices;
-                }
+                if (data.choices) choices = data.choices;
+                else if (data.data && data.data.choices) choices = data.data.choices;
             }
 
             this.renderQCM(choices);
             numKb.style.display = "grid";
-            answerZone.style.display = "none"; // On cache la zone de texte pour les QCM
+            answerZone.style.display = "none"; 
             
         } else if (type === "selection") {
-            numKb.innerHTML = `<button class="key action ok" data-val="ok" style="grid-column: 1 / -1; height: 65px;">VALIDER LA SÉLECTION</button>`;
+            // MODIF : Retrait du height:65px fixe, on laisse le CSS gérer via une classe
+            numKb.innerHTML = `<button class="key action ok wide-btn" data-val="ok" style="grid-column: 1 / -1;">VALIDER LA SÉLECTION</button>`;
             numKb.style.display = "grid";
             numKb.style.gridTemplateColumns = "1fr";
             
@@ -157,17 +137,15 @@ updateKeyboardLayout(type, data = null) {
     restoreNumericKeyboard() {
         const kb = document.getElementById('keyboard-num');
         kb.style.gridTemplateColumns = "repeat(3, 1fr)";
+        // MODIF : Structure propre, tailles gérées par CSS
         kb.innerHTML = "123456789".split("").map(v => `<button class="key" data-val="${v}">${v}</button>`).join("") +
                        `<button class="key del" data-val="backspace">⌫</button>` +
                        `<button class="key" data-val="0">0</button>` +
                        `<button class="key action ok" data-val="ok">OK</button>`;
     },
 
-    // --- CORRECTION MAJEURE : Clavier purement minuscule ---
     renderAlphaKeyboard() {
         const kb = document.getElementById('keyboard-num');
-        
-        // On définit les lignes directement en minuscules
         const rows = ["azertyuiop", "qsdfghjklm", "wxcvbn"];
         
         kb.style.display = "block"; 
@@ -175,24 +153,23 @@ updateKeyboardLayout(type, data = null) {
 
         let html = '<div class="alpha-keyboard">';
         
-        // Ligne 1 : Accents (Toujours minuscules)
-        html += `<div class="kb-row">` + "éèàçêîôû".split('').map(a => {
-            return `<button class="key letter-key accent-key" style="height:35px; flex:1; font-size:1.1rem; text-transform:none;" data-val="${a}">${a}</button>`;
+        // MODIF : Suppression des height:35px et font-size fixes.
+        // On ajoute une classe 'accent-row' pour le CSS si besoin
+        html += `<div class="kb-row accent-row">` + "éèàçêîôû".split('').map(a => {
+            return `<button class="key letter-key accent-key" style="text-transform:none;" data-val="${a}">${a}</button>`;
         }).join('') + `</div>`;
 
-        // Lignes 2, 3, 4 : Lettres (Toujours minuscules)
         rows.forEach(row => {
             html += `<div class="kb-row">`;
             row.split('').forEach(char => { 
-                html += `<button class="key letter-key" style="flex:1; text-transform:none; font-size:1.2rem;" data-val="${char}">${char}</button>`; 
+                html += `<button class="key letter-key" style="text-transform:none;" data-val="${char}">${char}</button>`; 
             });
             html += `</div>`;
         });
         
-        // Ligne 5 : Commandes (SHIFT SUPPRIMÉ)
-        // On a redistribué l'espace : Espace prend plus de place
+        // Ligne du bas
         html += `<div class="kb-row" style="margin-top:5px">
-            <button class="key" data-val=" " style="flex:4; font-size:1rem;">ESPACE</button>
+            <button class="key" data-val=" " style="flex:4;">ESPACE</button>
             <button class="key action del" data-val="backspace" style="flex:1.5">⌫</button>
             <button class="key action ok" data-val="ok" style="flex:2.5">OK</button>
         </div></div>`;
@@ -212,14 +189,13 @@ updateKeyboardLayout(type, data = null) {
             else if (v === "FAUX") cssClass += " btn-false";
             else cssClass += " btn-neutral";
             
-            // Ajustement taille pour les symboles mathématiques
+            // MODIF : On garde le gros style pour les symboles, mais relatif (rem)
             const style = (v === '<' || v === '>' || v === '=') ? "font-size: 2.5rem;" : "";
 
             return `<button class="${cssClass}" data-val="${v}" style="${style}">${v}</button>`;
         }).join("");
     },
 
-    // --- MOTEURS DE RENDU VISUELS ---
     updateGameDisplay(p, input, prog) {
         const problemZone = document.getElementById('math-problem');
         const answerZone = document.getElementById('user-answer');
@@ -228,9 +204,7 @@ updateKeyboardLayout(type, data = null) {
         problemZone.innerHTML = "";
         answerZone.innerHTML = "";
 
-        // 1. DESSIN DU PROBLÈME
         if (p.isVisual) {
-            // Cas spécifique Homophones (Texte seul mais considéré comme visuel par l'engine)
             if (p.visualType === 'homophones') {
                 problemZone.innerHTML = `<div style="padding:10px; font-size:1.4rem;">${p.question}</div>`;
             } else {
@@ -247,7 +221,6 @@ updateKeyboardLayout(type, data = null) {
                 }
             }
 
-            // Gestionnaire Clic Carré Magique
             if (p.visualType === 'square') {
                 const cards = problemZone.querySelectorAll('.number-card');
                 cards.forEach(card => {
@@ -259,12 +232,9 @@ updateKeyboardLayout(type, data = null) {
                 });
             }
         } else {
-            // Cas non-visuel (ex: Comparaisons 5 ... 9)
-            // On affiche simplement la question texte
             problemZone.innerHTML = `<div style="padding:10px; font-size:2rem; font-weight:bold;">${p.question || ""}</div>`;
         }
 
-        // 2. AFFICHAGE DE LA RÉPONSE / INPUT
         if (p.visualType === 'clock') {
             let s = input.padEnd(4, "_");
             answerZone.innerHTML = `<div class="clock-digit-block">${s.slice(0, 2)}</div><span class="clock-separator">:</span><div class="clock-digit-block">${s.slice(2, 4)}</div>`;
@@ -274,11 +244,11 @@ updateKeyboardLayout(type, data = null) {
             answerZone.innerHTML = `Somme : <b style="color:var(--primary); margin-left:10px">${input || 0}</b> / ${p.data.target}`;
         }
 
-        // 3. BARRE DE PROGRÈS
         const bar = document.getElementById('game-progress');
         if (bar) bar.style.width = prog + "%";
     },
 
+    // --- DRAW FUNCTIONS (Inchangées, elles sont purement visuelles) ---
     drawReading(d) {
         let h = `<div class="reading-container">`, charIdx = 0;
         d.syllables.forEach((syll, sIdx) => {
@@ -299,7 +269,6 @@ updateKeyboardLayout(type, data = null) {
         const sortedZones = [...d.zonesDefinitions].sort((a, b) => a - b);
         const step = 80 / sortedZones.length;
         const colors = ['#FFD700', '#9ACD32', '#87CEEB', '#DA70D6', '#FF6347'];
-
         let svg = ''; 
         sortedZones.forEach((val, index) => { 
             const r = 80 - (index * step);
@@ -307,7 +276,6 @@ updateKeyboardLayout(type, data = null) {
             svg += `<circle cx="${c}" cy="${c}" r="${r}" fill="${color}" stroke="#fff" stroke-width="2"/>`;
             svg += `<text x="${c}" y="${c - r + 12}" text-anchor="middle" font-size="10px" font-weight="bold" fill="rgba(0,0,0,0.5)">${val}</text>`; 
         });
-
         d.hits.forEach((h) => { 
             const val = h.val; 
             const zoneIndex = sortedZones.indexOf(val);
@@ -397,11 +365,3 @@ updateKeyboardLayout(type, data = null) {
 };
 
 window.addEventListener('DOMContentLoaded', () => UI.initNavigation());
-
-
-
-
-
-
-
-
