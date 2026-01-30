@@ -275,7 +275,9 @@ homophones(p, lib) {
 
             // 3. GESTION DES CHOIX (Boutons)
             // Si les choix ne sont pas envoyés par l'exercice, on essaie de les deviner via le nom de catégorie (ex: on_ont -> ["on", "ont"])
-            let choices = p.choices;
+            let choices = picked.choices || p.choices;
+            
+            // Fallback si rien n'est trouvé
             if (!choices || choices.length === 0) {
                  if (p.category.includes('_')) choices = p.category.split('_');
                  else choices = ["Choix 1", "Choix 2"];
@@ -419,5 +421,6 @@ function numberToFrench(n) {
 
     return result.trim();
 }
+
 
 
