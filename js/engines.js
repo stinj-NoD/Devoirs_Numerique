@@ -252,11 +252,10 @@ const Engines = {
 
 homophones(p, lib) {
             // 1. SÉCURITÉ DE BASE
-            // Si la catégorie n'existe pas, on renvoie une erreur visuelle propre
             if (!lib || !lib.homophones || !lib.homophones[p.category]) {
                 return {
                     isVisual: false,
-                    question: `Erreur: Catégorie '${p.category}' introuvable dans french_lib`,
+                    question: `Erreur: Catégorie '${p.category}' introuvable`,
                     answer: "ok", inputType: "info"
                 };
             }
@@ -264,35 +263,46 @@ homophones(p, lib) {
             const pool = lib.homophones[p.category];
             const picked = pool[Math.floor(Math.random() * pool.length)];
 
-            // 2. ADAPTATION AUTOMATIQUE AUX DONNÉES (C'est ici la correction)
-            // On cherche le texte dans "sentence" (ton format), ou "q", ou "question"
+            // 2. NORMALISATION DU TEXTE
+            // Accepte "sentence", "q" ou "question"
             const rawQuestion = picked.sentence || picked.q || picked.question;
+            // Accepte "answer" ou "a"
             const rawAnswer = picked.answer || picked.a;
 
             if (!rawQuestion) {
-                return { isVisual: false, question: "Erreur : Champ 'sentence' vide", answer: "ok", inputType: "info" };
+                return { isVisual: false, question: "Erreur : Phrase vide", answer: "ok", inputType: "info" };
             }
 
-            // 3. GESTION DES CHOIX (Boutons)
-            // Si les choix ne sont pas envoyés par l'exercice, on essaie de les deviner via le nom de catégorie (ex: on_ont -> ["on", "ont"])
-            let choices = picked.choices || p.choices;
-            
-            // Fallback si rien n'est trouvé
-            if (!choices || choices.length === 0) {
-                 if (p.category.includes('_')) choices = p.category.split('_');
-                 else choices = ["Choix 1", "Choix 2"];
+            // 3. LOGIQUE INTELLIGENTE DES CHOIX (Boutons)
+            let choices = [];
+
+            // CAS A : La phrase contient ses propres choix (ex: mélange CM2)
+            if (picked.choices) {
+                choices = picked.choices;
+            }
+            // CAS B : L'exercice impose les choix (ex: dans cm2.json)
+            else if (p.choices && p.choices.length > 0) {
+                choices = p.choices;
+            }
+            // CAS C : Automatique (ex: catégorie "a_à" -> ["a", "à"])
+            else if (p.category.includes('_')) {
+                choices = p.category.split('_');
+            }
+            // CAS D : Secours
+            else {
+                choices = ["1", "2"];
             }
 
             return {
                 isVisual: true, 
-                visualType: 'homophones', // Active l'affichage texte
+                visualType: 'homophones',
                 
-                // On remplace les '...' OU les '___' par une jolie zone de réponse
+                // Remplacement visuel des trous (___ ou ...) par une ligne colorée
                 question: `<span class="small-question">${rawQuestion.replace(/(\.\.\.|___)/g, '<span style="color:var(--primary)">_____</span>')}</span>`,
                 
                 answer: rawAnswer,
                 
-                // FORCE LE CLAVIER DE CHOIX (et vire le clavier numérique)
+                // Active le clavier à boutons
                 inputType: "qcm", 
                 data: { choices: choices }
             };
@@ -421,6 +431,7 @@ function numberToFrench(n) {
 
     return result.trim();
 }
+
 
 
 
