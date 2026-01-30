@@ -104,19 +104,19 @@
           }
         },
         {
-          "id": "cm2_homophones",
-          "title": "Homophones",
-          "subtitle": "ces/ses, c'est/s'est...",
+          "id": "cm2_homophones_mix",
+          "title": "Grand Mix Homophones",
+          "subtitle": "a/à, et/est, ou/où, ce/se...",
           "engine": "choice-engine",
           "params": { 
             "type": "homophone-duel", 
-            "category": "cm2_complexe", 
-            "choices": ["ces", "ses"], 
-            "questions": 10 
+            "category": "mix_all",   // <--- LE MOT MAGIQUE
+            "questions": 15 
           }
         }
       ]
     }
   ]
 }
+
 
