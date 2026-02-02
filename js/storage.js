@@ -1,72 +1,120 @@
 /*
  * Devoir Numérique
  * Copyright (C) 2026 [Stinj-NoD]
- *
- * Ce programme est un logiciel libre : vous pouvez le redistribuer et/ou le modifier
- * selon les termes de la Licence Publique Générale GNU publiée par la
- * Free Software Foundation, soit la version 3 de la licence, soit
- * (à votre gré) toute version ultérieure.
- *
- * Ce programme est distribué dans l'espoir qu'il sera utile,
- * mais SANS AUCUNE GARANTIE ; sans même la garantie implicite de
- * COMMERCIALISATION ou D'ADÉQUATION À UN USAGE PARTICULIER.
- * Voir la Licence Publique Générale GNU pour plus de détails.
+ * Licence : GNU GPL v3
  */
+
 const Storage = {
     currentUser: null,
+    // Une clé "secrète" pour signer les scores (à changer si tu veux)
+    _salt: "DN_2026_SECURE_V1",
+
+    /**
+     * Nettoie une chaîne pour éviter les injections de scripts ou caractères spéciaux
+     */
+    _sanitize(str) {
+        if (!str) return "";
+        return str.replace(/[^-a-zA-Z0-9À-ÿ ]/g, "").trim();
+    },
+
+    /**
+     * Génère un hash simple pour vérifier que le score n'a pas été modifié à la main
+     */
+    _generateHash(data) {
+        const str = JSON.stringify(data) + this._salt;
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            hash = ((hash << 5) - hash) + str.charCodeAt(i);
+            hash |= 0; // Convertit en entier 32 bits
+        }
+        return hash.toString(16);
+    },
 
     setCurrentUser(name) {
-        this.currentUser = name;
-        localStorage.setItem('math_current_user', name);
+        const cleanName = this._sanitize(name);
+        this.currentUser = cleanName;
+        localStorage.setItem('dn_current_user', cleanName);
     },
 
     getCurrentUser() {
-        return this.currentUser || localStorage.getItem('math_current_user');
+        return this.currentUser || localStorage.getItem('dn_current_user');
     },
 
     getProfiles() {
-        const p = localStorage.getItem('math_profiles_list');
-        return p ? JSON.parse(p) : [];
+        try {
+            const p = localStorage.getItem('dn_profiles_list');
+            return p ? JSON.parse(p).map(n => this._sanitize(n)) : [];
+        } catch (e) { return []; }
     },
 
     addProfile(name) {
+        const cleanName = this._sanitize(name);
+        if (!cleanName) return;
+        
         let profiles = this.getProfiles();
-        if (!profiles.includes(name)) {
-            profiles.push(name);
-            localStorage.setItem('math_profiles_list', JSON.stringify(profiles));
+        if (!profiles.includes(cleanName)) {
+            profiles.push(cleanName);
+            localStorage.setItem('dn_profiles_list', JSON.stringify(profiles));
         }
     },
 
-    // La clé de sauvegarde devient spécifique : "Alice_records"
     saveRecord(gradeId, exerciseId, score, total) {
         if (!this.currentUser) return;
+        
         const key = `records_${this.currentUser}`;
-        let records = JSON.parse(localStorage.getItem(key) || "{}");
-        const percent = (score / total) * 100;
+        let records = {};
+        
+        // Récupération sécurisée des anciens records
+        try {
+            const raw = localStorage.getItem(key);
+            if (raw) records = JSON.parse(raw);
+        } catch (e) { records = {}; }
 
+        const percent = Math.min(100, Math.max(0, (score / total) * 100));
+        const stars = (percent === 100 ? 3 : percent >= 75 ? 2 : percent >= 50 ? 1 : 0);
+
+        // On ne sauvegarde que si c'est un meilleur score
         if (!records[exerciseId] || percent > records[exerciseId].percent) {
-            records[exerciseId] = { score, total, percent, stars: (percent === 100 ? 3 : percent >= 75 ? 2 : percent >= 50 ? 1 : 0) };
+            const entry = { score, total, percent, stars, timestamp: Date.now() };
+            
+            // Signature de l'entrée pour détecter la triche
+            entry.h = this._generateHash({s: score, t: total, p: percent});
+            
+            records[exerciseId] = entry;
             localStorage.setItem(key, JSON.stringify(records));
         }
     },
 
     getRecord(exerciseId) {
         if (!this.currentUser) return null;
-        const records = JSON.parse(localStorage.getItem(`records_${this.currentUser}`) || "{}");
-        return records[exerciseId] || null;
+        try {
+            const records = JSON.parse(localStorage.getItem(`records_${this.currentUser}`) || "{}");
+            const entry = records[exerciseId];
+            
+            if (!entry) return null;
+
+            // VERIFICATION : Le hash correspond-il toujours aux données ?
+            const check = this._generateHash({s: entry.score, t: entry.total, p: entry.percent});
+            if (check !== entry.h) {
+                console.warn("Données corrompues ou modifiées pour l'exercice :", exerciseId);
+                return null; // On ignore le score s'il a été modifié manuellement
+            }
+            
+            return entry;
+        } catch (e) { return null; }
     },
+
     removeProfile(name) {
+        const cleanName = this._sanitize(name);
         let profiles = this.getProfiles();
-        profiles = profiles.filter(p => p !== name);
-        localStorage.setItem('math_profiles_list', JSON.stringify(profiles));
+        profiles = profiles.filter(p => p !== cleanName);
+        localStorage.setItem('dn_profiles_list', JSON.stringify(profiles));
         
-        // Optionnel : on nettoie aussi les records associés pour libérer de l'espace
-        localStorage.removeItem(`records_${name}`);
+        localStorage.removeItem(`records_${cleanName}`);
         
-        // Si c'était l'utilisateur actuel, on le déconnecte
-        if (this.currentUser === name) {
+        if (this.currentUser === cleanName) {
             this.currentUser = null;
-            localStorage.removeItem('math_current_user');
+            localStorage.removeItem('dn_current_user');
         }
     }
 };

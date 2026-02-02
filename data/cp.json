@@ -65,6 +65,68 @@
         { "id": "fr-food", "title": "Manger", "subtitle": "Écris le nom", "engine": "math-input", "params": { "type": "spelling", "category": "food", "questions": 5 }},
         { "id": "fr-transp", "title": "Transports", "subtitle": "Écris le nom", "engine": "math-input", "params": { "type": "spelling", "category": "transport", "questions": 5 }}
       ]
+    },
+{
+      "id": "cp-grammaire-genre",
+      "title": "Masculin ou Féminin",
+      "icon": "🚻",
+      "exercises": [
+        {
+          "id": "cp-un-une",
+          "title": "Un ou Une ?",
+          "subtitle": "Choisis le bon petit mot",
+          "engine": "choice-engine",
+          "params": {
+            "type": "gender-articles",
+            "category": "gender_cp",
+            "options": ["un", "une"], 
+            "questions": 5
+          }
+        },
+        {
+          "id": "cp-le-la",
+          "title": "Le ou La ?",
+          "subtitle": "Articles définis",
+          "engine": "choice-engine",
+          "params": {
+            "type": "gender-articles",
+            "category": "gender_cp",
+            "options": ["le", "la"], 
+            "questions": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "cp-ecriture-nombres",
+      "title": "Écrire les nombres",
+      "icon": "📝",
+      "exercises": [
+        {
+          "id": "cp-dictee-0-10",
+          "title": "Petits Nombres",
+          "subtitle": "De 0 à 10 en lettres",
+          "engine": "math-input",
+          "params": {
+            "type": "number-spelling",
+            "min": 0,
+            "max": 10,
+            "questions": 5
+          }
+        },
+        {
+          "id": "cp-dictee-10-20",
+          "title": "Nombres de 10 à 20",
+          "subtitle": "Les irréguliers (onze...)",
+          "engine": "math-input",
+          "params": {
+            "type": "number-spelling",
+            "min": 10,
+            "max": 20,
+            "questions": 5
+          }
+        }
+      ]
     }
   ]
 

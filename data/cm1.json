@@ -3,14 +3,64 @@
   "title": "CM1",
   "themes": [
     {
-      "id": "cm1-maths",
-      "title": "Mathématiques",
-      "icon": "📐",
-      "exercises": [
-        { "id": "cm1-frac-1", "title": "Fractions", "subtitle": "Lecture visuelle", "engine": "math-input", "params": { "type": "fraction-view", "maxDenom": 8, "questions": 10 }},
-        { "id": "cm1-dec-1", "title": "Décimaux", "subtitle": "Chiffre des dixièmes/centièmes", "engine": "math-input", "params": { "type": "decimal-place", "questions": 10 }},
-        { "id": "cm1-m-big", "title": "Grands Nombres", "subtitle": "Dictée jusqu'au million", "engine": "math-input", "params": { "type": "dictée-nombres", "max": 1000000, "questions": 5 }}
-      ]
+  "id": "cm1-maths",
+  "title": "Mathématiques",
+  "icon": "📐",
+  "exercises": [
+    { 
+      "id": "cm1-m-big", 
+      "title": "Grands Nombres", 
+      "subtitle": "Dictée jusqu'au million", 
+      "engine": "math-input", 
+      "params": { "type": "dictée-nombres", "max": 1000000, "questions": 5 }
+    },
+    { 
+      "id": "cm1-frac-1", 
+      "title": "Fractions", 
+      "subtitle": "Lecture visuelle", 
+      "engine": "math-input", 
+      "params": { "type": "fraction-view", "maxDenom": 8, "questions": 10 }
+    },
+    { 
+      "id": "cm1-dec-1", 
+      "title": "Décimaux", 
+      "subtitle": "Trouver les dixièmes/centièmes", 
+      "engine": "math-input", 
+      "params": { "type": "decimal-place", "questions": 10 }
+    },
+    { 
+      "id": "cm1-div-1", 
+      "title": "La Moitié", 
+      "subtitle": "Calcul mental rapide", 
+      "engine": "math-input", 
+      "params": { "type": "half", "questions": 10 }
+    },
+    { 
+      "id": "cm1-div-2", 
+      "title": "Divisions Simples", 
+      "subtitle": "Tables inversées (ex: 42 : 6)", 
+      "engine": "math-input", 
+      "params": { "type": "division-simple", "questions": 10 }
+    },
+    { 
+      "id": "cm1-div-3", 
+      "title": "Le Juste Nombre", 
+      "subtitle": "Dans 26, combien de fois 5 ?", 
+      "engine": "math-input", 
+      "params": { "type": "division-reste", "questions": 10 }
+    },
+    {
+      "id": "cm1-div-posed-1",
+      "title": "Division Posée",
+      "subtitle": "Trouve le quotient (1 chiffre)",
+      "engine": "math-input",
+      "params": { 
+        "type": "division-posed", 
+        "level": 1, 
+        "questions": 5 
+      }
+    }
+  ]
     },
     {
       "id": "cm1-francais",
