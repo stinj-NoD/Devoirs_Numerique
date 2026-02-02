@@ -1,83 +1,138 @@
 /*
- * Devoir Numérique
+ * Devoir Numérique - Engines.js
  * Copyright (C) 2026 [Stinj-NoD]
- *
- * Ce programme est un logiciel libre : vous pouvez le redistribuer et/ou le modifier
- * selon les termes de la Licence Publique Générale GNU publiée par la
- * Free Software Foundation, soit la version 3 de la licence, soit
- * (à votre gré) toute version ultérieure.
- *
- * Ce programme est distribué dans l'espoir qu'il sera utile,
- * mais SANS AUCUNE GARANTIE ; sans même la garantie implicite de
- * COMMERCIALISATION ou D'ADÉQUATION À UN USAGE PARTICULIER.
- * Voir la Licence Publique Générale GNU pour plus de détails.
+ * Version : 3.0 (Hardened & Optimized)
  */
-const Engines = {
-    /**
-     * Point d'entrée unique
-     */
-    run(type, params, lib) {
-        // GESTION DES ALIAS (SÉCURITÉ)
-        if (type === 'compare' || type === 'choice') type = 'choice-engine';
-        if (type === 'oiseau') { type = 'math-input'; params.type = 'oiseau-math'; }
-        if (type === 'taoki' || type === 'lecture') type = 'reading';
 
-        switch (type) {
-            case 'math-input':
-                if (params.type === 'spelling') return this.generators.spelling(params, lib);
-                if (params.type === 'clock') return this.generators.clock(params);
-                if (params.type === 'fraction-view') return this.generators.fractionView(params);
-                if (params.type === 'carre-somme') return this.generators.carreSomme(params);
-                return this.generators.calculate(params);
-            case 'choice-engine':
-                if (params.type === 'homophone-duel') return this.generators.homophones(params, lib);
-                return this.generators.compare(params);
-            case 'conjugation':
-                return this.generators.conjugation(params, lib);
-            case 'clock':
-                return this.generators.clock(params);
-            case 'counting':
-                return this.generators.counting(params);
-            case 'reading':
-                return this.generators.reading(params, lib);    
-            default:
-                console.error("Moteur inconnu :", type);
-                return { question: "Erreur", answer: 0, inputType: 'numeric' };
+const Engines = {
+    // --- BOÎTE À OUTILS INTERNE (Robustesse & Aléatoire) ---
+    utils: {
+        // Entier aléatoire borné (sécurisé si min > max)
+        rnd(min, max) {
+            if (min > max) [min, max] = [max, min];
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        },
+        // Pioche un élément dans un tableau sans crasher si vide
+        pick(arr) {
+            return (Array.isArray(arr) && arr.length > 0) ? arr[Math.floor(Math.random() * arr.length)] : null;
+        },
+        // Mélange de Fisher-Yates (Vrai aléatoire)
+        shuffle(arr) {
+            const newArr = [...arr];
+            for (let i = newArr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+            }
+            return newArr;
         }
     },
 
-    generators: {
-        // --- GÉNÉRATEURS MATHÉMATIQUES ---
+    /**
+     * POINT D'ENTRÉE UNIQUE
+     * @param {string} type - Le nom du moteur (ex: 'math-input', 'conjugation')
+     * @param {object} params - Les paramètres du JSON (target, range, etc.)
+     * @param {object} lib - La bibliothèque externe (Français)
+     */
+    run(type, params = {}, lib = {}) {
+        // 1. Normalisation des Alias
+        let engineType = type;
+        if (['compare', 'choice'].includes(engineType)) engineType = 'choice-engine';
+        if (engineType === 'oiseau') {
+            engineType = 'math-input';
+            params.type = 'oiseau-math';
+        }
 
+        try {
+            let result;
+            // 2. Aiguillage vers le bon générateur
+            switch (engineType) {
+                case 'math-input':
+                    if (params.type === 'spelling') result = this.generators.spelling(params, lib);
+                    else if (params.type === 'clock') result = this.generators.clock(params);
+                    else if (params.type === 'fraction-view') result = this.generators.fractionView(params);
+                    else if (params.type === 'number-spelling') result = this.generators.numberSpelling(params);
+                    else if (params.type === 'carre-somme') result = this.generators.carreSomme(params);
+                    else result = this.generators.calculate(params);
+                    break;
+
+                case 'choice-engine':
+                    // --- AJOUT : Gestion Genre et Articles ---
+                    if (params.type === 'gender-articles') result = this.generators.genderArticles(params, lib);
+                    else if (params.type === 'homophone-duel') result = this.generators.homophones(params, lib);
+                    else result = this.generators.compare(params);
+                    break;
+
+                case 'conjugation': result = this.generators.conjugation(params, lib); break;
+                case 'clock': result = this.generators.clock(params); break;
+                case 'counting': result = this.generators.counting(params); break;
+
+                default:
+                    console.error(`Moteur inconnu : ${engineType}`);
+                    return this.fallback("Exercice non disponible");
+            }
+
+            // 3. Standardisation de la sortie (Anti-Undefined)
+            return this.standardize(result);
+
+        } catch (e) {
+            console.error("🔥 CRASH ENGINE :", e);
+            return this.fallback("Erreur technique de l'exercice");
+        }
+    },
+
+    /**
+     * Garantit que l'UI reçoit toujours un objet propre
+     */
+    standardize(res) {
+        return {
+            question: res.question || "",
+            // On force la conversion en string pour garder les zéros non significatifs (ex: "0915")
+            answer: (res.answer !== undefined && res.answer !== null) ? res.answer.toString() : "error",
+            inputType: res.inputType || "numeric",
+            isVisual: !!res.isVisual,
+            visualType: res.visualType || null,
+            data: res.data || {}
+        };
+    },
+
+    fallback(msg) {
+        return { question: msg, answer: "0", inputType: 'numeric', isVisual: false };
+    },
+
+    // --- LES GÉNÉRATEURS ---
+    generators: {
+        
+        // 1. MATHÉMATIQUES
         calculate(p) {
+            const { rnd, pick, shuffle } = Engines.utils;
             let a, b, total;
-            const rnd = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
             switch (p.type) {
                 case 'add-simple':
                     total = rnd(p.min || 2, p.maxSum || 10);
                     a = rnd(1, total - 1);
-                    return { question: `${a} + ${total - a} = ?`, answer: total, inputType: 'numeric' };
+                    return { question: `${a} + ${total - a} = ?`, answer: total };
 
                 case 'add-trou':
-                    total = rnd(p.min, p.max);
+                    total = rnd(p.min || 10, p.max || 20);
                     a = rnd(1, total - 1);
-                    return { question: `${a} + ? = ${total}`, answer: total - a, inputType: 'numeric' };
+                    return { question: `${a} + ? = ${total}`, answer: total - a };
 
                 case 'sub-simple':
-                    a = rnd(p.min, p.max);
+                    a = rnd(p.min || 5, p.max || 20);
                     b = rnd(0, a);
-                    return { question: `${a} - ${b} = ?`, answer: a - b, inputType: 'numeric' };
+                    return { question: `${a} - ${b} = ?`, answer: a - b };
 
                 case 'mult':
-                    const activeTable = p.table === 'mix' ? rnd(2, 9) : p.table;
+                    // Supporte table unique (7) ou table mixte ('mix')
+                    a = p.table === 'mix' ? rnd(2, 9) : (p.table || 2);
                     b = rnd(0, 10);
-                    return { question: `${activeTable} × ${b} = ?`, answer: activeTable * b, inputType: 'numeric' };
+                    return { question: `${a} × ${b} = ?`, answer: a * b };
 
                 case 'complement':
-                    const targetVal = p.target || 100;
-                    const currentVal = rnd(1, targetVal - 1);
-                    return { question: `${currentVal} + ? = ${targetVal}`, answer: targetVal - currentVal, inputType: 'numeric' };
+                    const target = p.target || 100;
+                    const cur = rnd(1, target - 1);
+                    return { question: `${cur} + ? = ${target}`, answer: target - cur };
 
                 case 'decimal-place':
                     const vDec = (Math.random() * 100).toFixed(2);
@@ -85,338 +140,407 @@ const Engines = {
                     const parts = vDec.split('.');
                     return { 
                         question: `<span class="small-question">Dans <b>${vDec.replace('.', ',')}</b>,<br>quel est le chiffre des ${isT ? 'dixièmes' : 'centièmes'} ?</span>`, 
-                        answer: parseInt(isT ? parts[1][0] : parts[1][1]), 
-                        inputType: 'numeric' 
+                        answer: isT ? parts[1][0] : parts[1][1]
                     };
 
                 case 'dictée-nombres':
                     const nBig = rnd(1000, p.max || 1000000);
                     return { 
-                        question: `<span class="small-question">Écris en chiffres le nombre :<br><b>« ${numberToFrench(nBig)} »</b></span>`, 
-                        answer: nBig, 
-                        inputType: 'numeric' 
+                        question: `<span class="small-question">Écris en chiffres :<br><b>« ${numberToFrench(nBig)} »</b></span>`, 
+                        answer: nBig 
                     };
 
-                // --- AJOUT CM2 : CALCUL MENTAL (Division & Tables Supérieures) ---
                 case 'calc-mental': 
-                    let op = p.operator || "x";
-                    
-                    if(op === "/") {
-                        // DIVISION PAR 10, 100, 1000
-                        const diviseur = p.operands[Math.floor(Math.random() * p.operands.length)];
-                        const answer = rnd(5, 200); 
-                        const dividend = answer * diviseur;
-                        
-                        return { 
-                            question: `${dividend} : ${diviseur} = ?`, 
-                            answer: answer, 
-                            inputType: 'numeric' 
-                        };
-                    } else {
-                        // MULTIPLICATION AVANCÉE (Tables 11 à 15)
-                        const val1 = rnd(p.range[0], p.range[1]); 
-                        let val2;
-                        // 20% de chance de tomber sur un carré (ex: 12x12), sinon x2 à x10
-                        if (Math.random() < 0.2) {
-                            val2 = val1;
-                        } else {
-                            val2 = rnd(2, 10);
-                        }
-                        
-                        return { 
-                            question: `${val1} × ${val2} = ?`, 
-                            answer: val1 * val2, 
-                            inputType: 'numeric' 
-                        };
+                    // Gestion division ou multiplication
+                    if(p.operator === "/") {
+                        const ops = p.operands?.length ? p.operands : [2, 5, 10];
+                        const diviseur = pick(ops);
+                        const ans = rnd(5, 50); 
+                        return { question: `${ans * diviseur} : ${diviseur} = ?`, answer: ans };
                     }
-                // -------------------------------------------------------------
+                    const v1 = rnd(p.range?.[0] || 2, p.range?.[1] || 10); 
+                    const v2 = rnd(2, 10);
+                    return { question: `${v1} × ${v2} = ?`, answer: v1 * v2 };
 
                 case 'oiseau-math':
-                    a = rnd(p.min, p.max); b = rnd(p.min, p.max);
-                    total = a + b;
-                    let choices = [total, total + 1, total - 1].sort(() => Math.random() - 0.5);
-                    return { isVisual: true, visualType: 'bird', inputType: 'qcm', data: { question: `${a} + ${b}`, choices: choices, duration: p.vitesse || 8 }, answer: total };
-
-                case 'cibles': 
-                    let touches = [];
-                    for (let i = 0; i < p.nbFleches; i++) {
-                        const val = p.zones[Math.floor(Math.random() * p.zones.length)];
-                        const fixedAngle = (i * (360 / p.nbFleches) + (Math.random() * 20)) * (Math.PI / 180);
-                        touches.push({ val: val, angle: fixedAngle });
-                    }
-                    const totalSum = touches.reduce((acc, item) => acc + item.val, 0);
-
+                    a = rnd(p.min || 1, p.max || 10); 
+                    b = rnd(p.min || 1, p.max || 10);
+                    const res = a + b;
                     return { 
-                        isVisual: true, 
-                        visualType: p.skin === 'money' ? 'money' : 'target', 
-                        inputType: 'numeric', 
-                        data: { zonesDefinitions: p.zones, hits: touches }, 
-                        answer: totalSum 
+                        isVisual: true, visualType: 'bird', inputType: 'qcm', 
+                        data: { 
+                            question: `${a} + ${b}`, 
+                            choices: shuffle([res, res + 1, res - 1]), 
+                            duration: p.vitesse || 8 
+                        }, 
+                        answer: res 
                     };
 
-                default:
-                    return { question: "Calcul inconnu", answer: 0, inputType: 'numeric' };
+                case 'cibles': 
+                    const zones = p.zones?.length ? p.zones : [10, 50, 100];
+                    let touches = [];
+                    for (let i = 0; i < (p.nbFleches || 3); i++) {
+                        const val = pick(zones);
+                        touches.push({ 
+                            val: val, 
+                            angle: (i * (360 / (p.nbFleches || 3)) + rnd(0, 20)) * (Math.PI / 180) 
+                        });
+                    }
+                    return { 
+                        isVisual: true, visualType: p.skin === 'money' ? 'money' : 'target', 
+                        data: { zonesDefinitions: zones, hits: touches }, 
+                        answer: touches.reduce((acc, item) => acc + item.val, 0) 
+                    };
+
+                    // DANS ENGINESV2.JS -> generators -> calculate -> switch(p.type)
+
+                case 'half': // La Moitié (CM1)
+                    // On prend des nombres pairs évidemment
+                    const pair = rnd(10, 100) * 2; 
+                    return { 
+                        question: `Moitié de ${pair} ?`, 
+                        answer: pair / 2 
+                    };
+
+                case 'division-simple': // Tables de division
+                    // On génère via la multiplication pour être sûr d'avoir un compte rond
+                    b = rnd(2, 9); // Diviseur (table)
+                    const q = rnd(2, 10); // Quotient
+                    a = b * q; // Dividende
+                    return { 
+                        question: `${a} : ${b} = ?`, 
+                        answer: q 
+                    };
+
+                case 'division-reste': // Approche Euclidienne (CM2)
+                    // Ex: 26 divisé par 5 -> Quotient 5, Reste ?
+                    const diviseur = rnd(3, 9);
+                    const quotient = rnd(2, 9);
+                    const reste = rnd(1, diviseur - 1);
+                    const dividende = (diviseur * quotient) + reste;
+                    
+                    // On demande le reste (plus dur) ou le quotient ?
+                    // Pour commencer, demandons le quotient entier ("Combien de fois...")
+                    return {
+                        question: `<span class="small-question">Dans <b>${dividende}</b>,<br>combien de fois <b>${diviseur}</b> ?</span>`,
+                        answer: quotient
+                    };
+
+                    // DANS ENGINESV2.JS -> calculate
+
+                case 'division-posed': 
+                    // Configuration CM1/CM2
+                    const level = p.level || 1; // 1=Simple (3ch/1ch), 2=Dur (3ch/2ch)
+                    
+                    let d_divisor, d_dividend;
+                    
+                    if (level === 1) {
+                        // Diviseur 1 chiffre (3 à 9), Dividende 2 ou 3 chiffres
+                        d_divisor = rnd(3, 9);
+                        d_dividend = rnd(50, 900);
+                    } else {
+                        // Diviseur 2 chiffres (12 à 25), Dividende 3 ou 4 chiffres
+                        d_divisor = rnd(12, 25);
+                        d_dividend = rnd(200, 2000);
+                    }
+
+                    const d_q = Math.floor(d_dividend / d_divisor);
+                    const d_r = d_dividend % d_divisor;
+
+                    // On peut choisir de demander le Reste ou le Quotient via paramètre
+                    const askRemainder = p.ask === 'reste';
+
+                    return {
+                        question: askRemainder ? "Quel est le reste ?" : "Quel est le quotient ?",
+                        answer: askRemainder ? d_r : d_q,
+                        isVisual: true,
+                        visualType: 'division', // Nouveau visuel !
+                        inputType: 'numeric',
+                        data: { 
+                            dividend: d_dividend, 
+                            divisor: d_divisor,
+                            askRemainder // Pour mettre en surbrillance la zone à remplir
+                        }
+                    };
+
+                default: return { question: "Calcul inconnu", answer: 0 };
+            }
+        },
+        numberSpelling(p) {
+            const { rnd } = Engines.utils;
+            const val = rnd(p.min || 0, p.max || 10);
+            
+            // Pile ou Face : Soit on écrit le chiffre (0->1), soit le mot (1->0)
+            // On peut forcer un mode via le JSON avec "forceMode": "numeric" ou "alpha"
+            const targetMode = p.forceMode || (Math.random() > 0.5 ? 'numeric' : 'alpha');
+
+            if (targetMode === 'numeric') {
+                // SCÉNARIO A : L'enfant lit "Dix" et tape "10"
+                // Facile, pas de problème de tiret ici.
+                return {
+                    question: `<div style="font-size:2.2rem; line-height:1.4; text-align:center;">${numberToFrench(val)}</div>`,
+                    answer: val.toString(),
+                    inputType: 'numeric',
+                    isVisual: false
+                };
+            } else {
+                // SCÉNARIO B : L'enfant lit "10" et tape "dix" (ou "dix-sept")
+                return {
+                    question: `<div class="math-formula" style="font-size:4rem;">${val}</div>`,
+                    answer: numberToFrench(val), // Renvoie la "vraie" réponse (ex: dix-sept)
+                    inputType: 'alpha', // Déclenche ton clavier AZERTY avec le tiret
+                    isVisual: false,
+                    data: {
+                        // C'est ici qu'on dit à App.js d'être gentil sur les tirets
+                        // Par défaut c'est permissif (CP), sauf si le JSON dit "strict": true
+                        allowNoHyphen: !p.strict 
+                    }
+                };
             }
         },
 
+        // 2. LOGIQUE (Carré Magique avec pool sécurisée)
         carreSomme(p) {
-            const rnd = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-            const target = rnd(p.targetMin, p.targetMax);
+            const { rnd, shuffle } = Engines.utils;
             const size = p.gridSize || 9;
-            let numbers = [];
+            const target = rnd(p.targetMin || 10, p.targetMax || 30);
             
-            // 1. Solution garantie
-            let n1 = rnd(Math.floor(target * 0.1), Math.floor(target * 0.4));
-            let n2 = rnd(Math.floor(target * 0.1), Math.floor(target * 0.4));
-            let n3 = target - (n1 + n2);
-            if (n3 <= 0) { n1 = Math.floor(target/3); n2 = Math.floor(target/3); n3 = target - (n1+n2); }
-            numbers.push(n1, n2, n3);
+            // a. Solution garantie (3 nombres qui font la cible)
+            const n1 = rnd(1, Math.floor(target / 2.5));
+            const n2 = rnd(1, Math.floor(target / 2.5));
+            const n3 = target - (n1 + n2);
+            let numbers = [n1, n2, n3];
 
-            // 2. Bruit
-            while (numbers.length < size) {
-                let noise = rnd(2, target - 2);
-                if (!numbers.includes(noise)) numbers.push(noise);
-            }
-
-            const grid = numbers.sort(() => Math.random() - 0.5);
+            // b. Pool de nombres uniques pour éviter les doublons/boucles infinies
+            // On crée une liste large de nombres possibles et on retire ceux déjà utilisés
+            const poolLimit = Math.max(target + 10, size + 5);
+            let pool = Array.from({length: poolLimit}, (_, i) => i + 1)
+                            .filter(x => !numbers.includes(x));
+            
+            // c. On mélange la pool et on complète la grille
+            const remaining = shuffle(pool).slice(0, size - 3);
+            numbers = shuffle([...numbers, ...remaining]);
 
             return {
                 isVisual: true, visualType: 'square', inputType: 'selection',
-                answer: target, data: { target: target, numbers: grid, selectedIndices: [] }
+                answer: target, 
+                data: { target, numbers, selectedIndices: [] }
             };
         },
 
-        // --- GÉNÉRATEURS FRANÇAIS & AUTRES ---
-
+        // 3. FRANÇAIS (Avec protection des bibliothèques)
         conjugation(p, lib) {
-            const pronouns = ["JE", "TU", "IL", "ELLE", "ON", "NOUS", "VOUS", "ILS", "ELLES"];
-            const availableTenses = p.tenses || ["présent"];
-            const selectedTense = availableTenses[Math.floor(Math.random() * availableTenses.length)].toLowerCase();
+            if (!lib?.conjugation) return Engines.fallback("Bibliothèque absente");
+
+            const pronouns = ["Je", "Tu", "Il", "Elle", "On", "Nous", "Vous", "Ils", "Elles"];
+            const tenses = p.tenses || ["présent"];
+            const selectedTense = pick(tenses).toLowerCase();
             const isCompound = (selectedTense === 'passé composé');
 
+            // Détermination sécurisée de la catégorie (ex: 'etre_avoir' ou 'present_1')
             let category = p.category || 'present_1';
-            if (category.startsWith('etre_avoir')) {
-                const suffix = (selectedTense === 'futur') ? '_f' : (selectedTense === 'imparfait') ? '_imp' : '_p';
-                category = 'etre_avoir' + suffix;
-            } else {
-                const prefixMap = { 'présent': 'present', 'futur': 'future', 'imparfait': 'imparfait', 'passé composé': 'pc' };
-                const prefix = prefixMap[selectedTense] || 'present';
-                const groupMatch = p.category.match(/_(\d|3_freq)/);
-                if (groupMatch) category = prefix + groupMatch[0];
-            }
-
-            if (!lib.conjugation[category]) category = p.category;
+            try {
+                if (category.startsWith('etre_avoir')) {
+                    const suffix = (selectedTense === 'futur') ? '_f' : (selectedTense === 'imparfait') ? '_imp' : '_p';
+                    category = 'etre_avoir' + suffix;
+                } else {
+                    const prefixMap = { 'présent': 'present', 'futur': 'future', 'imparfait': 'imparfait', 'passé composé': 'pc' };
+                    const prefix = prefixMap[selectedTense] || 'present';
+                    const groupMatch = p.category.match(/_(\d|3_freq)/);
+                    if (groupMatch) category = prefix + groupMatch[0];
+                }
+            } catch(e) { category = 'present_1'; }
 
             const pool = lib.conjugation[category];
-            const verb = pool[Math.floor(Math.random() * pool.length)];
-            const pIdx = Math.floor(Math.random() * pronouns.length);
-            const m = [0, 1, 2, 2, 2, 3, 4, 5, 5]; 
-            const cIdx = m[pIdx];
+            if (!pool || !pool.length) return Engines.fallback("Verbes introuvables");
+
+            const verb = pick(pool);
+            const pIdx = Engines.utils.rnd(0, 8); // Index pronom
+            const cIdx = [0, 1, 2, 2, 2, 3, 4, 5, 5][pIdx]; // Index terminaison
 
             let answer = "";
-            let displayData = { 
-                pronoun: pronouns[pIdx], infinitive: verb.infinitive, icon: verb.icon,
-                tense: selectedTense.toUpperCase(), isCompound: isCompound
-            };
 
             if (isCompound) {
+                // Passé Composé
                 const auxData = lib.conjugation.etre_avoir_p.find(v => v.infinitive.toLowerCase() === verb.aux.toLowerCase());
-                const auxiliary = auxData.full[cIdx];
-                let pp = verb.pp; 
+                const auxiliary = auxData ? auxData.full[cIdx] : "a";
+                let pp = verb.pp;
                 if (verb.aux === 'être') {
-                    if (pIdx === 3) pp += "E";
-                    if ([5, 6, 7].includes(pIdx)) pp += "S";
-                    if (pIdx === 8) pp += "ES";
+                    if (pIdx === 3) pp += "e"; 
+                    if ([5, 6, 7].includes(pIdx)) pp += "s"; 
+                    if (pIdx === 8) pp += "es";
                 }
                 answer = `${auxiliary} ${pp}`;
             } else {
-                answer = verb.full ? verb.full[cIdx] : verb.base + verb.endings[cIdx];
+                // Temps simples
+                answer = verb.full ? verb.full[cIdx] : (verb.base + verb.endings[cIdx]);
+
+                // Exceptions orthographiques (nous mangeons, nous lançons)
+                if (selectedTense === "présent" && pIdx === 5) {
+                    if (verb.infinitive?.endsWith("ger")) answer = verb.base + "e" + verb.endings[cIdx];
+                    if (verb.infinitive?.endsWith("cer")) answer = verb.base.replace(/c$/, "ç") + verb.endings[cIdx];
+                }
             }
 
             return {
                 isVisual: true, visualType: 'conjugation', inputType: 'alpha',
-                tense: selectedTense.toUpperCase(), answer: answer, data: displayData
+                answer: answer.toLowerCase().trim(),
+                data: { 
+                    pronoun: pronouns[pIdx], 
+                    infinitive: (verb.infinitive || "").toUpperCase(), 
+                    tense: selectedTense.toUpperCase(),
+                    isCompound 
+                }
             };
         },
 
         spelling(p, lib) {
-            const category = p.category || 'animals';
-            const pool = lib.spelling[category] || lib.spelling.animals;
-            const picked = pool[Math.floor(Math.random() * pool.length)];
+            const cat = p.category || 'animals';
+            const pool = lib?.spelling?.[cat];
+            
+            if (!pool || !pool.length) return Engines.fallback("Mots indisponibles");
+
+            const picked = pick(pool);
             return {
                 isVisual: true, visualType: 'spelling', inputType: 'alpha',
-                data: { imageUrl: picked.img, word: picked.word, icon: picked.icon },
-                answer: picked.word
+                answer: picked.word.toLowerCase().trim(),
+                data: { word: picked.word.toUpperCase(), img: picked.img, icon: picked.icon }
             };
         },
 
-homophones(p, lib) {
-            // 1. SÉCURITÉ DE BASE
-            if (!lib || !lib.homophones) {
-                return { isVisual: false, question: "Erreur Lib", answer: "ok", inputType: "info" };
+        homophones(p, lib) {
+            if (!lib?.homophones) return Engines.fallback("Lib manquante");
+            
+            let cat = p.category;
+            if (cat === 'mix_all' || cat === 'mix_auto') {
+                const keys = Object.keys(lib.homophones).filter(k => Array.isArray(lib.homophones[k]));
+                cat = pick(keys);
             }
+            
+            const pool = lib.homophones[cat];
+            if (!pool || !pool.length) return Engines.fallback("Catégorie vide");
 
-            // --- LOGIQUE MIX INTELLIGENTE ---
-            let targetCategory = p.category; // Par défaut, celle du JSON (ex: "a_à")
-
-            // Si on demande un MIX, on choisit une catégorie au hasard parmi celles existantes
-            if (p.category === 'mix_all' || p.category === 'mix_auto') {
-                // On récupère toutes les clés du JSON qui ressemblent à des catégories (avec un underscore, ex: "a_à")
-                // On exclut les commentaires ou les clés bizarres
-                const validKeys = Object.keys(lib.homophones).filter(k => 
-                    k.includes('_') && 
-                    !k.startsWith('__') && 
-                    Array.isArray(lib.homophones[k])
-                );
-
-                if (validKeys.length > 0) {
-                    targetCategory = validKeys[Math.floor(Math.random() * validKeys.length)];
-                } else {
-                    return { isVisual: false, question: "Aucune catégorie trouvée pour le mix", answer: "ok", inputType: "info" };
-                }
-            }
-
-            // 2. RÉCUPÉRATION DE LA PHRASE (Dans la catégorie choisie)
-            if (!lib.homophones[targetCategory]) {
-                return {
-                    isVisual: false,
-                    question: `Erreur: Catégorie '${targetCategory}' introuvable`,
-                    answer: "ok", inputType: "info"
-                };
-            }
-
-            const pool = lib.homophones[targetCategory];
-            const picked = pool[Math.floor(Math.random() * pool.length)];
-
-            // Normalisation (sentence/q/question et answer/a)
-            const rawQuestion = picked.sentence || picked.q || picked.question;
-            const rawAnswer = picked.answer || picked.a;
-
-            if (!rawQuestion) {
-                return { isVisual: false, question: "Erreur : Phrase vide", answer: "ok", inputType: "info" };
-            }
-
-            // 3. DÉTERMINATION DES BOUTONS (CHOIX)
-            let choices = [];
-
-            // Priorité A : La phrase a ses propres choix (ex: un cas spécifique complexe)
-            if (picked.choices) {
-                choices = picked.choices;
-            }
-            // Priorité B : Si on est en mode MIX, on déduit les choix depuis le nom de la catégorie piochée (ex: "son_sont" -> ["son", "sont"])
-            // C'est CRUCIAL : cela permet d'avoir les bons boutons pour la bonne phrase, même en mode mix.
-            else if (targetCategory.includes('_')) {
-                choices = targetCategory.split('_');
-            }
-            // Priorité C : Les choix imposés par l'exercice (fallback)
-            else if (p.choices && p.choices.length > 0) {
-                choices = p.choices;
-            }
-            // Fallback ultime
-            else {
-                choices = ["1", "2"];
-            }
-
+            const picked = pick(pool);
+            const rawQ = picked.sentence || picked.q || "";
             return {
-                isVisual: true, 
-                visualType: 'homophones',
-                
-                // On remplace les trous visuellement
-                question: `<span class="small-question">${rawQuestion.replace(/(\.\.\.|___)/g, '<span style="color:var(--primary)">_____</span>')}</span>`,
-                
-                answer: rawAnswer,
-                
-                inputType: "qcm", 
-                data: { choices: choices }
+                isVisual: true, visualType: 'homophones', inputType: "qcm", 
+                question: `<span class="small-question">${rawQ.replace(/(\.\.\.|___)/g, '<span style="color:var(--primary)">_____</span>')}</span>`,
+                answer: picked.answer || picked.a,
+                data: { choices: picked.choices || cat.split('_') }
             };
         },
 
+        // 4. VISUELS DIVERS
         clock(p) {
-            const hours24 = Math.floor(Math.random() * 24);
-            const minutes = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55][Math.floor(Math.random() * 12)];
-            const isDay = hours24 >= 8 && hours24 < 20;
-            const hStr = hours24.toString().padStart(2, '0');
-            const mStr = minutes.toString().padStart(2, '0');
+            const h = Engines.utils.rnd(0, 23);
+            // Liste complète des minutes
+            const m = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55][Engines.utils.rnd(0, 11)];
+            const isDay = h >= 8 && h < 20;
+            
+            // Formatage de la réponse en chaîne (ex: "0905") pour conserver le zéro
+            const strH = h.toString().padStart(2, '0');
+            const strM = m.toString().padStart(2, '0');
+            
             return {
                 isVisual: true, visualType: 'clock', inputType: 'numeric',
-                data: { hours: hours24, minutes: minutes, periodIcon: isDay ? "☀️" : "🌙", periodText: isDay ? "Après-midi / Jour" : "Matin / Nuit" },
-                answer: parseInt(hStr + mStr)
+                data: { hours: h, minutes: m, periodIcon: isDay ? "☀️" : "🌙", periodText: isDay ? "Jour" : "Nuit" },
+                answer: strH + strM
             };
         },
 
         fractionView(p) {
-            const denom = p.maxDenom || 8;
-            const d = Math.floor(Math.random() * (denom - 2)) + 2; 
-            const n = Math.floor(Math.random() * (d - 1)) + 1;
-            return {
-                isVisual: true, visualType: 'fraction', inputType: 'numeric',
-                data: { n, d }, answer: n
-            };
+            const d = Engines.utils.rnd(2, p.maxDenom || 8); 
+            const n = Engines.utils.rnd(1, d - 1);
+            return { isVisual: true, visualType: 'fraction', inputType: 'numeric', data: { n, d }, answer: n };
         },
 
         counting(p) {
-            const min = p.min || 1;
-            const max = p.max || 20;
-            const target = Math.floor(Math.random() * (max - min + 1)) + min;
-            return { isVisual: true, visualType: 'counting', inputType: 'numeric', data: { tens: Math.floor(target / 10), units: target % 10 }, answer: target };
+            const val = Engines.utils.rnd(p.min || 1, p.max || 20);
+            return { 
+                isVisual: true, visualType: 'counting', inputType: 'numeric', 
+                data: { tens: Math.floor(val / 10), units: val % 10 }, 
+                answer: val 
+            };
         },
 
         compare(p) {
-            let n1, n2, symbol;
-            let d1, d2; 
-
-            // --- CAS 1 : MODE DÉCIMAUX (CM2) ---
+            const { rnd } = Engines.utils;
+            let n1, n2, d1, d2;
+            
             if (p.type === 'compare-decimals') {
-                const base = Math.floor(Math.random() * 100); 
-                const variant = Math.random();
-                
-                if (variant < 0.3) {
-                    n1 = base + 0.5; n2 = base + 0.5; 
-                    d1 = n1.toString().replace('.', ',');
-                    d2 = n1.toString().replace('.', ',') + "0";
-                    if (Math.random() > 0.5) [d1, d2] = [d2, d1];
-                } else if (variant < 0.6) {
-                    n1 = base + Number((Math.random()).toFixed(1));
-                    n2 = n1 + (Math.random() < 0.5 ? 0.1 : -0.1);
-                    n1 = Math.round(n1 * 10) / 10; n2 = Math.round(n2 * 10) / 10;
-                    d1 = n1.toString().replace('.', ',');
-                    d2 = n2.toString().replace('.', ',');
-                } else {
-                    n1 = base + Number((Math.random() * 0.9).toFixed(1)); 
-                    n2 = base + Number((Math.random() * 0.9).toFixed(2)); 
-                    d1 = n1.toString().replace('.', ',');
-                    d2 = n2.toString().replace('.', ',');
-                }
+                const base = rnd(0, 100);
+                n1 = base + Number(Math.random().toFixed(1));
+                // 30% de chance d'égalité ou piège
+                n2 = (Math.random() < 0.3) ? n1 : base + Number(Math.random().toFixed(2));
+                d1 = n1.toString().replace('.', ',');
+                d2 = (n1 === n2 && Math.random() > 0.5) ? d1 + "0" : n2.toString().replace('.', ',');
             } else {
-                // --- CAS 2 : MODE ENTIERS ---
                 const max = p.range || 100;
-                n1 = Math.floor(Math.random() * max);
-                n2 = (Math.random() < 0.2) ? n1 : Math.floor(Math.random() * max);
+                n1 = rnd(0, max);
+                n2 = (Math.random() < 0.2) ? n1 : rnd(0, max);
                 d1 = n1.toString(); d2 = n2.toString();
             }
-
-            if (n1 > n2) symbol = ">"; else if (n1 < n2) symbol = "<"; else symbol = "=";
-
+            
+            const symbol = n1 > n2 ? ">" : n1 < n2 ? "<" : "=";
             return { 
-                question: `<div style="display:flex; align-items:center; justify-content:center; gap:20px; font-size:2.5rem; font-weight:bold;">
-                    <span>${d1}</span><span style='color:#A0AEC0; font-size:2rem'>...</span><span>${d2}</span>
-                </div>`, 
-                answer: symbol, inputType: "qcm", isVisual: false,
-                data: { choices: ["<", "=", ">"] } 
+                question: `<div class="compare-box"><span>${d1}</span><span class="sep">...</span><span>${d2}</span></div>`, 
+                answer: symbol, inputType: "qcm", data: { choices: ["<", "=", ">"] } 
             };
         },
-        
-        reading(p, lib) {
-             const category = lib.reading[p.category] || lib.reading.taoki_p1;
-             const item = category[Math.floor(Math.random() * category.length)];
-             return { isVisual: true, visualType: 'reading', inputType: 'boolean', data: item, answer: 1 };
+        // À ajouter dans Engines.generators dans enginesv2.js
+        // À mettre dans Engines.generators dans enginesv2.js
+genderArticles(params, lib) {
+    const { pick } = Engines.utils;
+    const cat = lib.grammar?.[params.category] || [];
+    const item = pick(cat);
+    
+    if (!item) return { question: "Erreur Lib", answer: "ok" };
+
+    let expected;
+    let choices = [...(params.options || ["un", "une"])]; // On copie les options du JSON
+
+    // Détection de l'élision (voyelles + h)
+    const voyelles = ['a','e','i','o','u','y','h'];
+    const needsElision = voyelles.includes(item.word[0].toLowerCase());
+
+    if (choices.includes("un") || choices.includes("une")) {
+        // Mode un / une : pas d'élision
+        expected = item.article;
+    } else {
+        // Mode le / la
+        if (needsElision) {
+            expected = "l'";
+            // PROTECTION : Si "l'" n'est pas dans les choix, on l'ajoute dynamiquement
+            if (!choices.includes("l'")) {
+                choices.push("l'");
+            }
+        } else {
+            expected = (item.gender === "masculin") ? "le" : "la";
         }
-    } // Fin generators
-}; // <--- C'EST ICI QU'IL MANQUAIT L'ACCOLADE ET LE POINT VIRGULE !
+    }
+
+    return {
+        question: "Choisis le bon petit mot :",
+        answer: expected,
+        inputType: 'qcm',
+        isVisual: true,
+        visualType: 'spelling',
+        data: {
+            word: item.word.toUpperCase(),
+            icon: item.icon,
+            img: item.img || `assets/img/${item.word.toLowerCase()}.png`,
+            choices: choices // L'UI recevra 3 choix si c'est un mot à élision
+        }
+    };
+}
+    }
+};
+
+// Raccourci pour utiliser les utils dans les générateurs
+const { pick, rnd } = Engines.utils;
 
 /**
- * UTILITAIRE : Convertit un nombre en lettres (Français)
- * Support jusqu'aux Milliards pour le CM2
+ * UTILITAIRE GLOBAL : Conversion nombres en lettres (Français)
  */
 function numberToFrench(n) {
     if (n === 0) return "zéro";
@@ -454,8 +578,3 @@ function numberToFrench(n) {
 
     return result.trim();
 }
-
-
-
-
-
