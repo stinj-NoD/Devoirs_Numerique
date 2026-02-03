@@ -137,7 +137,7 @@ const UI = {
         }
     },
 
-    updateKeyboardLayout(type, data = null) {
+updateKeyboardLayout(type, data = null) {
         const numKb = document.getElementById('keyboard-num');
         const boolKb = document.getElementById('keyboard-boolean'); // Legacy check
         const answerZone = document.getElementById('user-answer');
@@ -168,6 +168,11 @@ const UI = {
             } else if (type === "alpha") {
                 this.renderAlphaKeyboard();
                 numKb.style.display = "block";
+
+            // 👇 AJOUT DU TYPE ROMAIN ICI 👇
+            } else if (type === "roman") {
+                this.renderRomanKeyboard();
+                numKb.style.display = "block"; // On laisse le flexbox interne gérer la dispo
                 
             } else {
                 this.restoreNumericKeyboard();
@@ -183,22 +188,39 @@ const UI = {
     restoreNumericKeyboard() {
         const kb = document.getElementById('keyboard-num');
         if(!kb) return;
+        
+        // On garde la grille de 3 colonnes
         kb.style.gridTemplateColumns = "repeat(3, 1fr)";
-        kb.innerHTML = "123456789".split("").map(v => `<button class="key" data-val="${v}">${v}</button>`).join("") +
-                       `<button class="key del" data-val="backspace">⌫</button>` +
-                       `<button class="key" data-val="0">0</button>` +
-                       `<button class="key action ok" data-val="ok">OK</button>`;
+        
+        // 1. Les chiffres 1 à 9
+        let html = "123456789".split("").map(v => 
+            `<button class="key" data-val="${v}">${v}</button>`
+        ).join("");
+
+        // 2. La ligne du bas : [ , ]  [ 0 ]  [ ⌫ ]
+        // C'est ici qu'on place la virgule française
+        html += `<button class="key" data-val="," style="font-weight:bold; font-size:1.5rem;">,</button>`;
+        html += `<button class="key" data-val="0">0</button>`;
+        html += `<button class="key del" data-val="backspace" style="background:var(--secondary); color:white">⌫</button>`;
+
+        // 3. Le bouton OK en pleine largeur en dessous (Zone de confort)
+        html += `<button class="key action ok" data-val="ok" style="grid-column: 1 / -1; margin-top:5px; background:var(--success); color:white; padding:10px;">OK</button>`;
+
+        kb.innerHTML = html;
     },
 
     renderAlphaKeyboard() {
         const kb = document.getElementById('keyboard-num');
         if(!kb) return;
         
-        kb.style.gridTemplateColumns = "none";
+        kb.style.gridTemplateColumns = "none"; // On casse la grille pour le clavier complet
         const rows = ["azertyuiop", "qsdfghjklm", "wxcvbn"];
         
         let html = '<div class="alpha-keyboard">';
-        html += `<div class="kb-row accent-row">` + "éèàçêîôû-".split('').map(a => 
+        
+        // AJOUT DE LA VIRGULE DANS LA LIGNE DES ACCENTS
+        // La liste contient maintenant la virgule à la fin
+        html += `<div class="kb-row accent-row">` + "éèàçêîôû-,".split('').map(a => 
             `<button class="key letter-key" data-val="${a}">${a}</button>`
         ).join('') + `</div>`;
 
@@ -209,12 +231,50 @@ const UI = {
         });
         
         html += `<div class="kb-row" style="margin-top:5px">
-            <button class="key action del" data-val="backspace" style="flex: 2;">⌫</button>
+            <button class="key action del" data-val="backspace" style="flex: 2; background:var(--secondary); color:white">⌫</button>
             <button class="key space-key" data-val=" " style="flex: 5;">ESPACE</button>
-            <button class="key action ok" data-val="ok" style="flex: 3;">OK</button>
+            <button class="key action ok" data-val="ok" style="flex: 3; background:var(--success); color:white">OK</button>
         </div></div>`;
+        
         kb.innerHTML = html; 
     },
+    // DANS UIV2.JS (Nouvelle fonction)
+
+renderRomanKeyboard() {
+    const kb = document.getElementById('keyboard-num');
+    if (!kb) return;
+
+    // On désactive la grille par défaut du conteneur pour gérer nous-mêmes le layout
+    kb.style.gridTemplateColumns = "none";
+    kb.style.display = "block";
+
+    // Style commun pour les touches romaines
+    const btnStyle = "flex:1; height:55px; font-weight:bold; font-size:1.6rem; font-family: 'Times New Roman', serif;";
+
+    let html = `
+    <div class="roman-keyboard" style="display:flex; flex-direction:column; gap:8px; padding:5px;">
+        
+        <div style="display:flex; gap:5px;">
+            ${["I", "V", "X", "L"].map(k => 
+                `<button class="key" data-val="${k}" style="${btnStyle}">${k}</button>`
+            ).join('')}
+        </div>
+
+        <div style="display:flex; gap:5px;">
+            ${["C", "D", "M"].map(k => 
+                `<button class="key" data-val="${k}" style="${btnStyle}">${k}</button>`
+            ).join('')}
+            <div style="flex:1;"></div> 
+        </div>
+
+        <div style="display:flex; gap:5px; margin-top:5px;">
+            <button class="key action del" data-val="backspace" style="flex:1; height:55px; background:var(--secondary); color:white; font-size:1.2rem;">⌫</button>
+            <button class="key action ok" data-val="ok" style="flex:2; height:55px; background:var(--success); color:white; font-weight:bold; font-size:1.2rem;">VALIDER</button>
+        </div>
+    </div>`;
+
+    kb.innerHTML = html;
+},
 
     renderQCM(choices) {
         const kb = document.getElementById('keyboard-num');
@@ -269,7 +329,8 @@ updateGameDisplay(p, rawInput, prog) {
                 const drawMethods = { 
                     clock:'drawClock', spelling:'drawSpelling', conjugation:'drawConjugation', 
                     target:'drawSvgTarget', money:'drawMoney', bird:'drawBird', division:'drawDivision',
-                    square:'drawSquare', reading: 'drawReading', counting: 'drawCounting', fraction: 'drawFraction'
+                    square:'drawSquare', reading: 'drawReading', counting: 'drawCounting', fraction: 'drawFraction',
+                    conversionTable: 'drawConversionTable'
                 };
                 const method = drawMethods[p.visualType];
                 
@@ -367,91 +428,85 @@ updateGameDisplay(p, rawInput, prog) {
         return svg + `</svg>`;
     },
 
-    // UTILITAIRE : Génère les étapes visuelles de la division
-// À mettre dans uiv2.js (remplace l'ancienne version)
-getDivisionSteps(dividend, divisor) {
-    const dividendStr = dividend.toString();
-    let steps = [];
-    let currentPart = "";
-    
-    // On parcourt chaque chiffre du dividende
-    for (let i = 0; i < dividendStr.length; i++) {
-        // On "descend" le chiffre suivant
-        currentPart += dividendStr[i];
-        let currentVal = parseInt(currentPart);
-
-        // On regarde si on peut diviser ce morceau
-        // (Ou si c'est la fin et qu'il faut traiter le reste)
-        const q = Math.floor(currentVal / divisor);
+    getDivisionSteps(dividend, divisor) {
+        const dividendStr = dividend.toString();
+        let steps = [];
+        let currentPart = "";
         
-        // Condition d'affichage d'une étape :
-        // 1. On a trouvé un quotient > 0 (ex: dans 12 combien de 5 -> 2)
-        // 2. OU c'est le dernier chiffre et on doit afficher le reste final (même si c'est 0)
-        // 3. Cas spécial : on évite d'afficher des étapes "0" inutiles au tout début
-        if (q > 0 || i === dividendStr.length - 1) {
-            const sub = q * divisor;
-            const remainder = currentVal - sub;
+        // On parcourt chaque chiffre du dividende
+        for (let i = 0; i < dividendStr.length; i++) {
+            // On "descend" le chiffre suivant
+            currentPart += dividendStr[i];
+            let currentVal = parseInt(currentPart);
+
+            // On regarde si on peut diviser ce morceau
+            // (Ou si c'est la fin et qu'il faut traiter le reste)
+            const q = Math.floor(currentVal / divisor);
             
-            steps.push({
-                sub: sub,             // Ce qu'on soustrait (ex: 12)
-                rem: remainder,       // Le résultat (ex: 0)
-                nextDigit: dividendStr[i+1] || "", // Le chiffre qu'on va descendre après
-                endIndex: i,          // L'index où se termine l'opération (pour l'alignement)
-                partLength: currentPart.length // La longueur du nombre traité (pour reculer l'alignement)
-            });
-            
-            // Le reste devient le début du prochain nombre
-            // Ex: Reste 2, prochain chiffre 5 -> "25"
-            currentPart = remainder.toString();
-            if (remainder === 0) currentPart = ""; // Si reste 0, on repart à vide pour ne pas avoir "05"
+            // Condition d'affichage d'une étape :
+            // 1. On a trouvé un quotient > 0 (ex: dans 12 combien de 5 -> 2)
+            // 2. OU c'est le dernier chiffre et on doit afficher le reste final (même si c'est 0)
+            // 3. Cas spécial : on évite d'afficher des étapes "0" inutiles au tout début
+            if (q > 0 || i === dividendStr.length - 1) {
+                const sub = q * divisor;
+                const remainder = currentVal - sub;
+                
+                steps.push({
+                    sub: sub,             // Ce qu'on soustrait (ex: 12)
+                    rem: remainder,       // Le résultat (ex: 0)
+                    nextDigit: dividendStr[i+1] || "", // Le chiffre qu'on va descendre après
+                    endIndex: i,          // L'index où se termine l'opération (pour l'alignement)
+                    partLength: currentPart.length // La longueur du nombre traité (pour reculer l'alignement)
+                });
+                
+                // Le reste devient le début du prochain nombre
+                // Ex: Reste 2, prochain chiffre 5 -> "25"
+                currentPart = remainder.toString();
+                if (remainder === 0) currentPart = ""; // Si reste 0, on repart à vide pour ne pas avoir "05"
+            }
         }
-    }
-    return steps;
-},
+        return steps;
+    },
 
-        // À mettre dans uiv2.js (remplace l'ancienne version)
-// DANS UIV2.JS (Remplace l'ancienne fonction)
+            // À mettre dans uiv2.js (remplace l'ancienne version)
+    drawDivision(p, input, isQCM) {
+        const d = p.data || {};
+        const divStr = d.dividend.toString();
+        const sor = d.divisor;
+        
+        // 1. Calcul des étapes
+        const steps = this.getDivisionSteps(d.dividend, sor);
+        
+        // 2. Préparation de la Grille (Colonne de Gauche)
+        let gridItemsHtml = "";
+        
+        // LIGNE 1 : Le Dividende
+        divStr.split('').forEach((char, i) => {
+            // J'ajoute line-height: 1 ici aussi pour aligner
+            gridItemsHtml += `<div style="grid-column: ${i + 1}; grid-row: 1; text-align: center; line-height: 1;">${char}</div>`;
+        });
 
-// DANS UIV2.JS (Remplace la fonction précédente)
+        let currentRow = 2;
 
-drawDivision(p, input, isQCM) {
-    const d = p.data || {};
-    const divStr = d.dividend.toString();
-    const sor = d.divisor;
-    
-    // 1. Calcul des étapes
-    const steps = this.getDivisionSteps(d.dividend, sor);
-    
-    // 2. Préparation de la Grille (Colonne de Gauche)
-    let gridItemsHtml = "";
-    
-    // LIGNE 1 : Le Dividende
-    divStr.split('').forEach((char, i) => {
-        // J'ajoute line-height: 1 ici aussi pour aligner
-        gridItemsHtml += `<div style="grid-column: ${i + 1}; grid-row: 1; text-align: center; line-height: 1;">${char}</div>`;
-    });
+        steps.forEach((step) => {
+            // --- A. La Soustraction (ex: -12) ---
+            const subStr = step.sub.toString();
+            const startCol = (step.endIndex - subStr.length + 1) + 1;
+            const endCol = step.endIndex + 2;
 
-    let currentRow = 2;
-
-    steps.forEach((step) => {
-        // --- A. La Soustraction (ex: -12) ---
-        const subStr = step.sub.toString();
-        const startCol = (step.endIndex - subStr.length + 1) + 1;
-        const endCol = step.endIndex + 2;
-
-        gridItemsHtml += `
-            <div style="
-                grid-column: ${startCol} / ${endCol}; 
-                grid-row: ${currentRow}; 
-                text-align: right; 
-                color: #7f8c8d;
-                position: relative;
-                line-height: 1; /* Pour éviter les débordements verticaux */
-            ">
-                <span style="position:absolute; left:-12px; font-size:0.7em; top:2px;">-</span>${subStr}
-            </div>
-        `;
-        currentRow++;
+            gridItemsHtml += `
+                <div style="
+                    grid-column: ${startCol} / ${endCol}; 
+                    grid-row: ${currentRow}; 
+                    text-align: right; 
+                    color: #7f8c8d;
+                    position: relative;
+                    line-height: 1; /* Pour éviter les débordements verticaux */
+                ">
+                    <span style="position:absolute; left:-12px; font-size:0.7em; top:2px;">-</span>${subStr}
+                </div>
+            `;
+            currentRow++;
 
         // --- B. Le Résultat (C'EST ICI LE CORRECTIF) ---
         const remStr = step.rem.toString();
@@ -632,6 +687,46 @@ drawDivision(p, input, isQCM) {
         return h + '</div>';
     },
 
+    drawConversionTable(p, input) {
+        const d = p.data || {};
+        // Configuration des colonnes selon le type
+        let cols = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
+        if (d.type === 'masse') cols = ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'];
+        if (d.type === 'capacite') cols = ['kL', 'hL', 'daL', 'L', 'dL', 'cL', 'mL'];
+
+        // Construction du tableau HTML
+        let headerHtml = "";
+        cols.forEach(c => {
+            // On met en surbrillance les colonnes concernées
+            const highlight = (c === d.u1 || c === d.u2) ? 'background:#e3f2fd; color:var(--primary);' : '';
+            headerHtml += `<div style="flex:1; border-right:1px solid #ccc; padding:5px 0; ${highlight}">${c}</div>`;
+        });
+
+        return `
+        <div class="conversion-container" style="width:100%; max-width:600px; margin:0 auto;">
+            <div style="font-size:2.5rem; font-weight:bold; margin-bottom:20px; color:#2c3e50;">
+                ${d.val} <span style="font-size:0.8em; color:#7f8c8d">${d.u1}</span> 
+                <span style="color:#ccc"> ➝ </span> 
+                ? <span style="font-size:0.8em; color:var(--primary)">${d.u2}</span>
+            </div>
+
+            <div style="
+                display: flex; 
+                border: 2px solid #2c3e50; 
+                border-radius: 8px; 
+                font-weight:bold; 
+                background: white;
+                text-align: center;
+                font-size: 1.1rem;
+            ">
+                ${headerHtml}
+            </div>
+            <div style="font-size:0.9rem; color:#95a5a6; margin-top:5px; text-align:center;">
+                Utilise le tableau pour t'aider !
+            </div>
+        </div>`;
+    },
+
     drawFraction(p) {
         const d = p.data || {};
         const denom = d.d || 1;
@@ -671,52 +766,52 @@ drawDivision(p, input, isQCM) {
 
 /* --- uiv2.js : drawSpelling consolidé --- */
 
-drawSpelling(p, input, isQCM = false) {
-    // --- DEBUG LOGS (Regarde ta console F12) ---
-    console.log("🔍 DRAW SPELLING APPELÉ");
-    console.log("👉 Mode QCM reçu :", isQCM);
-    console.log("👉 Données reçues (p.data) :", p.data);
-    // -------------------------------------------
+    drawSpelling(p, input, isQCM = false) {
+        // --- DEBUG LOGS (Regarde ta console F12) ---
+        console.log("🔍 DRAW SPELLING APPELÉ");
+        console.log("👉 Mode QCM reçu :", isQCM);
+        console.log("👉 Données reçues (p.data) :", p.data);
+        // -------------------------------------------
 
-    const d = p.data || {};
-    const word = (d.word || "").toString();
-    const icon = d.icon || "❓";
-    const imgPath = d.img || "";
+        const d = p.data || {};
+        const word = (d.word || "").toString();
+        const icon = d.icon || "❓";
+        const imgPath = d.img || "";
 
-    // LOGIQUE CP : Si c'est un QCM (Un/Une), on affiche le mot complet
-    let slots;
-    if (isQCM) {
-        // Affichage MOT COMPLET
-        console.log("✅ Affichage en mode MOT COMPLET :", word);
-        slots = `<div class="word-full" style="font-size:3rem; font-weight:bold; letter-spacing:2px; margin-top:15px; text-align:center; color:#333;">${word}</div>`;
-    } else {
-        // Affichage DICTÉE (Trous)
-        console.log("✏️ Affichage en mode DICTÉE (Trous)");
-        slots = '<div class="spelling-slots">' + word.split("").map((_, idx) => {
-            const char = input[idx] ? input[idx].toUpperCase() : "";
-            return `<span class="letter-slot" style="display:inline-block; width:30px; height:40px; border-bottom:2px solid #333; margin:2px; text-align:center;">${char || "&nbsp;"}</span>`;
-        }).join("") + '</div>';
-    }
+        // LOGIQUE CP : Si c'est un QCM (Un/Une), on affiche le mot complet
+        let slots;
+        if (isQCM) {
+            // Affichage MOT COMPLET
+            console.log("✅ Affichage en mode MOT COMPLET :", word);
+            slots = `<div class="word-full" style="font-size:3rem; font-weight:bold; letter-spacing:2px; margin-top:15px; text-align:center; color:#333;">${word}</div>`;
+        } else {
+            // Affichage DICTÉE (Trous)
+            console.log("✏️ Affichage en mode DICTÉE (Trous)");
+            slots = '<div class="spelling-slots">' + word.split("").map((_, idx) => {
+                const char = input[idx] ? input[idx].toUpperCase() : "";
+                return `<span class="letter-slot" style="display:inline-block; width:30px; height:40px; border-bottom:2px solid #333; margin:2px; text-align:center;">${char || "&nbsp;"}</span>`;
+            }).join("") + '</div>';
+        }
 
-    const safeId = word.replace(/[^a-zA-Z0-9]/g, '');
+        const safeId = word.replace(/[^a-zA-Z0-9]/g, '');
 
-    return `
-        <div class="spelling-container" style="display:flex; flex-direction:column; align-items:center;">
-            <div class="spelling-visual">
-                <div class="fallback-icon" id="fallback-${safeId}" style="font-size:4rem;">
-                    ${icon}
+        return `
+            <div class="spelling-container" style="display:flex; flex-direction:column; align-items:center;">
+                <div class="spelling-visual">
+                    <div class="fallback-icon" id="fallback-${safeId}" style="font-size:4rem;">
+                        ${icon}
+                    </div>
+                    ${imgPath ? `
+                    <img src="${imgPath}" 
+                        class="spelling-image" 
+                        style="display:none; max-height:150px;" 
+                        onload="this.style.display='block'; document.getElementById('fallback-${safeId}').style.display='none';"
+                        onerror="this.style.display='none';">
+                    ` : ''}
                 </div>
-                ${imgPath ? `
-                <img src="${imgPath}" 
-                     class="spelling-image" 
-                     style="display:none; max-height:150px;" 
-                     onload="this.style.display='block'; document.getElementById('fallback-${safeId}').style.display='none';"
-                     onerror="this.style.display='none';">
-                ` : ''}
-            </div>
-            ${slots}
-        </div>`;
-},
+                ${slots}
+            </div>`;
+    },
 
     drawConjugation(p, input) {
         const d = p.data || {};
@@ -736,6 +831,18 @@ drawSpelling(p, input, isQCM = false) {
                     </div>
                 </div>
             </div>`;
+    },
+    
+    showFinalResults(score, total) {
+        // 1. Mise à jour des étoiles
+        this.renderStars(score, total);
+        
+        // 2. Mise à jour du texte du score
+        const scoreEl = document.getElementById('result-score');
+        if (scoreEl) scoreEl.innerText = `Score : ${score} / ${total}`;
+
+        // 3. Affichage de l'écran
+        this.showScreen('screen-results');
     },
 
     renderStars(score, total) {

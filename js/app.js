@@ -1,7 +1,6 @@
 /*
  * Devoir Numérique - App.js
- * Copyright (C) 2026 [Stinj-NoD]
- * Version : 3.0 (Production-Ready)
+ * Version : 3.1 (Secured & Optimized)
  */
 
 const App = {
@@ -15,11 +14,12 @@ const App = {
         targetAnswer: null, 
         problemData: null, 
         timer: null,
-        frenchLib: null 
+        frenchLib: null,
+        isValidating: false // 🛑 VERROU ANTI-DOUBLE CLIC
     },
 
     async init() {
-        console.log("🛠️ Initialisation App V3...");
+        console.log("🛠️ Initialisation App V3.1...");
 
         // 1. Chargement Résilient de la Bibliothèque
         try {
@@ -32,7 +32,6 @@ const App = {
             }
         } catch (e) { 
             console.warn("⚠️ Mode Offline restreint (Lib absente)."); 
-            // On ne bloque pas l'app, le moteur utilisera ses fallbacks
         }
 
         // 2. Initialisation UI sécurisée
@@ -56,7 +55,7 @@ const App = {
         if (btnAdd) btnAdd.onclick = () => this.createProfile();
         if (inputName) inputName.onkeypress = (e) => { if (e.key === 'Enter') this.createProfile(); };
 
-        // Délégation d'événements pour la zone de jeu (Performance & Sécurité)
+        // Délégation d'événements pour la zone de jeu
         const gameZone = get('math-problem');
         if (gameZone) {
             gameZone.onclick = (e) => {
@@ -74,7 +73,7 @@ const App = {
 
     createProfile() {
         const el = document.getElementById('new-profile-name');
-        const name = el?.value.trim().slice(0, 15); // Limite 15 chars
+        const name = el?.value.trim().slice(0, 15);
         
         if (name) {
             Storage.addProfile(name);
@@ -87,16 +86,15 @@ const App = {
 
     renderProfilesScreen() {
         const names = Storage.getProfiles();
-        // Transformation sécurisée
         const profiles = (names || []).map(n => ({ id: n, name: n, avatar: '👤' }));
 
         UI.renderProfiles(
             profiles, 
-            (p) => { // OnSelect
+            (p) => { 
                 Storage.setCurrentUser(p.name);
                 this.loadGradesMenu();
             },
-            (id) => { // OnDelete
+            (id) => { 
                 Storage.removeProfile(id);
                 this.renderProfilesScreen();
             }
@@ -119,7 +117,7 @@ const App = {
             UI.showScreen('screen-grades');
         } catch (e) { 
             console.error(e);
-            alert("Impossible de charger les niveaux. Vérifiez votre connexion ou les fichiers.");
+            alert("Impossible de charger les niveaux.");
         }
     },
 
@@ -130,8 +128,7 @@ const App = {
             if (!r.ok) throw new Error(`Erreur réseau ${g.dataFile}`);
             
             const d = await r.json();
-            this.state.currentGrade = d; // Stockage grade complet pour sauvegarde score
-            // On injecte l'ID du grade pour le storage plus tard
+            this.state.currentGrade = d; 
             this.state.currentGrade.gradeId = g.id || d.id || "unknown_grade";
             
             UI.renderMenu('themes-list', d.themes, (t) => this.selectTheme(t));
@@ -145,7 +142,7 @@ const App = {
         UI.showScreen('screen-levels');
     },
 
-    // --- LOGIQUE DE JEU ---
+    // --- LOGIQUE DE JEU (Remplace initGame) ---
 
     startExercise(e) {
         // Reset propre de l'état
@@ -153,6 +150,7 @@ const App = {
         this.state.currentQuestion = 0; 
         this.state.score = 0;
         this.state.userInput = "";
+        this.state.isValidating = false; // 🔓 On déverrouille au début
         
         UI.showScreen('screen-game'); 
         this.generateNextQuestion();
@@ -169,16 +167,17 @@ const App = {
         const problem = Engines.run(this.state.currentExercise.engine, cfg, this.state.frenchLib);
         
         this.state.problemData = problem; 
-        // Important : Engines V3 renvoie toujours une string pour answer
         this.state.targetAnswer = problem.answer;
         
-        // Initialisation spécifique Carré Magique (sécurité UI)
         if (problem.visualType === 'square' && problem.data) {
             problem.data.selectedIndices = [];
         }
 
         UI.updateKeyboardLayout(problem.inputType || "numeric", problem);
         this.refreshUI();
+
+        // 🔓 ON OUVRE LE VERROU POUR LA NOUVELLE QUESTION
+        this.state.isValidating = false;
 
         // Gestion Timer (Oiseau)
         if (problem.visualType === 'bird') {
@@ -188,12 +187,15 @@ const App = {
     },
 
     handleInput(val, target = null) {
+        // Si validation en cours, on ignore les inputs
+        if (this.state.isValidating && val !== 'timeout') return;
+
         const p = this.state.problemData;
-        if (!p) return; // Protection contre input fantôme
+        if (!p) return; 
 
         if (val === "timeout") return this.validateAnswer(false);
 
-        // --- CAS SPÉCIAL : Carré Magique (Click sur cartes) ---
+        // --- CAS SPÉCIAL : Carré Magique ---
         if (val === 'card-click' && target) {
             const idx = parseInt(target.getAttribute('data-idx'));
             if (isNaN(idx) || !p.data) return;
@@ -201,12 +203,10 @@ const App = {
             const d = p.data;
             if (!d.selectedIndices) d.selectedIndices = [];
 
-            // Toggle sélection
             const pos = d.selectedIndices.indexOf(idx);
             if (pos > -1) d.selectedIndices.splice(pos, 1);
             else d.selectedIndices.push(idx);
 
-            // Recalcul somme (Sécurisé Number)
             const sum = d.selectedIndices.reduce((acc, i) => acc + (Number(d.numbers[i]) || 0), 0);
             this.state.userInput = sum.toString();
             
@@ -216,7 +216,6 @@ const App = {
 
         // --- GESTION CLAVIER ---
         if (val === 'ok') {
-            // On autorise la validation vide pour le carré magique seulement
             if (this.state.userInput.length > 0 || p.visualType === 'square') {
                 return this.validateAnswer();
             }
@@ -232,7 +231,7 @@ const App = {
                 return this.validateAnswer();
             }
             
-            // Limites de saisie (UX)
+            // Limites de saisie
             let limit = 10;
             if (p.visualType === 'clock') limit = 4;
             if (p.inputType === 'alpha') limit = 20;
@@ -252,36 +251,44 @@ const App = {
     },
 
     validateAnswer(hasAnswered = true) {
+        // 🛑 ANTI-SPAM : Si déjà en cours, on arrête tout de suite
+        if (this.state.isValidating) return;
+        this.state.isValidating = true; // 🔒 On verrouille
+
         if (this.state.timer) clearTimeout(this.state.timer);
         
         const { userInput, targetAnswer, currentExercise, problemData } = this.state;
         const ansZone = document.getElementById('user-answer');
         
-        // 1. COMPARAISON STRICTE (Strings nettoyées)
+        // 1. NETTOYAGE & TOLÉRANCE
         const clean = s => (s || "").toString().toLowerCase().trim();
-        let isCorrect = false;
+        let uInput = clean(userInput);
+        let tAnswer = clean(targetAnswer);
 
+        // Tolérance Tiret/Espace (ex: dictée nombres)
+        if (problemData && problemData.data && problemData.data.allowNoHyphen) {
+            uInput = uInput.replace(/-/g, " ").replace(/\s+/g, " ");
+            tAnswer = tAnswer.replace(/-/g, " ").replace(/\s+/g, " ");
+        }
+
+        let isCorrect = false;
         if (hasAnswered) {
-            // Engines V3 renvoie toujours des strings ("0915"), donc comparaison simple
-            isCorrect = clean(userInput) === clean(targetAnswer);
+            isCorrect = (uInput === tAnswer);
         }
 
         if (isCorrect) this.state.score++;
         
         // 2. FEEDBACK VISUEL
         if (ansZone) {
-            // On force l'affichage même si masqué par UI (ex: dictée)
             ansZone.style.display = 'flex';
             ansZone.style.color = isCorrect ? 'var(--success)' : 'var(--secondary)';
             
-            // Animation "Shake" si faux (optionnel, nécessite CSS)
             if (!isCorrect) {
                 ansZone.classList.add('shake');
                 setTimeout(() => ansZone.classList.remove('shake'), 400);
             }
 
             if (problemData.visualType === 'clock') {
-                // Feedback formaté pour l'horloge
                 const val = (isCorrect ? userInput : targetAnswer).toString().padStart(4, '0');
                 ansZone.innerHTML = `
                     <div class="clock-digit-block">${val.slice(0, 2)}</div>
@@ -293,12 +300,11 @@ const App = {
         }
 
         // 3. SUITE DU JEU
-        const delay = isCorrect ? 800 : 2500; // Plus long si erreur
+        const delay = isCorrect ? 800 : 2500;
         
         setTimeout(() => {
             if (ansZone) {
                 ansZone.style.color = 'var(--primary)';
-                // On laisse UI.updateGameDisplay décider de masquer ou non au prochain tour
             }
 
             if (this.state.currentQuestion < currentExercise.params.questions) {
@@ -306,6 +312,7 @@ const App = {
             } else {
                 this.showFinalResults();
             }
+            // ⚠️ On ne déverrouille PAS ici, c'est fait au début de generateNextQuestion
         }, delay);
     },
 
@@ -313,24 +320,24 @@ const App = {
         const { score, currentGrade, currentExercise } = this.state;
         const total = currentExercise.params.questions;
         
-        // Sauvegarde sécurisée
+        // 🛡️ SÉCURITÉ SCORE : On s'assure que le score ne dépasse jamais le total
+        const safeScore = Math.min(score, total);
+
         if (currentGrade && currentGrade.gradeId) {
-            Storage.saveRecord(currentGrade.gradeId, currentExercise.id, score, total);
+            Storage.saveRecord(currentGrade.gradeId, currentExercise.id, safeScore, total);
         }
         
-        UI.renderStars(score, total);
+        UI.renderStars(safeScore, total);
         UI.showScreen('screen-results');
 
-        // Confettis si 100%
-        if (score === total) {
+        if (safeScore === total) {
             UI.launchCelebration();
         }
 
         const scEl = document.getElementById('result-score');
-        if (scEl) scEl.innerText = `Score : ${score} / ${total}`;
+        if (scEl) scEl.innerText = `Score : ${safeScore} / ${total}`;
     }
 };
 
-// Exposition globale & Démarrage
 window.App = App;
 window.onload = () => App.init();
