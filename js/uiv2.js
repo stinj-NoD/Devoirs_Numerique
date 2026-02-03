@@ -183,22 +183,39 @@ const UI = {
     restoreNumericKeyboard() {
         const kb = document.getElementById('keyboard-num');
         if(!kb) return;
+        
+        // On garde la grille de 3 colonnes
         kb.style.gridTemplateColumns = "repeat(3, 1fr)";
-        kb.innerHTML = "123456789".split("").map(v => `<button class="key" data-val="${v}">${v}</button>`).join("") +
-                       `<button class="key del" data-val="backspace">⌫</button>` +
-                       `<button class="key" data-val="0">0</button>` +
-                       `<button class="key action ok" data-val="ok">OK</button>`;
+        
+        // 1. Les chiffres 1 à 9
+        let html = "123456789".split("").map(v => 
+            `<button class="key" data-val="${v}">${v}</button>`
+        ).join("");
+
+        // 2. La ligne du bas : [ , ]  [ 0 ]  [ ⌫ ]
+        // C'est ici qu'on place la virgule française
+        html += `<button class="key" data-val="," style="font-weight:bold; font-size:1.5rem;">,</button>`;
+        html += `<button class="key" data-val="0">0</button>`;
+        html += `<button class="key del" data-val="backspace" style="background:var(--secondary); color:white">⌫</button>`;
+
+        // 3. Le bouton OK en pleine largeur en dessous (Zone de confort)
+        html += `<button class="key action ok" data-val="ok" style="grid-column: 1 / -1; margin-top:5px; background:var(--success); color:white; padding:10px;">OK</button>`;
+
+        kb.innerHTML = html;
     },
 
     renderAlphaKeyboard() {
         const kb = document.getElementById('keyboard-num');
         if(!kb) return;
         
-        kb.style.gridTemplateColumns = "none";
+        kb.style.gridTemplateColumns = "none"; // On casse la grille pour le clavier complet
         const rows = ["azertyuiop", "qsdfghjklm", "wxcvbn"];
         
         let html = '<div class="alpha-keyboard">';
-        html += `<div class="kb-row accent-row">` + "éèàçêîôû-".split('').map(a => 
+        
+        // AJOUT DE LA VIRGULE DANS LA LIGNE DES ACCENTS
+        // La liste contient maintenant la virgule à la fin
+        html += `<div class="kb-row accent-row">` + "éèàçêîôû-,".split('').map(a => 
             `<button class="key letter-key" data-val="${a}">${a}</button>`
         ).join('') + `</div>`;
 
@@ -209,10 +226,11 @@ const UI = {
         });
         
         html += `<div class="kb-row" style="margin-top:5px">
-            <button class="key action del" data-val="backspace" style="flex: 2;">⌫</button>
+            <button class="key action del" data-val="backspace" style="flex: 2; background:var(--secondary); color:white">⌫</button>
             <button class="key space-key" data-val=" " style="flex: 5;">ESPACE</button>
-            <button class="key action ok" data-val="ok" style="flex: 3;">OK</button>
+            <button class="key action ok" data-val="ok" style="flex: 3; background:var(--success); color:white">OK</button>
         </div></div>`;
+        
         kb.innerHTML = html; 
     },
 
@@ -706,52 +724,52 @@ updateGameDisplay(p, rawInput, prog) {
 
 /* --- uiv2.js : drawSpelling consolidé --- */
 
-drawSpelling(p, input, isQCM = false) {
-    // --- DEBUG LOGS (Regarde ta console F12) ---
-    console.log("🔍 DRAW SPELLING APPELÉ");
-    console.log("👉 Mode QCM reçu :", isQCM);
-    console.log("👉 Données reçues (p.data) :", p.data);
-    // -------------------------------------------
+    drawSpelling(p, input, isQCM = false) {
+        // --- DEBUG LOGS (Regarde ta console F12) ---
+        console.log("🔍 DRAW SPELLING APPELÉ");
+        console.log("👉 Mode QCM reçu :", isQCM);
+        console.log("👉 Données reçues (p.data) :", p.data);
+        // -------------------------------------------
 
-    const d = p.data || {};
-    const word = (d.word || "").toString();
-    const icon = d.icon || "❓";
-    const imgPath = d.img || "";
+        const d = p.data || {};
+        const word = (d.word || "").toString();
+        const icon = d.icon || "❓";
+        const imgPath = d.img || "";
 
-    // LOGIQUE CP : Si c'est un QCM (Un/Une), on affiche le mot complet
-    let slots;
-    if (isQCM) {
-        // Affichage MOT COMPLET
-        console.log("✅ Affichage en mode MOT COMPLET :", word);
-        slots = `<div class="word-full" style="font-size:3rem; font-weight:bold; letter-spacing:2px; margin-top:15px; text-align:center; color:#333;">${word}</div>`;
-    } else {
-        // Affichage DICTÉE (Trous)
-        console.log("✏️ Affichage en mode DICTÉE (Trous)");
-        slots = '<div class="spelling-slots">' + word.split("").map((_, idx) => {
-            const char = input[idx] ? input[idx].toUpperCase() : "";
-            return `<span class="letter-slot" style="display:inline-block; width:30px; height:40px; border-bottom:2px solid #333; margin:2px; text-align:center;">${char || "&nbsp;"}</span>`;
-        }).join("") + '</div>';
-    }
+        // LOGIQUE CP : Si c'est un QCM (Un/Une), on affiche le mot complet
+        let slots;
+        if (isQCM) {
+            // Affichage MOT COMPLET
+            console.log("✅ Affichage en mode MOT COMPLET :", word);
+            slots = `<div class="word-full" style="font-size:3rem; font-weight:bold; letter-spacing:2px; margin-top:15px; text-align:center; color:#333;">${word}</div>`;
+        } else {
+            // Affichage DICTÉE (Trous)
+            console.log("✏️ Affichage en mode DICTÉE (Trous)");
+            slots = '<div class="spelling-slots">' + word.split("").map((_, idx) => {
+                const char = input[idx] ? input[idx].toUpperCase() : "";
+                return `<span class="letter-slot" style="display:inline-block; width:30px; height:40px; border-bottom:2px solid #333; margin:2px; text-align:center;">${char || "&nbsp;"}</span>`;
+            }).join("") + '</div>';
+        }
 
-    const safeId = word.replace(/[^a-zA-Z0-9]/g, '');
+        const safeId = word.replace(/[^a-zA-Z0-9]/g, '');
 
-    return `
-        <div class="spelling-container" style="display:flex; flex-direction:column; align-items:center;">
-            <div class="spelling-visual">
-                <div class="fallback-icon" id="fallback-${safeId}" style="font-size:4rem;">
-                    ${icon}
+        return `
+            <div class="spelling-container" style="display:flex; flex-direction:column; align-items:center;">
+                <div class="spelling-visual">
+                    <div class="fallback-icon" id="fallback-${safeId}" style="font-size:4rem;">
+                        ${icon}
+                    </div>
+                    ${imgPath ? `
+                    <img src="${imgPath}" 
+                        class="spelling-image" 
+                        style="display:none; max-height:150px;" 
+                        onload="this.style.display='block'; document.getElementById('fallback-${safeId}').style.display='none';"
+                        onerror="this.style.display='none';">
+                    ` : ''}
                 </div>
-                ${imgPath ? `
-                <img src="${imgPath}" 
-                     class="spelling-image" 
-                     style="display:none; max-height:150px;" 
-                     onload="this.style.display='block'; document.getElementById('fallback-${safeId}').style.display='none';"
-                     onerror="this.style.display='none';">
-                ` : ''}
-            </div>
-            ${slots}
-        </div>`;
-},
+                ${slots}
+            </div>`;
+    },
 
     drawConjugation(p, input) {
         const d = p.data || {};
