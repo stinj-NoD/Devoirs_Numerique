@@ -26,7 +26,7 @@
 
 Cette version introduit des moteurs visuels complexes pour couvrir les programmes du **CM1 et CM2** :
 
-### ➗ La Division Posée (Pixel Perfect)
+### ➗ La Division Posée (Pixel Perfect ou presque 🫣)
 Un moteur de rendu visuel basé sur **CSS Grid** qui simule parfaitement la "potence" sur une feuille de cahier.
 * Alignement automatique des chiffres (unités sous unités).
 * Affichage des soustractions intermédiaires et des descentes de chiffres.
