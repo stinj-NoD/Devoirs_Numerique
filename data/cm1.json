@@ -106,6 +106,41 @@
           "params": { "category": "present_2", "tenses": ["présent"], "questions": 8 }
         }
       ]
+    },
+    {
+          "id": "cm1-mesures",
+          "title": "Grandeurs & Mesures",
+          "icon": "🔢",
+          "exercises": [
+            {
+              "id": "cm1-romains",
+              "title": "Chiffres Romains",
+              "icon": "🏛️",
+              "subtitle": "Jusqu'à XX (20)",
+              "engine": "conversion",
+              "params": { "subtype": "roman", "max": 20, "questions": 5 }
+            },
+            {
+              "id": "cm1-longueurs",
+              "title": "Conversions (m)",
+              "icon": "📐↔️📏",
+              "subtitle": "m, km, cm, mm...",
+              "engine": "conversion",
+              "params": { "subtype": "metric", "questions": 10 }
+            },
+            {
+              "id": "cm1-durees",
+              "title": "Les Durées",
+              "icon": "🕑",
+              "subtitle": "Heures et Minutes",
+              "engine": "conversion",
+              "params": { 
+                "subtype": "time", 
+                "modes": ["h_to_min", "hmin_to_min"], 
+                "questions": 10 
+              }
+            }
+          ]
     }
   ]
 }
