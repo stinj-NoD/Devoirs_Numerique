@@ -24,7 +24,32 @@ const Engines = {
                 [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
             }
             return newArr;
+        },
+        // DANS ENGINES.JS -> Engines.utils
+
+    romanize(num) {
+        if (!+num) return false;
+        const digits = String(+num).split("");
+        const key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
+                "","X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
+                "","I","II","III","IV","V","VI","VII","VIII","IX"];
+        let roman = "", i = 3;
+        while (i--) roman = (key[+digits.pop() + (i * 10)] || "") + roman;
+        return Array(+digits.join("") + 1).join("M") + roman;
+    },
+
+    deromanize(str) {
+        const roman = str.toUpperCase();
+        const lookup = {I:1,V:5,X:10,L:50,C:100,D:500,M:1000};
+        let num = 0, p = 0;
+        for (let i = roman.length - 1; i >= 0; i--) {
+            const curr = lookup[roman.charAt(i)];
+            if (curr >= p) num += curr;
+            else num -= curr;
+            p = curr;
         }
+        return num;
+    }
     },
 
     /**
@@ -53,6 +78,10 @@ const Engines = {
                     else if (params.type === 'number-spelling') result = this.generators.numberSpelling(params);
                     else if (params.type === 'carre-somme') result = this.generators.carreSomme(params);
                     else result = this.generators.calculate(params);
+                    break;
+
+                case 'conversion':
+                    result = this.generators.conversion(params);
                     break;
 
                 case 'choice-engine':
@@ -134,14 +163,46 @@ const Engines = {
                     const cur = rnd(1, target - 1);
                     return { question: `${cur} + ? = ${target}`, answer: target - cur };
 
-                case 'decimal-place':
-                    const vDec = (Math.random() * 100).toFixed(2);
-                    const isT = Math.random() > 0.5;
-                    const parts = vDec.split('.');
-                    return { 
-                        question: `<span class="small-question">Dans <b>${vDec.replace('.', ',')}</b>,<br>quel est le chiffre des ${isT ? 'dixièmes' : 'centièmes'} ?</span>`, 
-                        answer: isT ? parts[1][0] : parts[1][1]
-                    };
+
+            case 'decimal-place':
+                const trapMode = p.trap === true; 
+                
+                const intPart = trapMode ? Engines.utils.rnd(123, 987) : Engines.utils.rnd(0, 99);
+                const decPart = Engines.utils.rnd(11, 99); // 2 décimales fixes pour bien voir les positions
+                
+                const numberStr = `${intPart},${decPart}`; // Affichage français
+                
+                let targets = [
+                    { 
+                        label: "chiffre des <b style='color:#e91e63'>dixièmes</b>", 
+                        ans: Math.floor(decPart / 10) // Le premier chiffre après la virgule
+                    },
+                    { 
+                        label: "chiffre des <b style='color:#e91e63'>centièmes</b>", 
+                        ans: decPart % 10 // Le deuxième chiffre après la virgule
+                    }
+                ];
+                // Si le mode piège est activé, on ajoute les entiers
+                if (trapMode) {
+                    targets.push(
+                        { 
+                            label: "chiffre des <b>dizaines</b>", 
+                            ans: Math.floor(intPart / 10) % 10 
+                        },
+                        { 
+                            label: "chiffre des <b>centaines</b>", 
+                            ans: Math.floor(intPart / 100) % 10 
+                        }
+                    );
+                }
+                const t = Engines.utils.pick(targets);
+                return {
+                    // On affiche le nombre en gros, et la question en dessous
+                    question: `<div style="font-size:3rem; font-weight:bold; letter-spacing:2px;">${numberStr}</div>
+                            <div class="small-question" style="margin-top:10px;">Quel est le ${t.label} ?</div>`,
+                    answer: t.ans,
+                    inputType: 'numeric' // Pavé numérique simple
+                };
 
                 case 'dictée-nombres':
                     const nBig = rnd(1000, p.max || 1000000);
@@ -294,6 +355,132 @@ const Engines = {
                         // C'est ici qu'on dit à App.js d'être gentil sur les tirets
                         // Par défaut c'est permissif (CP), sauf si le JSON dit "strict": true
                         allowNoHyphen: !p.strict 
+                    }
+                };
+            }
+        },
+// DANS ENGINES.JS -> Engines.generators
+
+        conversion(p) {
+            const { rnd, pick, romanize } = Engines.utils;
+
+            // --- A. CHIFFRES ROMAINS ---
+            if (p.subtype === 'roman') {
+                const val = rnd(p.min || 1, p.max || 20); // CE2: 1-20, CM: 1-100+
+                const toRoman = Math.random() > 0.5; // Pile ou face
+
+                if (toRoman) {
+                    return {
+                        question: `<div class="math-formula">Écris <b>${val}</b> en chiffres romains</div>`,
+                        answer: romanize(val),
+                        inputType: 'roman', // Clavier lettres
+                        isVisual: false
+                    };
+                } else {
+                    const rVal = romanize(val);
+                    return {
+                        question: `<div class="math-formula">Quel est ce nombre ?<br><b style="font-size:3rem; font-family:'Times New Roman'">${rVal}</b></div>`,
+                        answer: val.toString(),
+                        inputType: 'numeric',
+                        isVisual: false
+                    };
+                }
+            }
+
+    // --- B. TEMPS (Durées) ---
+    if (p.subtype === 'time') {
+        const showMemo = p.memo === true; 
+        
+        // On choisit le mode pour CETTE question spécifique
+        const mode = Engines.utils.pick(p.modes || ['h_to_min']);
+        
+        // Détection dynamique : est-ce qu'on parle de secondes ou d'heures ?
+        const isSeconds = mode.includes('sec'); // ex: 'min_to_sec' ou 'minsec_to_sec'
+        
+        const unitBig = isSeconds ? 'min' : 'h';
+        const unitSmall = isSeconds ? 's' : 'min';
+        
+        // Le texte du mémo s'adapte à l'unité de la question
+        const memoText = `1 ${unitBig} = 60 ${unitSmall}`;
+
+        let val1, val2, question, answer;
+
+        // CAS 1 : Conversion Simple (ex: 3 h = ? min)
+        if (mode === 'h_to_min' || mode === 'min_to_sec') {
+            val1 = Engines.utils.rnd(1, 10); 
+            question = `${val1} ${unitBig} = ? ${unitSmall}`;
+            answer = val1 * 60;
+        } 
+        
+        // CAS 2 : Conversion Composée (ex: 2 h 15 min = ? min)
+        // CAS 2 : Conversion Composée (ex: 2 h 15 min = ? min)
+        else if (mode === 'hmin_to_min' || mode === 'minsec_to_sec') {
+            val1 = Engines.utils.rnd(1, 5); // Heures (1 à 5)
+            
+            // --- GESTION DE LA DIFFICULTÉ DES MINUTES ---
+            if (p.randomMinutes) {
+                // Mode EXPERT : N'importe quelle valeur de 1 à 59 (ex: 17, 43, 58)
+                val2 = Engines.utils.rnd(1, 59);
+            } else {
+                // Mode SCOLAIRE : Valeurs "rondes" pour faciliter le calcul mental
+                const choices = [10, 15, 20, 25, 30, 40, 45, 50];
+                val2 = Engines.utils.pick(choices);
+            }
+            
+            question = `${val1} ${unitBig} ${val2} ${unitSmall} = ? ${unitSmall}`;
+            answer = (val1 * 60) + val2;
+        }
+
+        return { 
+            question, 
+            answer: answer.toString(),
+            inputType: 'numeric',
+            isVisual: true,
+            visualType: 'timeMemo', 
+            data: { 
+                showMemo,
+                memoText // On envoie le texte correct au visuel
+            }
+        };
+    }
+
+            // --- C. SYSTÈME MÉTRIQUE (m, g, L) ---
+            if (p.subtype === 'metric') {
+                const units = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
+                const factors = [1000, 100, 10, 1, 0.1, 0.01, 0.001];
+                
+                // On choisit deux unités pas trop éloignées (max 3 crans d'écart)
+                const idx1 = rnd(0, 6);
+                let idx2 = rnd(Math.max(0, idx1 - 3), Math.min(6, idx1 + 3));
+                while(idx1 === idx2) idx2 = rnd(0, 6); // Pas la même
+
+                const u1 = units[idx1];
+                const u2 = units[idx2];
+                const f1 = factors[idx1];
+                const f2 = factors[idx2];
+
+                // On génère un nombre "rond" pour éviter les virgules flottantes affreuses
+                // Si on va vers une unité plus petite (ex: m -> cm), on prend un petit entier
+                // Si on va vers plus grand (cm -> m), on prend des centaines/milliers
+                let val;
+                if (idx1 < idx2) val = rnd(1, 10); // ex: 5 km -> ... m
+                else val = rnd(1, 9) * 1000; // ex: 2000 m -> ... km
+
+                // Calcul précis (astuce pour éviter 0.300000004)
+                const ratio = f1 / f2;
+                const result = Math.round((val * ratio) * 1000) / 1000;
+
+                return {
+                    question: "Convertis :",
+                    answer: result.toString().replace('.', ','), // Format français
+                    inputType: 'numeric', // Le clavier numérique aura besoin de la virgule (à vérifier)
+                    isVisual: true,
+                    visualType: 'conversionTable', // 👈 Nouveau visuel !
+                    data: { 
+                        val, 
+                        u1, 
+                        u2,
+                        type: 'longueur' // ou masse/capacité
                     }
                 };
             }

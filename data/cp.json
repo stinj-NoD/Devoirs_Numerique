@@ -38,11 +38,11 @@
       "title": "Cibles & Monnaie",
       "icon": "🎯",
       "exercises": [
-        { "id": "cible-1", "title": "Cible : Niv 1", "subtitle": "2 flèches (1, 2, 5)", "engine": "math-input", "params": { "type": "cibles", "zones": [1, 2, 5], "nbFleches": 2, "questions": 5 }},
-        { "id": "cible-2", "title": "Cible : Niv 2", "subtitle": "2 flèches (3 à 8)", "engine": "math-input", "params": { "type": "cibles", "zones": [3, 4, 6, 8], "nbFleches": 2, "questions": 5 }},
-        { "id": "cible-3", "title": "Cible : Niv 3", "subtitle": "3 flèches (2, 5, 10)", "engine": "math-input", "params": { "type": "cibles", "zones": [2, 5, 10], "nbFleches": 3, "questions": 5 }},
-        { "id": "banquier-1", "title": "Le Marché", "subtitle": "Pièces (1€, 2€)", "engine": "math-input", "params": { "type": "cibles", "skin": "money", "zones": [1, 2], "nbFleches": 3, "questions": 5 }},
-        { "id": "banquier-2", "title": "La Caisse", "subtitle": "Pièces et billets", "engine": "math-input", "params": { "type": "cibles", "skin": "money", "zones": [1, 2, 5, 10], "nbFleches": 3, "questions": 5 }}
+        { "id": "cible-1", "icon": "🎯", "title": "Cible : Niv 1", "subtitle": "2 flèches (1, 2, 5)", "engine": "math-input", "params": { "type": "cibles", "zones": [1, 2, 5], "nbFleches": 2, "questions": 5 }},
+        { "id": "cible-2", "icon": "🎯🎯", "title": "Cible : Niv 2", "subtitle": "2 flèches (2, 5, 10)", "engine": "math-input", "params": { "type": "cibles", "zones": [2, 5, 10], "nbFleches": 2, "questions": 5 }},
+        { "id": "cible-3", "icon": "🎯🎯🎯", "title": "Cible : Niv 3", "subtitle": "3 flèches (2 à 8)", "engine": "math-input", "params": { "type": "cibles", "zones": [2, 4, 6, 8], "nbFleches": 3, "questions": 5 }},
+        { "id": "banquier-1", "icon": "🪙","title": "Le Marché", "subtitle": "Pièces (1€, 2€)", "engine": "math-input", "params": { "type": "cibles", "skin": "money", "zones": [1, 2], "nbFleches": 4, "questions": 5 }},
+        { "id": "banquier-2", "icon": "💶", "title": "La Caisse", "subtitle": "Pièces et billets", "engine": "math-input", "params": { "type": "cibles", "skin": "money", "zones": [1, 2, 5, 10], "nbFleches": 5, "questions": 5 }}
       ]
     },
     {
@@ -100,11 +100,12 @@
     {
       "id": "cp-ecriture-nombres",
       "title": "Écrire les nombres",
-      "icon": "📝",
+      "icon": "🔢",
       "exercises": [
         {
           "id": "cp-dictee-0-10",
           "title": "Petits Nombres",
+          "icon": "🔢",
           "subtitle": "De 0 à 10 en lettres",
           "engine": "math-input",
           "params": {
@@ -117,6 +118,7 @@
         {
           "id": "cp-dictee-10-20",
           "title": "Nombres de 10 à 20",
+          "icon": "🔢",
           "subtitle": "Les irréguliers (onze...)",
           "engine": "math-input",
           "params": {
