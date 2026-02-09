@@ -21,12 +21,27 @@
       "engine": "math-input", 
       "params": { "type": "fraction-view", "maxDenom": 8, "questions": 10 }
     },
-    { 
-      "id": "cm1-dec-1", 
-      "title": "Décimaux", 
-      "subtitle": "Trouver les dixièmes/centièmes", 
-      "engine": "math-input", 
-      "params": { "type": "decimal-place", "questions": 10 }
+    {
+      "id": "cm1-dec-pos-1",
+      "title": "Décimaux : Positions (1)",
+      "subtitle": "Dixièmes et Centièmes",
+      "engine": "math-input",
+      "params": { 
+        "type": "decimal-place", 
+        "trap": false,
+        "questions": 10 
+      }
+    },
+    {
+      "id": "cm1-dec-pos-2",
+      "title": "Décimaux : Positions (2)",
+      "subtitle": "Attention aux pièges ! (Dizaines vs Dixièmes)",
+      "engine": "math-input",
+      "params": { 
+        "type": "decimal-place", 
+        "trap": true,
+        "questions": 10 
+      }
     },
     { 
       "id": "cm1-div-1", 
@@ -129,17 +144,58 @@
               "params": { "subtype": "metric", "questions": 10 }
             },
             {
-              "id": "cm1-durees",
-              "title": "Les Durées",
-              "icon": "🕑",
-              "subtitle": "Heures et Minutes",
+              "id": "cm1-durees-appr",
+              "title": "Les Heures (Apprentissage)",
+              "subtitle": "Avec aide-mémoire",
+              "icon": "🕒",
+              "engine": "conversion",
+              "params": { 
+                "subtype": "time", 
+                "modes": ["h_to_min"], 
+                "memo": true,  
+                "questions": 10 
+              }
+            },
+            {
+              "id": "cm1-durees-eval",
+              "title": "Les Heures (Expert)",
+              "subtitle": "De tête sans aide !",
+              "icon": "🕒🕞🕟",
               "engine": "conversion",
               "params": { 
                 "subtype": "time", 
                 "modes": ["h_to_min", "hmin_to_min"], 
+                "memo": false, 
                 "questions": 10 
               }
+            },
+            {
+            "id": "cm1-time-sec",
+            "title": "Minutes vers Secondes",
+            "subtitle": "Conversion simple (ex: 3 min)",
+            "icon": "🕒",
+            "engine": "conversion",
+            "params": { 
+              "subtype": "time", 
+              "modes": ["min_to_sec"],
+              "memo": true,
+              "questions": 10 
             }
+          },
+          {
+          "id": "cm1-time-hard",
+          "title": "Conversions (2)",
+          "subtitle": "Calculs précis (ex: 1h 47)",
+          "icon": "🕒🕞🕟",
+          "engine": "conversion",
+          "params": { 
+            "subtype": "time", 
+            "modes": ["hmin_to_min"], 
+            "memo": true,
+            "randomMinutes": true,
+            "questions": 10 
+          }
+        }
           ]
     }
   ]
