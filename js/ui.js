@@ -330,7 +330,7 @@ updateGameDisplay(p, rawInput, prog) {
                     clock:'drawClock', spelling:'drawSpelling', conjugation:'drawConjugation', 
                     target:'drawSvgTarget', money:'drawMoney', bird:'drawBird', division:'drawDivision',
                     square:'drawSquare', reading: 'drawReading', counting: 'drawCounting', fraction: 'drawFraction',
-                    conversionTable: 'drawConversionTable'
+                    conversionTable: 'drawConversionTable', timeMemo: 'drawTimeMemo'
                 };
                 const method = drawMethods[p.visualType];
                 
@@ -745,6 +745,56 @@ updateGameDisplay(p, rawInput, prog) {
         }
         return `<div class="fraction-display"><svg viewBox="0 0 160 160" width="140" height="140">${paths}</svg></div>`;
     },
+
+    // DANS UIV2.JS (Nouvelle fonction)
+
+drawTimeMemo(p) {
+    const d = p.data || {};
+    
+    // On utilise le texte dynamique, ou une valeur par défaut de sécurité
+    const text = d.memoText || "1 h = 60 min";
+
+    const memoHtml = d.showMemo ? `
+    <div style="
+        background: #fff3cd; 
+        border: 2px solid #ffeeba; 
+        color: #856404; 
+        padding: 8px 15px; 
+        border-radius: 8px; 
+        display: inline-block; 
+        font-weight: bold; 
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        animation: popIn 0.5s ease;
+    ">
+        💡 RAPPEL : ${text}
+    </div>` : '';
+
+    return `
+    <div style="
+        text-align:center; 
+        width:100%; 
+        margin-top:20px; 
+        display:flex; 
+        flex-direction:column; 
+        align-items:center;
+    ">
+        ${memoHtml}
+        
+        <div style="
+            font-family: 'Quicksand', sans-serif;
+            font-size: 3rem; 
+            font-weight: bold; 
+            color: #2c3e50; 
+            margin-bottom: 20px;
+        ">
+            ${p.question}
+        </div>
+        
+        <div style="height:20px;"></div>
+    </div>`;
+},
 
     drawReading(p) {
         const d = p.data || {};

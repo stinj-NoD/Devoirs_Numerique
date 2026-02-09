@@ -163,14 +163,46 @@ const Engines = {
                     const cur = rnd(1, target - 1);
                     return { question: `${cur} + ? = ${target}`, answer: target - cur };
 
-                case 'decimal-place':
-                    const vDec = (Math.random() * 100).toFixed(2);
-                    const isT = Math.random() > 0.5;
-                    const parts = vDec.split('.');
-                    return { 
-                        question: `<span class="small-question">Dans <b>${vDec.replace('.', ',')}</b>,<br>quel est le chiffre des ${isT ? 'dixièmes' : 'centièmes'} ?</span>`, 
-                        answer: isT ? parts[1][0] : parts[1][1]
-                    };
+
+            case 'decimal-place':
+                const trapMode = p.trap === true; 
+                
+                const intPart = trapMode ? Engines.utils.rnd(123, 987) : Engines.utils.rnd(0, 99);
+                const decPart = Engines.utils.rnd(11, 99); // 2 décimales fixes pour bien voir les positions
+                
+                const numberStr = `${intPart},${decPart}`; // Affichage français
+                
+                let targets = [
+                    { 
+                        label: "chiffre des <b style='color:#e91e63'>dixièmes</b>", 
+                        ans: Math.floor(decPart / 10) // Le premier chiffre après la virgule
+                    },
+                    { 
+                        label: "chiffre des <b style='color:#e91e63'>centièmes</b>", 
+                        ans: decPart % 10 // Le deuxième chiffre après la virgule
+                    }
+                ];
+                // Si le mode piège est activé, on ajoute les entiers
+                if (trapMode) {
+                    targets.push(
+                        { 
+                            label: "chiffre des <b>dizaines</b>", 
+                            ans: Math.floor(intPart / 10) % 10 
+                        },
+                        { 
+                            label: "chiffre des <b>centaines</b>", 
+                            ans: Math.floor(intPart / 100) % 10 
+                        }
+                    );
+                }
+                const t = Engines.utils.pick(targets);
+                return {
+                    // On affiche le nombre en gros, et la question en dessous
+                    question: `<div style="font-size:3rem; font-weight:bold; letter-spacing:2px;">${numberStr}</div>
+                            <div class="small-question" style="margin-top:10px;">Quel est le ${t.label} ?</div>`,
+                    answer: t.ans,
+                    inputType: 'numeric' // Pavé numérique simple
+                };
 
                 case 'dictée-nombres':
                     const nBig = rnd(1000, p.max || 1000000);
@@ -355,24 +387,62 @@ const Engines = {
                 }
             }
 
-            // --- B. TEMPS (Durées) ---
-            if (p.subtype === 'time') {
-                const mode = pick(p.modes || ['h_to_min']); // h_to_min, min_to_h, min_to_hmin
-                
-                if (mode === 'h_to_min') {
-                    const h = rnd(1, 5);
-                    return { question: `${h} h = ? min`, answer: h * 60 };
-                }
-                if (mode === 'min_to_h') { // Ex: 120 min = ? h
-                    const h = rnd(1, 4);
-                    return { question: `${h * 60} min = ? h`, answer: h };
-                }
-                if (mode === 'hmin_to_min') { // Ex: 1h 30min = ? min
-                    const h = rnd(1, 3);
-                    const m = rnd(1, 5) * 10;
-                    return { question: `${h} h ${m} min = ? min`, answer: (h * 60) + m };
-                }
+    // --- B. TEMPS (Durées) ---
+    if (p.subtype === 'time') {
+        const showMemo = p.memo === true; 
+        
+        // On choisit le mode pour CETTE question spécifique
+        const mode = Engines.utils.pick(p.modes || ['h_to_min']);
+        
+        // Détection dynamique : est-ce qu'on parle de secondes ou d'heures ?
+        const isSeconds = mode.includes('sec'); // ex: 'min_to_sec' ou 'minsec_to_sec'
+        
+        const unitBig = isSeconds ? 'min' : 'h';
+        const unitSmall = isSeconds ? 's' : 'min';
+        
+        // Le texte du mémo s'adapte à l'unité de la question
+        const memoText = `1 ${unitBig} = 60 ${unitSmall}`;
+
+        let val1, val2, question, answer;
+
+        // CAS 1 : Conversion Simple (ex: 3 h = ? min)
+        if (mode === 'h_to_min' || mode === 'min_to_sec') {
+            val1 = Engines.utils.rnd(1, 10); 
+            question = `${val1} ${unitBig} = ? ${unitSmall}`;
+            answer = val1 * 60;
+        } 
+        
+        // CAS 2 : Conversion Composée (ex: 2 h 15 min = ? min)
+        // CAS 2 : Conversion Composée (ex: 2 h 15 min = ? min)
+        else if (mode === 'hmin_to_min' || mode === 'minsec_to_sec') {
+            val1 = Engines.utils.rnd(1, 5); // Heures (1 à 5)
+            
+            // --- GESTION DE LA DIFFICULTÉ DES MINUTES ---
+            if (p.randomMinutes) {
+                // Mode EXPERT : N'importe quelle valeur de 1 à 59 (ex: 17, 43, 58)
+                val2 = Engines.utils.rnd(1, 59);
+            } else {
+                // Mode SCOLAIRE : Valeurs "rondes" pour faciliter le calcul mental
+                const choices = [10, 15, 20, 25, 30, 40, 45, 50];
+                val2 = Engines.utils.pick(choices);
             }
+            
+            question = `${val1} ${unitBig} ${val2} ${unitSmall} = ? ${unitSmall}`;
+            answer = (val1 * 60) + val2;
+        }
+
+        return { 
+            question, 
+            answer: answer.toString(),
+            inputType: 'numeric',
+            isVisual: true,
+            visualType: 'timeMemo', 
+            data: { 
+                showMemo,
+                memoText // On envoie le texte correct au visuel
+            }
+        };
+    }
 
             // --- C. SYSTÈME MÉTRIQUE (m, g, L) ---
             if (p.subtype === 'metric') {
