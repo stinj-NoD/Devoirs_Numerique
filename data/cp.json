@@ -7,9 +7,11 @@
       "title": "Parcours : Addition",
       "icon": "➕",
       "exercises": [
-        { "id": "add-1", "title": "Étape 1", "subtitle": "Sommes < 10", "engine": "math-input", "params": { "type": "add-simple", "maxSum": 10, "questions": 5 }},
-        { "id": "add-2", "title": "Étape 2", "subtitle": "Sommes < 20", "engine": "math-input", "params": { "type": "add-simple", "maxSum": 20, "questions": 5 }},
-        { "id": "add-3", "title": "Étape 3", "subtitle": "Additions à trou", "engine": "math-input", "params": { "type": "add-trou", "min": 1, "max": 50, "questions": 5 }}
+        { "id": "add-1", "title": "Étape 1", "subtitle": "Sommes < 10", "icon": "1️⃣", "engine": "math-input", "params": { "type": "add-simple", "maxSum": 10, "questions": 5 }},
+        { "id": "add-2", "title": "Étape 2", "subtitle": "Sommes < 20", "icon": "2️⃣", "engine": "math-input", "params": { "type": "add-simple", "maxSum": 20, "questions": 5 }},
+        { "id": "add-3", "title": "Étape 3", "subtitle": "Additions à trou", "icon": "🕳️", "engine": "math-input", "params": { "type": "add-trou", "min": 1, "max": 20, "questions": 5 }},
+        { "id": "cp-doubles", "title": "Les Doubles", "subtitle": "Double de 3, de 5...", "icon": "👯", "engine": "math-input", "params": { "type": "doubles", "max": 10, "questions": 10 }},
+        { "id": "cp-amis10", "title": "Les Amis de 10", "subtitle": "Compléments à 10", "icon": "🤝", "engine": "math-input", "params": { "type": "add-trou", "target": 10, "questions": 10 }}
       ]
     },
     {
@@ -17,8 +19,9 @@
       "title": "Parcours : Soustraction",
       "icon": "➖",
       "exercises": [
-        { "id": "sub-1", "title": "Étape 1", "subtitle": "Retirer < 10", "engine": "math-input", "params": { "type": "sub-simple", "min": 1, "max": 10, "questions": 5 }},
-        { "id": "sub-2", "title": "Étape 2", "subtitle": "Retirer < 20", "engine": "math-input", "params": { "type": "sub-simple", "min": 1, "max": 20, "questions": 5 }}
+        { "id": "sub-1", "title": "Étape 1", "subtitle": "Retirer < 10", "icon": "1️⃣", "engine": "math-input", "params": { "type": "sub-simple", "min": 1, "max": 10, "questions": 5 }},
+        { "id": "sub-2", "title": "Étape 2", "subtitle": "Retirer < 20", "icon": "2️⃣", "engine": "math-input", "params": { "type": "sub-simple", "min": 1, "max": 20, "questions": 5 }},
+        { "id": "mix-1", "title": "Mélange + et -", "subtitle": "Reste concentré !", "icon": "🔀", "engine": "math-input", "params": { "type": "mix-add-sub", "min": 0, "max": 15, "questions": 10 }}
       ]
     },
     {
@@ -26,11 +29,11 @@
       "title": "Nombres & Comparaison",
       "icon": "🔢",
       "exercises": [
-        { "id": "math-count-1", "title": "Compter", "subtitle": "Dizaines (0-20)", "engine": "counting", "params": { "min": 1, "max": 20, "questions": 5 }},
-        { "id": "math-count-2", "title": "Grands Nombres", "subtitle": "Jusqu'à 99", "engine": "counting", "params": { "min": 20, "max": 99, "questions": 5 }},
-        { "id": "comp-1", "title": "Comparer : Niv 1", "subtitle": "Nombres < 10", "engine": "choice-engine", "params": { "range": 10, "questions": 5 }},
-        { "id": "comp-2", "title": "Comparer : Niv 2", "subtitle": "Nombres < 20", "engine": "choice-engine", "params": { "range": 20, "questions": 5 }},
-        { "id": "comp-3", "title": "Comparer : Niv 3", "subtitle": "Nombres < 50", "engine": "choice-engine", "params": { "range": 50, "questions": 5 }}
+        { "id": "math-count-1", "title": "Compter", "subtitle": "Dizaines (0-20)", "icon": "🖐️", "engine": "counting", "params": { "min": 1, "max": 20, "questions": 5 }},
+        { "id": "math-count-2", "title": "Grands Nombres", "subtitle": "Jusqu'à 99", "icon": "🐘", "engine": "counting", "params": { "min": 20, "max": 99, "questions": 5 }},
+        { "id": "comp-1", "title": "Comparer : Niv 1", "subtitle": "Nombres < 10", "icon": "🐣", "engine": "choice-engine", "params": { "range": 10, "questions": 5 }},
+        { "id": "comp-2", "title": "Comparer : Niv 2", "subtitle": "Nombres < 20", "icon": "🐥", "engine": "choice-engine", "params": { "range": 20, "questions": 5 }},
+        { "id": "comp-3", "title": "Comparer : Niv 3", "subtitle": "Nombres < 60", "icon": "🦅", "engine": "choice-engine", "params": { "range": 60, "questions": 8 }}
       ]
     },
     {
@@ -39,10 +42,11 @@
       "icon": "🎯",
       "exercises": [
         { "id": "cible-1", "icon": "🎯", "title": "Cible : Niv 1", "subtitle": "2 flèches (1, 2, 5)", "engine": "math-input", "params": { "type": "cibles", "zones": [1, 2, 5], "nbFleches": 2, "questions": 5 }},
-        { "id": "cible-2", "icon": "🎯🎯", "title": "Cible : Niv 2", "subtitle": "2 flèches (2, 5, 10)", "engine": "math-input", "params": { "type": "cibles", "zones": [2, 5, 10], "nbFleches": 2, "questions": 5 }},
-        { "id": "cible-3", "icon": "🎯🎯🎯", "title": "Cible : Niv 3", "subtitle": "3 flèches (2 à 8)", "engine": "math-input", "params": { "type": "cibles", "zones": [2, 4, 6, 8], "nbFleches": 3, "questions": 5 }},
-        { "id": "banquier-1", "icon": "🪙","title": "Le Marché", "subtitle": "Pièces (1€, 2€)", "engine": "math-input", "params": { "type": "cibles", "skin": "money", "zones": [1, 2], "nbFleches": 4, "questions": 5 }},
-        { "id": "banquier-2", "icon": "💶", "title": "La Caisse", "subtitle": "Pièces et billets", "engine": "math-input", "params": { "type": "cibles", "skin": "money", "zones": [1, 2, 5, 10], "nbFleches": 5, "questions": 5 }}
+        { "id": "cible-2", "icon": "🎯", "title": "Cible : Niv 2", "subtitle": "2 flèches (2, 5, 10)", "engine": "math-input", "params": { "type": "cibles", "zones": [2, 5, 10], "nbFleches": 2, "questions": 5 }},
+        { "id": "cible-3", "icon": "🎯", "title": "Cible : Niv 3", "subtitle": "3 flèches (2, 4, 6)", "engine": "math-input", "params": { "type": "cibles", "zones": [2, 4, 6], "nbFleches": 3, "questions": 8 }},
+        { "id": "banquier-1", "icon": "🪙","title": "Le Marché", "subtitle": "Pièces (1€, 2€)", "engine": "math-input", "params": { "type": "cibles", "skin": "money", "zones": [1, 2], "nbFleches": 3, "questions": 5 }},
+        { "id": "banquier-2", "icon": "💶", "title": "La Caisse", "subtitle": "Avec billets de 5€", "engine": "math-input", "params": { "type": "cibles", "skin": "money", "zones": [1, 2, 5], "nbFleches": 4, "questions": 5 }},
+        { "id": "banquier-3", "icon": "👜", "title": "Gros Achats", "subtitle": "Avec billets de 10€", "engine": "math-input", "params": { "type": "cibles", "skin": "money", "zones": [2, 5, 10], "nbFleches": 3, "questions": 8 }}
       ]
     },
     {
@@ -50,9 +54,9 @@
       "title": "Défis & Logique",
       "icon": "🧩",
       "exercises": [
-        { "id": "oiseau-1", "title": "L'Oiseau Rapide", "subtitle": "Vitesse : 8s", "engine": "math-input", "params": { "type": "oiseau-math", "min": 1, "max": 10, "vitesse": 8, "questions": 5 }},
-        { "id": "carre-1", "title": "Carré Magique 1", "subtitle": "Aide visuelle", "engine": "math-input", "params": { "type": "carre-somme", "targetMin": 10, "targetMax": 10, "gridSize": 4, "showSum": true, "questions": 5 }},
-        { "id": "carre-2", "title": "Carré Magique 2", "subtitle": "Calcul mental", "engine": "math-input", "params": { "type": "carre-somme", "targetMin": 10, "targetMax": 10, "gridSize": 4, "showSum": false, "questions": 5 }}
+        { "id": "oiseau-1", "title": "L'Oiseau Rapide", "subtitle": "Vitesse : 8s", "icon": "🐦", "engine": "math-input", "params": { "type": "oiseau-math", "min": 1, "max": 10, "vitesse": 8, "questions": 5 }},
+        { "id": "carre-1", "title": "Carré Magique 1", "subtitle": "Aide visuelle", "icon": "🟩", "engine": "math-input", "params": { "type": "carre-somme", "targetMin": 10, "targetMax": 10, "gridSize": 4, "showSum": true, "questions": 5 }},
+        { "id": "carre-2", "title": "Carré Magique 2", "subtitle": "Calcul mental", "icon": "🟧", "engine": "math-input", "params": { "type": "carre-somme", "targetMin": 10, "targetMax": 10, "gridSize": 4, "showSum": false, "questions": 5 }}
       ]
     },
     {
@@ -60,13 +64,13 @@
       "title": "Dictée d'Images",
       "icon": "✍️",
       "exercises": [
-        { "id": "fr-animaux", "title": "Les Animaux", "subtitle": "Écris le nom", "engine": "math-input", "params": { "type": "spelling", "category": "animals", "questions": 5 }},
-        { "id": "fr-corps", "title": "Le Corps", "subtitle": "Écris le nom", "engine": "math-input", "params": { "type": "spelling", "category": "corps", "questions": 5 }},
-        { "id": "fr-food", "title": "Manger", "subtitle": "Écris le nom", "engine": "math-input", "params": { "type": "spelling", "category": "food", "questions": 5 }},
-        { "id": "fr-transp", "title": "Transports", "subtitle": "Écris le nom", "engine": "math-input", "params": { "type": "spelling", "category": "transport", "questions": 5 }}
+        { "id": "fr-animaux", "title": "Les Animaux", "subtitle": "Écris le nom", "icon": "🐱", "engine": "math-input", "params": { "type": "spelling", "category": "animals", "questions": 5 }},
+        { "id": "fr-corps", "title": "Le Corps", "subtitle": "Écris le nom", "icon": "👃", "engine": "math-input", "params": { "type": "spelling", "category": "corps", "questions": 5 }},
+        { "id": "fr-food", "title": "Manger", "subtitle": "Écris le nom", "icon": "🍎", "engine": "math-input", "params": { "type": "spelling", "category": "food", "questions": 5 }},
+        { "id": "fr-transp", "title": "Transports", "subtitle": "Écris le nom", "icon": "🚗", "engine": "math-input", "params": { "type": "spelling", "category": "transport", "questions": 5 }}
       ]
     },
-{
+    {
       "id": "cp-grammaire-genre",
       "title": "Masculin ou Féminin",
       "icon": "🚻",
@@ -75,24 +79,26 @@
           "id": "cp-un-une",
           "title": "Un ou Une ?",
           "subtitle": "Choisis le bon petit mot",
+          "icon": "🔵",
           "engine": "choice-engine",
           "params": {
             "type": "gender-articles",
             "category": "gender_cp",
             "options": ["un", "une"], 
-            "questions": 5
+            "questions": 10
           }
         },
         {
           "id": "cp-le-la",
           "title": "Le ou La ?",
           "subtitle": "Articles définis",
+          "icon": "🔴",
           "engine": "choice-engine",
           "params": {
             "type": "gender-articles",
             "category": "gender_cp",
             "options": ["le", "la"], 
-            "questions": 5
+            "questions": 10
           }
         }
       ]
@@ -105,7 +111,7 @@
         {
           "id": "cp-dictee-0-10",
           "title": "Petits Nombres",
-          "icon": "🔢",
+          "icon": "👶",
           "subtitle": "De 0 à 10 en lettres",
           "engine": "math-input",
           "params": {
@@ -118,7 +124,7 @@
         {
           "id": "cp-dictee-10-20",
           "title": "Nombres de 10 à 20",
-          "icon": "🔢",
+          "icon": "👦",
           "subtitle": "Les irréguliers (onze...)",
           "engine": "math-input",
           "params": {
@@ -127,9 +133,22 @@
             "max": 20,
             "questions": 5
           }
+        },
+        {
+          "id": "cp-dictee-global",
+          "title": "Grand Champion",
+          "icon": "🏆",
+          "subtitle": "Tout mélangé (0 à 20)",
+          "engine": "math-input",
+          "params": {
+            "type": "number-spelling",
+            "min": 0,
+            "max": 20,
+            "questions": 10,
+            "strict": false
+          }
         }
       ]
     }
   ]
-
 }

@@ -3,105 +3,141 @@
   "title": "CM1",
   "themes": [
     {
-  "id": "cm1-maths",
-  "title": "Mathématiques",
-  "icon": "📐",
-  "exercises": [
-    { 
-      "id": "cm1-m-big", 
-      "title": "Grands Nombres", 
-      "subtitle": "Dictée jusqu'au million", 
-      "engine": "math-input", 
-      "params": { "type": "dictée-nombres", "max": 1000000, "questions": 5 }
-    },
-    { 
-      "id": "cm1-frac-1", 
-      "title": "Fractions", 
-      "subtitle": "Lecture visuelle", 
-      "engine": "math-input", 
-      "params": { "type": "fraction-view", "maxDenom": 8, "questions": 10 }
-    },
-    {
-      "id": "cm1-dec-pos-1",
-      "title": "Décimaux : Positions (1)",
-      "subtitle": "Dixièmes et Centièmes",
-      "engine": "math-input",
-      "params": { 
-        "type": "decimal-place", 
-        "trap": false,
-        "questions": 10 
-      }
-    },
-    {
-      "id": "cm1-dec-pos-2",
-      "title": "Décimaux : Positions (2)",
-      "subtitle": "Attention aux pièges ! (Dizaines vs Dixièmes)",
-      "engine": "math-input",
-      "params": { 
-        "type": "decimal-place", 
-        "trap": true,
-        "questions": 10 
-      }
-    },
-    { 
-      "id": "cm1-div-1", 
-      "title": "La Moitié", 
-      "subtitle": "Calcul mental rapide", 
-      "engine": "math-input", 
-      "params": { "type": "half", "questions": 10 }
-    },
-    { 
-      "id": "cm1-div-2", 
-      "title": "Divisions Simples", 
-      "subtitle": "Tables inversées (ex: 42 : 6)", 
-      "engine": "math-input", 
-      "params": { "type": "division-simple", "questions": 10 }
-    },
-    { 
-      "id": "cm1-div-3", 
-      "title": "Le Juste Nombre", 
-      "subtitle": "Dans 26, combien de fois 5 ?", 
-      "engine": "math-input", 
-      "params": { "type": "division-reste", "questions": 10 }
-    },
-    {
-      "id": "cm1-div-posed-1",
-      "title": "Division Posée",
-      "subtitle": "Trouve le quotient (1 chiffre)",
-      "engine": "math-input",
-      "params": { 
-        "type": "division-posed", 
-        "level": 1, 
-        "questions": 5 
-      }
-    }
-  ]
+      "id": "cm1-maths",
+      "title": "Mathématiques",
+      "icon": "📐",
+      "exercises": [
+        { 
+          "id": "cm1-m-big", 
+          "title": "Grands Nombres", 
+          "icon": "🐘",
+          "subtitle": "Dictée jusqu'au million", 
+          "engine": "math-input", 
+          "params": { "type": "dictée-nombres", "max": 1000000, "questions": 5 }
+        },
+        { 
+          "id": "cm1-mult-mix", 
+          "title": "Tables x2 à x9", 
+          "icon": "✖️",
+          "subtitle": "Entraînement vitesse", 
+          "engine": "math-input", 
+          "params": { "type": "mult", "table": "mix", "questions": 10 }
+        },
+        { 
+          "id": "cm1-frac-1", 
+          "title": "Fractions", 
+          "icon": "🍕",
+          "subtitle": "Lecture visuelle", 
+          "engine": "math-input", 
+          "params": { "type": "fraction-view", "maxDenom": 8, "questions": 10 }
+        },
+        {
+          "id": "cm1-dec-pos-1",
+          "title": "Décimaux : Positions (1)",
+          "icon": "🎯",
+          "subtitle": "Dixièmes et Centièmes",
+          "engine": "math-input",
+          "params": { 
+            "type": "decimal-place", 
+            "trap": false,
+            "questions": 10 
+          }
+        },
+        {
+          "id": "cm1-dec-pos-2",
+          "title": "Décimaux : Positions (2)",
+          "icon": "⚠️",
+          "subtitle": "Attention aux pièges !",
+          "engine": "math-input",
+          "params": { 
+            "type": "decimal-place", 
+            "trap": true,
+            "questions": 10 
+          }
+        },
+        { 
+          "id": "cm1-div-1", 
+          "title": "La Moitié", 
+          "icon": "½",
+          "subtitle": "Calcul mental rapide", 
+          "engine": "math-input", 
+          "params": { "type": "half", "questions": 10 }
+        },
+        { 
+          "id": "cm1-div-2", 
+          "title": "Divisions Simples", 
+          "icon": "➗",
+          "subtitle": "Tables inversées (ex: 42 : 6)", 
+          "engine": "math-input", 
+          "params": { "type": "division-simple", "questions": 10 }
+        },
+        { 
+          "id": "cm1-div-3", 
+          "title": "Le Juste Nombre", 
+          "icon": "🧐",
+          "subtitle": "Dans 26, combien de fois 5 ?", 
+          "engine": "math-input", 
+          "params": { "type": "division-reste", "questions": 10 }
+        },
+        {
+          "id": "cm1-div-posed-1",
+          "title": "Division Posée",
+          "icon": "🏗️",
+          "subtitle": "Trouve le quotient (1 chiffre)",
+          "engine": "math-input",
+          "params": { 
+            "type": "division-posed", 
+            "level": 1, 
+            "questions": 5 
+          }
+        }
+      ]
     },
     {
       "id": "cm1-francais",
       "title": "Français",
       "icon": "📖",
       "exercises": [
-        { "id": "cm1-h-ce", "title": "Ce ou Se ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "ce_se", "choices": ["ce", "se"], "questions": 10 }},
-        { "id": "cm1-h-ces", "title": "Ces ou Ses ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "ces_ses", "choices": ["ces", "ses"], "questions": 10 }},
-        { "id": "cm1-c-imp", "title": "L'Imparfait", "subtitle": "Verbes en -ER", "engine": "conjugation", "params": { "category": "imparfait_1", "tenses": ["imparfait"], "questions": 10 }},
         { 
-          "id": "cm1-c-pc-avoir", 
-          "title": "Passé Composé (1)", 
-          "subtitle": "Auxiliaire Avoir", 
-          "engine": "conjugation", 
-          "params": { "category": "pc_1", "verbs": ["manger", "chanter", "jouer", "chercher", "trouver"], "tenses": ["passé composé"], "questions": 5 }
+            "id": "cm1-h-a-a", 
+            "title": "a ou à ?", 
+            "icon": "🅰️", 
+            "subtitle": "Verbe avoir ou Préposition", 
+            "engine": "choice-engine", 
+            "params": { "type": "homophone-duel", "category": "a_à", "choices": ["a", "à"], "questions": 10 }
         },
         { 
-          "id": "cm1-c-pc-etre", 
-          "title": "Passé Composé (2)", 
-          "subtitle": "Auxiliaire Être", 
-          "engine": "conjugation", 
-          "params": { "category": "pc_1", "verbs": ["tomber", "monter", "arriver", "entrer", "rester"], "tenses": ["passé composé"], "questions": 5 }
+            "id": "cm1-h-et-est", 
+            "title": "et ou est ?", 
+            "icon": "👉", 
+            "subtitle": "Verbe être ou Mot lien", 
+            "engine": "choice-engine", 
+            "params": { "type": "homophone-duel", "category": "et_est", "choices": ["et", "est"], "questions": 10 }
         },
+        { 
+            "id": "cm1-h-on-ont", 
+            "title": "on ou ont ?", 
+            "icon": "👥", 
+            "subtitle": "Pronom ou Verbe avoir", 
+            "engine": "choice-engine", 
+            "params": { "type": "homophone-duel", "category": "on_ont", "choices": ["on", "ont"], "questions": 10 }
+        },
+        { 
+            "id": "cm1-h-son-sont", 
+            "title": "son ou sont ?", 
+            "icon": "💭", 
+            "subtitle": "Possessif ou Verbe être", 
+            "engine": "choice-engine", 
+            "params": { "type": "homophone-duel", "category": "son_sont", "choices": ["son", "sont"], "questions": 10 }
+        },
+        { "id": "cm1-h-ce", "title": "ce ou se ?", "subtitle": "Démonstratif ou Pronom", "icon": "👇", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "ce_se", "choices": ["ce", "se"], "questions": 10 }},
+        { "id": "cm1-h-ces", "title": "ces ou ses ?", "subtitle": "Les siens ou ceux-là", "icon": "👐", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "ces_ses", "choices": ["ces", "ses"], "questions": 10 }},
+        { "id": "cm1-c-imp", "title": "L'Imparfait", "subtitle": "Verbes en -ER", "icon": "🕰️", "engine": "conjugation", "params": { "category": "imparfait_1", "tenses": ["imparfait"], "questions": 10 }},
+        { "id": "cm1-c-futur", "title": "Le Futur", "subtitle": "Demain, je...", "icon": "🚀", "engine": "conjugation", "params": { "category": "futur_1", "tenses": ["futur"], "questions": 10 }},
         { 
           "id": "cm1-c-pc-mix", 
-          "title": "Passé Composé (Mix)", 
+          "title": "Passé Composé", 
+          "icon": "🔙",
           "subtitle": "Avoir ou Être ?", 
           "engine": "conjugation", 
           "params": { "category": "pc_1", "tenses": ["passé composé"], "questions": 10 }
@@ -109,13 +145,15 @@
         { 
           "id": "cm1-c-pc-3", 
           "title": "Passé Composé (Expert)", 
+          "icon": "🎓",
           "subtitle": "3ème groupe (fait, dit, vu...)", 
           "engine": "conjugation", 
-          "params": { "category": "pc_3_freq", "tenses": ["passé composé"], "questions": 10 }
+          "params": { "category": "pc_3", "tenses": ["passé composé"], "questions": 10 }
         },
         { 
           "id": "cm1-conj-ir", 
           "title": "Le 2ème groupe", 
+          "icon": "✌️",
           "subtitle": "Finir, Choisir... en -ISS", 
           "engine": "conjugation", 
           "params": { "category": "present_2", "tenses": ["présent"], "questions": 8 }
@@ -123,57 +161,57 @@
       ]
     },
     {
-          "id": "cm1-mesures",
-          "title": "Grandeurs & Mesures",
-          "icon": "🔢",
-          "exercises": [
-            {
-              "id": "cm1-romains",
-              "title": "Chiffres Romains",
-              "icon": "🏛️",
-              "subtitle": "Jusqu'à XX (20)",
-              "engine": "conversion",
-              "params": { "subtype": "roman", "max": 20, "questions": 5 }
-            },
-            {
-              "id": "cm1-longueurs",
-              "title": "Conversions (m)",
-              "icon": "📐↔️📏",
-              "subtitle": "m, km, cm, mm...",
-              "engine": "conversion",
-              "params": { "subtype": "metric", "questions": 10 }
-            },
-            {
-              "id": "cm1-durees-appr",
-              "title": "Les Heures (Apprentissage)",
-              "subtitle": "Avec aide-mémoire",
-              "icon": "🕒",
-              "engine": "conversion",
-              "params": { 
-                "subtype": "time", 
-                "modes": ["h_to_min"], 
-                "memo": true,  
-                "questions": 10 
-              }
-            },
-            {
-              "id": "cm1-durees-eval",
-              "title": "Les Heures (Expert)",
-              "subtitle": "De tête sans aide !",
-              "icon": "🕒🕞🕟",
-              "engine": "conversion",
-              "params": { 
-                "subtype": "time", 
-                "modes": ["h_to_min", "hmin_to_min"], 
-                "memo": false, 
-                "questions": 10 
-              }
-            },
-            {
+      "id": "cm1-mesures",
+      "title": "Grandeurs & Mesures",
+      "icon": "📏",
+      "exercises": [
+        {
+          "id": "cm1-romains",
+          "title": "Chiffres Romains",
+          "icon": "🏛️",
+          "subtitle": "Jusqu'à XX (20)",
+          "engine": "conversion",
+          "params": { "subtype": "roman", "max": 20, "questions": 5 }
+        },
+        {
+          "id": "cm1-longueurs",
+          "title": "Conversions (m)",
+          "icon": "📏",
+          "subtitle": "m, km, cm, mm...",
+          "engine": "conversion",
+          "params": { "subtype": "metric", "questions": 10 }
+        },
+        {
+          "id": "cm1-durees-appr",
+          "title": "Les Heures (Apprentissage)",
+          "subtitle": "Avec aide-mémoire",
+          "icon": "🕒",
+          "engine": "conversion",
+          "params": { 
+            "subtype": "time", 
+            "modes": ["h_to_min"], 
+            "memo": true,  
+            "questions": 10 
+          }
+        },
+        {
+          "id": "cm1-durees-eval",
+          "title": "Les Heures (Expert)",
+          "subtitle": "De tête sans aide !",
+          "icon": "🧠",
+          "engine": "conversion",
+          "params": { 
+            "subtype": "time", 
+            "modes": ["h_to_min", "hmin_to_min"], 
+            "memo": false, 
+            "questions": 10 
+          }
+        },
+        {
             "id": "cm1-time-sec",
             "title": "Minutes vers Secondes",
             "subtitle": "Conversion simple (ex: 3 min)",
-            "icon": "🕒",
+            "icon": "⏱️",
             "engine": "conversion",
             "params": { 
               "subtype": "time", 
@@ -181,22 +219,53 @@
               "memo": true,
               "questions": 10 
             }
-          },
-          {
-          "id": "cm1-time-hard",
-          "title": "Conversions (2)",
-          "subtitle": "Calculs précis (ex: 1h 47)",
-          "icon": "🕒🕞🕟",
-          "engine": "conversion",
-          "params": { 
-            "subtype": "time", 
-            "modes": ["hmin_to_min"], 
-            "memo": true,
-            "randomMinutes": true,
-            "questions": 10 
-          }
+        },
+        {
+            "id": "cm1-time-hard",
+            "title": "Conversions (2)",
+            "subtitle": "Calculs précis (ex: 1h 47)",
+            "icon": "🔥",
+            "engine": "conversion",
+            "params": { 
+                "subtype": "time", 
+                "modes": ["hmin_to_min"], 
+                "memo": true,
+                "randomMinutes": true,
+                "questions": 10 
+            }
         }
-          ]
+      ]
+    },
+    {
+      "id": "cm1-logique",
+      "title": "Logique & Défis",
+      "icon": "🧩",
+      "exercises": [
+        { 
+            "id": "cm1-oiseau-calc", 
+            "title": "Calcul Rapide", 
+            "icon": "🐦", 
+            "subtitle": "Vitesse : 7 secondes", 
+            "engine": "math-input", 
+            "params": { "type": "oiseau-math", "min": 2, "max": 20, "vitesse": 7, "questions": 10 }
+        },
+        { 
+            "id": "cm1-carre-magique", 
+            "title": "Carré Magique", 
+            "icon": "🟪", 
+            "subtitle": "Somme cible à trouver", 
+            "engine": "math-input", 
+            "params": { "type": "carre-somme", "targetMin": 20, "targetMax": 40, "gridSize": 4, "showSum": true, "questions": 5 }
+        },
+        { 
+            "id": "cm1-banquier-expert", 
+            "title": "Le Grand Marché", 
+            "icon": "💶", 
+            "subtitle": "Billets 10, 20, 50, 100", 
+            "engine": "math-input", 
+            "params": { "type": "cibles", "skin": "money", "zones": [10, 20, 50, 100], "nbFleches": 5, "questions": 5 }
+        }
+      ]
     }
   ]
 }
