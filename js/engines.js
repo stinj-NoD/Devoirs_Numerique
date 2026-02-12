@@ -163,7 +163,6 @@ const Engines = {
                     const cur = rnd(1, target - 1);
                     return { question: `${cur} + ? = ${target}`, answer: target - cur };
 
-
             case 'decimal-place':
                 const trapMode = p.trap === true; 
                 
@@ -236,6 +235,30 @@ const Engines = {
                         }, 
                         answer: res 
                     };
+
+                case 'doubles':
+                // Génère un nombre entre 1 et le max (ou 10 par défaut)
+                a = rnd(1, p.max || 10);
+                return { 
+                    // On utilise du HTML pour afficher "Double de 5" en gros
+                    question: `<div class="math-formula" style="font-size:2rem;">Double de <b>${a}</b></div>`, 
+                    answer: a * 2,
+                    inputType: 'numeric' // L'enfant tape juste le résultat
+                };
+
+                case 'mix-add-sub':
+                // 50% de chance d'avoir une addition
+                if (Math.random() > 0.5) {
+                    // --- Logique ADDITION ---
+                    total = rnd(p.min || 2, p.max || 10);
+                    a = rnd(0, total);
+                    return { question: `${a} + ${total - a} = ?`, answer: total };
+                } else {
+                    // --- Logique SOUSTRACTION ---
+                    a = rnd(p.min || 5, p.max || 10); // Le grand nombre
+                    b = rnd(0, a);                    // Ce qu'on retire
+                    return { question: `${a} - ${b} = ?`, answer: a - b };
+                };
 
                 case 'cibles': 
                     const zones = p.zones?.length ? p.zones : [10, 50, 100];
