@@ -1,95 +1,745 @@
 {
-  "gradeId": "ce1",
-  "title": "CE1",
-  "themes": [
-    {
-      "id": "ce1-tables",
-      "title": "Multiplication",
-      "icon": "✖️",
-      "exercises": [
-        { "id": "mult-2", "title": "Table de 2", "subtitle": "Les doubles", "engine": "math-input", "params": { "type": "mult", "table": 2, "questions": 10 }},
-        { "id": "mult-3", "title": "Table de 3", "subtitle": "Les triples", "engine": "math-input", "params": { "type": "mult", "table": 3, "questions": 10 }},
-        { "id": "mult-4", "title": "Table de 4", "subtitle": "Les quadruples", "engine": "math-input", "params": { "type": "mult", "table": 4, "questions": 10 }},
-        { "id": "mult-5", "title": "Table de 5", "subtitle": "De 5 en 5", "engine": "math-input", "params": { "type": "mult", "table": 5, "questions": 10 }},
-        { "id": "mult-10", "title": "Table de 10", "subtitle": "Ajouter un zéro", "engine": "math-input", "params": { "type": "mult", "table": 10, "questions": 10 }}
-      ]
-    },
-    {
-      "id": "ce1-maths-logique",
-      "title": "Nombres & Calculs",
-      "icon": "🚀",
-      "exercises": [
-        { "id": "add-100", "title": "Compléments à 100", "subtitle": "Dizaines entières", "engine": "math-input", "params": { "type": "add-trou", "min": 10, "max": 100, "questions": 10 }},
-        { "id": "add-chrono", "title": "L'Oiseau Rapide", "subtitle": "Vitesse : 5s", "engine": "math-input", "params": { "type": "oiseau-math", "min": 10, "max": 30, "vitesse": 5, "questions": 10 }},
-        { "id": "comp-ce1-1", "title": "Comparer < 100", "subtitle": "Signes > et <", "engine": "choice-engine", "params": { "range": 100, "questions": 10 }},
-        { "id": "bank-ce1-1", "title": "Le Marché", "subtitle": "Pièces et billets", "engine": "math-input", "params": { "type": "cibles", "skin": "money", "zones": [1, 2, 5, 10, 20], "nbFleches": 5, "questions": 5 }},
-        { "id": "carre-ce1-1", "title": "Carré Expert", "subtitle": "Cible 50", "engine": "math-input", "params": { "type": "carre-somme", "targetMin": 50, "targetMax": 50, "gridSize": 9, "showSum": false, "questions": 5 }}
-      ]
-    },
-    {
-      "id": "ce1-francais-ortho",
-      "title": "Français : Orthographe",
-      "icon": "✍️",
-      "exercises": [
-        { "id": "ce1-sp-animaux", "title": "Dictée Animaux", "subtitle": "Orthographe", "engine": "math-input", "params": { "type": "spelling", "category": "animals", "questions": 8 }},
-        { "id": "ce1-sp-corps", "title": "Le Corps", "subtitle": "Dictée de mots", "engine": "math-input", "params": { "type": "spelling", "category": "corps", "questions": 8 }},
-        { "id": "ce1-homo-aa", "title": "a ou à ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "a_à", "choices": ["a", "à"], "questions": 10 }},
-        { "id": "ce1-homo-et", "title": "et ou est ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "et_est", "choices": ["et", "est"], "questions": 10 }}
-      ]
-    },
-    {
-      "id": "ce1-conjugaison",
-      "title": "Français : Conjugaison",
-      "icon": "⏳",
-      "exercises": [
-        { 
-          "id": "ce1-conj-base", 
-          "title": "Les Indispensables", 
-          "subtitle": "Être et Avoir au présent", 
-          "engine": "conjugation", 
-          "params": { "category": "etre_avoir_p", "verbs": ["être", "avoir"], "tenses": ["présent"], "questions": 5 }
-        },
-        { 
-          "id": "ce1-conj-er-facile", 
-          "title": "Verbes en -ER (1)", 
-          "subtitle": "Chanter, Jouer, Parler...", 
-          "engine": "conjugation", 
-          "params": { "category": "present_1", "verbs": ["chanter", "jouer", "parler", "marcher", "aimer", "dessiner"], "tenses": ["présent"], "questions": 5 }
-        },
-        { 
-          "id": "ce1-conj-aller", 
-          "title": "Le verbe ALLER", 
-          "subtitle": "Un faux ami en -ER", 
-          "engine": "conjugation", 
-          "params": { 
-            "category": "present_3_freq", 
-            "verbs": ["aller"], 
-            "tenses": ["présent"], 
-            "questions": 5 
-          }
-        },
-        { 
-          "id": "ce1-conj-er-action", 
-          "title": "Verbes en -ER (2)", 
-          "subtitle": "Cacher, Grimper, Sauter...", 
-          "engine": "conjugation", 
-          "params": { "category": "present_1", "verbs": ["cacher", "grimper", "sauter", "tomber", "chercher", "trouver"], "tenses": ["présent"], "questions": 5 }
-        },
-        { 
-          "id": "ce1-conj-er-regles", 
-          "title": "Le Cas du 'Nous'", 
-          "subtitle": "Manger (-ger) et Lancer (-cer)", 
-          "engine": "conjugation", 
-          "params": { "category": "present_1", "verbs": ["manger", "nager", "ranger", "lancer", "placer", "voyager"], "tenses": ["présent"], "questions": 6 }
-        },
-        { 
-          "id": "ce1-conj-expert", 
-          "title": "Défi Verbe-o-tron", 
-          "subtitle": "Tous les verbes mélangés", 
-          "engine": "conjugation", 
-          "params": { "category": "present_1", "questions": 10 }
-        }
-      ]
-    }
-  ]
+    "gradeId":  "ce1",
+    "title":  "CE1",
+    "subjects":  [
+                     {
+                         "id":  "ce1-maths",
+                         "title":  "Mathématiques",
+                         "icon":  "🔢",
+                         "subthemes":  [
+                                           {
+                                               "id":  "ce1-multiplication",
+                                               "title":  "Multiplication",
+                                               "icon":  "✖️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "mult-2",
+                                                                     "title":  "Table de 2",
+                                                                     "subtitle":  "Les doubles",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "mult",
+                                                                                    "table":  2,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "mult-3",
+                                                                     "title":  "Table de 3",
+                                                                     "subtitle":  "Les triples",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "mult",
+                                                                                    "table":  3,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "mult-4",
+                                                                     "title":  "Table de 4",
+                                                                     "subtitle":  "Les quadruples",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "mult",
+                                                                                    "table":  4,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "mult-5",
+                                                                     "title":  "Table de 5",
+                                                                     "subtitle":  "De 5 en 5",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "mult",
+                                                                                    "table":  5,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "mult-10",
+                                                                     "title":  "Table de 10",
+                                                                     "subtitle":  "Ajouter un zéro",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "mult",
+                                                                                    "table":  10,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce1-nombres-calculs",
+                                               "title":  "Nombres \u0026 Calculs",
+                                               "icon":  "🚀",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "add-100",
+                                                                     "title":  "Compléments à 100",
+                                                                     "subtitle":  "Dizaines entières",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "add-trou",
+                                                                                    "min":  10,
+                                                                                    "max":  100,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "add-chrono",
+                                                                     "title":  "L\u0027Oiseau Rapide",
+                                                                     "subtitle":  "Vitesse : 5s",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "oiseau-math",
+                                                                                    "min":  10,
+                                                                                    "max":  30,
+                                                                                    "vitesse":  5,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "comp-ce1-1",
+                                                                     "title":  "Comparer \u003c 100",
+                                                                     "subtitle":  "Signes \u003e et \u003c",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "range":  100,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "bank-ce1-1",
+                                                                     "title":  "Le Marché",
+                                                                     "subtitle":  "Pièces et billets",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "cibles",
+                                                                                    "skin":  "money",
+                                                                                    "zones":  [
+                                                                                                  1,
+                                                                                                  2,
+                                                                                                  5,
+                                                                                                  10,
+                                                                                                  20
+                                                                                              ],
+                                                                                    "nbFleches":  5,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "carre-ce1-1",
+                                                                     "title":  "Carré Expert",
+                                                                     "subtitle":  "Cible 50",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "carre-somme",
+                                                                                    "targetMin":  50,
+                                                                                    "targetMax":  50,
+                                                                                    "gridSize":  9,
+                                                                                    "showSum":  false,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "ce1-francais",
+                         "title":  "Français",
+                         "icon":  "📖",
+                         "subthemes":  [
+                                           {
+                                               "id":  "ce1-orthographe",
+                                               "title":  "Orthographe",
+                                               "icon":  "✍️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-sp-animaux",
+                                                                     "title":  "Dictée Animaux",
+                                                                     "subtitle":  "Orthographe",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "spelling",
+                                                                                    "category":  "animals",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-sp-corps",
+                                                                     "title":  "Le Corps",
+                                                                     "subtitle":  "Dictée de mots",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "spelling",
+                                                                                    "category":  "corps",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-homo-aa",
+                                                                     "title":  "a ou à ?",
+                                                                     "subtitle":  "Homophones",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "homophone-duel",
+                                                                                    "category":  "a_à",
+                                                                                    "choices":  [
+                                                                                                    "a",
+                                                                                                    "à"
+                                                                                                ],
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-homo-et",
+                                                                     "title":  "et ou est ?",
+                                                                     "subtitle":  "Homophones",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "homophone-duel",
+                                                                                    "category":  "et_est",
+                                                                                    "choices":  [
+                                                                                                    "et",
+                                                                                                    "est"
+                                                                                                ],
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-sp-ecole",
+                                                                     "title":  "L\u0027école",
+                                                                     "subtitle":  "Dictée de mots",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "spelling",
+                                                                                    "category":  "school",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-sp-maison",
+                                                                     "title":  "La Maison",
+                                                                     "subtitle":  "Dictée de mots",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "spelling",
+                                                                                    "category":  "house",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-sp-aliments",
+                                                                     "title":  "Les Aliments",
+                                                                     "subtitle":  "Dictée de mots",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "spelling",
+                                                                                    "category":  "food",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce1-dictee-audio",
+                                               "title":  "Dictée audio",
+                                               "icon":  "🔊",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-audio-ecole",
+                                                                     "title":  "L\u0027École",
+                                                                     "subtitle":  "Écoute et écris",
+                                                                     "engine":  "audio-spelling",
+                                                                     "params":  {
+                                                                                    "category":  "school",
+                                                                                    "speechRate":  0.74,
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-audio-maison",
+                                                                     "title":  "La Maison",
+                                                                     "subtitle":  "Écoute et écris",
+                                                                     "engine":  "audio-spelling",
+                                                                     "params":  {
+                                                                                    "category":  "house",
+                                                                                    "speechRate":  0.74,
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-audio-corps",
+                                                                     "title":  "Le Corps",
+                                                                     "subtitle":  "Écoute et écris",
+                                                                     "engine":  "audio-spelling",
+                                                                     "params":  {
+                                                                                    "category":  "corps",
+                                                                                    "speechRate":  0.74,
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce1-grammaire-subject",
+                                               "title":  "Grammaire",
+                                               "icon":  "??",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-gram-un-une",
+                                                                     "title":  "Un ou Une ?",
+                                                                     "subtitle":  "Objets de la classe",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "gender-articles",
+                                                                                    "category":  "gender_ce1_classe",
+                                                                                    "options":  [
+                                                                                                    "un",
+                                                                                                    "une"
+                                                                                                ],
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-gram-le-la",
+                                                                     "title":  "Le, La ou L\u0027 ?",
+                                                                     "subtitle":  "Maison et objets",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "gender-articles",
+                                                                                    "category":  "gender_ce1_maison",
+                                                                                    "options":  [
+                                                                                                    "le",
+                                                                                                    "la",
+                                                                                                    "l\u0027"
+                                                                                                ],
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-gram-nature",
+                                                                     "title":  "Les noms de la nature",
+                                                                     "subtitle":  "Choisir le bon article",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "gender-articles",
+                                                                                    "category":  "gender_ce1_nature",
+                                                                                    "options":  [
+                                                                                                    "le",
+                                                                                                    "la",
+                                                                                                    "l\u0027"
+                                                                                                ],
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-gram-cloze-det",
+                                                                     "title":  "Le bon d?terminant",
+                                                                     "subtitle":  "Compl?ter une phrase simple",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "grammar-cloze",
+                                                                                    "category":  "grammar_cloze_ce1",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-gram-pluriel",
+                                                                     "title":  "Singulier ou pluriel",
+                                                                     "subtitle":  "Former le bon nom",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "grammar-cloze",
+                                                                                    "category":  "grammar_plural_ce1",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-gram-det-phrase",
+                                                                     "title":  "Compléter avec le bon mot",
+                                                                     "subtitle":  "Petit mot ou nom au pluriel",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "grammar-cloze",
+                                                                                    "category":  "grammar_agreement_ce1",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce1-conjugaison-subject",
+                                               "title":  "Conjugaison",
+                                               "icon":  "⏳",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-conj-base",
+                                                                     "title":  "Les Indispensables",
+                                                                     "subtitle":  "Être et Avoir au présent",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "etre_avoir_p",
+                                                                                    "verbs":  [
+                                                                                                  "être",
+                                                                                                  "avoir"
+                                                                                              ],
+                                                                                    "tenses":  [
+                                                                                                   "présent"
+                                                                                               ],
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-conj-er-facile",
+                                                                     "title":  "Verbes en -ER (1)",
+                                                                     "subtitle":  "Chanter, Jouer, Parler...",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "present_1",
+                                                                                    "verbs":  [
+                                                                                                  "chanter",
+                                                                                                  "jouer",
+                                                                                                  "parler",
+                                                                                                  "marcher",
+                                                                                                  "aimer",
+                                                                                                  "dessiner"
+                                                                                              ],
+                                                                                    "tenses":  [
+                                                                                                   "présent"
+                                                                                               ],
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-conj-aller",
+                                                                     "title":  "Le verbe ALLER",
+                                                                     "subtitle":  "Un faux ami en -ER",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "present_3_freq",
+                                                                                    "verbs":  [
+                                                                                                  "aller"
+                                                                                              ],
+                                                                                    "tenses":  [
+                                                                                                   "présent"
+                                                                                               ],
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-conj-er-action",
+                                                                     "title":  "Verbes en -ER (2)",
+                                                                     "subtitle":  "Cacher, Grimper, Sauter...",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "present_1",
+                                                                                    "verbs":  [
+                                                                                                  "cacher",
+                                                                                                  "grimper",
+                                                                                                  "sauter",
+                                                                                                  "tomber",
+                                                                                                  "chercher",
+                                                                                                  "trouver"
+                                                                                              ],
+                                                                                    "tenses":  [
+                                                                                                   "présent"
+                                                                                               ],
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-conj-er-regles",
+                                                                     "title":  "Le Cas du \u0027Nous\u0027",
+                                                                     "subtitle":  "Manger (-ger) et Lancer (-cer)",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "present_1",
+                                                                                    "verbs":  [
+                                                                                                  "manger",
+                                                                                                  "nager",
+                                                                                                  "ranger",
+                                                                                                  "lancer",
+                                                                                                  "placer",
+                                                                                                  "voyager"
+                                                                                              ],
+                                                                                    "tenses":  [
+                                                                                                   "présent"
+                                                                                               ],
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-conj-expert",
+                                                                     "title":  "Défi Verbe-o-tron",
+                                                                     "subtitle":  "Tous les verbes mélangés",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "present_1",
+                                                                                    "questions":  10
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "ce1-histoire-subject",
+                         "title":  "Histoire",
+                         "icon":  "🏛️",
+                         "subthemes":  [
+                                           {
+                                               "id":  "ce1-histoire-temps-subtheme",
+                                               "title":  "Le temps",
+                                               "icon":  "🏛️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-histoire-temps",
+                                                                     "title":  "Le temps",
+                                                                     "subtitle":  "Avant, après, passé",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/history_ce1.json",
+                                                                                    "category":  "ce1-temps",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce1-histoire-vie-autrefois-subtheme",
+                                               "title":  "Vivre autrefois",
+                                               "icon":  "🏛️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-histoire-vie-autrefois",
+                                                                     "title":  "Vivre autrefois",
+                                                                     "subtitle":  "École, maison, déplacements",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/history_ce1.json",
+                                                                                    "category":  "ce1-vie-autrefois",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce1-histoire-monuments-subtheme",
+                                               "title":  "Monuments et personnages",
+                                               "icon":  "🏛️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-histoire-monuments",
+                                                                     "title":  "Monuments et personnages",
+                                                                     "subtitle":  "Traces historiques simples",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/history_ce1.json",
+                                                                                    "category":  "ce1-monuments-personnages",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "ce1-geographie-subject",
+                         "title":  "Géographie",
+                         "icon":  "🗺️",
+                         "subthemes":  [
+                                           {
+                                               "id":  "ce1-geo-reperage-subtheme",
+                                               "title":  "Se repérer",
+                                               "icon":  "🗺️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-geo-reperage",
+                                                                     "title":  "Se repérer",
+                                                                     "subtitle":  "Plan, symboles, lieux",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/geography_ce1.json",
+                                                                                    "category":  "ce1-reperage",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce1-geo-paysages-subtheme",
+                                               "title":  "Paysages",
+                                               "icon":  "🗺️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-geo-paysages",
+                                                                     "title":  "Paysages",
+                                                                     "subtitle":  "Ville, campagne, littoral",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/geography_ce1.json",
+                                                                                    "category":  "ce1-paysages",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce1-geo-transports-subtheme",
+                                               "title":  "France et transports",
+                                               "icon":  "🗺️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-geo-transports",
+                                                                     "title":  "France et transports",
+                                                                     "subtitle":  "Routes, trains, capitale",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/geography_ce1.json",
+                                                                                    "category":  "ce1-transports-france",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "ce1-sciences-subject",
+                         "title":  "Sciences",
+                         "icon":  "🔬",
+                         "subthemes":  [
+                                           {
+                                               "id":  "ce1-sciences-vivant-subtheme",
+                                               "title":  "Le vivant",
+                                               "icon":  "🔬",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-sciences-vivant",
+                                                                     "title":  "Le vivant",
+                                                                     "subtitle":  "Grandir, respirer, se nourrir",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_ce1.json",
+                                                                                    "category":  "ce1-vivant",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce1-sciences-matiere-subtheme",
+                                               "title":  "Matière",
+                                               "icon":  "🔬",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-sciences-matiere",
+                                                                     "title":  "Matière",
+                                                                     "subtitle":  "Eau, glace, vapeur, lumière",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_ce1.json",
+                                                                                    "category":  "ce1-matiere",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce1-sciences-corps-subtheme",
+                                               "title":  "Corps et hygiène",
+                                               "icon":  "🔬",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-sciences-corps",
+                                                                     "title":  "Corps et hygiène",
+                                                                     "subtitle":  "Santé, cerveau, muscles",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_ce1.json",
+                                                                                    "category":  "ce1-corps-hygiene",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "ce1-emc-subject",
+                         "title":  "EMC",
+                         "icon":  "🤝",
+                         "subthemes":  [
+                                           {
+                                               "id":  "ce1-emc-regles-subtheme",
+                                               "title":  "Règles communes",
+                                               "icon":  "🤝",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-emc-regles",
+                                                                     "title":  "Règles communes",
+                                                                     "subtitle":  "Respecter la vie de classe",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/emc_ce1.json",
+                                                                                    "category":  "ce1-regles",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce1-emc-citoyen-subtheme",
+                                               "title":  "Être citoyen",
+                                               "icon":  "🤝",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-emc-citoyen",
+                                                                     "title":  "Être citoyen",
+                                                                     "subtitle":  "Honnêteté et coopération",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/emc_ce1.json",
+                                                                                    "category":  "ce1-citoyen",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce1-emc-entraide-subtheme",
+                                               "title":  "Entraide et respect",
+                                               "icon":  "🤝",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-emc-entraide",
+                                                                     "title":  "Entraide et respect",
+                                                                     "subtitle":  "Écoute, politesse, solidarité",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/emc_ce1.json",
+                                                                                    "category":  "ce1-entraide-respect",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     }
+                 ]
 }

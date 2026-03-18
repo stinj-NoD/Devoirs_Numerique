@@ -1,21 +1,21 @@
-/*
- * Devoir Numérique - UI.js
+﻿/*
+ * Devoir NumÃ©rique - UI.js
  * Copyright (C) 2026 [Stinj-NoD]
  * Version : 3.0 (Hardened & Secure)
  */
 
 const UI = {
-    // Getters sécurisés (retournent null si élément absent)
+    // Getters sÃ©curisÃ©s (retournent null si Ã©lÃ©ment absent)
     get screens() { return document.querySelectorAll('.screen'); },
     get btnBack() { return document.getElementById('btn-back'); },
     get btnHome() { return document.getElementById('btn-home'); },
 
     /**
-     * Gestionnaire d'affichage des écrans
+     * Gestionnaire d'affichage des Ã©crans
      */
     showScreen(id) {
-        // 1. Gestion des écrans
-        if (this.screens.length === 0) return console.warn("UI: Aucun écran trouvé dans le DOM");
+        // 1. Gestion des Ã©crans
+        if (this.screens.length === 0) return console.warn("UI: Aucun Ã©cran trouvÃ© dans le DOM");
         
         this.screens.forEach(s => {
             if (s.id === id) {
@@ -39,6 +39,22 @@ const UI = {
         if (title) title.innerText = text || "Devoir Numérique";
     },
 
+    safeIcon(value, fallback = '\u{1F4DD}') {
+        const icon = (value || "").toString().trim();
+        if (!icon) return fallback;
+        if (/[ÃÂðâ�]/.test(icon)) return fallback;
+        return icon;
+    },
+
+    buildCardContent(title, subtitle = "") {
+        return `
+            <div class="card-content">
+                <span class="card-title">${title || 'Exercice'}</span>
+                ${subtitle ? `<span class="card-subtitle">${subtitle}</span>` : ''}
+            </div>
+        `;
+    },
+
     // --- PROFILS & MENUS ---
 
     renderProfiles(profiles, onSelect, onDelete) {
@@ -50,11 +66,11 @@ const UI = {
         (profiles || []).forEach(p => {
             const card = document.createElement('div');
             card.className = 'card profile-card';
-            // Injection sécurisée des valeurs
+            // Injection sÃ©curisÃ©e des valeurs
             card.innerHTML = `
-                <div class="btn-delete-profile" title="Supprimer">🗑️</div>
-                <span class="card-icon">${p.avatar || '👤'}</span>
-                <span class="card-title">${p.name || 'Anonyme'}</span>
+                <div class="btn btn--icon btn--danger btn-delete-profile" title="Supprimer">🗑️</div>
+                <span class="card-icon">${this.safeIcon(p.avatar, '\u{1F464}')}</span>
+                ${this.buildCardContent(p.name || 'Anonyme')}
             `;
 
             card.onclick = () => onSelect(p);
@@ -78,11 +94,12 @@ const UI = {
         container.innerHTML = "";
 
         (data || []).forEach(item => {
-            // Accès sécurisé au Storage
+            // AccÃ¨s sÃ©curisÃ© au Storage
             let stars = 0;
             try {
                 if (typeof Storage !== 'undefined' && Storage.getRecord) {
-                    const record = Storage.getRecord(item.id);
+                    const gradeId = window.App?.state?.currentGrade?.gradeId || null;
+                    const record = Storage.getRecord(item.id, gradeId);
                     if (record) stars = record.stars || 0;
                 }
             } catch (e) { console.warn("UI: Erreur lecture stars", e); }
@@ -90,13 +107,10 @@ const UI = {
             const starsHtml = stars > 0 ? `<div class="menu-stars">${'★'.repeat(stars)}</div>` : "";
             
             const card = document.createElement('div');
-            card.className = 'card';
+            card.className = 'card menu-card';
             card.innerHTML = `
-                <span class="card-icon">${item.icon || '📝'}</span>
-                <div style="flex:1">
-                    <span class="card-title">${item.title || item.nom || 'Exercice'}</span>
-                    ${item.subtitle ? `<span class="card-subtitle">${item.subtitle}</span>` : ''}
-                </div>
+                <span class="card-icon">${this.safeIcon(item.icon, '\u{1F4DD}')}</span>
+                ${this.buildCardContent(item.title || item.nom || 'Exercice', item.subtitle)}
                 ${starsHtml}`;
             card.onclick = () => callback(item);
             container.appendChild(card);
@@ -106,243 +120,139 @@ const UI = {
     // --- NAVIGATION & CLAVIERS ---
 
     initNavigation() {
-        if (this.btnHome) this.btnHome.onclick = () => location.reload();
+        if (this.btnHome) {
+            this.btnHome.onclick = () => {
+                if (window.App?.goHome) window.App.goHome();
+                else this.showScreen('screen-profiles');
+            };
+        }
         
         if (this.btnBack) {
             this.btnBack.onclick = () => {
-                const cur = document.querySelector('.screen.active')?.id;
-                // Mapping de navigation sécurisé
-                const map = { 
-                    'screen-game': 'screen-levels', 
-                    'screen-levels': 'screen-themes', 
-                    'screen-themes': 'screen-grades',
-                    'screen-grades': 'screen-profiles'
-                };
-                if (cur && map[cur]) this.showScreen(map[cur]);
-                else this.showScreen('screen-profiles'); // Fallback safe
+                if (window.App?.goBack) window.App.goBack();
+                else this.showScreen('screen-profiles');
             };
         }
     },
 
-    initKeyboard(callback) {
-        const container = document.querySelector('.keyboard-container');
-        if (container) {
-            container.onclick = (e) => {
-                const key = e.target.closest('.key');
-                // On vérifie que key existe et qu'il a un data-val
-                if (key && key.hasAttribute('data-val')) {
-                    callback(key.getAttribute('data-val'), key);
-                }
-            };
-        }
+    initKeyboard(...args) {
+        return UIKeyboards.initKeyboard(...args);
     },
 
-updateKeyboardLayout(type, data = null) {
-        const numKb = document.getElementById('keyboard-num');
-        const boolKb = document.getElementById('keyboard-boolean'); // Legacy check
-        const answerZone = document.getElementById('user-answer');
-        
-        if (!numKb) return;
+    updateKeyboardLayout(...args) {
+        return UIKeyboards.updateKeyboardLayout(...args);
+    },
 
-        // Reset display
-        numKb.style.display = "none";
-        if (boolKb) boolKb.style.display = "none";
-        if (answerZone) answerZone.style.display = "flex";
+    restoreNumericKeyboard(...args) {
+        return UIKeyboards.restoreNumericKeyboard(...args);
+    },
 
-        try {
-            if (type === "boolean" || type === "qcm") {
-                // Extraction sécurisée des choix
-                let choices = ["VRAI", "FAUX"];
-                if (data) {
-                    choices = data.choices || (data.data?.choices) || choices;
-                }
-                this.renderQCM(choices);
-                numKb.style.display = "grid";
-                if (answerZone) answerZone.style.display = "none"; 
-                
-            } else if (type === "selection") {
-                numKb.innerHTML = `<button class="key action ok wide-btn" data-val="ok" style="grid-column: 1 / -1;">VALIDER LA SÉLECTION</button>`;
-                numKb.style.display = "grid";
-                numKb.style.gridTemplateColumns = "1fr";
-                
-            } else if (type === "alpha") {
-                this.renderAlphaKeyboard();
-                numKb.style.display = "block";
+    renderAlphaKeyboard(...args) {
+        return UIKeyboards.renderAlphaKeyboard(...args);
+    },
 
-            // 👇 AJOUT DU TYPE ROMAIN ICI 👇
-            } else if (type === "roman") {
-                this.renderRomanKeyboard();
-                numKb.style.display = "block"; // On laisse le flexbox interne gérer la dispo
-                
-            } else {
-                this.restoreNumericKeyboard();
-                numKb.style.display = "grid";
+    renderRomanKeyboard(...args) {
+        return UIKeyboards.renderRomanKeyboard(...args);
+    },
+
+    renderQCM(...args) {
+        return UIKeyboards.renderQCM(...args);
+    },
+
+    // --- MOTEUR D'AFFICHAGE (Le CÅ“ur) ---
+
+    getExerciseSurfaceClass(p, isQCM) {
+        if (!p) return 'exercise-surface exercise-surface--formula';
+        if (!p.isVisual) return 'exercise-surface exercise-surface--formula';
+        if (p.visualType === 'factualCard') return 'exercise-surface exercise-surface--documentary';
+        if (['spelling', 'audioSpelling', 'conjugation', 'reading', 'homophones'].includes(p.visualType)) {
+            return 'exercise-surface exercise-surface--language';
+        }
+        if (isQCM) return 'exercise-surface exercise-surface--choice';
+        return 'exercise-surface exercise-surface--diagram';
+    },
+
+    wrapExerciseContent(content, surfaceClass) {
+        const shellClasses = ['exercise-shell'];
+        if ((surfaceClass || '').includes('exercise-surface--documentary')) shellClasses.push('exercise-shell--documentary');
+        else if ((surfaceClass || '').includes('exercise-surface--language')) shellClasses.push('exercise-shell--language');
+        else if ((surfaceClass || '').includes('exercise-surface--choice')) shellClasses.push('exercise-shell--choice');
+        else if ((surfaceClass || '').includes('exercise-surface--diagram')) shellClasses.push('exercise-shell--diagram');
+        else shellClasses.push('exercise-shell--formula');
+        return `<div class="${shellClasses.join(' ')}"><div class="${surfaceClass}">${content}</div></div>`;
+    },
+
+	updateGameDisplay(p, rawInput, prog) {
+	    const problemZone = document.getElementById('math-problem');
+	    const answerZone = document.getElementById('user-answer');
+	    const instructionZone = document.getElementById('game-instruction');
+        const gameScreen = document.getElementById('screen-game');
+	    
+	    if (!problemZone || !answerZone) return;
+        if (!p || typeof p !== 'object') {
+            problemZone.innerHTML = this.wrapExerciseContent(
+                `<div class="error-msg">Exercice indisponible.</div>`,
+                'exercise-surface exercise-surface--formula'
+            );
+            answerZone.className = 'answer-display is-hidden';
+            answerZone.innerHTML = "";
+            if (instructionZone) {
+                instructionZone.innerHTML = "";
+                instructionZone.style.display = 'none';
             }
-        } catch (e) {
-            console.error("UI: Erreur Layout Clavier", e);
-            this.restoreNumericKeyboard(); // Fallback ultime
-            numKb.style.display = "grid";
+            return;
         }
-    },
 
-    restoreNumericKeyboard() {
-        const kb = document.getElementById('keyboard-num');
-        if(!kb) return;
-        
-        // On garde la grille de 3 colonnes
-        kb.style.gridTemplateColumns = "repeat(3, 1fr)";
-        
-        // 1. Les chiffres 1 à 9
-        let html = "123456789".split("").map(v => 
-            `<button class="key" data-val="${v}">${v}</button>`
-        ).join("");
-
-        // 2. La ligne du bas : [ , ]  [ 0 ]  [ ⌫ ]
-        // C'est ici qu'on place la virgule française
-        html += `<button class="key" data-val="," style="font-weight:bold; font-size:1.5rem;">,</button>`;
-        html += `<button class="key" data-val="0">0</button>`;
-        html += `<button class="key del" data-val="backspace" style="background:var(--secondary); color:white">⌫</button>`;
-
-        // 3. Le bouton OK en pleine largeur en dessous (Zone de confort)
-        html += `<button class="key action ok" data-val="ok" style="grid-column: 1 / -1; margin-top:5px; background:var(--success); color:white; padding:10px;">OK</button>`;
-
-        kb.innerHTML = html;
-    },
-
-    renderAlphaKeyboard() {
-        const kb = document.getElementById('keyboard-num');
-        if(!kb) return;
-        
-        kb.style.gridTemplateColumns = "none"; // On casse la grille pour le clavier complet
-        const rows = ["azertyuiop", "qsdfghjklm", "wxcvbn"];
-        
-        let html = '<div class="alpha-keyboard">';
-        
-        // AJOUT DE LA VIRGULE DANS LA LIGNE DES ACCENTS
-        // La liste contient maintenant la virgule à la fin
-        html += `<div class="kb-row accent-row">` + "éèàçêîôû-,".split('').map(a => 
-            `<button class="key letter-key" data-val="${a}">${a}</button>`
-        ).join('') + `</div>`;
-
-        rows.forEach(row => {
-            html += `<div class="kb-row">`;
-            row.split('').forEach(char => html += `<button class="key letter-key" data-val="${char}">${char}</button>`);
-            html += `</div>`;
-        });
-        
-        html += `<div class="kb-row" style="margin-top:5px">
-            <button class="key action del" data-val="backspace" style="flex: 2; background:var(--secondary); color:white">⌫</button>
-            <button class="key space-key" data-val=" " style="flex: 5;">ESPACE</button>
-            <button class="key action ok" data-val="ok" style="flex: 3; background:var(--success); color:white">OK</button>
-        </div></div>`;
-        
-        kb.innerHTML = html; 
-    },
-    // DANS UIV2.JS (Nouvelle fonction)
-
-renderRomanKeyboard() {
-    const kb = document.getElementById('keyboard-num');
-    if (!kb) return;
-
-    // On désactive la grille par défaut du conteneur pour gérer nous-mêmes le layout
-    kb.style.gridTemplateColumns = "none";
-    kb.style.display = "block";
-
-    // Style commun pour les touches romaines
-    const btnStyle = "flex:1; height:55px; font-weight:bold; font-size:1.6rem; font-family: 'Times New Roman', serif;";
-
-    let html = `
-    <div class="roman-keyboard" style="display:flex; flex-direction:column; gap:8px; padding:5px;">
-        
-        <div style="display:flex; gap:5px;">
-            ${["I", "V", "X", "L"].map(k => 
-                `<button class="key" data-val="${k}" style="${btnStyle}">${k}</button>`
-            ).join('')}
-        </div>
-
-        <div style="display:flex; gap:5px;">
-            ${["C", "D", "M"].map(k => 
-                `<button class="key" data-val="${k}" style="${btnStyle}">${k}</button>`
-            ).join('')}
-            <div style="flex:1;"></div> 
-        </div>
-
-        <div style="display:flex; gap:5px; margin-top:5px;">
-            <button class="key action del" data-val="backspace" style="flex:1; height:55px; background:var(--secondary); color:white; font-size:1.2rem;">⌫</button>
-            <button class="key action ok" data-val="ok" style="flex:2; height:55px; background:var(--success); color:white; font-weight:bold; font-size:1.2rem;">VALIDER</button>
-        </div>
-    </div>`;
-
-    kb.innerHTML = html;
-},
-
-    renderQCM(choices) {
-        const kb = document.getElementById('keyboard-num');
-        if(!kb) return;
-        
-        // Calcul sécurisé des colonnes (max 3 pour éviter d'écraser l'écran)
-        const cols = Math.min(choices.length, 3);
-        kb.style.gridTemplateColumns = `repeat(${choices.length > 4 ? 2 : cols}, 1fr)`;
-        kb.style.gap = "10px";
-        
-        kb.innerHTML = choices.map(v => {
-            let cssClass = "key"; 
-            if (v === "VRAI" || v === ">") cssClass += " btn-true";
-            else if (v === "FAUX" || v === "<") cssClass += " btn-false";
-            else cssClass += " btn-neutral";
-            
-            // Gestion taille police pour symboles
-            const style = (['<','>','='].includes(v)) ? "font-size: 2.5rem;" : "";
-            return `<button class="${cssClass}" data-val="${v}" style="${style}">${v}</button>`;
-        }).join("");
-    },
-
-    // --- MOTEUR D'AFFICHAGE (Le Cœur) ---
-
-updateGameDisplay(p, rawInput, prog) {
-    const problemZone = document.getElementById('math-problem');
-    const answerZone = document.getElementById('user-answer');
-    const instructionZone = document.getElementById('game-instruction');
+	    // 1. Nettoyage et Consigne
+	    const input = (rawInput === undefined || rawInput === null) ? "" : rawInput.toString();
+	    problemZone.innerHTML = "";
+	    answerZone.innerHTML = "";
+        if (gameScreen) {
+            gameScreen.classList.remove('compact-number-spelling-long', 'compact-number-spelling-huge');
+        }
     
-    if (!problemZone || !answerZone) return;
-
-    // 1. Nettoyage et Consigne
-    const input = (rawInput === undefined || rawInput === null) ? "" : rawInput.toString();
-    problemZone.innerHTML = "";
-    answerZone.innerHTML = "";
-    
-    // On affiche la consigne (ex: "Choisis le bon mot" ou "Écris en lettres")
-    if (instructionZone) instructionZone.innerHTML = p.question || "";
-
-    // Détection du mode QCM (Boutons au lieu de saisie clavier)
+    // DÃ©tection du mode QCM (Boutons au lieu de saisie clavier)
     const isQCM = (p.inputType === 'qcm' || p.inputType === 'boolean');
+    const rendersQuestionInProblemZone = !p.isVisual || ['homophones', 'timeMemo'].includes(p.visualType);
+
+    if (instructionZone) {
+        instructionZone.innerHTML = rendersQuestionInProblemZone ? "" : (p.question || "");
+        instructionZone.style.display = (!rendersQuestionInProblemZone && p.question) ? 'block' : 'none';
+    }
 
     // 2. VISUEL PRINCIPAL
     try {
+        let renderedContent = "";
         if (p.isVisual) {
             // Cas particulier : Homophones (on garde ta logique de style)
             if (p.visualType === 'homophones') {
-                problemZone.innerHTML = `<div class="text-sentence">${p.question || ""}</div>`;
+                renderedContent = `<div class="text-sentence prompt-card prompt-card--sentence">${p.question || ""}</div>`;
             } 
             // Dispatcher vers les moteurs de dessin
             else {
-                const drawMethods = { 
-                    clock:'drawClock', spelling:'drawSpelling', conjugation:'drawConjugation', 
-                    target:'drawSvgTarget', money:'drawMoney', bird:'drawBird', division:'drawDivision',
-                    square:'drawSquare', reading: 'drawReading', counting: 'drawCounting', fraction: 'drawFraction',
-                    conversionTable: 'drawConversionTable', timeMemo: 'drawTimeMemo'
+                    const drawMethods = { 
+                    clock:'drawClockCard', spelling:'drawSpelling', audioSpelling:'drawAudioSpelling', conjugation:'drawConjugation', 
+                    target:'drawSvgTarget', money:'drawMoneyCard', bird:'drawBird', division:'drawDivisionCard',
+                    square:'drawSquare', reading: 'drawReading', counting: 'drawCountingCard', fraction: 'drawFraction',
+                    conversionTable: 'drawConversionCard', timeMemo: 'drawTimeMemoCard', factualCard: 'drawFactualCard',
+                    timelineOrder: 'drawTimelineOrder', timelinePlace: 'drawTimelinePlace'
                 };
                 const method = drawMethods[p.visualType];
                 
                 if (this[method]) {
                     // On envoie le flag isQCM pour que drawSpelling affiche le mot complet
-                    problemZone.innerHTML = this[method](p, input, isQCM);
+                    renderedContent = this[method](p, input, isQCM);
                 } else {
-                    problemZone.innerHTML = `<div class="error-msg">Moteur de rendu [${p.visualType}] introuvable.</div>`;
+                    renderedContent = `<div class="error-msg">Moteur de rendu [${p.visualType}] introuvable.</div>`;
                 }
             }
 
-            // Ré-attachement des clics pour le Carré Magique (Square)
+            problemZone.innerHTML = this.wrapExerciseContent(
+                renderedContent,
+                this.getExerciseSurfaceClass(p, isQCM)
+            );
+
+            // RÃ©-attachement des clics pour le CarrÃ© Magique (Square)
             if (p.visualType === 'square') {
                 const cards = problemZone.querySelectorAll('.number-card');
                 cards.forEach(card => {
@@ -354,22 +264,49 @@ updateGameDisplay(p, rawInput, prog) {
                 });
             }
         } else {
-            // Mode texte (Calculs simples, Dictée de nombres)
-            // p.question contient soit le texte, soit le HTML du gros chiffre (Dictée CP)
-            problemZone.innerHTML = `<div class="math-formula">${p.question || ""}</div>`;
+            // Mode texte (Calculs simples, DictÃ©e de nombres)
+            // p.question contient soit le texte, soit le HTML du gros chiffre (DictÃ©e CP)
+            const formulaClasses = ['math-formula', 'prompt-card', 'prompt-card--formula'];
+            const questionHtml = p.question || "";
+            let compactMode = '';
+            if (questionHtml.includes('number-spelling-prompt')) {
+                const formulaClassIndex = formulaClasses.indexOf('prompt-card--formula');
+                if (formulaClassIndex !== -1) formulaClasses.splice(formulaClassIndex, 1);
+                formulaClasses.push('prompt-card--number-spelling');
+                if (questionHtml.includes('number-spelling-prompt--huge')) {
+                    formulaClasses.push('prompt-card--number-spelling-huge');
+                    compactMode = 'compact-number-spelling-huge';
+                } else if (questionHtml.includes('number-spelling-prompt--long')) {
+                    formulaClasses.push('prompt-card--number-spelling-long');
+                    compactMode = 'compact-number-spelling-long';
+                }
+            }
+            if (gameScreen) {
+                gameScreen.classList.remove('compact-number-spelling-long', 'compact-number-spelling-huge');
+                if (compactMode) gameScreen.classList.add(compactMode);
+            }
+            renderedContent = `<div class="${formulaClasses.join(' ')}">${questionHtml}</div>`;
+            problemZone.innerHTML = this.wrapExerciseContent(
+                renderedContent,
+                this.getExerciseSurfaceClass(p, isQCM)
+            );
         }
     } catch (e) {
-        console.error("UI: Erreur lors du rendu du problème", e);
-        problemZone.innerHTML = `<div class="error-msg">Erreur d'affichage visuel.</div>`;
+        console.error("UI: Erreur lors du rendu du problÃ¨me", e);
+        problemZone.innerHTML = this.wrapExerciseContent(
+            `<div class="error-msg">Erreur d'affichage visuel.</div>`,
+            'exercise-surface exercise-surface--formula'
+        );
     }
 
-    // 3. ZONE DE RÉPONSE (Barre du bas)
-    // On masque la barre si c'est visuel ET textuel (Spelling/Conjugaison) OU si c'est un QCM
-    const hideBottomBar = (['spelling', 'conjugation'].includes(p.visualType)) || isQCM;
+	    // 3. ZONE DE RÃ‰PONSE (Barre du bas)
+	    // On masque la barre si c'est visuel ET textuel (Spelling/Conjugaison) OU si c'est un QCM
+	    const hideBottomBar = (['spelling', 'audioSpelling', 'conjugation'].includes(p.visualType)) || isQCM;
+	    
+	    answerZone.style.display = hideBottomBar ? 'none' : 'flex';
+	    answerZone.className = `answer-display ${hideBottomBar ? 'is-hidden' : 'is-idle'}`;
     
-    answerZone.style.display = hideBottomBar ? 'none' : 'flex';
-    
-    if (!hideBottomBar) {
+	    if (!hideBottomBar) {
         try {
             if (p.visualType === 'clock') {
                 let s = input.padEnd(4, "_");
@@ -377,13 +314,18 @@ updateGameDisplay(p, rawInput, prog) {
             } else if (p.visualType === 'fraction') {
                 answerZone.innerHTML = `
                     <div class="fraction-answer">
-                        <span style="color:var(--primary)">${input || "?"}</span>
-                        <span style="margin: 0 10px; opacity: 0.3">/</span>
+                        <span class="fraction-answer-current">${input || "?"}</span>
+                        <span class="fraction-answer-separator">/</span>
                         <span>${p.data?.d || "?"}</span>
                     </div>`;
+            } else if (p.visualType === 'timelineOrder') {
+                const orderSize = (p.data?.currentOrder || []).length;
+                answerZone.innerHTML = `Ordre prêt : <b class="selection-answer-value">${orderSize}</b> repères`;
+            } else if (p.visualType === 'timelinePlace') {
+                answerZone.innerHTML = `Date choisie : <b class="selection-answer-value">${input || "?"}</b>`;
             } else if (p.inputType === "selection") {
-                // Cas spécifique pour le Carré Magique si on affiche la somme en bas
-                answerZone.innerHTML = `Somme : <b style="color:var(--primary); margin-left:10px">${input || 0}</b> / ${p.data?.target || "?"}`;
+                // Cas spÃ©cifique pour le CarrÃ© Magique si on affiche la somme en bas
+                answerZone.innerHTML = `Somme : <b class="selection-answer-value">${input || 0}</b> / ${p.data?.target || "?"}`;
             } else {
                 answerZone.innerText = input || "\u00A0";
             }
@@ -392,409 +334,63 @@ updateGameDisplay(p, rawInput, prog) {
         }
     }
 
-    // 4. BARRE DE PROGRESSION
-    const bar = document.getElementById('game-progress');
-    if (bar) bar.style.width = (prog || 0) + "%";
-},
+	    // 4. BARRE DE PROGRESSION
+		    const bar = document.getElementById('game-progress');
+		    if (bar) bar.style.width = (prog || 0) + "%";
 
-    // --- FONCTIONS DE DESSIN (Toutes protégées par d = p.data || {}) ---
-
-    drawSvgTarget(p) {
-        const d = p.data || {};
-        const s = 200, c = s / 2;
-        const sortedZones = [...(d.zonesDefinitions || [])].sort((a, b) => b - a);
-        const colors = ['#4A90E2', '#FF6B6B', '#FFD700', '#48bb78', '#9F7AEA'];
-        
-        let svg = `<svg viewBox="0 0 ${s} ${s}" width="180" height="180">`;
-        
-        if (sortedZones.length === 0) return svg + `<text x="100" y="100">Erreur Zone</text></svg>`;
-
-        sortedZones.forEach((val, i) => {
-            const r = 90 - (i * (90 / sortedZones.length));
-            svg += `<circle cx="${c}" cy="${c}" r="${r}" fill="${colors[i % colors.length]}" stroke="white" stroke-width="2"/>`;
-            svg += `<text x="${c}" y="${c - r + 15}" text-anchor="middle" font-size="12" font-weight="bold" fill="white" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5)">${val}</text>`;
-        });
-        
-        (d.hits || []).forEach(h => {
-            // Protection index -1
-            const zoneIdx = sortedZones.indexOf(h.val);
-            if(zoneIdx === -1) return;
-            
-            const rHit = 90 - (zoneIdx * (90 / sortedZones.length)) - 10;
-            const tx = c + rHit * Math.cos(h.angle);
-            const ty = c + rHit * Math.sin(h.angle);
-            svg += `<circle cx="${tx}" cy="${ty}" r="6" fill="black" stroke="white" stroke-width="2"/>`;
-        });
-        return svg + `</svg>`;
-    },
-
-    getDivisionSteps(dividend, divisor) {
-        const dividendStr = dividend.toString();
-        let steps = [];
-        let currentPart = "";
-        
-        // On parcourt chaque chiffre du dividende
-        for (let i = 0; i < dividendStr.length; i++) {
-            // On "descend" le chiffre suivant
-            currentPart += dividendStr[i];
-            let currentVal = parseInt(currentPart);
-
-            // On regarde si on peut diviser ce morceau
-            // (Ou si c'est la fin et qu'il faut traiter le reste)
-            const q = Math.floor(currentVal / divisor);
-            
-            // Condition d'affichage d'une étape :
-            // 1. On a trouvé un quotient > 0 (ex: dans 12 combien de 5 -> 2)
-            // 2. OU c'est le dernier chiffre et on doit afficher le reste final (même si c'est 0)
-            // 3. Cas spécial : on évite d'afficher des étapes "0" inutiles au tout début
-            if (q > 0 || i === dividendStr.length - 1) {
-                const sub = q * divisor;
-                const remainder = currentVal - sub;
-                
-                steps.push({
-                    sub: sub,             // Ce qu'on soustrait (ex: 12)
-                    rem: remainder,       // Le résultat (ex: 0)
-                    nextDigit: dividendStr[i+1] || "", // Le chiffre qu'on va descendre après
-                    endIndex: i,          // L'index où se termine l'opération (pour l'alignement)
-                    partLength: currentPart.length // La longueur du nombre traité (pour reculer l'alignement)
-                });
-                
-                // Le reste devient le début du prochain nombre
-                // Ex: Reste 2, prochain chiffre 5 -> "25"
-                currentPart = remainder.toString();
-                if (remainder === 0) currentPart = ""; // Si reste 0, on repart à vide pour ne pas avoir "05"
+        if (p.visualType === 'audioSpelling') {
+            const replayButton = problemZone.querySelector('[data-action="replay-audio-spelling"]');
+            if (replayButton) {
+                replayButton.onclick = () => window.App?.replayAudioSpelling?.();
             }
         }
-        return steps;
+		},
+
+    // --- FONCTIONS DE DESSIN (Toutes protÃ©gÃ©es par d = p.data || {}) ---
+
+    drawSvgTarget(...args) {
+        return UIVisuals.drawSvgTarget(...args);
     },
 
-            // À mettre dans uiv2.js (remplace l'ancienne version)
-    drawDivision(p, input, isQCM) {
-        const d = p.data || {};
-        const divStr = d.dividend.toString();
-        const sor = d.divisor;
-        
-        // 1. Calcul des étapes
-        const steps = this.getDivisionSteps(d.dividend, sor);
-        
-        // 2. Préparation de la Grille (Colonne de Gauche)
-        let gridItemsHtml = "";
-        
-        // LIGNE 1 : Le Dividende
-        divStr.split('').forEach((char, i) => {
-            // J'ajoute line-height: 1 ici aussi pour aligner
-            gridItemsHtml += `<div style="grid-column: ${i + 1}; grid-row: 1; text-align: center; line-height: 1;">${char}</div>`;
-        });
-
-        let currentRow = 2;
-
-        steps.forEach((step) => {
-            // --- A. La Soustraction (ex: -12) ---
-            const subStr = step.sub.toString();
-            const startCol = (step.endIndex - subStr.length + 1) + 1;
-            const endCol = step.endIndex + 2;
-
-            gridItemsHtml += `
-                <div style="
-                    grid-column: ${startCol} / ${endCol}; 
-                    grid-row: ${currentRow}; 
-                    text-align: right; 
-                    color: #7f8c8d;
-                    position: relative;
-                    line-height: 1; /* Pour éviter les débordements verticaux */
-                ">
-                    <span style="position:absolute; left:-12px; font-size:0.7em; top:2px;">-</span>${subStr}
-                </div>
-            `;
-            currentRow++;
-
-        // --- B. Le Résultat (C'EST ICI LE CORRECTIF) ---
-        const remStr = step.rem.toString();
-        const nextDigit = step.nextDigit;
-        const fullRemStr = remStr + nextDigit;
-        
-        const remEndIndex = step.nextDigit ? step.endIndex + 1 : step.endIndex;
-        const remStartCol = (remEndIndex - fullRemStr.length + 1) + 1;
-        const remEndCol = remEndIndex + 2;
-
-        gridItemsHtml += `
-            <div style="
-                grid-column: ${remStartCol} / ${remEndCol}; 
-                grid-row: ${currentRow}; 
-                text-align: right; 
-                /* LE FIX EST ICI : */
-                border-top: 2px solid #2c3e50;
-                padding-top: 4px; /* Espace entre le trait et les chiffres dessous */
-                line-height: 1;   /* Resserre les chiffres verticalement */
-                font-weight: bold;
-                /* Fin du fix */
-            ">
-                ${remStr}<span style="color:#e74c3c;">${nextDigit}</span>
-            </div>
-        `;
-        currentRow++;
-    });
-
-    const nbCols = divStr.length;
-    
-    // J'ai aussi légèrement augmenté la hauteur des lignes de grille (40px au lieu de 35px)
-    return `
-    <div class="division-wrapper" style="
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        font-family: 'Courier New', monospace;
-        font-size: 2.2rem;
-        font-weight: bold;
-        color: #2c3e50;
-    ">
-        <div style="
-            display: grid;
-            grid-template-columns: repeat(${nbCols}, 25px);
-            grid-auto-rows: 40px; /* Un peu plus de hauteur par ligne */
-            padding-right: 15px;
-            border-right: 4px solid #2c3e50;
-            align-items: end; /* Aligne les chiffres vers le bas de leur case pour coller à la ligne */
-        ">
-            ${gridItemsHtml}
-            <div style="grid-row: ${currentRow}; height:50px;"></div>
-        </div>
-
-        <div style="
-            padding-left: 15px; 
-            display: flex; 
-            flex-direction: column;
-        ">
-            <div style="
-                border-bottom: 4px solid #2c3e50; 
-                height: 40px; /* Synchro avec la grille */
-                display: flex;
-                align-items: flex-end; /* Le diviseur posé sur la barre */
-                padding-bottom: 4px;
-            ">
-                ${sor}
-            </div>
-            
-            <div style="margin-top: 10px;">
-                <div style="
-                    color: var(--primary);
-                    background: #e3f2fd;
-                    padding: 5px 10px;
-                    border-radius: 8px;
-                    text-align: center;
-                    min-width: 60px;
-                ">
-                    ${input || '?'}
-                </div>
-                <div style="font-size:0.8rem; color:#95a5a6; margin-top:5px; text-align:center;">Quotient</div>
-            </div>
-        </div>
-    </div>`;
-},
-
-    drawMoney(p) {
-        const d = p.data || {};
-        const ms = { 1:{b:'#CD7F32',s:40}, 2:{b:'#C0C0C0',s:50}, 5:{b:'#81c784',w:70}, 10:{b:'#e57373',w:75}, 20:{b:'#64b5f6',w:80}, 50:{b:'#ffb74d',w:90} };
-        
-        let h = '<div class="money-table" style="position:relative; width:100%; height:180px; background:#fff; border-radius:10px; border:1px solid #ddd;">';
-        
-        (d.hits || []).forEach((item, i) => {
-            const val = (typeof item === 'object') ? item.val : item;
-            const conf = ms[val] || ms[1]; // Fallback pièce de 1
-            const isBill = !!conf.w;
-            const x = (i % 4) * 75 + 15;
-            const y = Math.floor(i / 4) * 50 + 10;
-            h += `<div class="${isBill ? 'bill' : 'coin'}" style="position:absolute; left:${x}px; top:${y}px; width:${isBill ? conf.w : conf.s}px; height:${isBill ? 40 : conf.s}px; background:${conf.b}; border-radius:${isBill ? 5 : 50}%; display:flex; align-items:center; justify-content:center; font-weight:bold; box-shadow: 0 4px 0 rgba(0,0,0,0.1); border:1px solid rgba(0,0,0,0.1); font-size:14px;">${val}€</div>`;
-        });
-        return h + '</div>';
+    getDivisionSteps(...args) {
+        return UIVisuals.getDivisionSteps(...args);
     },
 
-    drawClock(p) {
-        const d = p.data || {};
-        // Valeurs par défaut sécurisées
-        const mins = d.minutes || 0;
-        const hours = d.hours || 0;
-        
-        const s = 160, c = s / 2, r = 70;
-        const ma = (mins / 60) * 360;
-        const ha = ((hours % 12) / 12) * 360 + (mins / 60) * 30;
-
-        const periodInfo = `<div class="period-badge" style="background:var(--primary); color:white; padding:5px 15px; border-radius:20px; font-weight:bold; margin-bottom:15px; font-size:0.9rem;">${d.periodIcon || '🕐'} ${d.periodText || ''}</div>`;
-
-        let svg = `<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}"><circle cx="${c}" cy="${c}" r="${r}" fill="white" stroke="var(--dark)" stroke-width="3"/>`;
-
-        for (let i = 1; i <= 12; i++) {
-            const a = (i * 30) * (Math.PI / 180);
-            const x = c + (r - 16) * Math.sin(a);
-            const y = c - (r - 16) * Math.cos(a);
-            svg += `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="12px" font-weight="bold" fill="var(--dark)">${i}</text>`;
-        }
-
-        svg += `<line x1="${c}" y1="${c}" x2="${c + 35 * Math.sin(ha * Math.PI / 180)}" y2="${c - 35 * Math.cos(ha * Math.PI / 180)}" stroke="var(--dark)" stroke-width="6" stroke-linecap="round"/>`;
-        svg += `<line x1="${c}" y1="${c}" x2="${c + 52 * Math.sin(ma * Math.PI / 180)}" y2="${c - 52 * Math.cos(ma * Math.PI / 180)}" stroke="var(--secondary)" stroke-width="4" stroke-linecap="round"/>`;
-        svg += `<circle cx="${c}" cy="${c}" r="4" fill="var(--dark)"/>`;
-        svg += `</svg>`;
-
-        return `<div style="display:flex; flex-direction:column; align-items:center;">${periodInfo}${svg}</div>`;
+    drawSquare(...args) {
+        return UIVisuals.drawSquare(...args);
     },
 
-    drawSquare(p) {
-        const d = p.data || {};
-        const nums = d.numbers || [];
-        const gridSize = Math.sqrt(nums.length || 9);
-        const selected = d.selectedIndices || [];
-        
-        return `<div class="square-container">
-            <div class="target-badge">CIBLE : ${d.target || "?"}</div>
-            <div class="square-grid" style="grid-template-columns: repeat(${gridSize}, 1fr)">
-                ${nums.map((n, idx) => {
-                    const isSelected = selected.includes(idx);
-                    return `<div class="number-card ${isSelected ? 'selected' : ''}" data-idx="${idx}">${n}</div>`;
-                }).join('')}
-            </div>
-        </div>`;
+    drawBird(...args) {
+        return UIVisuals.drawBird(...args);
     },
 
-    drawBird(p) {
-        const d = p.data || {};
-        return `<div class="sky-container">
-            <div class="bird-container" style="animation-duration:${d.duration || 8}s;">
-                <div class="bird-bubble">${d.question || "?"}</div>
-                <div class="bird-sprite">🐦</div>
-            </div>
-        </div>`;
+    drawFraction(...args) {
+        return UIVisuals.drawFraction(...args);
     },
 
-    drawCounting(p) {
-        const d = p.data || {};
-        let h = '<div class="counting-area" style="display:flex; gap:10px; justify-content:center; align-items:flex-end; min-height:150px;">';
-        
-        const tens = d.tens || 0;
-        const units = d.units || 0;
-
-        for (let i = 0; i < tens; i++) {
-            h += '<div class="ten-bar" style="width:30px; display:flex; flex-direction:column-reverse; border:2px solid var(--dark); border-radius:4px; overflow:hidden;">';
-            for (let j = 0; j < 10; j++) h += '<div class="cube" style="height:12px; width:100%; border:1px solid rgba(0,0,0,0.1); background:var(--primary);"></div>';
-            h += '</div>';
-        }
-        if (units > 0) {
-            h += '<div class="units-grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:5px;">';
-            for (let i = 0; i < units; i++) {
-                h += '<div class="cube unit" style="width:25px; height:25px; background:#ECC94B; border-radius:4px; border:2px solid var(--dark);"></div>';
-            }
-            h += '</div>';
-        }
-        return h + '</div>';
+    drawClockCard(...args) {
+        return UIVisuals.drawClockCard(...args);
     },
 
-    drawConversionTable(p, input) {
-        const d = p.data || {};
-        // Configuration des colonnes selon le type
-        let cols = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
-        if (d.type === 'masse') cols = ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'];
-        if (d.type === 'capacite') cols = ['kL', 'hL', 'daL', 'L', 'dL', 'cL', 'mL'];
-
-        // Construction du tableau HTML
-        let headerHtml = "";
-        cols.forEach(c => {
-            // On met en surbrillance les colonnes concernées
-            const highlight = (c === d.u1 || c === d.u2) ? 'background:#e3f2fd; color:var(--primary);' : '';
-            headerHtml += `<div style="flex:1; border-right:1px solid #ccc; padding:5px 0; ${highlight}">${c}</div>`;
-        });
-
-        return `
-        <div class="conversion-container" style="width:100%; max-width:600px; margin:0 auto;">
-            <div style="font-size:2.5rem; font-weight:bold; margin-bottom:20px; color:#2c3e50;">
-                ${d.val} <span style="font-size:0.8em; color:#7f8c8d">${d.u1}</span> 
-                <span style="color:#ccc"> ➝ </span> 
-                ? <span style="font-size:0.8em; color:var(--primary)">${d.u2}</span>
-            </div>
-
-            <div style="
-                display: flex; 
-                border: 2px solid #2c3e50; 
-                border-radius: 8px; 
-                font-weight:bold; 
-                background: white;
-                text-align: center;
-                font-size: 1.1rem;
-            ">
-                ${headerHtml}
-            </div>
-            <div style="font-size:0.9rem; color:#95a5a6; margin-top:5px; text-align:center;">
-                Utilise le tableau pour t'aider !
-            </div>
-        </div>`;
+    drawTimeMemoCard(...args) {
+        return UIVisuals.drawTimeMemoCard(...args);
     },
 
-    drawFraction(p) {
-        const d = p.data || {};
-        const denom = d.d || 1;
-        const num = d.n || 0;
-        
-        const radius = 60, center = 80; 
-        let paths = "";
-        
-        for (let i = 0; i < denom; i++) {
-            const a1 = (i * 2 * Math.PI) / denom - Math.PI/2;
-            const a2 = ((i + 1) * 2 * Math.PI) / denom - Math.PI/2;
-            const x1 = center + radius * Math.cos(a1), y1 = center + radius * Math.sin(a1);
-            const x2 = center + radius * Math.cos(a2), y2 = center + radius * Math.sin(a2);
-            const color = i < num ? 'var(--primary)' : 'white';
-            paths += `<path d="M ${center} ${center} L ${x1} ${y1} A ${radius} ${radius} 0 0 1 ${x2} ${y2} Z" fill="${color}" stroke="var(--dark)" stroke-width="2" />`;
-        }
-        return `<div class="fraction-display"><svg viewBox="0 0 160 160" width="140" height="140">${paths}</svg></div>`;
+    drawMoneyCard(...args) {
+        return UIVisuals.drawMoneyCard(...args);
     },
 
-    // DANS UIV2.JS (Nouvelle fonction)
+    drawCountingCard(...args) {
+        return UIVisuals.drawCountingCard(...args);
+    },
 
-drawTimeMemo(p) {
-    const d = p.data || {};
-    
-    // On utilise le texte dynamique, ou une valeur par défaut de sécurité
-    const text = d.memoText || "1 h = 60 min";
+    drawConversionCard(...args) {
+        return UIVisuals.drawConversionCard(...args);
+    },
 
-    const memoHtml = d.showMemo ? `
-    <div style="
-        background: #fff3cd; 
-        border: 2px solid #ffeeba; 
-        color: #856404; 
-        padding: 8px 15px; 
-        border-radius: 8px; 
-        display: inline-block; 
-        font-weight: bold; 
-        font-size: 1.1rem;
-        margin-bottom: 25px;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-        animation: popIn 0.5s ease;
-    ">
-        💡 RAPPEL : ${text}
-    </div>` : '';
-
-    return `
-    <div style="
-        text-align:center; 
-        width:100%; 
-        margin-top:20px; 
-        display:flex; 
-        flex-direction:column; 
-        align-items:center;
-    ">
-        ${memoHtml}
-        
-        <div style="
-            font-family: 'Quicksand', sans-serif;
-            font-size: 3rem; 
-            font-weight: bold; 
-            color: #2c3e50; 
-            margin-bottom: 20px;
-        ">
-            ${p.question}
-        </div>
-        
-        <div style="height:20px;"></div>
-    </div>`;
-},
+    drawDivisionCard(...args) {
+        return UIVisuals.drawDivisionCard(...args);
+    },
 
     drawReading(p) {
         const d = p.data || {};
@@ -814,58 +410,88 @@ drawTimeMemo(p) {
         return h + `</div>`;
     },
 
-/* --- uiv2.js : drawSpelling consolidé --- */
+    drawAudioSpelling(p, input) {
+        const d = p.data || {};
+        const target = Array.from((d.targetText || '').toString());
+        const typed = Array.from((input || '').toString().toUpperCase());
+        const status = (d.audioStatus || 'ready').toString();
+        const isUnsupported = status === 'unsupported';
+        const isPlaying = status === 'playing';
+        const helperText = isUnsupported
+            ? "L'audio n'est pas disponible sur cet appareil."
+            : isPlaying
+                ? "Le mot est en train d'être lu."
+                : "Écoute bien le mot, puis écris-le. Tu peux le réécouter.";
+        const slots = target.map((char, idx) => {
+            if (char === ' ') return `<span class="audio-spelling-separator">&nbsp;</span>`;
+            if (char === '-' || char === "'") return `<span class="audio-spelling-separator">${char}</span>`;
+            return `<span class="audio-spelling-slot">${typed[idx] || "&nbsp;"}</span>`;
+        }).join('');
+
+        return `
+            <div class="audio-spelling-container">
+                <button type="button" class="btn audio-spelling-replay${isUnsupported ? ' is-disabled' : ''}" data-action="replay-audio-spelling" ${isUnsupported || isPlaying ? 'disabled' : ''}>${isPlaying ? 'Lecture...' : 'Écouter à nouveau'}</button>
+                <div class="audio-spelling-hint">${helperText}</div>
+                <div class="audio-spelling-slots">${slots}</div>
+            </div>
+        `;
+    },
+
+/* --- uiv2.js : drawSpelling consolidÃ© --- */
 
     drawSpelling(p, input, isQCM = false) {
         // --- DEBUG LOGS (Regarde ta console F12) ---
-        console.log("🔍 DRAW SPELLING APPELÉ");
-        console.log("👉 Mode QCM reçu :", isQCM);
-        console.log("👉 Données reçues (p.data) :", p.data);
+        console.log("ðŸ” DRAW SPELLING APPELÃ‰");
+        console.log("ðŸ‘‰ Mode QCM reÃ§u :", isQCM);
+        console.log("ðŸ‘‰ DonnÃ©es reÃ§ues (p.data) :", p.data);
         // -------------------------------------------
 
         const d = p.data || {};
         const word = (d.word || "").toString();
-        const icon = d.icon || "❓";
+        const icon = this.safeIcon(d.icon, "❓");
         const imgPath = d.img || "";
+        const hasImage = !!imgPath;
 
         // LOGIQUE CP : Si c'est un QCM (Un/Une), on affiche le mot complet
         let slots;
         if (isQCM) {
             // Affichage MOT COMPLET
-            console.log("✅ Affichage en mode MOT COMPLET :", word);
-            slots = `<div class="word-full" style="font-size:3rem; font-weight:bold; letter-spacing:2px; margin-top:15px; text-align:center; color:#333;">${word}</div>`;
+            console.log("âœ… Affichage en mode MOT COMPLET :", word);
+            slots = `<div class="word-full">${word}</div>`;
         } else {
-            // Affichage DICTÉE (Trous)
-            console.log("✏️ Affichage en mode DICTÉE (Trous)");
+            // Affichage DICTÃ‰E (Trous)
+            console.log("âœï¸ Affichage en mode DICTÃ‰E (Trous)");
             slots = '<div class="spelling-slots">' + word.split("").map((_, idx) => {
                 const char = input[idx] ? input[idx].toUpperCase() : "";
-                return `<span class="letter-slot" style="display:inline-block; width:30px; height:40px; border-bottom:2px solid #333; margin:2px; text-align:center;">${char || "&nbsp;"}</span>`;
+                return `<span class="letter-slot spelling-slot-fill">${char || "&nbsp;"}</span>`;
             }).join("") + '</div>';
         }
 
         const safeId = word.replace(/[^a-zA-Z0-9]/g, '');
+        const fallbackText = hasImage ? "Illustration indisponible" : "Icône utilisée";
 
         return `
-            <div class="spelling-container" style="display:flex; flex-direction:column; align-items:center;">
+            <div class="spelling-container">
                 <div class="spelling-visual">
-                    <div class="fallback-icon" id="fallback-${safeId}" style="font-size:4rem;">
-                        ${icon}
+                    <div class="spelling-fallback" id="fallback-${safeId}">
+                        <div class="fallback-icon fallback-icon-large">${icon}</div>
+                        <div class="spelling-fallback-text">${fallbackText}</div>
                     </div>
                     ${imgPath ? `
                     <img src="${imgPath}" 
-                        class="spelling-image" 
-                        style="display:none; max-height:150px;" 
-                        onload="this.style.display='block'; document.getElementById('fallback-${safeId}').style.display='none';"
-                        onerror="this.style.display='none';">
+                        alt=""
+                        class="spelling-image spelling-image-hidden" 
+                        onload="this.style.display='block'; document.getElementById('fallback-${safeId}').classList.add('is-hidden');"
+                        onerror="this.style.display='none'; document.getElementById('fallback-${safeId}').classList.remove('is-hidden');">
                     ` : ''}
                 </div>
                 ${slots}
             </div>`;
     },
 
-    drawConjugation(p, input) {
-        const d = p.data || {};
-        const temps = d.tense || "TEMPS";
+	    drawConjugation(p, input) {
+	        const d = p.data || {};
+	        const temps = d.tense || "TEMPS";
         const infinitif = d.infinitive || "VERBE";
         const pronom = d.pronoun || "?";
         const saisie = input || "";
@@ -879,19 +505,31 @@ drawTimeMemo(p) {
                         <span class="pronoun-tag">${pronom}</span>
                         <span class="verb-input-zone">${saisie}</span>
                     </div>
-                </div>
-            </div>`;
+	                    </div>
+	                </div>`;
+	    },
+
+    drawTimelineOrder(...args) {
+        return UIDocumentary.drawTimelineOrder(...args);
     },
-    
-    showFinalResults(score, total) {
-        // 1. Mise à jour des étoiles
+
+    drawTimelinePlace(...args) {
+        return UIDocumentary.drawTimelinePlace(...args);
+    },
+
+    drawFactualCard(...args) {
+        return UIDocumentary.drawFactualCard(...args);
+    },
+	    
+	    showFinalResults(score, total) {
+        // 1. Mise Ã  jour des Ã©toiles
         this.renderStars(score, total);
         
-        // 2. Mise à jour du texte du score
+        // 2. Mise Ã  jour du texte du score
         const scoreEl = document.getElementById('result-score');
         if (scoreEl) scoreEl.innerText = `Score : ${score} / ${total}`;
 
-        // 3. Affichage de l'écran
+        // 3. Affichage de l'Ã©cran
         this.showScreen('screen-results');
     },
 
@@ -899,7 +537,7 @@ drawTimeMemo(p) {
         const container = document.getElementById('stars-container');
         if (!container) return;
         
-        // Division par zéro protection
+        // Division par zÃ©ro protection
         if(total === 0) total = 1;
         
         const p = (score/total)*100;
@@ -935,4 +573,6 @@ drawTimeMemo(p) {
     }
 };
 
+window.UI = UI;
 window.addEventListener('DOMContentLoaded', () => UI.initNavigation());
+

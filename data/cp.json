@@ -1,135 +1,800 @@
 {
-  "gradeId": "cp",
-  "title": "CP",
-  "themes": [
-    {
-      "id": "cp-parcours-addition",
-      "title": "Parcours : Addition",
-      "icon": "➕",
-      "exercises": [
-        { "id": "add-1", "title": "Étape 1", "subtitle": "Sommes < 10", "engine": "math-input", "params": { "type": "add-simple", "maxSum": 10, "questions": 5 }},
-        { "id": "add-2", "title": "Étape 2", "subtitle": "Sommes < 20", "engine": "math-input", "params": { "type": "add-simple", "maxSum": 20, "questions": 5 }},
-        { "id": "add-3", "title": "Étape 3", "subtitle": "Additions à trou", "engine": "math-input", "params": { "type": "add-trou", "min": 1, "max": 50, "questions": 5 }}
-      ]
-    },
-    {
-      "id": "cp-parcours-soustraction",
-      "title": "Parcours : Soustraction",
-      "icon": "➖",
-      "exercises": [
-        { "id": "sub-1", "title": "Étape 1", "subtitle": "Retirer < 10", "engine": "math-input", "params": { "type": "sub-simple", "min": 1, "max": 10, "questions": 5 }},
-        { "id": "sub-2", "title": "Étape 2", "subtitle": "Retirer < 20", "engine": "math-input", "params": { "type": "sub-simple", "min": 1, "max": 20, "questions": 5 }}
-      ]
-    },
-    {
-      "id": "cp-nombres-comparaison",
-      "title": "Nombres & Comparaison",
-      "icon": "🔢",
-      "exercises": [
-        { "id": "math-count-1", "title": "Compter", "subtitle": "Dizaines (0-20)", "engine": "counting", "params": { "min": 1, "max": 20, "questions": 5 }},
-        { "id": "math-count-2", "title": "Grands Nombres", "subtitle": "Jusqu'à 99", "engine": "counting", "params": { "min": 20, "max": 99, "questions": 5 }},
-        { "id": "comp-1", "title": "Comparer : Niv 1", "subtitle": "Nombres < 10", "engine": "choice-engine", "params": { "range": 10, "questions": 5 }},
-        { "id": "comp-2", "title": "Comparer : Niv 2", "subtitle": "Nombres < 20", "engine": "choice-engine", "params": { "range": 20, "questions": 5 }},
-        { "id": "comp-3", "title": "Comparer : Niv 3", "subtitle": "Nombres < 50", "engine": "choice-engine", "params": { "range": 50, "questions": 5 }}
-      ]
-    },
-    {
-      "id": "cp-cibles-monnaie",
-      "title": "Cibles & Monnaie",
-      "icon": "🎯",
-      "exercises": [
-        { "id": "cible-1", "icon": "🎯", "title": "Cible : Niv 1", "subtitle": "2 flèches (1, 2, 5)", "engine": "math-input", "params": { "type": "cibles", "zones": [1, 2, 5], "nbFleches": 2, "questions": 5 }},
-        { "id": "cible-2", "icon": "🎯🎯", "title": "Cible : Niv 2", "subtitle": "2 flèches (2, 5, 10)", "engine": "math-input", "params": { "type": "cibles", "zones": [2, 5, 10], "nbFleches": 2, "questions": 5 }},
-        { "id": "cible-3", "icon": "🎯🎯🎯", "title": "Cible : Niv 3", "subtitle": "3 flèches (2 à 8)", "engine": "math-input", "params": { "type": "cibles", "zones": [2, 4, 6, 8], "nbFleches": 3, "questions": 5 }},
-        { "id": "banquier-1", "icon": "🪙","title": "Le Marché", "subtitle": "Pièces (1€, 2€)", "engine": "math-input", "params": { "type": "cibles", "skin": "money", "zones": [1, 2], "nbFleches": 4, "questions": 5 }},
-        { "id": "banquier-2", "icon": "💶", "title": "La Caisse", "subtitle": "Pièces et billets", "engine": "math-input", "params": { "type": "cibles", "skin": "money", "zones": [1, 2, 5, 10], "nbFleches": 5, "questions": 5 }}
-      ]
-    },
-    {
-      "id": "cp-defis-logique",
-      "title": "Défis & Logique",
-      "icon": "🧩",
-      "exercises": [
-        { "id": "oiseau-1", "title": "L'Oiseau Rapide", "subtitle": "Vitesse : 8s", "engine": "math-input", "params": { "type": "oiseau-math", "min": 1, "max": 10, "vitesse": 8, "questions": 5 }},
-        { "id": "carre-1", "title": "Carré Magique 1", "subtitle": "Aide visuelle", "engine": "math-input", "params": { "type": "carre-somme", "targetMin": 10, "targetMax": 10, "gridSize": 4, "showSum": true, "questions": 5 }},
-        { "id": "carre-2", "title": "Carré Magique 2", "subtitle": "Calcul mental", "engine": "math-input", "params": { "type": "carre-somme", "targetMin": 10, "targetMax": 10, "gridSize": 4, "showSum": false, "questions": 5 }}
-      ]
-    },
-    {
-      "id": "cp-orthographe",
-      "title": "Dictée d'Images",
-      "icon": "✍️",
-      "exercises": [
-        { "id": "fr-animaux", "title": "Les Animaux", "subtitle": "Écris le nom", "engine": "math-input", "params": { "type": "spelling", "category": "animals", "questions": 5 }},
-        { "id": "fr-corps", "title": "Le Corps", "subtitle": "Écris le nom", "engine": "math-input", "params": { "type": "spelling", "category": "corps", "questions": 5 }},
-        { "id": "fr-food", "title": "Manger", "subtitle": "Écris le nom", "engine": "math-input", "params": { "type": "spelling", "category": "food", "questions": 5 }},
-        { "id": "fr-transp", "title": "Transports", "subtitle": "Écris le nom", "engine": "math-input", "params": { "type": "spelling", "category": "transport", "questions": 5 }}
-      ]
-    },
-{
-      "id": "cp-grammaire-genre",
-      "title": "Masculin ou Féminin",
-      "icon": "🚻",
-      "exercises": [
-        {
-          "id": "cp-un-une",
-          "title": "Un ou Une ?",
-          "subtitle": "Choisis le bon petit mot",
-          "engine": "choice-engine",
-          "params": {
-            "type": "gender-articles",
-            "category": "gender_cp",
-            "options": ["un", "une"], 
-            "questions": 5
-          }
-        },
-        {
-          "id": "cp-le-la",
-          "title": "Le ou La ?",
-          "subtitle": "Articles définis",
-          "engine": "choice-engine",
-          "params": {
-            "type": "gender-articles",
-            "category": "gender_cp",
-            "options": ["le", "la"], 
-            "questions": 5
-          }
-        }
-      ]
-    },
-    {
-      "id": "cp-ecriture-nombres",
-      "title": "Écrire les nombres",
-      "icon": "🔢",
-      "exercises": [
-        {
-          "id": "cp-dictee-0-10",
-          "title": "Petits Nombres",
-          "icon": "🔢",
-          "subtitle": "De 0 à 10 en lettres",
-          "engine": "math-input",
-          "params": {
-            "type": "number-spelling",
-            "min": 0,
-            "max": 10,
-            "questions": 5
-          }
-        },
-        {
-          "id": "cp-dictee-10-20",
-          "title": "Nombres de 10 à 20",
-          "icon": "🔢",
-          "subtitle": "Les irréguliers (onze...)",
-          "engine": "math-input",
-          "params": {
-            "type": "number-spelling",
-            "min": 10,
-            "max": 20,
-            "questions": 5
-          }
-        }
-      ]
-    }
-  ]
-
+    "gradeId":  "cp",
+    "title":  "CP",
+    "subjects":  [
+                     {
+                         "id":  "cp-maths",
+                         "title":  "Mathématiques",
+                         "icon":  "🔢",
+                         "subthemes":  [
+                                           {
+                                               "id":  "cp-parcours-addition",
+                                               "title":  "Parcours : Addition",
+                                               "icon":  "➕",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "add-1",
+                                                                     "title":  "Étape 1",
+                                                                     "subtitle":  "Sommes < 10",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "add-simple",
+                                                                                    "maxSum":  10,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "add-2",
+                                                                     "title":  "Étape 2",
+                                                                     "subtitle":  "Sommes < 20",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "add-simple",
+                                                                                    "maxSum":  20,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "add-3",
+                                                                     "title":  "Étape 3",
+                                                                     "subtitle":  "Additions à trou",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "add-trou",
+                                                                                    "min":  1,
+                                                                                    "max":  50,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cp-parcours-soustraction",
+                                               "title":  "Parcours : Soustraction",
+                                               "icon":  "➖",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "sub-1",
+                                                                     "title":  "Étape 1",
+                                                                     "subtitle":  "Retirer < 10",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "sub-simple",
+                                                                                    "min":  1,
+                                                                                    "max":  10,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "sub-2",
+                                                                     "title":  "Étape 2",
+                                                                     "subtitle":  "Retirer < 20",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "sub-simple",
+                                                                                    "min":  1,
+                                                                                    "max":  20,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cp-nombres-comparaison",
+                                               "title":  "Nombres & Comparaison",
+                                               "icon":  "🔢",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "math-count-1",
+                                                                     "title":  "Compter",
+                                                                     "subtitle":  "Dizaines (0-20)",
+                                                                     "engine":  "counting",
+                                                                     "params":  {
+                                                                                    "min":  1,
+                                                                                    "max":  20,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "math-count-2",
+                                                                     "title":  "Grands Nombres",
+                                                                     "subtitle":  "Jusqu'à 99",
+                                                                     "engine":  "counting",
+                                                                     "params":  {
+                                                                                    "min":  20,
+                                                                                    "max":  99,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "comp-1",
+                                                                     "title":  "Comparer : Niv 1",
+                                                                     "subtitle":  "Nombres < 10",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "range":  10,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "comp-2",
+                                                                     "title":  "Comparer : Niv 2",
+                                                                     "subtitle":  "Nombres < 20",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "range":  20,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "comp-3",
+                                                                     "title":  "Comparer : Niv 3",
+                                                                     "subtitle":  "Nombres < 50",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "range":  50,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cp-cibles-monnaie",
+                                               "title":  "Cibles & Monnaie",
+                                               "icon":  "🎯",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cible-1",
+                                                                     "icon":  "🎯",
+                                                                     "title":  "Cible : Niv 1",
+                                                                     "subtitle":  "2 flèches (1, 2, 5)",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "cibles",
+                                                                                    "zones":  [
+                                                                                                  1,
+                                                                                                  2,
+                                                                                                  5
+                                                                                              ],
+                                                                                    "nbFleches":  2,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cible-2",
+                                                                     "icon":  "🎯🎯",
+                                                                     "title":  "Cible : Niv 2",
+                                                                     "subtitle":  "2 flèches (2, 5, 10)",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "cibles",
+                                                                                    "zones":  [
+                                                                                                  2,
+                                                                                                  5,
+                                                                                                  10
+                                                                                              ],
+                                                                                    "nbFleches":  2,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cible-3",
+                                                                     "icon":  "🎯🎯🎯",
+                                                                     "title":  "Cible : Niv 3",
+                                                                     "subtitle":  "3 flèches (2 à 8)",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "cibles",
+                                                                                    "zones":  [
+                                                                                                  2,
+                                                                                                  4,
+                                                                                                  6,
+                                                                                                  8
+                                                                                              ],
+                                                                                    "nbFleches":  3,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "banquier-1",
+                                                                     "icon":  "🪙",
+                                                                     "title":  "Le Marché",
+                                                                     "subtitle":  "Pièces (1€, 2€)",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "cibles",
+                                                                                    "skin":  "money",
+                                                                                    "zones":  [
+                                                                                                  1,
+                                                                                                  2
+                                                                                              ],
+                                                                                    "nbFleches":  4,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "banquier-2",
+                                                                     "icon":  "💶",
+                                                                     "title":  "La Caisse",
+                                                                     "subtitle":  "Pièces et billets",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "cibles",
+                                                                                    "skin":  "money",
+                                                                                    "zones":  [
+                                                                                                  1,
+                                                                                                  2,
+                                                                                                  5,
+                                                                                                  10
+                                                                                              ],
+                                                                                    "nbFleches":  5,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cp-defis-logique",
+                                               "title":  "Défis & Logique",
+                                               "icon":  "🧩",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "oiseau-1",
+                                                                     "title":  "L'Oiseau Rapide",
+                                                                     "subtitle":  "Vitesse : 8s",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "oiseau-math",
+                                                                                    "min":  1,
+                                                                                    "max":  10,
+                                                                                    "vitesse":  8,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "carre-1",
+                                                                     "title":  "Carré Magique 1",
+                                                                     "subtitle":  "Aide visuelle",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "carre-somme",
+                                                                                    "targetMin":  10,
+                                                                                    "targetMax":  10,
+                                                                                    "gridSize":  4,
+                                                                                    "showSum":  true,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "carre-2",
+                                                                     "title":  "Carré Magique 2",
+                                                                     "subtitle":  "Calcul mental",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "carre-somme",
+                                                                                    "targetMin":  10,
+                                                                                    "targetMax":  10,
+                                                                                    "gridSize":  4,
+                                                                                    "showSum":  false,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cp-ecriture-nombres",
+                                               "title":  "Écrire les nombres",
+                                               "icon":  "🔢",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-dictee-0-10",
+                                                                     "title":  "Petits Nombres",
+                                                                     "icon":  "🔢",
+                                                                     "subtitle":  "De 0 à 10 en lettres",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "number-spelling",
+                                                                                    "min":  0,
+                                                                                    "max":  10,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-dictee-10-20",
+                                                                     "title":  "Nombres de 10 à 20",
+                                                                     "icon":  "🔢",
+                                                                     "subtitle":  "Les irréguliers (onze...)",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "number-spelling",
+                                                                                    "min":  10,
+                                                                                    "max":  20,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "cp-francais",
+                         "title":  "Français",
+                         "icon":  "📖",
+                         "subthemes":  [
+                                           {
+                                               "id":  "cp-orthographe",
+                                               "title":  "Dictée d'Images",
+                                               "icon":  "✍️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "fr-animaux",
+                                                                     "title":  "Les Animaux",
+                                                                     "subtitle":  "Écris le nom",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "spelling",
+                                                                                    "category":  "animals",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "fr-corps",
+                                                                     "title":  "Le Corps",
+                                                                     "subtitle":  "Écris le nom",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "spelling",
+                                                                                    "category":  "corps",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "fr-food",
+                                                                     "title":  "Manger",
+                                                                     "subtitle":  "Écris le nom",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "spelling",
+                                                                                    "category":  "food",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "fr-transp",
+                                                                     "title":  "Transports",
+                                                                     "subtitle":  "Écris le nom",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "spelling",
+                                                                                    "category":  "transport",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "fr-ecole",
+                                                                     "title":  "L'École",
+                                                                     "subtitle":  "Écris le nom",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "spelling",
+                                                                                    "category":  "school",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "fr-maison",
+                                                                     "title":  "La Maison",
+                                                                     "subtitle":  "Écris le nom",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "spelling",
+                                                                                    "category":  "house",
+                                                                                    "questions":  5
+                                                                                }
+                                           }
+                                       ]
+                                           },
+                                           {
+                                               "id":  "cp-dictee-audio",
+                                               "title":  "Dictée audio",
+                                               "icon":  "🔊",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-audio-ecole",
+                                                                     "title":  "L'École",
+                                                                     "subtitle":  "Écoute et écris",
+                                                                     "engine":  "audio-spelling",
+                                                                     "params":  {
+                                                                                    "category":  "school",
+                                                                                    "speechRate":  0.78,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-audio-maison",
+                                                                     "title":  "La Maison",
+                                                                     "subtitle":  "Écoute et écris",
+                                                                     "engine":  "audio-spelling",
+                                                                     "params":  {
+                                                                                    "category":  "house",
+                                                                                    "speechRate":  0.78,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-audio-aliments",
+                                                                     "title":  "Les Aliments",
+                                                                     "subtitle":  "Écoute et écris",
+                                                                     "engine":  "audio-spelling",
+                                                                     "params":  {
+                                                                                    "category":  "food",
+                                                                                    "speechRate":  0.78,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cp-lecture",
+                                               "title":  "Lecture syllabique",
+                                               "icon":  "📖",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-lecture-syllabes",
+                                                                     "title":  "Repérer une syllabe",
+                                                                     "subtitle":  "Première, deuxième ou dernière",
+                                                                     "engine":  "reading",
+                                                                     "params":  {
+                                                                                    "category":  "cp_reperer_syllabe",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-lecture-mots",
+                                                                     "title":  "Compter les syllabes",
+                                                                     "subtitle":  "1, 2 ou 3 syllabes",
+                                                                     "engine":  "reading",
+                                                                     "params":  {
+                                                                                    "category":  "cp_compter_syllabes",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-lecture-ou",
+                                                                     "title":  "Lire le son ou",
+                                                                     "subtitle":  "Au début, au milieu ou à la fin",
+                                                                     "engine":  "reading",
+                                                                     "params":  {
+                                                                                    "category":  "cp_son_ou",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-lecture-on",
+                                                                     "title":  "Lire le son on",
+                                                                     "subtitle":  "Au début, au milieu ou à la fin",
+                                                                     "engine":  "reading",
+                                                                     "params":  {
+                                                                                    "category":  "cp_son_on",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-lecture-ch",
+                                                                     "title":  "Lire le son ch",
+                                                                     "subtitle":  "Au début, au milieu ou à la fin",
+                                                                     "engine":  "reading",
+                                                                     "params":  {
+                                                                                    "category":  "cp_son_ch",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-lecture-muettes",
+                                                                     "title":  "Lettres muettes",
+                                                                     "subtitle":  "Observer la fin du mot",
+                                                                     "engine":  "reading",
+                                                                     "params":  {
+                                                                                    "category":  "cp_lettres_muettes",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cp-grammaire-genre",
+                                               "title":  "Masculin ou Féminin",
+                                               "icon":  "🚻",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-un-une",
+                                                                     "title":  "Un ou Une ?",
+                                                                     "subtitle":  "Choisis le bon petit mot",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "gender-articles",
+                                                                                    "category":  "gender_cp",
+                                                                                    "options":  [
+                                                                                                    "un",
+                                                                                                    "une"
+                                                                                                ],
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-le-la",
+                                                                     "title":  "Le ou La ?",
+                                                                     "subtitle":  "Articles définis",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "gender-articles",
+                                                                                    "category":  "gender_cp",
+                                                                                    "options":  [
+                                                                                                    "le",
+                                                                                                    "la"
+                                                                                                ],
+                                                                                    "questions":  5
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "cp-histoire-subject",
+                         "title":  "Histoire",
+                         "icon":  "🏛️",
+                         "subthemes":  [
+                                           {
+                                               "id":  "cp-histoire-temps",
+                                               "title":  "Avant et après",
+                                               "icon":  "🏛️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-histoire-avant-apres",
+                                                                     "title":  "Avant et après",
+                                                                     "subtitle":  "Passé, présent, futur",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/history_cp.json",
+                                                                                    "category":  "cp-avant-apres",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cp-histoire-vie",
+                                               "title":  "Vivre autrefois",
+                                               "icon":  "🏺",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-histoire-vie-autrefois",
+                                                                     "title":  "Vivre autrefois",
+                                                                     "subtitle":  "Objets et vie du passé",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/history_cp.json",
+                                                                                    "category":  "cp-vie-autrefois",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cp-histoire-traces-subtheme",
+                                               "title":  "Traces du passé",
+                                               "icon":  "🕰️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-histoire-traces",
+                                                                     "title":  "Traces du passé",
+                                                                     "subtitle":  "Monuments et objets anciens",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/history_cp.json",
+                                                                                    "category":  "cp-personnages-traces",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "cp-geographie-subject",
+                         "title":  "Géographie",
+                         "icon":  "🗺️",
+                         "subthemes":  [
+                                           {
+                                               "id":  "cp-geo-reperage-subtheme",
+                                               "title":  "Se repérer",
+                                               "icon":  "🧭",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-geo-reperer",
+                                                                     "title":  "Se repérer",
+                                                                     "subtitle":  "Plan et positions",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/geography_cp.json",
+                                                                                    "category":  "cp-se-reperer",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cp-geo-paysages-subtheme",
+                                               "title":  "Paysages",
+                                               "icon":  "🌍",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-geo-paysages",
+                                                                     "title":  "Paysages",
+                                                                     "subtitle":  "Ville, campagne, mer, montagne",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/geography_cp.json",
+                                                                                    "category":  "cp-paysages",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cp-geo-transports-subtheme",
+                                               "title":  "Transports et lieux",
+                                               "icon":  "🚗",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-geo-transports",
+                                                                     "title":  "Transports et lieux",
+                                                                     "subtitle":  "Se déplacer en sécurité",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/geography_cp.json",
+                                                                                    "category":  "cp-transports-lieux",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "cp-sciences-subject",
+                         "title":  "Sciences",
+                         "icon":  "🔬",
+                         "subthemes":  [
+                                           {
+                                               "id":  "cp-sciences-vivant-subtheme",
+                                               "title":  "Le vivant",
+                                               "icon":  "🌱",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-sciences-vivant",
+                                                                     "title":  "Le vivant",
+                                                                     "subtitle":  "Animaux, plantes, respiration",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_cp.json",
+                                                                                    "category":  "cp-vivant",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cp-sciences-matiere-subtheme",
+                                               "title":  "Matière et lumière",
+                                               "icon":  "💡",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-sciences-matiere",
+                                                                     "title":  "Matière et lumière",
+                                                                     "subtitle":  "Eau, bois, lampe, glace",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_cp.json",
+                                                                                    "category":  "cp-matiere",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cp-sciences-corps-subtheme",
+                                               "title":  "Corps et sens",
+                                               "icon":  "🧠",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-sciences-corps",
+                                                                     "title":  "Corps et sens",
+                                                                     "subtitle":  "Voir, sentir, toucher, dormir",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_cp.json",
+                                                                                    "category":  "cp-corps-sens",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "cp-emc-subject",
+                         "title":  "EMC",
+                         "icon":  "🤝",
+                         "subthemes":  [
+                                           {
+                                               "id":  "cp-emc-vivre-ensemble-subtheme",
+                                               "title":  "Vivre ensemble",
+                                               "icon":  "🤝",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-emc-vivre-ensemble",
+                                                                     "title":  "Vivre ensemble",
+                                                                     "subtitle":  "Respect et écoute",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/emc_cp.json",
+                                                                                    "category":  "cp-vivre-ensemble",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cp-emc-securite-subtheme",
+                                               "title":  "Sécurité",
+                                               "icon":  "🦺",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-emc-securite",
+                                                                     "title":  "Sécurité",
+                                                                     "subtitle":  "Consignes et prudence",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/emc_cp.json",
+                                                                                    "category":  "cp-securite",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cp-emc-entraide-subtheme",
+                                               "title":  "Entraide",
+                                               "icon":  "💛",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-emc-entraide",
+                                                                     "title":  "Entraide",
+                                                                     "subtitle":  "Politesse et solidarité",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/emc_cp.json",
+                                                                                    "category":  "cp-entraide",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     }
+                 ]
 }

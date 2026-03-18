@@ -1,202 +1,739 @@
 {
-  "gradeId": "cm1",
-  "title": "CM1",
-  "themes": [
-    {
-  "id": "cm1-maths",
-  "title": "Mathématiques",
-  "icon": "📐",
-  "exercises": [
-    { 
-      "id": "cm1-m-big", 
-      "title": "Grands Nombres", 
-      "subtitle": "Dictée jusqu'au million", 
-      "engine": "math-input", 
-      "params": { "type": "dictée-nombres", "max": 1000000, "questions": 5 }
-    },
-    { 
-      "id": "cm1-frac-1", 
-      "title": "Fractions", 
-      "subtitle": "Lecture visuelle", 
-      "engine": "math-input", 
-      "params": { "type": "fraction-view", "maxDenom": 8, "questions": 10 }
-    },
-    {
-      "id": "cm1-dec-pos-1",
-      "title": "Décimaux : Positions (1)",
-      "subtitle": "Dixièmes et Centièmes",
-      "engine": "math-input",
-      "params": { 
-        "type": "decimal-place", 
-        "trap": false,
-        "questions": 10 
-      }
-    },
-    {
-      "id": "cm1-dec-pos-2",
-      "title": "Décimaux : Positions (2)",
-      "subtitle": "Attention aux pièges ! (Dizaines vs Dixièmes)",
-      "engine": "math-input",
-      "params": { 
-        "type": "decimal-place", 
-        "trap": true,
-        "questions": 10 
-      }
-    },
-    { 
-      "id": "cm1-div-1", 
-      "title": "La Moitié", 
-      "subtitle": "Calcul mental rapide", 
-      "engine": "math-input", 
-      "params": { "type": "half", "questions": 10 }
-    },
-    { 
-      "id": "cm1-div-2", 
-      "title": "Divisions Simples", 
-      "subtitle": "Tables inversées (ex: 42 : 6)", 
-      "engine": "math-input", 
-      "params": { "type": "division-simple", "questions": 10 }
-    },
-    { 
-      "id": "cm1-div-3", 
-      "title": "Le Juste Nombre", 
-      "subtitle": "Dans 26, combien de fois 5 ?", 
-      "engine": "math-input", 
-      "params": { "type": "division-reste", "questions": 10 }
-    },
-    {
-      "id": "cm1-div-posed-1",
-      "title": "Division Posée",
-      "subtitle": "Trouve le quotient (1 chiffre)",
-      "engine": "math-input",
-      "params": { 
-        "type": "division-posed", 
-        "level": 1, 
-        "questions": 5 
-      }
-    }
-  ]
-    },
-    {
-      "id": "cm1-francais",
-      "title": "Français",
-      "icon": "📖",
-      "exercises": [
-        { "id": "cm1-h-ce", "title": "Ce ou Se ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "ce_se", "choices": ["ce", "se"], "questions": 10 }},
-        { "id": "cm1-h-ces", "title": "Ces ou Ses ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "ces_ses", "choices": ["ces", "ses"], "questions": 10 }},
-        { "id": "cm1-c-imp", "title": "L'Imparfait", "subtitle": "Verbes en -ER", "engine": "conjugation", "params": { "category": "imparfait_1", "tenses": ["imparfait"], "questions": 10 }},
-        { 
-          "id": "cm1-c-pc-avoir", 
-          "title": "Passé Composé (1)", 
-          "subtitle": "Auxiliaire Avoir", 
-          "engine": "conjugation", 
-          "params": { "category": "pc_1", "verbs": ["manger", "chanter", "jouer", "chercher", "trouver"], "tenses": ["passé composé"], "questions": 5 }
-        },
-        { 
-          "id": "cm1-c-pc-etre", 
-          "title": "Passé Composé (2)", 
-          "subtitle": "Auxiliaire Être", 
-          "engine": "conjugation", 
-          "params": { "category": "pc_1", "verbs": ["tomber", "monter", "arriver", "entrer", "rester"], "tenses": ["passé composé"], "questions": 5 }
-        },
-        { 
-          "id": "cm1-c-pc-mix", 
-          "title": "Passé Composé (Mix)", 
-          "subtitle": "Avoir ou Être ?", 
-          "engine": "conjugation", 
-          "params": { "category": "pc_1", "tenses": ["passé composé"], "questions": 10 }
-        },
-        { 
-          "id": "cm1-c-pc-3", 
-          "title": "Passé Composé (Expert)", 
-          "subtitle": "3ème groupe (fait, dit, vu...)", 
-          "engine": "conjugation", 
-          "params": { "category": "pc_3_freq", "tenses": ["passé composé"], "questions": 10 }
-        },
-        { 
-          "id": "cm1-conj-ir", 
-          "title": "Le 2ème groupe", 
-          "subtitle": "Finir, Choisir... en -ISS", 
-          "engine": "conjugation", 
-          "params": { "category": "present_2", "tenses": ["présent"], "questions": 8 }
-        }
-      ]
-    },
-    {
-          "id": "cm1-mesures",
-          "title": "Grandeurs & Mesures",
-          "icon": "🔢",
-          "exercises": [
-            {
-              "id": "cm1-romains",
-              "title": "Chiffres Romains",
-              "icon": "🏛️",
-              "subtitle": "Jusqu'à XX (20)",
-              "engine": "conversion",
-              "params": { "subtype": "roman", "max": 20, "questions": 5 }
-            },
-            {
-              "id": "cm1-longueurs",
-              "title": "Conversions (m)",
-              "icon": "📐↔️📏",
-              "subtitle": "m, km, cm, mm...",
-              "engine": "conversion",
-              "params": { "subtype": "metric", "questions": 10 }
-            },
-            {
-              "id": "cm1-durees-appr",
-              "title": "Les Heures (Apprentissage)",
-              "subtitle": "Avec aide-mémoire",
-              "icon": "🕒",
-              "engine": "conversion",
-              "params": { 
-                "subtype": "time", 
-                "modes": ["h_to_min"], 
-                "memo": true,  
-                "questions": 10 
-              }
-            },
-            {
-              "id": "cm1-durees-eval",
-              "title": "Les Heures (Expert)",
-              "subtitle": "De tête sans aide !",
-              "icon": "🕒🕞🕟",
-              "engine": "conversion",
-              "params": { 
-                "subtype": "time", 
-                "modes": ["h_to_min", "hmin_to_min"], 
-                "memo": false, 
-                "questions": 10 
-              }
-            },
-            {
-            "id": "cm1-time-sec",
-            "title": "Minutes vers Secondes",
-            "subtitle": "Conversion simple (ex: 3 min)",
-            "icon": "🕒",
-            "engine": "conversion",
-            "params": { 
-              "subtype": "time", 
-              "modes": ["min_to_sec"],
-              "memo": true,
-              "questions": 10 
-            }
-          },
-          {
-          "id": "cm1-time-hard",
-          "title": "Conversions (2)",
-          "subtitle": "Calculs précis (ex: 1h 47)",
-          "icon": "🕒🕞🕟",
-          "engine": "conversion",
-          "params": { 
-            "subtype": "time", 
-            "modes": ["hmin_to_min"], 
-            "memo": true,
-            "randomMinutes": true,
-            "questions": 10 
-          }
-        }
-          ]
-    }
-  ]
+    "gradeId":  "cm1",
+    "title":  "CM1",
+    "subjects":  [
+                     {
+                         "id":  "cm1-maths-subject",
+                         "title":  "Mathématiques",
+                         "icon":  "🔢",
+                         "subthemes":  [
+                                           {
+                                               "id":  "cm1-nombres-calculs",
+                                               "title":  "Nombres & Calculs",
+                                               "icon":  "📐",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cm1-m-big",
+                                                                     "title":  "Grands Nombres",
+                                                                     "subtitle":  "Dictée jusqu'au million",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "dictée-nombres",
+                                                                                    "max":  1000000,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-frac-1",
+                                                                     "title":  "Fractions",
+                                                                     "subtitle":  "Lecture visuelle",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "fraction-view",
+                                                                                    "maxDenom":  8,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-dec-pos-1",
+                                                                     "title":  "Décimaux : Positions (1)",
+                                                                     "subtitle":  "Dixièmes et Centièmes",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "decimal-place",
+                                                                                    "trap":  false,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-dec-pos-2",
+                                                                     "title":  "Décimaux : Positions (2)",
+                                                                     "subtitle":  "Attention aux pièges ! (Dizaines vs Dixièmes)",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "decimal-place",
+                                                                                    "trap":  true,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-div-1",
+                                                                     "title":  "La Moitié",
+                                                                     "subtitle":  "Calcul mental rapide",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "half",
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-div-2",
+                                                                     "title":  "Divisions Simples",
+                                                                     "subtitle":  "Tables inversées (ex: 42 : 6)",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "division-simple",
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-div-3",
+                                                                     "title":  "Le Juste Nombre",
+                                                                     "subtitle":  "Dans 26, combien de fois 5 ?",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "division-reste",
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-div-posed-1",
+                                                                     "title":  "Division Posée",
+                                                                     "subtitle":  "Trouve le quotient (1 chiffre)",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "division-posed",
+                                                                                    "level":  1,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cm1-grandeurs-mesures",
+                                               "title":  "Grandeurs & Mesures",
+                                               "icon":  "📏",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cm1-romains",
+                                                                     "title":  "Chiffres Romains",
+                                                                     "icon":  "🏛️",
+                                                                     "subtitle":  "Jusqu'à XX (20)",
+                                                                     "engine":  "conversion",
+                                                                     "params":  {
+                                                                                    "subtype":  "roman",
+                                                                                    "max":  20,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-longueurs",
+                                                                     "title":  "Conversions (m)",
+                                                                     "icon":  "📐↔️📏",
+                                                                     "subtitle":  "m, km, cm, mm...",
+                                                                     "engine":  "conversion",
+                                                                     "params":  {
+                                                                                    "subtype":  "metric",
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-durees-appr",
+                                                                     "title":  "Les Heures (Apprentissage)",
+                                                                     "subtitle":  "Avec aide-mémoire",
+                                                                     "icon":  "🕒",
+                                                                     "engine":  "conversion",
+                                                                     "params":  {
+                                                                                    "subtype":  "time",
+                                                                                    "modes":  "h_to_min",
+                                                                                    "memo":  true,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-durees-eval",
+                                                                     "title":  "Les Heures (Expert)",
+                                                                     "subtitle":  "De tête sans aide !",
+                                                                     "icon":  "🕒🕞🕟",
+                                                                     "engine":  "conversion",
+                                                                     "params":  {
+                                                                                    "subtype":  "time",
+                                                                                    "modes":  [
+                                                                                                  "h_to_min",
+                                                                                                  "hmin_to_min"
+                                                                                              ],
+                                                                                    "memo":  false,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-time-sec",
+                                                                     "title":  "Minutes vers Secondes",
+                                                                     "subtitle":  "Conversion simple (ex: 3 min)",
+                                                                     "icon":  "🕒",
+                                                                     "engine":  "conversion",
+                                                                     "params":  {
+                                                                                    "subtype":  "time",
+                                                                                    "modes":  "min_to_sec",
+                                                                                    "memo":  true,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-time-hard",
+                                                                     "title":  "Conversions (2)",
+                                                                     "subtitle":  "Calculs précis (ex: 1h 47)",
+                                                                     "icon":  "🕒🕞🕟",
+                                                                     "engine":  "conversion",
+                                                                     "params":  {
+                                                                                    "subtype":  "time",
+                                                                                    "modes":  "hmin_to_min",
+                                                                                    "memo":  true,
+                                                                                    "randomMinutes":  true,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "cm1-francais-subject",
+                         "title":  "Français",
+                         "icon":  "📖",
+                         "subthemes":  [
+                                           {
+                                               "id":  "cm1-francais-homophones",
+                                               "title":  "Homophones",
+                                               "icon":  "📖",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cm1-h-ce",
+                                                                     "title":  "Ce ou Se ?",
+                                                                     "subtitle":  "Homophones",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "homophone-duel",
+                                                                                    "category":  "ce_se",
+                                                                                    "choices":  [
+                                                                                                    "ce",
+                                                                                                    "se"
+                                                                                                ],
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-h-ces",
+                                                                     "title":  "Ces ou Ses ?",
+                                                                     "subtitle":  "Homophones",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "homophone-duel",
+                                                                                    "category":  "ces_ses",
+                                                                                    "choices":  [
+                                                                                                    "ces",
+                                                                                                    "ses"
+                                                                                                ],
+                                                                                    "questions":  10
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cm1-francais-conjugaison",
+                                               "title":  "Conjugaison",
+                                               "icon":  "📖",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cm1-c-imp",
+                                                                     "title":  "L'Imparfait",
+                                                                     "subtitle":  "Verbes en -ER",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "imparfait_1",
+                                                                                    "tenses":  "imparfait",
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-c-pc-avoir",
+                                                                     "title":  "Passé Composé (1)",
+                                                                     "subtitle":  "Auxiliaire Avoir",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "pc_1",
+                                                                                    "verbs":  [
+                                                                                                  "manger",
+                                                                                                  "chanter",
+                                                                                                  "jouer",
+                                                                                                  "chercher",
+                                                                                                  "trouver"
+                                                                                              ],
+                                                                                    "tenses":  "passé composé",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-c-pc-etre",
+                                                                     "title":  "Passé Composé (2)",
+                                                                     "subtitle":  "Auxiliaire Être",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "pc_1",
+                                                                                    "verbs":  [
+                                                                                                  "tomber",
+                                                                                                  "monter",
+                                                                                                  "arriver",
+                                                                                                  "entrer",
+                                                                                                  "rester"
+                                                                                              ],
+                                                                                    "tenses":  "passé composé",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-c-pc-mix",
+                                                                     "title":  "Passé Composé (Mix)",
+                                                                     "subtitle":  "Avoir ou Être ?",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "pc_1",
+                                                                                    "tenses":  "passé composé",
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-c-pc-3",
+                                                                     "title":  "Passé Composé (Expert)",
+                                                                     "subtitle":  "3ème groupe (fait, dit, vu...)",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "pc_3_freq",
+                                                                                    "tenses":  "passé composé",
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-conj-ir",
+                                                                     "title":  "Le 2ème groupe",
+                                                                     "subtitle":  "Finir, Choisir... en -ISS",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "present_2",
+                                                                                    "tenses":  "présent",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cm1-francais-articles",
+                                               "title":  "Articles et genre",
+                                               "icon":  "📖",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cm1-g-un-une",
+                                                                     "title":  "Un ou Une ?",
+                                                                     "subtitle":  "Vocabulaire scolaire",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "gender-articles",
+                                                                                    "category":  "gender_cm1_scolaire",
+                                                                                    "options":  [
+                                                                                                    "un",
+                                                                                                    "une"
+                                                                                                ],
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-g-le-la",
+                                                                     "title":  "Le, La ou L' ?",
+                                                                     "subtitle":  "Voyelle, h et élision",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "gender-articles",
+                                                                                    "category":  "gender_cm1_elision",
+                                                                                    "options":  [
+                                                                                                    "le",
+                                                                                                    "la",
+                                                                                                    "l'"
+                                                                                                ],
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cm1-francais-grammaire",
+                                               "title":  "Grammaire",
+                                               "icon":  "📖",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cm1-g-article-qcm",
+                                                                     "title":  "Le bon article",
+                                                                     "subtitle":  "Articles dans la phrase",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "article-choice",
+                                                                                    "category":  "article_choice_cm1",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-g-pluriel-qcm",
+                                                                     "title":  "Le bon déterminant",
+                                                                     "subtitle":  "Repérer le pluriel",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "plural-choice",
+                                                                                    "category":  "plural_choice_cm1",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-g-nature-qcm",
+                                                                     "title":  "Nom, verbe ou adjectif",
+                                                                     "subtitle":  "Reconnaître la nature du mot",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "word-class-choice",
+                                                                                    "category":  "word_class_choice_cm1",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-g-cloze-det",
+                                                                     "title":  "Déterminant dans la phrase",
+                                                                     "subtitle":  "Choisir le bon petit mot",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "grammar-cloze",
+                                                                                    "category":  "grammar_cloze_cm1",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-g-cloze-accord",
+                                                                     "title":  "Accorder dans la phrase",
+                                                                     "subtitle":  "Nom et adjectif simples",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "grammar-cloze",
+                                                                                    "category":  "grammar_agreement_cm1",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "cm1-histoire-subject",
+                         "title":  "Histoire",
+                         "icon":  "🏛️",
+                         "subthemes":  [
+                                           {
+                                               "id":  "cm1-histoire-periodes",
+                                               "title":  "Grandes p?riodes",
+                                               "icon":  "🏛️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cm1-histoire-antiquite",
+                                                                     "title":  "Antiquité",
+                                                                     "subtitle":  "Rome et la Gaule",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/history_cm1.json",
+                                                                                    "category":  "cm1-antiquite",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-histoire-moyen-age",
+                                                                     "title":  "Moyen Âge",
+                                                                     "subtitle":  "Châteaux et chevaliers",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/history_cm1.json",
+                                                                                    "category":  "cm1-moyen-age",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-histoire-temps-modernes",
+                                                                     "title":  "Temps modernes",
+                                                                     "subtitle":  "Renaissance et découvertes",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/history_cm1.json",
+                                                                                    "category":  "cm1-temps-modernes",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cm1-histoire-frises",
+                                               "title":  "Frises historiques",
+                                               "icon":  "🏛️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cm1-histoire-frise-ordre",
+                                                                     "title":  "Frise historique",
+                                                                     "subtitle":  "Remets les repères dans l'ordre",
+                                                                     "engine":  "timeline",
+                                                                     "params":  {
+                                                                                    "mode":  "order",
+                                                                                    "grade":  "cm1",
+                                                                                    "dataFile":  "data/history_chrono.json",
+                                                                                    "timelineId":  "cm1-reperes-celebres",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-histoire-frise-place",
+                                                                     "title":  "Placer sur la frise",
+                                                                     "subtitle":  "Mix - Repères du Moyen Âge",
+                                                                     "engine":  "timeline",
+                                                                     "params":  {
+                                                                                    "mode":  "place",
+                                                                                    "grade":  "cm1",
+                                                                                    "dataFile":  "data/history_chrono.json",
+                                                                                    "timelineId":  "cm1-place-moyen-age",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-histoire-frise-place-n1",
+                                                                     "title":  "Placer sur la frise - Niv 1",
+                                                                     "subtitle":  "Repères faciles",
+                                                                     "engine":  "timeline",
+                                                                     "params":  {
+                                                                                    "mode":  "place",
+                                                                                    "grade":  "cm1",
+                                                                                    "dataFile":  "data/history_chrono.json",
+                                                                                    "timelineId":  "cm1-place-moyen-age",
+                                                                                    "difficulty":  1,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-histoire-frise-place-n2",
+                                                                     "title":  "Placer sur la frise - Niv 2",
+                                                                     "subtitle":  "Repères intermédiaires",
+                                                                     "engine":  "timeline",
+                                                                     "params":  {
+                                                                                    "mode":  "place",
+                                                                                    "grade":  "cm1",
+                                                                                    "dataFile":  "data/history_chrono.json",
+                                                                                    "timelineId":  "cm1-place-moyen-age",
+                                                                                    "difficulty":  2,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cm1-histoire-frise-place-n3",
+                                                                     "title":  "Placer sur la frise - Niv 3",
+                                                                     "subtitle":  "Repères experts",
+                                                                     "engine":  "timeline",
+                                                                     "params":  {
+                                                                                    "mode":  "place",
+                                                                                    "grade":  "cm1",
+                                                                                    "dataFile":  "data/history_chrono.json",
+                                                                                    "timelineId":  "cm1-place-moyen-age",
+                                                                                    "difficulty":  3,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "cm1-geographie-subject",
+                         "title":  "Géographie",
+                         "icon":  "🗺️",
+                         "subthemes":  [
+                                           {
+                                               "id":  "cm1-geo-relief-subtheme",
+                                               "title":  "Reliefs et fleuves",
+                                               "icon":  "🗺️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cm1-geo-relief",
+                                                                     "title":  "Reliefs et fleuves",
+                                                                     "subtitle":  "France et paysages",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/geography_cm1.json",
+                                                                                    "category":  "cm1-france-relief",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cm1-geo-territoires-subtheme",
+                                               "title":  "Territoires",
+                                               "icon":  "🗺️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cm1-geo-territoires",
+                                                                     "title":  "Territoires",
+                                                                     "subtitle":  "France, villes et espaces",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/geography_cm1.json",
+                                                                                    "category":  "cm1-france-regions",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cm1-geo-deplacements-subtheme",
+                                               "title":  "Se déplacer",
+                                               "icon":  "🗺️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cm1-geo-deplacements",
+                                                                     "title":  "Se déplacer",
+                                                                     "subtitle":  "Routes, trains et villes",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/geography_cm1.json",
+                                                                                    "category":  "cm1-se-deplacer",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "cm1-sciences-subject",
+                         "title":  "Sciences",
+                         "icon":  "🔬",
+                         "subthemes":  [
+                                           {
+                                               "id":  "cm1-sciences-vivant-subtheme",
+                                               "title":  "Le vivant",
+                                               "icon":  "🔬",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cm1-sciences-vivant",
+                                                                     "title":  "Le vivant",
+                                                                     "subtitle":  "Corps, plantes et animaux",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_cm1.json",
+                                                                                    "category":  "cm1-vivant",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cm1-sciences-matiere-subtheme",
+                                               "title":  "Matière et énergie",
+                                               "icon":  "🔬",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cm1-sciences-matiere",
+                                                                     "title":  "Matière et énergie",
+                                                                     "subtitle":  "Eau, chaleur et objets",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_cm1.json",
+                                                                                    "category":  "cm1-matiere-energie",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cm1-sciences-corps-subtheme",
+                                               "title":  "Corps et hygiène",
+                                               "icon":  "🔬",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cm1-sciences-corps",
+                                                                     "title":  "Corps et hygiène",
+                                                                     "subtitle":  "Santé au quotidien",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_cm1.json",
+                                                                                    "category":  "cm1-corps-hygiene",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "cm1-emc-subject",
+                         "title":  "EMC",
+                         "icon":  "🤝",
+                         "subthemes":  [
+                                           {
+                                               "id":  "cm1-emc-vivre-ensemble-subtheme",
+                                               "title":  "Vivre ensemble",
+                                               "icon":  "⚖️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cm1-emc-vivre-ensemble",
+                                                                     "title":  "Vivre ensemble",
+                                                                     "subtitle":  "Respect et entraide",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/emc_cm1.json",
+                                                                                    "category":  "cm1-vivre-ensemble",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cm1-emc-droits-devoirs-subtheme",
+                                               "title":  "Droits et devoirs",
+                                               "icon":  "⚖️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cm1-emc-droits-devoirs",
+                                                                     "title":  "Droits et devoirs",
+                                                                     "subtitle":  "Règles et responsabilités",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/emc_cm1.json",
+                                                                                    "category":  "cm1-droits-devoirs",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "cm1-emc-citoyennete-subtheme",
+                                               "title":  "Citoyenneté",
+                                               "icon":  "⚖️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cm1-emc-citoyennete",
+                                                                     "title":  "Citoyenneté",
+                                                                     "subtitle":  "Vote et vie de classe",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/emc_cm1.json",
+                                                                                    "category":  "cm1-citoyennete",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     }
+                 ]
 }

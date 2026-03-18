@@ -1,106 +1,281 @@
-# 🎓 Devoir Numérique
+﻿# Devoir Numérique
 
-> **Plateforme éducative web (SPA) minimaliste, sans distraction, conçue pour l'apprentissage du CP au CM2.**
+Application éducative web en Vanilla JavaScript, data-driven, du CP au CM2.
 
-[![Status](https://img.shields.io/badge/Status-Active_Dev-success.svg)]()
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Stack](https://img.shields.io/badge/Stack-Vanilla_JS_ES6+-orange.svg)]()
-[![UI](https://img.shields.io/badge/UI-CSS_Grid_%26_Flex-blueviolet.svg)]()
+Le projet fonctionne :
+- sans framework front
+- sans backend
+- avec stockage local
+- avec contenus JSON versionnés
+- avec mode offline/PWA
 
----
+## État du projet
 
-## 🌟 Philosophie & Vision Pédagogique
+Le projet est aujourd’hui stabilisé sur trois axes :
+- couverture pédagogique CP à CM2
+- navigation homogène `niveau -> matière -> sous-thème -> exercice`
+- robustesse locale/offline renforcée
 
-**Devoir Numérique** est un outil conçu pour le **focus total**. À l'heure où les applications éducatives regorgent de publicités et d'animations superflues, ce projet mise sur la sobriété et l'efficacité pédagogique.
+État actuel :
+- mathématiques, français, histoire, géographie, sciences et EMC présents sur tous les niveaux
+- bibliothèque française modulaire dans `data/french/`
+- moteurs de grammaire en contexte et dictée audio en service
+- service worker et bundle local alignés avec la structure actuelle
 
-* **Autonomie & Design** : Une interface épurée utilisant la police *Quicksand* pour une lisibilité maximale. L'enfant navigue seul grâce à des codes couleurs et des icônes explicites.
-* **Gamification Bienveillante** : Un système d'étoiles (1 à 3) récompense la précision. L'absence de chronomètre (sauf exercice de vitesse spécifique) permet à l'élève d'avancer à son propre rythme.
-* **Pédagogie du Feedback** :
-    * ✅ **Succès** : Feedback vert immédiat.
-    * ❌ **Erreur** : La correction s'affiche avec une animation visuelle ("Shake"). L'élève doit observer la réponse correcte avant de valider la suite, favorisant la mémorisation.
-* **UX Adaptative** : L'application détecte le contexte pour afficher le bon clavier virtuel (Pavé Numérique, Clavier Alphabétique avec accents/tirets, ou QCM) afin de limiter la charge cognitive.
+## Vue d’ensemble
 
----
+`Devoir Numérique` est une SPA pédagogique qui charge :
+- un index des niveaux dans `data/index.json`
+- un fichier de niveau par classe : `cp.json`, `ce1.json`, `ce2.json`, `cm1.json`, `cm2.json`
+- une bibliothèque de langue modulaire :
+  - `data/french/spelling.json`
+  - `data/french/conjugation.json`
+  - `data/french/homophones.json`
+  - `data/french/grammar.json`
+  - `data/french/reading.json`
 
-## 🚀 Nouveautés & Fonctionnalités Avancées
+L’application gère :
+- profils locaux
+- scores et étoiles par exercice
+- claviers virtuels
+- exercices visuels, textuels et documentaires
+- fallback offline/local via `js/data-bundle.js`
 
-Cette version introduit des moteurs visuels complexes pour couvrir les programmes du **CM1 et CM2** :
+## Stack
 
-### ➗ La Division Posée (Pixel Perfect ou presque 🫣)
-Un moteur de rendu visuel basé sur **CSS Grid** qui simule parfaitement la "potence" sur une feuille de cahier.
-* Alignement automatique des chiffres (unités sous unités).
-* Affichage des soustractions intermédiaires et des descentes de chiffres.
-* Gestion des étapes (Quotient, Reste).
+- HTML
+- CSS
+- JavaScript ES6+
+- JSON data-driven
+- Service Worker
+- `localStorage`
 
-### 📝 Dictée de Nombres "Intelligente"
-Un moteur bidirectionnel pour l'apprentissage de la numération :
-* **Aléatoire** : Alterne entre "Lire le nombre" (Chiffres → Lettres) et "Écrire le nombre" (Lettres → Chiffres).
-* **Tolérance** : Accepte les réponses avec ou sans tirets (ex: *dix-sept* ou *dix sept*) selon le niveau de difficulté configuré.
+## Architecture actuelle
 
-### 🔡 Gestion Fine de la Langue
-* **Moteur Genre** : Exercices "Un/Une" ou "Le/La" avec détection automatique de l'élision (gestion du **L'** devant voyelles/H muet).
-* **Clavier Amélioré** : Intégration des caractères spéciaux français (é, è, à, ç, -) accessibles directement.
+### Fichiers principaux
 
----
+- `index.html` : shell SPA
+- `css/app.css` : styles globaux, responsive, surfaces d’exercice
+- `js/app.js` : orchestration, navigation, cycle de jeu, audio, offline local
+- `js/ui.js` : façade UI et rendu DOM principal
+- `js/ui-keyboards.js` : claviers virtuels
+- `js/ui-visuals.js` : renderers visuels maths
+- `js/ui-documentary.js` : renderers documentaires et frises
+- `js/engines.js` : point d’entrée des moteurs
+- `js/engines-core.js` : utilitaires communs
+- `js/engines-math.js` : générateurs maths / logique
+- `js/engines-french.js` : générateurs français
+- `js/engines-documentary.js` : générateurs documentaires et frises
+- `js/storage.js` : profils, utilisateur courant, records
+- `js/validators.js` : validation runtime des JSON
+- `js/data-bundle.js` : bundle embarqué pour mode local/offline
+- `sw.js` : cache offline/PWA
+- `offline.html` : page de secours hors ligne
 
-## 🧩 Architecture : Les Moteurs Pédagogiques
+### Principe de fonctionnement
 
-L'application repose sur une série de moteurs spécialisés ("Engines") qui génèrent les exercices et valident les réponses. Voici les technologies sous le capot :
+1. `App.init()` charge la bibliothèque française modulaire.
+2. L’application charge `data/index.json`.
+3. L’utilisateur choisit un profil puis une classe.
+4. Le JSON du niveau expose ses matières, sous-thèmes et exercices.
+5. Un moteur génère un problème standardisé.
+6. `UI` rend le problème selon sa famille visuelle.
+7. La réponse est validée, puis le score local est mis à jour.
 
-### 📐 Moteurs Mathématiques
+## Contenu pédagogique
 
-| Moteur | Description | Visuels Clés |
-| :--- | :--- | :--- |
-| **`division-posed`** <br>*(Nouveau)* | **La Division Euclidienne**<br>Génère une "potence" parfaite (CSS Grid) avec alignement automatique des chiffres, gestion des retenues, soustractions intermédiaires et reste. | 🏗️ Potence dynamique<br>📉 Descente des chiffres |
-| **`math-input`** | **Le Couteau Suisse**<br>Gère 80% des interactions numériques : calcul mental, tables de multiplication, moitiés/doubles, et décimaux. | ⌨️ Pavé Numérique<br>🔢 Grands Nombres |
-| **`number-spelling`** | **Dictée de Nombres Intelligente**<br>Bi-directionnel : demande d'écrire "17" en lettres ("dix-sept") ou inversement. Gère la tolérance orthographique (tirets). | 🔤 Clavier AZERTY<br>↔️ Chiffres ⇄ Lettres |
-| **`square`** | **Carré Magique**<br>Jeu de logique où l'enfant doit sélectionner 3 cases pour atteindre une somme cible. | 🧮 Grille interactive<br>👆 Sélection tactile |
-| **`fraction-view`** | **Visualiseur de Fractions**<br>Génère des camemberts ou des barres pour apprendre la notion de numérateur/dénominateur. | 🍕 Camemberts SVG |
-| **`clock`** | **Maître du Temps**<br>Horloge analogique interactive. Gère les concepts de matin/après-midi et la conversion analogique → numérique. | 🕒 Horloge SVG<br>☀️/🌙 Mode Jour/Nuit |
+### Niveaux disponibles
 
-### 📚 Moteurs de Langue
+- CP
+- CE1
+- CE2
+- CM1
+- CM2
 
-| Moteur | Description | Visuels Clés |
-| :--- | :--- | :--- |
-| **`conjugation`** | **Le Verbe-o-Tron**<br>Moteur unique qui sépare visuellement le **Radical** de la **Terminaison** pour aider l'enfant à comprendre la structure du verbe. Gère les exceptions (*-cer*, *-ger*). | 🔡 Radical + Terminaison<br>👤 Pronoms |
-| **`spelling`** | **Dictée Visuelle**<br>Affiche une image (ex: un Chat) et des cases vides. L'enfant doit composer le mot. | 🖼️ Images<br>🔠 Lettres à trous |
-| **`choice-engine`** | **Grammaire & Logique**<br>Moteur de QCM universel. Utilisé pour :<br>• Le Genre (*Un/Une*)<br>• Les Homophones (*a/à*, *et/est*)<br>• Les Comparaisons (*<, >, =*) | ✅/❌ Boutons QCM<br>⚡ Feedback immédiat |
----
+### Matières actuellement présentes
 
-## ⚙️ Configuration du Contenu (JSON)
+- Mathématiques
+- Français
+- Histoire
+- Géographie
+- Sciences
+- EMC
 
-L'application est entièrement **Data-Driven**. Tout le contenu pédagogique est piloté par des fichiers JSON situés dans le dossier `/data`.
+### Français
 
-> [!TIP]
-> **Flexibilité :** Vous pouvez créer des variantes infinies d'un exercice simplement en changeant les paramètres JSON (ex: passer d'une division par 2 à une division par 9).
+Le français repose sur 5 bibliothèques spécialisées :
+- orthographe lexicale
+- conjugaison
+- homophones
+- grammaire
+- lecture
 
-### Exemple de structure (`cm1.json`)
+Couverture actuelle :
+- dictées visuelles
+- dictées audio CP / CE1
+- homophones
+- conjugaison
+- grammaire de genre / article
+- grammaire en contexte via phrase à trou
+- lecture syllabique CP
 
-```json
-{
-  "gradeId": "cm1",
-  "title": "CM1",
-  "themes": [
-    {
-      "id": "cm1-maths",
-      "title": "Mathématiques",
-      "icon": "📐",
-      "exercises": [
-        { 
-          "id": "cm1-div-posed", 
-          "title": "Division Posée", 
-          "subtitle": "Diviseur à 1 chiffre", 
-          "engine": "math-input", 
-          "params": { "type": "division-posed", "level": 1, "questions": 5 }
-        },
-        { 
-          "id": "cm1-dictee-nb", 
-          "title": "Les Nombres", 
-          "subtitle": "Chiffres et Lettres", 
-          "engine": "math-input", 
-          "params": { "type": "number-spelling", "min": 0, "max": 100, "strict": false }
-        }
-      ]
-    }
-  ]
-}
+### Documentaires
+
+Les documentaires utilisent principalement :
+- `engine: "choice-engine"`
+- `params.type: "factual-qcm"`
+- `params.dataFile: "data/<matiere>_<niveau>.json"`
+- `params.category: "<categorie>"`
+
+Les frises historiques utilisent :
+- `engine: "timeline"`
+- `params.dataFile: "data/history_chrono.json"`
+
+## Moteurs en service
+
+Moteurs principaux :
+- `math-input`
+- `choice-engine`
+- `conjugation`
+- `conversion`
+- `clock`
+- `reading`
+- `audio-spelling`
+- `timeline`
+- `counting`
+
+Sous-types français et documentaires notables :
+- `factual-qcm`
+- `gender-articles`
+- `article-choice`
+- `plural-choice`
+- `word-class-choice`
+- `grammar-cloze`
+- `homophone-duel`
+
+## Contrat data actuel
+
+### Index
+
+`data/index.json` déclare les niveaux via `grades[]`.
+
+### Niveau
+
+Le contrat principal est maintenant :
+- `gradeId`
+- `title`
+- `subjects[]`
+
+Chaque matière contient :
+- `id`
+- `title`
+- `icon`
+- `subthemes[]`
+
+Chaque sous-thème contient :
+- `id`
+- `title`
+- `icon`
+- `exercises[]`
+
+Chaque exercice contient :
+- `id`
+- `title`
+- `subtitle`
+- `engine`
+- `params`
+
+Compatibilité :
+- le runtime sait encore lire `themes[]`
+- le corpus actuel CP → CM2 est déjà migré sur `subjects[]`
+
+### Bibliothèques et datasets
+
+- les bibliothèques françaises vivent dans `data/french/*.json`
+- les datasets documentaires vivent dans `data/<matiere>_<niveau>.json`
+- les frises vivent dans `data/history_chrono.json`
+
+## Workflow local
+
+1. Servir le projet depuis un serveur statique local.
+2. Vérifier les données avec :
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\validate-data.ps1
+```
+
+3. Régénérer le bundle embarqué après toute modification de `data/` :
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\regenerate-data-bundle.ps1
+```
+
+4. Optionnellement rafraîchir les données locales via :
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\refresh-local-data.ps1
+```
+
+## Vérification manuelle minimale
+
+- création et sélection de profil
+- chargement d’un niveau
+- parcours `matière -> sous-thème -> exercice`
+- lancement d’un exercice `math-input`
+- lancement d’un exercice `choice-engine`
+- lancement d’un exercice `timeline`
+- lancement d’une dictée audio
+- retour résultats et sauvegarde du score
+- vérification hors connexion après activation du service worker
+
+## Offline et mode local
+
+Le projet peut être ouvert :
+- via un serveur local classique
+- en local avec fallback embarqué via `js/data-bundle.js`
+- en PWA cachée via `sw.js`
+
+Le service worker pré-cache :
+- les assets applicatifs
+- les JSON critiques
+- la bibliothèque française modulaire
+
+## Stockage local
+
+Les données utilisateur sont stockées en `localStorage` :
+- profils
+- profil courant
+- records par niveau / exercice
+
+Le stockage a été durci pour :
+- nettoyer les noms de profils
+- refuser les doublons logiques
+- ignorer les records corrompus
+- borner les valeurs de score
+- réconcilier proprement l’utilisateur courant
+
+## Audit rapide
+
+### Solide aujourd’hui
+
+- structure data-driven claire
+- navigation homogène sur tous les niveaux
+- bibliothèque française modulaire
+- grammaire plus riche qu’au départ
+- offline/local aligné avec le corpus réel
+
+### À poursuivre
+
+- enrichir encore la grammaire en contexte
+- reprendre plus tard la qualité audio du moteur `audio-spelling`
+- enrichir CE1 / CE2 en lecture-compréhension si le chantier est relancé
+- réduire la densité de `js/ui.js`
+
+## Documentation associée
+
+- `technicalaspect.md` : référence technique
+- `SECURITY.md` : sécurité et robustesse
+
+## Licence
+
+GNU GPL v3

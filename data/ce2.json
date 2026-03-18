@@ -1,116 +1,761 @@
 {
-  "gradeId": "ce2",
-  "title": "CE2",
-  "themes": [
-    {
-      "id": "ce2-tables",
-      "title": "Tables de Multiplication",
-      "icon": "✖️",
-      "exercises": [
-        { "id": "ce2-m2", "title": "Table de 2", "subtitle": "Les doubles", "engine": "math-input", "params": { "type": "mult", "table": 2, "questions": 10 }},
-        { "id": "ce2-m3", "title": "Table de 3", "subtitle": "Les triples", "engine": "math-input", "params": { "type": "mult", "table": 3, "questions": 10 }},
-        { "id": "ce2-m4", "title": "Table de 4", "subtitle": "Calcul", "engine": "math-input", "params": { "type": "mult", "table": 4, "questions": 10 }},
-        { "id": "ce2-m5", "title": "Table de 5", "subtitle": "Calcul", "engine": "math-input", "params": { "type": "mult", "table": 5, "questions": 10 }},
-        { "id": "ce2-m6", "title": "Table de 6", "subtitle": "Calcul", "engine": "math-input", "params": { "type": "mult", "table": 6, "questions": 10 }},
-        { "id": "ce2-m7", "title": "Table de 7", "subtitle": "Calcul", "engine": "math-input", "params": { "type": "mult", "table": 7, "questions": 10 }},
-        { "id": "ce2-m8", "title": "Table de 8", "subtitle": "Calcul", "engine": "math-input", "params": { "type": "mult", "table": 8, "questions": 10 }},
-        { "id": "ce2-m9", "title": "Table de 9", "subtitle": "Calcul", "engine": "math-input", "params": { "type": "mult", "table": 9, "questions": 10 }}
-      ]
-    },
-    {
-      "id": "ce2-maths-divers",
-      "title": "Calculs & Logique",
-      "icon": "🔢",
-      "exercises": [
-        { "id": "ce2-cible-1", "title": "Le Compte est bon", "subtitle": "Atteindre la cible", "engine": "math-input", "params": { "type": "cibles", "zones": [10, 20, 50], "nbFleches": 5, "questions": 5 }},
-        { "id": "ce2-comp-100", "title": "Compléments à 100", "subtitle": "Calcul mental rapide", "engine": "math-input", "params": { "type": "complement", "target": 100, "questions": 10 }},
-        { "id": "ce2-clock", "title": "L'Horloge", "subtitle": "Lire l'heure", "engine": "clock", "params": { "questions": 5 }}
-      ]
-    },
-    {
-      "id": "ce2-grammaire",
-      "title": "Orthographe & Grammaire",
-      "icon": "✍️",
-      "exercises": [
-        { "id": "ce2-h-et", "title": "Et ou Est ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "et_est", "choices": ["et", "est"], "questions": 8 }},
-        { "id": "ce2-h-a", "title": "A ou À ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "a_à", "choices": ["a", "à"], "questions": 8 }},
-        { "id": "ce2-h-son", "title": "Son ou Sont ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "son_sont", "choices": ["son", "sont"], "questions": 8 }},
-        { "id": "ce2-h-on", "title": "On ou Ont ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "on_ont", "choices": ["on", "ont"], "questions": 8 }},
-        { "id": "ce2-h-ou", "title": "Ou ou Où ?", "subtitle": "Homophones", "engine": "choice-engine", "params": { "type": "homophone-duel", "category": "ou_ou", "choices": ["ou", "où"], "questions": 8 }}
-      ]
-    },
-    {
-      "id": "ce2-conjugaison",
-      "title": "Conjugaison",
-      "icon": "🗣️",
-      "exercises": [
-{ 
-      "id": "ce2-conj-pres-all", 
-      "title": "Rappel : Le Présent", 
-      "subtitle": "Tous les verbes en -ER", 
-      "engine": "conjugation", 
-      "params": { "category": "present_1", "tenses": ["présent"], "questions": 10 }
-    },
-    { 
-      "id": "ce2-conj-etre-avoir-futur", 
-      "title": "Futur : Être et Avoir", 
-      "subtitle": "Demain, je serai...", 
-      "engine": "conjugation", 
-      "params": { "category": "etre_avoir_f", "verbs": ["être", "avoir"], "tenses": ["futur"], "questions": 6 }
-    },
-    { 
-      "id": "ce2-conj-futur-er", 
-      "title": "Futur : Verbes en -ER", 
-      "subtitle": "Infinitif + terminaison", 
-      "engine": "conjugation", 
-      "params": { "category": "future_1", "tenses": ["futur"], "questions": 8 }
-    },
-    { 
-      "id": "ce2-conj-imp-ea", 
-      "title": "Imparfait : Auxiliaires", 
-      "subtitle": "Autrefois, j'étais...", 
-      "engine": "conjugation", 
-      "params": { "category": "etre_avoir_imp", "tenses": ["imparfait"], "questions": 6 }
-        },
-        { 
-          "id": "ce2-conj-imp-er", 
-          "title": "Imparfait : Verbes en -ER", 
-          "subtitle": "Terminaisons en -AIS", 
-          "engine": "conjugation", 
-          "params": { "category": "imparfait_1", "tenses": ["imparfait"], "questions": 8 }
-        },
-        { 
-          "id": "ce2-conj-defi-temps", 
-          "title": "Défi : Présent ou Futur ?", 
-          "subtitle": "Attention au temps !", 
-          "engine": "conjugation", 
-          "params": { "category": "future_1", "tenses": ["présent", "futur"], "questions": 10 }
-        },
-        { 
-      "id": "ce2-conj-p3-freq", 
-      "title": "Le 3ème groupe (1)", 
-      "subtitle": "Dire, Faire, Aller...", 
-      "engine": "conjugation", 
-      "params": { 
-        "category": "present_3_freq", 
-        "verbs": ["aller", "faire", "dire", "venir"], 
-        "tenses": ["présent"], 
-        "questions": 8 
-      }
-    },
-    { 
-      "id": "ce2-conj-p3-pouvoir", 
-      "title": "Le 3ème groupe (2)", 
-      "subtitle": "Pouvoir, Vouloir, Prendre...", 
-      "engine": "conjugation", 
-      "params": { 
-        "category": "present_3_freq", 
-        "verbs": ["pouvoir", "vouloir", "prendre", "voir"], 
-        "tenses": ["présent"], 
-        "questions": 8 
-      }
-    }
-      ]
-    }
-  ]
+    "gradeId":  "ce2",
+    "title":  "CE2",
+    "subjects":  [
+                     {
+                         "id":  "ce2-maths",
+                         "title":  "Mathématiques",
+                         "icon":  "🔢",
+                         "subthemes":  [
+                                           {
+                                               "id":  "ce2-multiplication",
+                                               "title":  "Tables de Multiplication",
+                                               "icon":  "✖️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-m2",
+                                                                     "title":  "Table de 2",
+                                                                     "subtitle":  "Les doubles",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "mult",
+                                                                                    "table":  2,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-m3",
+                                                                     "title":  "Table de 3",
+                                                                     "subtitle":  "Les triples",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "mult",
+                                                                                    "table":  3,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-m4",
+                                                                     "title":  "Table de 4",
+                                                                     "subtitle":  "Calcul",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "mult",
+                                                                                    "table":  4,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-m5",
+                                                                     "title":  "Table de 5",
+                                                                     "subtitle":  "Calcul",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "mult",
+                                                                                    "table":  5,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-m6",
+                                                                     "title":  "Table de 6",
+                                                                     "subtitle":  "Calcul",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "mult",
+                                                                                    "table":  6,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-m7",
+                                                                     "title":  "Table de 7",
+                                                                     "subtitle":  "Calcul",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "mult",
+                                                                                    "table":  7,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-m8",
+                                                                     "title":  "Table de 8",
+                                                                     "subtitle":  "Calcul",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "mult",
+                                                                                    "table":  8,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-m9",
+                                                                     "title":  "Table de 9",
+                                                                     "subtitle":  "Calcul",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "mult",
+                                                                                    "table":  9,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce2-calculs-logique",
+                                               "title":  "Calculs \u0026 Logique",
+                                               "icon":  "🔢",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-cible-1",
+                                                                     "title":  "Le Compte est bon",
+                                                                     "subtitle":  "Atteindre la cible",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "cibles",
+                                                                                    "zones":  [
+                                                                                                  10,
+                                                                                                  20,
+                                                                                                  50
+                                                                                              ],
+                                                                                    "nbFleches":  5,
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-comp-100",
+                                                                     "title":  "Compléments à 100",
+                                                                     "subtitle":  "Calcul mental rapide",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "complement",
+                                                                                    "target":  100,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-clock",
+                                                                     "title":  "L\u0027Horloge",
+                                                                     "subtitle":  "Lire l\u0027heure",
+                                                                     "engine":  "clock",
+                                                                     "params":  {
+                                                                                    "questions":  5
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "ce2-francais",
+                         "title":  "Français",
+                         "icon":  "📖",
+                         "subthemes":  [
+                                           {
+                                               "id":  "ce2-orthographe-grammaire",
+                                               "title":  "Orthographe \u0026 Grammaire",
+                                               "icon":  "✍️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-h-et",
+                                                                     "title":  "Et ou Est ?",
+                                                                     "subtitle":  "Homophones",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "homophone-duel",
+                                                                                    "category":  "et_est",
+                                                                                    "choices":  [
+                                                                                                    "et",
+                                                                                                    "est"
+                                                                                                ],
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-h-a",
+                                                                     "title":  "A ou À ?",
+                                                                     "subtitle":  "Homophones",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "homophone-duel",
+                                                                                    "category":  "a_à",
+                                                                                    "choices":  [
+                                                                                                    "a",
+                                                                                                    "à"
+                                                                                                ],
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-h-son",
+                                                                     "title":  "Son ou Sont ?",
+                                                                     "subtitle":  "Homophones",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "homophone-duel",
+                                                                                    "category":  "son_sont",
+                                                                                    "choices":  [
+                                                                                                    "son",
+                                                                                                    "sont"
+                                                                                                ],
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-h-on",
+                                                                     "title":  "On ou Ont ?",
+                                                                     "subtitle":  "Homophones",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "homophone-duel",
+                                                                                    "category":  "on_ont",
+                                                                                    "choices":  [
+                                                                                                    "on",
+                                                                                                    "ont"
+                                                                                                ],
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-h-ou",
+                                                                     "title":  "Ou ou Où ?",
+                                                                     "subtitle":  "Homophones",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "homophone-duel",
+                                                                                    "category":  "ou_o?",
+                                                                                    "choices":  [
+                                                                                                    "ou",
+                                                                                                    "où"
+                                                                                                ],
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-g-un-une",
+                                                                     "title":  "Un ou Une ?",
+                                                                     "subtitle":  "Objets du quotidien",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "gender-articles",
+                                                                                    "category":  "gender_ce2_objets",
+                                                                                    "options":  [
+                                                                                                    "un",
+                                                                                                    "une"
+                                                                                                ],
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-g-le-la",
+                                                                     "title":  "Le, La ou L\u0027 ?",
+                                                                     "subtitle":  "Noms avec voyelle ou h",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "gender-articles",
+                                                                                    "category":  "gender_ce2_elision",
+                                                                                    "options":  [
+                                                                                                    "le",
+                                                                                                    "la",
+                                                                                                    "l\u0027"
+                                                                                                ],
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-g-mixte",
+                                                                     "title":  "Articles malins",
+                                                                     "subtitle":  "Nature et lieux",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "gender-articles",
+                                                                                    "category":  "gender_ce2_mixte",
+                                                                                    "options":  [
+                                                                                                    "le",
+                                                                                                    "la",
+                                                                                                    "l\u0027"
+                                                                                                ],
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-g-article-qcm",
+                                                                     "title":  "Le bon article",
+                                                                     "subtitle":  "Choisir entre le, la, l\u0027",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "article-choice",
+                                                                                    "category":  "article_choice_ce2",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-g-pluriel-qcm",
+                                                                     "title":  "Singulier ou pluriel ?",
+                                                                     "subtitle":  "Choisir le bon d?terminant",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "plural-choice",
+                                                                                    "category":  "plural_choice_ce2",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-g-nature-qcm",
+                                                                     "title":  "Nom, verbe ou adjectif",
+                                                                     "subtitle":  "Reconna?tre la nature du mot",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "word-class-choice",
+                                                                                    "category":  "word_class_choice_ce2",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-g-cloze-det",
+                                                                     "title":  "Le bon d?terminant",
+                                                                     "subtitle":  "Compl?ter une phrase",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "grammar-cloze",
+                                                                                    "category":  "grammar_cloze_ce2",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-g-cloze-accord",
+                                                                     "title":  "Accorder dans la phrase",
+                                                                     "subtitle":  "Nom et adjectif simples",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "grammar-cloze",
+                                                                                    "category":  "grammar_agreement_ce2",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-g-cloze-pluriel",
+                                                                     "title":  "Le pluriel dans la phrase",
+                                                                     "subtitle":  "Choisir la bonne forme",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "grammar-cloze",
+                                                                                    "category":  "grammar_plural_ce2",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce2-conjugaison-subject",
+                                               "title":  "Conjugaison",
+                                               "icon":  "🗣️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-conj-pres-all",
+                                                                     "title":  "Rappel : Le Présent",
+                                                                     "subtitle":  "Tous les verbes en -ER",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "present_1",
+                                                                                    "tenses":  "présent",
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-conj-etre-avoir-futur",
+                                                                     "title":  "Futur : Être et Avoir",
+                                                                     "subtitle":  "Demain, je serai...",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "etre_avoir_f",
+                                                                                    "verbs":  [
+                                                                                                  "être",
+                                                                                                  "avoir"
+                                                                                              ],
+                                                                                    "tenses":  "futur",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-conj-futur-er",
+                                                                     "title":  "Futur : Verbes en -ER",
+                                                                     "subtitle":  "Infinitif + terminaison",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "future_1",
+                                                                                    "tenses":  "futur",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-conj-imp-ea",
+                                                                     "title":  "Imparfait : Auxiliaires",
+                                                                     "subtitle":  "Autrefois, j\u0027étais...",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "etre_avoir_imp",
+                                                                                    "tenses":  "imparfait",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-conj-imp-er",
+                                                                     "title":  "Imparfait : Verbes en -ER",
+                                                                     "subtitle":  "Terminaisons en -AIS",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "imparfait_1",
+                                                                                    "tenses":  "imparfait",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-conj-defi-temps",
+                                                                     "title":  "Défi : Présent ou Futur ?",
+                                                                     "subtitle":  "Attention au temps !",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "future_1",
+                                                                                    "tenses":  [
+                                                                                                   "présent",
+                                                                                                   "futur"
+                                                                                               ],
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-conj-p3-freq",
+                                                                     "title":  "Le 3ème groupe (1)",
+                                                                     "subtitle":  "Dire, Faire, Aller...",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "present_3_freq",
+                                                                                    "verbs":  [
+                                                                                                  "aller",
+                                                                                                  "faire",
+                                                                                                  "dire",
+                                                                                                  "venir"
+                                                                                              ],
+                                                                                    "tenses":  "présent",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce2-conj-p3-pouvoir",
+                                                                     "title":  "Le 3ème groupe (2)",
+                                                                     "subtitle":  "Pouvoir, Vouloir, Prendre...",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "present_3_freq",
+                                                                                    "verbs":  [
+                                                                                                  "pouvoir",
+                                                                                                  "vouloir",
+                                                                                                  "prendre",
+                                                                                                  "voir"
+                                                                                              ],
+                                                                                    "tenses":  "présent",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "ce2-histoire-subject",
+                         "title":  "Histoire",
+                         "icon":  "🏛️",
+                         "subthemes":  [
+                                           {
+                                               "id":  "ce2-histoire-reperes-subtheme",
+                                               "title":  "Repères",
+                                               "icon":  "🏛️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-histoire-reperes",
+                                                                     "title":  "Repères",
+                                                                     "subtitle":  "Frise et passé",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/history_ce2.json",
+                                                                                    "category":  "ce2-reperes",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce2-histoire-vie-subtheme",
+                                               "title":  "Autrefois",
+                                               "icon":  "🏛️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-histoire-vie",
+                                                                     "title":  "Autrefois",
+                                                                     "subtitle":  "La vie d\u0027autrefois",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/history_ce2.json",
+                                                                                    "category":  "ce2-vie-autrefois",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce2-histoire-monuments-subtheme",
+                                               "title":  "Monuments",
+                                               "icon":  "🏛️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-histoire-monuments",
+                                                                     "title":  "Monuments",
+                                                                     "subtitle":  "Personnages et traces",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/history_ce2.json",
+                                                                                    "category":  "ce2-personnages-monuments",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "ce2-geographie-subject",
+                         "title":  "Géographie",
+                         "icon":  "🗺️",
+                         "subthemes":  [
+                                           {
+                                               "id":  "ce2-geo-espaces-subtheme",
+                                               "title":  "Espaces",
+                                               "icon":  "🗺️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-geo-espaces",
+                                                                     "title":  "Espaces",
+                                                                     "subtitle":  "Ville, campagne, carte",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/geography_ce2.json",
+                                                                                    "category":  "ce2-espaces",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce2-geo-france-subtheme",
+                                               "title":  "La France",
+                                               "icon":  "🗺️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-geo-france",
+                                                                     "title":  "La France",
+                                                                     "subtitle":  "Mer, montagnes, capitale",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/geography_ce2.json",
+                                                                                    "category":  "ce2-france",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce2-geo-reperage-subtheme",
+                                               "title":  "Se repérer",
+                                               "icon":  "🗺️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-geo-reperage",
+                                                                     "title":  "Se repérer",
+                                                                     "subtitle":  "Plans et légendes",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/geography_ce2.json",
+                                                                                    "category":  "ce2-se-reperer",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce2-geo-transports-subtheme",
+                                               "title":  "Transports",
+                                               "icon":  "🗺️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-geo-transports",
+                                                                     "title":  "Transports",
+                                                                     "subtitle":  "Train, port, bus et gare",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/geography_ce2.json",
+                                                                                    "category":  "ce2-transports",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "ce2-sciences-subject",
+                         "title":  "Sciences",
+                         "icon":  "🔬",
+                         "subthemes":  [
+                                           {
+                                               "id":  "ce2-sciences-vivant-subtheme",
+                                               "title":  "Le vivant",
+                                               "icon":  "🔬",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-sciences-vivant",
+                                                                     "title":  "Le vivant",
+                                                                     "subtitle":  "Corps et êtres vivants",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_ce2.json",
+                                                                                    "category":  "ce2-vivant",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce2-sciences-matiere-subtheme",
+                                               "title":  "Matière",
+                                               "icon":  "🔬",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-sciences-matiere",
+                                                                     "title":  "Matière",
+                                                                     "subtitle":  "Eau et température",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_ce2.json",
+                                                                                    "category":  "ce2-matiere",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce2-sciences-observer-subtheme",
+                                               "title":  "Observer",
+                                               "icon":  "🔬",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-sciences-observer",
+                                                                     "title":  "Observer",
+                                                                     "subtitle":  "Expériences et mesures",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_ce2.json",
+                                                                                    "category":  "ce2-observer-experimenter",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "ce2-emc-subject",
+                         "title":  "EMC",
+                         "icon":  "🤝",
+                         "subthemes":  [
+                                           {
+                                               "id":  "ce2-emc-regles-subtheme",
+                                               "title":  "Règles",
+                                               "icon":  "⚖️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-emc-regles",
+                                                                     "title":  "Règles",
+                                                                     "subtitle":  "Classe et respect",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/emc_ce2.json",
+                                                                                    "category":  "ce2-regles",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce2-emc-citoyen-subtheme",
+                                               "title":  "Citoyen",
+                                               "icon":  "⚖️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-emc-citoyen",
+                                                                     "title":  "Citoyen",
+                                                                     "subtitle":  "Solidarité et honnêteté",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/emc_ce2.json",
+                                                                                    "category":  "ce2-citoyen",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce2-emc-entraide-subtheme",
+                                               "title":  "Entraide",
+                                               "icon":  "⚖️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-emc-entraide",
+                                                                     "title":  "Entraide",
+                                                                     "subtitle":  "Gentillesse et classe",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/emc_ce2.json",
+                                                                                    "category":  "ce2-entraide",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           },
+                                           {
+                                               "id":  "ce2-emc-responsabilite-subtheme",
+                                               "title":  "Responsabilit?",
+                                               "icon":  "⚖️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce2-emc-responsabilite",
+                                                                     "title":  "Responsabilit?",
+                                                                     "subtitle":  "Autonomie et s?curit?",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/emc_ce2.json",
+                                                                                    "category":  "ce2-responsabilite",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ]
+                                           }
+                                       ]
+                     }
+                 ]
 }
