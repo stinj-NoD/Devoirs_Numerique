@@ -2,9 +2,25 @@
 
 ## Objectif
 
-Definir la cible minimale pour passer d'une application solo locale a une base de plateforme educative.
+Définir la cible technique minimale pour faire évoluer `Devoir Numérique` d'une application locale de révision vers une plateforme pédagogique plus suivie, sans casser l'existant.
 
-## Modele cible
+## État actuel
+
+Le projet gère déjà :
+- profils locaux
+- utilisateur courant
+- records par exercice
+- leçons et exercices par sous-thème
+- parcours `J'apprends` / `Je m'entraîne`
+
+Il ne gère pas encore :
+- historique complet de tentatives
+- temps passé
+- suivi fin des parcours de leçons
+- rôles enseignant/parent/élève
+- assignation pédagogique
+
+## Modèle cible
 
 - `user`
   - `id`
@@ -12,32 +28,49 @@ Definir la cible minimale pour passer d'une application solo locale a une base d
   - `role`
 - `attempt`
   - `userId`
+  - `gradeId`
+  - `subjectId`
+  - `subthemeId`
   - `exerciseId`
-  - `engine`
   - `startedAt`
   - `finishedAt`
-  - `answer`
-  - `expectedAnswer`
   - `isCorrect`
+  - `score`
+- `lessonView`
+  - `userId`
+  - `gradeId`
+  - `subjectId`
+  - `subthemeId`
+  - `lessonId`
+  - `openedAt`
+  - `completed`
 - `progress`
   - `userId`
   - `gradeId`
-  - `themeId`
-  - `exerciseId`
-  - `bestScore`
-  - `attemptCount`
-  - `lastPlayedAt`
+  - `subjectId`
+  - `subthemeId`
+  - `mastery`
+  - `lastActivityAt`
 
-## Ecart avec l'etat actuel
+## Écart avec l'application actuelle
 
-- profils locaux sans role
-- pas d'historique des tentatives
-- score agrege uniquement
-- pas de competence ni d'assignation classe
+- pas d'historique détaillé
+- progression encore centrée sur le record d'exercice
+- aucune métrique sur l'usage réel des leçons
+- aucune vision enseignant
+- aucune compétence ou notion explicitement suivie
 
-## Migration recommandee
+## Migration recommandée
 
-1. conserver `storage.js` compatible avec les profils existants
-2. introduire un historique `attempts` en lecture optionnelle
-3. calculer la progression a partir des tentatives
-4. seulement ensuite introduire roles et vues enseignant
+1. conserver [storage.js](d:/Apps%20Dev/Devoirs_Numerique/js/storage.js) compatible avec les profils existants
+2. ajouter un journal léger `attempts[]`
+3. ajouter un journal léger `lessonViews[]`
+4. dériver ensuite une couche `progress`
+5. seulement après, introduire rôles et vues étendues
+
+## Principes de migration
+
+- compatibilité ascendante
+- pas de rupture sur les profils actuels
+- pas de backend requis au départ
+- séparation claire entre contenu, usage et analytics

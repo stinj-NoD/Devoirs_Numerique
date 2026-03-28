@@ -66,13 +66,99 @@
                                                                                     "table":  10,
                                                                                     "questions":  10
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "id":  "mult-6",
+                                                                     "title":  "Table de 6",
+                                                                     "subtitle":  "Calcul rapide",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "mult",
+                                                                                    "table":  6,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "mult-7",
+                                                                     "title":  "Table de 7",
+                                                                     "subtitle":  "Pour aller plus loin",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "mult",
+                                                                                    "table":  7,
+                                                                                    "questions":  10
+                                                                                }
                                                                  }
-                                                             ]
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-multiplication-bases",
+                                                                   "title":  "Comprendre la multiplication",
+                                                                   "subtitle":  "Compter plus vite avec des groupes",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "La multiplication sert à compter des groupes identiques plus vite."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "example",
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "3 groupes de 2 billes, c\u0027est 3 × 2 = 6 billes."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "bullets",
+                                                                                      "label":  "Je retiens",
+                                                                                      "items":  [
+                                                                                                    "Je regarde combien il y a de groupes.",
+                                                                                                    "Je regarde combien il y a dans chaque groupe.",
+                                                                                                    "Je peux compter de 2 en 2, de 3 en 3 ou de 5 en 5."
+                                                                                                ]
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "tip",
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Multiplier, c\u0027est ajouter plusieurs fois le même nombre."
+                                                                                  }
+                                                                              ]
+                                                               },
+                                                               {
+                                                                   "id":  "ce1-lesson-monuments-personnages",
+                                                                   "title":  "Les monuments et les personnages",
+                                                                   "subtitle":  "Des traces pour raconter l\u0027histoire",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Les monuments et les personnages historiques aident à comprendre ce qui s\u0027est passé autrefois."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "example",
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "Une statue, une plaque ou une fresque peuvent rappeler une personne importante ou un événement."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "bullets",
+                                                                                      "label":  "Je cherche",
+                                                                                      "items":  [
+                                                                                                    "le nom du monument",
+                                                                                                    "la personne représentée",
+                                                                                                    "ce que l\u0027on veut rappeler"
+                                                                                                ]
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "tip",
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Un monument raconte une histoire et garde la mémoire du pass?."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
                                            },
                                            {
                                                "id":  "ce1-nombres-calculs",
                                                "title":  "Nombres \u0026 Calculs",
-                                               "icon":  "🚀",
+                                               "icon":  "🔢",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "add-100",
@@ -88,7 +174,7 @@
                                                                  },
                                                                  {
                                                                      "id":  "add-chrono",
-                                                                     "title":  "L\u0027Oiseau Rapide",
+                                                                     "title":  "Calcul rapide",
                                                                      "subtitle":  "Vitesse : 5s",
                                                                      "engine":  "math-input",
                                                                      "params":  {
@@ -101,7 +187,7 @@
                                                                  },
                                                                  {
                                                                      "id":  "comp-ce1-1",
-                                                                     "title":  "Comparer \u003c 100",
+                                                                     "title":  "Comparer jusqu\u0027à 100",
                                                                      "subtitle":  "Signes \u003e et \u003c",
                                                                      "engine":  "choice-engine",
                                                                      "params":  {
@@ -141,6 +227,203 @@
                                                                                     "showSum":  false,
                                                                                     "questions":  5
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-additions-20",
+                                                                     "title":  "Additions jusqu\u0027à 20",
+                                                                     "subtitle":  "Calcul mental simple",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "add-simple",
+                                                                                    "min":  2,
+                                                                                    "maxSum":  20,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-soustractions-20",
+                                                                     "title":  "Soustractions jusqu\u0027à 20",
+                                                                     "subtitle":  "Enlever de petites quantités",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "sub-simple",
+                                                                                    "min":  5,
+                                                                                    "max":  20,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-additions-50",
+                                                                     "title":  "Additions jusqu\u0027à 50",
+                                                                     "subtitle":  "Calcul mental plus ambitieux",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "add-simple",
+                                                                                    "min":  5,
+                                                                                    "maxSum":  50,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-comp-200",
+                                                                     "title":  "Comparer jusqu\u0027à 200",
+                                                                     "subtitle":  "Le plus grand, le plus petit",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "range":  200,
+                                                                                    "questions":  10
+                                                                                }
+                                                                 }
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-complements-20",
+                                                                   "title":  "Compléter jusqu\u0027à 20",
+                                                                   "subtitle":  "Chercher ce qu\u0027il manque",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Pour compléter, on cherche le nombre qui manque pour arriver au total."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
+                                           },
+                                           {
+                                               "id":  "ce1-geometrie-mesures-subtheme",
+                                               "title":  "Géométrie et mesures",
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-formes-planes",
+                                                                   "title":  "Reconnaître des formes",
+                                                                   "subtitle":  "Carré, rectangle, triangle, cercle",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "On reconnaît une forme en regardant son contour, ses côtés et ses coins."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "example",
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "Une porte peut ressembler à un rectangle. Un panneau rond ressemble à un cercle."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "bullets",
+                                                                                      "items":  [
+                                                                                                    "carré",
+                                                                                                    "rectangle",
+                                                                                                    "triangle",
+                                                                                                    "cercle"
+                                                                                                ]
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "tip",
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Les formes aident à décrire les objets que l\u0027on voit autour de soi."
+                                                                                  }
+                                                                              ]
+                                                               },
+                                                               {
+                                                                   "id":  "ce1-lesson-mesurer-comparer",
+                                                                   "title":  "Mesurer et comparer",
+                                                                   "subtitle":  "Plus long, plus court, même longueur",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Mesurer permet de comparer des longueurs. On peut dire si un objet est plus long, plus court ou de même longueur."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "example",
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "La règle est plus longue que le crayon. Deux bandes peuvent avoir la même longueur."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "bullets",
+                                                                                      "items":  [
+                                                                                                    "plus long",
+                                                                                                    "plus court",
+                                                                                                    "même longueur",
+                                                                                                    "mesurer avec une règle"
+                                                                                                ]
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "tip",
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Pour comparer correctement, il faut aligner les objets ou mesurer avec le même outil."
+                                                                                  }
+                                                                              ]
+                                                               },
+                                                               {
+                                                                   "id":  "ce1-lesson-se-reperer-journee",
+                                                                   "title":  "Se repérer dans la journée",
+                                                                   "subtitle":  "Matin, midi, après-midi, soir",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Les moments de la journée aident à se repérer dans le temps et à comprendre quand une action se passe."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "example",
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "Je vais à l\u0027école le matin. Je mange à midi. Je joue l\u0027après-midi. Je dors le soir."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "bullets",
+                                                                                      "items":  [
+                                                                                                    "matin",
+                                                                                                    "midi",
+                                                                                                    "après-midi",
+                                                                                                    "soir"
+                                                                                                ]
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "tip",
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Les repères de la journée aident à raconter et organiser les activités."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ],
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-geo-formes-solides-planes",
+                                                                     "title":  "Formes planes et solides",
+                                                                     "subtitle":  "Différencier figures et volumes",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/math_geometry_ce1.json",
+                                                                                    "category":  "ce1-formes-solides-planes",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-geo-longueurs-mesures",
+                                                                     "title":  "Mesurer des longueurs",
+                                                                     "subtitle":  "Centimètre et mètre",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/math_geometry_ce1.json",
+                                                                                    "category":  "ce1-longueurs-mesures",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-geo-reperes-journee",
+                                                                     "title":  "Repères de la journée",
+                                                                     "subtitle":  "Ordonner les moments",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/math_geometry_ce1.json",
+                                                                                    "category":  "ce1-reperes-journee",
+                                                                                    "questions":  8
+                                                                                }
                                                                  }
                                                              ]
                                            }
@@ -158,7 +441,7 @@
                                                "exercises":  [
                                                                  {
                                                                      "id":  "ce1-sp-animaux",
-                                                                     "title":  "Dictée Animaux",
+                                                                     "title":  "Dictée des animaux",
                                                                      "subtitle":  "Orthographe",
                                                                      "engine":  "math-input",
                                                                      "params":  {
@@ -180,7 +463,7 @@
                                                                  },
                                                                  {
                                                                      "id":  "ce1-homo-aa",
-                                                                     "title":  "a ou à ?",
+                                                                     "title":  "A ou à?",
                                                                      "subtitle":  "Homophones",
                                                                      "engine":  "choice-engine",
                                                                      "params":  {
@@ -195,7 +478,7 @@
                                                                  },
                                                                  {
                                                                      "id":  "ce1-homo-et",
-                                                                     "title":  "et ou est ?",
+                                                                     "title":  "Et ou est?",
                                                                      "subtitle":  "Homophones",
                                                                      "engine":  "choice-engine",
                                                                      "params":  {
@@ -210,7 +493,7 @@
                                                                  },
                                                                  {
                                                                      "id":  "ce1-sp-ecole",
-                                                                     "title":  "L\u0027école",
+                                                                     "title":  "L\u0027École",
                                                                      "subtitle":  "Dictée de mots",
                                                                      "engine":  "math-input",
                                                                      "params":  {
@@ -240,8 +523,59 @@
                                                                                     "category":  "food",
                                                                                     "questions":  8
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-sp-transport",
+                                                                     "title":  "Les Transports",
+                                                                     "subtitle":  "Dictée de mots",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "spelling",
+                                                                                    "category":  "transport",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-sp-vetements",
+                                                                     "title":  "Les vêtements",
+                                                                     "subtitle":  "Dictée de mots",
+                                                                     "engine":  "math-input",
+                                                                     "params":  {
+                                                                                    "type":  "spelling",
+                                                                                    "category":  "vêtements",
+                                                                                    "questions":  8
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-homo-son",
+                                                                     "title":  "Son ou Sont?",
+                                                                     "subtitle":  "Homophones fréquents",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "homophone-duel",
+                                                                                    "category":  "son_sont",
+                                                                                    "choices":  [
+                                                                                                    "son",
+                                                                                                    "sont"
+                                                                                                ],
+                                                                                    "questions":  10
+                                                                                }
                                                                  }
-                                                             ]
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-dictee-mots",
+                                                                   "title":  "Réussir une dictée de mots",
+                                                                   "subtitle":  "Écouter, écrire, vérifier",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "En dictée, il faut écouter le mot, penser aux sons, puis vérifier les lettres une dernière fois."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
                                            },
                                            {
                                                "id":  "ce1-dictee-audio",
@@ -280,17 +614,245 @@
                                                                                     "speechRate":  0.74,
                                                                                     "questions":  6
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-audio-animaux",
+                                                                     "title":  "Les Animaux",
+                                                                     "subtitle":  "Écoute et écris",
+                                                                     "engine":  "audio-spelling",
+                                                                     "params":  {
+                                                                                    "category":  "animals",
+                                                                                    "speechRate":  0.74,
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-audio-aliments",
+                                                                     "title":  "Les aliments",
+                                                                     "subtitle":  "à‰coute et écris",
+                                                                     "engine":  "audio-spelling",
+                                                                     "params":  {
+                                                                                    "category":  "food",
+                                                                                    "speechRate":  0.74,
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-ecouter-ecrire",
+                                                                   "title":  "Écouter et écrire",
+                                                                   "subtitle":  "Entendre les sons du mot",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Dans une dictée audio, on écoute bien le mot, on repère les sons et on écrit sans se précipiter. On peut aussi relire pour vérifier les lettres."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
+                                           },
+                                           {
+                                               "id":  "ce1-lecture-subtheme",
+                                               "title":  "Lecture",
+                                               "icon":  "📖",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-lecture-phrases",
+                                                                     "title":  "Lire des phrases courtes",
+                                                                     "subtitle":  "Repérer les mots dans l\u0027ordre",
+                                                                     "engine":  "reading",
+                                                                     "params":  {
+                                                                                    "category":  "ce1_lire_phrases_courtes",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-lecture-comprendre",
+                                                                     "title":  "Comprendre une phrase",
+                                                                     "subtitle":  "Qui? quoi? où?",
+                                                                     "engine":  "reading",
+                                                                     "params":  {
+                                                                                    "category":  "ce1_comprendre_phrase_courte",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 }
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-lire-phrases-courtes",
+                                                                   "title":  "Lire des phrases courtes",
+                                                                   "subtitle":  "Suivre les mots dans l\u0027ordre",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Lire une phrase, c\u0027est suivre les mots dans l\u0027ordre et comprendre le sens."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "example",
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "Le chat dort sur le tapis. Je lis chaque mot pour comprendre toute l\u0027idée."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "bullets",
+                                                                                      "items":  [
+                                                                                                    "je lis dans l\u0027ordre",
+                                                                                                    "je regarde tous les mots",
+                                                                                                    "je cherche ce que la phrase veut dire"
+                                                                                                ]
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "tip",
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Lire, ce n\u0027est pas seulement dire les mots : c\u0027est aussi comprendre la phrase."
+                                                                                  }
+                                                                              ]
+                                                               },
+                                                               {
+                                                                   "id":  "ce1-lesson-comprendre-phrase",
+                                                                   "title":  "Comprendre une phrase",
+                                                                   "subtitle":  "Chercher qui fait quoi",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Pour comprendre une phrase, on cherche de qui ou de quoi elle parle et ce qui se passe."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "example",
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "Lila ferme la porte. On comprend que Lila agit et qu\u0027elle ferme la porte."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "bullets",
+                                                                                      "items":  [
+                                                                                                    "je repère le sujet",
+                                                                                                    "je repère l\u0027action",
+                                                                                                    "je relis si besoin"
+                                                                                                ]
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "tip",
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Comprendre une phrase, c\u0027est trouver le sens de l\u0027idée complète."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
+                                           },
+                                           {
+                                               "id":  "ce1-vocabulaire-subtheme",
+                                               "title":  "Vocabulaire",
+                                               "icon":  "🗂️",
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-vocabulaire-ranger-mots",
+                                                                   "title":  "Les familles de mots",
+                                                                   "subtitle":  "Des mots liés par le sens",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Des mots peuvent aller ensemble parce qu\u0027ils parlent du même thème, du même sens proche ou de la même famille."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "example",
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "chat, chien et lapin vont ensemble car ce sont des animaux."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "bullets",
+                                                                                      "items":  [
+                                                                                                    "des mots d\u0027un même thème",
+                                                                                                    "des mots de sens proche",
+                                                                                                    "des mots d\u0027une même famille"
+                                                                                                ]
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "tip",
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Ranger les mots aide à mieux comprendre et mieux apprendre le vocabulaire."
+                                                                                  }
+                                                                              ]
+                                                               },
+                                                               {
+                                                                   "id":  "ce1-lesson-vocabulaire-theme",
+                                                                   "title":  "Ranger les mots par thème",
+                                                                   "subtitle":  "Animaux, école, maison, aliments",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Des mots peuvent être classés par thème quand ils parlent du même domaine."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "example",
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "table, chaise et armoire vont ensemble dans le thème de la maison."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "bullets",
+                                                                                      "items":  [
+                                                                                                    "un thème regroupe des mots proches",
+                                                                                                    "classer aide à mémoriser",
+                                                                                                    "un mot peut changer de groupe selon le sujet"
+                                                                                                ]
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "tip",
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Quand je range les mots par thème, je retiens mieux leur sens."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ],
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-vocab-synonymes",
+                                                                     "title":  "Mots de sens proche",
+                                                                     "subtitle":  "Trouver un synonyme simple",
+                                                                     "engine":  "reading",
+                                                                     "params":  {
+                                                                                    "category":  "ce1_vocabulaire_synonymes",
+                                                                                    "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-vocab-familles",
+                                                                     "title":  "Ranger les mots",
+                                                                     "subtitle":  "Familles et champs lexicaux simples",
+                                                                     "engine":  "reading",
+                                                                     "params":  {
+                                                                                    "category":  "ce1_vocabulaire_champs",
+                                                                                    "questions":  5
+                                                                                }
                                                                  }
                                                              ]
                                            },
                                            {
                                                "id":  "ce1-grammaire-subject",
                                                "title":  "Grammaire",
-                                               "icon":  "??",
+                                               "icon":  "📖",
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-determinants",
+                                                                   "title":  "Les déterminants",
+                                                                   "subtitle":  "Un, une, le, la, l\u0027",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Le déterminant accompagne le nom. Il aide à savoir de quel objet ou de quelle personne on parle. Exemples : un chat, une fille, le livre, la table, l\u0027école."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ],
                                                "exercises":  [
                                                                  {
                                                                      "id":  "ce1-gram-un-une",
-                                                                     "title":  "Un ou Une ?",
+                                                                     "title":  "Un ou Une?",
                                                                      "subtitle":  "Objets de la classe",
                                                                      "engine":  "choice-engine",
                                                                      "params":  {
@@ -305,7 +867,7 @@
                                                                  },
                                                                  {
                                                                      "id":  "ce1-gram-le-la",
-                                                                     "title":  "Le, La ou L\u0027 ?",
+                                                                     "title":  "Le, La ou L\u0027?",
                                                                      "subtitle":  "Maison et objets",
                                                                      "engine":  "choice-engine",
                                                                      "params":  {
@@ -337,8 +899,8 @@
                                                                  },
                                                                  {
                                                                      "id":  "ce1-gram-cloze-det",
-                                                                     "title":  "Le bon d?terminant",
-                                                                     "subtitle":  "Compl?ter une phrase simple",
+                                                                     "title":  "Le bon déterminant",
+                                                                     "subtitle":  "Compléter une phrase simple",
                                                                      "engine":  "choice-engine",
                                                                      "params":  {
                                                                                     "type":  "grammar-cloze",
@@ -373,7 +935,7 @@
                                            {
                                                "id":  "ce1-conjugaison-subject",
                                                "title":  "Conjugaison",
-                                               "icon":  "⏳",
+                                               "icon":  "📖",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "ce1-conj-base",
@@ -386,9 +948,7 @@
                                                                                                   "être",
                                                                                                   "avoir"
                                                                                               ],
-                                                                                    "tenses":  [
-                                                                                                   "présent"
-                                                                                               ],
+                                                                                    "tenses":  "présent",
                                                                                     "questions":  5
                                                                                 }
                                                                  },
@@ -407,9 +967,7 @@
                                                                                                   "aimer",
                                                                                                   "dessiner"
                                                                                               ],
-                                                                                    "tenses":  [
-                                                                                                   "présent"
-                                                                                               ],
+                                                                                    "tenses":  "présent",
                                                                                     "questions":  5
                                                                                 }
                                                                  },
@@ -420,12 +978,8 @@
                                                                      "engine":  "conjugation",
                                                                      "params":  {
                                                                                     "category":  "present_3_freq",
-                                                                                    "verbs":  [
-                                                                                                  "aller"
-                                                                                              ],
-                                                                                    "tenses":  [
-                                                                                                   "présent"
-                                                                                               ],
+                                                                                    "verbs":  "aller",
+                                                                                    "tenses":  "présent",
                                                                                     "questions":  5
                                                                                 }
                                                                  },
@@ -444,9 +998,7 @@
                                                                                                   "chercher",
                                                                                                   "trouver"
                                                                                               ],
-                                                                                    "tenses":  [
-                                                                                                   "présent"
-                                                                                               ],
+                                                                                    "tenses":  "présent",
                                                                                     "questions":  5
                                                                                 }
                                                                  },
@@ -465,9 +1017,7 @@
                                                                                                   "placer",
                                                                                                   "voyager"
                                                                                               ],
-                                                                                    "tenses":  [
-                                                                                                   "présent"
-                                                                                               ],
+                                                                                    "tenses":  "présent",
                                                                                     "questions":  6
                                                                                 }
                                                                  },
@@ -480,14 +1030,43 @@
                                                                                     "category":  "present_1",
                                                                                     "questions":  10
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-conj-etre-avoir-plus",
+                                                                     "title":  "Être et avoir (2)",
+                                                                     "subtitle":  "Je suis, tu as, nous avons...",
+                                                                     "engine":  "conjugation",
+                                                                     "params":  {
+                                                                                    "category":  "etre_avoir_p",
+                                                                                    "verbs":  [
+                                                                                                  "être",
+                                                                                                  "avoir"
+                                                                                              ],
+                                                                                    "tenses":  "présent",
+                                                                                    "questions":  8
+                                                                                }
                                                                  }
-                                                             ]
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-etre-avoir",
+                                                                   "title":  "Être et avoir au présent",
+                                                                   "subtitle":  "Deux verbes très utiles",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Les verbes être et avoir servent très souvent. Voici leurs formes au présent : je suis, tu es, il est, nous sommes, vous êtes, ils sont ; j\u0027ai, tu as, il a, nous avons, vous avez, ils ont."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
                                            }
                                        ]
                      },
                      {
                          "id":  "ce1-histoire-subject",
-                         "title":  "Histoire",
+                         "title":  "Questionner le temps",
                          "icon":  "🏛️",
                          "subthemes":  [
                                            {
@@ -506,13 +1085,69 @@
                                                                                     "category":  "ce1-temps",
                                                                                     "questions":  6
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "params":  {
+                                                                                    "questions":  8,
+                                                                                    "dataFile":  "data/history_ce1.json",
+                                                                                    "category":  "ce1-temps",
+                                                                                    "type":  "factual-qcm"
+                                                                                },
+                                                                     "title":  "Avant, après, longtemps",
+                                                                     "engine":  "choice-engine",
+                                                                     "id":  "ce1-histoire-avant-apres-longtemps",
+                                                                     "subtitle":  "Situer des repères simples"
+                                                                 },
+                                                                 {
+                                                                     "params":  {
+                                                                                    "questions":  8,
+                                                                                    "dataFile":  "data/history_ce1.json",
+                                                                                    "category":  "ce1-calendrier-reperes",
+                                                                                    "type":  "factual-qcm"
+                                                                                },
+                                                                     "title":  "Calendrier et repères",
+                                                                     "engine":  "choice-engine",
+                                                                     "id":  "ce1-histoire-calendrier-reperes",
+                                                                     "subtitle":  "Jours, mois et dates"
                                                                  }
-                                                             ]
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-hier-aujourdhui-demain",
+                                                                   "title":  "Hier, aujourd\u0027hui, demain",
+                                                                   "subtitle":  "Comparer trois moments du temps",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "On utilise hier, aujourd\u0027hui et demain pour se repérer dans le temps proche."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "example",
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "Hier, j\u0027étais à la maison. Aujourd\u0027hui, je suis à l\u0027école. Demain, j\u0027irai au sport."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "bullets",
+                                                                                      "items":  [
+                                                                                                    "hier = avant aujourd\u0027hui",
+                                                                                                    "aujourd\u0027hui = maintenant",
+                                                                                                    "demain = après aujourd\u0027hui"
+                                                                                                ]
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "tip",
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Ces mots aident à raconter ce qui s\u0027est passé, ce qui se passe et ce qui va arriver."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
                                            },
                                            {
                                                "id":  "ce1-histoire-vie-autrefois-subtheme",
                                                "title":  "Vivre autrefois",
-                                               "icon":  "🏛️",
+                                               "icon":  "🏺",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "ce1-histoire-vie-autrefois",
@@ -525,13 +1160,39 @@
                                                                                     "category":  "ce1-vie-autrefois",
                                                                                     "questions":  6
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-histoire-ecole-autrefois",
+                                                                     "title":  "L\u0027école d\u0027autrefois",
+                                                                     "subtitle":  "Classe, écriture et habitudes",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/history_ce1.json",
+                                                                                    "category":  "ce1-ecole-autrefois",
+                                                                                    "questions":  6
+                                                                                }
                                                                  }
-                                                             ]
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-ecole-autrefois",
+                                                                   "title":  "L\u0027école d\u0027autrefois",
+                                                                   "subtitle":  "Classe, écriture et habitudes",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Autrefois, certaines habitudes, certains objets et certains lieux étaient différents. À l\u0027école, on utilisait parfois l\u0027ardoise, la plume ou le tableau noir."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
                                            },
                                            {
                                                "id":  "ce1-histoire-monuments-subtheme",
                                                "title":  "Monuments et personnages",
-                                               "icon":  "🏛️",
+                                               "icon":  "🕰️",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "ce1-histoire-monuments",
@@ -544,20 +1205,115 @@
                                                                                     "category":  "ce1-monuments-personnages",
                                                                                     "questions":  6
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "params":  {
+                                                                                    "questions":  8,
+                                                                                    "dataFile":  "data/history_ce1.json",
+                                                                                    "category":  "ce1-monuments-personnages",
+                                                                                    "type":  "factual-qcm"
+                                                                                },
+                                                                     "title":  "Monuments du passé",
+                                                                     "engine":  "choice-engine",
+                                                                     "id":  "ce1-histoire-monuments-passe",
+                                                                     "subtitle":  "Observer des traces historiques"
                                                                  }
-                                                             ]
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-traces-passe",
+                                                                   "title":  "Les traces du passé",
+                                                                   "subtitle":  "Photos, monuments, objets",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Le passé laisse des traces que l\u0027on peut encore voir aujourd\u0027hui : photos, monuments, objets ou souvenirs."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
+                                           },
+                                           {
+                                               "id":  "ce1-histoire-objets-subtheme",
+                                               "title":  "Objets du passé",
+                                               "icon":  "🕰️",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "ce1-histoire-objets-passe",
+                                                                     "title":  "Objets du passé",
+                                                                     "subtitle":  "Observer et comparer",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/history_ce1.json",
+                                                                                    "category":  "ce1-objets-passe",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "params":  {
+                                                                                    "questions":  8,
+                                                                                    "dataFile":  "data/history_ce1.json",
+                                                                                    "category":  "ce1-objets-passe",
+                                                                                    "type":  "factual-qcm"
+                                                                                },
+                                                                     "title":  "Comparer les objets",
+                                                                     "engine":  "choice-engine",
+                                                                     "id":  "ce1-histoire-comparer-objets",
+                                                                     "subtitle":  "Hier et aujourd\u0027hui"
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-histoire-souvenirs-famille",
+                                                                     "title":  "Souvenirs de famille",
+                                                                     "subtitle":  "Photos et mémoire du passé",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/history_ce1.json",
+                                                                                    "category":  "ce1-souvenirs-famille",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-histoire-memoire-famille",
+                                                                     "title":  "Mémoire de famille",
+                                                                     "subtitle":  "Albums, objets et temps qui passe",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/history_ce1.json",
+                                                                                    "category":  "ce1-memoire-famille",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-objets-passe",
+                                                                   "title":  "Les objets du passé",
+                                                                   "subtitle":  "Observer et comparer",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Les objets anciens montrent comment on vivait autrefois. Ils servent de traces pour comparer le passé et le présent."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
                                            }
                                        ]
                      },
                      {
                          "id":  "ce1-geographie-subject",
-                         "title":  "Géographie",
+                         "title":  "Questionner l\u0027espace",
                          "icon":  "🗺️",
                          "subthemes":  [
                                            {
                                                "id":  "ce1-geo-reperage-subtheme",
                                                "title":  "Se repérer",
-                                               "icon":  "🗺️",
+                                               "icon":  "🧭",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "ce1-geo-reperage",
@@ -570,13 +1326,123 @@
                                                                                     "category":  "ce1-reperage",
                                                                                     "questions":  6
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-geo-plan-quartier",
+                                                                     "title":  "Plan du quartier",
+                                                                     "subtitle":  "École, rues et trajets",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/geography_ce1.json",
+                                                                                    "category":  "ce1-plan-quartier",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-geo-legende",
+                                                                     "title":  "Lire la légende",
+                                                                     "subtitle":  "Comprendre les symboles du plan",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/geography_ce1.json",
+                                                                                    "category":  "ce1-legende-simple",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-geo-lieux-publics",
+                                                                     "title":  "Lieux publics",
+                                                                     "subtitle":  "Mairie, poste, bibliothèque",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/geography_ce1.json",
+                                                                                    "category":  "ce1-lieux-publics",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-geo-services-quartier",
+                                                                     "title":  "Services du quartier",
+                                                                     "subtitle":  "Mairie, école, bibliothèque",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/geography_ce1.json",
+                                                                                    "category":  "ce1-services-quartier",
+                                                                                    "questions":  6
+                                                                                }
                                                                  }
-                                                             ]
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-se-reperer-ecole",
+                                                                   "title":  "Se repérer à l\u0027école",
+                                                                   "subtitle":  "Trouver un lieu facilement",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Se repérer, c\u0027est savoir où l\u0027on est et où l\u0027on veut aller grâce à des repères connus."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "example",
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "Je passe par la cour puis je tourne vers la bibliothèque pour aller en classe."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "bullets",
+                                                                                      "items":  [
+                                                                                                    "je cherche des repères",
+                                                                                                    "je peux suivre un trajet",
+                                                                                                    "je peux utiliser un plan simple"
+                                                                                                ]
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "tip",
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Les repères aident à se déplacer dans l\u0027école et dans les lieux proches."
+                                                                                  }
+                                                                              ]
+                                                               },
+                                                               {
+                                                                   "id":  "ce1-lesson-commune",
+                                                                   "title":  "La commune",
+                                                                   "subtitle":  "Le lieu où l\u0027on habite",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "La commune est le lieu où l\u0027on vit. On y trouve des rues, des bâtiments publics et des habitants."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "example",
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "Dans une commune, on peut voir l\u0027école, la mairie, la poste ou des commerces."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "bullets",
+                                                                                      "items":  [
+                                                                                                    "des habitants",
+                                                                                                    "des lieux utiles",
+                                                                                                    "des rues et des bâtiments"
+                                                                                                ]
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "tip",
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "La commune fait partie de l\u0027espace proche que l\u0027on apprend à connaître."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
                                            },
                                            {
                                                "id":  "ce1-geo-paysages-subtheme",
                                                "title":  "Paysages",
-                                               "icon":  "🗺️",
+                                               "icon":  "🌍",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "ce1-geo-paysages",
@@ -589,13 +1455,39 @@
                                                                                     "category":  "ce1-paysages",
                                                                                     "questions":  6
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "params":  {
+                                                                                    "questions":  8,
+                                                                                    "dataFile":  "data/geography_ce1.json",
+                                                                                    "category":  "ce1-paysages",
+                                                                                    "type":  "factual-qcm"
+                                                                                },
+                                                                     "title":  "Reconnaître les paysages",
+                                                                     "engine":  "choice-engine",
+                                                                     "id":  "ce1-geo-reconnaitre-paysages",
+                                                                     "subtitle":  "Ville, campagne, littoral"
                                                                  }
-                                                             ]
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-paysages-du-quotidien",
+                                                                   "title":  "Observer un paysage",
+                                                                   "subtitle":  "Ville, campagne, littoral, montagne",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Un paysage est ce que l\u0027on voit autour de soi. Il peut être une ville, une campagne, un littoral ou une montagne. On observe les bâtiments, la nature et les activités des habitants."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
                                            },
                                            {
                                                "id":  "ce1-geo-transports-subtheme",
                                                "title":  "France et transports",
-                                               "icon":  "🗺️",
+                                               "icon":  "🚗",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "ce1-geo-transports",
@@ -608,14 +1500,52 @@
                                                                                     "category":  "ce1-transports-france",
                                                                                     "questions":  6
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "params":  {
+                                                                                    "questions":  8,
+                                                                                    "dataFile":  "data/geography_ce1.json",
+                                                                                    "category":  "ce1-transports-france",
+                                                                                    "type":  "factual-qcm"
+                                                                                },
+                                                                     "title":  "Se déplacer en France",
+                                                                     "engine":  "choice-engine",
+                                                                     "id":  "ce1-geo-se-deplacer-france",
+                                                                     "subtitle":  "Routes, trains et lieux"
+                                                                 },
+                                                                 {
+                                                                     "params":  {
+                                                                                    "questions":  8,
+                                                                                    "dataFile":  "data/geography_ce1.json",
+                                                                                    "category":  "ce1-trajets-quotidiens",
+                                                                                    "type":  "factual-qcm"
+                                                                                },
+                                                                     "title":  "Trajets du quotidien",
+                                                                     "engine":  "choice-engine",
+                                                                     "id":  "ce1-geo-trajets-quotidiens",
+                                                                     "subtitle":  "Quartier, école et transports"
                                                                  }
-                                                             ]
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-transports-france",
+                                                                   "title":  "Se déplacer en France",
+                                                                   "subtitle":  "Routes, trains et lieux",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "On peut se déplacer en France de plusieurs façons : à pied, en voiture, en bus, en train ou en avion. Les transports relient les villes, les villages et les régions."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
                                            }
                                        ]
                      },
                      {
                          "id":  "ce1-sciences-subject",
-                         "title":  "Sciences",
+                         "title":  "Questionner le vivant et la matière",
                          "icon":  "🔬",
                          "subthemes":  [
                                            {
@@ -634,8 +1564,46 @@
                                                                                     "category":  "ce1-vivant",
                                                                                     "questions":  6
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-sciences-besoins-vivant",
+                                                                     "title":  "Besoins du vivant",
+                                                                     "subtitle":  "Eau, air, nourriture, lumière",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_ce1.json",
+                                                                                    "category":  "ce1-besoins-vivant",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-sciences-cycle-vie",
+                                                                     "title":  "Cycle de vie simple",
+                                                                     "subtitle":  "Naître, grandir, vieillir",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_ce1.json",
+                                                                                    "category":  "ce1-cycle-vie-simple",
+                                                                                    "questions":  6
+                                                                                }
                                                                  }
-                                                             ]
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-vivant-besoins",
+                                                                   "title":  "Le vivant a des besoins",
+                                                                   "subtitle":  "Grandir, se nourrir, se protéger",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Les êtres vivants ont besoin de nourriture, d\u0027eau, d\u0027air et d\u0027un milieu favorable. Ils grandissent, se nourrissent et se protègent."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
                                            },
                                            {
                                                "id":  "ce1-sciences-matiere-subtheme",
@@ -653,8 +1621,46 @@
                                                                                     "category":  "ce1-matiere",
                                                                                     "questions":  6
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-sciences-etats-eau",
+                                                                     "title":  "Les états de l\u0027eau",
+                                                                     "subtitle":  "Liquide, glace, vapeur",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_ce1.json",
+                                                                                    "category":  "ce1-etats-eau",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-sciences-melanges",
+                                                                     "title":  "Mélanges simples",
+                                                                     "subtitle":  "Dissoudre, filtrer, observer",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_ce1.json",
+                                                                                    "category":  "ce1-melanges-simples",
+                                                                                    "questions":  6
+                                                                                }
                                                                  }
-                                                             ]
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-matiere-eau-lumiere",
+                                                                   "title":  "Les états de la matière",
+                                                                   "subtitle":  "Solide, liquide, gazeux",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "La matière peut être solide, liquide ou gazeuse. Elle change parfois d\u0027état quand on la chauffe ou quand on la refroidit. L\u0027eau est un exemple facile à observer."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
                                            },
                                            {
                                                "id":  "ce1-sciences-corps-subtheme",
@@ -672,8 +1678,121 @@
                                                                                     "category":  "ce1-corps-hygiene",
                                                                                     "questions":  6
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "params":  {
+                                                                                    "questions":  8,
+                                                                                    "dataFile":  "data/science_ce1.json",
+                                                                                    "category":  "ce1-corps-hygiene",
+                                                                                    "type":  "factual-qcm"
+                                                                                },
+                                                                     "title":  "Prendre soin de son corps",
+                                                                     "engine":  "choice-engine",
+                                                                     "id":  "ce1-sciences-prendre-soin-corps",
+                                                                     "subtitle":  "Hygiène et habitudes"
+                                                                 },
+                                                                 {
+                                                                     "params":  {
+                                                                                    "questions":  8,
+                                                                                    "dataFile":  "data/science_ce1.json",
+                                                                                    "category":  "ce1-sommeil-alimentation",
+                                                                                    "type":  "factual-qcm"
+                                                                                },
+                                                                     "title":  "Sommeil et alimentation",
+                                                                     "engine":  "choice-engine",
+                                                                     "id":  "ce1-sciences-sommeil-alimentation",
+                                                                     "subtitle":  "Habitudes pour rester en forme"
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-sciences-hygiene-quotidienne",
+                                                                     "title":  "Hygiène quotidienne",
+                                                                     "subtitle":  "Mains, dents, sommeil, eau",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_ce1.json",
+                                                                                    "category":  "ce1-hygiene-quotidienne",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "params":  {
+                                                                                    "questions":  6,
+                                                                                    "dataFile":  "data/science_ce1.json",
+                                                                                    "category":  "ce1-objets-maison",
+                                                                                    "type":  "factual-qcm"
+                                                                                },
+                                                                     "title":  "Objets de la maison",
+                                                                     "engine":  "choice-engine",
+                                                                     "id":  "ce1-sciences-objets-maison",
+                                                                     "subtitle":  "Usages et objets techniques"
                                                                  }
-                                                             ]
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-prendre-soin-corps",
+                                                                   "title":  "Prendre soin de son corps",
+                                                                   "subtitle":  "Dormir, manger, bouger",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Le corps a besoin de sommeil, de nourriture équilibrée, d\u0027hygiène et d\u0027activité pour bien fonctionner."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "example",
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "Dormir assez, se laver les mains et bouger tous les jours aident à rester en bonne santé."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "bullets",
+                                                                                      "items":  [
+                                                                                                    "dormir",
+                                                                                                    "manger varié",
+                                                                                                    "se laver",
+                                                                                                    "bouger"
+                                                                                                ]
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "tip",
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Prendre soin de son corps aide à grandir et à apprendre dans de bonnes conditions."
+                                                                                  }
+                                                                              ]
+                                                               },
+                                                               {
+                                                                   "id":  "ce1-lesson-cinq-sens",
+                                                                   "title":  "Les cinq sens",
+                                                                   "subtitle":  "Voir, entendre, toucher, sentir, goûter",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Les cinq sens permettent d\u0027observer le monde et de mieux comprendre ce qui nous entoure."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "example",
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "Je vois avec les yeux, j\u0027entends avec les oreilles et je sens avec le nez."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "bullets",
+                                                                                      "items":  [
+                                                                                                    "la vue",
+                                                                                                    "l\u0027ouïe",
+                                                                                                    "le toucher",
+                                                                                                    "l\u0027odorat",
+                                                                                                    "le goût"
+                                                                                                ]
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "tip",
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Chaque sens est lié à un organe du corps."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
                                            }
                                        ]
                      },
@@ -698,8 +1817,94 @@
                                                                                     "category":  "ce1-regles",
                                                                                     "questions":  6
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-emc-responsabilites",
+                                                                     "title":  "Être responsable",
+                                                                     "subtitle":  "Prendre soin de la classe",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/emc_ce1.json",
+                                                                                    "category":  "ce1-responsabilites-eleve",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "params":  {
+                                                                                    "questions":  8,
+                                                                                    "dataFile":  "data/emc_ce1.json",
+                                                                                    "category":  "ce1-roles-classe",
+                                                                                    "type":  "factual-qcm"
+                                                                                },
+                                                                     "title":  "Rôles dans la classe",
+                                                                     "engine":  "choice-engine",
+                                                                     "id":  "ce1-emc-roles-classe",
+                                                                     "subtitle":  "Responsabilités du quotidien"
                                                                  }
-                                                             ]
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-regles-communes",
+                                                                   "title":  "Les règles de la classe",
+                                                                   "subtitle":  "Respecter, écouter, travailler",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Les règles de la classe servent à apprendre dans le calme, à respecter les autres et à prendre soin du matériel."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "example",
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "J\u0027attends mon tour de parole, je range le matériel et j\u0027écoute les consignes."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "bullets",
+                                                                                      "items":  [
+                                                                                                    "je respecte les autres",
+                                                                                                    "je respecte le matériel",
+                                                                                                    "je respecte les consignes"
+                                                                                                ]
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "tip",
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Les règles protègent le travail de chacun et la vie du groupe."
+                                                                                  }
+                                                                              ]
+                                                               },
+                                                               {
+                                                                   "id":  "ce1-lesson-roles-classe",
+                                                                   "title":  "Les rôles dans la classe",
+                                                                   "subtitle":  "Aider au bon fonctionnement du groupe",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Dans une classe, chacun peut avoir un rôle utile pour aider le groupe et mieux vivre ensemble."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "example",
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "Un élève peut distribuer les cahiers, un autre ranger le coin lecture ou effacer le tableau."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "bullets",
+                                                                                      "items":  [
+                                                                                                    "aider la classe",
+                                                                                                    "respecter sa mission",
+                                                                                                    "travailler pour le bien commun"
+                                                                                                ]
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "tip",
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Avoir un rôle, c\u0027est participer à la vie de la classe."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
                                            },
                                            {
                                                "id":  "ce1-emc-citoyen-subtheme",
@@ -717,8 +1922,46 @@
                                                                                     "category":  "ce1-citoyen",
                                                                                     "questions":  6
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-emc-emotions-respect",
+                                                                     "title":  "Émotions et respect",
+                                                                     "subtitle":  "Écouter, rassurer, répondre calmement",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/emc_ce1.json",
+                                                                                    "category":  "ce1-emotions-respect",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "ce1-emc-dialogue-politesse",
+                                                                     "title":  "Dialogue et politesse",
+                                                                     "subtitle":  "Bonjour, merci, écouter",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/emc_ce1.json",
+                                                                                    "category":  "ce1-dialogue-politesse",
+                                                                                    "questions":  6
+                                                                                }
                                                                  }
-                                                             ]
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-citoyen-honnetete",
+                                                                   "title":  "Être citoyen",
+                                                                   "subtitle":  "Honnêteté, respect et coopération",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Être citoyen, c\u0027est respecter les autres, dire la vérité, écouter et participer à la vie du groupe. La confiance et le respect rendent la classe plus juste."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
                                            },
                                            {
                                                "id":  "ce1-emc-entraide-subtheme",
@@ -736,8 +1979,34 @@
                                                                                     "category":  "ce1-entraide-respect",
                                                                                     "questions":  6
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "params":  {
+                                                                                    "questions":  8,
+                                                                                    "dataFile":  "data/emc_ce1.json",
+                                                                                    "category":  "ce1-entraide-respect",
+                                                                                    "type":  "factual-qcm"
+                                                                                },
+                                                                     "title":  "S\u0027entraider au quotidien",
+                                                                     "engine":  "choice-engine",
+                                                                     "id":  "ce1-emc-sentraider-quotidien",
+                                                                     "subtitle":  "Aider, rassurer, partager"
                                                                  }
-                                                             ]
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "ce1-lesson-entraide-respect",
+                                                                   "title":  "Entraide et respect",
+                                                                   "subtitle":  "Écoute, politesse et solidarité",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "L\u0027entraide aide la classe à mieux travailler. Elle consiste à aider sans faire le travail à la place de l\u0027autre. On explique, on montre et on encourage."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
                                            }
                                        ]
                      }

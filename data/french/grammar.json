@@ -1,4 +1,4 @@
-{
+﻿{
     "gender_cp":  [
                       {
                           "word":  "CHAT",
@@ -987,16 +987,16 @@
                                    "choices":  [
                                                    "Le",
                                                    "La",
-                                                   "L\u0027"
+                                                   "L'"
                                                ],
-                                   "answer":  "L\u0027"
+                                   "answer":  "L'"
                                },
                                {
                                    "question":  "___ tortue avance lentement.",
                                    "choices":  [
                                                    "Le",
                                                    "La",
-                                                   "L\u0027"
+                                                   "L'"
                                                ],
                                    "answer":  "La"
                                },
@@ -1005,18 +1005,54 @@
                                    "choices":  [
                                                    "Le",
                                                    "La",
-                                                   "L\u0027"
+                                                   "L'"
                                                ],
-                                   "answer":  "L\u0027"
+                                   "answer":  "L'"
                                },
                                {
                                    "question":  "___ cartable est resté en classe.",
                                    "choices":  [
                                                    "Le",
                                                    "La",
-                                                   "L\u0027"
+                                                   "L'"
                                                ],
                                    "answer":  "Le"
+                               },
+                               {
+                                   "sentence":  "___ arbre du jardin est grand.",
+                                   "choices":  [
+                                                   "Le",
+                                                   "La",
+                                                   "L'"
+                                               ],
+                                   "answer":  "L'"
+                               },
+                               {
+                                   "sentence":  "___ école ferme à seize heures.",
+                                   "choices":  [
+                                                   "Le",
+                                                   "La",
+                                                   "L'"
+                                               ],
+                                   "answer":  "L'"
+                               },
+                               {
+                                   "sentence":  "___ ballon roule sous la table.",
+                                   "choices":  [
+                                                   "Le",
+                                                   "La",
+                                                   "L'"
+                                               ],
+                                   "answer":  "Le"
+                               },
+                               {
+                                   "sentence":  "___ image est accrochée au mur.",
+                                   "choices":  [
+                                                   "Le",
+                                                   "La",
+                                                   "L'"
+                                               ],
+                                   "answer":  "L'"
                                }
                            ],
     "plural_choice_ce2":  [
@@ -1039,7 +1075,7 @@
                                   "answer":  "Les"
                               },
                               {
-                                  "question":  "___ cahiers sont rangés dans l\u0027armoire.",
+                                  "question":  "___ cahiers sont rangés dans l'armoire.",
                                   "choices":  [
                                                   "Les",
                                                   "Le",
@@ -1048,13 +1084,49 @@
                                   "answer":  "Les"
                               },
                               {
-                                  "question":  "___ oiseaux chantent dans l\u0027arbre.",
+                                  "question":  "___ oiseaux chantent dans l'arbre.",
                                   "choices":  [
-                                                  "L\u0027",
+                                                  "L'",
                                                   "Les",
                                                   "Le"
                                               ],
                                   "answer":  "Les"
+                              },
+                              {
+                                  "sentence":  "Les chat___ dorment sur le canapé.",
+                                  "choices":  [
+                                                  "s",
+                                                  "x",
+                                                  ""
+                                              ],
+                                  "answer":  "s"
+                              },
+                              {
+                                  "sentence":  "Des oiseau___ passent dans le ciel.",
+                                  "choices":  [
+                                                  "s",
+                                                  "x",
+                                                  ""
+                                              ],
+                                  "answer":  "x"
+                              },
+                              {
+                                  "sentence":  "Les fleur___ poussent au printemps.",
+                                  "choices":  [
+                                                  "s",
+                                                  "x",
+                                                  ""
+                                              ],
+                                  "answer":  "s"
+                              },
+                              {
+                                  "sentence":  "Des jeu___ sont rangés dans l'armoire.",
+                                  "choices":  [
+                                                  "s",
+                                                  "x",
+                                                  ""
+                                              ],
+                                  "answer":  "x"
                               }
                           ],
     "word_class_choice_ce2":  [
@@ -1093,6 +1165,42 @@
                                                       "un verbe"
                                                   ],
                                       "answer":  "un nom"
+                                  },
+                                  {
+                                      "sentence":  "Dans Le petit chat dort, chat est...",
+                                      "choices":  [
+                                                      "un nom",
+                                                      "un verbe",
+                                                      "un déterminant"
+                                                  ],
+                                      "answer":  "un nom"
+                                  },
+                                  {
+                                      "sentence":  "Dans Mila chante, chante est...",
+                                      "choices":  [
+                                                      "un verbe",
+                                                      "un nom",
+                                                      "un adjectif"
+                                                  ],
+                                      "answer":  "un verbe"
+                                  },
+                                  {
+                                      "sentence":  "Dans une grande maison, grande est...",
+                                      "choices":  [
+                                                      "un adjectif",
+                                                      "un nom",
+                                                      "un verbe"
+                                                  ],
+                                      "answer":  "un adjectif"
+                                  },
+                                  {
+                                      "sentence":  "Dans les enfants, les est...",
+                                      "choices":  [
+                                                      "un déterminant",
+                                                      "un verbe",
+                                                      "un nom"
+                                                  ],
+                                      "answer":  "un déterminant"
                                   }
                               ],
     "article_choice_cm1":  [
@@ -1101,16 +1209,16 @@
                                    "choices":  [
                                                    "Le",
                                                    "La",
-                                                   "L\u0027"
+                                                   "L'"
                                                ],
-                                   "answer":  "L\u0027"
+                                   "answer":  "L'"
                                },
                                {
                                    "question":  "___ leçon est écrite au tableau.",
                                    "choices":  [
                                                    "Le",
                                                    "La",
-                                                   "L\u0027"
+                                                   "L'"
                                                ],
                                    "answer":  "La"
                                },
@@ -1119,18 +1227,54 @@
                                    "choices":  [
                                                    "Le",
                                                    "La",
-                                                   "L\u0027"
+                                                   "L'"
                                                ],
-                                   "answer":  "L\u0027"
+                                   "answer":  "L'"
                                },
                                {
                                    "question":  "___ cahier reste ouvert sur le bureau.",
                                    "choices":  [
                                                    "Le",
                                                    "La",
-                                                   "L\u0027"
+                                                   "L'"
                                                ],
                                    "answer":  "Le"
+                               },
+                               {
+                                   "sentence":  "___ hirondelle revient au printemps.",
+                                   "choices":  [
+                                                   "Le",
+                                                   "La",
+                                                   "L'"
+                                               ],
+                                   "answer":  "L'"
+                               },
+                               {
+                                   "sentence":  "___ voisin taille sa haie.",
+                                   "choices":  [
+                                                   "Le",
+                                                   "La",
+                                                   "L'"
+                                               ],
+                                   "answer":  "Le"
+                               },
+                               {
+                                   "sentence":  "___ horloge sonne midi.",
+                                   "choices":  [
+                                                   "Le",
+                                                   "La",
+                                                   "L'"
+                                               ],
+                                   "answer":  "L'"
+                               },
+                               {
+                                   "sentence":  "___ rivière traverse la vallée.",
+                                   "choices":  [
+                                                   "Le",
+                                                   "La",
+                                                   "L'"
+                                               ],
+                                   "answer":  "La"
                                }
                            ],
     "plural_choice_cm1":  [
@@ -1147,7 +1291,7 @@
                                   "question":  "___ montagnes sont très hautes.",
                                   "choices":  [
                                                   "Les",
-                                                  "L\u0027",
+                                                  "L'",
                                                   "La"
                                               ],
                                   "answer":  "Les"
@@ -1162,13 +1306,49 @@
                                   "answer":  "Les"
                               },
                               {
-                                  "question":  "___ oiseaux migrent quand vient l\u0027hiver.",
+                                  "question":  "___ oiseaux migrent quand vient l'hiver.",
                                   "choices":  [
                                                   "Les",
                                                   "Le",
-                                                  "L\u0027"
+                                                  "L'"
                                               ],
                                   "answer":  "Les"
+                              },
+                              {
+                                  "sentence":  "Les cheva___ galopent dans le pré.",
+                                  "choices":  [
+                                                  "ux",
+                                                  "ls",
+                                                  "s"
+                                              ],
+                                  "answer":  "ux"
+                              },
+                              {
+                                  "sentence":  "Des journau___ sont posés ici.",
+                                  "choices":  [
+                                                  "x",
+                                                  "s",
+                                                  ""
+                                              ],
+                                  "answer":  "x"
+                              },
+                              {
+                                  "sentence":  "Les bateau___ quittent le port.",
+                                  "choices":  [
+                                                  "x",
+                                                  "s",
+                                                  ""
+                                              ],
+                                  "answer":  "x"
+                              },
+                              {
+                                  "sentence":  "Des anima___ vivent dans cette forêt.",
+                                  "choices":  [
+                                                  "ux",
+                                                  "ls",
+                                                  "s"
+                                              ],
+                                  "answer":  "ux"
                               }
                           ],
     "word_class_choice_cm1":  [
@@ -1207,6 +1387,42 @@
                                                       "un verbe"
                                                   ],
                                       "answer":  "un nom"
+                                  },
+                                  {
+                                      "sentence":  "Dans Les élèves travaillent, élèves est...",
+                                      "choices":  [
+                                                      "un nom",
+                                                      "un verbe",
+                                                      "un adverbe"
+                                                  ],
+                                      "answer":  "un nom"
+                                  },
+                                  {
+                                      "sentence":  "Dans Le train arrive vite, vite est...",
+                                      "choices":  [
+                                                      "un adverbe",
+                                                      "un nom",
+                                                      "un déterminant"
+                                                  ],
+                                      "answer":  "un adverbe"
+                                  },
+                                  {
+                                      "sentence":  "Dans Ce grand arbre, grand est...",
+                                      "choices":  [
+                                                      "un adjectif",
+                                                      "un verbe",
+                                                      "un nom"
+                                                  ],
+                                      "answer":  "un adjectif"
+                                  },
+                                  {
+                                      "sentence":  "Dans Nous écrivons, écrivons est...",
+                                      "choices":  [
+                                                      "un verbe",
+                                                      "un pronom",
+                                                      "un nom"
+                                                  ],
+                                      "answer":  "un verbe"
                                   }
                               ],
     "article_choice_cm2":  [
@@ -1215,16 +1431,16 @@
                                    "choices":  [
                                                    "Le",
                                                    "La",
-                                                   "L\u0027"
+                                                   "L'"
                                                ],
-                                   "answer":  "L\u0027"
+                                   "answer":  "L'"
                                },
                                {
                                    "question":  "___ liberté est un droit important.",
                                    "choices":  [
                                                    "Le",
                                                    "La",
-                                                   "L\u0027"
+                                                   "L'"
                                                ],
                                    "answer":  "La"
                                },
@@ -1233,16 +1449,52 @@
                                    "choices":  [
                                                    "Le",
                                                    "La",
-                                                   "L\u0027"
+                                                   "L'"
                                                ],
-                                   "answer":  "L\u0027"
+                                   "answer":  "L'"
                                },
                                {
                                    "question":  "___ respect aide à mieux vivre ensemble.",
                                    "choices":  [
                                                    "Le",
                                                    "La",
-                                                   "L\u0027"
+                                                   "L'"
+                                               ],
+                                   "answer":  "Le"
+                               },
+                               {
+                                   "sentence":  "___ univers est immense.",
+                                   "choices":  [
+                                                   "Le",
+                                                   "La",
+                                                   "L'"
+                                               ],
+                                   "answer":  "L'"
+                               },
+                               {
+                                   "sentence":  "___ montagne domine la vallée.",
+                                   "choices":  [
+                                                   "Le",
+                                                   "La",
+                                                   "L'"
+                                               ],
+                                   "answer":  "La"
+                               },
+                               {
+                                   "sentence":  "___ artiste entre en scène.",
+                                   "choices":  [
+                                                   "Le",
+                                                   "La",
+                                                   "L'"
+                                               ],
+                                   "answer":  "L'"
+                               },
+                               {
+                                   "sentence":  "___ navire quitte le port.",
+                                   "choices":  [
+                                                   "Le",
+                                                   "La",
+                                                   "L'"
                                                ],
                                    "answer":  "Le"
                                }
@@ -1253,16 +1505,16 @@
                                   "choices":  [
                                                   "Les",
                                                   "La",
-                                                  "L\u0027"
+                                                  "L'"
                                               ],
                                   "answer":  "Les"
                               },
                               {
-                                  "question":  "___ empires ont marqué l\u0027histoire.",
+                                  "question":  "___ empires ont marqué l'histoire.",
                                   "choices":  [
                                                   "Les",
                                                   "Le",
-                                                  "L\u0027"
+                                                  "L'"
                                               ],
                                   "answer":  "Les"
                               },
@@ -1279,10 +1531,46 @@
                                   "question":  "___ époques étudiées en classe sont variées.",
                                   "choices":  [
                                                   "Les",
-                                                  "L\u0027",
+                                                  "L'",
                                                   "La"
                                               ],
                                   "answer":  "Les"
+                              },
+                              {
+                                  "sentence":  "Les trava___ avancent vite.",
+                                  "choices":  [
+                                                  "ux",
+                                                  "ils",
+                                                  "s"
+                                              ],
+                                  "answer":  "ux"
+                              },
+                              {
+                                  "sentence":  "Des cheveu___ restent sur la brosse.",
+                                  "choices":  [
+                                                  "x",
+                                                  "s",
+                                                  ""
+                                              ],
+                                  "answer":  "x"
+                              },
+                              {
+                                  "sentence":  "Les vitra___ brillent au soleil.",
+                                  "choices":  [
+                                                  "ux",
+                                                  "ls",
+                                                  "s"
+                                              ],
+                                  "answer":  "ux"
+                              },
+                              {
+                                  "sentence":  "Des détai___ importants manquent encore.",
+                                  "choices":  [
+                                                  "ls",
+                                                  "s",
+                                                  "x"
+                                              ],
+                                  "answer":  "ls"
                               }
                           ],
     "word_class_choice_cm2":  [
@@ -1321,6 +1609,42 @@
                                                       "un adjectif"
                                                   ],
                                       "answer":  "un verbe"
+                                  },
+                                  {
+                                      "sentence":  "Dans Ils avanceront demain, demain est...",
+                                      "choices":  [
+                                                      "un adverbe",
+                                                      "un nom",
+                                                      "un verbe"
+                                                  ],
+                                      "answer":  "un adverbe"
+                                  },
+                                  {
+                                      "sentence":  "Dans Cette décision juste, juste est...",
+                                      "choices":  [
+                                                      "un adjectif",
+                                                      "un pronom",
+                                                      "un déterminant"
+                                                  ],
+                                      "answer":  "un adjectif"
+                                  },
+                                  {
+                                      "sentence":  "Dans Je les regarde, les est...",
+                                      "choices":  [
+                                                      "un pronom",
+                                                      "un nom",
+                                                      "un verbe"
+                                                  ],
+                                      "answer":  "un pronom"
+                                  },
+                                  {
+                                      "sentence":  "Dans Le vent souffle, souffle est...",
+                                      "choices":  [
+                                                      "un verbe",
+                                                      "un adverbe",
+                                                      "un nom"
+                                                  ],
+                                      "answer":  "un verbe"
                                   }
                               ],
     "grammar_cloze_ce1":  [
@@ -1343,7 +1667,7 @@
                                   "answer":  "La"
                               },
                               {
-                                  "sentence":  "J\u0027ai vu ___ pomme rouge.",
+                                  "sentence":  "J'ai vu ___ pomme rouge.",
                                   "choices":  [
                                                   "un",
                                                   "une",
@@ -1395,6 +1719,24 @@
                                                   "des"
                                               ],
                                   "answer":  "un"
+                              },
+                              {
+                                  "sentence":  "Le chat ___ dans le jardin.",
+                                  "answer":  "court",
+                                  "choices":  [
+                                                  "court",
+                                                  "courent",
+                                                  "courir"
+                                              ]
+                              },
+                              {
+                                  "sentence":  "La maîtresse ___ une histoire.",
+                                  "answer":  "raconte",
+                                  "choices":  [
+                                                  "raconte",
+                                                  "racontent",
+                                                  "raconter"
+                                              ]
                               }
                           ],
     "grammar_plural_ce1":  [
@@ -1425,51 +1767,69 @@
                                                ],
                                    "answer":  "cahiers"
                                },
-                              {
-                                  "sentence":  "Un oiseau, plusieurs ___.",
-                                  "choices":  [
+                               {
+                                   "sentence":  "Un oiseau, plusieurs ___.",
+                                   "choices":  [
                                                    "oiseau",
                                                    "oiseaux",
                                                    "oiseaus"
                                                ],
-                                  "answer":  "oiseaux"
-                              },
-                              {
-                                  "sentence":  "Une étoile, des ___.",
-                                  "choices":  [
-                                                  "étoiles",
-                                                  "étoile",
-                                                  "étoilers"
-                                              ],
-                                  "answer":  "étoiles"
-                              },
-                              {
-                                  "sentence":  "Un vélo, deux ___.",
-                                  "choices":  [
-                                                  "vélos",
-                                                  "vélo",
-                                                  "vélox"
-                                              ],
-                                  "answer":  "vélos"
-                              },
-                              {
-                                  "sentence":  "Une balle, trois ___.",
-                                  "choices":  [
-                                                  "balles",
-                                                  "balle",
-                                                  "balless"
-                                              ],
-                                  "answer":  "balles"
-                              },
-                              {
-                                  "sentence":  "Un bateau, des ___.",
-                                  "choices":  [
-                                                  "bateau",
-                                                  "bateaux",
-                                                  "bateaus"
-                                              ],
-                                  "answer":  "bateaux"
-                              }
+                                   "answer":  "oiseaux"
+                               },
+                               {
+                                   "sentence":  "Une étoile, des ___.",
+                                   "choices":  [
+                                                   "étoiles",
+                                                   "étoile",
+                                                   "étoilers"
+                                               ],
+                                   "answer":  "étoiles"
+                               },
+                               {
+                                   "sentence":  "Un vélo, deux ___.",
+                                   "choices":  [
+                                                   "vélos",
+                                                   "vélo",
+                                                   "vélox"
+                                               ],
+                                   "answer":  "vélos"
+                               },
+                               {
+                                   "sentence":  "Une balle, trois ___.",
+                                   "choices":  [
+                                                   "balles",
+                                                   "balle",
+                                                   "balless"
+                                               ],
+                                   "answer":  "balles"
+                               },
+                               {
+                                   "sentence":  "Un bateau, des ___.",
+                                   "choices":  [
+                                                   "bateau",
+                                                   "bateaux",
+                                                   "bateaus"
+                                               ],
+                                   "answer":  "bateaux"
+                               },
+                               {
+                                   "sentence":  "Un chien, deux ___",
+                                   "answer":  "chiens",
+                                   "choices":  [
+                                                   "chien",
+                                                   "chiens",
+                                                   "chiens"
+                                               ]
+                               },
+                               {
+                                   "sentence":  "Une fleur, des ___",
+                                   "answer":  "fleurs",
+                                   "choices":  [
+                                                   "fleur",
+                                                   "fleurs",
+                                                   "fleures"
+                                               ]
+                               }
                            ],
     "grammar_cloze_ce2":  [
                               {
@@ -1491,7 +1851,7 @@
                                   "answer":  "les"
                               },
                               {
-                                  "sentence":  "Ma s?ur porte ___ bonnet rouge.",
+                                  "sentence":  "Ma sœur porte ___ bonnet rouge.",
                                   "choices":  [
                                                   "un",
                                                   "une",
@@ -1500,9 +1860,9 @@
                                   "answer":  "un"
                               },
                               {
-                                  "sentence":  "___ ?toiles brillent dans le ciel.",
+                                  "sentence":  "___ étoiles brillent dans le ciel.",
                                   "choices":  [
-                                                  "L\u0027",
+                                                  "L'",
                                                   "Les",
                                                   "Le"
                                               ],
@@ -1531,7 +1891,7 @@
                                   "choices":  [
                                                   "les",
                                                   "la",
-                                                  "l\u0027"
+                                                  "l'"
                                               ],
                                   "answer":  "les"
                               },
@@ -1543,6 +1903,24 @@
                                                   "des"
                                               ],
                                   "answer":  "une"
+                              },
+                              {
+                                  "sentence":  "Les enfants ___ dans la cour.",
+                                  "answer":  "jouent",
+                                  "choices":  [
+                                                  "jouent",
+                                                  "joue",
+                                                  "jouer"
+                                              ]
+                              },
+                              {
+                                  "sentence":  "Le soleil ___ derrière les nuages.",
+                                  "answer":  "brille",
+                                  "choices":  [
+                                                  "brille",
+                                                  "brillent",
+                                                  "briller"
+                                              ]
                               }
                           ],
     "grammar_agreement_ce2":  [
@@ -1617,6 +1995,24 @@
                                                       "verts"
                                                   ],
                                       "answer":  "vertes"
+                                  },
+                                  {
+                                      "sentence":  "Une robe ___",
+                                      "answer":  "rouge",
+                                      "choices":  [
+                                                      "rouge",
+                                                      "rouges",
+                                                      "rouger"
+                                                  ]
+                                  },
+                                  {
+                                      "sentence":  "Des chats ___",
+                                      "answer":  "noirs",
+                                      "choices":  [
+                                                      "noir",
+                                                      "noirs",
+                                                      "noires"
+                                                  ]
                                   }
                               ],
     "grammar_agreement_ce1":  [
@@ -1765,6 +2161,24 @@
                                                    "animals"
                                                ],
                                    "answer":  "animaux"
+                               },
+                               {
+                                   "sentence":  "Le cheval / les ___",
+                                   "answer":  "chevaux",
+                                   "choices":  [
+                                                   "chevals",
+                                                   "chevaux",
+                                                   "chevaus"
+                                               ]
+                               },
+                               {
+                                   "sentence":  "Le journal / les ___",
+                                   "answer":  "journaux",
+                                   "choices":  [
+                                                   "journals",
+                                                   "journaux",
+                                                   "journales"
+                                               ]
                                }
                            ],
     "grammar_cloze_cm1":  [
@@ -1839,6 +2253,24 @@
                                                   "des"
                                               ],
                                   "answer":  "un"
+                              },
+                              {
+                                  "sentence":  "La rivière ___ lentement vers la mer.",
+                                  "answer":  "coule",
+                                  "choices":  [
+                                                  "coule",
+                                                  "coulent",
+                                                  "couler"
+                                              ]
+                              },
+                              {
+                                  "sentence":  "Les voyageurs ___ dans le train.",
+                                  "answer":  "montent",
+                                  "choices":  [
+                                                  "montent",
+                                                  "monte",
+                                                  "monter"
+                                              ]
                               }
                           ],
     "grammar_agreement_cm1":  [
@@ -1913,6 +2345,24 @@
                                                       "calmer"
                                                   ],
                                       "answer":  "calme"
+                                  },
+                                  {
+                                      "sentence":  "Une maison ___",
+                                      "answer":  "blanche",
+                                      "choices":  [
+                                                      "blanc",
+                                                      "blanche",
+                                                      "blanches"
+                                                  ]
+                                  },
+                                  {
+                                      "sentence":  "Des arbres ___",
+                                      "answer":  "verts",
+                                      "choices":  [
+                                                      "vert",
+                                                      "verts",
+                                                      "vertes"
+                                                  ]
                                   }
                               ],
     "grammar_cloze_cm2":  [
@@ -1987,6 +2437,24 @@
                                                   "des"
                                               ],
                                   "answer":  "une"
+                              },
+                              {
+                                  "sentence":  "Les scientifiques ___ leurs résultats.",
+                                  "answer":  "analysent",
+                                  "choices":  [
+                                                  "analysent",
+                                                  "analyse",
+                                                  "analyser"
+                                              ]
+                              },
+                              {
+                                  "sentence":  "Le navire ___ le port au lever du jour.",
+                                  "answer":  "quitte",
+                                  "choices":  [
+                                                  "quitte",
+                                                  "quittent",
+                                                  "quitter"
+                                              ]
                               }
                           ],
     "grammar_agreement_cm2":  [
@@ -2061,6 +2529,25 @@
                                                       "précises"
                                                   ],
                                       "answer":  "précis"
+                                  },
+                                  {
+                                      "sentence":  "Une décision ___",
+                                      "answer":  "importante",
+                                      "choices":  [
+                                                      "important",
+                                                      "importante",
+                                                      "importants"
+                                                  ]
+                                  },
+                                  {
+                                      "sentence":  "Des paysages ___",
+                                      "answer":  "magnifiques",
+                                      "choices":  [
+                                                      "magnifique",
+                                                      "magnifiques",
+                                                      "magnifiquent"
+                                                  ]
                                   }
                               ]
 }
+

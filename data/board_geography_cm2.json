@@ -1,0 +1,146 @@
+{
+    "title":  "Géographie interactive CM2",
+    "gradeId":  "cm2",
+    "categories":  {
+                       "cm2_villes_france_tap":  {
+                                                     "prompt":  "Touche les villes du sud de la France.",
+                                                     "board":  {
+                                                                   "width":  10,
+                                                                   "height":  8,
+                                                                   "grid":  false
+                                                               },
+                                                     "drawing":  {
+                                                                     "lines":  [
+                                                                                   {
+                                                                                       "x1":  2,
+                                                                                       "y1":  1,
+                                                                                       "x2":  8,
+                                                                                       "y2":  1.2
+                                                                                   },
+                                                                                   {
+                                                                                       "x1":  8,
+                                                                                       "y1":  1.2,
+                                                                                       "x2":  9,
+                                                                                       "y2":  4.2
+                                                                                   },
+                                                                                   {
+                                                                                       "x1":  9,
+                                                                                       "y1":  4.2,
+                                                                                       "x2":  7.6,
+                                                                                       "y2":  7
+                                                                                   },
+                                                                                   {
+                                                                                       "x1":  7.6,
+                                                                                       "y1":  7,
+                                                                                       "x2":  3,
+                                                                                       "y2":  7.2
+                                                                                   },
+                                                                                   {
+                                                                                       "x1":  3,
+                                                                                       "y1":  7.2,
+                                                                                       "x2":  1.2,
+                                                                                       "y2":  4.8
+                                                                                   },
+                                                                                   {
+                                                                                       "x1":  1.2,
+                                                                                       "y1":  4.8,
+                                                                                       "x2":  2,
+                                                                                       "y2":  1
+                                                                                   }
+                                                                               ],
+                                                                     "markers":  null
+                                                                 },
+                                                     "features":  [
+                                                                      {
+                                                                          "id":  "lyon",
+                                                                          "x":  5.9,
+                                                                          "y":  3.8,
+                                                                          "correct":  false
+                                                                      },
+                                                                      {
+                                                                          "id":  "paris",
+                                                                          "x":  5.4,
+                                                                          "y":  2.2,
+                                                                          "correct":  false
+                                                                      },
+                                                                      {
+                                                                          "id":  "lille",
+                                                                          "x":  6.1,
+                                                                          "y":  1.4,
+                                                                          "correct":  false
+                                                                      },
+                                                                      {
+                                                                          "id":  "bordeaux",
+                                                                          "x":  3.4,
+                                                                          "y":  5.3,
+                                                                          "correct":  true
+                                                                      },
+                                                                      {
+                                                                          "id":  "toulouse",
+                                                                          "x":  4.8,
+                                                                          "y":  6.2,
+                                                                          "correct":  true
+                                                                      },
+                                                                      {
+                                                                          "id":  "marseille",
+                                                                          "x":  6.8,
+                                                                          "y":  6.3,
+                                                                          "correct":  true
+                                                                      }
+                                                                  ]
+                                                 },
+                       "cm2_reperes_france_grille":  [
+                                                         {
+                                                             "prompt":  "Place Paris sur le quadrillage.",
+                                                             "board":  {
+                                                                           "width":  10,
+                                                                           "height":  8,
+                                                                           "grid":  true
+                                                                       },
+                                                             "task":  {
+                                                                          "type":  "place-point",
+                                                                          "label":  "Paris",
+                                                                          "target":  [
+                                                                                         6,
+                                                                                         2
+                                                                                     ]
+                                                                      },
+                                                             "tolerance":  0
+                                                         },
+                                                         {
+                                                             "prompt":  "Place Lyon sur le quadrillage.",
+                                                             "board":  {
+                                                                           "width":  10,
+                                                                           "height":  8,
+                                                                           "grid":  true
+                                                                       },
+                                                             "task":  {
+                                                                          "type":  "place-point",
+                                                                          "label":  "Lyon",
+                                                                          "target":  [
+                                                                                         6,
+                                                                                         4
+                                                                                     ]
+                                                                      },
+                                                             "tolerance":  0
+                                                         },
+                                                         {
+                                                             "prompt":  "Place Marseille sur le quadrillage.",
+                                                             "board":  {
+                                                                           "width":  10,
+                                                                           "height":  8,
+                                                                           "grid":  true
+                                                                       },
+                                                             "task":  {
+                                                                          "type":  "place-point",
+                                                                          "label":  "Marseille",
+                                                                          "target":  [
+                                                                                         7,
+                                                                                         6
+                                                                                     ]
+                                                                      },
+                                                             "tolerance":  0
+                                                         }
+                                                     ]
+                   }
+}

@@ -537,5 +537,834 @@
                                    "answer":  "gt",
                                    "question":  "Quelles lettres ne se prononcent pas ?"
                                }
-                           ]
+                           ],
+    "ce1_lire_phrases_courtes":  [
+                                     {
+                                         "text":  "la lune brille",
+                                         "syllables":  [
+                                                           "la",
+                                                           "lu",
+                                                           "ne",
+                                                           "brille"
+                                                       ],
+                                         "choices":  [
+                                                         "lune",
+                                                         "brille",
+                                                         "la"
+                                                     ],
+                                         "answer":  "brille",
+                                         "question":  "Quel est le dernier mot lu ?"
+                                     },
+                                     {
+                                         "text":  "le chat dort",
+                                         "syllables":  [
+                                                           "le",
+                                                           "chat",
+                                                           "dort"
+                                                       ],
+                                         "choices":  [
+                                                         "le",
+                                                         "chat",
+                                                         "dort"
+                                                     ],
+                                         "answer":  "chat",
+                                         "question":  "Quel est le mot du milieu ?"
+                                     },
+                                     {
+                                         "text":  "mila ferme la porte",
+                                         "syllables":  [
+                                                           "mi",
+                                                           "la",
+                                                           "fer",
+                                                           "me",
+                                                           "la",
+                                                           "por",
+                                                           "te"
+                                                       ],
+                                         "choices":  [
+                                                         "mila",
+                                                         "porte",
+                                                         "ferme"
+                                                     ],
+                                         "answer":  "mila",
+                                         "question":  "Quel est le premier mot lu ?"
+                                     },
+                                     {
+                                         "text":  "une fusée décolle",
+                                         "syllables":  [
+                                                           "u",
+                                                           "ne",
+                                                           "fu",
+                                                           "sée",
+                                                           "dé",
+                                                           "col",
+                                                           "le"
+                                                       ],
+                                         "choices":  [
+                                                         "fusée",
+                                                         "décolle",
+                                                         "une"
+                                                     ],
+                                         "answer":  "fusée",
+                                         "question":  "Quel mot est au milieu ?"
+                                     },
+                                     {
+                                         "text":  "le vélo roule vite",
+                                         "syllables":  [
+                                                           "le",
+                                                           "vé",
+                                                           "lo",
+                                                           "rou",
+                                                           "le",
+                                                           "vi",
+                                                           "te"
+                                                       ],
+                                         "choices":  [
+                                                         "vite",
+                                                         "vélo",
+                                                         "le"
+                                                     ],
+                                         "answer":  "vite",
+                                         "question":  "Quel est le dernier mot lu ?"
+                                     },
+                                     {
+                                         "text":  "le pirate chante",
+                                         "syllables":  [
+                                                           "le",
+                                                           "pi",
+                                                           "ra",
+                                                           "te",
+                                                           "chan",
+                                                           "te"
+                                                       ],
+                                         "choices":  [
+                                                         "pirate",
+                                                         "chante",
+                                                         "le"
+                                                     ],
+                                         "answer":  "pirate",
+                                         "question":  "Quel mot vient juste après le ?"
+                                     }
+                                 ],
+    "ce1_comprendre_phrase_courte":  [
+                                         {
+                                             "text":  "le chat attrape la balle",
+                                             "syllables":  [
+                                                               "le",
+                                                               "chat",
+                                                               "at",
+                                                               "tra",
+                                                               "pe",
+                                                               "la",
+                                                               "bal",
+                                                               "le"
+                                                           ],
+                                             "choices":  [
+                                                             "le chat",
+                                                             "la balle",
+                                                             "la maison"
+                                                         ],
+                                             "answer":  "le chat",
+                                             "question":  "Qui attrape la balle ?"
+                                         },
+                                         {
+                                             "text":  "mila arrose le jardin",
+                                             "syllables":  [
+                                                               "mi",
+                                                               "la",
+                                                               "a",
+                                                               "rro",
+                                                               "se",
+                                                               "le",
+                                                               "jar",
+                                                               "din"
+                                                           ],
+                                             "choices":  [
+                                                             "elle arrose",
+                                                             "elle dort",
+                                                             "elle nage"
+                                                         ],
+                                             "answer":  "elle arrose",
+                                             "question":  "Que fait Mila ?"
+                                         },
+                                         {
+                                             "text":  "le bus arrive à l'école",
+                                             "syllables":  [
+                                                               "le",
+                                                               "bus",
+                                                               "ar",
+                                                               "ri",
+                                                               "ve",
+                                                               "à",
+                                                               "l'é",
+                                                               "co",
+                                                               "le"
+                                                           ],
+                                             "choices":  [
+                                                             "à l'école",
+                                                             "à la mer",
+                                                             "au musée"
+                                                         ],
+                                             "answer":  "à l'école",
+                                             "question":  "Où arrive le bus ?"
+                                         },
+                                         {
+                                             "text":  "la pluie mouille la route",
+                                             "syllables":  [
+                                                               "la",
+                                                               "pluie",
+                                                               "mou",
+                                                               "ille",
+                                                               "la",
+                                                               "rou",
+                                                               "te"
+                                                           ],
+                                             "choices":  [
+                                                             "la route",
+                                                             "le cahier",
+                                                             "la forêt"
+                                                         ],
+                                             "answer":  "la route",
+                                             "question":  "Qu'est-ce qui est mouillé ?"
+                                         },
+                                         {
+                                             "text":  "tom range ses crayons",
+                                             "syllables":  [
+                                                               "tom",
+                                                               "ran",
+                                                               "ge",
+                                                               "ses",
+                                                               "cra",
+                                                               "yons"
+                                                           ],
+                                             "choices":  [
+                                                             "ses crayons",
+                                                             "son vélo",
+                                                             "sa veste"
+                                                         ],
+                                             "answer":  "ses crayons",
+                                             "question":  "Que range Tom ?"
+                                         },
+                                         {
+                                             "text":  "la maîtresse lit une histoire",
+                                             "syllables":  [
+                                                               "la",
+                                                               "maî",
+                                                               "tres",
+                                                               "se",
+                                                               "lit",
+                                                               "u",
+                                                               "ne",
+                                                               "his",
+                                                               "toi",
+                                                               "re"
+                                                           ],
+                                             "choices":  [
+                                                             "une histoire",
+                                                             "une chanson",
+                                                             "une addition"
+                                                         ],
+                                             "answer":  "une histoire",
+                                             "question":  "Que lit la maîtresse ?"
+                                         }
+                                     ],
+    "ce1_vocabulaire_synonymes":  [
+                                      {
+                                          "text":  "joyeux",
+                                          "syllables":  [
+                                                            "jo",
+                                                            "yeux"
+                                                        ],
+                                          "choices":  [
+                                                          "content",
+                                                          "fatigué",
+                                                          "froid"
+                                                      ],
+                                          "answer":  "content",
+                                          "question":  "Quel mot veut dire presque la même chose ?"
+                                      },
+                                      {
+                                          "text":  "rapide",
+                                          "syllables":  [
+                                                            "ra",
+                                                            "pi",
+                                                            "de"
+                                                        ],
+                                          "choices":  [
+                                                          "vite",
+                                                          "lourd",
+                                                          "calme"
+                                                      ],
+                                          "answer":  "vite",
+                                          "question":  "Quel mot veut dire presque la même chose ?"
+                                      },
+                                      {
+                                          "text":  "minuscule",
+                                          "syllables":  [
+                                                            "mi",
+                                                            "nus",
+                                                            "cu",
+                                                            "le"
+                                                        ],
+                                          "choices":  [
+                                                          "tout petit",
+                                                          "très chaud",
+                                                          "très loin"
+                                                      ],
+                                          "answer":  "tout petit",
+                                          "question":  "Quel groupe de mots a le sens le plus proche ?"
+                                      },
+                                      {
+                                          "text":  "propre",
+                                          "syllables":  [
+                                                            "pro",
+                                                            "pre"
+                                                        ],
+                                          "choices":  [
+                                                          "net",
+                                                          "cassé",
+                                                          "bruyant"
+                                                      ],
+                                          "answer":  "net",
+                                          "question":  "Quel mot veut dire presque la même chose ?"
+                                      },
+                                      {
+                                          "text":  "courageux",
+                                          "syllables":  [
+                                                            "cou",
+                                                            "ra",
+                                                            "geux"
+                                                        ],
+                                          "choices":  [
+                                                          "brave",
+                                                          "timide",
+                                                          "lent"
+                                                      ],
+                                          "answer":  "brave",
+                                          "question":  "Quel mot veut dire presque la même chose ?"
+                                      },
+                                      {
+                                          "text":  "terminer",
+                                          "syllables":  [
+                                                            "ter",
+                                                            "mi",
+                                                            "ner"
+                                                        ],
+                                          "choices":  [
+                                                          "finir",
+                                                          "écouter",
+                                                          "monter"
+                                                      ],
+                                          "answer":  "finir",
+                                          "question":  "Quel mot veut dire presque la même chose ?"
+                                      }
+                                  ],
+    "ce1_vocabulaire_champs":  [
+                                   {
+                                       "text":  "tulipe",
+                                       "syllables":  [
+                                                         "tu",
+                                                         "li",
+                                                         "pe"
+                                                     ],
+                                       "choices":  [
+                                                       "fleur",
+                                                       "animal",
+                                                       "véhicule"
+                                                   ],
+                                       "answer":  "fleur",
+                                       "question":  "Dans quelle famille ranger ce mot ?"
+                                   },
+                                   {
+                                       "text":  "camion",
+                                       "syllables":  [
+                                                         "ca",
+                                                         "mion"
+                                                     ],
+                                       "choices":  [
+                                                       "vêtement",
+                                                       "moyen de transport",
+                                                       "fruit"
+                                                   ],
+                                       "answer":  "moyen de transport",
+                                       "question":  "Dans quelle famille ranger ce mot ?"
+                                   },
+                                   {
+                                       "text":  "fourchette",
+                                       "syllables":  [
+                                                         "four",
+                                                         "chette"
+                                                     ],
+                                       "choices":  [
+                                                       "objet de cuisine",
+                                                       "animal de la ferme",
+                                                       "partie du corps"
+                                                   ],
+                                       "answer":  "objet de cuisine",
+                                       "question":  "Dans quelle famille ranger ce mot ?"
+                                   },
+                                   {
+                                       "text":  "docteur",
+                                       "syllables":  [
+                                                         "doc",
+                                                         "teur"
+                                                     ],
+                                       "choices":  [
+                                                       "métier",
+                                                       "couleur",
+                                                       "sport"
+                                                   ],
+                                       "answer":  "métier",
+                                       "question":  "Dans quelle famille ranger ce mot ?"
+                                   },
+                                   {
+                                       "text":  "cerise",
+                                       "syllables":  [
+                                                         "ce",
+                                                         "ri",
+                                                         "se"
+                                                     ],
+                                       "choices":  [
+                                                       "fruit",
+                                                       "meuble",
+                                                       "saison"
+                                                   ],
+                                       "answer":  "fruit",
+                                       "question":  "Dans quelle famille ranger ce mot ?"
+                                   },
+                                   {
+                                       "text":  "baleine",
+                                       "syllables":  [
+                                                         "ba",
+                                                         "lei",
+                                                         "ne"
+                                                     ],
+                                       "choices":  [
+                                                       "animal",
+                                                       "outil",
+                                                       "vêtement"
+                                                   ],
+                                       "answer":  "animal",
+                                       "question":  "Dans quelle famille ranger ce mot ?"
+                                   }
+                               ],
+    "cm2_lecture_idee_principale":  [
+                                        {
+                                            "text":  "Le château fort protège le village",
+                                            "syllables":  [
+                                                              "Le",
+                                                              "châ",
+                                                              "teau",
+                                                              "fort",
+                                                              "pro",
+                                                              "tège",
+                                                              "le",
+                                                              "vil",
+                                                              "lage"
+                                                          ],
+                                            "choices":  [
+                                                            "protéger le village",
+                                                            "faire du sport",
+                                                            "acheter du pain"
+                                                        ],
+                                            "answer":  "protéger le village",
+                                            "question":  "Quelle est l idée principale de cette phrase ?"
+                                        },
+                                        {
+                                            "text":  "La commune organise les services utiles",
+                                            "syllables":  [
+                                                              "La",
+                                                              "com",
+                                                              "mune",
+                                                              "or",
+                                                              "ga",
+                                                              "nise",
+                                                              "les",
+                                                              "ser",
+                                                              "vices",
+                                                              "u",
+                                                              "tiles"
+                                                          ],
+                                            "choices":  [
+                                                            "organiser les services",
+                                                            "jouer dans la cour",
+                                                            "colorier une affiche"
+                                                        ],
+                                            "answer":  "organiser les services",
+                                            "question":  "Que dit surtout cette phrase ?"
+                                        },
+                                        {
+                                            "text":  "L énergie permet de chauffer et d éclairer",
+                                            "syllables":  [
+                                                              "Lé",
+                                                              "ner",
+                                                              "gie",
+                                                              "per",
+                                                              "met",
+                                                              "de",
+                                                              "chau",
+                                                              "ffer",
+                                                              "et",
+                                                              "dé",
+                                                              "clai",
+                                                              "rer"
+                                                          ],
+                                            "choices":  [
+                                                            "l énergie est utile",
+                                                            "le froid arrive",
+                                                            "le bus est en retard"
+                                                        ],
+                                            "answer":  "l énergie est utile",
+                                            "question":  "Quelle idée principale retiens-tu ?"
+                                        },
+                                        {
+                                            "text":  "La République fixe des règles communes",
+                                            "syllables":  [
+                                                              "La",
+                                                              "Ré",
+                                                              "pu",
+                                                              "blique",
+                                                              "fi",
+                                                              "xe",
+                                                              "des",
+                                                              "rè",
+                                                              "gles",
+                                                              "com",
+                                                              "munes"
+                                                          ],
+                                            "choices":  [
+                                                            "des règles communes",
+                                                            "une promenade",
+                                                            "un gâteau"
+                                                        ],
+                                            "answer":  "des règles communes",
+                                            "question":  "Quel est le message principal ?"
+                                        },
+                                        {
+                                            "text":  "Le texte explique comment économiser l eau",
+                                            "syllables":  [
+                                                              "Le",
+                                                              "texte",
+                                                              "ex",
+                                                              "plique",
+                                                              "com",
+                                                              "ment",
+                                                              "é",
+                                                              "co",
+                                                              "no",
+                                                              "mi",
+                                                              "ser",
+                                                              "leau"
+                                                          ],
+                                            "choices":  [
+                                                            "économiser l eau",
+                                                            "préparer un repas",
+                                                            "dessiner un plan"
+                                                        ],
+                                            "answer":  "économiser l eau",
+                                            "question":  "Que veut surtout expliquer la phrase ?"
+                                        }
+                                    ],
+    "cm2_vocabulaire_sens":  [
+                                 {
+                                     "text":  "rapide",
+                                     "syllables":  [
+                                                       "ra",
+                                                       "pi",
+                                                       "de"
+                                                   ],
+                                     "choices":  [
+                                                     "vite",
+                                                     "ancien",
+                                                     "calme"
+                                                 ],
+                                     "answer":  "vite",
+                                     "question":  "Quel mot a presque le même sens ?"
+                                 },
+                                 {
+                                     "text":  "observer",
+                                     "syllables":  [
+                                                       "ob",
+                                                       "ser",
+                                                       "ver"
+                                                   ],
+                                     "choices":  [
+                                                     "regarder attentivement",
+                                                     "oublier",
+                                                     "effacer"
+                                                 ],
+                                     "answer":  "regarder attentivement",
+                                     "question":  "Quel groupe de mots a le même sens ?"
+                                 },
+                                 {
+                                     "text":  "juste",
+                                     "syllables":  [
+                                                       "jus",
+                                                       "te"
+                                                   ],
+                                     "choices":  [
+                                                     "équitable",
+                                                     "bruyant",
+                                                     "minuscule"
+                                                 ],
+                                     "answer":  "équitable",
+                                     "question":  "Quel mot convient au sens de juste dans un débat ?"
+                                 },
+                                 {
+                                     "text":  "montagne",
+                                     "syllables":  [
+                                                       "mon",
+                                                       "ta",
+                                                       "gne"
+                                                   ],
+                                     "choices":  [
+                                                     "relief élevé",
+                                                     "petit outil",
+                                                     "couleur claire"
+                                                 ],
+                                     "answer":  "relief élevé",
+                                     "question":  "Quel est le sens propre de ce mot ?"
+                                 },
+                                 {
+                                     "text":  "figure",
+                                     "syllables":  [
+                                                       "fi",
+                                                       "gure"
+                                                   ],
+                                     "choices":  [
+                                                     "dessin géométrique",
+                                                     "nourriture",
+                                                     "véhicule"
+                                                 ],
+                                     "answer":  "dessin géométrique",
+                                     "question":  "Quel sens convient en géométrie ?"
+                                 }
+                             ],
+    "cm1_lecture_idee_principale":  [
+                                        {
+                                            "text":  "Le bateau avance grâce au vent.",
+                                            "syllables":  [
+                                                              "Le",
+                                                              "ba",
+                                                              "teau",
+                                                              "avan",
+                                                              "ce",
+                                                              "grâce",
+                                                              "au",
+                                                              "vent"
+                                                          ],
+                                            "choices":  [
+                                                            "Le vent fait avancer le bateau",
+                                                            "Le bateau est bleu",
+                                                            "La mer est froide"
+                                                        ],
+                                            "answer":  "Le vent fait avancer le bateau",
+                                            "question":  "Quelle est l'idée principale ?"
+                                        },
+                                        {
+                                            "text":  "Les enfants rangent les cahiers avant de sortir.",
+                                            "syllables":  [
+                                                              "Les",
+                                                              "en",
+                                                              "fants",
+                                                              "ran",
+                                                              "gent",
+                                                              "les",
+                                                              "ca",
+                                                              "hiers",
+                                                              "avant",
+                                                              "de",
+                                                              "sortir"
+                                                          ],
+                                            "choices":  [
+                                                            "Les enfants rangent leurs affaires",
+                                                            "Les enfants jouent dans la cour",
+                                                            "Les cahiers sont rouges"
+                                                        ],
+                                            "answer":  "Les enfants rangent leurs affaires",
+                                            "question":  "Que dit surtout la phrase ?"
+                                        },
+                                        {
+                                            "text":  "Dans le jardin, les fleurs ont besoin d'eau.",
+                                            "syllables":  [
+                                                              "Dans",
+                                                              "le",
+                                                              "jar",
+                                                              "din",
+                                                              "les",
+                                                              "fleurs",
+                                                              "ont",
+                                                              "be",
+                                                              "soin",
+                                                              "d'eau"
+                                                          ],
+                                            "choices":  [
+                                                            "Les fleurs ont besoin d'eau",
+                                                            "Le jardin est vide",
+                                                            "Les fleurs sont en bois"
+                                                        ],
+                                            "answer":  "Les fleurs ont besoin d'eau",
+                                            "question":  "Quelle est l'idée principale ?"
+                                        },
+                                        {
+                                            "text":  "Le panier contient des pommes et des poires.",
+                                            "syllables":  [
+                                                              "Le",
+                                                              "pa",
+                                                              "nier",
+                                                              "con",
+                                                              "tient",
+                                                              "des",
+                                                              "pommes",
+                                                              "et",
+                                                              "des",
+                                                              "poires"
+                                                          ],
+                                            "choices":  [
+                                                            "Le panier contient des fruits",
+                                                            "Le panier est vide",
+                                                            "Le panier est en métal"
+                                                        ],
+                                            "answer":  "Le panier contient des fruits",
+                                            "question":  "Quel résumé convient ?"
+                                        },
+                                        {
+                                            "text":  "Le chat dort près du radiateur pour avoir chaud.",
+                                            "syllables":  [
+                                                              "Le",
+                                                              "chat",
+                                                              "dort",
+                                                              "près",
+                                                              "du",
+                                                              "ra",
+                                                              "dia",
+                                                              "teur",
+                                                              "pour",
+                                                              "avoir",
+                                                              "chaud"
+                                                          ],
+                                            "choices":  [
+                                                            "Le chat cherche la chaleur",
+                                                            "Le chat veut courir",
+                                                            "Le radiateur est cassé"
+                                                        ],
+                                            "answer":  "Le chat cherche la chaleur",
+                                            "question":  "Quelle idée faut-il retenir ?"
+                                        }
+                                    ],
+    "cm1_lecture_mot_contexte":  [
+                                      {
+                                          "text":  "J'ai posé la clé sur la table.",
+                                          "syllables":  [
+                                                            "J'",
+                                                            "ai",
+                                                            "po",
+                                                            "sé",
+                                                            "la",
+                                                            "clé",
+                                                            "sur",
+                                                            "la",
+                                                            "table"
+                                                        ],
+                                          "choices":  [
+                                                          "objet pour ouvrir",
+                                                          "partie d'un texte",
+                                                          "fruit"
+                                                      ],
+                                          "answer":  "objet pour ouvrir",
+                                          "question":  "Quel est le sens du mot clé ?"
+                                      },
+                                      {
+                                          "text":  "La feuille de l'arbre tombe dans le jardin.",
+                                          "syllables":  [
+                                                            "La",
+                                                            "feuille",
+                                                            "de",
+                                                            "l'arbre",
+                                                            "tombe",
+                                                            "dans",
+                                                            "le",
+                                                            "jardin"
+                                                        ],
+                                          "choices":  [
+                                                          "partie d'une plante",
+                                                          "page d'un cahier",
+                                                          "outil de jardin"
+                                                      ],
+                                          "answer":  "partie d'une plante",
+                                          "question":  "Quel sens convient ici ?"
+                                      },
+                                      {
+                                          "text":  "Je mange une glace au chocolat.",
+                                          "syllables":  [
+                                                            "Je",
+                                                            "mange",
+                                                            "une",
+                                                            "glace",
+                                                            "au",
+                                                            "chocolat"
+                                                        ],
+                                          "choices":  [
+                                                          "aliment froid",
+                                                          "objet en verre",
+                                                          "couverture"
+                                                      ],
+                                          "answer":  "aliment froid",
+                                          "question":  "Quel sens du mot glace faut-il choisir ?"
+                                      },
+                                      {
+                                          "text":  "Le cours de mathématiques commence.",
+                                          "syllables":  [
+                                                            "Le",
+                                                            "cours",
+                                                            "de",
+                                                            "mathématiques",
+                                                            "commence"
+                                                        ],
+                                          "choices":  [
+                                                          "leçon",
+                                                          "rivière",
+                                                          "départ d'un bus"
+                                                      ],
+                                          "answer":  "leçon",
+                                          "question":  "Que veut dire le mot cours ?"
+                                      },
+                                      {
+                                          "text":  "La souris court dans le jardin.",
+                                          "syllables":  [
+                                                            "La",
+                                                            "souris",
+                                                            "court",
+                                                            "dans",
+                                                            "le",
+                                                            "jardin"
+                                                        ],
+                                          "choices":  [
+                                                          "petit animal",
+                                                          "outil d'ordinateur",
+                                                          "fleur"
+                                                      ],
+                                          "answer":  "petit animal",
+                                          "question":  "Quel sens du mot souris est correct ?"
+                                      },
+                                      {
+                                          "text":  "Le pied de la table est cassé.",
+                                          "syllables":  [
+                                                            "Le",
+                                                            "pied",
+                                                            "de",
+                                                            "la",
+                                                            "table",
+                                                            "est",
+                                                            "cassé"
+                                                        ],
+                                          "choices":  [
+                                                          "partie du meuble",
+                                                          "partie du corps",
+                                                          "couleur claire"
+                                                      ],
+                                          "answer":  "partie du meuble",
+                                          "question":  "Quel sens convient dans la phrase ?"
+                                      }
+                                  ]
 }
