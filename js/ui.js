@@ -162,14 +162,44 @@ const UI = {
 
     isSafeEngineQuestionMarkup(markup) {
         const html = (markup || '').toString();
-        if (!html) return false;
-        if (/<script/i.test(html)) return false;
+        if (!html || !/[<>]/.test(html)) return false;
+        if (/<script|<iframe|<object|<embed|<svg|<math|<link|<meta|<img|<audio|<video|<source/i.test(html)) return false;
         if (/\son[a-z]+\s*=/i.test(html)) return false;
         if (/javascript:/i.test(html)) return false;
-        return html.includes('number-spelling-prompt')
-            || html.includes('small-question')
-            || html.includes('<b>')
-            || html.includes('<br>');
+
+        const allowedTags = new Set(['div', 'span', 'b', 'br', 'strong', 'em']);
+        const allowedAttrs = new Set(['class', 'style']);
+        const tagRegex = /<\/?([a-z0-9-]+)([^>]*)>/gi;
+        let match;
+        while ((match = tagRegex.exec(html)) !== null) {
+            const tag = (match[1] || '').toLowerCase();
+            if (!allowedTags.has(tag)) return false;
+
+            const attrsRaw = (match[2] || '').trim();
+            if (!attrsRaw || attrsRaw === '/' || attrsRaw === '/>') continue;
+            if (/[<>]/.test(attrsRaw)) return false;
+            if (/\bon[a-z]+\s*=|javascript:|data:/i.test(attrsRaw)) return false;
+
+            const attrRegex = /([a-zA-Z0-9:-]+)\s*=\s*(['"])(.*?)\2/g;
+            let attrMatch;
+            let parsedAttrCount = 0;
+            while ((attrMatch = attrRegex.exec(attrsRaw)) !== null) {
+                parsedAttrCount++;
+                const attrName = (attrMatch[1] || '').toLowerCase();
+                const attrValue = attrMatch[3] || '';
+                if (!allowedAttrs.has(attrName)) return false;
+                if (attrName === 'style' && /(url\s*\(|expression\s*\(|@import|javascript:)/i.test(attrValue)) return false;
+            }
+            const rawEqCount = (attrsRaw.match(/=/g) || []).length;
+            if (rawEqCount !== parsedAttrCount) return false;
+        }
+        return true;
+    },
+
+    getSafeQuestionMarkup(markup) {
+        const html = (markup || '').toString();
+        if (this.isSafeEngineQuestionMarkup(html)) return html;
+        return this.escapeHtml(html);
     },
 
     buildCardContent(title, subtitle = "") {
@@ -602,8 +632,7 @@ const UI = {
             // p.question contient soit le texte, soit le HTML du gros chiffre (DictÃ©e CP)
             const formulaClasses = ['math-formula', 'prompt-card', 'prompt-card--formula'];
             const questionHtml = p.question || "";
-            const trustedRichQuestion = this.isSafeEngineQuestionMarkup(questionHtml);
-            const safeQuestionHtml = trustedRichQuestion ? questionHtml : this.escapeHtml(questionHtml);
+            const safeQuestionHtml = this.getSafeQuestionMarkup(questionHtml);
             let compactMode = '';
             if (questionHtml.includes('number-spelling-prompt')) {
                 const formulaClassIndex = formulaClasses.indexOf('prompt-card--formula');
