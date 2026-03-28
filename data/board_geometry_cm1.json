@@ -1,0 +1,237 @@
+﻿{
+    "title":  "Géométrie interactive CM1",
+    "gradeId":  "cm1",
+    "categories":  {
+                       "cm1_polygones_classer":  {
+                                                     "prompt":  "Classe chaque figure dans la bonne famille.",
+                                                     "board":  {
+                                                                   "width":  10,
+                                                                   "height":  6,
+                                                                   "grid":  false
+                                                               },
+                                                     "figures":  [
+                                                                     {
+                                                                         "id":  "f1",
+                                                                         "label":  "Triangle",
+                                                                         "shape":  "triangle"
+                                                                     },
+                                                                     {
+                                                                         "id":  "f2",
+                                                                         "label":  "Rectangle",
+                                                                         "shape":  "rectangle"
+                                                                     },
+                                                                     {
+                                                                         "id":  "f3",
+                                                                         "label":  "Cercle",
+                                                                         "shape":  "cercle"
+                                                                     }
+                                                                 ],
+                                                     "buckets":  [
+                                                                     {
+                                                                         "id":  "triangle",
+                                                                         "label":  "Triangles"
+                                                                     },
+                                                                     {
+                                                                         "id":  "quadrilatere",
+                                                                         "label":  "Quadrilatères"
+                                                                     },
+                                                                     {
+                                                                         "id":  "cercle",
+                                                                         "label":  "Cercles"
+                                                                     }
+                                                                 ],
+                                                     "answer":  {
+                                                                    "f1":  "triangle",
+                                                                    "f2":  "quadrilatere",
+                                                                    "f3":  "cercle"
+                                                                }
+                                                 },
+                       "cm1_point_quadrillage":  {
+                                                     "prompt":  "Place le point A en (3 ; 4).",
+                                                     "board":  {
+                                                                   "width":  8,
+                                                                   "height":  8,
+                                                                   "grid":  true
+                                                               },
+                                                     "task":  {
+                                                                  "type":  "place-point",
+                                                                  "label":  "A",
+                                                                  "target":  [
+                                                                                 3,
+                                                                                 4
+                                                                             ]
+                                                              },
+                                                     "tolerance":  0
+                                                 },
+                       "cm1_symetrie_complete":  {
+                                                     "prompt":  "Complète la figure de l'autre côté de l'axe.",
+                                                     "board":  {
+                                                                   "width":  10,
+                                                                   "height":  8,
+                                                                   "grid":  true,
+                                                                   "axis":  {
+                                                                                "type":  "vertical",
+                                                                                "x":  5
+                                                                            }
+                                                               },
+                                                     "givenPoints":  [
+                                                                         [
+                                                                             2,
+                                                                             2
+                                                                         ],
+                                                                         [
+                                                                             3,
+                                                                             4
+                                                                         ],
+                                                                         [
+                                                                             2,
+                                                                             6
+                                                                         ]
+                                                                     ],
+                                                     "targetPoints":  [
+                                                                          [
+                                                                              8,
+                                                                              2
+                                                                          ],
+                                                                          [
+                                                                              7,
+                                                                              4
+                                                                          ],
+                                                                          [
+                                                                              8,
+                                                                              6
+                                                                          ]
+                                                                      ],
+                                                     "tolerance":  0
+                                                 },
+                       "cm1_angles_droits_tap":  {
+                                                     "prompt":  "Touche les angles droits.",
+                                                     "board":  {
+                                                                   "width":  10,
+                                                                   "height":  6,
+                                                                   "grid":  false
+                                                               },
+                                                     "drawing":  {
+                                                                     "lines":  [
+                                                                                   {
+                                                                                       "x1":  1.2,
+                                                                                       "y1":  4.8,
+                                                                                       "x2":  4.2,
+                                                                                       "y2":  4.8
+                                                                                   },
+                                                                                   {
+                                                                                       "x1":  4.2,
+                                                                                       "y1":  4.8,
+                                                                                       "x2":  4.2,
+                                                                                       "y2":  1.8
+                                                                                   },
+                                                                                   {
+                                                                                       "x1":  6.2,
+                                                                                       "y1":  4.6,
+                                                                                       "x2":  8.6,
+                                                                                       "y2":  2.2
+                                                                                   },
+                                                                                   {
+                                                                                       "x1":  6.4,
+                                                                                       "y1":  2,
+                                                                                       "x2":  8.8,
+                                                                                       "y2":  2
+                                                                                   }
+                                                                               ],
+                                                                     "markers":  {
+                                                                                     "type":  "right-angle",
+                                                                                     "x":  4.2,
+                                                                                     "y":  4.8
+                                                                                 }
+                                                                 },
+                                                     "features":  [
+                                                                      {
+                                                                          "id":  "a1",
+                                                                          "x":  4.2,
+                                                                          "y":  4.8,
+                                                                          "correct":  true
+                                                                      },
+                                                                      {
+                                                                          "id":  "a2",
+                                                                          "x":  7.4,
+                                                                          "y":  2.0,
+                                                                          "correct":  false
+                                                                      },
+                                                                      {
+                                                                          "id":  "a3",
+                                                                          "x":  7.4,
+                                                                          "y":  3.4,
+                                                                          "correct":  false
+                                                                      }
+                                                                  ]
+                                                 },
+                       "cm1_perpendiculaires_tap":  {
+                                                        "prompt":  "Touche les droites perpendiculaires.",
+                                                        "board":  {
+                                                                      "width":  10,
+                                                                      "height":  6,
+                                                                      "grid":  false
+                                                                  },
+                                                        "drawing":  {
+                                                                        "lines":  [
+                                                                                      {
+                                                                                          "x1":  1,
+                                                                                          "y1":  1.4,
+                                                                                          "x2":  4.2,
+                                                                                          "y2":  1.4
+                                                                                      },
+                                                                                      {
+                                                                                          "x1":  1,
+                                                                                          "y1":  3.8,
+                                                                                          "x2":  4.2,
+                                                                                          "y2":  3.8
+                                                                                      },
+                                                                                      {
+                                                                                          "x1":  6.8,
+                                                                                          "y1":  1,
+                                                                                          "x2":  6.8,
+                                                                                          "y2":  5
+                                                                                      },
+                                                                                      {
+                                                                                          "x1":  5.2,
+                                                                                          "y1":  3,
+                                                                                          "x2":  8.6,
+                                                                                          "y2":  3
+                                                                                      }
+                                                                                  ],
+                                                                        "markers":  {
+                                                                                        "type":  "right-angle",
+                                                                                        "x":  6.8,
+                                                                                        "y":  3
+                                                                                    }
+                                                                    },
+                                                        "features":  [
+                                                                         {
+                                                                             "id":  "p1",
+                                                                             "x":  6.8,
+                                                                             "y":  2,
+                                                                             "correct":  true
+                                                                         },
+                                                                         {
+                                                                             "id":  "p2",
+                                                                             "x":  7.8,
+                                                                             "y":  3,
+                                                                             "correct":  true
+                                                                         },
+                                                                         {
+                                                                             "id":  "p3",
+                                                                             "x":  2.6,
+                                                                             "y":  1.4,
+                                                                             "correct":  false
+                                                                         },
+                                                                         {
+                                                                             "id":  "p4",
+                                                                             "x":  2.6,
+                                                                             "y":  3.8,
+                                                                             "correct":  false
+                                                                         }
+                                                                     ]
+                                                    }
+                   }
+}
+

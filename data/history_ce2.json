@@ -1,4 +1,4 @@
-{
+﻿{
     "subjectId":  "history",
     "gradeId":  "ce2",
     "title":  "Histoire CE2",
@@ -63,7 +63,7 @@
                                                "choices":  [
                                                                "au passé",
                                                                "au futur",
-                                                               "a la géographie"
+                                                               "à la géographie"
                                                            ],
                                                "answer":  "au passé"
                                            },
@@ -75,26 +75,44 @@
                                                                "une règle de jeu"
                                                            ],
                                                "answer":  "une trace du passé"
+                                           },
+                                           {
+                                               "question":  "Après 1999 vient...",
+                                               "choices":  [
+                                                               "2000",
+                                                               "1900",
+                                                               "2099"
+                                                           ],
+                                               "answer":  "2000"
+                                           },
+                                           {
+                                               "question":  "Une frise aide à...",
+                                               "choices":  [
+                                                               "ordonner les événements",
+                                                               "mesurer une route",
+                                                               "compter les continents"
+                                                           ],
+                                               "answer":  "ordonner les événements"
                                            }
                                        ],
                        "ce2-vie-autrefois":  [
                                                  {
                                                      "question":  "Autrefois, beaucoup de déplacements se faisaient...",
                                                      "choices":  [
-                                                                     "a pied ou a cheval",
+                                                                     "à pied ou à cheval",
                                                                      "en avion",
-                                                                     "en metro partout"
+                                                                     "en métro partout"
                                                                  ],
-                                                     "answer":  "a pied ou a cheval"
+                                                     "answer":  "à pied ou à cheval"
                                                  },
                                                  {
                                                      "question":  "À l'école d'autrefois, on écrivait souvent...",
                                                      "choices":  [
-                                                                     "a la plume",
+                                                                     "à la plume",
                                                                      "sur tablette",
                                                                      "au feutre effaçable"
                                                                  ],
-                                                     "answer":  "a la plume"
+                                                     "answer":  "à la plume"
                                                  },
                                                  {
                                                      "question":  "Comparer avant et aujourd'hui permet de voir...",
@@ -106,11 +124,11 @@
                                                      "answer":  "ce qui a changé"
                                                  },
                                                  {
-                                                     "question":  "Une lampe a huile fait penser...",
+                                                     "question":  "Une lampe à huile fait penser...",
                                                      "choices":  [
                                                                      "au passé",
                                                                      "au futur",
-                                                                     "a l'espace"
+                                                                     "à l'espace"
                                                                  ],
                                                      "answer":  "au passé"
                                                  },
@@ -118,13 +136,13 @@
                                                      "question":  "Autrefois, on envoyait souvent des nouvelles par...",
                                                      "choices":  [
                                                                      "lettre",
-                                                                     "message instantane",
+                                                                     "message instantané",
                                                                      "satellite"
                                                                  ],
                                                      "answer":  "lettre"
                                                  },
                                                  {
-                                                     "question":  "Un vieux telephone est...",
+                                                     "question":  "Un vieux téléphone est...",
                                                      "choices":  [
                                                                      "un objet ancien",
                                                                      "un objet du futur",
@@ -137,18 +155,36 @@
                                                      "choices":  [
                                                                      "la vie d'autrefois",
                                                                      "les divisions",
-                                                                     "les planetes"
+                                                                     "les planètes"
                                                                  ],
                                                      "answer":  "la vie d'autrefois"
                                                  },
                                                  {
                                                      "question":  "Dans les maisons d'autrefois, il y avait souvent...",
                                                      "choices":  [
-                                                                     "moins d'ecrans",
+                                                                     "moins d'écrans",
                                                                      "plus de robots",
-                                                                     "des fusees"
+                                                                     "des fusées"
                                                                  ],
-                                                     "answer":  "moins d'ecrans"
+                                                     "answer":  "moins d'écrans"
+                                                 },
+                                                 {
+                                                     "question":  "Autrefois, on lavait parfois le linge...",
+                                                     "choices":  [
+                                                                     "à la main",
+                                                                     "avec un drone",
+                                                                     "dans un bus"
+                                                                 ],
+                                                     "answer":  "à la main"
+                                                 },
+                                                 {
+                                                     "question":  "Les cartes postales anciennes montrent...",
+                                                     "choices":  [
+                                                                     "des paysages d'autrefois",
+                                                                     "des calculs",
+                                                                     "des planètes"
+                                                                 ],
+                                                     "answer":  "des paysages d'autrefois"
                                                  }
                                              ],
                        "ce2-personnages-monuments":  [
@@ -162,7 +198,7 @@
                                                              "answer":  "une trace du passé"
                                                          },
                                                          {
-                                                             "question":  "Dans un musee, on peut voir...",
+                                                             "question":  "Dans un musée, on peut voir...",
                                                              "choices":  [
                                                                              "des objets anciens",
                                                                              "des autoroutes",
@@ -180,7 +216,7 @@
                                                              "answer":  "un personnage du passé"
                                                          },
                                                          {
-                                                             "question":  "Un château ancien aide à connaitre...",
+                                                             "question":  "Un château ancien aide à connaître...",
                                                              "choices":  [
                                                                              "la vie d'autrefois",
                                                                              "la table de 9",
@@ -192,7 +228,7 @@
                                                              "question":  "Une statue ancienne est souvent...",
                                                              "choices":  [
                                                                              "une trace historique",
-                                                                             "une operation",
+                                                                             "une opération",
                                                                              "un sport"
                                                                          ],
                                                              "answer":  "une trace historique"
@@ -205,7 +241,306 @@
                                                                              "une plante"
                                                                          ],
                                                              "answer":  "un objet du passé"
+                                                         },
+                                                         {
+                                                             "question":  "Un monument protège...",
+                                                             "choices":  [
+                                                                             "la mémoire du passé",
+                                                                             "la météo",
+                                                                             "les jeux vidéo"
+                                                                         ],
+                                                             "answer":  "la mémoire du passé"
+                                                         },
+                                                         {
+                                                             "question":  "Une plaque de rue peut rappeler...",
+                                                             "choices":  [
+                                                                             "un événement historique",
+                                                                             "un exercice de maths",
+                                                                             "une saison"
+                                                                         ],
+                                                             "answer":  "un événement historique"
                                                          }
-                                                     ]
+                                                     ],
+                       "ce2-personnages-celebres":  [
+                                                        {
+                                                            "question":  "Un personnage célèbre du passé est...",
+                                                            "choices":  [
+                                                                            "une personne connue pour son rôle dans l'histoire",
+                                                                            "un pays",
+                                                                            "une saison"
+                                                                        ],
+                                                            "answer":  "une personne connue pour son rôle dans l'histoire"
+                                                        },
+                                                        {
+                                                            "question":  "Jeanne d'Arc est connue comme...",
+                                                            "choices":  [
+                                                                            "un personnage de l'histoire de France",
+                                                                            "une montagne",
+                                                                            "une planète"
+                                                                        ],
+                                                            "answer":  "un personnage de l'histoire de France"
+                                                        },
+                                                        {
+                                                            "question":  "Louis XIV est connu comme...",
+                                                            "choices":  [
+                                                                            "un roi de France",
+                                                                            "un explorateur de l'espace",
+                                                                            "un fleuve"
+                                                                        ],
+                                                            "answer":  "un roi de France"
+                                                        },
+                                                        {
+                                                            "question":  "Un personnage célèbre aide à...",
+                                                            "choices":  [
+                                                                            "mieux connaître le passé",
+                                                                            "mesurer une distance",
+                                                                            "dessiner une carte"
+                                                                        ],
+                                                            "answer":  "mieux connaître le passé"
+                                                        },
+                                                        {
+                                                            "question":  "On peut trouver le portrait d'un personnage célèbre dans...",
+                                                            "choices":  [
+                                                                            "un livre d'histoire",
+                                                                            "un plan de quartier",
+                                                                            "un cahier de calculs"
+                                                                        ],
+                                                            "answer":  "un livre d'histoire"
+                                                        },
+                                                        {
+                                                            "question":  "Un personnage célèbre n'est pas...",
+                                                            "choices":  [
+                                                                            "une règle de grammaire",
+                                                                            "une personne connue",
+                                                                            "un repère historique"
+                                                                        ],
+                                                            "answer":  "une règle de grammaire"
+                                                        },
+                                                        {
+                                                            "question":  "Un explorateur célèbre a souvent...",
+                                                            "choices":  [
+                                                                            "découvert ou parcouru de nouveaux lieux",
+                                                                            "fabriqué des biscuits",
+                                                                            "dessiné des nuages"
+                                                                        ],
+                                                            "answer":  "découvert ou parcouru de nouveaux lieux"
+                                                        },
+                                                        {
+                                                            "question":  "Connaître un personnage célèbre aide à...",
+                                                            "choices":  [
+                                                                            "comprendre une période",
+                                                                            "mesurer une montagne",
+                                                                            "faire une addition"
+                                                                        ],
+                                                            "answer":  "comprendre une période"
+                                                        }
+                                                    ],
+                       "ce2-souvenirs-monuments":  [
+                                                       {
+                                                           "question":  "Une vieille photo de monument est...",
+                                                           "choices":  [
+                                                                           "une trace du passé",
+                                                                           "une règle de calcul",
+                                                                           "un moyen de transport"
+                                                                       ],
+                                                           "answer":  "une trace du passé"
+                                                       },
+                                                       {
+                                                           "question":  "Un monument peut rappeler...",
+                                                           "choices":  [
+                                                                           "une époque ancienne",
+                                                                           "la météo du jour",
+                                                                           "une opération"
+                                                                       ],
+                                                           "answer":  "une époque ancienne"
+                                                       },
+                                                       {
+                                                           "question":  "Visiter un monument aide à...",
+                                                           "choices":  [
+                                                                           "observer des traces du passé",
+                                                                           "apprendre une table de multiplication",
+                                                                           "mesurer la pluie"
+                                                                       ],
+                                                           "answer":  "observer des traces du passé"
+                                                       },
+                                                       {
+                                                           "question":  "Une carte postale ancienne montre souvent...",
+                                                           "choices":  [
+                                                                           "un lieu d'autrefois",
+                                                                           "une expérience de sciences",
+                                                                           "un exercice de conjugaison"
+                                                                       ],
+                                                           "answer":  "un lieu d'autrefois"
+                                                       },
+                                                       {
+                                                           "question":  "Un monument ancien peut être conservé dans...",
+                                                           "choices":  [
+                                                                           "une ville ou un village",
+                                                                           "un cahier",
+                                                                           "un cartable"
+                                                                       ],
+                                                           "answer":  "une ville ou un village"
+                                                       },
+                                                       {
+                                                           "question":  "Les monuments et les souvenirs servent à...",
+                                                           "choices":  [
+                                                                           "mieux connaître le passé",
+                                                                           "aller plus vite",
+                                                                           "calculer une division"
+                                                                       ],
+                                                           "answer":  "mieux connaître le passé"
+                                                       },
+                                                       {
+                                                           "question":  "Une carte ancienne est utile pour...",
+                                                           "choices":  [
+                                                                           "voir comment un lieu a changé",
+                                                                           "faire du sport",
+                                                                           "compter les saisons"
+                                                                       ],
+                                                           "answer":  "voir comment un lieu a changé"
+                                                       },
+                                                       {
+                                                           "question":  "Un souvenir de voyage peut être...",
+                                                           "choices":  [
+                                                                           "une carte postale",
+                                                                           "un calcul",
+                                                                           "un nuage"
+                                                                       ],
+                                                           "answer":  "une carte postale"
+                                                       }
+                                                   ],
+                       "ce2-ecole-autrefois":  [
+                                                   {
+                                                       "question":  "Autrefois, on écrivait souvent avec...",
+                                                       "choices":  [
+                                                                       "une plume",
+                                                                       "un clavier",
+                                                                       "une télécommande"
+                                                                   ],
+                                                       "answer":  "une plume"
+                                                   },
+                                                   {
+                                                       "question":  "À l'école d'autrefois, les cahiers étaient...",
+                                                       "choices":  [
+                                                                       "très utilisés",
+                                                                       "remplacés par des tablettes",
+                                                                       "inutiles"
+                                                                   ],
+                                                       "answer":  "très utilisés"
+                                                   },
+                                                   {
+                                                       "question":  "La plume servait à...",
+                                                       "choices":  [
+                                                                       "écrire",
+                                                                       "mesurer",
+                                                                       "se déplacer"
+                                                                   ],
+                                                       "answer":  "écrire"
+                                                   },
+                                                   {
+                                                       "question":  "Comparer l'école d'autrefois et celle d'aujourd'hui permet de voir...",
+                                                       "choices":  [
+                                                                       "ce qui a changé",
+                                                                       "la météo",
+                                                                       "les montagnes"
+                                                                   ],
+                                                       "answer":  "ce qui a changé"
+                                                   },
+                                                   {
+                                                       "question":  "Autrefois, il y avait souvent...",
+                                                       "choices":  [
+                                                                       "moins d'outils numériques",
+                                                                       "plus de robots",
+                                                                       "des navettes spatiales"
+                                                                   ],
+                                                       "answer":  "moins d'outils numériques"
+                                                   },
+                                                   {
+                                                       "question":  "L'école d'autrefois appartient...",
+                                                       "choices":  [
+                                                                       "au passé",
+                                                                       "au futur",
+                                                                       "à l'espace"
+                                                                   ],
+                                                       "answer":  "au passé"
+                                                   },
+                                                   {
+                                                       "question":  "Autrefois, la cour de récréation était souvent...",
+                                                       "choices":  [
+                                                                       "plus calme",
+                                                                       "remplie de tablettes",
+                                                                       "sur Internet"
+                                                                   ],
+                                                       "answer":  "plus calme"
+                                                   }
+                                               ],
+                       "ce2-frise-vie-famille":  [
+                                                     {
+                                                         "question":  "Une frise de vie aide à...",
+                                                         "choices":  [
+                                                                         "mettre des événements dans l'ordre",
+                                                                         "compter des triangles",
+                                                                         "mesurer une distance"
+                                                                     ],
+                                                         "answer":  "mettre des événements dans l'ordre"
+                                                     },
+                                                     {
+                                                         "question":  "Sur une frise, l'événement le plus ancien va...",
+                                                         "choices":  [
+                                                                         "avant le plus récent",
+                                                                         "après le plus récent",
+                                                                         "au hasard"
+                                                                     ],
+                                                         "answer":  "avant le plus récent"
+                                                     },
+                                                     {
+                                                         "question":  "Une naissance dans la famille est...",
+                                                         "choices":  [
+                                                                         "un événement que l'on peut placer sur une frise",
+                                                                         "un pays",
+                                                                         "une saison"
+                                                                     ],
+                                                         "answer":  "un événement que l'on peut placer sur une frise"
+                                                     },
+                                                     {
+                                                         "question":  "Une frise familiale sert à...",
+                                                         "choices":  [
+                                                                         "mieux repérer le temps",
+                                                                         "faire une division",
+                                                                         "dessiner une carte routière"
+                                                                     ],
+                                                         "answer":  "mieux repérer le temps"
+                                                     },
+                                                     {
+                                                         "question":  "Mettre des photos dans l'ordre, c'est...",
+                                                         "choices":  [
+                                                                         "faire une petite chronologie",
+                                                                         "changer les saisons",
+                                                                         "mesurer des masses"
+                                                                     ],
+                                                         "answer":  "faire une petite chronologie"
+                                                     },
+                                                     {
+                                                         "question":  "Une date sur une frise indique...",
+                                                         "choices":  [
+                                                                         "quand un événement a eu lieu",
+                                                                         "où habite quelqu'un",
+                                                                         "la couleur d'un objet"
+                                                                     ],
+                                                         "answer":  "quand un événement a eu lieu"
+                                                     },
+                                                     {
+                                                         "question":  "Un anniversaire sur une frise montre...",
+                                                         "choices":  [
+                                                                         "le passage du temps",
+                                                                         "la taille d'une classe",
+                                                                         "la météo"
+                                                                     ],
+                                                         "answer":  "le passage du temps"
+                                                     }
+                                                 ]
                    }
 }
+
+
+

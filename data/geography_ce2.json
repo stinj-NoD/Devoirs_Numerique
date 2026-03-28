@@ -1,7 +1,7 @@
-{
+﻿{
     "subjectId":  "geography",
     "gradeId":  "ce2",
-    "title":  "géographie CE2",
+    "title":  "Géographie CE2",
     "categories":  {
                        "ce2-espaces":  [
                                            {
@@ -36,7 +36,7 @@
                                                "choices":  [
                                                                "salée",
                                                                "douce",
-                                                               "gelée toute l'annee"
+                                                               "gelée toute l'année"
                                                            ],
                                                "answer":  "salée"
                                            },
@@ -75,6 +75,15 @@
                                                                "les divisions"
                                                            ],
                                                "answer":  "les symboles"
+                                           },
+                                           {
+                                               "question":  "Dans un espace rural, on trouve souvent...",
+                                               "choices":  [
+                                                               "des champs et des fermes",
+                                                               "des gratte-ciel",
+                                                               "des ports"
+                                                           ],
+                                               "answer":  "des champs et des fermes"
                                            }
                                        ],
                        "ce2-france":  [
@@ -126,40 +135,49 @@
                                           {
                                               "question":  "La mer permet entre autres...",
                                               "choices":  [
-                                                              "les ports et la peche",
+                                                              "les ports et la pêche",
                                                               "les pistes de ski",
                                                               "les volcans"
                                                           ],
-                                              "answer":  "les ports et la peche"
+                                              "answer":  "les ports et la pêche"
                                           },
                                           {
                                               "question":  "Un port est utile pour...",
                                               "choices":  [
-                                                              "les bateaux et les echanges",
+                                                              "les bateaux et les échanges",
                                                               "les avions",
                                                               "les troupeaux"
                                                           ],
-                                              "answer":  "les bateaux et les echanges"
+                                              "answer":  "les bateaux et les échanges"
                                           },
                                           {
                                               "question":  "La France se trouve en...",
                                               "choices":  [
                                                               "Europe",
                                                               "Asie",
-                                                              "Amerique du Sud"
+                                                              "Amérique du Sud"
                                                           ],
                                               "answer":  "Europe"
+                                          },
+                                          {
+                                              "question":  "La Corse est...",
+                                              "choices":  [
+                                                              "une île française",
+                                                              "une chaîne de montagnes",
+                                                              "un fleuve"
+                                                          ],
+                                              "answer":  "une île française"
                                           }
                                       ],
                        "ce2-se-reperer":  [
                                               {
-                                                  "question":  "Pour se repérer dans l'école, on peut utiliser...",
+                                                  "question":  "Un plan sert à se repérer dans un espace...",
                                                   "choices":  [
-                                                                  "un plan",
-                                                                  "un volcan",
-                                                                  "un thermometre"
+                                                                  "proche",
+                                                                  "lointain",
+                                                                  "imaginaire"
                                                               ],
-                                                  "answer":  "un plan"
+                                                  "answer":  "proche"
                                               },
                                               {
                                                   "question":  "La légende d'un plan permet de comprendre...",
@@ -174,37 +192,55 @@
                                                   "question":  "Devant toi se trouve ce qui est...",
                                                   "choices":  [
                                                                   "en face",
-                                                                  "derriere",
+                                                                  "derrière",
                                                                   "dessous"
                                                               ],
                                                   "answer":  "en face"
                                               },
                                               {
-                                                  "question":  "A gauche est...",
+                                                  "question":  "?? gauche est...",
                                                   "choices":  [
-                                                                  "du cote gauche",
+                                                                  "du côté gauche",
                                                                   "toujours devant",
-                                                                  "toujours derriere"
+                                                                  "toujours derrière"
                                                               ],
-                                                  "answer":  "du cote gauche"
+                                                  "answer":  "du côté gauche"
                                               },
                                               {
                                                   "question":  "Pour traverser la rue, on utilise...",
                                                   "choices":  [
-                                                                  "un passage pieton",
-                                                                  "une echelle",
+                                                                  "un passage piéton",
+                                                                  "une échelle",
                                                                   "une barque"
                                                               ],
-                                                  "answer":  "un passage pieton"
+                                                  "answer":  "un passage piéton"
                                               },
                                               {
-                                                  "question":  "Des reperes fixes aident à...",
+                                                  "question":  "Des repères fixes aident à...",
                                                   "choices":  [
                                                                   "mieux se situer",
                                                                   "mieux oublier",
                                                                   "mieux courir"
                                                               ],
                                                   "answer":  "mieux se situer"
+                                              },
+                                              {
+                                                  "question":  "Un plan sert à se repérer dans un espace...",
+                                                  "choices":  [
+                                                                  "vrai",
+                                                                  "faux",
+                                                                  "parfois seulement"
+                                                              ],
+                                                  "answer":  "vrai"
+                                              },
+                                              {
+                                                  "question":  "Pour s'orienter sur une carte, on repère souvent...",
+                                                  "choices":  [
+                                                                  "le nord",
+                                                                  "la pluie",
+                                                                  "les saisons"
+                                                              ],
+                                                  "answer":  "le nord"
                                               }
                                           ],
                        "ce2-transports":  [
@@ -218,7 +254,7 @@
                                                   "answer":  "des rails"
                                               },
                                               {
-                                                  "question":  "Un port est un lieu ou l'on trouve...",
+                                                  "question":  "Un port est un lieu où l'on trouve...",
                                                   "choices":  [
                                                                   "des bateaux",
                                                                   "des avions",
@@ -261,7 +297,361 @@
                                                                   "observer les étoiles"
                                                               ],
                                                   "answer":  "prendre le train"
+                                              },
+                                              {
+                                                  "question":  "Le vélo est pratique pour...",
+                                                  "choices":  [
+                                                                  "de courts trajets",
+                                                                  "traverser la mer",
+                                                                  "prendre l'avion"
+                                                              ],
+                                                  "answer":  "de courts trajets"
+                                              },
+                                              {
+                                                  "question":  "La gare est le lieu où l'on prend...",
+                                                  "choices":  [
+                                                                  "le train",
+                                                                  "le bateau",
+                                                                  "le métro seulement"
+                                                              ],
+                                                  "answer":  "le train"
                                               }
-                                          ]
+                                          ],
+                       "ce2-habiter-activites":  [
+                                                     {
+                                                         "question":  "Habiter un espace, c'est...",
+                                                         "choices":  [
+                                                                         "y vivre et l'utiliser",
+                                                                         "le déplacer",
+                                                                         "le transformer en planète"
+                                                                     ],
+                                                         "answer":  "y vivre et l'utiliser"
+                                                     },
+                                                     {
+                                                         "question":  "Dans une commune, on trouve souvent...",
+                                                         "choices":  [
+                                                                         "des logements et des activités",
+                                                                         "seulement des plages",
+                                                                         "seulement des montagnes"
+                                                                     ],
+                                                         "answer":  "des logements et des activités"
+                                                     },
+                                                     {
+                                                         "question":  "Un habitant peut aller dans sa commune pour...",
+                                                         "choices":  [
+                                                                         "travailler, apprendre ou faire des courses",
+                                                                         "changer de continent",
+                                                                         "arrêter les saisons"
+                                                                     ],
+                                                         "answer":  "travailler, apprendre ou faire des courses"
+                                                     },
+                                                     {
+                                                         "question":  "Habiter quelque part, c'est aussi...",
+                                                         "choices":  [
+                                                                         "se déplacer dans des lieux connus",
+                                                                         "vivre sur une planète imaginaire",
+                                                                         "oublier tous les repères"
+                                                                     ],
+                                                         "answer":  "se déplacer dans des lieux connus"
+                                                     },
+                                                     {
+                                                         "question":  "Les activités d'une commune peuvent être...",
+                                                         "choices":  [
+                                                                         "commerciales, scolaires ou sportives",
+                                                                         "seulement maritimes",
+                                                                         "seulement spatiales"
+                                                                     ],
+                                                         "answer":  "commerciales, scolaires ou sportives"
+                                                     },
+                                                     {
+                                                         "question":  "Un quartier habité comporte souvent...",
+                                                         "choices":  [
+                                                                         "des maisons ou des immeubles",
+                                                                         "uniquement des fusées",
+                                                                         "seulement des forêts"
+                                                                     ],
+                                                         "answer":  "des maisons ou des immeubles"
+                                                     },
+                                                     {
+                                                         "question":  "Dans un quartier, on peut trouver...",
+                                                         "choices":  [
+                                                                         "des logements et des commerces",
+                                                                         "seulement des champs",
+                                                                         "des volcans"
+                                                                     ],
+                                                         "answer":  "des logements et des commerces"
+                                                     }
+                                                 ],
+                       "ce2-services-commune":  [
+                                                    {
+                                                        "question":  "La mairie est un service de...",
+                                                        "choices":  [
+                                                                        "la commune",
+                                                                        "la montagne",
+                                                                        "la forêt"
+                                                                    ],
+                                                        "answer":  "la commune"
+                                                    },
+                                                    {
+                                                        "question":  "La bibliothèque est un lieu où l'on peut...",
+                                                        "choices":  [
+                                                                        "emprunter des livres",
+                                                                        "prendre l'avion",
+                                                                        "soigner une voiture"
+                                                                    ],
+                                                        "answer":  "emprunter des livres"
+                                                    },
+                                                    {
+                                                        "question":  "La poste sert notamment à...",
+                                                        "choices":  [
+                                                                        "envoyer du courrier",
+                                                                        "cultiver un champ",
+                                                                        "mesurer une route"
+                                                                    ],
+                                                        "answer":  "envoyer du courrier"
+                                                    },
+                                                    {
+                                                        "question":  "Un service public utile aux habitants est...",
+                                                        "choices":  [
+                                                                        "la mairie",
+                                                                        "une planète",
+                                                                        "un volcan"
+                                                                    ],
+                                                        "answer":  "la mairie"
+                                                    },
+                                                    {
+                                                        "question":  "Les services de la commune aident à...",
+                                                        "choices":  [
+                                                                        "mieux vivre ensemble",
+                                                                        "faire tomber la pluie",
+                                                                        "changer les saisons"
+                                                                    ],
+                                                        "answer":  "mieux vivre ensemble"
+                                                    },
+                                                    {
+                                                        "question":  "La piscine ou le gymnase sont souvent...",
+                                                        "choices":  [
+                                                                        "des équipements de la commune",
+                                                                        "des continents",
+                                                                        "des routes maritimes"
+                                                                    ],
+                                                        "answer":  "des équipements de la commune"
+                                                    },
+                                                    {
+                                                        "question":  "La cantine scolaire est souvent...",
+                                                        "choices":  [
+                                                                        "un service de la commune",
+                                                                        "une montagne",
+                                                                        "un fleuve"
+                                                                    ],
+                                                        "answer":  "un service de la commune"
+                                                    }
+                                                ],
+                       "ce2-cartes-quartier":  [
+                                                   {
+                                                       "question":  "Le plan d'un quartier aide à...",
+                                                       "choices":  [
+                                                                       "se repérer",
+                                                                       "mesurer le vent",
+                                                                       "réciter une poésie"
+                                                                   ],
+                                                       "answer":  "se repérer"
+                                                   },
+                                                   {
+                                                       "question":  "Sur un plan, une légende sert à...",
+                                                       "choices":  [
+                                                                       "comprendre les symboles",
+                                                                       "écrire sans faute",
+                                                                       "mesurer une masse"
+                                                                   ],
+                                                       "answer":  "comprendre les symboles"
+                                                   },
+                                                   {
+                                                       "question":  "Un trajet sur un plan montre...",
+                                                       "choices":  [
+                                                                       "le chemin à suivre",
+                                                                       "la météo du jour",
+                                                                       "une opération"
+                                                                   ],
+                                                       "answer":  "le chemin à suivre"
+                                                   },
+                                                   {
+                                                       "question":  "Un plan de quartier représente...",
+                                                       "choices":  [
+                                                                       "des rues et des lieux proches",
+                                                                       "des planètes",
+                                                                       "des animaux sauvages"
+                                                                   ],
+                                                       "answer":  "des rues et des lieux proches"
+                                                   },
+                                                   {
+                                                       "question":  "Pour aller de l'école à la bibliothèque, un plan peut aider à...",
+                                                       "choices":  [
+                                                                       "choisir un trajet",
+                                                                       "conjuguer un verbe",
+                                                                       "comparer des siècles"
+                                                                   ],
+                                                       "answer":  "choisir un trajet"
+                                                   },
+                                                   {
+                                                       "question":  "Un symbole sur un plan peut représenter...",
+                                                       "choices":  [
+                                                                       "un bâtiment",
+                                                                       "une phrase",
+                                                                       "une saison"
+                                                                   ],
+                                                       "answer":  "un bâtiment"
+                                                   },
+                                                   {
+                                                       "question":  "Un itinéraire sur un plan montre...",
+                                                       "choices":  [
+                                                                       "le chemin à suivre",
+                                                                       "la météo du jour",
+                                                                       "une division"
+                                                                   ],
+                                                       "answer":  "le chemin à suivre"
+                                                   }
+                                               ],
+                       "ce2-reliefs-simples":  [
+                                                   {
+                                                       "question":  "Une montagne est un...",
+                                                       "choices":  [
+                                                                       "relief élevé",
+                                                                       "service public",
+                                                                       "moyen de transport"
+                                                                   ],
+                                                       "answer":  "relief élevé"
+                                                   },
+                                                   {
+                                                       "question":  "Une vallée se trouve souvent...",
+                                                       "choices":  [
+                                                                       "entre des reliefs",
+                                                                       "dans le ciel",
+                                                                       "sur la mer"
+                                                                   ],
+                                                       "answer":  "entre des reliefs"
+                                                   },
+                                                   {
+                                                       "question":  "Une plaine est un relief...",
+                                                       "choices":  [
+                                                                       "plutôt plat",
+                                                                       "très élevé",
+                                                                       "toujours couvert de neige"
+                                                                   ],
+                                                       "answer":  "plutôt plat"
+                                                   },
+                                                   {
+                                                       "question":  "Le relief d'un espace correspond à...",
+                                                       "choices":  [
+                                                                       "sa forme",
+                                                                       "sa conjugaison",
+                                                                       "sa couleur préférée"
+                                                                   ],
+                                                       "answer":  "sa forme"
+                                                   },
+                                                   {
+                                                       "question":  "Les montagnes et les plaines sont...",
+                                                       "choices":  [
+                                                                       "des reliefs",
+                                                                       "des services de la commune",
+                                                                       "des moyens de transport"
+                                                                   ],
+                                                       "answer":  "des reliefs"
+                                                   },
+                                                   {
+                                                       "question":  "Sur une carte, un relief peut être montré grâce à...",
+                                                       "choices":  [
+                                                                       "des couleurs ou des symboles",
+                                                                       "des tables de multiplication",
+                                                                       "des règles de jeu"
+                                                                   ],
+                                                       "answer":  "des couleurs ou des symboles"
+                                                   },
+                                                   {
+                                                       "question":  "Une colline est un relief...",
+                                                       "choices":  [
+                                                                       "moins élevé qu'une montagne",
+                                                                       "situé dans la mer",
+                                                                       "plat comme une route"
+                                                                   ],
+                                                       "answer":  "moins élevé qu'une montagne"
+                                                   }
+                                               ],
+                       "ce2-cartes-symboles":  [
+                                                   {
+                                                       "question":  "Sur une carte, la légende sert à...",
+                                                       "choices":  [
+                                                                       "comprendre les symboles",
+                                                                       "mesurer la température",
+                                                                       "raconter une histoire"
+                                                                   ],
+                                                       "answer":  "comprendre les symboles"
+                                                   },
+                                                   {
+                                                       "question":  "Un symbole bleu sur une carte peut représenter...",
+                                                       "choices":  [
+                                                                       "de l'eau",
+                                                                       "une montagne de cahiers",
+                                                                       "une phrase"
+                                                                   ],
+                                                       "answer":  "de l'eau"
+                                                   },
+                                                   {
+                                                       "question":  "La légende d'une carte se lit pour...",
+                                                       "choices":  [
+                                                                       "savoir ce que signifient les dessins",
+                                                                       "apprendre une poésie",
+                                                                       "faire une division"
+                                                                   ],
+                                                       "answer":  "savoir ce que signifient les dessins"
+                                                   },
+                                                   {
+                                                       "question":  "Sur un plan, un carré peut représenter...",
+                                                       "choices":  [
+                                                                       "un bâtiment",
+                                                                       "une saison",
+                                                                       "une opération"
+                                                                   ],
+                                                       "answer":  "un bâtiment"
+                                                   },
+                                                   {
+                                                       "question":  "Les symboles servent à montrer...",
+                                                       "choices":  [
+                                                                       "des informations sur un lieu",
+                                                                       "des règles de conjugaison",
+                                                                       "des notes de musique seulement"
+                                                                   ],
+                                                       "answer":  "des informations sur un lieu"
+                                                   },
+                                                   {
+                                                       "question":  "Une carte sans légende est souvent...",
+                                                       "choices":  [
+                                                                       "plus difficile à comprendre",
+                                                                       "toujours plus précise",
+                                                                       "un exercice de calcul"
+                                                                   ],
+                                                       "answer":  "plus difficile à comprendre"
+                                                   },
+                                                   {
+                                                       "question":  "Sur une carte, une couleur peut servir à distinguer...",
+                                                       "choices":  [
+                                                                       "des espaces différents",
+                                                                       "des verbes",
+                                                                       "des notes"
+                                                                   ],
+                                                       "answer":  "des espaces différents"
+                                                   },
+                                                   {
+                                                       "question":  "La légende d'une carte aide à comprendre...",
+                                                       "choices":  [
+                                                                       "ce que signifie chaque symbole",
+                                                                       "la température du jour",
+                                                                       "les saisons"
+                                                                   ],
+                                                       "answer":  "ce que signifie chaque symbole"
+                                                   }
+                                               ]
                    }
 }
+
+
