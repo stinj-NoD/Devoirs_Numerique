@@ -1,4 +1,4 @@
-﻿const Validators = {
+const Validators = {
     knownEngines: new Set([
         'choice-engine',
         'clock',
@@ -38,18 +38,18 @@
 
     validateFrenchLibrarySection(sectionName, data) {
         if (!this.isPlainObject(data)) {
-            return { valid: false, reason: `Section de bibliothèque invalide : ${sectionName}.` };
+            return { valid: false, reason: `Section de biblioth�que invalide : ${sectionName}.` };
         }
 
         if (sectionName === 'reading') {
             for (const [category, entries] of Object.entries(data)) {
                 if (!Array.isArray(entries) || entries.length === 0) {
-                    return { valid: false, reason: `Catégorie de lecture invalide : ${category}.` };
+                    return { valid: false, reason: `Cat�gorie de lecture invalide : ${category}.` };
                 }
 
                 for (const entry of entries) {
                     if (!this.isPlainObject(entry)) {
-                        return { valid: false, reason: `Entrée de lecture invalide : ${category}.` };
+                        return { valid: false, reason: `Entr�e de lecture invalide : ${category}.` };
                     }
 
                     if (!this.isNonEmptyString(entry.text)) {
@@ -62,7 +62,7 @@
 
                     const answer = entry.answer || entry.a || entry.text;
                     if (!this.isNonEmptyString(answer)) {
-                        return { valid: false, reason: `Réponse de lecture absente : ${category}.` };
+                        return { valid: false, reason: `R�ponse de lecture absente : ${category}.` };
                     }
 
                     if (!Array.isArray(entry.choices) || entry.choices.length < 2 || entry.choices.some((choice) => !this.isNonEmptyString(choice))) {
@@ -70,7 +70,7 @@
                     }
 
                     if (!entry.choices.includes(answer)) {
-                        return { valid: false, reason: `Réponse de lecture hors choix : ${category}.` };
+                        return { valid: false, reason: `R�ponse de lecture hors choix : ${category}.` };
                     }
 
                     if (entry.silent !== undefined && (!Array.isArray(entry.silent) || entry.silent.some((index) => !Number.isInteger(Number(index)) || Number(index) < 0))) {
@@ -83,12 +83,12 @@
         if (sectionName === 'grammar') {
             for (const [category, entries] of Object.entries(data)) {
                 if (!Array.isArray(entries) || entries.length === 0) {
-                    return { valid: false, reason: `Catégorie de grammaire invalide : ${category}.` };
+                    return { valid: false, reason: `Cat�gorie de grammaire invalide : ${category}.` };
                 }
 
                 for (const entry of entries) {
                     if (!this.isPlainObject(entry)) {
-                        return { valid: false, reason: `Entrée de grammaire invalide : ${category}.` };
+                        return { valid: false, reason: `Entr�e de grammaire invalide : ${category}.` };
                     }
 
                     const isGenderEntry = this.isNonEmptyString(entry.word)
@@ -112,7 +112,7 @@
 
     validateFrenchLibrary(lib) {
         if (!this.isPlainObject(lib)) {
-            return { valid: false, reason: 'BibliothÃ¨que de langue invalide.' };
+            return { valid: false, reason: 'Bibliothèque de langue invalide.' };
         }
 
         const requiredSections = ['spelling', 'conjugation', 'homophones', 'grammar'];
@@ -145,13 +145,13 @@
                 return { valid: false, reason: "index.json invalide : une classe n'est pas un objet." };
             }
             if (!this.isNonEmptyString(grade.id) || !this.isNonEmptyString(grade.title) || !this.isDataFilePath(grade.dataFile)) {
-                return { valid: false, reason: `index.json invalide : classe incomplÃ¨te (${grade?.id || 'id manquant'}).` };
+                return { valid: false, reason: `index.json invalide : classe incomplète (${grade?.id || 'id manquant'}).` };
             }
             gradeIds.push(grade.id.trim());
         }
 
         if (this.hasDuplicates(gradeIds)) {
-            return { valid: false, reason: 'index.json invalide : id de classes dupliquÃ©s.' };
+            return { valid: false, reason: 'index.json invalide : id de classes dupliqués.' };
         }
 
         return { valid: true };
@@ -197,10 +197,10 @@
         if (hasSubjects) {
             for (const subject of data.subjects) {
                 if (!this.isPlainObject(subject)) {
-                    return { valid: false, reason: "Fichier de niveau invalide : une matiÃ¨re n'est pas un objet." };
+                    return { valid: false, reason: "Fichier de niveau invalide : une matière n'est pas un objet." };
                 }
                 if (!this.isNonEmptyString(subject.id) || !this.isNonEmptyString(subject.title) || !Array.isArray(subject.subthemes) || subject.subthemes.length === 0) {
-                    return { valid: false, reason: `Fichier de niveau invalide : matiÃ¨re incomplÃ¨te (${subject?.id || 'id manquant'}).` };
+                    return { valid: false, reason: `Fichier de niveau invalide : matière incomplète (${subject?.id || 'id manquant'}).` };
                 }
 
                 subjectIds.push(subject.id.trim());
@@ -220,14 +220,14 @@
                         if (!lessonCheck.valid) {
                             return {
                                 valid: false,
-                                reason: `Fichier de niveau invalide : leÃ§on ${lesson?.id || 'sans id'} dans ${subtheme.id} - ${lessonCheck.reason}`
+                                reason: `Fichier de niveau invalide : leçon ${lesson?.id || 'sans id'} dans ${subtheme.id} - ${lessonCheck.reason}`
                             };
                         }
                         lessonIds.push(lesson.id.trim());
                     }
 
                     if (this.hasDuplicates(lessonIds)) {
-                        return { valid: false, reason: `Fichier de niveau invalide : id de leÃ§ons dupliquÃ©s dans ${subtheme.id}.` };
+                        return { valid: false, reason: `Fichier de niveau invalide : id de leçons dupliqués dans ${subtheme.id}.` };
                     }
 
                     for (const exercise of subtheme.exercises) {
@@ -245,22 +245,22 @@
         }
 
         if (this.hasDuplicates(themeIds)) {
-            return { valid: false, reason: 'Fichier de niveau invalide : id de thÃ¨mes dupliquÃ©s.' };
+            return { valid: false, reason: 'Fichier de niveau invalide : id de thèmes dupliqués.' };
         }
         if (this.hasDuplicates(subjectIds)) {
-            return { valid: false, reason: 'Fichier de niveau invalide : id de matiÃ¨res dupliquÃ©s.' };
+            return { valid: false, reason: 'Fichier de niveau invalide : id de matières dupliqués.' };
         }
         if (this.hasDuplicates(subthemeIds)) {
-            return { valid: false, reason: 'Fichier de niveau invalide : id de sous-thÃ¨mes dupliquÃ©s.' };
+            return { valid: false, reason: 'Fichier de niveau invalide : id de sous-thèmes dupliqués.' };
         }
         if (this.hasDuplicates(exerciseIds)) {
-            return { valid: false, reason: 'Fichier de niveau invalide : id d\'exercices dupliquÃ©s.' };
+            return { valid: false, reason: 'Fichier de niveau invalide : id d\'exercices dupliqués.' };
         }
 
         return { valid: true };
     },
 
-    validateTheme(theme, label = 'thÃ¨me') {
+    validateTheme(theme, label = 'thème') {
         if (!this.isPlainObject(theme)) {
             return { valid: false, reason: `Fichier de niveau invalide : un ${label} n'est pas un objet.` };
         }
@@ -272,18 +272,18 @@
 
     validateSubtheme(subtheme) {
         if (!this.isPlainObject(subtheme)) {
-            return { valid: false, reason: "Fichier de niveau invalide : un sous-thÃ¨me n'est pas un objet." };
+            return { valid: false, reason: "Fichier de niveau invalide : un sous-thème n'est pas un objet." };
         }
 
         const hasExercises = Array.isArray(subtheme.exercises) && subtheme.exercises.length > 0;
         const hasLessons = Array.isArray(subtheme.lessons) && subtheme.lessons.length > 0;
 
         if (!this.isNonEmptyString(subtheme.id) || !this.isNonEmptyString(subtheme.title)) {
-            return { valid: false, reason: `Fichier de niveau invalide : sous-thÃ¨me incomplet (${subtheme?.id || 'id manquant'}).` };
+            return { valid: false, reason: `Fichier de niveau invalide : sous-thème incomplet (${subtheme?.id || 'id manquant'}).` };
         }
 
         if (!hasExercises && !hasLessons) {
-            return { valid: false, reason: `Fichier de niveau invalide : sous-thÃ¨me vide (${subtheme.id}).` };
+            return { valid: false, reason: `Fichier de niveau invalide : sous-thème vide (${subtheme.id}).` };
         }
 
         if (subtheme.lessons !== undefined && !Array.isArray(subtheme.lessons)) {
@@ -299,16 +299,16 @@
 
     validateLesson(lesson) {
         if (!this.isPlainObject(lesson)) {
-            return { valid: false, reason: 'leÃ§on absente ou mal formÃ©e.' };
+            return { valid: false, reason: 'leçon absente ou mal formée.' };
         }
         if (!this.isNonEmptyString(lesson.id) || !this.isNonEmptyString(lesson.title)) {
-            return { valid: false, reason: 'id/title de leÃ§on manquants.' };
+            return { valid: false, reason: 'id/title de leçon manquants.' };
         }
         if (!this.isValidLessonFormat(lesson.format)) {
-            return { valid: false, reason: 'format de leÃ§on invalide.' };
+            return { valid: false, reason: 'format de leçon invalide.' };
         }
         if (!Array.isArray(lesson.blocks) || lesson.blocks.length === 0) {
-            return { valid: false, reason: 'blocks manquants ou vides pour la leÃ§on.' };
+            return { valid: false, reason: 'blocks manquants ou vides pour la leçon.' };
         }
 
         for (const block of lesson.blocks) {
@@ -321,7 +321,7 @@
 
     validateLessonBlock(block) {
         if (!this.isPlainObject(block) || !this.isNonEmptyString(block.type)) {
-            return { valid: false, reason: 'bloc de leÃ§on invalide.' };
+            return { valid: false, reason: 'bloc de leçon invalide.' };
         }
 
         const type = block.type.trim();
@@ -360,12 +360,12 @@
                 : { valid: false, reason: 'bloc mini-table invalide.' };
         }
 
-        return { valid: false, reason: `type de bloc de leÃ§on inconnu (${type}).` };
+        return { valid: false, reason: `type de bloc de leçon inconnu (${type}).` };
     },
 
     validateExercise(exercise) {
         if (!this.isPlainObject(exercise)) {
-            return { valid: false, reason: 'exercice absent ou mal formÃ©.' };
+            return { valid: false, reason: 'exercice absent ou mal formé.' };
         }
         if (!this.isNonEmptyString(exercise.id) || !this.isNonEmptyString(exercise.title)) {
             return { valid: false, reason: 'id/title manquants.' };
@@ -380,7 +380,7 @@
             return { valid: false, reason: 'params manquants ou invalides.' };
         }
         if (!this.isPositiveInteger(exercise.params.questions)) {
-            return { valid: false, reason: 'paramÃ¨tre questions invalide.' };
+            return { valid: false, reason: 'paramètre questions invalide.' };
         }
         if (exercise.params.dataFile && !this.isDataFilePath(exercise.params.dataFile)) {
             return { valid: false, reason: 'dataFile invalide.' };
@@ -448,7 +448,7 @@
 
         const pool = dataSet.categories[exercise.params.category];
         if (!Array.isArray(pool) || pool.length === 0) {
-            return { valid: false, reason: `catÃ©gorie documentaire introuvable (${exercise.params.category}).` };
+            return { valid: false, reason: `catégorie documentaire introuvable (${exercise.params.category}).` };
         }
 
         const invalidItem = pool.find((item) =>
@@ -474,12 +474,12 @@
 
         const pool = dataSet.categories[exercise.params.category];
         if (!Array.isArray(pool) || pool.length === 0) {
-            return { valid: false, reason: `catégorie interactive introuvable (${exercise.params.category}).` };
+            return { valid: false, reason: `cat�gorie interactive introuvable (${exercise.params.category}).` };
         }
 
         for (const item of pool) {
             if (!this.isPlainObject(item) || !this.isNonEmptyString(item.prompt) || !this.isPlainObject(item.board)) {
-                return { valid: false, reason: `entrée interactive invalide dans ${exercise.params.category}.` };
+                return { valid: false, reason: `entr�e interactive invalide dans ${exercise.params.category}.` };
             }
 
             if (exercise.params.type === 'tap-features') {
@@ -545,7 +545,7 @@
 
         const eventIds = events.map((event) => event?.id).filter(Boolean);
         if (this.hasDuplicates(eventIds)) {
-            return { valid: false, reason: "dataset frise invalide : id d'events dupliqués." };
+            return { valid: false, reason: "dataset frise invalide : id d'events dupliqu�s." };
         }
 
         const periodIds = periods.map((period) => period?.id).filter(Boolean);
@@ -563,7 +563,7 @@
         }
 
         if (timeline.mode !== exercise.params.mode) {
-            return { valid: false, reason: `timeline incohÃ©rente (${exercise.params.timelineId}) : mode inattendu.` };
+            return { valid: false, reason: `timeline incohérente (${exercise.params.timelineId}) : mode inattendu.` };
         }
 
         const eventMap = new Map(events.map((event) => [event.id, event]));
@@ -586,7 +586,7 @@
         if (periods.length > 0) {
             const unknownPeriod = events.find((event) => !periodIds.includes(event.period));
             if (unknownPeriod) {
-                return { valid: false, reason: `event de frise avec pÃ©riode inconnue (${unknownPeriod.id}).` };
+                return { valid: false, reason: `event de frise avec période inconnue (${unknownPeriod.id}).` };
             }
         }
 
@@ -605,11 +605,11 @@
 
     validateProblem(problem) {
         if (!problem || typeof problem !== 'object') {
-            return { valid: false, reason: 'RÃ©ponse moteur absente.' };
+            return { valid: false, reason: 'Réponse moteur absente.' };
         }
 
         if (problem.answer === undefined || problem.answer === null) {
-            return { valid: false, reason: 'RÃ©ponse moteur sans answer.' };
+            return { valid: false, reason: 'Réponse moteur sans answer.' };
         }
 
         return { valid: true };

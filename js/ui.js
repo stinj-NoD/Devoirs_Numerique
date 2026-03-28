@@ -1,11 +1,11 @@
-﻿/*
- * Devoir NumÃ©rique - UI.js
+/*
+ * Devoir Numérique - UI.js
  * Copyright (C) 2026 [Stinj-NoD]
  * Version : 3.0 (Hardened & Secure)
  */
 
 const UI = {
-    // Getters sÃ©curisÃ©s (retournent null si Ã©lÃ©ment absent)
+    // Getters sécurisés (retournent null si élément absent)
     get screens() { return document.querySelectorAll('.screen'); },
     get btnBack() { return document.getElementById('btn-back'); },
     get btnHome() { return document.getElementById('btn-home'); },
@@ -16,11 +16,11 @@ const UI = {
     _navInitialized: false,
 
     /**
-     * Gestionnaire d'affichage des Ã©crans
+     * Gestionnaire d'affichage des écrans
      */
     showScreen(id) {
-        // 1. Gestion des Ã©crans
-        if (this.screens.length === 0) return console.warn("UI: Aucun écran trouvé dans le DOM");
+        // 1. Gestion des écrans
+        if (this.screens.length === 0) return console.warn("UI: Aucun �cran trouv� dans le DOM");
         
         this.screens.forEach(s => {
             if (s.id === id) {
@@ -41,10 +41,10 @@ const UI = {
     syncHeaderNav(state = {}) {
         const model = {
             showBack: state.showBack !== false,
-            backLabel: state.backLabel || '←',
+            backLabel: state.backLabel || '?',
             backTitle: state.backTitle || 'Retour',
             showMenu: state.showMenu !== false,
-            menuLabel: state.menuLabel || '☰',
+            menuLabel: state.menuLabel || '?',
             menuTitle: state.menuTitle || 'Menu'
         };
 
@@ -130,13 +130,13 @@ const UI = {
 
     updateHeader(text) {
         const title = document.getElementById('app-title');
-        if (title) title.innerText = text || "Devoir Numérique";
+        if (title) title.innerText = text || "Devoir Num�rique";
     },
 
     safeIcon(value, fallback = '\u{1F4DD}') {
         const icon = (value || "").toString().trim();
         if (!icon) return fallback;
-        if (/[ÃÂðâ�]/.test(icon)) return fallback;
+        if (/[����?]/.test(icon)) return fallback;
         return icon;
     },
 
@@ -225,7 +225,7 @@ const UI = {
             card.type = 'button';
             card.className = 'card profile-card';
             card.innerHTML = `
-                <div class="btn btn--icon btn--danger btn-delete-profile" title="Supprimer">🗑️</div>
+                <div class="btn btn--icon btn--danger btn-delete-profile" title="Supprimer">???</div>
                 <span class="card-icon">${this.safeIcon(p.avatar, '\u{1F464}')}</span>
                 ${this.buildCardContent(p?.name || 'Anonyme')}
                 <span class="profile-card-helper">Entrer</span>
@@ -254,13 +254,13 @@ const UI = {
         const menuKicker = menuVariant === 'grades'
             ? 'Classe'
             : menuVariant === 'themes'
-                ? 'Matière'
+                ? 'Mati�re'
                 : menuVariant === 'library'
-                    ? 'Leçon'
+                    ? 'Le�on'
                 : menuVariant === 'levels'
-                    ? 'Sous-thème'
+                    ? 'Sous-th�me'
                     : menuVariant === 'exercises'
-                        ? 'À faire'
+                        ? '� faire'
                         : '';
 
         (data || []).forEach(item => {
@@ -275,7 +275,7 @@ const UI = {
                 return;
             }
 
-            // AccÃ¨s sÃ©curisÃ© au Storage
+            // Accès sécurisé au Storage
             let stars = 0;
             try {
                 if (typeof Storage !== 'undefined' && Storage.getRecord) {
@@ -283,12 +283,12 @@ const UI = {
                     const record = Storage.getRecord(item.id, gradeId);
                     if (record) stars = record.stars || 0;
                 }
-        } catch (e) { console.warn("UI: Erreur de lecture des étoiles", e); }
+        } catch (e) { console.warn("UI: Erreur de lecture des �toiles", e); }
             stars = Number.isFinite(stars) ? Math.min(3, Math.max(0, stars)) : 0;
 
-            const starsHtml = stars > 0 ? `<div class="menu-stars">${'★'.repeat(stars)}</div>` : "";
+            const starsHtml = stars > 0 ? `<div class="menu-stars">${'?'.repeat(stars)}</div>` : "";
             const badgeHtml = item.kind === 'lesson'
-                ? `<div class="menu-badge menu-badge--lesson">Leçon</div>`
+                ? `<div class="menu-badge menu-badge--lesson">Le�on</div>`
                 : menuVariant === 'exercises'
                     ? `<div class="menu-badge menu-badge--exercise">Exercice</div>`
                     : "";
@@ -319,13 +319,13 @@ const UI = {
             card.type = 'button';
             card.className = `mode-card mode-card--${item.mode || 'default'}`;
             card.innerHTML = `
-                <span class="mode-card-icon">${this.safeIcon(item.icon, '📘')}</span>
+                <span class="mode-card-icon">${this.safeIcon(item.icon, '??')}</span>
                 <span class="mode-card-body">
                     <span class="mode-card-title">${this.escapeHtml(item.title || 'Parcours')}</span>
                     ${item.subtitle ? `<span class="mode-card-subtitle">${this.escapeHtml(item.subtitle)}</span>` : ''}
                     ${item.helper ? `<span class="mode-card-helper">${this.escapeHtml(item.helper)}</span>` : ''}
                 </span>
-                <span class="mode-card-arrow">→</span>
+                <span class="mode-card-arrow">?</span>
             `;
             card.onclick = () => callback(item);
             container.appendChild(card);
@@ -348,17 +348,17 @@ const UI = {
         const chips = [
             themeTitle ? `<span class="lesson-chip">${this.escapeHtml(themeTitle)}</span>` : '',
             subjectTitle ? `<span class="lesson-chip">${this.escapeHtml(subjectTitle)}</span>` : '',
-            blockCount > 0 ? `<span class="lesson-chip">${blockCount} repère${blockCount > 1 ? 's' : ''}</span>` : '',
+            blockCount > 0 ? `<span class="lesson-chip">${blockCount} rep�re${blockCount > 1 ? 's' : ''}</span>` : '',
             exerciseCount > 0 ? `<span class="lesson-chip lesson-chip--accent">${exerciseCount} exercice${exerciseCount > 1 ? 's' : ''}</span>` : ''
         ].filter(Boolean).join('');
         const summaryText = this.escapeHtml(context?.summaryText || (exerciseCount > 0
-            ? `Lis la notion, observe les exemples, puis enchaîne sur ${exerciseCount} exercice${exerciseCount > 1 ? 's' : ''}.`
-            : `Lis la notion puis reviens au sous-thème pour continuer.`));
+            ? `Lis la notion, observe les exemples, puis encha�ne sur ${exerciseCount} exercice${exerciseCount > 1 ? 's' : ''}.`
+            : `Lis la notion puis reviens au sous-th�me pour continuer.`));
         const outlineHtml = safeLessons.length > 1 ? `
             <section class="lesson-outline">
                 <div class="lesson-outline-head">
-                    <div class="lesson-block-label">Dans ce sous-thème</div>
-                    <div class="lesson-outline-count">${safeLessons.length} leçons</div>
+                    <div class="lesson-block-label">Dans ce sous-th�me</div>
+                    <div class="lesson-outline-count">${safeLessons.length} le�ons</div>
                 </div>
                 <div class="lesson-outline-list">
                     ${safeLessons.map((item, index) => `
@@ -369,7 +369,7 @@ const UI = {
                         >
                             <span class="lesson-outline-index">${index + 1}</span>
                             <span class="lesson-outline-content">
-                                <span class="lesson-outline-title">${this.escapeHtml(item.title || 'Leçon')}</span>
+                                <span class="lesson-outline-title">${this.escapeHtml(item.title || 'Le�on')}</span>
                                 ${item.subtitle ? `<span class="lesson-outline-subtitle">${this.escapeHtml(item.subtitle)}</span>` : ''}
                             </span>
                         </button>
@@ -381,14 +381,14 @@ const UI = {
         container.innerHTML = `
             <article class="lesson-card">
                 <header class="lesson-card-header">
-                    <div class="lesson-eyebrow">Leçon</div>
-                    <h3 class="lesson-card-title">${this.escapeHtml(lesson?.title || 'Leçon')}</h3>
+                    <div class="lesson-eyebrow">Le�on</div>
+                    <h3 class="lesson-card-title">${this.escapeHtml(lesson?.title || 'Le�on')}</h3>
                     ${lesson?.subtitle ? `<p class="lesson-card-subtitle">${this.escapeHtml(lesson.subtitle)}</p>` : ''}
                     ${chips ? `<div class="lesson-chips">${chips}</div>` : ''}
                 </header>
                 ${outlineHtml}
                 <section class="lesson-summary">
-                    <div class="lesson-summary-icon">🧭</div>
+                    <div class="lesson-summary-icon">??</div>
                     <p class="lesson-summary-text">${summaryText}</p>
                 </section>
                 <div class="lesson-card-body">${blocksHtml}</div>
@@ -431,7 +431,7 @@ const UI = {
         if (block.type === 'tip') {
             return `
                 <section class="lesson-block lesson-block--tip">
-                    <div class="lesson-block-label">${this.escapeHtml(block.label || 'À retenir')}</div>
+                    <div class="lesson-block-label">${this.escapeHtml(block.label || '� retenir')}</div>
                     <div class="lesson-block-content">${this.escapeHtml(block.content || '')}</div>
                 </section>
             `;
@@ -522,7 +522,7 @@ const UI = {
         return UIKeyboards.renderQCM(...args);
     },
 
-    // --- MOTEUR D'AFFICHAGE (Le CÅ“ur) ---
+    // --- MOTEUR D'AFFICHAGE (Le C�"ur) ---
 
     getExerciseSurfaceClass(p, isQCM) {
         if (!p) return 'exercise-surface exercise-surface--formula';
@@ -574,13 +574,15 @@ const UI = {
             gameScreen.classList.remove('compact-number-spelling-long', 'compact-number-spelling-huge');
         }
     
-    // DÃ©tection du mode QCM (Boutons au lieu de saisie clavier)
+    // Détection du mode QCM (Boutons au lieu de saisie clavier)
     const isQCM = (p.inputType === 'qcm' || p.inputType === 'boolean');
     const rendersQuestionInProblemZone = !p.isVisual || ['homophones', 'timeMemo'].includes(p.visualType);
 
     if (instructionZone) {
-        instructionZone.textContent = rendersQuestionInProblemZone ? "" : (p.question || "");
-        instructionZone.style.display = (!rendersQuestionInProblemZone && p.question) ? 'block' : 'none';
+        const rawInstruction = rendersQuestionInProblemZone ? "" : (p.question || "");
+        const safeInstructionHtml = this.getSafeQuestionMarkup(rawInstruction);
+        instructionZone.innerHTML = safeInstructionHtml;
+        instructionZone.style.display = (!rendersQuestionInProblemZone && rawInstruction) ? 'block' : 'none';
     }
 
     // 2. VISUEL PRINCIPAL
@@ -616,7 +618,7 @@ const UI = {
                 this.getExerciseSurfaceClass(p, isQCM)
             );
 
-            // RÃ©-attachement des clics pour le CarrÃ© Magique (Square)
+            // Ré-attachement des clics pour le Carré Magique (Square)
             if (p.visualType === 'square') {
                 const cards = problemZone.querySelectorAll('.number-card');
                 cards.forEach(card => {
@@ -628,8 +630,8 @@ const UI = {
                 });
             }
         } else {
-            // Mode texte (Calculs simples, DictÃ©e de nombres)
-            // p.question contient soit le texte, soit le HTML du gros chiffre (DictÃ©e CP)
+            // Mode texte (Calculs simples, Dictée de nombres)
+            // p.question contient soit le texte, soit le HTML du gros chiffre (Dictée CP)
             const formulaClasses = ['math-formula', 'prompt-card', 'prompt-card--formula'];
             const questionHtml = p.question || "";
             const safeQuestionHtml = this.getSafeQuestionMarkup(questionHtml);
@@ -657,14 +659,14 @@ const UI = {
             );
         }
     } catch (e) {
-        console.error("UI: Erreur lors du rendu du problème", e);
+        console.error("UI: Erreur lors du rendu du probl�me", e);
         problemZone.innerHTML = this.wrapExerciseContent(
             `<div class="error-msg">Erreur d'affichage visuel.</div>`,
             'exercise-surface exercise-surface--formula'
         );
     }
 
-	    // 3. ZONE DE RÃ‰PONSE (Barre du bas)
+	    // 3. ZONE DE R�?PONSE (Barre du bas)
 	    // On masque la barre si c'est visuel ET textuel (Spelling/Conjugaison) OU si c'est un QCM
 	    const hideBottomBar = (['spelling', 'audioSpelling', 'conjugation', 'geometry-board'].includes(p.visualType)) || isQCM || p.inputType === 'board';
 	    
@@ -685,11 +687,11 @@ const UI = {
 	                    </div>`;
 	            } else if (p.visualType === 'timelineOrder') {
 	                const orderSize = (p.data?.currentOrder || []).length;
-	                answerZone.innerHTML = `Ordre prêt : <b class="selection-answer-value">${orderSize}</b> repères`;
+	                answerZone.innerHTML = `Ordre pr�t : <b class="selection-answer-value">${orderSize}</b> rep�res`;
 	            } else if (p.visualType === 'timelinePlace') {
 	                answerZone.innerHTML = `Date choisie : <b class="selection-answer-value">${this.escapeHtml(input || "?")}</b>`;
 	            } else if (p.inputType === "selection") {
-	                // Cas spÃ©cifique pour le CarrÃ© Magique si on affiche la somme en bas
+	                // Cas spécifique pour le Carré Magique si on affiche la somme en bas
 	                answerZone.innerHTML = `Somme : <b class="selection-answer-value">${this.escapeHtml(input || 0)}</b> / ${this.escapeHtml(p.data?.target || "?")}`;
 	            } else {
 	                answerZone.innerText = input || "\u00A0";
@@ -730,7 +732,7 @@ const UI = {
         });
     },
 
-    // --- FONCTIONS DE DESSIN (Toutes protÃ©gÃ©es par d = p.data || {}) ---
+    // --- FONCTIONS DE DESSIN (Toutes protégées par d = p.data || {}) ---
 
     drawSvgTarget(...args) {
         return UIVisuals.drawSvgTarget(...args);
@@ -804,8 +806,8 @@ const UI = {
         const helperText = isUnsupported
             ? "L'audio n'est pas disponible sur cet appareil."
             : isPlaying
-                ? "Le mot est en train d'être lu."
-                : "Écoute bien le mot, puis écris-le. Tu peux le réécouter.";
+                ? "Le mot est en train d'�tre lu."
+                : "�coute bien le mot, puis �cris-le. Tu peux le r��couter.";
 	        const slots = target.map((char, idx) => {
 	            if (char === ' ') return `<span class="audio-spelling-separator">&nbsp;</span>`;
 	            if (char === '-' || char === "'") return `<span class="audio-spelling-separator">${this.escapeHtml(char)}</span>`;
@@ -814,19 +816,19 @@ const UI = {
 
         return `
             <div class="audio-spelling-container">
-                <button type="button" class="btn audio-spelling-replay${isUnsupported ? ' is-disabled' : ''}" data-action="replay-audio-spelling" ${isUnsupported || isPlaying ? 'disabled' : ''}>${isPlaying ? 'Lecture...' : 'Écouter à nouveau'}</button>
+                <button type="button" class="btn audio-spelling-replay${isUnsupported ? ' is-disabled' : ''}" data-action="replay-audio-spelling" ${isUnsupported || isPlaying ? 'disabled' : ''}>${isPlaying ? 'Lecture...' : '�couter � nouveau'}</button>
                 <div class="audio-spelling-hint">${helperText}</div>
                 <div class="audio-spelling-slots">${slots}</div>
             </div>
         `;
     },
 
-/* --- uiv2.js : drawSpelling consolidé --- */
+/* --- uiv2.js : drawSpelling consolid� --- */
 
     drawSpelling(p, input, isQCM = false) {
         const d = p.data || {};
         const word = (d.word || "").toString();
-        const icon = this.safeIcon(d.icon, "❓");
+        const icon = this.safeIcon(d.icon, "?");
         const imgPath = this.safeImagePath(d.img || "");
         const hasImage = !!imgPath;
 
@@ -841,7 +843,7 @@ const UI = {
         }
 
         const safeId = (window.SecurityUtils?.sanitizeId ? window.SecurityUtils.sanitizeId(word) : word.replace(/[^a-zA-Z0-9]/g, '')) || 'spelling';
-        const fallbackText = hasImage ? "Illustration indisponible" : "Icône utilisée";
+        const fallbackText = hasImage ? "Illustration indisponible" : "Ic�ne utilis�e";
 
         return `
             <div class="spelling-container">
@@ -898,14 +900,14 @@ const UI = {
     },
 	    
 	    showFinalResults(score, total) {
-        // 1. Mise Ã  jour des Ã©toiles
+        // 1. Mise à jour des étoiles
         this.renderStars(score, total);
         
-        // 2. Mise Ã  jour du texte du score
+        // 2. Mise à jour du texte du score
         const scoreEl = document.getElementById('result-score');
         if (scoreEl) scoreEl.innerText = `Score : ${score} / ${total}`;
 
-        // 3. Affichage de l'Ã©cran
+        // 3. Affichage de l'écran
         this.showScreen('screen-results');
     },
 
@@ -913,13 +915,13 @@ const UI = {
         const container = document.getElementById('stars-container');
         if (!container) return;
         
-        // Division par zÃ©ro protection
+        // Division par zéro protection
         if(total === 0) total = 1;
         
         const p = (score/total)*100;
         const count = p===100?3:p>=75?2:p>=50?1:0;
         
-        container.innerHTML = Array(3).fill(0).map((_, i) => `<span class="star ${i < count ? 'active' : ''}">★</span>`).join("");
+        container.innerHTML = Array(3).fill(0).map((_, i) => `<span class="star ${i < count ? 'active' : ''}">?</span>`).join("");
     },
 
     launchCelebration() {

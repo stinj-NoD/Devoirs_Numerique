@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Devoir Numerique - Bootstrap Runtime
  * Fallbacks non-inline + registration SW
  */
@@ -20,7 +20,7 @@
                 if (gradesScreen && gradesScreen.classList.contains('active')) return true;
             }
         } catch (error) {
-            console.error('loadGradesMenu a échoué', error);
+            console.error('loadGradesMenu a Ã©chouÃ©', error);
         }
 
         try {
@@ -28,11 +28,11 @@
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             const data = await response.json();
             const grades = Array.isArray(data && data.grades) ? data.grades : [];
-            if (!grades.length) throw new Error('Aucun niveau trouvé');
+            if (!grades.length) throw new Error('Aucun niveau trouvÃ©');
             window.__dnGradesFallback = grades;
 
             if (window.Storage && typeof window.Storage.getCurrentUser === 'function' && window.UI) {
-                const user = window.Storage.getCurrentUser() || 'Invité';
+                const user = window.Storage.getCurrentUser() || 'InvitÃ©';
                 if (typeof window.UI.updateHeader === 'function') window.UI.updateHeader(`Joueur : ${user}`);
 
                 const gradesList = document.getElementById('grades-list');
@@ -43,7 +43,7 @@
                         card.type = 'button';
                         card.className = 'card menu-card';
                         card.innerHTML = `
-                            <span class="card-icon">${Sec.escapeHtml(grade.icon || '📘')}</span>
+                            <span class="card-icon">${Sec.escapeHtml(grade.icon || 'ï¿½Y"~')}</span>
                             <div class="card-content">
                                 <span class="card-title">${Sec.escapeHtml(grade.title || 'Classe')}</span>
                                 ${grade.subtitle ? `<span class="card-subtitle">${Sec.escapeHtml(grade.subtitle)}</span>` : ''}
@@ -86,7 +86,7 @@
                 await window.App.createProfile();
                 return false;
             } catch (error) {
-                console.error('App.createProfile a échoué', error);
+                console.error('App.createProfile a Ã©chouÃ©', error);
             }
         }
 
@@ -103,17 +103,17 @@
             }
 
             const messages = {
-                empty: "Merci d'entrer un prénom.",
-                invalid: "Ce prénom contient uniquement des caractères non autorisés.",
-                too_short: "Merci d'entrer au moins 2 caractères.",
-                duplicate: "Ce profil existe déjà."
+                empty: "Merci d'entrer un prÃ©nom.",
+                invalid: "Ce prÃ©nom contient uniquement des caractÃ¨res non autorisÃ©s.",
+                too_short: "Merci d'entrer au moins 2 caractÃ¨res.",
+                duplicate: "Ce profil existe dÃ©jÃ ."
             };
-            const message = messages[result && result.code] || "Merci d'entrer un prénom valide.";
+            const message = messages[result && result.code] || "Merci d'entrer un prÃ©nom valide.";
             alert(message);
             return false;
         }
 
-        alert("Le module de création de profil n'est pas disponible.");
+        alert("Le module de crÃ©ation de profil n'est pas disponible.");
         return false;
     };
 
@@ -159,7 +159,7 @@
                         return caches.keys().then((keys) => Promise.all(keys.map((key) => caches.delete(key))));
                     })
                     .then(() => {
-                        console.log('🧹 SW désactivé en live local');
+                        console.log('[SW] desactive en live local');
                         if (!cacheResetDone) {
                             sessionStorage.setItem('dn_local_sw_reset', '1');
                             window.location.reload();
@@ -167,7 +167,7 @@
                         }
                         sessionStorage.removeItem('dn_local_sw_reset');
                     })
-                    .catch((err) => console.warn('⚠️ Nettoyage SW local impossible', err));
+                    .catch((err) => console.warn('[SW] nettoyage local impossible', err));
                 return;
             }
 
@@ -190,9 +190,9 @@
                             }
                         });
                     });
-                    console.log('✅ SW inscrit', reg.scope);
+                    console.log('[SW] inscrit', reg.scope);
                 })
-                .catch((err) => console.log('❌ SW échec', err));
+                .catch((err) => console.log('[SW] echec', err));
         });
     }
 
@@ -201,3 +201,4 @@
         registerServiceWorker();
     });
 })();
+

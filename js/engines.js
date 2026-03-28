@@ -1,5 +1,5 @@
-﻿/*
- * Devoir NumÃ©rique - Engines.js
+/*
+ * Devoir Numérique - Engines.js
  * Copyright (C) 2026 [Stinj-NoD]
  * Version : 3.0 (Hardened & Optimized)
  */
@@ -8,10 +8,10 @@ const Engines = {
     utils: EnginesCore.utils,
 
     /**
-     * POINT D'ENTRÃ‰E UNIQUE
+     * POINT D'ENTR�?E UNIQUE
      * @param {string} type - Le nom du moteur (ex: 'math-input', 'conjugation')
-     * @param {object} params - Les paramÃ¨tres du JSON (target, range, etc.)
-     * @param {object} lib - La bibliothÃ¨que externe (FranÃ§ais)
+     * @param {object} params - Les paramètres du JSON (target, range, etc.)
+     * @param {object} lib - La bibliothèque externe (Français)
      */
     run(type, params = {}, lib = {}) {
         // 1. Normalisation des Alias
@@ -24,7 +24,7 @@ const Engines = {
 
         try {
             let result;
-            // 2. Aiguillage vers le bon gÃ©nÃ©rateur
+            // 2. Aiguillage vers le bon générateur
             switch (engineType) {
                 case 'math-input':
                     if (params.type === 'spelling') result = this.generators.spelling(params, lib);
@@ -74,14 +74,14 @@ const Engines = {
             // 3. Standardisation de la sortie (Anti-Undefined)
             return this.standardize(result);
 
-        } catch (e) {
-            console.error("ðŸ”¥ CRASH ENGINE :", e);
-            return this.fallback("Erreur technique de l'exercice");
+        } catch (e) { /*
+            console.error("�Y"� CRASH ENGINE :", e);
+            */ console.error("CRASH ENGINE :", e); return this.fallback("Erreur technique de l'exercice");
         }
     },
 
     /**
-     * Garantit que l'UI reÃ§oit toujours un objet propre
+     * Garantit que l'UI reçoit toujours un objet propre
      */
     standardize(...args) {
         return EnginesCore.standardize(...args);
@@ -91,7 +91,7 @@ const Engines = {
         return EnginesCore.fallback(...args);
     },
 
-    // --- LES GÃ‰NÃ‰RATEURS ---
+    // --- LES G�?N�?RATEURS ---
     generators: {
         
         calculate(...args) {
@@ -148,8 +148,8 @@ const Engines = {
         compare(...args) {
             return EnginesMath.compare(...args);
         },
-        // Ã€ ajouter dans Engines.generators dans enginesv2.js
-        // Ã€ mettre dans Engines.generators dans enginesv2.js
+        // �? ajouter dans Engines.generators dans enginesv2.js
+        // �? mettre dans Engines.generators dans enginesv2.js
         genderArticles(...args) {
             return EnginesFrench.genderArticles(...args);
         },
@@ -170,14 +170,14 @@ timeline(...args) {
     }
 };
 
-// Raccourci pour utiliser les utils dans les gÃ©nÃ©rateurs
+// Raccourci pour utiliser les utils dans les générateurs
 const { pick, rnd } = Engines.utils;
 
 /**
- * UTILITAIRE GLOBAL : Conversion nombres en lettres (FranÃ§ais)
+ * UTILITAIRE GLOBAL : Conversion nombres en lettres (Français)
  */
 function numberToFrench(n) {
-    if (n === 0) return "zÃ©ro";
+    if (n === 0) return "zéro";
     const units = ["", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf"];
     const teens = ["dix", "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"];
     const tens = ["", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante-dix", "quatre-vingts", "quatre-vingt-dix"];

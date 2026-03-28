@@ -18,7 +18,7 @@ const EnginesMath = {
             case 'mult':
                 a = p.table === 'mix' ? rnd(2, 9) : (p.table || 2);
                 b = rnd(0, 10);
-                return { question: `${a} × ${b} = ?`, answer: a * b };
+                return { question: `${a} �- ${b} = ?`, answer: a * b };
             case 'complement': {
                 const target = p.target || 100;
                 const cur = rnd(1, target - 1);
@@ -48,7 +48,7 @@ const EnginesMath = {
             }
             case 'dictée-nombres': {
                 const nBig = rnd(1000, p.max || 1000000);
-                return { question: `<span class="small-question">Écris en chiffres :<br><b>« ${numberToFrench(nBig)} »</b></span>`, answer: nBig };
+                return { question: `<span class="small-question">�?cris en chiffres :<br><b>« ${numberToFrench(nBig)} »</b></span>`, answer: nBig };
             }
             case 'calc-mental':
                 if (p.operator === "/") {
@@ -59,7 +59,7 @@ const EnginesMath = {
                 }
                 a = rnd(p.range?.[0] || 2, p.range?.[1] || 10);
                 b = rnd(2, 10);
-                return { question: `${a} × ${b} = ?`, answer: a * b };
+                return { question: `${a} �- ${b} = ?`, answer: a * b };
             case 'oiseau-math': {
                 a = rnd(p.min || 1, p.max || 10);
                 b = rnd(p.min || 1, p.max || 10);
@@ -127,7 +127,7 @@ const EnginesMath = {
         const { rnd, romanize } = Engines.utils;
         if (p.subtype === 'roman') {
             const val = rnd(p.min || 1, p.max || 20);
-            if (Math.random() > 0.5) return { question: `<div class="math-formula">Écris <b>${val}</b> en chiffres romains</div>`, answer: romanize(val), inputType: 'roman', isVisual: false };
+            if (Math.random() > 0.5) return { question: `<div class="math-formula">�?cris <b>${val}</b> en chiffres romains</div>`, answer: romanize(val), inputType: 'roman', isVisual: false };
             const rVal = romanize(val);
             return { question: `<div class="math-formula">Quel est ce nombre ?<br><b style="font-size:3rem; font-family:'Times New Roman'">${rVal}</b></div>`, answer: val.toString(), inputType: 'numeric', isVisual: false };
         }
@@ -180,7 +180,7 @@ const EnginesMath = {
         const h = Engines.utils.rnd(0, 23);
         const m = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55][Engines.utils.rnd(0, 11)];
         const isDay = h >= 8 && h < 20;
-        return { isVisual: true, visualType: 'clock', inputType: 'numeric', data: { hours: h, minutes: m, periodIcon: isDay ? "☀️" : "🌙", periodText: isDay ? "Jour" : "Nuit" }, answer: h.toString().padStart(2, '0') + m.toString().padStart(2, '0') };
+        return { isVisual: true, visualType: 'clock', inputType: 'numeric', data: { hours: h, minutes: m, periodIcon: isDay ? "�~?️" : "�YOT", periodText: isDay ? "Jour" : "Nuit" }, answer: h.toString().padStart(2, '0') + m.toString().padStart(2, '0') };
     },
     fractionView(p) {
         const d = Engines.utils.rnd(2, p.maxDenom || 8);

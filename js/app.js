@@ -21,7 +21,7 @@ const App = {
         frenchLib: null,
         currentExerciseData: null,
         speechStatus: 'idle',
-        isValidating: false // ðŸ›‘ VERROU ANTI-DOUBLE CLIC
+        isValidating: false // ï¿½Y>' VERROU ANTI-DOUBLE CLIC
     },
     _initialized: false,
 
@@ -36,9 +36,9 @@ const App = {
             const check = window.Validators?.validateFrenchLibrary(lib);
             if (check && !check.valid) throw new Error(check.reason);
             this.state.frenchLib = lib;
-            console.log("Bibliothèque chargée.");
+            console.log("Bibliotheque chargee.");
         } catch (e) { 
-            console.warn("Mode offline restreint : bibliothèque absente.", e);
+            console.warn("Mode offline restreint : bibliotheque absente.", e);
         }
 
         // 2. Initialisation UI sÃ©curisÃ©e
@@ -63,7 +63,7 @@ const App = {
 
         // 4. DÃ©marrage
         this.renderProfilesScreen();
-        console.log("Application prête.");
+        console.log("Application prete.");
     },
 
     bindEvents() {
@@ -152,7 +152,7 @@ const App = {
 
             try {
                 const response = await fetch(path);
-                if (!response.ok) throw new Error(`Erreur réseau ${path}`);
+                if (!response.ok) throw new Error(`Erreur rï¿½seau ${path}`);
                 const jsonText = (await response.text()).replace(/^\uFEFF/, '');
                 return JSON.parse(jsonText);
             } catch (error) {
@@ -169,7 +169,7 @@ const App = {
         }
 
         if (window.location.protocol === 'file:') {
-            throw new Error("Chargement impossible en mode fichier local sans données embarquées.");
+            throw new Error("Chargement impossible en mode fichier local sans donnï¿½es embarquï¿½es.");
         }
 
         throw lastError || new Error("Chargement JSON impossible");
@@ -196,7 +196,7 @@ const App = {
         try {
             window.speechSynthesis.cancel();
         } catch (error) {
-            console.warn("Arrêt audio impossible", error);
+            console.warn("Arrï¿½t audio impossible", error);
         }
     },
 
@@ -214,7 +214,7 @@ const App = {
         if (!this.supportsSpeechSynthesis()) return null;
         const voices = window.speechSynthesis.getVoices?.() || [];
         const frenchVoices = voices.filter((voice) =>
-            /^fr(-|_)/i.test(voice.lang || '') || /french|fran[çc]ais/i.test(voice.name || '')
+            /^fr(-|_)/i.test(voice.lang || '') || /french|fran[ï¿½c]ais/i.test(voice.name || '')
         );
         if (!frenchVoices.length) return null;
 
@@ -347,7 +347,7 @@ const App = {
         this.state.problemData = null;
         this.state.userInput = "";
         this.applyVisualContext();
-        UI.updateHeader("Devoir Numérique");
+        UI.updateHeader("Devoir Numï¿½rique");
         UI.showScreen('screen-profiles');
         this.renderProfilesScreen();
     },
@@ -357,10 +357,10 @@ const App = {
         const isGame = screenId === 'screen-game';
         return {
             showBack: !isProfileRoot,
-            backLabel: '←',
+            backLabel: '?',
             backTitle: isGame ? 'Quitter cet exercice' : 'Retour',
             showMenu: !isProfileRoot,
-            menuLabel: '☰',
+            menuLabel: '?',
             menuTitle: 'Menu navigation'
         };
     },
@@ -393,31 +393,31 @@ const App = {
 
         if (currentScreen !== 'screen-profiles') {
             actions.push({
-                title: '↩ Retour',
-                subtitle: currentScreen === 'screen-game' ? "Revenir sans terminer l'exercice" : "Écran précédent",
+                title: '? Retour',
+                subtitle: currentScreen === 'screen-game' ? "Revenir sans terminer l'exercice" : "ï¿½cran prï¿½cï¿½dent",
                 onSelect: () => this.goBack()
             });
         }
 
         if (this.state.currentGrade) {
             actions.push({
-                title: '📚 Parcours',
-                subtitle: 'Revenir à la matière / aux thèmes',
+                title: '?? Parcours',
+                subtitle: 'Revenir ï¿½ la matiï¿½re / aux thï¿½mes',
                 onSelect: () => {
                     if (!this.confirmLeaveExercise()) return;
                     this.returnToThemes();
                 }
             });
             actions.push({
-                title: '🏫 Changer de classe',
+                title: '?? Changer de classe',
                 subtitle: 'Revenir au choix de classe',
                 onSelect: () => this.goToGrades()
             });
         }
 
         actions.push({
-            title: '👤 Changer de profil',
-            subtitle: 'Retour à la sélection des profils',
+            title: '?? Changer de profil',
+            subtitle: 'Retour ï¿½ la sï¿½lection des profils',
             variant: 'warning',
             onSelect: () => {
                 if (!this.confirmLeaveExercise()) return;
@@ -522,17 +522,17 @@ const App = {
         }
 
         const messages = {
-            empty: "Merci d'entrer un prénom.",
-            invalid: "Ce prénom contient uniquement des caractères non autorisés.",
-            too_short: "Merci d'entrer au moins 2 caractères.",
-            duplicate: "Ce profil existe déjà."
+            empty: "Merci d'entrer un prï¿½nom.",
+            invalid: "Ce prï¿½nom contient uniquement des caractï¿½res non autorisï¿½s.",
+            too_short: "Merci d'entrer au moins 2 caractï¿½res.",
+            duplicate: "Ce profil existe dï¿½jï¿½."
         };
 
-        alert(messages[result?.code] || "Merci d'entrer un prénom valide.");
+        alert(messages[result?.code] || "Merci d'entrer un prï¿½nom valide.");
     },
 
     renderProfilesScreen() {
-        UI.updateHeader("Devoir Numérique");
+        UI.updateHeader("Devoir Numï¿½rique");
         UI.showScreen('screen-profiles');
         const names = Storage.getProfiles();
         const profiles = (names || []).map(n => ({ id: n, name: n, avatar: '\u{1F464}' }));
@@ -551,11 +551,11 @@ const App = {
         }
     },
 
-    // --- CHARGEMENT DES DONNÃ‰ES ---
+    // --- CHARGEMENT DES DONNï¿½?ES ---
 
     async loadGradesMenu() {
         try {
-            const user = Storage.getCurrentUser() || "Invité";
+            const user = Storage.getCurrentUser() || "Invitï¿½";
             UI.updateHeader(`Joueur : ${user}`);
             
             const d = await this.fetchJson(['data/index.json', './data/index.json']);
@@ -579,7 +579,7 @@ const App = {
             if (check && !check.valid) throw new Error(check.reason);
             const usesSubjects = Array.isArray(d.subjects) && d.subjects.length > 0;
             const topLevelEntries = usesSubjects ? d.subjects : this.normalizeGradeThemes(d);
-            if (!Array.isArray(topLevelEntries) || topLevelEntries.length === 0) throw new Error("Aucun thème disponible.");
+            if (!Array.isArray(topLevelEntries) || topLevelEntries.length === 0) throw new Error("Aucun thï¿½me disponible.");
             this.state.currentGrade = { ...d, themes: this.normalizeGradeThemes(d) };
             this.state.currentGrade.gradeId = g.id || d.id || "unknown_grade";
             this.state.currentBrowseMode = null;
@@ -605,10 +605,10 @@ const App = {
             modes.push({
                 id: 'browse-lessons',
                 mode: 'lessons',
-                icon: '📘',
+                icon: '??',
                 title: "J'apprends",
-                subtitle: `${lessonsCount} leçon${lessonsCount > 1 ? 's' : ''} pour comprendre`,
-                helper: 'Je découvre la notion avec des exemples faciles.'
+                subtitle: `${lessonsCount} leï¿½on${lessonsCount > 1 ? 's' : ''} pour comprendre`,
+                helper: 'Je dï¿½couvre la notion avec des exemples faciles.'
             });
         }
 
@@ -616,10 +616,10 @@ const App = {
             modes.push({
                 id: 'browse-exercises',
                 mode: 'exercises',
-                icon: '✏️',
-                title: "Je m'entraîne",
-                subtitle: `${exercisesCount} exercice${exercisesCount > 1 ? 's' : ''} pour jouer et réussir`,
-                helper: "Je m'entraîne tout de suite."
+                icon: '??',
+                title: "Je m'entraï¿½ne",
+                subtitle: `${exercisesCount} exercice${exercisesCount > 1 ? 's' : ''} pour jouer et rï¿½ussir`,
+                helper: "Je m'entraï¿½ne tout de suite."
             });
         }
 
@@ -645,8 +645,8 @@ const App = {
 
         const entries = [];
         for (const subject of grade.subjects) {
-            const subjectTitle = subject?.title || 'Matière';
-            const subjectIcon = subject?.icon || '📘';
+            const subjectTitle = subject?.title || 'Matiï¿½re';
+            const subjectIcon = subject?.icon || '??';
             const subthemes = Array.isArray(subject?.subthemes) ? subject.subthemes : [];
             const lessonEntries = [];
 
@@ -657,7 +657,7 @@ const App = {
                         ...lesson,
                         kind: 'lesson',
                         icon: lesson.icon || subjectIcon,
-                        subtitle: `${subtheme.title}${lesson.subtitle ? ` · ${lesson.subtitle}` : ''}`,
+                        subtitle: `${subtheme.title}${lesson.subtitle ? ` ï¿½ ${lesson.subtitle}` : ''}`,
                         subjectTitle,
                         themeTitle: subtheme.title,
                         __subject: subject,
@@ -670,7 +670,7 @@ const App = {
             entries.push({
                 kind: 'section',
                 title: subjectTitle,
-                subtitle: `${lessonEntries.length} leçon${lessonEntries.length > 1 ? 's' : ''} à relire`
+                subtitle: `${lessonEntries.length} leï¿½on${lessonEntries.length > 1 ? 's' : ''} ï¿½ relire`
             });
             entries.push(...lessonEntries);
         }
@@ -684,14 +684,14 @@ const App = {
 
         const entries = this.getGradeLessonLibraryEntries();
         if (!entries.length) {
-            alert("Aucune leçon disponible pour ce niveau.");
+            alert("Aucune leï¿½on disponible pour ce niveau.");
             return this.showBrowseModeMenu();
         }
 
         const title = document.querySelector('#screen-library h2');
         const lead = document.getElementById('library-lead');
-        if (title) title.textContent = `Bibliothèque ${grade.title || grade.gradeId || ''}`.trim();
-        if (lead) lead.textContent = "Choisis une leçon à revoir. Elles sont rangées par matière pour retrouver l'essentiel plus vite.";
+        if (title) title.textContent = `Bibliothï¿½que ${grade.title || grade.gradeId || ''}`.trim();
+        if (lead) lead.textContent = "Choisis une leï¿½on ï¿½ revoir. Elles sont rangï¿½es par matiï¿½re pour retrouver l'essentiel plus vite.";
 
         UI.renderMenu('library-list', entries, (entry) => {
             if (entry?.kind !== 'lesson') return;
@@ -717,13 +717,13 @@ const App = {
                 alert("Aucun contenu disponible pour ce parcours.");
                 return this.showBrowseModeMenu();
             }
-            const title = mode === 'lessons' ? 'Choisis une matière pour apprendre' : 'Choisis une matière pour t’entraîner';
+            const title = mode === 'lessons' ? "Choisis une matiÃ¨re pour apprendre" : "Choisis une matiÃ¨re pour t'entraÃ®ner";
             const screenTitle = document.querySelector('#screen-themes h2');
             if (screenTitle) screenTitle.textContent = title;
             if (themesLead) {
                 themesLead.textContent = mode === 'lessons'
-                    ? "Choisis une matière pour découvrir les notions calmement."
-                    : "Choisis une matière pour commencer tes exercices.";
+                    ? "Choisis une matiï¿½re pour dï¿½couvrir les notions calmement."
+                    : "Choisis une matiï¿½re pour commencer tes exercices.";
             }
             UI.renderMenu('themes-list', subjects, (entry) => this.selectSubject(entry));
             UI.showScreen('screen-themes');
@@ -736,11 +736,11 @@ const App = {
             return this.showBrowseModeMenu();
         }
         const screenTitle = document.querySelector('#screen-themes h2');
-        if (screenTitle) screenTitle.textContent = mode === 'lessons' ? 'Choisis une notion' : 'Choisis un thème';
+        if (screenTitle) screenTitle.textContent = mode === 'lessons' ? 'Choisis une notion' : 'Choisis un thï¿½me';
         if (themesLead) {
             themesLead.textContent = mode === 'lessons'
                 ? "Choisis la notion que tu veux comprendre."
-                : "Choisis le thème sur lequel tu veux t'entraîner.";
+                : "Choisis le thï¿½me sur lequel tu veux t'entraï¿½ner.";
         }
         UI.renderMenu('themes-list', themes, (entry) => this.selectTheme(entry));
         UI.showScreen('screen-themes');
@@ -775,7 +775,7 @@ const App = {
                     .map((subtheme) => ({
                         ...subtheme,
                         subtitle: mode === 'lessons'
-                            ? `${this.countModeContent(subtheme, mode)} leçon${this.countModeContent(subtheme, mode) > 1 ? 's' : ''}`
+                            ? `${this.countModeContent(subtheme, mode)} leï¿½on${this.countModeContent(subtheme, mode) > 1 ? 's' : ''}`
                             : `${this.countModeContent(subtheme, mode)} exercice${this.countModeContent(subtheme, mode) > 1 ? 's' : ''}`
                     }));
 
@@ -786,8 +786,8 @@ const App = {
                     ...subject,
                     subthemes,
                     subtitle: mode === 'lessons'
-                        ? `${total} leçon${total > 1 ? 's' : ''} à découvrir`
-                        : `${total} exercice${total > 1 ? 's' : ''} pour s'entraîner`
+                        ? `${total} leï¿½on${total > 1 ? 's' : ''} ï¿½ dï¿½couvrir`
+                        : `${total} exercice${total > 1 ? 's' : ''} pour s'entraï¿½ner`
                 };
             })
             .filter(Boolean);
@@ -800,14 +800,14 @@ const App = {
             .map((theme) => ({
                 ...theme,
                 subtitle: mode === 'lessons'
-                    ? `${this.countModeContent(theme, mode)} leçon${this.countModeContent(theme, mode) > 1 ? 's' : ''}`
+                    ? `${this.countModeContent(theme, mode)} leï¿½on${this.countModeContent(theme, mode) > 1 ? 's' : ''}`
                     : `${this.countModeContent(theme, mode)} exercice${this.countModeContent(theme, mode) > 1 ? 's' : ''}`
             }));
     },
 
     selectSubject(subject) {
         if (!subject || !Array.isArray(subject.subthemes) || subject.subthemes.length === 0) {
-            alert("Cette matière ne contient aucun sous-thème disponible.");
+            alert("Cette matiï¿½re ne contient aucun sous-thï¿½me disponible.");
             return;
         }
         this.state.currentSubject = subject;
@@ -819,12 +819,12 @@ const App = {
         const screenTitle = document.querySelector('#screen-levels h2');
         const screenLead = document.getElementById('levels-lead');
         if (screenTitle) {
-            screenTitle.textContent = mode === 'lessons' ? 'Choisis une notion à découvrir' : 'Choisis un sous-thème';
+            screenTitle.textContent = mode === 'lessons' ? 'Choisis une notion ï¿½ dï¿½couvrir' : 'Choisis un sous-thï¿½me';
         }
         if (screenLead) {
             screenLead.textContent = mode === 'lessons'
-                ? "Prends une notion simple et avance à ton rythme."
-                : "Choisis un sous-thème précis pour pratiquer.";
+                ? "Prends une notion simple et avance ï¿½ ton rythme."
+                : "Choisis un sous-thï¿½me prï¿½cis pour pratiquer.";
         }
         UI.renderMenu('levels-list', subject.subthemes, (subtheme) => this.selectTheme(subtheme));
         UI.showScreen('screen-levels');
@@ -834,7 +834,7 @@ const App = {
         const lessons = Array.isArray(t?.lessons) ? t.lessons : [];
         const exercises = Array.isArray(t?.exercises) ? t.exercises : [];
         if (!t || (lessons.length === 0 && exercises.length === 0)) {
-            alert("Ce thème ne contient aucun contenu disponible.");
+            alert("Ce thï¿½me ne contient aucun contenu disponible.");
             return;
         }
         this.state.currentTheme = t;
@@ -857,20 +857,20 @@ const App = {
         const screenLead = document.getElementById('exercises-lead');
 
         if (screenTitle) {
-            screenTitle.textContent = activeMode === 'lessons' ? 'Choisis une leçon' : 'Choisis un exercice';
+            screenTitle.textContent = activeMode === 'lessons' ? 'Choisis une leï¿½on' : 'Choisis un exercice';
         }
         if (screenLead) {
             screenLead.textContent = activeMode === 'lessons'
-                ? `Découvre ${theme?.title || 'la notion'} avant de t'entraîner.`
-                : `Choisis un exercice sur ${theme?.title || 'ce sous-thème'}.`;
+                ? `Dï¿½couvre ${theme?.title || 'la notion'} avant de t'entraï¿½ner.`
+                : `Choisis un exercice sur ${theme?.title || 'ce sous-thï¿½me'}.`;
         }
 
         const entries = activeMode === 'lessons'
             ? lessons.map((lesson) => ({
                 ...lesson,
                 kind: 'lesson',
-                subtitle: lesson.subtitle || 'Découvrir la notion',
-                icon: lesson.icon || '📘'
+                subtitle: lesson.subtitle || 'Dï¿½couvrir la notion',
+                icon: lesson.icon || '??'
             }))
             : exercises.map((exercise) => ({
                 ...exercise,
@@ -894,7 +894,7 @@ const App = {
 
         const themes = [];
         for (const subject of gradeData.subjects) {
-            const subjectTitle = subject?.title || 'Matière';
+            const subjectTitle = subject?.title || 'Matiï¿½re';
             const subjectIcon = subject?.icon || null;
             const subthemes = Array.isArray(subject?.subthemes) ? subject.subthemes : [];
 
@@ -922,7 +922,7 @@ const App = {
 
     startLesson(lesson) {
         if (!lesson || !Array.isArray(lesson.blocks) || lesson.blocks.length === 0) {
-            alert("Leçon indisponible.");
+            alert("Leï¿½on indisponible.");
             return;
         }
         this.stopCurrentExercise();
@@ -938,8 +938,8 @@ const App = {
         const lessonLead = document.getElementById('lesson-lead');
         if (lessonLead) {
             lessonLead.textContent = exerciseCount > 0
-                ? `Lis l'essentiel, retiens les idées clés, puis passe aux ${exerciseCount} exercice${exerciseCount > 1 ? 's' : ''} du sous-thème.`
-                : "Lis l'essentiel de la leçon comme un rappel de cours, puis reviens au sous-thème.";
+                ? `Lis l'essentiel, retiens les idï¿½es clï¿½s, puis passe aux ${exerciseCount} exercice${exerciseCount > 1 ? 's' : ''} du sous-thï¿½me.`
+                : "Lis l'essentiel de la leï¿½on comme un rappel de cours, puis reviens au sous-thï¿½me.";
         }
         UI.renderLesson(lesson, () => {
             if (this.state.currentTheme) {
@@ -960,8 +960,8 @@ const App = {
             },
             exerciseCount,
             summaryText: exerciseCount > 0
-                ? `Retiens l'idée essentielle, l'exemple important et les mots-clés, puis passe aux ${exerciseCount} exercice${exerciseCount > 1 ? 's' : ''} du sous-thème.`
-                : `Retiens l'idée essentielle et les mots-clés, puis reviens au sous-thème pour continuer.`
+                ? `Retiens l'idï¿½e essentielle, l'exemple important et les mots-clï¿½s, puis passe aux ${exerciseCount} exercice${exerciseCount > 1 ? 's' : ''} du sous-thï¿½me.`
+                : `Retiens l'idï¿½e essentielle et les mots-clï¿½s, puis reviens au sous-thï¿½me pour continuer.`
         });
         UI.showScreen('screen-lesson');
     },
@@ -1016,7 +1016,7 @@ const App = {
 
     async startExercise(e) {
         if (!this.hasRunnableExercise(e)) {
-            alert("Exercice indisponible : paramètres incomplets.");
+            alert("Exercice indisponible : paramï¿½tres incomplets.");
             return;
         }
 
@@ -1034,7 +1034,7 @@ const App = {
                 if (dataCheck && !dataCheck.valid) throw new Error(dataCheck.reason);
             } catch (error) {
                 console.error(error);
-                alert(`Impossible de charger les données de cet exercice.\n${error.message || ""}`.trim());
+                alert(`Impossible de charger les donnï¿½es de cet exercice.\n${error.message || ""}`.trim());
                 return;
             }
         }
@@ -1047,7 +1047,7 @@ const App = {
         this.state.userInput = "";
         this.state.problemData = null;
         this.state.targetAnswer = null;
-        this.state.isValidating = false; // ðŸ”“ On dÃ©verrouille au dÃ©but
+        this.state.isValidating = false; // ï¿½Y"" On dÃ©verrouille au dÃ©but
         this.applyVisualContext();
         UI.showScreen('screen-game'); 
         this.generateNextQuestion();
@@ -1057,7 +1057,7 @@ const App = {
         if (this.state.timer) clearTimeout(this.state.timer);
         this.stopSpeech();
         if (!this.hasRunnableExercise()) {
-            this.failSafeExit("Cet exercice ne peut pas être démarré correctement.");
+            this.failSafeExit("Cet exercice ne peut pas ï¿½tre dï¿½marrï¿½ correctement.");
             return;
         }
 
@@ -1079,12 +1079,12 @@ const App = {
         const problem = Engines.run(this.state.currentExercise.engine, cfg, this.state.frenchLib);
         const check = window.Validators?.validateProblem(problem);
         if (check && !check.valid) {
-            console.error("Problème invalide :", check.reason, problem);
-            this.failSafeExit("Cet exercice ne peut pas être affiché pour le moment.");
+            console.error("Problï¿½me invalide :", check.reason, problem);
+            this.failSafeExit("Cet exercice ne peut pas ï¿½tre affichï¿½ pour le moment.");
             return;
         }
         if (problem.answer === undefined || problem.answer === null) {
-            this.failSafeExit("Cet exercice a retourné une réponse invalide.");
+            this.failSafeExit("Cet exercice a retournï¿½ une rï¿½ponse invalide.");
             return;
         }
 
@@ -1111,7 +1111,7 @@ const App = {
             }, 320);
         }
 
-        // ðŸ”“ ON OUVRE LE VERROU POUR LA NOUVELLE QUESTION
+        // ï¿½Y"" ON OUVRE LE VERROU POUR LA NOUVELLE QUESTION
         this.state.isValidating = false;
 
         // Gestion Timer (Oiseau)
@@ -1130,7 +1130,7 @@ const App = {
 
         if (val === "timeout") return this.validateAnswer(false);
 
-        // --- CAS SPÃ‰CIAL : CarrÃ© Magique ---
+        // --- CAS SPï¿½?CIAL : CarrÃ© Magique ---
         if (val === 'card-click' && target) {
             const idx = parseInt(target.getAttribute('data-idx'));
             if (isNaN(idx) || !p.data) return;
@@ -1149,7 +1149,7 @@ const App = {
             return; 
         }
 
-        // --- CAS SPÃ‰CIAL : Frise chronologique ---
+        // --- CAS SPï¿½?CIAL : Frise chronologique ---
         if (typeof val === 'string' && val.startsWith('timeline-order:')) {
             const selectedId = val.replace('timeline-order:', '');
             if (p.visualType !== 'timelineOrder' || !p.data) return;
@@ -1298,21 +1298,21 @@ const App = {
     },
 
     validateAnswer(hasAnswered = true) {
-        // ðŸ›‘ ANTI-SPAM : Si dÃ©jÃ  en cours, on arrÃªte tout de suite
+        // ï¿½Y>' ANTI-SPAM : Si dÃ©jÃ  en cours, on arrÃªte tout de suite
         if (this.state.isValidating) return;
-        this.state.isValidating = true; // ðŸ”’ On verrouille
+        this.state.isValidating = true; // ï¿½Y"' On verrouille
 
         if (this.state.timer) clearTimeout(this.state.timer);
         
         const { userInput, targetAnswer, currentExercise, problemData } = this.state;
         if (!this.hasRunnableExercise(currentExercise) || !problemData) {
             this.state.isValidating = false;
-            this.failSafeExit("L'exercice courant est dans un état incohérent.");
+            this.failSafeExit("L'exercice courant est dans un ï¿½tat incohï¿½rent.");
             return;
         }
         const ansZone = document.getElementById('user-answer');
         
-        // 1. NETTOYAGE & TOLÃ‰RANCE
+        // 1. NETTOYAGE & TOLï¿½?RANCE
         const clean = s => (s || "").toString().toLowerCase().trim();
         let uInput = clean(userInput);
         let tAnswer = clean(targetAnswer);
@@ -1350,7 +1350,7 @@ const App = {
             } else if (problemData.visualType === 'timelineOrder') {
                 ansZone.textContent = isCorrect
                     ? "Ordre correct"
-                    : (problemData.data?.orderedLabels || []).join("  â†’  ");
+                    : (problemData.data?.orderedLabels || []).join("  ï¿½?'  ");
             } else if (problemData.visualType === 'timelinePlace') {
                 ansZone.textContent = isCorrect
                     ? `${userInput}`
@@ -1358,7 +1358,7 @@ const App = {
             } else if (problemData.visualType === 'geometry-board') {
                 ansZone.textContent = isCorrect
                     ? "Bravo, c'est correct."
-                    : "Ce n'est pas encore la bonne réponse.";
+                    : "Ce n'est pas encore la bonne rï¿½ponse.";
             } else {
                 ansZone.textContent = isCorrect ? userInput : targetAnswer;
             }
@@ -1378,7 +1378,7 @@ const App = {
             } else {
                 this.showFinalResults();
             }
-            // âš ï¸ On ne dÃ©verrouille PAS ici, c'est fait au dÃ©but de generateNextQuestion
+            // ï¿½sï¿½ï¸ On ne dÃ©verrouille PAS ici, c'est fait au dÃ©but de generateNextQuestion
         }, delay);
     },
 
@@ -1386,11 +1386,11 @@ const App = {
         const { score, currentGrade, currentExercise } = this.state;
         const total = this.getQuestionTarget(currentExercise);
         if (!total) {
-            this.failSafeExit("Impossible d'afficher les résultats de cet exercice.");
+            this.failSafeExit("Impossible d'afficher les rï¿½sultats de cet exercice.");
             return;
         }
         
-        // ðŸ›¡ï¸ SÃ‰CURITÃ‰ SCORE : On s'assure que le score ne dÃ©passe jamais le total
+        // ï¿½Y>ï¿½ï¸ Sï¿½?CURITï¿½? SCORE : On s'assure que le score ne dÃ©passe jamais le total
         const safeScore = Math.min(score, total);
         const percent = Math.round((safeScore / total) * 100);
 
@@ -1413,19 +1413,19 @@ const App = {
             resultTitle.innerText = percent === 100
                 ? "Bravo !"
                 : percent >= 70
-                    ? "Très bien !"
+                    ? "Trï¿½s bien !"
                     : percent >= 40
                         ? "Continue !"
                         : "On recommence ?";
         }
         if (resultLead) {
             resultLead.innerText = percent === 100
-                ? "Tu as tout réussi. Tu peux passer à une nouvelle notion."
+                ? "Tu as tout rï¿½ussi. Tu peux passer ï¿½ une nouvelle notion."
                 : percent >= 70
-                    ? "Tu avances bien. Relis la leçon ou tente un autre exercice."
+                    ? "Tu avances bien. Relis la leï¿½on ou tente un autre exercice."
                     : percent >= 40
-                        ? "Tu progresses. Une petite révision peut t'aider."
-                        : "Relis la leçon et réessaie tranquillement.";
+                        ? "Tu progresses. Une petite rï¿½vision peut t'aider."
+                        : "Relis la leï¿½on et rï¿½essaie tranquillement.";
         }
 
         const lessons = Array.isArray(this.state.currentTheme?.lessons) ? this.state.currentTheme.lessons : [];
@@ -1435,10 +1435,11 @@ const App = {
             lessonBtn.style.display = lessons.length ? 'inline-flex' : 'none';
         }
         if (lessonLabel) {
-            lessonLabel.textContent = lessons.length > 1 ? 'VOIR LES LEÇONS' : 'REVOIR LA LEÇON';
+            lessonLabel.textContent = lessons.length > 1 ? 'VOIR LES LEï¿½ONS' : 'REVOIR LA LEï¿½ON';
         }
     }
 };
 
 window.App = App;
 window.addEventListener('DOMContentLoaded', () => App.init());
+

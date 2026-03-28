@@ -98,7 +98,7 @@ const EnginesFrench = {
             isVisual: true,
             visualType: "audioSpelling",
             inputType: "alpha",
-            question: `<span class="small-question">Écoute le mot puis écris-le.</span>`,
+            question: `<span class="small-question">�?coute le mot puis écris-le.</span>`,
             answer: answer.toLowerCase(),
             data: {
                 audioText: (picked.audio || answer).toString().trim(),
