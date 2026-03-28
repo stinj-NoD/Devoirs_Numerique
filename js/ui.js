@@ -160,6 +160,18 @@ const UI = {
         return '';
     },
 
+    isSafeEngineQuestionMarkup(markup) {
+        const html = (markup || '').toString();
+        if (!html) return false;
+        if (/<script/i.test(html)) return false;
+        if (/\son[a-z]+\s*=/i.test(html)) return false;
+        if (/javascript:/i.test(html)) return false;
+        return html.includes('number-spelling-prompt')
+            || html.includes('small-question')
+            || html.includes('<b>')
+            || html.includes('<br>');
+    },
+
     buildCardContent(title, subtitle = "") {
         const safeTitle = this.escapeHtml(title || 'Exercice');
         const safeSubtitle = this.escapeHtml(subtitle || "");
@@ -590,7 +602,7 @@ const UI = {
             // p.question contient soit le texte, soit le HTML du gros chiffre (DictÃ©e CP)
             const formulaClasses = ['math-formula', 'prompt-card', 'prompt-card--formula'];
             const questionHtml = p.question || "";
-            const trustedRichQuestion = questionHtml.includes('number-spelling-prompt');
+            const trustedRichQuestion = this.isSafeEngineQuestionMarkup(questionHtml);
             const safeQuestionHtml = trustedRichQuestion ? questionHtml : this.escapeHtml(questionHtml);
             let compactMode = '';
             if (questionHtml.includes('number-spelling-prompt')) {
