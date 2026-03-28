@@ -6,7 +6,7 @@ Le projet est une SPA en JavaScript vanilla, sans backend, pilotée par des fich
 - `J'apprends` : bibliothèque de leçons courtes par niveau, matière et sous-thème
 - `Je m'entraîne` : exercices interactifs générés par moteurs
 
-## État actuel
+## �?tat actuel
 
 Le socle est aujourd'hui stable sur quatre axes :
 - navigation locale profils -> classe -> parcours -> matière -> sous-thème
@@ -82,7 +82,7 @@ Format minimal d'une leçon :
   "blocks": [
     { "type": "paragraph", "text": "..." },
     { "type": "example", "label": "Exemple", "content": "..." },
-    { "type": "tip", "label": "À retenir", "content": "..." }
+    { "type": "tip", "label": "�? retenir", "content": "..." }
   ]
 }
 ```

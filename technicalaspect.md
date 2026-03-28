@@ -98,7 +98,7 @@ Responsable de :
 {
   "id": "ce2-maths-subject",
   "title": "Mathématiques",
-  "icon": "🔢",
+  "icon": "�Y"�",
   "subthemes": []
 }
 ```
@@ -109,7 +109,7 @@ Responsable de :
 {
   "id": "ce2-multiplication",
   "title": "Tables de multiplication",
-  "icon": "✖️",
+  "icon": "�o-️",
   "lessons": [],
   "exercises": []
 }
