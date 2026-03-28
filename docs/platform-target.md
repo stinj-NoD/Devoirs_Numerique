@@ -4,7 +4,7 @@
 
 Définir la cible technique minimale pour faire évoluer `Devoir Numérique` d'une application locale de révision vers une plateforme pédagogique plus suivie, sans casser l'existant.
 
-## État actuel
+## �?tat actuel
 
 Le projet gère déjà :
 - profils locaux
@@ -52,7 +52,7 @@ Il ne gère pas encore :
   - `mastery`
   - `lastActivityAt`
 
-## Écart avec l'application actuelle
+## �?cart avec l'application actuelle
 
 - pas d'historique détaillé
 - progression encore centrée sur le record d'exercice

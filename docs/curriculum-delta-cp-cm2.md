@@ -1,4 +1,4 @@
-# Delta programme scolaire CP→CM2
+# Delta programme scolaire CP�?'CM2
 
 Sources officielles principales :
 - `education.gouv.fr` : programmes et horaires de l'école élémentaire
@@ -12,8 +12,8 @@ Statuts utilisés :
 - `Couvert`
 - `Partiel`
 - `Manquant`
-- `À corriger`
-- `À enrichir`
+- `�? corriger`
+- `�? enrichir`
 
 Lecture spécifique pour les leçons :
 - `Leçon conforme`
@@ -33,7 +33,7 @@ Lecture spécifique pour les leçons :
 
 ## Ce qui est déjà solide
 
-- structure CP→CM2 cohérente
+- structure CP�?'CM2 cohérente
 - bibliothèque de leçons en place
 - corpus d'exercices large et exploitable
 - forte couverture en français et mathématiques

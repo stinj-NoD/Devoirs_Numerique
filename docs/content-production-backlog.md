@@ -44,7 +44,7 @@ Le backlog initial est largement couvert ; les prochaines vagues doivent mainten
 | L03 | done | 1 | CE1 | Géographie | Densifier le repérage | `data/geography_ce1.json`, `data/ce1.json` | 2 catégories, 14 à 16 items | 2 catégories et 2 exercices ajoutés |
 | L04 | done | 1 | CE2 | Geographie | Renforcer France et espaces | `data/geography_ce2.json`, `data/ce2.json` | 2 categories, 14 a 16 items | 2 categories et 2 exercices ajoutes |
 | L05 | done | 1 | CP | Sciences | Renforcer Questionner le monde | `data/science_cp.json`, `data/cp.json` | 2 categories, 12 a 14 items | 2 categories et 2 exercices ajoutes |
-| L06 | done | 1 | CE1 | Sciences | Étendre vivant et matière | `data/science_ce1.json`, `data/ce1.json` | 2 catégories, 12 à 14 items | 2 catégories et 2 exercices ajoutés |
+| L06 | done | 1 | CE1 | Sciences | �?tendre vivant et matière | `data/science_ce1.json`, `data/ce1.json` | 2 catégories, 12 à 14 items | 2 catégories et 2 exercices ajoutés |
 | L07 | done | 1 | CE2 | Sciences | Introduire observation et objets | `data/science_ce2.json`, `data/ce2.json` | 2 categories, 12 a 16 items | 2 categories et 2 exercices ajoutes |
 | L08 | done | 1 | CE1 | EMC | Structurer règles et respect | `data/emc_ce1.json`, `data/ce1.json` | 2 catégories, 12 à 14 items | 2 catégories et 2 exercices ajoutés |
 | L09 | done | 1 | CE2 | EMC | Structurer responsabilité et coopération | `data/emc_ce2.json`, `data/ce2.json` | 2 catégories, 12 à 14 items | 2 catégories et 2 exercices ajoutés |

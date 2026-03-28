@@ -1,6 +1,6 @@
 # Storage Gap
 
-## État actuel
+## �?tat actuel
 
 Le stockage local conserve aujourd'hui :
 - profils
@@ -25,7 +25,7 @@ Le modèle reste volontairement léger pour garantir simplicité et résilience 
 - impossible de construire des indicateurs fiables de progression
 - impossible d'alimenter une future vue enseignant sans nouvelle couche de données
 
-## Évolution compatible recommandée
+## �?volution compatible recommandée
 
 - ajouter `attempts[]` sans casser `records`
 - ajouter `lessonViews[]` pour les leçons
