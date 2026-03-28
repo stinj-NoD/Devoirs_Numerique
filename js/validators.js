@@ -1,4 +1,4 @@
-const Validators = {
+﻿const Validators = {
     knownEngines: new Set([
         'choice-engine',
         'clock',
@@ -38,18 +38,18 @@ const Validators = {
 
     validateFrenchLibrarySection(sectionName, data) {
         if (!this.isPlainObject(data)) {
-            return { valid: false, reason: `Section de biblioth�que invalide : ${sectionName}.` };
+            return { valid: false, reason: `Section de bibliothèque invalide : ${sectionName}.` };
         }
 
         if (sectionName === 'reading') {
             for (const [category, entries] of Object.entries(data)) {
                 if (!Array.isArray(entries) || entries.length === 0) {
-                    return { valid: false, reason: `Cat�gorie de lecture invalide : ${category}.` };
+                    return { valid: false, reason: `Catégorie de lecture invalide : ${category}.` };
                 }
 
                 for (const entry of entries) {
                     if (!this.isPlainObject(entry)) {
-                        return { valid: false, reason: `Entr�e de lecture invalide : ${category}.` };
+                        return { valid: false, reason: `Entrée de lecture invalide : ${category}.` };
                     }
 
                     if (!this.isNonEmptyString(entry.text)) {
@@ -62,7 +62,7 @@ const Validators = {
 
                     const answer = entry.answer || entry.a || entry.text;
                     if (!this.isNonEmptyString(answer)) {
-                        return { valid: false, reason: `R�ponse de lecture absente : ${category}.` };
+                        return { valid: false, reason: `Réponse de lecture absente : ${category}.` };
                     }
 
                     if (!Array.isArray(entry.choices) || entry.choices.length < 2 || entry.choices.some((choice) => !this.isNonEmptyString(choice))) {
@@ -70,7 +70,7 @@ const Validators = {
                     }
 
                     if (!entry.choices.includes(answer)) {
-                        return { valid: false, reason: `R�ponse de lecture hors choix : ${category}.` };
+                        return { valid: false, reason: `Réponse de lecture hors choix : ${category}.` };
                     }
 
                     if (entry.silent !== undefined && (!Array.isArray(entry.silent) || entry.silent.some((index) => !Number.isInteger(Number(index)) || Number(index) < 0))) {
@@ -83,12 +83,12 @@ const Validators = {
         if (sectionName === 'grammar') {
             for (const [category, entries] of Object.entries(data)) {
                 if (!Array.isArray(entries) || entries.length === 0) {
-                    return { valid: false, reason: `Cat�gorie de grammaire invalide : ${category}.` };
+                    return { valid: false, reason: `Catégorie de grammaire invalide : ${category}.` };
                 }
 
                 for (const entry of entries) {
                     if (!this.isPlainObject(entry)) {
-                        return { valid: false, reason: `Entr�e de grammaire invalide : ${category}.` };
+                        return { valid: false, reason: `Entrée de grammaire invalide : ${category}.` };
                     }
 
                     const isGenderEntry = this.isNonEmptyString(entry.word)
@@ -112,7 +112,7 @@ const Validators = {
 
     validateFrenchLibrary(lib) {
         if (!this.isPlainObject(lib)) {
-            return { valid: false, reason: 'Bibliothèque de langue invalide.' };
+            return { valid: false, reason: 'bibliothèque de langue invalide.' };
         }
 
         const requiredSections = ['spelling', 'conjugation', 'homophones', 'grammar'];
@@ -365,7 +365,7 @@ const Validators = {
 
     validateExercise(exercise) {
         if (!this.isPlainObject(exercise)) {
-            return { valid: false, reason: 'exercice absent ou mal formé.' };
+            return { valid: false, reason: 'exercice absent ou mal form?.' };
         }
         if (!this.isNonEmptyString(exercise.id) || !this.isNonEmptyString(exercise.title)) {
             return { valid: false, reason: 'id/title manquants.' };
@@ -448,7 +448,7 @@ const Validators = {
 
         const pool = dataSet.categories[exercise.params.category];
         if (!Array.isArray(pool) || pool.length === 0) {
-            return { valid: false, reason: `catégorie documentaire introuvable (${exercise.params.category}).` };
+            return { valid: false, reason: `Catégorie documentaire introuvable (${exercise.params.category}).` };
         }
 
         const invalidItem = pool.find((item) =>
@@ -474,12 +474,12 @@ const Validators = {
 
         const pool = dataSet.categories[exercise.params.category];
         if (!Array.isArray(pool) || pool.length === 0) {
-            return { valid: false, reason: `cat�gorie interactive introuvable (${exercise.params.category}).` };
+            return { valid: false, reason: `Catégorie interactive introuvable (${exercise.params.category}).` };
         }
 
         for (const item of pool) {
             if (!this.isPlainObject(item) || !this.isNonEmptyString(item.prompt) || !this.isPlainObject(item.board)) {
-                return { valid: false, reason: `entr�e interactive invalide dans ${exercise.params.category}.` };
+                return { valid: false, reason: `Entrée interactive invalide dans ${exercise.params.category}.` };
             }
 
             if (exercise.params.type === 'tap-features') {
@@ -545,7 +545,7 @@ const Validators = {
 
         const eventIds = events.map((event) => event?.id).filter(Boolean);
         if (this.hasDuplicates(eventIds)) {
-            return { valid: false, reason: "dataset frise invalide : id d'events dupliqu�s." };
+            return { valid: false, reason: "dataset frise invalide : id d'events dupliqués." };
         }
 
         const periodIds = periods.map((period) => period?.id).filter(Boolean);
@@ -617,3 +617,4 @@ const Validators = {
 };
 
 window.Validators = Validators;
+

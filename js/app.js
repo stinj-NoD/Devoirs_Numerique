@@ -21,7 +21,7 @@ const App = {
         frenchLib: null,
         currentExerciseData: null,
         speechStatus: 'idle',
-        isValidating: false // ï¿½Y>' VERROU ANTI-DOUBLE CLIC
+        isValidating: false // ðŸ›‘ VERROU ANTI-DOUBLE CLIC
     },
     _initialized: false,
 
@@ -36,9 +36,9 @@ const App = {
             const check = window.Validators?.validateFrenchLibrary(lib);
             if (check && !check.valid) throw new Error(check.reason);
             this.state.frenchLib = lib;
-            console.log("Bibliotheque chargee.");
+            console.log("Bibliothèque chargée.");
         } catch (e) { 
-            console.warn("Mode offline restreint : bibliotheque absente.", e);
+            console.warn("Mode offline restreint : bibliothèque absente.", e);
         }
 
         // 2. Initialisation UI sÃ©curisÃ©e
@@ -63,7 +63,7 @@ const App = {
 
         // 4. DÃ©marrage
         this.renderProfilesScreen();
-        console.log("Application prete.");
+        console.log("Application prête.");
     },
 
     bindEvents() {
@@ -152,7 +152,7 @@ const App = {
 
             try {
                 const response = await fetch(path);
-                if (!response.ok) throw new Error(`Erreur rï¿½seau ${path}`);
+                if (!response.ok) throw new Error(`Erreur réseau ${path}`);
                 const jsonText = (await response.text()).replace(/^\uFEFF/, '');
                 return JSON.parse(jsonText);
             } catch (error) {
@@ -169,7 +169,7 @@ const App = {
         }
 
         if (window.location.protocol === 'file:') {
-            throw new Error("Chargement impossible en mode fichier local sans donnï¿½es embarquï¿½es.");
+            throw new Error("Chargement impossible en mode fichier local sans données embarquées.");
         }
 
         throw lastError || new Error("Chargement JSON impossible");
@@ -196,7 +196,7 @@ const App = {
         try {
             window.speechSynthesis.cancel();
         } catch (error) {
-            console.warn("Arrï¿½t audio impossible", error);
+            console.warn("Arrêt audio impossible", error);
         }
     },
 
@@ -214,7 +214,7 @@ const App = {
         if (!this.supportsSpeechSynthesis()) return null;
         const voices = window.speechSynthesis.getVoices?.() || [];
         const frenchVoices = voices.filter((voice) =>
-            /^fr(-|_)/i.test(voice.lang || '') || /french|fran[ï¿½c]ais/i.test(voice.name || '')
+            /^fr(-|_)/i.test(voice.lang || '') || /french|fran[çc]ais/i.test(voice.name || '')
         );
         if (!frenchVoices.length) return null;
 
@@ -347,7 +347,7 @@ const App = {
         this.state.problemData = null;
         this.state.userInput = "";
         this.applyVisualContext();
-        UI.updateHeader("Devoir Numï¿½rique");
+        UI.updateHeader("Devoir Numérique");
         UI.showScreen('screen-profiles');
         this.renderProfilesScreen();
     },
@@ -357,34 +357,18 @@ const App = {
         const isGame = screenId === 'screen-game';
         return {
             showBack: !isProfileRoot,
-            backLabel: '?',
+            backLabel: '←',
             backTitle: isGame ? 'Quitter cet exercice' : 'Retour',
             showMenu: !isProfileRoot,
-            menuLabel: '?',
-            menuTitle: 'Menu navigation'
+            menuLabel: '☰',
+            menuTitle: 'Navigation'
         };
     },
 
     confirmLeaveExercise() {
-        const currentScreen = document.querySelector('.screen.active')?.id;
+        const currentScreen = document.querySelector('.screen.active')?.id || '';
         if (currentScreen !== 'screen-game') return true;
         return confirm("Quitter cet exercice et perdre la progression en cours ?");
-    },
-
-    goToGrades() {
-        if (!this.confirmLeaveExercise()) return;
-        this.stopCurrentExercise();
-        UI.closeNavSheet?.();
-        this.state.currentGrade = null;
-        this.state.currentBrowseMode = null;
-        this.state.currentSubject = null;
-        this.state.currentTheme = null;
-        this.state.currentLessonOrigin = null;
-        this.state.currentExercise = null;
-        this.state.currentExerciseData = null;
-        this.state.problemData = null;
-        this.state.userInput = "";
-        this.loadGradesMenu();
     },
 
     openNavMenu() {
@@ -393,31 +377,34 @@ const App = {
 
         if (currentScreen !== 'screen-profiles') {
             actions.push({
-                title: '? Retour',
-                subtitle: currentScreen === 'screen-game' ? "Revenir sans terminer l'exercice" : "ï¿½cran prï¿½cï¿½dent",
+                title: 'Retour',
+                subtitle: currentScreen === 'screen-game' ? "Revenir sans terminer l'exercice" : 'Écran précédent',
                 onSelect: () => this.goBack()
             });
         }
 
         if (this.state.currentGrade) {
             actions.push({
-                title: '?? Parcours',
-                subtitle: 'Revenir ï¿½ la matiï¿½re / aux thï¿½mes',
+                title: 'Parcours',
+                subtitle: 'Revenir à la matière / aux thèmes',
                 onSelect: () => {
                     if (!this.confirmLeaveExercise()) return;
                     this.returnToThemes();
                 }
             });
             actions.push({
-                title: '?? Changer de classe',
+                title: 'Changer de classe',
                 subtitle: 'Revenir au choix de classe',
-                onSelect: () => this.goToGrades()
+                onSelect: () => {
+                    if (!this.confirmLeaveExercise()) return;
+                    UI.showScreen('screen-grades');
+                }
             });
         }
 
         actions.push({
-            title: '?? Changer de profil',
-            subtitle: 'Retour ï¿½ la sï¿½lection des profils',
+            title: 'Changer de profil',
+            subtitle: 'Retour à la sélection des profils',
             variant: 'warning',
             onSelect: () => {
                 if (!this.confirmLeaveExercise()) return;
@@ -460,8 +447,8 @@ const App = {
 
     goBack() {
         if (!this.confirmLeaveExercise()) return;
-        this.stopCurrentExercise();
         UI.closeNavSheet?.();
+        this.stopCurrentExercise();
 
         const currentScreen = document.querySelector('.screen.active')?.id;
         const actions = {
@@ -522,17 +509,17 @@ const App = {
         }
 
         const messages = {
-            empty: "Merci d'entrer un prï¿½nom.",
-            invalid: "Ce prï¿½nom contient uniquement des caractï¿½res non autorisï¿½s.",
-            too_short: "Merci d'entrer au moins 2 caractï¿½res.",
-            duplicate: "Ce profil existe dï¿½jï¿½."
+            empty: "Merci d'entrer un prénom.",
+            invalid: "Ce prénom contient uniquement des caractères non autorisés.",
+            too_short: "Merci d'entrer au moins 2 caractères.",
+            duplicate: "Ce profil existe déjà."
         };
 
-        alert(messages[result?.code] || "Merci d'entrer un prï¿½nom valide.");
+        alert(messages[result?.code] || "Merci d'entrer un prénom valide.");
     },
 
     renderProfilesScreen() {
-        UI.updateHeader("Devoir Numï¿½rique");
+        UI.updateHeader("Devoir Numérique");
         UI.showScreen('screen-profiles');
         const names = Storage.getProfiles();
         const profiles = (names || []).map(n => ({ id: n, name: n, avatar: '\u{1F464}' }));
@@ -551,11 +538,11 @@ const App = {
         }
     },
 
-    // --- CHARGEMENT DES DONNï¿½?ES ---
+    // --- CHARGEMENT DES DONNÃ‰ES ---
 
     async loadGradesMenu() {
         try {
-            const user = Storage.getCurrentUser() || "Invitï¿½";
+            const user = Storage.getCurrentUser() || "Invité";
             UI.updateHeader(`Joueur : ${user}`);
             
             const d = await this.fetchJson(['data/index.json', './data/index.json']);
@@ -579,7 +566,7 @@ const App = {
             if (check && !check.valid) throw new Error(check.reason);
             const usesSubjects = Array.isArray(d.subjects) && d.subjects.length > 0;
             const topLevelEntries = usesSubjects ? d.subjects : this.normalizeGradeThemes(d);
-            if (!Array.isArray(topLevelEntries) || topLevelEntries.length === 0) throw new Error("Aucun thï¿½me disponible.");
+            if (!Array.isArray(topLevelEntries) || topLevelEntries.length === 0) throw new Error("Aucun thème disponible.");
             this.state.currentGrade = { ...d, themes: this.normalizeGradeThemes(d) };
             this.state.currentGrade.gradeId = g.id || d.id || "unknown_grade";
             this.state.currentBrowseMode = null;
@@ -605,10 +592,10 @@ const App = {
             modes.push({
                 id: 'browse-lessons',
                 mode: 'lessons',
-                icon: '??',
+                icon: '📘',
                 title: "J'apprends",
-                subtitle: `${lessonsCount} leï¿½on${lessonsCount > 1 ? 's' : ''} pour comprendre`,
-                helper: 'Je dï¿½couvre la notion avec des exemples faciles.'
+                subtitle: `${lessonsCount} leçon${lessonsCount > 1 ? 's' : ''} pour comprendre`,
+                helper: 'Je découvre la notion avec des exemples faciles.'
             });
         }
 
@@ -616,10 +603,10 @@ const App = {
             modes.push({
                 id: 'browse-exercises',
                 mode: 'exercises',
-                icon: '??',
-                title: "Je m'entraï¿½ne",
-                subtitle: `${exercisesCount} exercice${exercisesCount > 1 ? 's' : ''} pour jouer et rï¿½ussir`,
-                helper: "Je m'entraï¿½ne tout de suite."
+                icon: '✏️',
+                title: "Je m'entraîne",
+                subtitle: `${exercisesCount} exercice${exercisesCount > 1 ? 's' : ''} pour jouer et réussir`,
+                helper: "Je m'entraîne tout de suite."
             });
         }
 
@@ -645,8 +632,8 @@ const App = {
 
         const entries = [];
         for (const subject of grade.subjects) {
-            const subjectTitle = subject?.title || 'Matiï¿½re';
-            const subjectIcon = subject?.icon || '??';
+            const subjectTitle = subject?.title || 'Matière';
+            const subjectIcon = subject?.icon || '📘';
             const subthemes = Array.isArray(subject?.subthemes) ? subject.subthemes : [];
             const lessonEntries = [];
 
@@ -657,7 +644,7 @@ const App = {
                         ...lesson,
                         kind: 'lesson',
                         icon: lesson.icon || subjectIcon,
-                        subtitle: `${subtheme.title}${lesson.subtitle ? ` ï¿½ ${lesson.subtitle}` : ''}`,
+                        subtitle: `${subtheme.title}${lesson.subtitle ? ` · ${lesson.subtitle}` : ''}`,
                         subjectTitle,
                         themeTitle: subtheme.title,
                         __subject: subject,
@@ -670,7 +657,7 @@ const App = {
             entries.push({
                 kind: 'section',
                 title: subjectTitle,
-                subtitle: `${lessonEntries.length} leï¿½on${lessonEntries.length > 1 ? 's' : ''} ï¿½ relire`
+                subtitle: `${lessonEntries.length} leçon${lessonEntries.length > 1 ? 's' : ''} à relire`
             });
             entries.push(...lessonEntries);
         }
@@ -684,14 +671,14 @@ const App = {
 
         const entries = this.getGradeLessonLibraryEntries();
         if (!entries.length) {
-            alert("Aucune leï¿½on disponible pour ce niveau.");
+            alert("Aucune leçon disponible pour ce niveau.");
             return this.showBrowseModeMenu();
         }
 
         const title = document.querySelector('#screen-library h2');
         const lead = document.getElementById('library-lead');
-        if (title) title.textContent = `Bibliothï¿½que ${grade.title || grade.gradeId || ''}`.trim();
-        if (lead) lead.textContent = "Choisis une leï¿½on ï¿½ revoir. Elles sont rangï¿½es par matiï¿½re pour retrouver l'essentiel plus vite.";
+        if (title) title.textContent = `Bibliothèque ${grade.title || grade.gradeId || ''}`.trim();
+        if (lead) lead.textContent = "Choisis une leçon à revoir. Elles sont rangées par matière pour retrouver l'essentiel plus vite.";
 
         UI.renderMenu('library-list', entries, (entry) => {
             if (entry?.kind !== 'lesson') return;
@@ -717,13 +704,13 @@ const App = {
                 alert("Aucun contenu disponible pour ce parcours.");
                 return this.showBrowseModeMenu();
             }
-            const title = mode === 'lessons' ? "Choisis une matiÃ¨re pour apprendre" : "Choisis une matiÃ¨re pour t'entraÃ®ner";
+            const title = mode === 'lessons' ? 'Choisis une matière pour apprendre' : 'Choisis une matière pour t’entraîner';
             const screenTitle = document.querySelector('#screen-themes h2');
             if (screenTitle) screenTitle.textContent = title;
             if (themesLead) {
                 themesLead.textContent = mode === 'lessons'
-                    ? "Choisis une matiï¿½re pour dï¿½couvrir les notions calmement."
-                    : "Choisis une matiï¿½re pour commencer tes exercices.";
+                    ? "Choisis une matière pour découvrir les notions calmement."
+                    : "Choisis une matière pour commencer tes exercices.";
             }
             UI.renderMenu('themes-list', subjects, (entry) => this.selectSubject(entry));
             UI.showScreen('screen-themes');
@@ -736,11 +723,11 @@ const App = {
             return this.showBrowseModeMenu();
         }
         const screenTitle = document.querySelector('#screen-themes h2');
-        if (screenTitle) screenTitle.textContent = mode === 'lessons' ? 'Choisis une notion' : 'Choisis un thï¿½me';
+        if (screenTitle) screenTitle.textContent = mode === 'lessons' ? 'Choisis une notion' : 'Choisis un thème';
         if (themesLead) {
             themesLead.textContent = mode === 'lessons'
                 ? "Choisis la notion que tu veux comprendre."
-                : "Choisis le thï¿½me sur lequel tu veux t'entraï¿½ner.";
+                : "Choisis le thème sur lequel tu veux t'entraîner.";
         }
         UI.renderMenu('themes-list', themes, (entry) => this.selectTheme(entry));
         UI.showScreen('screen-themes');
@@ -762,6 +749,14 @@ const App = {
     countGradeModeEntries(mode = 'exercises') {
         const grade = this.state.currentGrade;
         if (!grade) return 0;
+        if (this.currentGradeUsesSubjects()) {
+            const subjects = Array.isArray(grade?.subjects) ? grade.subjects : [];
+            return subjects.reduce((sum, subject) => {
+                const subthemes = Array.isArray(subject?.subthemes) ? subject.subthemes : [];
+                return sum + subthemes.reduce((subSum, subtheme) => subSum + this.countModeContent(subtheme, mode), 0);
+            }, 0);
+        }
+
         const themes = this.normalizeGradeThemes(grade);
         return themes.reduce((sum, theme) => sum + this.countModeContent(theme, mode), 0);
     },
@@ -775,7 +770,7 @@ const App = {
                     .map((subtheme) => ({
                         ...subtheme,
                         subtitle: mode === 'lessons'
-                            ? `${this.countModeContent(subtheme, mode)} leï¿½on${this.countModeContent(subtheme, mode) > 1 ? 's' : ''}`
+                            ? `${this.countModeContent(subtheme, mode)} leçon${this.countModeContent(subtheme, mode) > 1 ? 's' : ''}`
                             : `${this.countModeContent(subtheme, mode)} exercice${this.countModeContent(subtheme, mode) > 1 ? 's' : ''}`
                     }));
 
@@ -786,8 +781,8 @@ const App = {
                     ...subject,
                     subthemes,
                     subtitle: mode === 'lessons'
-                        ? `${total} leï¿½on${total > 1 ? 's' : ''} ï¿½ dï¿½couvrir`
-                        : `${total} exercice${total > 1 ? 's' : ''} pour s'entraï¿½ner`
+                        ? `${total} leçon${total > 1 ? 's' : ''} à découvrir`
+                        : `${total} exercice${total > 1 ? 's' : ''} pour s'entraîner`
                 };
             })
             .filter(Boolean);
@@ -800,14 +795,14 @@ const App = {
             .map((theme) => ({
                 ...theme,
                 subtitle: mode === 'lessons'
-                    ? `${this.countModeContent(theme, mode)} leï¿½on${this.countModeContent(theme, mode) > 1 ? 's' : ''}`
+                    ? `${this.countModeContent(theme, mode)} leçon${this.countModeContent(theme, mode) > 1 ? 's' : ''}`
                     : `${this.countModeContent(theme, mode)} exercice${this.countModeContent(theme, mode) > 1 ? 's' : ''}`
             }));
     },
 
     selectSubject(subject) {
         if (!subject || !Array.isArray(subject.subthemes) || subject.subthemes.length === 0) {
-            alert("Cette matiï¿½re ne contient aucun sous-thï¿½me disponible.");
+            alert("Cette matière ne contient aucun sous-thème disponible.");
             return;
         }
         this.state.currentSubject = subject;
@@ -819,12 +814,12 @@ const App = {
         const screenTitle = document.querySelector('#screen-levels h2');
         const screenLead = document.getElementById('levels-lead');
         if (screenTitle) {
-            screenTitle.textContent = mode === 'lessons' ? 'Choisis une notion ï¿½ dï¿½couvrir' : 'Choisis un sous-thï¿½me';
+            screenTitle.textContent = mode === 'lessons' ? 'Choisis une notion à découvrir' : 'Choisis un sous-thème';
         }
         if (screenLead) {
             screenLead.textContent = mode === 'lessons'
-                ? "Prends une notion simple et avance ï¿½ ton rythme."
-                : "Choisis un sous-thï¿½me prï¿½cis pour pratiquer.";
+                ? "Prends une notion simple et avance à ton rythme."
+                : "Choisis un sous-thème précis pour pratiquer.";
         }
         UI.renderMenu('levels-list', subject.subthemes, (subtheme) => this.selectTheme(subtheme));
         UI.showScreen('screen-levels');
@@ -834,7 +829,7 @@ const App = {
         const lessons = Array.isArray(t?.lessons) ? t.lessons : [];
         const exercises = Array.isArray(t?.exercises) ? t.exercises : [];
         if (!t || (lessons.length === 0 && exercises.length === 0)) {
-            alert("Ce thï¿½me ne contient aucun contenu disponible.");
+            alert("Ce thème ne contient aucun contenu disponible.");
             return;
         }
         this.state.currentTheme = t;
@@ -857,20 +852,20 @@ const App = {
         const screenLead = document.getElementById('exercises-lead');
 
         if (screenTitle) {
-            screenTitle.textContent = activeMode === 'lessons' ? 'Choisis une leï¿½on' : 'Choisis un exercice';
+            screenTitle.textContent = activeMode === 'lessons' ? 'Choisis une leçon' : 'Choisis un exercice';
         }
         if (screenLead) {
             screenLead.textContent = activeMode === 'lessons'
-                ? `Dï¿½couvre ${theme?.title || 'la notion'} avant de t'entraï¿½ner.`
-                : `Choisis un exercice sur ${theme?.title || 'ce sous-thï¿½me'}.`;
+                ? `Découvre ${theme?.title || 'la notion'} avant de t'entraîner.`
+                : `Choisis un exercice sur ${theme?.title || 'ce sous-thème'}.`;
         }
 
         const entries = activeMode === 'lessons'
             ? lessons.map((lesson) => ({
                 ...lesson,
                 kind: 'lesson',
-                subtitle: lesson.subtitle || 'Dï¿½couvrir la notion',
-                icon: lesson.icon || '??'
+                subtitle: lesson.subtitle || 'Découvrir la notion',
+                icon: lesson.icon || '📘'
             }))
             : exercises.map((exercise) => ({
                 ...exercise,
@@ -894,7 +889,7 @@ const App = {
 
         const themes = [];
         for (const subject of gradeData.subjects) {
-            const subjectTitle = subject?.title || 'Matiï¿½re';
+            const subjectTitle = subject?.title || 'Matière';
             const subjectIcon = subject?.icon || null;
             const subthemes = Array.isArray(subject?.subthemes) ? subject.subthemes : [];
 
@@ -922,7 +917,7 @@ const App = {
 
     startLesson(lesson) {
         if (!lesson || !Array.isArray(lesson.blocks) || lesson.blocks.length === 0) {
-            alert("Leï¿½on indisponible.");
+            alert("Leçon indisponible.");
             return;
         }
         this.stopCurrentExercise();
@@ -938,8 +933,8 @@ const App = {
         const lessonLead = document.getElementById('lesson-lead');
         if (lessonLead) {
             lessonLead.textContent = exerciseCount > 0
-                ? `Lis l'essentiel, retiens les idï¿½es clï¿½s, puis passe aux ${exerciseCount} exercice${exerciseCount > 1 ? 's' : ''} du sous-thï¿½me.`
-                : "Lis l'essentiel de la leï¿½on comme un rappel de cours, puis reviens au sous-thï¿½me.";
+                ? `Lis l'essentiel, retiens les idées clés, puis passe aux ${exerciseCount} exercice${exerciseCount > 1 ? 's' : ''} du sous-thème.`
+                : "Lis l'essentiel de la leçon comme un rappel de cours, puis reviens au sous-thème.";
         }
         UI.renderLesson(lesson, () => {
             if (this.state.currentTheme) {
@@ -960,8 +955,8 @@ const App = {
             },
             exerciseCount,
             summaryText: exerciseCount > 0
-                ? `Retiens l'idï¿½e essentielle, l'exemple important et les mots-clï¿½s, puis passe aux ${exerciseCount} exercice${exerciseCount > 1 ? 's' : ''} du sous-thï¿½me.`
-                : `Retiens l'idï¿½e essentielle et les mots-clï¿½s, puis reviens au sous-thï¿½me pour continuer.`
+                ? `Retiens l'idée essentielle, l'exemple important et les mots-clés, puis passe aux ${exerciseCount} exercice${exerciseCount > 1 ? 's' : ''} du sous-thème.`
+                : `Retiens l'idée essentielle et les mots-clés, puis reviens au sous-thème pour continuer.`
         });
         UI.showScreen('screen-lesson');
     },
@@ -973,33 +968,6 @@ const App = {
             [copy[i], copy[j]] = [copy[j], copy[i]];
         }
         return copy;
-    },
-
-    serializeBoardState(problem) {
-        const data = problem?.data || {};
-        const state = data.userState || {};
-        switch (data.boardKind) {
-            case 'tap-features':
-                return Array.isArray(state.selectedIds) ? [...state.selectedIds].sort().join('|') : '';
-            case 'shape-classify':
-                return Object.keys(state.assignments || {})
-                    .sort()
-                    .map((key) => `${key}:${state.assignments[key]}`)
-                    .join('|');
-            case 'point-on-grid':
-                return Array.isArray(state.point) ? `${Number(state.point[0])},${Number(state.point[1])}` : '';
-            case 'symmetry-complete':
-                return Array.isArray(state.placedPoints)
-                    ? state.placedPoints
-                        .filter((point) => Array.isArray(point) && point.length === 2)
-                        .map((point) => [Number(point[0]), Number(point[1])])
-                        .sort((a, b) => a[0] - b[0] || a[1] - b[1])
-                        .map((point) => `${point[0]},${point[1]}`)
-                        .join('|')
-                    : '';
-            default:
-                return '';
-        }
     },
 
     shuffleProblemChoices(problem) {
@@ -1016,7 +984,7 @@ const App = {
 
     async startExercise(e) {
         if (!this.hasRunnableExercise(e)) {
-            alert("Exercice indisponible : paramï¿½tres incomplets.");
+            alert("Exercice indisponible : paramètres incomplets.");
             return;
         }
 
@@ -1034,7 +1002,7 @@ const App = {
                 if (dataCheck && !dataCheck.valid) throw new Error(dataCheck.reason);
             } catch (error) {
                 console.error(error);
-                alert(`Impossible de charger les donnï¿½es de cet exercice.\n${error.message || ""}`.trim());
+                alert(`Impossible de charger les données de cet exercice.\n${error.message || ""}`.trim());
                 return;
             }
         }
@@ -1047,7 +1015,7 @@ const App = {
         this.state.userInput = "";
         this.state.problemData = null;
         this.state.targetAnswer = null;
-        this.state.isValidating = false; // ï¿½Y"" On dÃ©verrouille au dÃ©but
+        this.state.isValidating = false; // ðŸ”“ On dÃ©verrouille au dÃ©but
         this.applyVisualContext();
         UI.showScreen('screen-game'); 
         this.generateNextQuestion();
@@ -1057,7 +1025,7 @@ const App = {
         if (this.state.timer) clearTimeout(this.state.timer);
         this.stopSpeech();
         if (!this.hasRunnableExercise()) {
-            this.failSafeExit("Cet exercice ne peut pas ï¿½tre dï¿½marrï¿½ correctement.");
+            this.failSafeExit("Cet exercice ne peut pas être démarré correctement.");
             return;
         }
 
@@ -1079,12 +1047,12 @@ const App = {
         const problem = Engines.run(this.state.currentExercise.engine, cfg, this.state.frenchLib);
         const check = window.Validators?.validateProblem(problem);
         if (check && !check.valid) {
-            console.error("Problï¿½me invalide :", check.reason, problem);
-            this.failSafeExit("Cet exercice ne peut pas ï¿½tre affichï¿½ pour le moment.");
+            console.error("Problème invalide :", check.reason, problem);
+            this.failSafeExit("Cet exercice ne peut pas être affiché pour le moment.");
             return;
         }
         if (problem.answer === undefined || problem.answer === null) {
-            this.failSafeExit("Cet exercice a retournï¿½ une rï¿½ponse invalide.");
+            this.failSafeExit("Cet exercice a retourné une réponse invalide.");
             return;
         }
 
@@ -1111,7 +1079,7 @@ const App = {
             }, 320);
         }
 
-        // ï¿½Y"" ON OUVRE LE VERROU POUR LA NOUVELLE QUESTION
+        // ðŸ”“ ON OUVRE LE VERROU POUR LA NOUVELLE QUESTION
         this.state.isValidating = false;
 
         // Gestion Timer (Oiseau)
@@ -1130,7 +1098,7 @@ const App = {
 
         if (val === "timeout") return this.validateAnswer(false);
 
-        // --- CAS SPï¿½?CIAL : CarrÃ© Magique ---
+        // --- CAS SPÃ‰CIAL : CarrÃ© Magique ---
         if (val === 'card-click' && target) {
             const idx = parseInt(target.getAttribute('data-idx'));
             if (isNaN(idx) || !p.data) return;
@@ -1149,7 +1117,7 @@ const App = {
             return; 
         }
 
-        // --- CAS SPï¿½?CIAL : Frise chronologique ---
+        // --- CAS SPÃ‰CIAL : Frise chronologique ---
         if (typeof val === 'string' && val.startsWith('timeline-order:')) {
             const selectedId = val.replace('timeline-order:', '');
             if (p.visualType !== 'timelineOrder' || !p.data) return;
@@ -1180,84 +1148,6 @@ const App = {
             this.state.userInput = year.toString();
             this.refreshUI();
             return;
-        }
-
-        if (typeof val === 'string' && val.startsWith('board-')) {
-            const state = p.data?.userState || (p.data.userState = {});
-
-            if (val === 'board-reset') {
-                if (p.data.boardKind === 'tap-features') {
-                    state.selectedIds = [];
-                } else if (p.data.boardKind === 'shape-classify') {
-                    state.selectedFigureId = null;
-                    state.assignments = {};
-                } else if (p.data.boardKind === 'point-on-grid') {
-                    state.point = null;
-                } else if (p.data.boardKind === 'symmetry-complete') {
-                    state.placedPoints = [];
-                }
-                this.state.userInput = '';
-                this.refreshUI();
-                return;
-            }
-
-            if (val === 'board-submit') {
-                this.state.userInput = this.serializeBoardState(p);
-                if (this.state.userInput) {
-                    return this.validateAnswer();
-                }
-                this.refreshUI();
-                return;
-            }
-
-            if (val.startsWith('board-toggle-feature:') && p.data.boardKind === 'tap-features') {
-                const featureId = val.replace('board-toggle-feature:', '');
-                if (!Array.isArray(state.selectedIds)) state.selectedIds = [];
-                const idx = state.selectedIds.indexOf(featureId);
-                if (idx >= 0) state.selectedIds.splice(idx, 1);
-                else state.selectedIds.push(featureId);
-                this.state.userInput = this.serializeBoardState(p);
-                this.refreshUI();
-                return;
-            }
-
-            if (val.startsWith('board-select-figure:') && p.data.boardKind === 'shape-classify') {
-                state.selectedFigureId = val.replace('board-select-figure:', '');
-                this.refreshUI();
-                return;
-            }
-
-            if (val.startsWith('board-assign-bucket:') && p.data.boardKind === 'shape-classify') {
-                const bucketId = val.replace('board-assign-bucket:', '');
-                const selectedFigureId = state.selectedFigureId;
-                if (!selectedFigureId) return;
-                if (!state.assignments) state.assignments = {};
-                state.assignments[selectedFigureId] = bucketId;
-                state.selectedFigureId = null;
-                this.state.userInput = this.serializeBoardState(p);
-                this.refreshUI();
-                return;
-            }
-
-            if (val.startsWith('board-place-point:') && p.data.boardKind === 'point-on-grid') {
-                const [, x, y] = val.split(':');
-                state.point = [Number(x), Number(y)];
-                this.state.userInput = this.serializeBoardState(p);
-                this.refreshUI();
-                return;
-            }
-
-            if (val.startsWith('board-toggle-point:') && p.data.boardKind === 'symmetry-complete') {
-                const [, x, y] = val.split(':');
-                const key = `${Number(x)},${Number(y)}`;
-                if (!Array.isArray(state.placedPoints)) state.placedPoints = [];
-                const idx = state.placedPoints.findIndex((point) => `${Number(point[0])},${Number(point[1])}` === key);
-                if (idx >= 0) state.placedPoints.splice(idx, 1);
-                else state.placedPoints.push([Number(x), Number(y)]);
-                this.state.userInput = this.serializeBoardState(p);
-                this.refreshUI();
-                return;
-            }
         }
 
         // --- GESTION CLAVIER ---
@@ -1298,21 +1188,21 @@ const App = {
     },
 
     validateAnswer(hasAnswered = true) {
-        // ï¿½Y>' ANTI-SPAM : Si dÃ©jÃ  en cours, on arrÃªte tout de suite
+        // ðŸ›‘ ANTI-SPAM : Si dÃ©jÃ  en cours, on arrÃªte tout de suite
         if (this.state.isValidating) return;
-        this.state.isValidating = true; // ï¿½Y"' On verrouille
+        this.state.isValidating = true; // ðŸ”’ On verrouille
 
         if (this.state.timer) clearTimeout(this.state.timer);
         
         const { userInput, targetAnswer, currentExercise, problemData } = this.state;
         if (!this.hasRunnableExercise(currentExercise) || !problemData) {
             this.state.isValidating = false;
-            this.failSafeExit("L'exercice courant est dans un ï¿½tat incohï¿½rent.");
+            this.failSafeExit("L'exercice courant est dans un état incohérent.");
             return;
         }
         const ansZone = document.getElementById('user-answer');
         
-        // 1. NETTOYAGE & TOLï¿½?RANCE
+        // 1. NETTOYAGE & TOLÃ‰RANCE
         const clean = s => (s || "").toString().toLowerCase().trim();
         let uInput = clean(userInput);
         let tAnswer = clean(targetAnswer);
@@ -1350,15 +1240,11 @@ const App = {
             } else if (problemData.visualType === 'timelineOrder') {
                 ansZone.textContent = isCorrect
                     ? "Ordre correct"
-                    : (problemData.data?.orderedLabels || []).join("  ï¿½?'  ");
+                    : (problemData.data?.orderedLabels || []).join("  â†’  ");
             } else if (problemData.visualType === 'timelinePlace') {
                 ansZone.textContent = isCorrect
                     ? `${userInput}`
                     : `${targetAnswer}`;
-            } else if (problemData.visualType === 'geometry-board') {
-                ansZone.textContent = isCorrect
-                    ? "Bravo, c'est correct."
-                    : "Ce n'est pas encore la bonne rï¿½ponse.";
             } else {
                 ansZone.textContent = isCorrect ? userInput : targetAnswer;
             }
@@ -1378,7 +1264,7 @@ const App = {
             } else {
                 this.showFinalResults();
             }
-            // ï¿½sï¿½ï¸ On ne dÃ©verrouille PAS ici, c'est fait au dÃ©but de generateNextQuestion
+            // âš ï¸ On ne dÃ©verrouille PAS ici, c'est fait au dÃ©but de generateNextQuestion
         }, delay);
     },
 
@@ -1386,11 +1272,11 @@ const App = {
         const { score, currentGrade, currentExercise } = this.state;
         const total = this.getQuestionTarget(currentExercise);
         if (!total) {
-            this.failSafeExit("Impossible d'afficher les rï¿½sultats de cet exercice.");
+            this.failSafeExit("Impossible d'afficher les résultats de cet exercice.");
             return;
         }
         
-        // ï¿½Y>ï¿½ï¸ Sï¿½?CURITï¿½? SCORE : On s'assure que le score ne dÃ©passe jamais le total
+        // ðŸ›¡ï¸ SÃ‰CURITÃ‰ SCORE : On s'assure que le score ne dÃ©passe jamais le total
         const safeScore = Math.min(score, total);
         const percent = Math.round((safeScore / total) * 100);
 
@@ -1413,19 +1299,19 @@ const App = {
             resultTitle.innerText = percent === 100
                 ? "Bravo !"
                 : percent >= 70
-                    ? "Trï¿½s bien !"
+                    ? "Très bien !"
                     : percent >= 40
                         ? "Continue !"
                         : "On recommence ?";
         }
         if (resultLead) {
             resultLead.innerText = percent === 100
-                ? "Tu as tout rï¿½ussi. Tu peux passer ï¿½ une nouvelle notion."
+                ? "Tu as tout réussi. Tu peux passer à une nouvelle notion."
                 : percent >= 70
-                    ? "Tu avances bien. Relis la leï¿½on ou tente un autre exercice."
+                    ? "Tu avances bien. Relis la leçon ou tente un autre exercice."
                     : percent >= 40
-                        ? "Tu progresses. Une petite rï¿½vision peut t'aider."
-                        : "Relis la leï¿½on et rï¿½essaie tranquillement.";
+                        ? "Tu progresses. Une petite révision peut t'aider."
+                        : "Relis la leçon et réessaie tranquillement.";
         }
 
         const lessons = Array.isArray(this.state.currentTheme?.lessons) ? this.state.currentTheme.lessons : [];
@@ -1435,11 +1321,10 @@ const App = {
             lessonBtn.style.display = lessons.length ? 'inline-flex' : 'none';
         }
         if (lessonLabel) {
-            lessonLabel.textContent = lessons.length > 1 ? 'VOIR LES LEï¿½ONS' : 'REVOIR LA LEï¿½ON';
+            lessonLabel.textContent = lessons.length > 1 ? 'VOIR LES LEÇONS' : 'REVOIR LA LEÇON';
         }
     }
 };
 
 window.App = App;
 window.addEventListener('DOMContentLoaded', () => App.init());
-

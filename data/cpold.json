@@ -1,16 +1,16 @@
-{
+﻿{
     "gradeId":  "cp",
     "title":  "CP",
     "themes":  [
                    {
                        "id":  "cp-parcours-addition",
                        "title":  "Parcours : Addition",
-                       "icon":  "➕",
+                       "icon":  "📘",
                        "exercises":  [
                                          {
                                              "id":  "add-1",
                                              "title":  "Étape 1",
-                                             "subtitle":  "Sommes \u003c 10",
+                                             "subtitle":  "Sommes < 10",
                                              "engine":  "math-input",
                                              "params":  {
                                                             "type":  "add-simple",
@@ -21,7 +21,7 @@
                                          {
                                              "id":  "add-2",
                                              "title":  "Étape 2",
-                                             "subtitle":  "Sommes \u003c 20",
+                                             "subtitle":  "Sommes < 20",
                                              "engine":  "math-input",
                                              "params":  {
                                                             "type":  "add-simple",
@@ -46,12 +46,12 @@
                    {
                        "id":  "cp-parcours-soustraction",
                        "title":  "Parcours : Soustraction",
-                       "icon":  "➖",
+                       "icon":  "📘",
                        "exercises":  [
                                          {
                                              "id":  "sub-1",
                                              "title":  "Étape 1",
-                                             "subtitle":  "Retirer \u003c 10",
+                                             "subtitle":  "Retirer < 10",
                                              "engine":  "math-input",
                                              "params":  {
                                                             "type":  "sub-simple",
@@ -63,7 +63,7 @@
                                          {
                                              "id":  "sub-2",
                                              "title":  "Étape 2",
-                                             "subtitle":  "Retirer \u003c 20",
+                                             "subtitle":  "Retirer < 20",
                                              "engine":  "math-input",
                                              "params":  {
                                                             "type":  "sub-simple",
@@ -76,8 +76,8 @@
                    },
                    {
                        "id":  "cp-nombres-comparaison",
-                       "title":  "Nombres \u0026 Comparaison",
-                       "icon":  "🔢",
+                       "title":  "Nombres & Comparaison",
+                       "icon":  "📘",
                        "exercises":  [
                                          {
                                              "id":  "math-count-1",
@@ -104,7 +104,7 @@
                                          {
                                              "id":  "comp-1",
                                              "title":  "Comparer : Niv 1",
-                                             "subtitle":  "Nombres \u003c 10",
+                                             "subtitle":  "Nombres < 10",
                                              "engine":  "choice-engine",
                                              "params":  {
                                                             "range":  10,
@@ -114,7 +114,7 @@
                                          {
                                              "id":  "comp-2",
                                              "title":  "Comparer : Niv 2",
-                                             "subtitle":  "Nombres \u003c 20",
+                                             "subtitle":  "Nombres < 20",
                                              "engine":  "choice-engine",
                                              "params":  {
                                                             "range":  20,
@@ -124,7 +124,7 @@
                                          {
                                              "id":  "comp-3",
                                              "title":  "Comparer : Niv 3",
-                                             "subtitle":  "Nombres \u003c 50",
+                                             "subtitle":  "Nombres < 50",
                                              "engine":  "choice-engine",
                                              "params":  {
                                                             "range":  50,
@@ -135,8 +135,8 @@
                    },
                    {
                        "id":  "cp-cibles-monnaie",
-                       "title":  "Cibles \u0026 Monnaie",
-                       "icon":  "🎯",
+                       "title":  "Cibles & Monnaie",
+                       "icon":  "📘",
                        "exercises":  [
                                          {
                                              "id":  "cible-1",
@@ -190,7 +190,7 @@
                                          {
                                              "id":  "banquier-1",
                                              "title":  "Le Marché",
-                                             "subtitle":  "Pièces (1€, 2€)",
+                                             "subtitle":  "Pièces (1 €, 2 €)",
                                              "engine":  "math-input",
                                              "params":  {
                                                             "type":  "cibles",
@@ -225,8 +225,8 @@
                    },
                    {
                        "id":  "cp-defis-logique",
-                       "title":  "Défis \u0026 Logique",
-                       "icon":  "🧩",
+                       "title":  "Défis & Logique",
+                       "icon":  "📘",
                        "exercises":  [
                                          {
                                              "id":  "oiseau-1",
@@ -274,7 +274,7 @@
                    {
                        "id":  "cp-lecture-taoki",
                        "title":  "Lecture (Taoki)",
-                       "icon":  "🐉",
+                       "icon":  "📘",
                        "exercises":  [
                                          {
                                              "id":  "fr-taoki-1",
@@ -341,7 +341,7 @@
                    {
                        "id":  "cp-orthographe",
                        "title":  "Dictée d'Images",
-                       "icon":  "✍️",
+                       "icon":  "📘",
                        "exercises":  [
                                          {
                                              "id":  "fr-animaux",
@@ -391,3 +391,7 @@
                    }
                ]
 }
+
+
+
+

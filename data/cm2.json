@@ -1,16 +1,16 @@
-{
+﻿{
     "gradeId":  "cm2",
     "title":  "CM2",
     "subjects":  [
                      {
                          "id":  "cm2-maths-subject",
                          "title":  "Mathématiques",
-                         "icon":  "🔢",
+                         "icon":  "📘",
                          "subthemes":  [
                                            {
                                                "id":  "cm2-nombres-calcul-mental",
-                                               "title":  "Nombres \u0026 calcul mental",
-                                               "icon":  "🔢",
+                                               "title":  "Nombres & calcul mental",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm2-lesson-grands-nombres",
@@ -46,12 +46,12 @@
                                                                                                ],
                                                                                       "headers":  [
                                                                                                       "Classe",
-                                                                                                      "Ce qu\u0027elle contient"
+                                                                                                      "Ce qu'elle contient"
                                                                                                   ]
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
-                                                                                      "content":  "Pour lire un nombre, je découpe d\u0027abord en classes de trois chiffres, puis je nomme chaque classe.",
+                                                                                      "content":  "Pour lire un nombre, je découpe d'abord en classes de trois chiffres, puis je nomme chaque classe.",
                                                                                       "label":  "À retenir"
                                                                                   }
                                                                               ]
@@ -154,8 +154,8 @@
                                            },
                                            {
                                                "id":  "cm2-fractions-decimaux",
-                                               "title":  "Fractions \u0026 décimaux",
-                                               "icon":  "🧮",
+                                               "title":  "Fractions & décimaux",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cm2_decimaux_compare",
@@ -203,7 +203,7 @@
                                                                  {
                                                                      "id":  "cm2_fractions_lecture_2",
                                                                      "title":  "Fractions (2)",
-                                                                     "subtitle":  "Parts jusqu\u0027à 20",
+                                                                     "subtitle":  "Parts jusqu'à 20",
                                                                      "engine":  "math-input",
                                                                      "params":  {
                                                                                     "type":  "fraction-view",
@@ -217,7 +217,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Un nombre décimal s\u0027écrit avec une partie entière et une partie décimale. La position de chaque chiffre change sa valeur."
+                                                                                      "text":  "Un nombre décimal s'écrit avec une partie entière et une partie décimale. La position de chaque chiffre change sa valeur."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -228,7 +228,7 @@
                                                                                       "type":  "bullets",
                                                                                       "label":  "Repères utiles",
                                                                                       "items":  [
-                                                                                                    "Je compare d\u0027abord la partie entière.",
+                                                                                                    "Je compare d'abord la partie entière.",
                                                                                                     "Si elle est identique, je regarde les dixièmes.",
                                                                                                     "Si besoin, je compare les centièmes."
                                                                                                 ]
@@ -248,7 +248,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Certaines fractions simples peuvent s\u0027écrire en nombre décimal. On parle alors de deux écritures pour une même quantité."
+                                                                                      "text":  "Certaines fractions simples peuvent s'écrire en nombre décimal. On parle alors de deux écritures pour une même quantité."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -284,7 +284,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Une même quantité peut s\u0027écrire sous forme de fraction ou de nombre décimal."
+                                                                                      "content":  "Une même quantité peut s'écrire sous forme de fraction ou de nombre décimal."
                                                                                   }
                                                                               ],
                                                                    "title":  "Fraction ou décimal ?",
@@ -297,7 +297,7 @@
                                            {
                                                "id":  "cm2-division-posee-subtheme",
                                                "title":  "Division posée",
-                                               "icon":  "➗",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm2-lesson-division-comprendre",
@@ -317,7 +317,7 @@
                                                                                   {
                                                                                       "type":  "bullets",
                                                                                       "items":  [
-                                                                                                    "Le dividende est le nombre qu\u0027on partage.",
+                                                                                                    "Le dividende est le nombre qu'on partage.",
                                                                                                     "Le diviseur indique en combien de parts on partage.",
                                                                                                     "Le quotient est le résultat."
                                                                                                 ],
@@ -325,7 +325,7 @@
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
-                                                                                      "content":  "La division est l\u0027opération inverse de la multiplication.",
+                                                                                      "content":  "La division est l'opération inverse de la multiplication.",
                                                                                       "label":  "À retenir"
                                                                                   }
                                                                               ]
@@ -338,7 +338,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "On vérifie une division avec une multiplication. S\u0027il reste un reste, il doit toujours être plus petit que le diviseur."
+                                                                                      "text":  "On vérifie une division avec une multiplication. S'il reste un reste, il doit toujours être plus petit que le diviseur."
                                                                                   },
                                                                                   {
                                                                                       "type":  "mini-table",
@@ -419,8 +419,8 @@
                                            },
                                            {
                                                "id":  "cm2-grandeurs-mesures-subtheme",
-                                               "title":  "Grandeurs \u0026 mesures",
-                                               "icon":  "📏",
+                                               "title":  "Grandeurs & mesures",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cm2-conversions-longueurs",
@@ -462,7 +462,7 @@
                                                                  },
                                                                  {
                                                                      "id":  "cm2-lire-horloge",
-                                                                     "title":  "Lire l\u0027horloge",
+                                                                     "title":  "Lire l'horloge",
                                                                      "subtitle":  "Heures et minutes par 5",
                                                                      "engine":  "clock",
                                                                      "params":  {
@@ -472,7 +472,7 @@
                                                                  {
                                                                      "id":  "cm2-romains-100",
                                                                      "title":  "Chiffres Romains",
-                                                                     "subtitle":  "Jusqu\u0027à C (100)",
+                                                                     "subtitle":  "Jusqu'à C (100)",
                                                                      "engine":  "conversion",
                                                                      "params":  {
                                                                                     "subtype":  "roman",
@@ -517,7 +517,7 @@
                                                                  {
                                                                      "id":  "cm2-romains-500",
                                                                      "title":  "Chiffres romains (3)",
-                                                                     "subtitle":  "Jusqu\u0027à D (500)",
+                                                                     "subtitle":  "Jusqu'à D (500)",
                                                                      "engine":  "conversion",
                                                                      "params":  {
                                                                                     "subtype":  "roman",
@@ -562,7 +562,7 @@
                                                                                   },
                                                                                   {
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "En temps, on multiplie souvent par 60 pour changer d\u0027unité.",
+                                                                                      "content":  "En temps, on multiplie souvent par 60 pour changer d'unité.",
                                                                                       "type":  "tip"
                                                                                   }
                                                                               ],
@@ -579,7 +579,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Pour mesurer une longueur, on choisit l\u0027unité adaptée. Les longueurs de la vie courante se lisent souvent en kilomètres, mètres, centimètres ou millimètres."
+                                                                                      "text":  "Pour mesurer une longueur, on choisit l'unité adaptée. Les longueurs de la vie courante se lisent souvent en kilomètres, mètres, centimètres ou millimètres."
                                                                                   },
                                                                                   {
                                                                                       "type":  "mini-table",
@@ -604,17 +604,17 @@
                                                                                                ],
                                                                                       "headers":  [
                                                                                                       "Unité",
-                                                                                                      "On l\u0027utilise pour"
+                                                                                                      "On l'utilise pour"
                                                                                                   ]
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
-                                                                                      "content":  "La longueur d\u0027un cahier se mesure en centimètres, celle d\u0027une route en kilomètres.",
+                                                                                      "content":  "La longueur d'un cahier se mesure en centimètres, celle d'une route en kilomètres.",
                                                                                       "label":  "Exemple"
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
-                                                                                      "content":  "Quand je convertis une longueur, je change d\u0027unité sans changer la longueur elle-même.",
+                                                                                      "content":  "Quand je convertis une longueur, je change d'unité sans changer la longueur elle-même.",
                                                                                       "label":  "À retenir"
                                                                                   }
                                                                               ]
@@ -624,7 +624,7 @@
                                            {
                                                "id":  "cm2-geometrie-subtheme",
                                                "title":  "Géométrie",
-                                               "icon":  "📐",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm2-lesson-droites-angles",
@@ -634,12 +634,12 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "En géométrie, certaines droites sont parallèles et ne se croisent jamais. D\u0027autres sont perpendiculaires et forment un angle droit."
+                                                                                      "text":  "En géométrie, certaines droites sont parallèles et ne se croisent jamais. D'autres sont perpendiculaires et forment un angle droit."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Les deux bords d\u0027une règle sont parallèles. Le bord d\u0027une feuille et son côté adjacent sont perpendiculaires."
+                                                                                      "content":  "Les deux bords d'une règle sont parallèles. Le bord d'une feuille et son côté adjacent sont perpendiculaires."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -653,7 +653,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Je peux utiliser l\u0027équerre pour repérer un angle droit et des droites perpendiculaires."
+                                                                                      "content":  "Je peux utiliser l'équerre pour repérer un angle droit et des droites perpendiculaires."
                                                                                   }
                                                                               ]
                                                                },
@@ -670,7 +670,7 @@
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Un triangle a 3 côtés. Un cercle n\u0027a pas de côté, mais il a un centre et un rayon."
+                                                                                      "content":  "Un triangle a 3 côtés. Un cercle n'a pas de côté, mais il a un centre et un rayon."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -692,12 +692,12 @@
                                                                {
                                                                    "id":  "cm2-lesson-symetrie",
                                                                    "title":  "La symétrie",
-                                                                   "subtitle":  "Une moitié reflète l\u0027autre",
+                                                                   "subtitle":  "Une moitié reflète l'autre",
                                                                    "format":  "lesson-card",
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Une figure est symétrique quand une moitié correspond à l\u0027autre comme dans un miroir, par rapport à un axe."
+                                                                                      "text":  "Une figure est symétrique quand une moitié correspond à l'autre comme dans un miroir, par rapport à un axe."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -777,17 +777,17 @@
                      {
                          "id":  "cm2-francais-subject",
                          "title":  "Français",
-                         "icon":  "📖",
+                         "icon":  "📘",
                          "subthemes":  [
                                            {
                                                "id":  "cm2-francais-conjugaison",
                                                "title":  "Conjugaison",
-                                               "icon":  "✍️",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cm2_conj_present_3",
                                                                      "title":  "Présent 3e Groupe",
-                                                                     "subtitle":  "Verbes fréquents \u0026 Irréguliers",
+                                                                     "subtitle":  "Verbes fréquents & Irréguliers",
                                                                      "engine":  "conjugation",
                                                                      "params":  {
                                                                                     "category":  "present_3_freq",
@@ -808,7 +808,7 @@
                                                                  },
                                                                  {
                                                                      "id":  "cm2_conj_imparfait",
-                                                                     "title":  "L\u0027Imparfait",
+                                                                     "title":  "L'Imparfait",
                                                                      "subtitle":  "Attention aux exceptions !",
                                                                      "engine":  "conjugation",
                                                                      "params":  {
@@ -852,7 +852,7 @@
                                                                  },
                                                                  {
                                                                      "id":  "cm2-conj-ea-imp",
-                                                                     "title":  "Être et avoir à l\u0027imparfait",
+                                                                     "title":  "Être et avoir à l'imparfait",
                                                                      "subtitle":  "Révisions des auxiliaires",
                                                                      "engine":  "conjugation",
                                                                      "params":  {
@@ -876,21 +876,21 @@
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "J\u0027ai mangé, nous sommes partis, elle est venue."
+                                                                                      "content":  "J'ai mangé, nous sommes partis, elle est venue."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
                                                                                       "label":  "Repères utiles",
                                                                                       "items":  [
-                                                                                                    "On utilise l\u0027auxiliaire avoir ou être.",
-                                                                                                    "Le participe passé suit l\u0027auxiliaire.",
-                                                                                                    "Avec être, le participe passé peut s\u0027accorder."
+                                                                                                    "On utilise l'auxiliaire avoir ou être.",
+                                                                                                    "Le participe passé suit l'auxiliaire.",
+                                                                                                    "Avec être, le participe passé peut s'accorder."
                                                                                                 ]
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Je repère d\u0027abord l\u0027auxiliaire puis le participe passé."
+                                                                                      "content":  "Je repère d'abord l'auxiliaire puis le participe passé."
                                                                                   }
                                                                               ],
                                                                    "title":  "Former le passé composé",
@@ -901,12 +901,12 @@
                                                                {
                                                                    "blocks":  [
                                                                                   {
-                                                                                      "text":  "À l\u0027imparfait, être et avoir servent souvent à décrire une situation passée.",
+                                                                                      "text":  "À l'imparfait, être et avoir servent souvent à décrire une situation passée.",
                                                                                       "type":  "paragraph"
                                                                                   },
                                                                                   {
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "j\u0027étais, tu étais, il était ; j\u0027avais, tu avais, il avait",
+                                                                                      "content":  "j'étais, tu étais, il était ; j'avais, tu avais, il avait",
                                                                                       "type":  "example"
                                                                                   },
                                                                                   {
@@ -955,17 +955,17 @@
                                                                                       "items":  [
                                                                                                     "Être commence par ét-.",
                                                                                                     "Avoir garde le radical av-.",
-                                                                                                    "Les terminaisons sont celles de l\u0027imparfait : -ais, -ait, -ions, -iez, -aient."
+                                                                                                    "Les terminaisons sont celles de l'imparfait : -ais, -ait, -ions, -iez, -aient."
                                                                                                 ],
                                                                                       "type":  "bullets"
                                                                                   },
                                                                                   {
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Quand tu racontes une habitude passée, être et avoir reviennent très souvent à l\u0027imparfait.",
+                                                                                      "content":  "Quand tu racontes une habitude passée, être et avoir reviennent très souvent à l'imparfait.",
                                                                                       "type":  "tip"
                                                                                   }
                                                                               ],
-                                                                   "title":  "Être et avoir à l\u0027imparfait",
+                                                                   "title":  "Être et avoir à l'imparfait",
                                                                    "format":  "lesson-card",
                                                                    "id":  "cm2-lesson-etre-avoir-imparfait",
                                                                    "subtitle":  "Des formes fréquentes à maîtriser"
@@ -975,7 +975,7 @@
                                            {
                                                "id":  "cm2-francais-homophones",
                                                "title":  "Homophones",
-                                               "icon":  "🗣️",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cm2_homophones_mix",
@@ -1083,7 +1083,7 @@
                                                                {
                                                                    "blocks":  [
                                                                                   {
-                                                                                      "text":  "En CM2, il ne suffit plus d\u0027entendre le mot. Il faut comprendre sa fonction dans la phrase.",
+                                                                                      "text":  "En CM2, il ne suffit plus d'entendre le mot. Il faut comprendre sa fonction dans la phrase.",
                                                                                       "type":  "paragraph"
                                                                                   },
                                                                                   {
@@ -1096,13 +1096,13 @@
                                                                                       "items":  [
                                                                                                     "Je lis toute la phrase.",
                                                                                                     "Je cherche la nature ou la fonction du mot.",
-                                                                                                    "Je teste un remplacement si c\u0027est possible."
+                                                                                                    "Je teste un remplacement si c'est possible."
                                                                                                 ],
                                                                                       "type":  "bullets"
                                                                                   },
                                                                                   {
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Un homophone se choisit avec le sens et la grammaire, pas seulement avec l\u0027oreille.",
+                                                                                      "content":  "Un homophone se choisit avec le sens et la grammaire, pas seulement avec l'oreille.",
                                                                                       "type":  "tip"
                                                                                   }
                                                                               ],
@@ -1150,7 +1150,7 @@
                                                                                   },
                                                                                   {
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Si le remplacement fonctionne, il t\u0027aide souvent à choisir le bon mot.",
+                                                                                      "content":  "Si le remplacement fonctionne, il t'aide souvent à choisir le bon mot.",
                                                                                       "type":  "tip"
                                                                                   }
                                                                               ],
@@ -1164,7 +1164,7 @@
                                            {
                                                "id":  "cm2-francais-grammaire",
                                                "title":  "Grammaire",
-                                               "icon":  "🧩",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cm2_g_abstrait",
@@ -1183,7 +1183,7 @@
                                                                  },
                                                                  {
                                                                      "id":  "cm2_g_elision",
-                                                                     "title":  "Le, La ou L\u0027 ?",
+                                                                     "title":  "Le, La ou L' ?",
                                                                      "subtitle":  "Élision et noms plus experts",
                                                                      "engine":  "choice-engine",
                                                                      "params":  {
@@ -1192,7 +1192,7 @@
                                                                                     "options":  [
                                                                                                     "le",
                                                                                                     "la",
-                                                                                                    "l\u0027"
+                                                                                                    "l'"
                                                                                                 ],
                                                                                     "questions":  8
                                                                                 }
@@ -1257,7 +1257,7 @@
                                                                {
                                                                    "blocks":  [
                                                                                   {
-                                                                                      "text":  "Dans le groupe nominal, plusieurs mots s\u0027accordent entre eux.",
+                                                                                      "text":  "Dans le groupe nominal, plusieurs mots s'accordent entre eux.",
                                                                                       "type":  "paragraph"
                                                                                   },
                                                                                   {
@@ -1306,11 +1306,11 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Dans une phrase simple, le sujet dit qui fait l\u0027action et le verbe dit ce qui se passe ou ce qu\u0027on fait."
+                                                                                      "text":  "Dans une phrase simple, le sujet dit qui fait l'action et le verbe dit ce qui se passe ou ce qu'on fait."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
-                                                                                      "content":  "Les enfants lisent un texte. \u0027Les enfants\u0027 est le sujet, \u0027lisent\u0027 est le verbe.",
+                                                                                      "content":  "Les enfants lisent un texte. 'Les enfants' est le sujet, 'lisent' est le verbe.",
                                                                                       "label":  "Exemple"
                                                                                   },
                                                                                   {
@@ -1337,7 +1337,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Un mot n\u0027a pas toujours le même sens selon la phrase. Pour comprendre un texte, je regarde le contexte, les synonymes et les familles de mots."
+                                                                                      "text":  "Un mot n'a pas toujours le même sens selon la phrase. Pour comprendre un texte, je regarde le contexte, les synonymes et les familles de mots."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -1365,35 +1365,35 @@
                                            {
                                                "id":  "cm2-francais-lecture-vocabulaire-subtheme",
                                                "title":  "Lecture et vocabulaire",
-                                               "icon":  "📚",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm2-lesson-idee-principale",
-                                                                   "title":  "Trouver l\u0027idée principale",
-                                                                   "subtitle":  "Comprendre l\u0027essentiel d\u0027un texte",
+                                                                   "title":  "Trouver l'idée principale",
+                                                                   "subtitle":  "Comprendre l'essentiel d'un texte",
                                                                    "format":  "lesson-card",
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Dans un texte, l\u0027idée principale est ce qu\u0027il faut surtout comprendre. Les autres phrases apportent des détails ou des exemples."
+                                                                                      "text":  "Dans un texte, l'idée principale est ce qu'il faut surtout comprendre. Les autres phrases apportent des détails ou des exemples."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Si un texte explique comment économiser l\u0027énergie, l\u0027idée principale porte sur les gestes utiles, et les exemples montrent comment faire."
+                                                                                      "content":  "Si un texte explique comment économiser l'énergie, l'idée principale porte sur les gestes utiles, et les exemples montrent comment faire."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
                                                                                       "items":  [
                                                                                                     "je repère le sujet du texte",
-                                                                                                    "je cherche ce qu\u0027il veut expliquer",
-                                                                                                    "je distingue l\u0027essentiel des détails"
+                                                                                                    "je cherche ce qu'il veut expliquer",
+                                                                                                    "je distingue l'essentiel des détails"
                                                                                                 ]
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Trouver l\u0027idée principale aide à résumer et mieux comprendre un texte."
+                                                                                      "content":  "Trouver l'idée principale aide à résumer et mieux comprendre un texte."
                                                                                   }
                                                                               ]
                                                                },
@@ -1488,12 +1488,12 @@
                      {
                          "id":  "cm2-histoire-subject",
                          "title":  "Histoire",
-                         "icon":  "🌍",
+                         "icon":  "📘",
                          "subthemes":  [
                                            {
                                                "id":  "cm2-histoire-reperes",
                                                "title":  "Repères historiques",
-                                               "icon":  "🌍",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cm2-histoire-revolution",
@@ -1572,12 +1572,12 @@
                                                                {
                                                                    "id":  "cm2-lesson-revolution-francaise",
                                                                    "title":  "La Révolution française",
-                                                                   "subtitle":  "1789, la fin de l\u0027Ancien Régime",
+                                                                   "subtitle":  "1789, la fin de l'Ancien Régime",
                                                                    "format":  "lesson-card",
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "En 1789, la France entre dans une période de bouleversements. Les privilèges sont contestés et les idées de liberté et d\u0027égalité prennent de l\u0027importance."
+                                                                                      "text":  "En 1789, la France entre dans une période de bouleversements. Les privilèges sont contestés et les idées de liberté et d'égalité prennent de l'importance."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -1589,14 +1589,14 @@
                                                                                       "label":  "Repères à retenir",
                                                                                       "items":  [
                                                                                                     "1789 : début de la Révolution française",
-                                                                                                    "La Déclaration des droits de l\u0027homme et du citoyen affirme des principes nouveaux",
-                                                                                                    "L\u0027Ancien Régime disparaît progressivement"
+                                                                                                    "La Déclaration des droits de l'homme et du citoyen affirme des principes nouveaux",
+                                                                                                    "L'Ancien Régime disparaît progressivement"
                                                                                                 ]
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "La Révolution française marque la fin de l\u0027Ancien Régime et le début d\u0027un nouvel ordre politique."
+                                                                                      "content":  "La Révolution française marque la fin de l'Ancien Régime et le début d'un nouvel ordre politique."
                                                                                   }
                                                                               ]
                                                                },
@@ -1608,7 +1608,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "La République s\u0027appuie sur des institutions, des lois et des symboles communs. Elle organise la vie démocratique de la France."
+                                                                                      "text":  "La République s'appuie sur des institutions, des lois et des symboles communs. Elle organise la vie démocratique de la France."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -1619,7 +1619,7 @@
                                                                                       "type":  "bullets",
                                                                                       "label":  "Repères à connaître",
                                                                                       "items":  [
-                                                                                                    "Les lois de l\u0027école obligatoire et laïque",
+                                                                                                    "Les lois de l'école obligatoire et laïque",
                                                                                                     "Le vote des citoyens",
                                                                                                     "Les symboles républicains"
                                                                                                 ]
@@ -1627,14 +1627,14 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Connaître la République, c\u0027est comprendre des règles de vie commune et des droits partagés."
+                                                                                      "content":  "Connaître la République, c'est comprendre des règles de vie commune et des droits partagés."
                                                                                   }
                                                                               ]
                                                                },
                                                                {
                                                                    "blocks":  [
                                                                                   {
-                                                                                      "text":  "La France fait partie de l\u0027Union européenne avec d\u0027autres pays qui coopèrent dans de nombreux domaines.",
+                                                                                      "text":  "La France fait partie de l'Union européenne avec d'autres pays qui coopèrent dans de nombreux domaines.",
                                                                                       "type":  "paragraph"
                                                                                   },
                                                                                   {
@@ -1645,19 +1645,19 @@
                                                                                   {
                                                                                       "label":  "À observer",
                                                                                       "items":  [
-                                                                                                    "Les pays de l\u0027Union européenne restent différents mais travaillent ensemble.",
+                                                                                                    "Les pays de l'Union européenne restent différents mais travaillent ensemble.",
                                                                                                     "La monnaie euro est utilisée dans plusieurs États.",
-                                                                                                    "Les frontières n\u0027empêchent pas les échanges culturels et économiques."
+                                                                                                    "Les frontières n'empêchent pas les échanges culturels et économiques."
                                                                                                 ],
                                                                                       "type":  "bullets"
                                                                                   },
                                                                                   {
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "L\u0027Union européenne aide les pays à coopérer tout en gardant leurs spécificités.",
+                                                                                      "content":  "L'Union européenne aide les pays à coopérer tout en gardant leurs spécificités.",
                                                                                       "type":  "tip"
                                                                                   }
                                                                               ],
-                                                                   "title":  "La France et l\u0027Union européenne",
+                                                                   "title":  "La France et l'Union européenne",
                                                                    "format":  "lesson-card",
                                                                    "id":  "cm2-lesson-france-europe",
                                                                    "subtitle":  "Des pays liés par des projets communs"
@@ -1685,12 +1685,12 @@
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
-                                                                                      "content":  "Placer une date sur une frise aide à comprendre ce qui change dans la vie d\u0027un pays.",
+                                                                                      "content":  "Placer une date sur une frise aide à comprendre ce qui change dans la vie d'un pays.",
                                                                                       "label":  "Exemple"
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
-                                                                                      "content":  "Les repères du XXe siècle servent à situer les grandes ruptures de l\u0027histoire contemporaine.",
+                                                                                      "content":  "Les repères du XXe siècle servent à situer les grandes ruptures de l'histoire contemporaine.",
                                                                                       "label":  "À retenir"
                                                                                   }
                                                                               ]
@@ -1700,7 +1700,7 @@
                                            {
                                                "id":  "cm2-histoire-frises",
                                                "title":  "Frises historiques",
-                                               "icon":  "🌍",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm2-lesson-reperes-xxe-siecle",
@@ -1725,12 +1725,12 @@
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Une date bien placée sur une frise aide à comprendre ce qui change dans la vie d\u0027un pays."
+                                                                                      "content":  "Une date bien placée sur une frise aide à comprendre ce qui change dans la vie d'un pays."
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Les repères du XXe siècle servent à situer les grands changements de l\u0027histoire contemporaine."
+                                                                                      "content":  "Les repères du XXe siècle servent à situer les grands changements de l'histoire contemporaine."
                                                                                   }
                                                                               ]
                                                                }
@@ -1739,7 +1739,7 @@
                                                                  {
                                                                      "id":  "cm2-histoire-frise-ordre",
                                                                      "title":  "Frise historique",
-                                                                     "subtitle":  "Remets les repères dans l\u0027ordre",
+                                                                     "subtitle":  "Remets les repères dans l'ordre",
                                                                      "engine":  "timeline",
                                                                      "params":  {
                                                                                     "mode":  "order",
@@ -1807,7 +1807,7 @@
                                                                  {
                                                                      "id":  "cm2-histoire-frise-revolution-ordre",
                                                                      "title":  "Frise : Révolution",
-                                                                     "subtitle":  "Remets les repères révolutionnaires dans l\u0027ordre",
+                                                                     "subtitle":  "Remets les repères révolutionnaires dans l'ordre",
                                                                      "engine":  "timeline",
                                                                      "params":  {
                                                                                     "mode":  "order",
@@ -1833,7 +1833,7 @@
                                                                  {
                                                                      "id":  "cm2-histoire-frise-progres-ordre",
                                                                      "title":  "Frise : Progrès techniques",
-                                                                     "subtitle":  "Range les grandes inventions dans l\u0027ordre",
+                                                                     "subtitle":  "Range les grandes inventions dans l'ordre",
                                                                      "engine":  "timeline",
                                                                      "params":  {
                                                                                     "mode":  "order",
@@ -1874,7 +1874,7 @@
                                            {
                                                "id":  "cm2-histoire-recits-subtheme",
                                                "title":  "Récits historiques",
-                                               "icon":  "📜",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm2-lesson-revolution-francaise-recit",
@@ -1884,12 +1884,12 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "En 1789, la Révolution française commence. Elle remet en cause le pouvoir absolu du roi et affirme de nouvelles idées de liberté et d\u0027égalité."
+                                                                                      "text":  "En 1789, la Révolution française commence. Elle remet en cause le pouvoir absolu du roi et affirme de nouvelles idées de liberté et d'égalité."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "La prise de la Bastille devient un symbole de la Révolution et du refus de l\u0027arbitraire."
+                                                                                      "content":  "La prise de la Bastille devient un symbole de la Révolution et du refus de l'arbitraire."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -1904,24 +1904,24 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "La Révolution française transforme profondément l\u0027organisation politique du pays."
+                                                                                      "content":  "La Révolution française transforme profondément l'organisation politique du pays."
                                                                                   }
                                                                               ]
                                                                },
                                                                {
                                                                    "id":  "cm2-lesson-republique-progres",
-                                                                   "title":  "La République s\u0027installe",
+                                                                   "title":  "La République s'installe",
                                                                    "subtitle":  "École, vote et symboles",
                                                                    "format":  "lesson-card",
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Au XIXe siècle puis au début du XXe siècle, la République s\u0027installe durablement. Elle développe l\u0027école, les symboles républicains et la participation des citoyens."
+                                                                                      "text":  "Au XIXe siècle puis au début du XXe siècle, la République s'installe durablement. Elle développe l'école, les symboles républicains et la participation des citoyens."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "L\u0027école devient un lieu important pour apprendre à lire, écrire, compter et comprendre les valeurs de la République."
+                                                                                      "content":  "L'école devient un lieu important pour apprendre à lire, écrire, compter et comprendre les valeurs de la République."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -1973,7 +1973,7 @@
                                                                               ]
                                                                }
                                                            ],
-                                               "exercises":  null
+                                               "exercises":  []
                                            }
                                        ]
                      },
@@ -2040,7 +2040,7 @@
                                                                {
                                                                    "blocks":  [
                                                                                   {
-                                                                                      "text":  "Habiter, c\u0027est vivre dans un espace avec ses activités, ses paysages et ses contraintes. Les habitants n\u0027ont pas les mêmes besoins selon le lieu.",
+                                                                                      "text":  "Habiter, c'est vivre dans un espace avec ses activités, ses paysages et ses contraintes. Les habitants n'ont pas les mêmes besoins selon le lieu.",
                                                                                       "type":  "paragraph"
                                                                                   },
                                                                                   {
@@ -2052,14 +2052,14 @@
                                                                                       "label":  "À observer",
                                                                                       "items":  [
                                                                                                     "La ville concentre des services et des emplois.",
-                                                                                                    "La campagne offre davantage d\u0027espaces agricoles et naturels.",
+                                                                                                    "La campagne offre davantage d'espaces agricoles et naturels.",
                                                                                                     "Le littoral attire des activités de tourisme, de port ou de pêche."
                                                                                                 ],
                                                                                       "type":  "bullets"
                                                                                   },
                                                                                   {
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Habiter un espace, c\u0027est s\u0027y adapter en fonction des paysages et des activités.",
+                                                                                      "content":  "Habiter un espace, c'est s'y adapter en fonction des paysages et des activités.",
                                                                                       "type":  "tip"
                                                                                   }
                                                                               ],
@@ -2070,26 +2070,26 @@
                                                                },
                                                                {
                                                                    "id":  "cm2-lesson-france-union-europeenne",
-                                                                   "title":  "La France dans l\u0027Union européenne",
+                                                                   "title":  "La France dans l'Union européenne",
                                                                    "subtitle":  "Pays voisins, euro et coopération",
                                                                    "format":  "lesson-card",
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "La France fait partie de l\u0027Union européenne. Elle coopère avec d\u0027autres pays tout en gardant sa langue, son histoire et ses institutions."
+                                                                                      "text":  "La France fait partie de l'Union européenne. Elle coopère avec d'autres pays tout en gardant sa langue, son histoire et ses institutions."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
-                                                                                      "content":  "On peut circuler plus facilement entre plusieurs pays européens et utiliser l\u0027euro dans une partie de l\u0027Europe.",
+                                                                                      "content":  "On peut circuler plus facilement entre plusieurs pays européens et utiliser l'euro dans une partie de l'Europe.",
                                                                                       "label":  "Exemple"
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
                                                                                       "items":  [
                                                                                                     "La France a des voisins européens.",
-                                                                                                    "L\u0027euro est utilisé dans plusieurs États.",
+                                                                                                    "L'euro est utilisé dans plusieurs États.",
                                                                                                     "Les pays européens coopèrent pour des projets communs.",
-                                                                                                    "Les frontières n\u0027empêchent pas les échanges."
+                                                                                                    "Les frontières n'empêchent pas les échanges."
                                                                                                 ],
                                                                                       "label":  "Repères utiles"
                                                                                   },
@@ -2148,14 +2148,14 @@
                                                                                       "label":  "À observer",
                                                                                       "items":  [
                                                                                                     "Les ports, les aéroports et les réseaux numériques facilitent les échanges.",
-                                                                                                    "Les flux de marchandises, de personnes et d\u0027informations circulent à grande échelle.",
+                                                                                                    "Les flux de marchandises, de personnes et d'informations circulent à grande échelle.",
                                                                                                     "Les territoires ne sont pas tous reliés de la même façon."
                                                                                                 ],
                                                                                       "type":  "bullets"
                                                                                   },
                                                                                   {
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Comprendre la mondialisation, c\u0027est voir comment les territoires dépendent les uns des autres.",
+                                                                                      "content":  "Comprendre la mondialisation, c'est voir comment les territoires dépendent les uns des autres.",
                                                                                       "type":  "tip"
                                                                                   }
                                                                               ],
@@ -2172,7 +2172,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "La France rassemble des espaces différents : villes, campagnes, littoraux et montagnes. On n\u0027y vit pas partout de la même manière."
+                                                                                      "text":  "La France rassemble des espaces différents : villes, campagnes, littoraux et montagnes. On n'y vit pas partout de la même manière."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -2231,12 +2231,12 @@
                                                                {
                                                                    "blocks":  [
                                                                                   {
-                                                                                      "text":  "Le développement durable cherche à répondre aux besoins d\u0027aujourd\u0027hui sans empêcher les générations futures de répondre aux leurs.",
+                                                                                      "text":  "Le développement durable cherche à répondre aux besoins d'aujourd'hui sans empêcher les générations futures de répondre aux leurs.",
                                                                                       "type":  "paragraph"
                                                                                   },
                                                                                   {
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Trier ses déchets, économiser l\u0027eau et limiter les transports inutiles sont des gestes concrets.",
+                                                                                      "content":  "Trier ses déchets, économiser l'eau et limiter les transports inutiles sont des gestes concrets.",
                                                                                       "type":  "example"
                                                                                   },
                                                                                   {
@@ -2244,13 +2244,13 @@
                                                                                       "items":  [
                                                                                                     "On peut réduire les déchets en réutilisant et en réparant.",
                                                                                                     "On peut protéger les ressources en évitant le gaspillage.",
-                                                                                                    "Les choix de transport ont un impact sur l\u0027environnement."
+                                                                                                    "Les choix de transport ont un impact sur l'environnement."
                                                                                                 ],
                                                                                       "type":  "bullets"
                                                                                   },
                                                                                   {
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Agir pour durer, c\u0027est penser aux ressources et aux besoins de demain.",
+                                                                                      "content":  "Agir pour durer, c'est penser aux ressources et aux besoins de demain.",
                                                                                       "type":  "tip"
                                                                                   }
                                                                               ],
@@ -2274,37 +2274,37 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Le développement durable cherche à répondre aux besoins d\u0027aujourd\u0027hui sans empêcher les générations futures de répondre aux leurs."
+                                                                                      "text":  "Le développement durable cherche à répondre aux besoins d'aujourd'hui sans empêcher les générations futures de répondre aux leurs."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
                                                                                       "label":  "On peut agir",
                                                                                       "items":  [
                                                                                                     "en produisant moins de déchets",
-                                                                                                    "en économisant l\u0027eau et l\u0027énergie",
+                                                                                                    "en économisant l'eau et l'énergie",
                                                                                                     "en choisissant des transports moins polluants"
                                                                                                 ]
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Habiter durablement, c\u0027est protéger les ressources tout en continuant à vivre, produire et se déplacer."
+                                                                                      "content":  "Habiter durablement, c'est protéger les ressources tout en continuant à vivre, produire et se déplacer."
                                                                                   }
                                                                               ]
                                                                },
                                                                {
                                                                    "id":  "cm2-lesson-developpement-durable",
                                                                    "title":  "Le développement durable",
-                                                                   "subtitle":  "Besoins d\u0027aujourd\u0027hui et de demain",
+                                                                   "subtitle":  "Besoins d'aujourd'hui et de demain",
                                                                    "format":  "lesson-card",
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Le développement durable cherche à répondre aux besoins d\u0027aujourd\u0027hui sans empêcher les générations futures de répondre aux leurs."
+                                                                                      "text":  "Le développement durable cherche à répondre aux besoins d'aujourd'hui sans empêcher les générations futures de répondre aux leurs."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
-                                                                                      "content":  "Trier ses déchets, économiser l\u0027eau et limiter les transports inutiles sont des gestes concrets.",
+                                                                                      "content":  "Trier ses déchets, économiser l'eau et limiter les transports inutiles sont des gestes concrets.",
                                                                                       "label":  "Exemple"
                                                                                   },
                                                                                   {
@@ -2312,14 +2312,14 @@
                                                                                       "items":  [
                                                                                                     "réduire les déchets",
                                                                                                     "réutiliser et réparer",
-                                                                                                    "économiser l\u0027eau et l\u0027énergie",
+                                                                                                    "économiser l'eau et l'énergie",
                                                                                                     "choisir des transports moins polluants"
                                                                                                 ],
                                                                                       "label":  "On peut agir"
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
-                                                                                      "content":  "Agir pour durer, c\u0027est penser aux ressources et aux besoins de demain.",
+                                                                                      "content":  "Agir pour durer, c'est penser aux ressources et aux besoins de demain.",
                                                                                       "label":  "À retenir"
                                                                                   }
                                                                               ]
@@ -2339,7 +2339,7 @@
                                                                                       "items":  [
                                                                                                     "éviter de jeter des déchets",
                                                                                                     "respecter la faune et la flore",
-                                                                                                    "économiser l\u0027eau",
+                                                                                                    "économiser l'eau",
                                                                                                     "préserver les espaces naturels"
                                                                                                 ],
                                                                                       "label":  "Je peux agir"
@@ -2351,7 +2351,7 @@
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
-                                                                                      "content":  "Protéger un milieu, c\u0027est préserver ce qui permet aux êtres vivants d\u0027y vivre.",
+                                                                                      "content":  "Protéger un milieu, c'est préserver ce qui permet aux êtres vivants d'y vivre.",
                                                                                       "label":  "À retenir"
                                                                                   }
                                                                               ]
@@ -2392,7 +2392,7 @@
                                                                      "title":  "Mobilités durables",
                                                                      "engine":  "choice-engine",
                                                                      "id":  "cm2-geo-mobilites-durables",
-                                                                     "subtitle":  "Se déplacer en limitant l\u0027impact"
+                                                                     "subtitle":  "Se déplacer en limitant l'impact"
                                                                  },
                                                                  {
                                                                      "params":  {
@@ -2413,12 +2413,12 @@
                      {
                          "id":  "cm2-sciences-subject",
                          "title":  "Sciences",
-                         "icon":  "🔬",
+                         "icon":  "📘",
                          "subthemes":  [
                                            {
                                                "id":  "cm2-sciences-corps-subtheme",
                                                "title":  "Corps et santé",
-                                               "icon":  "🫀",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm2-lesson-corps-sante",
@@ -2428,7 +2428,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Le corps a besoin d\u0027habitudes régulières pour bien fonctionner : dormir assez, manger équilibré, bouger et garder une bonne hygiène."
+                                                                                      "text":  "Le corps a besoin d'habitudes régulières pour bien fonctionner : dormir assez, manger équilibré, bouger et garder une bonne hygiène."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -2443,7 +2443,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "La santé dépend de plusieurs habitudes du quotidien, pas d\u0027un seul geste."
+                                                                                      "content":  "La santé dépend de plusieurs habitudes du quotidien, pas d'un seul geste."
                                                                                   }
                                                                               ]
                                                                },
@@ -2463,7 +2463,7 @@
                                                                                       "rows":  [
                                                                                                    [
                                                                                                        "Vue",
-                                                                                                       "Å“il",
+                                                                                                       "œil",
                                                                                                        "voir"
                                                                                                    ],
                                                                                                    [
@@ -2490,12 +2490,12 @@
                                                                                       "headers":  [
                                                                                                       "Sens",
                                                                                                       "Organe principal",
-                                                                                                      "Ce qu\u0027il permet"
+                                                                                                      "Ce qu'il permet"
                                                                                                   ]
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
-                                                                                      "content":  "Je vois une couleur, j\u0027entends un bruit, je sens une odeur : plusieurs sens peuvent fonctionner en même temps.",
+                                                                                      "content":  "Je vois une couleur, j'entends un bruit, je sens une odeur : plusieurs sens peuvent fonctionner en même temps.",
                                                                                       "label":  "Exemple"
                                                                                   },
                                                                                   {
@@ -2536,17 +2536,17 @@
                                            {
                                                "id":  "cm2-sciences-energie-subtheme",
                                                "title":  "Énergie",
-                                               "icon":  "⚡",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm2-lesson-sources-energie",
-                                                                   "title":  "Produire et utiliser l\u0027énergie",
+                                                                   "title":  "Produire et utiliser l'énergie",
                                                                    "subtitle":  "Sources, usages et économies",
                                                                    "format":  "lesson-card",
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "L\u0027énergie permet d\u0027éclairer, de chauffer, de se déplacer ou de faire fonctionner des appareils. Elle vient de différentes sources."
+                                                                                      "text":  "L'énergie permet d'éclairer, de chauffer, de se déplacer ou de faire fonctionner des appareils. Elle vient de différentes sources."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -2554,14 +2554,14 @@
                                                                                       "items":  [
                                                                                                     "le soleil",
                                                                                                     "le vent",
-                                                                                                    "l\u0027eau",
+                                                                                                    "l'eau",
                                                                                                     "les combustibles"
                                                                                                 ]
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Mieux utiliser l\u0027énergie, c\u0027est aussi apprendre à ne pas la gaspiller."
+                                                                                      "content":  "Mieux utiliser l'énergie, c'est aussi apprendre à ne pas la gaspiller."
                                                                                   }
                                                                               ]
                                                                }
@@ -2586,7 +2586,7 @@
                                                                                     "category":  "cm2-techno-energie",
                                                                                     "type":  "factual-qcm"
                                                                                 },
-                                                                     "title":  "Produire et économiser l\u0027énergie",
+                                                                     "title":  "Produire et économiser l'énergie",
                                                                      "engine":  "choice-engine",
                                                                      "id":  "cm2-sciences-produire-economiser-energie",
                                                                      "subtitle":  "Ressources, usages et économies"
@@ -2598,7 +2598,7 @@
                                                                                     "category":  "cm2-economies-energie",
                                                                                     "type":  "factual-qcm"
                                                                                 },
-                                                                     "title":  "Économies d\u0027énergie",
+                                                                     "title":  "Économies d'énergie",
                                                                      "engine":  "choice-engine",
                                                                      "id":  "cm2-sciences-economies-energie",
                                                                      "subtitle":  "Ressources, usages et sobriété"
@@ -2608,7 +2608,7 @@
                                            {
                                                "id":  "cm2-sciences-environnement-subtheme",
                                                "title":  "Environnement",
-                                               "icon":  "🌿",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm2-lesson-proteger-environnement",
@@ -2626,14 +2626,14 @@
                                                                                       "items":  [
                                                                                                     "éviter de jeter des déchets",
                                                                                                     "respecter la faune et la flore",
-                                                                                                    "économiser l\u0027eau",
+                                                                                                    "économiser l'eau",
                                                                                                     "préserver les espaces naturels"
                                                                                                 ]
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Protéger l\u0027environnement, c\u0027est protéger des ressources utiles à tous."
+                                                                                      "content":  "Protéger l'environnement, c'est protéger des ressources utiles à tous."
                                                                                   }
                                                                               ]
                                                                },
@@ -2645,7 +2645,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "La matière peut se présenter sous différents états : solide, liquide ou gazeux. Elle peut aussi changer d\u0027état selon la température."
+                                                                                      "text":  "La matière peut se présenter sous différents états : solide, liquide ou gazeux. Elle peut aussi changer d'état selon la température."
                                                                                   },
                                                                                   {
                                                                                       "type":  "mini-table",
@@ -2658,13 +2658,13 @@
                                                                                                    ],
                                                                                                    [
                                                                                                        "Liquide",
-                                                                                                       "l\u0027eau",
+                                                                                                       "l'eau",
                                                                                                        "prend la forme du récipient"
                                                                                                    ],
                                                                                                    [
                                                                                                        "Gaz",
-                                                                                                       "la vapeur d\u0027eau",
-                                                                                                       "occupe tout l\u0027espace disponible"
+                                                                                                       "la vapeur d'eau",
+                                                                                                       "occupe tout l'espace disponible"
                                                                                                    ]
                                                                                                ],
                                                                                       "headers":  [
@@ -2675,7 +2675,7 @@
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
-                                                                                      "content":  "L\u0027eau peut être de la glace, devenir liquide puis vapeur : c\u0027est un changement d\u0027état.",
+                                                                                      "content":  "L'eau peut être de la glace, devenir liquide puis vapeur : c'est un changement d'état.",
                                                                                       "label":  "Exemple"
                                                                                   },
                                                                                   {
@@ -2728,17 +2728,17 @@
                                            {
                                                "id":  "cm2-sciences-effort-subtheme",
                                                "title":  "Corps et effort",
-                                               "icon":  "🏃",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm2-lesson-corps-effort",
-                                                                   "title":  "Le corps pendant l\u0027effort",
+                                                                   "title":  "Le corps pendant l'effort",
                                                                    "subtitle":  "Respiration, muscles, récupération",
                                                                    "format":  "lesson-card",
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Quand on fait un effort, les muscles travaillent davantage. Le cœur bat plus vite et la respiration s\u0027accélère pour apporter plus d\u0027oxygène."
+                                                                                      "text":  "Quand on fait un effort, les muscles travaillent davantage. Le cœur bat plus vite et la respiration s'accélère pour apporter plus d'oxygène."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -2748,7 +2748,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Le repos, l\u0027hydratation et l\u0027entraînement aident le corps à mieux supporter l\u0027effort."
+                                                                                      "content":  "Le repos, l'hydratation et l'entraînement aident le corps à mieux supporter l'effort."
                                                                                   }
                                                                               ]
                                                                }
@@ -2783,17 +2783,17 @@
                                            {
                                                "id":  "cm2-sciences-electricite-subtheme",
                                                "title":  "Électricité",
-                                               "icon":  "💡",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm2-lesson-electricite-circuit",
-                                                                   "title":  "Faire circuler l\u0027électricité",
+                                                                   "title":  "Faire circuler l'électricité",
                                                                    "subtitle":  "Circuit simple et sécurité",
                                                                    "format":  "lesson-card",
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Dans un circuit simple, l\u0027électricité circule seulement si le circuit est fermé. Une pile, des fils et un récepteur doivent être bien reliés."
+                                                                                      "text":  "Dans un circuit simple, l'électricité circule seulement si le circuit est fermé. Une pile, des fils et un récepteur doivent être bien reliés."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -2807,7 +2807,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "L\u0027électricité est utile, mais elle demande toujours des règles de sécurité."
+                                                                                      "content":  "L'électricité est utile, mais elle demande toujours des règles de sécurité."
                                                                                   }
                                                                               ]
                                                                }
@@ -2854,7 +2854,7 @@
                                            {
                                                "id":  "cm2-sciences-climat-subtheme",
                                                "title":  "Climat et déchets",
-                                               "icon":  "♻️",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm2-lesson-climat-dechets",
@@ -2864,7 +2864,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Produire moins de déchets aide à protéger l\u0027environnement. On peut trier, réutiliser, réparer et mieux choisir ce que l\u0027on consomme."
+                                                                                      "text":  "Produire moins de déchets aide à protéger l'environnement. On peut trier, réutiliser, réparer et mieux choisir ce que l'on consomme."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -2879,7 +2879,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Le meilleur déchet est souvent celui que l\u0027on ne produit pas."
+                                                                                      "content":  "Le meilleur déchet est souvent celui que l'on ne produit pas."
                                                                                   }
                                                                               ]
                                                                }
@@ -2926,7 +2926,7 @@
                                            {
                                                "id":  "cm2-sciences-matiere-transformations-subtheme",
                                                "title":  "Matière et transformations",
-                                               "icon":  "🧪",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm2-lesson-etats-transformations",
@@ -2936,12 +2936,12 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "La matière peut changer d\u0027état : solide, liquide ou gaz. Certaines transformations sont dues à la chaleur ou au froid."
+                                                                                      "text":  "La matière peut changer d'état : solide, liquide ou gaz. Certaines transformations sont dues à la chaleur ou au froid."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "La glace fond et devient de l\u0027eau liquide. L\u0027eau chauffée peut devenir de la vapeur."
+                                                                                      "content":  "La glace fond et devient de l'eau liquide. L'eau chauffée peut devenir de la vapeur."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -2956,7 +2956,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Une transformation peut changer l\u0027état de la matière sans changer la substance elle-même."
+                                                                                      "content":  "Une transformation peut changer l'état de la matière sans changer la substance elle-même."
                                                                                   }
                                                                               ]
                                                                },
@@ -2973,7 +2973,7 @@
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "On peut filtrer un mélange d\u0027eau et de sable pour récupérer le sable."
+                                                                                      "content":  "On peut filtrer un mélange d'eau et de sable pour récupérer le sable."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -2994,17 +2994,17 @@
                                                                {
                                                                    "id":  "cm2-lesson-lumiere-son",
                                                                    "title":  "Lumière et son",
-                                                                   "subtitle":  "Deux formes d\u0027énergie du quotidien",
+                                                                   "subtitle":  "Deux formes d'énergie du quotidien",
                                                                    "format":  "lesson-card",
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "La lumière permet de voir. Le son se propage et permet d\u0027entendre. Tous deux font partie de phénomènes physiques observables."
+                                                                                      "text":  "La lumière permet de voir. Le son se propage et permet d'entendre. Tous deux font partie de phénomènes physiques observables."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Une lampe éclaire une pièce. Un instrument produit un son que l\u0027on entend plus ou moins fort selon la distance."
+                                                                                      "content":  "Une lampe éclaire une pièce. Un instrument produit un son que l'on entend plus ou moins fort selon la distance."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -3018,7 +3018,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "La lumière et le son permettent d\u0027observer et de comprendre le monde qui nous entoure."
+                                                                                      "content":  "La lumière et le son permettent d'observer et de comprendre le monde qui nous entoure."
                                                                                   }
                                                                               ]
                                                                }
@@ -3027,7 +3027,7 @@
                                                                  {
                                                                      "id":  "cm2-sciences-matiere-transformations",
                                                                      "title":  "Matière et transformations",
-                                                                     "subtitle":  "Mélanges, séparations, changements d\u0027état",
+                                                                     "subtitle":  "Mélanges, séparations, changements d'état",
                                                                      "engine":  "choice-engine",
                                                                      "params":  {
                                                                                     "type":  "factual-qcm",
@@ -3070,7 +3070,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Être citoyen, c\u0027est connaître ses droits, respecter les règles communes et participer à la vie collective."
+                                                                                      "text":  "Être citoyen, c'est connaître ses droits, respecter les règles communes et participer à la vie collective."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -3091,13 +3091,13 @@
                                                                },
                                                                {
                                                                    "id":  "cm2-lesson-laicite-ecole",
-                                                                   "title":  "La laïcité à l\u0027école",
+                                                                   "title":  "La laïcité à l'école",
                                                                    "subtitle":  "Liberté, respect et neutralité",
                                                                    "format":  "lesson-card",
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "À l\u0027école de la République, la laïcité garantit la liberté de conscience et le respect de chacun."
+                                                                                      "text":  "À l'école de la République, la laïcité garantit la liberté de conscience et le respect de chacun."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -3107,7 +3107,7 @@
                                                                                   {
                                                                                       "type":  "bullets",
                                                                                       "items":  [
-                                                                                                    "L\u0027école est neutre.",
+                                                                                                    "L'école est neutre.",
                                                                                                     "Chacun est libre de ses convictions.",
                                                                                                     "On respecte les règles communes.",
                                                                                                     "On ne discrimine personne."
@@ -3136,7 +3136,7 @@
                                                                                       "items":  [
                                                                                                     "le président de la République",
                                                                                                     "le Parlement qui vote les lois",
-                                                                                                    "le gouvernement qui les met en Å“uvre",
+                                                                                                    "le gouvernement qui les met en œuvre",
                                                                                                     "les mairies qui gèrent la commune"
                                                                                                 ],
                                                                                       "label":  "Institutions utiles à connaître"
@@ -3161,12 +3161,12 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "La République s\u0027organise avec des institutions qui font appliquer les lois et représentent les citoyens."
+                                                                                      "text":  "La République s'organise avec des institutions qui font appliquer les lois et représentent les citoyens."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "La mairie organise la commune. L\u0027Assemblée nationale vote les lois. Le président de la République représente l\u0027État."
+                                                                                      "content":  "La mairie organise la commune. L'Assemblée nationale vote les lois. Le président de la République représente l'État."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -3304,7 +3304,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "S\u0027engager, c\u0027est participer à une action utile et prendre sa part dans un projet commun."
+                                                                                      "text":  "S'engager, c'est participer à une action utile et prendre sa part dans un projet commun."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -3313,11 +3313,11 @@
                                                                                                     "en aidant à préparer un projet",
                                                                                                     "en proposant une idée utile"
                                                                                                 ],
-                                                                                      "label":  "Je peux m\u0027engager"
+                                                                                      "label":  "Je peux m'engager"
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
-                                                                                      "content":  "Préparer une exposition de classe, distribuer les tâches et écouter les autres font partie d\u0027un engagement collectif.",
+                                                                                      "content":  "Préparer une exposition de classe, distribuer les tâches et écouter les autres font partie d'un engagement collectif.",
                                                                                       "label":  "Exemple"
                                                                                   },
                                                                                   {
@@ -3348,7 +3348,7 @@
                                                                                     "category":  "cm2-engagement",
                                                                                     "type":  "factual-qcm"
                                                                                 },
-                                                                     "title":  "S\u0027engager dans la classe",
+                                                                     "title":  "S'engager dans la classe",
                                                                      "engine":  "choice-engine",
                                                                      "id":  "cm2-emc-sengager-classe",
                                                                      "subtitle":  "Participer et proposer"
@@ -3368,22 +3368,22 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Avoir une responsabilité, c\u0027est accepter qu\u0027un choix ou une action ait des conséquences pour soi et pour les autres."
+                                                                                      "text":  "Avoir une responsabilité, c'est accepter qu'un choix ou une action ait des conséquences pour soi et pour les autres."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
                                                                                       "label":  "Je réfléchis",
                                                                                       "items":  [
                                                                                                     "à ce que je fais",
-                                                                                                    "à l\u0027effet sur les autres",
+                                                                                                    "à l'effet sur les autres",
                                                                                                     "à la règle à respecter",
-                                                                                                    "à la réparation si j\u0027ai causé un tort"
+                                                                                                    "à la réparation si j'ai causé un tort"
                                                                                                 ]
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Être responsable, c\u0027est comprendre ses actes et agir avec justice."
+                                                                                      "content":  "Être responsable, c'est comprendre ses actes et agir avec justice."
                                                                                   }
                                                                               ]
                                                                },
@@ -3461,7 +3461,7 @@
                                            {
                                                "id":  "cm2-emc-institutions-debat-subtheme",
                                                "title":  "Institutions et débat",
-                                               "icon":  "🏛️",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm2-lesson-egalite-dignite",
@@ -3471,12 +3471,12 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "L\u0027égalité signifie que chacun a les mêmes droits. La dignité rappelle que toute personne mérite le respect."
+                                                                                      "text":  "L'égalité signifie que chacun a les mêmes droits. La dignité rappelle que toute personne mérite le respect."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "On ne se moque pas d\u0027un élève à cause de son apparence, de ses origines ou de ses difficultés."
+                                                                                      "content":  "On ne se moque pas d'un élève à cause de son apparence, de ses origines ou de ses difficultés."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -3507,7 +3507,7 @@
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "En classe, on peut débattre d\u0027un projet, puis voter après avoir entendu plusieurs avis."
+                                                                                      "content":  "En classe, on peut débattre d'un projet, puis voter après avoir entendu plusieurs avis."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -3521,7 +3521,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Débattre, ce n\u0027est pas se disputer : c\u0027est chercher une décision juste avec les autres."
+                                                                                      "content":  "Débattre, ce n'est pas se disputer : c'est chercher une décision juste avec les autres."
                                                                                   }
                                                                               ]
                                                                },
@@ -3538,7 +3538,7 @@
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Quand une règle importante n\u0027est pas respectée, la justice peut intervenir pour protéger les victimes et rappeler la loi."
+                                                                                      "content":  "Quand une règle importante n'est pas respectée, la justice peut intervenir pour protéger les victimes et rappeler la loi."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -3558,9 +3558,16 @@
                                                                               ]
                                                                }
                                                            ],
-                                               "exercises":  null
+                                               "exercises":  []
                                            }
                                        ]
                      }
                  ]
 }
+
+
+
+
+
+
+

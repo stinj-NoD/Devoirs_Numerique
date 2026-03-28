@@ -8,10 +8,10 @@ const Engines = {
     utils: EnginesCore.utils,
 
     /**
-     * POINT D'ENTR�?E UNIQUE
+     * POINT D'ENTR??E UNIQUE
      * @param {string} type - Le nom du moteur (ex: 'math-input', 'conjugation')
-     * @param {object} params - Les paramètres du JSON (target, range, etc.)
-     * @param {object} lib - La bibliothèque externe (Français)
+     * @param {object} params - Les param?tres du JSON (target, range, etc.)
+     * @param {object} lib - La biblioth?que externe (Fran?ais)
      */
     run(type, params = {}, lib = {}) {
         // 1. Normalisation des Alias
@@ -24,7 +24,7 @@ const Engines = {
 
         try {
             let result;
-            // 2. Aiguillage vers le bon générateur
+            // 2. Aiguillage vers le bon g?n?rateur
             switch (engineType) {
                 case 'math-input':
                     if (params.type === 'spelling') result = this.generators.spelling(params, lib);
@@ -75,13 +75,13 @@ const Engines = {
             return this.standardize(result);
 
         } catch (e) { /*
-            console.error("�Y"� CRASH ENGINE :", e);
+            console.error("?Y"? CRASH ENGINE :", e);
             */ console.error("CRASH ENGINE :", e); return this.fallback("Erreur technique de l'exercice");
         }
     },
 
     /**
-     * Garantit que l'UI reçoit toujours un objet propre
+     * Garantit que l'UI re?oit toujours un objet propre
      */
     standardize(...args) {
         return EnginesCore.standardize(...args);
@@ -91,7 +91,7 @@ const Engines = {
         return EnginesCore.fallback(...args);
     },
 
-    // --- LES G�?N�?RATEURS ---
+    // --- LES G??N??RATEURS ---
     generators: {
         
         calculate(...args) {
@@ -148,8 +148,8 @@ const Engines = {
         compare(...args) {
             return EnginesMath.compare(...args);
         },
-        // �? ajouter dans Engines.generators dans enginesv2.js
-        // �? mettre dans Engines.generators dans enginesv2.js
+        // ?? ajouter dans Engines.generators dans enginesv2.js
+        // ?? mettre dans Engines.generators dans enginesv2.js
         genderArticles(...args) {
             return EnginesFrench.genderArticles(...args);
         },
@@ -170,11 +170,11 @@ timeline(...args) {
     }
 };
 
-// Raccourci pour utiliser les utils dans les générateurs
+// Raccourci pour utiliser les utils dans les g?n?rateurs
 const { pick, rnd } = Engines.utils;
 
 /**
- * UTILITAIRE GLOBAL : Conversion nombres en lettres (Français)
+ * UTILITAIRE GLOBAL : Conversion nombres en lettres (Fran?ais)
  */
 function numberToFrench(n) {
     if (n === 0) return "zéro";
@@ -214,4 +214,3 @@ function numberToFrench(n) {
 }
 
 window.Engines = Engines;
-

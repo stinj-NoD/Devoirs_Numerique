@@ -1,4 +1,4 @@
-const EnginesFrench = {
+﻿const EnginesFrench = {
     conjugation(p, lib) {
         if (!lib?.conjugation) return Engines.fallback("Bibliothèque absente");
 
@@ -12,7 +12,7 @@ const EnginesFrench = {
         const pronouns = ["Je", "Tu", "Il", "Elle", "On", "Nous", "Vous", "Ils", "Elles"];
         const tenses = Array.isArray(p.tenses) ? p.tenses : [p.tenses || "présent"];
         const selectedTense = ((Engines.utils.pick(tenses)) || "présent").toString().toLowerCase();
-        const isCompound = selectedTense === "passé composé";
+        const isCompound = selectedTense === "passé\ composé";
         let category = p.category || "present_1";
 
         try {
@@ -20,7 +20,7 @@ const EnginesFrench = {
                 const suffix = selectedTense === "futur" ? "_f" : (selectedTense === "imparfait" ? "_imp" : "_p");
                 category = "etre_avoir" + suffix;
             } else if (!Array.isArray(lib.conjugation[category]) || !lib.conjugation[category].length) {
-                const prefixMap = { "présent": "present", "futur": "future", "imparfait": "imparfait", "passé composé": "pc" };
+                const prefixMap = { "présent": "present", "futur": "future", "imparfait": "imparfait", "passé\ composé": "pc" };
                 const prefix = prefixMap[selectedTense] || "present";
                 const groupMatch = p.category.match(/_(\d|3_freq)/);
                 if (groupMatch) category = prefix + groupMatch[0];
@@ -39,7 +39,7 @@ const EnginesFrench = {
             ? pool.filter((v) => requestedVerbs.includes(normalizeToken(v.infinitive)))
             : pool;
         if (requestedVerbs.length && !filteredPool.length) {
-            return Engines.fallback("Verbes demandés introuvables");
+            return Engines.fallback("Verbes\ demandés introuvables");
         }
 
         const verb = Engines.utils.pick(filteredPool.length ? filteredPool : pool);
@@ -61,7 +61,7 @@ const EnginesFrench = {
             answer = verb.full ? verb.full[cIdx] : (verb.base + verb.endings[cIdx]);
             if (selectedTense === "présent" && pIdx === 5) {
                 if (verb.infinitive?.endsWith("ger")) answer = verb.base + "e" + verb.endings[cIdx];
-                if (verb.infinitive?.endsWith("cer")) answer = verb.base.replace(/c$/, "ç") + verb.endings[cIdx];
+                if (verb.infinitive?.endsWith("cer")) answer = verb.base.replace(/c$/, "?") + verb.endings[cIdx];
             }
         }
 
@@ -98,7 +98,7 @@ const EnginesFrench = {
             isVisual: true,
             visualType: "audioSpelling",
             inputType: "alpha",
-            question: `<span class="small-question">�?coute le mot puis écris-le.</span>`,
+            question: `<span class="small-question">Écoute\ le\ mot\ puis\ écris-le\.</span>`,
             answer: answer.toLowerCase(),
             data: {
                 audioText: (picked.audio || answer).toString().trim(),
@@ -179,13 +179,13 @@ const EnginesFrench = {
 
     grammarCloze(params, lib) {
         const pool = lib?.grammar?.[params.category];
-        if (!pool || !pool.length) return Engines.fallback("Phrase à trou indisponible");
+        if (!pool || !pool.length) return Engines.fallback("Phrase à\ trou indisponible");
         const picked = Engines.utils.pick(pool);
         const rawSentence = (picked.sentence || picked.question || "").toString().trim();
         const answer = (picked.answer || picked.a || "").toString().trim();
         const choices = Array.isArray(picked.choices) ? picked.choices : [];
         if (!rawSentence || !answer || choices.length < 2) {
-            return Engines.fallback("Phrase à trou incomplète");
+            return Engines.fallback("Phrase à\ trou incomplète");
         }
         const prompt = rawSentence.includes("___")
             ? rawSentence.replace(/___/g, '<span style="color:var(--primary); font-weight:800;">_____</span>')

@@ -1,21 +1,21 @@
-{
+﻿{
     "gradeId":  "cm1",
     "title":  "CM1",
     "subjects":  [
                      {
                          "id":  "cm1-maths-subject",
                          "title":  "Mathématiques",
-                         "icon":  "🔢",
+                         "icon":  "📘",
                          "subthemes":  [
                                            {
                                                "id":  "cm1-nombres-calculs",
                                                "title":  "Nombres et calculs",
-                                               "icon":  "📐",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cm1-m-big",
                                                                      "title":  "Grands Nombres",
-                                                                     "subtitle":  "Dictée jusqu\u0027au million",
+                                                                     "subtitle":  "Dictée jusqu'au million",
                                                                      "engine":  "math-input",
                                                                      "params":  {
                                                                                     "type":  "dictée-nombres",
@@ -110,7 +110,7 @@
                                                                  {
                                                                      "id":  "cm1-div-reste",
                                                                      "title":  "Division posée avec reste",
-                                                                     "subtitle":  "Trouver ce qu\u0027il reste",
+                                                                     "subtitle":  "Trouver ce qu'il reste",
                                                                      "engine":  "math-input",
                                                                      "params":  {
                                                                                     "type":  "division-posed",
@@ -122,7 +122,7 @@
                                                                  {
                                                                      "id":  "cm1-frac-2",
                                                                      "title":  "Lire des fractions",
-                                                                     "subtitle":  "Parts jusqu\u0027à 12",
+                                                                     "subtitle":  "Parts jusqu'à 12",
                                                                      "engine":  "math-input",
                                                                      "params":  {
                                                                                     "type":  "fraction-view",
@@ -133,7 +133,7 @@
                                                                  {
                                                                      "id":  "cm1-m-big-2",
                                                                      "title":  "Trés grands nombres",
-                                                                     "subtitle":  "Dictée jusqu\u0027à 10 millions",
+                                                                     "subtitle":  "Dictée jusqu'à 10 millions",
                                                                      "engine":  "math-input",
                                                                      "params":  {
                                                                                     "type":  "dictée-nombres",
@@ -144,7 +144,7 @@
                                                                  {
                                                                      "id":  "cm1-frac-3",
                                                                      "title":  "Fractions plus précises",
-                                                                     "subtitle":  "Parts jusqu\u0027à 16",
+                                                                     "subtitle":  "Parts jusqu'à 16",
                                                                      "engine":  "math-input",
                                                                      "params":  {
                                                                                     "type":  "fraction-view",
@@ -155,7 +155,7 @@
                                                                  {
                                                                      "id":  "cm1-m-big-3",
                                                                      "title":  "Grands nombres (3)",
-                                                                     "subtitle":  "Dictée jusqu\u0027à 100 millions",
+                                                                     "subtitle":  "Dictée jusqu'à 100 millions",
                                                                      "engine":  "math-input",
                                                                      "params":  {
                                                                                     "type":  "dictée-nombres",
@@ -185,21 +185,21 @@
                                                                                   },
                                                                                   {
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Dans 3/4, le 4 dit que l\u0027on partage en 4 parts égales. Le 3 dit que l\u0027on prend 3 parts.",
+                                                                                      "content":  "Dans 3/4, le 4 dit que l'on partage en 4 parts égales. Le 3 dit que l'on prend 3 parts.",
                                                                                       "type":  "example"
                                                                                   },
                                                                                   {
                                                                                       "label":  "À observer",
                                                                                       "items":  [
-                                                                                                    "Le nombre du haut s\u0027appelle le numérateur.",
-                                                                                                    "Le nombre du bas s\u0027appelle le dénominateur.",
+                                                                                                    "Le nombre du haut s'appelle le numérateur.",
+                                                                                                    "Le nombre du bas s'appelle le dénominateur.",
                                                                                                     "Plus le dénominateur est grand, plus les parts sont petites."
                                                                                                 ],
                                                                                       "type":  "bullets"
                                                                                   },
                                                                                   {
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Pour lire une fraction, je regarde d\u0027abord en combien de parts on partage.",
+                                                                                      "content":  "Pour lire une fraction, je regarde d'abord en combien de parts on partage.",
                                                                                       "type":  "tip"
                                                                                   }
                                                                               ],
@@ -211,7 +211,7 @@
                                                                {
                                                                    "blocks":  [
                                                                                   {
-                                                                                      "text":  "Un nombre décimal se lit en regardant ce qu\u0027il y a avant et après la virgule.",
+                                                                                      "text":  "Un nombre décimal se lit en regardant ce qu'il y a avant et après la virgule.",
                                                                                       "type":  "paragraph"
                                                                                   },
                                                                                   {
@@ -223,7 +223,7 @@
                                                                                       "label":  "Repères",
                                                                                       "items":  [
                                                                                                     "Avant la virgule, je lis les unités, dizaines, centaines.",
-                                                                                                    "Après la virgule, je lis d\u0027abord les dixièmes.",
+                                                                                                    "Après la virgule, je lis d'abord les dixièmes.",
                                                                                                     "Puis je lis les centièmes si besoin."
                                                                                                 ],
                                                                                       "type":  "bullets"
@@ -247,7 +247,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Un problème raconte une situation. Je lis les données, je cherche ce qu\u0027il faut calculer puis je vérifie ma réponse."
+                                                                                      "text":  "Un problème raconte une situation. Je lis les données, je cherche ce qu'il faut calculer puis je vérifie ma réponse."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -259,7 +259,7 @@
                                                                                       "label":  "Je fais attention à",
                                                                                       "items":  [
                                                                                                     "repérer les nombres utiles",
-                                                                                                    "choisir l\u0027opération",
+                                                                                                    "choisir l'opération",
                                                                                                     "vérifier si la réponse est logique",
                                                                                                     "écrire la phrase réponse"
                                                                                                 ]
@@ -279,7 +279,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Pour résoudre un problème, il faut lire l\u0027énoncé, repérer les informations utiles et choisir le bon calcul."
+                                                                                      "text":  "Pour résoudre un problème, il faut lire l'énoncé, repérer les informations utiles et choisir le bon calcul."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -291,7 +291,7 @@
                                                                                       "items":  [
                                                                                                     "je lis la question",
                                                                                                     "je repère les nombres utiles",
-                                                                                                    "je choisis l\u0027opération",
+                                                                                                    "je choisis l'opération",
                                                                                                     "je vérifie ma réponse"
                                                                                                 ]
                                                                                   },
@@ -307,13 +307,13 @@
                                            {
                                                "id":  "cm1-grandeurs-mesures",
                                                "title":  "Grandeurs et mesures",
-                                               "icon":  "📏",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cm1-romains",
                                                                      "title":  "Chiffres romains",
-                                                                     "icon":  "🏛️",
-                                                                     "subtitle":  "Jusqu\u0027à XX (20)",
+                                                                     "icon":  "📘",
+                                                                     "subtitle":  "Jusqu'à XX (20)",
                                                                      "engine":  "conversion",
                                                                      "params":  {
                                                                                     "subtype":  "roman",
@@ -324,7 +324,7 @@
                                                                  {
                                                                      "id":  "cm1-longueurs",
                                                                      "title":  "Convertir des longueurs",
-                                                                     "icon":  "📐↔️📏",
+                                                                     "icon":  "📘",
                                                                      "subtitle":  "mètres, kilomètres, centimètres",
                                                                      "engine":  "conversion",
                                                                      "params":  {
@@ -336,7 +336,7 @@
                                                                      "id":  "cm1-durees-appr",
                                                                      "title":  "Convertir les heures",
                                                                      "subtitle":  "Avec aide-mémoire",
-                                                                     "icon":  "🕒",
+                                                                     "icon":  "📘",
                                                                      "engine":  "conversion",
                                                                      "params":  {
                                                                                     "subtype":  "time",
@@ -349,7 +349,7 @@
                                                                      "id":  "cm1-durees-eval",
                                                                      "title":  "Heures et minutes",
                                                                      "subtitle":  "Sans aide pour aller plus loin",
-                                                                     "icon":  "🕒🕞🕟",
+                                                                     "icon":  "📘",
                                                                      "engine":  "conversion",
                                                                      "params":  {
                                                                                     "subtype":  "time",
@@ -365,7 +365,7 @@
                                                                      "id":  "cm1-time-sec",
                                                                      "title":  "Minutes vers secondes",
                                                                      "subtitle":  "Conversions simples",
-                                                                     "icon":  "🕒",
+                                                                     "icon":  "📘",
                                                                      "engine":  "conversion",
                                                                      "params":  {
                                                                                     "subtype":  "time",
@@ -378,7 +378,7 @@
                                                                      "id":  "cm1-time-hard",
                                                                      "title":  "Convertir des durées",
                                                                      "subtitle":  "Heures et minutes en détail",
-                                                                     "icon":  "🕒🕞🕟",
+                                                                     "icon":  "📘",
                                                                      "engine":  "conversion",
                                                                      "params":  {
                                                                                     "subtype":  "time",
@@ -391,8 +391,8 @@
                                                                  {
                                                                      "id":  "cm1-romains-50",
                                                                      "title":  "Chiffres romains (2)",
-                                                                     "subtitle":  "Jusqu\u0027à L (50)",
-                                                                     "icon":  "🏛️",
+                                                                     "subtitle":  "Jusqu'à L (50)",
+                                                                     "icon":  "📘",
                                                                      "engine":  "conversion",
                                                                      "params":  {
                                                                                     "subtype":  "roman",
@@ -404,7 +404,7 @@
                                                                      "id":  "cm1-heures-secondes",
                                                                      "title":  "Minutes vers secondes (2)",
                                                                      "subtitle":  "Sans aide-mémoire",
-                                                                     "icon":  "🕒",
+                                                                     "icon":  "📘",
                                                                      "engine":  "conversion",
                                                                      "params":  {
                                                                                     "subtype":  "time",
@@ -415,13 +415,13 @@
                                                                  },
                                                                  {
                                                                      "id":  "cm1-romains-100",
-                                                                     "icon":  "🏛️",
+                                                                     "icon":  "📘",
                                                                      "params":  {
                                                                                     "questions":  5,
                                                                                     "max":  100,
                                                                                     "subtype":  "roman"
                                                                                 },
-                                                                     "subtitle":  "Jusqu\u0027à C (100)",
+                                                                     "subtitle":  "Jusqu'à C (100)",
                                                                      "title":  "Chiffres romains (3)",
                                                                      "engine":  "conversion"
                                                                  },
@@ -443,12 +443,12 @@
                                                                {
                                                                    "id":  "cm1-lesson-conversions-mesures",
                                                                    "title":  "Comprendre une conversion",
-                                                                   "subtitle":  "Changer d\u0027une unité sans changer la mesure",
+                                                                   "subtitle":  "Changer d'une unité sans changer la mesure",
                                                                    "format":  "lesson-card",
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Convertir une mesure, c\u0027est changer d\u0027unité sans changer la grandeur mesurée."
+                                                                                      "text":  "Convertir une mesure, c'est changer d'unité sans changer la grandeur mesurée."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -460,14 +460,14 @@
                                                                                       "label":  "Je retiens",
                                                                                       "items":  [
                                                                                                     "je garde la même longueur ou la même durée",
-                                                                                                    "je change seulement l\u0027unité",
-                                                                                                    "je m\u0027appuie sur les équivalences connues"
+                                                                                                    "je change seulement l'unité",
+                                                                                                    "je m'appuie sur les équivalences connues"
                                                                                                 ]
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Une conversion ne modifie pas la quantité, seulement la façon de l\u0027écrire."
+                                                                                      "content":  "Une conversion ne modifie pas la quantité, seulement la façon de l'écrire."
                                                                                   }
                                                                               ]
                                                                },
@@ -536,7 +536,7 @@
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Un carré a 4 côtés égaux. Un triangle a 3 côtés. Un cercle n\u0027a ni côté ni sommet."
+                                                                                      "content":  "Un carré a 4 côtés égaux. Un triangle a 3 côtés. Un cercle n'a ni côté ni sommet."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -582,7 +582,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Pour décrire une forme, je compte les côtés puis j\u0027observe leurs longueurs et leurs angles."
+                                                                                      "content":  "Pour décrire une forme, je compte les côtés puis j'observe leurs longueurs et leurs angles."
                                                                                   }
                                                                               ]
                                                                }
@@ -591,7 +591,7 @@
                                            {
                                                "id":  "cm1-geometrie-subtheme",
                                                "title":  "Géométrie",
-                                               "icon":  "📐",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm1-lesson-polygones",
@@ -620,24 +620,24 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Pour décrire un polygone, je compte d\u0027abord ses côtés et ses sommets."
+                                                                                      "content":  "Pour décrire un polygone, je compte d'abord ses côtés et ses sommets."
                                                                                   }
                                                                               ]
                                                                },
                                                                {
                                                                    "id":  "cm1-lesson-angles-droits",
-                                                                   "title":  "L\u0027angle droit",
+                                                                   "title":  "L'angle droit",
                                                                    "subtitle":  "Un repère utile en géométrie",
                                                                    "format":  "lesson-card",
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "L\u0027angle droit est un angle particulier. Il aide à reconnaître et à construire certaines figures comme le carré ou le rectangle."
+                                                                                      "text":  "L'angle droit est un angle particulier. Il aide à reconnaître et à construire certaines figures comme le carré ou le rectangle."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Le coin d\u0027une feuille ou d\u0027un cahier forme souvent un angle droit."
+                                                                                      "content":  "Le coin d'une feuille ou d'un cahier forme souvent un angle droit."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -651,19 +651,19 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "L\u0027équerre permet de vérifier si un angle est droit."
+                                                                                      "content":  "L'équerre permet de vérifier si un angle est droit."
                                                                                   }
                                                                               ]
                                                                },
                                                                {
                                                                    "id":  "cm1-lesson-perimetre",
                                                                    "title":  "Le périmètre",
-                                                                   "subtitle":  "Mesurer le tour d\u0027une figure",
+                                                                   "subtitle":  "Mesurer le tour d'une figure",
                                                                    "format":  "lesson-card",
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Le périmètre est la longueur du tour d\u0027une figure. Pour le trouver, on additionne la longueur de tous les côtés."
+                                                                                      "text":  "Le périmètre est la longueur du tour d'une figure. Pour le trouver, on additionne la longueur de tous les côtés."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -681,7 +681,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Le périmètre mesure le contour d\u0027une figure, pas son intérieur."
+                                                                                      "content":  "Le périmètre mesure le contour d'une figure, pas son intérieur."
                                                                                   }
                                                                               ]
                                                                }
@@ -742,12 +742,12 @@
                      {
                          "id":  "cm1-francais-subject",
                          "title":  "Français",
-                         "icon":  "📖",
+                         "icon":  "📘",
                          "subthemes":  [
                                            {
                                                "id":  "cm1-francais-homophones",
                                                "title":  "Homophones",
-                                               "icon":  "📖",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cm1-h-ce",
@@ -842,7 +842,7 @@
                                                                                       "items":  [
                                                                                                     "Je lis toute la phrase.",
                                                                                                     "Je cherche le rôle du mot.",
-                                                                                                    "Je remplace si c\u0027est possible."
+                                                                                                    "Je remplace si c'est possible."
                                                                                                 ],
                                                                                       "type":  "bullets"
                                                                                   },
@@ -870,21 +870,21 @@
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Il a un livre. / Il va à l\u0027école."
+                                                                                      "content":  "Il a un livre. / Il va à l'école."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
                                                                                       "label":  "Je vérifie",
                                                                                       "items":  [
                                                                                                     "je peux remplacer a par avait",
-                                                                                                    "à reste souvent devant un lieu ou un verbe à l\u0027infinitif",
+                                                                                                    "à reste souvent devant un lieu ou un verbe à l'infinitif",
                                                                                                     "je relis la phrase entière"
                                                                                                 ]
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Le sens de la phrase m\u0027aide à choisir entre a et à."
+                                                                                      "content":  "Le sens de la phrase m'aide à choisir entre a et à."
                                                                                   }
                                                                               ]
                                                                }
@@ -893,11 +893,11 @@
                                            {
                                                "id":  "cm1-francais-conjugaison",
                                                "title":  "Conjugaison",
-                                               "icon":  "📖",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cm1-c-imp",
-                                                                     "title":  "L\u0027Imparfait",
+                                                                     "title":  "L'Imparfait",
                                                                      "subtitle":  "Verbes en -ER",
                                                                      "engine":  "conjugation",
                                                                      "params":  {
@@ -988,8 +988,8 @@
                                                                  },
                                                                  {
                                                                      "id":  "cm1-c-ea-imp",
-                                                                     "title":  "Être et avoir à l\u0027imparfait",
-                                                                     "subtitle":  "J\u0027étais, nous avions...",
+                                                                     "title":  "Être et avoir à l'imparfait",
+                                                                     "subtitle":  "J'étais, nous avions...",
                                                                      "engine":  "conjugation",
                                                                      "params":  {
                                                                                     "category":  "etre_avoir_imp",
@@ -1006,12 +1006,12 @@
                                                                {
                                                                    "blocks":  [
                                                                                   {
-                                                                                      "text":  "L\u0027imparfait sert souvent à raconter ce qui durait ou ce qui se répétait dans le passé.",
+                                                                                      "text":  "L'imparfait sert souvent à raconter ce qui durait ou ce qui se répétait dans le passé.",
                                                                                       "type":  "paragraph"
                                                                                   },
                                                                                   {
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "chanter -\u003e je chantais, tu chantais, il chantait, nous chantions, vous chantiez, ils chantaient",
+                                                                                      "content":  "chanter -> je chantais, tu chantais, il chantait, nous chantions, vous chantiez, ils chantaient",
                                                                                       "type":  "example"
                                                                                   },
                                                                                   {
@@ -1028,11 +1028,11 @@
                                                                                   },
                                                                                   {
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "À l\u0027imparfait, les terminaisons restent les mêmes pour beaucoup de verbes.",
+                                                                                      "content":  "À l'imparfait, les terminaisons restent les mêmes pour beaucoup de verbes.",
                                                                                       "type":  "tip"
                                                                                   }
                                                                               ],
-                                                                   "title":  "L\u0027imparfait des verbes en -ER",
+                                                                   "title":  "L'imparfait des verbes en -ER",
                                                                    "format":  "lesson-card",
                                                                    "id":  "cm1-lesson-imparfait-er",
                                                                    "subtitle":  "Une action qui durait"
@@ -1040,12 +1040,12 @@
                                                                {
                                                                    "blocks":  [
                                                                                   {
-                                                                                      "text":  "Au passé composé, certains verbes utilisent avoir et d\u0027autres utilisent être.",
+                                                                                      "text":  "Au passé composé, certains verbes utilisent avoir et d'autres utilisent être.",
                                                                                       "type":  "paragraph"
                                                                                   },
                                                                                   {
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "j\u0027ai chanté, mais je suis tombé",
+                                                                                      "content":  "j'ai chanté, mais je suis tombé",
                                                                                       "type":  "example"
                                                                                   },
                                                                                   {
@@ -1068,7 +1068,7 @@
                                                                                   },
                                                                                   {
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Quand tu apprends un verbe, apprends aussi l\u0027auxiliaire qu\u0027il utilise.",
+                                                                                      "content":  "Quand tu apprends un verbe, apprends aussi l'auxiliaire qu'il utilise.",
                                                                                       "type":  "tip"
                                                                                   }
                                                                               ],
@@ -1082,7 +1082,7 @@
                                            {
                                                "id":  "cm1-francais-articles",
                                                "title":  "Articles et genre",
-                                               "icon":  "📖",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm1-lesson-articles-genre",
@@ -1092,20 +1092,20 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "L\u0027article accompagne le nom. Pour bien le choisir, il faut regarder le genre du nom, le nombre et parfois sa première lettre."
+                                                                                      "text":  "L'article accompagne le nom. Pour bien le choisir, il faut regarder le genre du nom, le nombre et parfois sa première lettre."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "On dit : un cahier, une règle, l\u0027école, les élèves."
+                                                                                      "content":  "On dit : un cahier, une règle, l'école, les élèves."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
                                                                                       "label":  "Je vérifie",
                                                                                       "items":  [
                                                                                                     "si le nom est masculin ou féminin",
-                                                                                                    "s\u0027il est au singulier ou au pluriel",
-                                                                                                    "s\u0027il commence par une voyelle ou un h muet"
+                                                                                                    "s'il est au singulier ou au pluriel",
+                                                                                                    "s'il commence par une voyelle ou un h muet"
                                                                                                 ]
                                                                                   },
                                                                                   {
@@ -1134,7 +1134,7 @@
                                                                  },
                                                                  {
                                                                      "id":  "cm1-g-le-la",
-                                                                     "title":  "Le, La ou L\u0027 ?",
+                                                                     "title":  "Le, La ou L' ?",
                                                                      "subtitle":  "Voyelle, h et élision",
                                                                      "engine":  "choice-engine",
                                                                      "params":  {
@@ -1143,7 +1143,7 @@
                                                                                     "options":  [
                                                                                                     "le",
                                                                                                     "la",
-                                                                                                    "l\u0027"
+                                                                                                    "l'"
                                                                                                 ],
                                                                                     "questions":  8
                                                                                 }
@@ -1153,7 +1153,7 @@
                                            {
                                                "id":  "cm1-francais-grammaire",
                                                "title":  "Grammaire",
-                                               "icon":  "📖",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cm1-g-article-qcm",
@@ -1215,7 +1215,7 @@
                                                                {
                                                                    "blocks":  [
                                                                                   {
-                                                                                      "text":  "La nature d\u0027un mot indique sa famille grammaticale.",
+                                                                                      "text":  "La nature d'un mot indique sa famille grammaticale.",
                                                                                       "type":  "paragraph"
                                                                                   },
                                                                                   {
@@ -1232,7 +1232,7 @@
                                                                                                    ],
                                                                                                    [
                                                                                                        "verbe",
-                                                                                                       "dit ce qu\u0027on fait ou ce qui se passe"
+                                                                                                       "dit ce qu'on fait ou ce qui se passe"
                                                                                                    ],
                                                                                                    [
                                                                                                        "adjectif",
@@ -1247,11 +1247,11 @@
                                                                                   },
                                                                                   {
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Pour trouver la nature d\u0027un mot, je regarde son rôle dans la phrase.",
+                                                                                      "content":  "Pour trouver la nature d'un mot, je regarde son rôle dans la phrase.",
                                                                                       "type":  "tip"
                                                                                   }
                                                                               ],
-                                                                   "title":  "Reconnaître la nature d\u0027un mot",
+                                                                   "title":  "Reconnaître la nature d'un mot",
                                                                    "format":  "lesson-card",
                                                                    "id":  "cm1-lesson-nature-mots",
                                                                    "subtitle":  "Nom, verbe, adjectif"
@@ -1307,7 +1307,7 @@
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Si un paragraphe parle d\u0027un château fort, je cherche ce qu\u0027il décrit, à quoi il servait et qui y vivait."
+                                                                                      "content":  "Si un paragraphe parle d'un château fort, je cherche ce qu'il décrit, à quoi il servait et qui y vivait."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -1320,7 +1320,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Comprendre un paragraphe, c\u0027est retrouver son idée principale et ce qu\u0027il apporte."
+                                                                                      "content":  "Comprendre un paragraphe, c'est retrouver son idée principale et ce qu'il apporte."
                                                                                   }
                                                                               ]
                                                                },
@@ -1332,7 +1332,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Des mots d\u0027une même famille ont souvent un lien de sens et une partie commune appelée radical."
+                                                                                      "text":  "Des mots d'une même famille ont souvent un lien de sens et une partie commune appelée radical."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -1362,12 +1362,12 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Le contexte aide à comprendre le sens exact d\u0027un mot, surtout quand il peut avoir plusieurs significations."
+                                                                                      "text":  "Le contexte aide à comprendre le sens exact d'un mot, surtout quand il peut avoir plusieurs significations."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Dans “la clé du coffre” et “la clé du problème”, le mot clé ne désigne pas la même chose."
+                                                                                      "content":  "Dans «la clé du coffre» et «la clé du problème», le mot clé ne désigne pas la même chose."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -1380,40 +1380,40 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Le contexte permet de choisir le bon sens d\u0027un mot."
+                                                                                      "content":  "Le contexte permet de choisir le bon sens d'un mot."
                                                                                   }
                                                                               ]
                                                                }
                                                            ],
-                                               "exercises":  null
+                                               "exercises":  []
                                            }
                                        ]
                      },
                      {
                          "id":  "cm1-histoire-subject",
                          "title":  "Histoire",
-                         "icon":  "🏛️",
+                         "icon":  "📘",
                          "subthemes":  [
                                            {
                                                "id":  "cm1-histoire-periodes",
                                                "title":  "Grandes périodes",
-                                               "icon":  "🏛️",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm1-lesson-periodes",
                                                                    "title":  "Antiquité, Moyen Âge, Temps modernes",
-                                                                   "subtitle":  "Les grandes périodes de l\u0027histoire",
+                                                                   "subtitle":  "Les grandes périodes de l'histoire",
                                                                    "format":  "lesson-card",
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Pour raconter le passé, on découpe l\u0027histoire en grandes périodes qui ont chacune des repères importants."
+                                                                                      "text":  "Pour raconter le passé, on découpe l'histoire en grandes périodes qui ont chacune des repères importants."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
                                                                                       "label":  "Les grandes périodes",
                                                                                       "items":  [
-                                                                                                    "l\u0027Antiquité",
+                                                                                                    "l'Antiquité",
                                                                                                     "le Moyen Âge",
                                                                                                     "les Temps modernes"
                                                                                                 ]
@@ -1421,7 +1421,7 @@
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Les Gaulois et les Romains appartiennent à l\u0027Antiquité."
+                                                                                      "content":  "Les Gaulois et les Romains appartiennent à l'Antiquité."
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
@@ -1457,7 +1457,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Le Moyen Âge correspond à une longue période où les modes de vie sont très différents d\u0027aujourd\u0027hui."
+                                                                                      "content":  "Le Moyen Âge correspond à une longue période où les modes de vie sont très différents d'aujourd'hui."
                                                                                   }
                                                                               ]
                                                                },
@@ -1469,7 +1469,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Après la conquête romaine, la Gaule devient une partie de l\u0027Empire romain."
+                                                                                      "text":  "Après la conquête romaine, la Gaule devient une partie de l'Empire romain."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -1499,7 +1499,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Au Moyen Âge, la société s\u0027organise autour des seigneurs, des paysans, des villages et des châteaux forts."
+                                                                                      "text":  "Au Moyen Âge, la société s'organise autour des seigneurs, des paysans, des villages et des châteaux forts."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -1518,7 +1518,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Le Moyen Âge correspond à une longue période où les modes de vie sont très différents d\u0027aujourd\u0027hui."
+                                                                                      "content":  "Le Moyen Âge correspond à une longue période où les modes de vie sont très différents d'aujourd'hui."
                                                                                   }
                                                                               ]
                                                                }
@@ -1589,7 +1589,7 @@
                                            {
                                                "id":  "cm1-histoire-frises",
                                                "title":  "Frises historiques",
-                                               "icon":  "🏛️",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm1-lesson-frise",
@@ -1628,7 +1628,7 @@
                                                                  {
                                                                      "id":  "cm1-histoire-frise-ordre",
                                                                      "title":  "Frise historique",
-                                                                     "subtitle":  "Remets les repères dans l\u0027ordre",
+                                                                     "subtitle":  "Remets les repères dans l'ordre",
                                                                      "engine":  "timeline",
                                                                      "params":  {
                                                                                     "mode":  "order",
@@ -1696,7 +1696,7 @@
                                                                  {
                                                                      "id":  "cm1-histoire-frise-prehistoire-ordre",
                                                                      "title":  "Frise : Préhistoire",
-                                                                     "subtitle":  "Remets les repères dans l\u0027ordre",
+                                                                     "subtitle":  "Remets les repères dans l'ordre",
                                                                      "engine":  "timeline",
                                                                      "params":  {
                                                                                     "mode":  "order",
@@ -1765,12 +1765,12 @@
                      {
                          "id":  "cm1-geographie-subject",
                          "title":  "Géographie",
-                         "icon":  "🗺️",
+                         "icon":  "📘",
                          "subthemes":  [
                                            {
                                                "id":  "cm1-geo-relief-subtheme",
                                                "title":  "Reliefs et fleuves",
-                                               "icon":  "🗺️",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm1-lesson-relief-paysage",
@@ -1780,7 +1780,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Un paysage montre ce que l\u0027on voit dans un lieu : relief, eau, végétation et aménagements humains."
+                                                                                      "text":  "Un paysage montre ce que l'on voit dans un lieu : relief, eau, végétation et aménagements humains."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -1795,13 +1795,13 @@
                                                                                                     "plaine",
                                                                                                     "vallée",
                                                                                                     "littoral",
-                                                                                                    "cours d\u0027eau"
+                                                                                                    "cours d'eau"
                                                                                                 ]
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "En géographie, un paysage se décrit avec des mots précis pour dire ce qu\u0027on observe."
+                                                                                      "content":  "En géographie, un paysage se décrit avec des mots précis pour dire ce qu'on observe."
                                                                                   }
                                                                               ]
                                                                },
@@ -1862,7 +1862,7 @@
                                                                      "title":  "Fleuves et reliefs de France",
                                                                      "engine":  "choice-engine",
                                                                      "id":  "cm1-geo-fleuves-reliefs-france",
-                                                                     "subtitle":  "Montagnes, vallées et grands cours d\u0027eau"
+                                                                     "subtitle":  "Montagnes, vallées et grands cours d'eau"
                                                                  },
                                                                  {
                                                                      "params":  {
@@ -1881,7 +1881,7 @@
                                            {
                                                "id":  "cm1-geo-territoires-subtheme",
                                                "title":  "Territoires",
-                                               "icon":  "🗺️",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm1-lesson-territoires",
@@ -1891,7 +1891,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Un territoire est un espace organisé par les activités des habitants et par les paysages qu\u0027on y trouve."
+                                                                                      "text":  "Un territoire est un espace organisé par les activités des habitants et par les paysages qu'on y trouve."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -1911,7 +1911,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Un territoire se décrit avec ce qu\u0027on y voit, ce qu\u0027on y fait et ce dont les habitants ont besoin."
+                                                                                      "content":  "Un territoire se décrit avec ce qu'on y voit, ce qu'on y fait et ce dont les habitants ont besoin."
                                                                                   }
                                                                               ]
                                                                },
@@ -1945,7 +1945,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Lire une carte, c\u0027est comprendre des repères et un vocabulaire précis."
+                                                                                      "content":  "Lire une carte, c'est comprendre des repères et un vocabulaire précis."
                                                                                   }
                                                                               ]
                                                                },
@@ -1976,7 +1976,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Je lis d\u0027abord le titre et la légende pour comprendre une carte."
+                                                                                      "content":  "Je lis d'abord le titre et la légende pour comprendre une carte."
                                                                                   }
                                                                               ]
                                                                }
@@ -2011,7 +2011,7 @@
                                            {
                                                "id":  "cm1-geo-deplacements-subtheme",
                                                "title":  "Se déplacer",
-                                               "icon":  "🗺️",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm1-lesson-deplacements",
@@ -2021,12 +2021,12 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Se déplacer, c\u0027est aller d\u0027un lieu à un autre en choisissant un moyen de transport adapté au trajet."
+                                                                                      "text":  "Se déplacer, c'est aller d'un lieu à un autre en choisissant un moyen de transport adapté au trajet."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Pour aller à l\u0027école, on peut marcher, prendre le bus ou venir en voiture selon la distance et le temps disponible."
+                                                                                      "content":  "Pour aller à l'école, on peut marcher, prendre le bus ou venir en voiture selon la distance et le temps disponible."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -2053,7 +2053,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Se déplacer, c\u0027est aller d\u0027un lieu à un autre en choisissant un moyen de transport adapté au trajet."
+                                                                                      "text":  "Se déplacer, c'est aller d'un lieu à un autre en choisissant un moyen de transport adapté au trajet."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -2109,12 +2109,12 @@
                      {
                          "id":  "cm1-sciences-subject",
                          "title":  "Sciences",
-                         "icon":  "🔬",
+                         "icon":  "📘",
                          "subthemes":  [
                                            {
                                                "id":  "cm1-sciences-vivant-subtheme",
                                                "title":  "Le vivant",
-                                               "icon":  "🔬",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm1-lesson-vivant",
@@ -2129,7 +2129,7 @@
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Un arbre et un chat sont vivants, mais une pierre ne l\u0027est pas. On classe le vivant selon des caractères communs."
+                                                                                      "content":  "Un arbre et un chat sont vivants, mais une pierre ne l'est pas. On classe le vivant selon des caractères communs."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -2161,7 +2161,7 @@
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Un arbre et un chat sont vivants, mais une pierre ne l\u0027est pas."
+                                                                                      "content":  "Un arbre et un chat sont vivants, mais une pierre ne l'est pas."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -2192,12 +2192,12 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Dans la nature, les êtres vivants sont liés par l\u0027alimentation. Une chaîne alimentaire montre qui mange qui."
+                                                                                      "text":  "Dans la nature, les êtres vivants sont liés par l'alimentation. Une chaîne alimentaire montre qui mange qui."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "L\u0027herbe est mangée par le lapin, puis le lapin peut être mangé par le renard."
+                                                                                      "content":  "L'herbe est mangée par le lapin, puis le lapin peut être mangé par le renard."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -2246,7 +2246,7 @@
                                            {
                                                "id":  "cm1-sciences-matiere-subtheme",
                                                "title":  "Matière et énergie",
-                                               "icon":  "🔬",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm1-lesson-matiere-energie",
@@ -2256,12 +2256,12 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "La matière est ce qui compose les objets. L\u0027énergie permet d\u0027agir, de chauffer, d\u0027éclairer ou de faire fonctionner."
+                                                                                      "text":  "La matière est ce qui compose les objets. L'énergie permet d'agir, de chauffer, d'éclairer ou de faire fonctionner."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "L\u0027eau peut changer d\u0027état quand on la chauffe ou quand on la refroidit : solide, liquide ou gazeux."
+                                                                                      "content":  "L'eau peut changer d'état quand on la chauffe ou quand on la refroidit : solide, liquide ou gazeux."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -2269,14 +2269,14 @@
                                                                                       "items":  [
                                                                                                     "ce qui est solide, liquide ou gazeux",
                                                                                                     "ce qui chauffe ou refroidit",
-                                                                                                    "ce qui consomme de l\u0027énergie",
-                                                                                                    "ce qui change d\u0027état"
+                                                                                                    "ce qui consomme de l'énergie",
+                                                                                                    "ce qui change d'état"
                                                                                                 ]
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Observer aide à comprendre comment la matière change et comment l\u0027énergie agit."
+                                                                                      "content":  "Observer aide à comprendre comment la matière change et comment l'énergie agit."
                                                                                   }
                                                                               ]
                                                                }
@@ -2296,7 +2296,7 @@
                                                                  },
                                                                  {
                                                                      "id":  "cm1-sciences-sources-energie",
-                                                                     "title":  "Sources d\u0027énergie",
+                                                                     "title":  "Sources d'énergie",
                                                                      "subtitle":  "Soleil, vent, piles et économies",
                                                                      "engine":  "choice-engine",
                                                                      "params":  {
@@ -2332,7 +2332,7 @@
                                                                  },
                                                                  {
                                                                      "id":  "cm1-sciences-eau-quotidien",
-                                                                     "title":  "L\u0027eau au quotidien",
+                                                                     "title":  "L'eau au quotidien",
                                                                      "subtitle":  "Boire, arroser, éviter le gaspillage",
                                                                      "engine":  "choice-engine",
                                                                      "params":  {
@@ -2359,7 +2359,7 @@
                                            {
                                                "id":  "cm1-sciences-corps-subtheme",
                                                "title":  "Corps et hygiène",
-                                               "icon":  "🔬",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm1-lesson-corps-hygiene",
@@ -2380,10 +2380,10 @@
                                                                                       "type":  "bullets",
                                                                                       "label":  "Je fais attention à",
                                                                                       "items":  [
-                                                                                                    "l\u0027hygiène",
+                                                                                                    "l'hygiène",
                                                                                                     "le sommeil",
-                                                                                                    "l\u0027alimentation",
-                                                                                                    "l\u0027activité physique"
+                                                                                                    "l'alimentation",
+                                                                                                    "l'activité physique"
                                                                                                 ]
                                                                                   },
                                                                                   {
@@ -2406,21 +2406,21 @@
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Je vois avec les yeux, j\u0027entends avec les oreilles, je touche avec la peau, je goûte avec la langue et je sens avec le nez."
+                                                                                      "content":  "Je vois avec les yeux, j'entends avec les oreilles, je touche avec la peau, je goûte avec la langue et je sens avec le nez."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
                                                                                       "label":  "Sens et organes",
                                                                                       "items":  [
                                                                                                     "la vue : les yeux",
-                                                                                                    "l\u0027ou",
+                                                                                                    "l'ou",
                                                                                                     "ï",
                                                                                                     "e : les oreilles",
                                                                                                     "le toucher : la peau",
                                                                                                     "le go",
                                                                                                     "û",
                                                                                                     "t : la langue",
-                                                                                                    "l\u0027odorat : le nez"
+                                                                                                    "l'odorat : le nez"
                                                                                                 ]
                                                                                   },
                                                                                   {
@@ -2475,12 +2475,12 @@
                      {
                          "id":  "cm1-emc-subject",
                          "title":  "EMC",
-                         "icon":  "⚖️",
+                         "icon":  "📘",
                          "subthemes":  [
                                            {
                                                "id":  "cm1-emc-vivre-ensemble-subtheme",
                                                "title":  "Vivre ensemble",
-                                               "icon":  "⚖️",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm1-lesson-vivre-ensemble",
@@ -2490,7 +2490,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Vivre ensemble, c\u0027est respecter les autres, écouter les différences et trouver sa place dans le groupe."
+                                                                                      "text":  "Vivre ensemble, c'est respecter les autres, écouter les différences et trouver sa place dans le groupe."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -2545,7 +2545,7 @@
                                            {
                                                "id":  "cm1-emc-droits-devoirs-subtheme",
                                                "title":  "Droits et devoirs",
-                                               "icon":  "⚖️",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm1-lesson-droits-devoirs",
@@ -2555,12 +2555,12 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Un droit protège une personne. Un devoir rappelle ce qu\u0027elle doit faire pour vivre avec les autres."
+                                                                                      "text":  "Un droit protège une personne. Un devoir rappelle ce qu'elle doit faire pour vivre avec les autres."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "J\u0027ai le droit d\u0027apprendre, et le devoir de respecter les règles de classe et le matériel commun."
+                                                                                      "content":  "J'ai le droit d'apprendre, et le devoir de respecter les règles de classe et le matériel commun."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -2581,18 +2581,18 @@
                                                                },
                                                                {
                                                                    "id":  "cm1-lesson-laicite-ecole",
-                                                                   "title":  "La laïcité à l\u0027école",
+                                                                   "title":  "La laïcité à l'école",
                                                                    "subtitle":  "Respecter chacun et la règle commune",
                                                                    "format":  "lesson-card",
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "La laïcité permet à chacun d\u0027avoir ses opinions ou ses croyances tout en respectant la règle commune."
+                                                                                      "text":  "La laïcité permet à chacun d'avoir ses opinions ou ses croyances tout en respectant la règle commune."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "À l\u0027école, on respecte toutes les personnes et on garde un cadre commun pour travailler ensemble."
+                                                                                      "content":  "À l'école, on respecte toutes les personnes et on garde un cadre commun pour travailler ensemble."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -2642,7 +2642,7 @@
                                            {
                                                "id":  "cm1-emc-citoyennete-subtheme",
                                                "title":  "Citoyenneté",
-                                               "icon":  "⚖️",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cm1-lesson-citoyennete",
@@ -2652,7 +2652,7 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "Être citoyen, c\u0027est participer à la vie du groupe, écouter les avis et respecter les décisions communes."
+                                                                                      "text":  "Être citoyen, c'est participer à la vie du groupe, écouter les avis et respecter les décisions communes."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
@@ -2672,7 +2672,7 @@
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Décider ensemble demande de parler, d\u0027écouter et de respecter la règle commune."
+                                                                                      "content":  "Décider ensemble demande de parler, d'écouter et de respecter la règle commune."
                                                                                   }
                                                                               ]
                                                                },
@@ -2689,7 +2689,7 @@
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "Le drapeau tricolore, la devise et l\u0027hymne national sont des symboles de la République."
+                                                                                      "content":  "Le drapeau tricolore, la devise et l'hymne national sont des symboles de la République."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -2697,14 +2697,14 @@
                                                                                       "items":  [
                                                                                                     "le drapeau",
                                                                                                     "la devise",
-                                                                                                    "l\u0027hymne",
+                                                                                                    "l'hymne",
                                                                                                     "les lieux officiels"
                                                                                                 ]
                                                                                   },
                                                                                   {
                                                                                       "type":  "tip",
                                                                                       "label":  "À retenir",
-                                                                                      "content":  "Les symboles rappellent l\u0027histoire et les valeurs communes."
+                                                                                      "content":  "Les symboles rappellent l'histoire et les valeurs communes."
                                                                                   }
                                                                               ]
                                                                },
@@ -2716,12 +2716,12 @@
                                                                    "blocks":  [
                                                                                   {
                                                                                       "type":  "paragraph",
-                                                                                      "text":  "La laïcité permet à chacun d\u0027être respecté dans ses croyances ou ses opinions, dans le cadre des règles communes de la République."
+                                                                                      "text":  "La laïcité permet à chacun d'être respecté dans ses croyances ou ses opinions, dans le cadre des règles communes de la République."
                                                                                   },
                                                                                   {
                                                                                       "type":  "example",
                                                                                       "label":  "Exemple",
-                                                                                      "content":  "À l\u0027école, tous les élèves apprennent ensemble et sont traités de la même manière."
+                                                                                      "content":  "À l'école, tous les élèves apprennent ensemble et sont traités de la même manière."
                                                                                   },
                                                                                   {
                                                                                       "type":  "bullets",
@@ -2807,3 +2807,9 @@
                      }
                  ]
 }
+
+
+
+
+
+

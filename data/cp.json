@@ -1,16 +1,16 @@
-{
+﻿{
     "gradeId":  "cp",
     "title":  "CP",
     "subjects":  [
                      {
                          "id":  "cp-maths",
                          "title":  "Mathématiques",
-                         "icon":  "🔢",
+                         "icon":  "📘",
                          "subthemes":  [
                                            {
                                                "id":  "cp-parcours-addition",
                                                "title":  "Parcours : Addition",
-                                               "icon":  "➕",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "add-1",
@@ -135,7 +135,7 @@
                                            {
                                                "id":  "cp-parcours-soustraction",
                                                "title":  "Parcours : Soustraction",
-                                               "icon":  "➖",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "sub-1",
@@ -239,8 +239,8 @@
                                            },
                                            {
                                                "id":  "cp-nombres-comparaison",
-                                               "title":  "Nombres \u0026 Comparaison",
-                                               "icon":  "🔢",
+                                               "title":  "Nombres & Comparaison",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "math-count-1",
@@ -390,12 +390,12 @@
                                            },
                                            {
                                                "id":  "cp-cibles-monnaie",
-                                               "title":  "Cibles \u0026 Monnaie",
-                                               "icon":  "🎯",
+                                               "title":  "Cibles & Monnaie",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cible-1",
-                                                                     "icon":  "🎯",
+                                                                     "icon":  "📘",
                                                                      "title":  "Cible : Niv 1",
                                                                      "subtitle":  "2 flèches (1, 2, 5)",
                                                                      "engine":  "math-input",
@@ -412,7 +412,7 @@
                                                                  },
                                                                  {
                                                                      "id":  "cible-2",
-                                                                     "icon":  "🎯🎯",
+                                                                     "icon":  "📘",
                                                                      "title":  "Cible : Niv 2",
                                                                      "subtitle":  "2 flèches (2, 5, 10)",
                                                                      "engine":  "math-input",
@@ -429,7 +429,7 @@
                                                                  },
                                                                  {
                                                                      "id":  "cible-3",
-                                                                     "icon":  "🎯🎯🎯",
+                                                                     "icon":  "📘",
                                                                      "title":  "Cible : Niv 3",
                                                                      "subtitle":  "3 flèches (2 à 8)",
                                                                      "engine":  "math-input",
@@ -447,9 +447,9 @@
                                                                  },
                                                                  {
                                                                      "id":  "banquier-1",
-                                                                     "icon":  "🪙",
+                                                                     "icon":  "📘",
                                                                      "title":  "Le Marché",
-                                                                     "subtitle":  "Pièces (1€, 2€)",
+                                                                     "subtitle":  "Pièces (1 €, 2 €)",
                                                                      "engine":  "math-input",
                                                                      "params":  {
                                                                                     "type":  "cibles",
@@ -464,7 +464,7 @@
                                                                  },
                                                                  {
                                                                      "id":  "banquier-2",
-                                                                     "icon":  "💶",
+                                                                     "icon":  "📘",
                                                                      "title":  "La Caisse",
                                                                      "subtitle":  "Pièces et billets",
                                                                      "engine":  "math-input",
@@ -547,8 +547,8 @@
                                            },
                                            {
                                                "id":  "cp-defis-logique",
-                                               "title":  "Défis \u0026 Logique",
-                                               "icon":  "🧩",
+                                               "title":  "Défis & Logique",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "oiseau-1",
@@ -672,7 +672,7 @@
                                            {
                                                "id":  "cp-formes-mesures-subtheme",
                                                "title":  "Formes et mesures",
-                                               "icon":  "📐",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cp-lesson-formes-simples",
@@ -809,12 +809,12 @@
                                            {
                                                "id":  "cp-ecriture-nombres",
                                                "title":  "Écrire les nombres",
-                                               "icon":  "🔢",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cp-dictee-0-10",
                                                                      "title":  "Petits Nombres",
-                                                                     "icon":  "🔢",
+                                                                     "icon":  "📘",
                                                                      "subtitle":  "De 0 à 10 en lettres",
                                                                      "engine":  "math-input",
                                                                      "params":  {
@@ -827,7 +827,7 @@
                                                                  {
                                                                      "id":  "cp-dictee-10-20",
                                                                      "title":  "Nombres de 10 à 20",
-                                                                     "icon":  "🔢",
+                                                                     "icon":  "📘",
                                                                      "subtitle":  "Les irréguliers (onze...)",
                                                                      "engine":  "math-input",
                                                                      "params":  {
@@ -840,7 +840,7 @@
                                                                  {
                                                                      "id":  "cp-dictee-20-69",
                                                                      "title":  "Nombres de 20 à 69",
-                                                                     "icon":  "🔢",
+                                                                     "icon":  "📘",
                                                                      "subtitle":  "Lire et écrire en lettres",
                                                                      "engine":  "math-input",
                                                                      "params":  {
@@ -919,12 +919,12 @@
                      {
                          "id":  "cp-francais",
                          "title":  "Français",
-                         "icon":  "📖",
+                         "icon":  "📘",
                          "subthemes":  [
                                            {
                                                "id":  "cp-orthographe",
                                                "title":  "Dictée d'Images",
-                                               "icon":  "✍️",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "fr-animaux",
@@ -1029,7 +1029,7 @@
                                            {
                                                "id":  "cp-dictee-audio",
                                                "title":  "Dictée audio",
-                                               "icon":  "🔊",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cp-audio-ecole",
@@ -1121,9 +1121,95 @@
                                                            ]
                                            },
                                            {
+                                               "id":  "cp-dictee-mots-outils-audio",
+                                               "title":  "Dictée audio mots outils",
+                                               "icon":  "📘",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-audio-mots-outils-p1",
+                                                                     "title":  "Période 1",
+                                                                     "subtitle":  "Le, la, un, une, et, est",
+                                                                     "engine":  "audio-spelling",
+                                                                     "params":  {
+                                                                                    "category":  "cp_mots_outils_p1",
+                                                                                    "speechRate":  0.72,
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-audio-mots-outils-p2",
+                                                                     "title":  "Période 2",
+                                                                     "subtitle":  "Les, des, à, dans, sur, sous",
+                                                                     "engine":  "audio-spelling",
+                                                                     "params":  {
+                                                                                    "category":  "cp_mots_outils_p2",
+                                                                                    "speechRate":  0.72,
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-audio-mots-outils-p3",
+                                                                     "title":  "Période 3",
+                                                                     "subtitle":  "Avec, pour, sans, chez, mais, puis",
+                                                                     "engine":  "audio-spelling",
+                                                                     "params":  {
+                                                                                    "category":  "cp_mots_outils_p3",
+                                                                                    "speechRate":  0.72,
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-audio-mots-outils-p4",
+                                                                     "title":  "Période 4",
+                                                                     "subtitle":  "Ici, là, vite, bien, mal, déjà",
+                                                                     "engine":  "audio-spelling",
+                                                                     "params":  {
+                                                                                    "category":  "cp_mots_outils_p4",
+                                                                                    "speechRate":  0.72,
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-audio-mots-outils-p5",
+                                                                     "title":  "Période 5",
+                                                                     "subtitle":  "Encore, toujours, jamais, souvent, très, trop",
+                                                                     "engine":  "audio-spelling",
+                                                                     "params":  {
+                                                                                    "category":  "cp_mots_outils_p5",
+                                                                                    "speechRate":  0.72,
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "cp-lesson-dictee-mots-outils",
+                                                                   "title":  "Écrire les mots outils",
+                                                                   "subtitle":  "Petits mots très fréquents",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "type":  "paragraph",
+                                                                                      "text":  "Les mots outils sont de petits mots très fréquents. Les apprendre aide à lire plus vite et à écrire des phrases justes."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "example",
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "Le chat est dans la maison. Ici, le et dans sont des mots outils."
+                                                                                  },
+                                                                                  {
+                                                                                      "type":  "tip",
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Pour a et à, on apprend la différence dans les exercices d'homophones."
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
+                                           },
+                                           {
                                                "id":  "cp-phrase-ponctuation-subtheme",
                                                "title":  "Phrase et ponctuation",
-                                               "icon":  "📝",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cp-lesson-phrase-simple",
@@ -1193,7 +1279,7 @@
                                            {
                                                "id":  "cp-lecture",
                                                "title":  "Lecture syllabique",
-                                               "icon":  "📖",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cp-lecture-syllabes",
@@ -1322,7 +1408,7 @@
                                            {
                                                "id":  "cp-grammaire-genre",
                                                "title":  "Masculin ou Féminin",
-                                               "icon":  "🚻",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cp-un-une",
@@ -1393,12 +1479,12 @@
                      {
                          "id":  "cp-histoire-subject",
                          "title":  "Questionner le temps",
-                         "icon":  "🏛️",
+                         "icon":  "📘",
                          "subthemes":  [
                                            {
                                                "id":  "cp-histoire-temps",
                                                "title":  "Avant et après",
-                                               "icon":  "🏛️",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cp-histoire-avant-apres",
@@ -1504,7 +1590,7 @@
                                            {
                                                "id":  "cp-histoire-vie",
                                                "title":  "Vivre autrefois",
-                                               "icon":  "🏺",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cp-histoire-vie-autrefois",
@@ -1597,7 +1683,7 @@
                                            {
                                                "id":  "cp-histoire-traces-subtheme",
                                                "title":  "Traces du passé",
-                                               "icon":  "🕰️",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cp-histoire-traces",
@@ -1729,12 +1815,12 @@
                      {
                          "id":  "cp-geographie-subject",
                          "title":  "Questionner l'espace",
-                         "icon":  "🗺️",
+                         "icon":  "📘",
                          "subthemes":  [
                                            {
                                                "id":  "cp-plan-quartier-subtheme",
                                                "title":  "Plan et quartier",
-                                               "icon":  "🗺️",
+                                               "icon":  "📘",
                                                "lessons":  [
                                                                {
                                                                    "id":  "cp-lesson-plan-ecole",
@@ -1804,7 +1890,7 @@
                                            {
                                                "id":  "cp-geo-reperage-subtheme",
                                                "title":  "Se repérer",
-                                               "icon":  "🧭",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cp-geo-reperer",
@@ -1913,7 +1999,7 @@
                                            {
                                                "id":  "cp-geo-paysages-subtheme",
                                                "title":  "Paysages",
-                                               "icon":  "🌍",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cp-geo-paysages",
@@ -1977,7 +2063,7 @@
                                            {
                                                "id":  "cp-geo-transports-subtheme",
                                                "title":  "Transports et lieux",
-                                               "icon":  "🚗",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cp-geo-transports",
@@ -2067,12 +2153,12 @@
                      {
                          "id":  "cp-sciences-subject",
                          "title":  "Questionner le vivant et la matière",
-                         "icon":  "🔬",
+                         "icon":  "📘",
                          "subthemes":  [
                                            {
                                                "id":  "cp-sciences-vivant-subtheme",
                                                "title":  "Le vivant",
-                                               "icon":  "🌱",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cp-sciences-vivant",
@@ -2198,7 +2284,7 @@
                                            {
                                                "id":  "cp-sciences-matiere-subtheme",
                                                "title":  "Matière et lumière",
-                                               "icon":  "💡",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cp-sciences-matiere",
@@ -2262,7 +2348,7 @@
                                            {
                                                "id":  "cp-sciences-corps-subtheme",
                                                "title":  "Corps et sens",
-                                               "icon":  "🧠",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cp-sciences-corps",
@@ -2385,12 +2471,12 @@
                      {
                          "id":  "cp-emc-subject",
                          "title":  "EMC",
-                         "icon":  "🤝",
+                         "icon":  "📘",
                          "subthemes":  [
                                            {
                                                "id":  "cp-emc-vivre-ensemble-subtheme",
                                                "title":  "Vivre ensemble",
-                                               "icon":  "🤝",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cp-emc-vivre-ensemble",
@@ -2558,7 +2644,7 @@
                                            {
                                                "id":  "cp-emc-securite-subtheme",
                                                "title":  "Sécurité",
-                                               "icon":  "🦺",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cp-emc-securite",
@@ -2621,7 +2707,7 @@
                                            {
                                                "id":  "cp-emc-entraide-subtheme",
                                                "title":  "Entraide",
-                                               "icon":  "💛",
+                                               "icon":  "📘",
                                                "exercises":  [
                                                                  {
                                                                      "id":  "cp-emc-entraide",
@@ -2686,3 +2772,9 @@
                      }
                  ]
 }
+
+
+
+
+
+
