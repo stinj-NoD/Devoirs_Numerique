@@ -1,4 +1,19 @@
 const UIKeyboards = {
+    _escape(value) {
+        if (window.SecurityUtils?.escapeHtml) return window.SecurityUtils.escapeHtml(value);
+        return (value ?? "").toString()
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    },
+
+    _safeAttr(value) {
+        if (window.SecurityUtils?.escapeAttr) return window.SecurityUtils.escapeAttr(value);
+        return this._escape(value).replace(/`/g, '&#96;');
+    },
+
     initKeyboard(callback) {
         const container = document.querySelector('.keyboard-container');
         if (container) {
@@ -30,6 +45,10 @@ const UIKeyboards = {
                 }
                 this.renderQCM(choices);
                 numKb.style.display = "grid";
+                if (answerZone) answerZone.style.display = "none";
+            } else if (type === "board") {
+                numKb.innerHTML = "";
+                numKb.style.display = "none";
                 if (answerZone) answerZone.style.display = "none";
             } else if (type === "selection") {
                 numKb.innerHTML = `<button class="btn btn--success key action ok wide-btn" data-val="ok">VALIDER LA S\u00c9LECTION</button>`;
@@ -131,7 +150,7 @@ const UIKeyboards = {
         kb.innerHTML = html;
     },
 
-    renderQCM(choices) {
+	    renderQCM(choices) {
         const kb = document.getElementById('keyboard-num');
         if (!kb) return;
 
@@ -139,14 +158,16 @@ const UIKeyboards = {
         kb.style.gridTemplateColumns = `repeat(${choices.length > 4 ? 2 : cols}, 1fr)`;
         kb.style.gap = "10px";
 
-        kb.innerHTML = choices.map(v => {
-            let cssClass = "btn key";
-            if (v === "VRAI" || v === ">") cssClass += " btn-true";
-            else if (v === "FAUX" || v === "<") cssClass += " btn-false";
-            else cssClass += " btn-neutral";
+	        kb.innerHTML = choices.map(v => {
+                const safeLabel = this._escape(v);
+                const safeValue = this._safeAttr(v);
+	            let cssClass = "btn key";
+	            if (v === "VRAI" || v === ">") cssClass += " btn-true";
+	            else if (v === "FAUX" || v === "<") cssClass += " btn-false";
+	            else cssClass += " btn-neutral";
 
-            if (['<', '>', '='].includes(v)) cssClass += " qcm-symbol";
-            return `<button class="${cssClass}" data-val="${v}">${v}</button>`;
-        }).join("");
-    }
+	            if (['<', '>', '='].includes(v)) cssClass += " qcm-symbol";
+	            return `<button class="${cssClass}" data-val="${safeValue}">${safeLabel}</button>`;
+	        }).join("");
+	    }
 };

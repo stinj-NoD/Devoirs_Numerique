@@ -21,6 +21,7 @@ const EnginesDocumentary = {
             data: {
                 choices: item.choices,
                 prompt: item.question,
+                context: item.context || item.text || "",
                 subjectTitle: p.dataSet?.title || "Culture générale",
                 subjectId: p.dataSet?.subjectId || "general"
             }

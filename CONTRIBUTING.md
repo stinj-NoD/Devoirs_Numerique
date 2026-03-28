@@ -1,34 +1,99 @@
 # Contribution Guide
 
-## Perimetre
+## Périmètre
 
-Ce depot est data-driven. Une contribution peut toucher :
-- les contenus `data/*.json`
-- les renderers UI
-- les engines
+Le dépôt est fortement data-driven. Une contribution peut toucher :
+- les contenus [data/*.json](d:/Apps%20Dev/Devoirs_Numerique/data)
+- les bibliothèques [data/french/*.json](d:/Apps%20Dev/Devoirs_Numerique/data/french)
+- l'UI
+- les moteurs
+- les validateurs
 - la documentation
 
-## Regles de modification
+## Règles générales
 
-- ne pas changer plusieurs zones critiques dans le meme lot
-- ne pas changer le contrat `engine + params` sans mettre a jour les validateurs
-- ne pas modifier `js/app.js`, `js/ui.js` et `js/engines.js` en meme temps sans raison explicite
-- regenerer `js/data-bundle.js` apres tout changement dans `data/`
+- ne pas mélanger plusieurs zones critiques sans raison claire
+- conserver les `id` stables
+- respecter strictement l'UTF-8 et la langue française
+- ne pas introduire de `?` parasites, mojibake, `\uXXXX` inutiles ou apostrophes dégradées dans les contenus visibles
+- ne pas changer un contrat `engine + params` sans mettre à jour les validateurs
+- ne pas modifier la structure `lessons[]` sans mettre à jour :
+  - [validators.js](d:/Apps%20Dev/Devoirs_Numerique/js/validators.js)
+  - [validate-data.ps1](d:/Apps%20Dev/Devoirs_Numerique/scripts/validate-data.ps1)
 
-## Checks obligatoires
+## Règles sur les leçons
 
-1. lancer `scripts/validate-data.ps1`
-2. si les contenus changent, relancer `scripts/regenerate-data-bundle.ps1`
-3. si des images sont ajoutees ou retirees, lancer `scripts/inventory-assets.ps1`
-4. verifier manuellement au moins :
-   - un exercice math
-   - un exercice francais
-   - un QCM documentaire
-   - une frise
+Une leçon doit :
+- porter une notion réelle du programme
+- être une mini-fiche de rappel, pas un mode d'emploi de l'application
+- être courte, claire et structurée
+- utiliser un français correct et accentué
 
-## Conventions data
+Référence éditoriale :
+- [lesson-guidelines.md](d:/Apps%20Dev/Devoirs_Numerique/docs/lesson-guidelines.md)
 
-- garder les `id` stables
-- ne pas introduire de doublons dans `grades`, `themes`, `exercises`
-- fournir `choices` coherents avec `answer`
-- garder les textes en UTF-8
+## Workflow obligatoire
+
+Après tout changement dans `data/` ou `js/validators.js` :
+
+1. lancer [validate-data.ps1](d:/Apps%20Dev/Devoirs_Numerique/scripts/validate-data.ps1)
+2. régénérer [data-bundle.js](d:/Apps%20Dev/Devoirs_Numerique/js/data-bundle.js)
+3. vérifier au minimum :
+   - une leçon
+   - un exercice maths
+   - un exercice français
+   - un exercice documentaire
+   - un retour vers résultats
+
+## Conventions de contenu
+
+- `choices` doivent toujours contenir `answer`
+- les textes visibles doivent être relus
+- éviter les doublons pédagogiques inutiles
+- préférer plusieurs petits lots cohérents à une grosse vague instable
+- si une catégorie reste trop faible, l'épaissir avant d'ouvrir de nouvelles surfaces visibles
+
+## Conventions de structure
+
+### Sous-thème
+
+Un sous-thème peut contenir :
+- `lessons[]`
+- `exercises[]`
+- ou les deux
+
+### Leçon
+
+Format minimal :
+
+```json
+{
+  "id": "cm1-lesson-fractions",
+  "title": "Lire une fraction",
+  "subtitle": "Numérateur et dénominateur",
+  "format": "lesson-card",
+  "blocks": []
+}
+```
+
+Blocs supportés :
+- `paragraph`
+- `example`
+- `tip`
+- `bullets`
+- `mini-table`
+
+## Contributions docs
+
+Toute évolution importante doit être répercutée dans la doc concernée :
+- [README.md](d:/Apps%20Dev/Devoirs_Numerique/README.md)
+- [technicalaspect.md](d:/Apps%20Dev/Devoirs_Numerique/technicalaspect.md)
+- [SECURITY.md](d:/Apps%20Dev/Devoirs_Numerique/SECURITY.md)
+- [curriculum-delta-cp-cm2.md](d:/Apps%20Dev/Devoirs_Numerique/docs/curriculum-delta-cp-cm2.md)
+
+## Priorités qualité actuelles
+
+- fiabilité de la structure `lessons[]/blocks[]`
+- qualité de langue et d'encodage
+- alignement programme des leçons
+- homogénéité UI et éditoriale

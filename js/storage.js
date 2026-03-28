@@ -6,6 +6,7 @@
 
 const Storage = {
     currentUser: null,
+    _memoryStore: {},
     _currentUserKey: 'dn_current_user',
     _profilesKey: 'dn_profiles_list',
     _salt: "DN_2026_SECURE_V1",
@@ -63,29 +64,60 @@ const Storage = {
     },
 
     _getItem(key) {
-        try {
-            return localStorage.getItem(key);
-        } catch (e) {
-            return null;
+        const stores = [];
+        try { stores.push(localStorage); } catch (e) {}
+        try { stores.push(sessionStorage); } catch (e) {}
+
+        for (const store of stores) {
+            try {
+                const value = store.getItem(key);
+                if (value !== null && value !== undefined) return value;
+            } catch (e) {}
         }
+
+        return Object.prototype.hasOwnProperty.call(this._memoryStore, key)
+            ? this._memoryStore[key]
+            : null;
     },
 
     _setItem(key, value) {
+        let wrote = false;
+
         try {
             localStorage.setItem(key, value);
-            return true;
-        } catch (e) {
-            return false;
+            wrote = true;
+        } catch (e) {}
+
+        if (!wrote) {
+            try {
+                sessionStorage.setItem(key, value);
+                wrote = true;
+            } catch (e) {}
         }
+
+        this._memoryStore[key] = value;
+        return wrote || Object.prototype.hasOwnProperty.call(this._memoryStore, key);
     },
 
     _removeItem(key) {
+        let removed = false;
+
         try {
             localStorage.removeItem(key);
-            return true;
-        } catch (e) {
-            return false;
+            removed = true;
+        } catch (e) {}
+
+        try {
+            sessionStorage.removeItem(key);
+            removed = true;
+        } catch (e) {}
+
+        if (Object.prototype.hasOwnProperty.call(this._memoryStore, key)) {
+            delete this._memoryStore[key];
+            removed = true;
         }
+
+        return removed;
     },
 
     _safeParseObject(raw) {

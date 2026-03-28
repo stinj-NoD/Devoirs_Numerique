@@ -3,7 +3,7 @@
  * Robustesse offline/PWA
  */
 
-const CACHE_NAME = 'dn-v3.5.0-modular-french';
+const CACHE_NAME = 'dn-v3.8.0-security-hardening';
 const OFFLINE_URL = './offline.html';
 
 const APP_ASSETS = [
@@ -16,17 +16,21 @@ const APP_ASSETS = [
   './icon-512.png',
   './js/app.js',
   './js/storage.js',
+  './js/security.js',
   './js/validators.js',
   './js/data-bundle.js',
   './js/engines-core.js',
   './js/engines-documentary.js',
   './js/engines-math.js',
   './js/engines-french.js',
+  './js/engines-board.js',
   './js/engines.js',
   './js/ui-keyboards.js',
   './js/ui-documentary.js',
   './js/ui-visuals.js',
-  './js/ui.js'
+  './js/ui-board.js',
+  './js/ui.js',
+  './js/bootstrap.js'
 ];
 
 const DATA_ASSETS = [
@@ -66,12 +70,10 @@ const DATA_ASSETS = [
 
 const ASSETS_TO_CACHE = [...new Set([...APP_ASSETS, ...DATA_ASSETS])];
 const ALLOWED_ORIGINS = new Set([self.location.origin]);
-const ALLOWED_FONT_HOSTS = new Set(['fonts.googleapis.com', 'fonts.gstatic.com']);
 
 function isAllowedRequest(requestUrl) {
   const url = new URL(requestUrl);
-  if (ALLOWED_ORIGINS.has(url.origin)) return true;
-  return ALLOWED_FONT_HOSTS.has(url.hostname);
+  return ALLOWED_ORIGINS.has(url.origin);
 }
 
 function isCacheableResponse(response) {

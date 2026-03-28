@@ -8,42 +8,104 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     
     <meta http-equiv="Content-Security-Policy" 
-          content="default-src 'self' file: data: blob:;
-                   script-src 'self' 'unsafe-inline' file: data: blob:;
-                   style-src 'self' 'unsafe-inline' file: https://fonts.googleapis.com;
-                   font-src 'self' file: data: https://fonts.gstatic.com;
-                   img-src 'self' file: data: blob:;">
+          content="default-src 'self' file:;
+                   script-src 'self' file: 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE=';
+                   style-src 'self' 'unsafe-inline' file:;
+                   font-src 'self' file: data:;
+                   img-src 'self' file: data: blob:;
+                   connect-src 'self' file:;
+                   object-src 'none';
+                   base-uri 'none';
+                   form-action 'self';
+                   worker-src 'self' file: blob:;">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), midi=()">
 
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="icon-192.png">
     
     <title>Devoir Numérique</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
 
 <div id="app">
     <header>
-        <button id="btn-back" type="button" class="btn btn--header btn-header">←</button>
+        <button id="btn-back" type="button" class="btn btn--header btn-header" aria-label="Retour">←</button>
         <strong id="app-title">DEVOIR NUMÉRIQUE</strong>
-        <button id="btn-home" type="button" class="btn btn--header btn-header">🏠</button>
+        <button id="btn-home" type="button" class="btn btn--header btn-header" aria-label="Menu">☰</button>
     </header>
+    <div id="nav-sheet" class="nav-sheet" hidden aria-hidden="true">
+        <button id="nav-sheet-backdrop" type="button" class="nav-sheet-backdrop" aria-label="Fermer le menu"></button>
+        <aside class="nav-sheet-panel" role="dialog" aria-modal="true" aria-label="Menu navigation">
+            <div class="nav-sheet-head">
+                <strong>Navigation</strong>
+                <button id="nav-sheet-close" type="button" class="btn btn--header btn-header" aria-label="Fermer">✕</button>
+            </div>
+            <div id="nav-sheet-actions" class="nav-sheet-actions"></div>
+        </aside>
+    </div>
 
     <section id="screen-profiles" class="screen active">
         <h1>Qui va jouer ?</h1>
         <div id="profiles-list" class="grid-menu"></div>
-        <div class="card new-profile-card">
-            <input type="text" id="new-profile-name" placeholder="Prénom" autocomplete="off" maxlength="15">
-            <button id="btn-add-profile" type="button" class="btn btn--icon btn--success btn-add-profile">+</button> 
+        <div id="profile-form" class="card new-profile-card">
+            <input
+                type="text"
+                id="new-profile-name"
+                placeholder="Prénom"
+                autocomplete="off"
+                maxlength="15"
+                data-inline-profile="1"
+            >
+            <button
+                id="btn-add-profile"
+                type="button"
+                class="btn btn--icon btn--success btn-add-profile"
+                data-inline-profile="1"
+            >+</button>
         </div>
     </section>
 
-    <section id="screen-grades" class="screen"><h2>Ta classe ?</h2><div id="grades-list" class="grid-menu"></div></section>
-    <section id="screen-themes" class="screen"><h2>Choisis un thème</h2><div id="themes-list" class="grid-menu"></div></section>
-    <section id="screen-levels" class="screen"><h2>Choisis un sous-thème</h2><div id="levels-list" class="grid-menu"></div></section>
-    <section id="screen-exercises" class="screen"><h2>Choisis un exercice</h2><div id="exercises-list" class="grid-menu"></div></section>
+    <section id="screen-grades" class="screen">
+        <h2>Ta classe ?</h2>
+        <p id="grades-lead" class="screen-lead">Choisis ta classe pour retrouver les bonnes activités.</p>
+        <div id="grades-list" class="grid-menu"></div>
+    </section>
+    <section id="screen-mode" class="screen">
+        <h2>Choisis ton parcours</h2>
+        <p class="screen-intro">Tu peux d'abord comprendre avec une leçon ou t'entraîner avec des exercices.</p>
+        <div id="mode-list" class="mode-grid"></div>
+    </section>
+    <section id="screen-library" class="screen">
+        <h2>Bibliothèque des leçons</h2>
+        <p id="library-lead" class="screen-lead">Retrouve toutes les leçons du niveau, rangées par matière.</p>
+        <div id="library-list" class="grid-menu"></div>
+    </section>
+    <section id="screen-themes" class="screen">
+        <h2>Choisis un thème</h2>
+        <p id="themes-lead" class="screen-lead">Sélectionne la matière ou la notion qui t'intéresse.</p>
+        <div id="themes-list" class="grid-menu"></div>
+    </section>
+    <section id="screen-levels" class="screen">
+        <h2>Choisis un sous-thème</h2>
+        <p id="levels-lead" class="screen-lead">Entre dans une notion précise pour avancer étape par étape.</p>
+        <div id="levels-list" class="grid-menu"></div>
+    </section>
+    <section id="screen-exercises" class="screen">
+        <h2>Choisis un exercice</h2>
+        <p id="exercises-lead" class="screen-lead">Commence par une leçon ou lance directement un exercice.</p>
+        <div id="exercises-list" class="grid-menu"></div>
+    </section>
+    <section id="screen-lesson" class="screen">
+        <h2>Leçon</h2>
+        <p id="lesson-lead" class="screen-lead">Lis l'essentiel, observe l'exemple, puis passe aux exercices.</p>
+        <div id="lesson-view" class="lesson-view"></div>
+        <button id="btn-lesson-exercises" class="btn card card--action card--action-primary">
+            <span id="btn-lesson-exercises-label" class="card-title card-title-on-dark">PASSER AUX EXERCICES</span>
+        </button>
+    </section>
 
     <section id="screen-game" class="screen">
         <div class="progress-container"><div id="game-progress" class="progress-bar"></div></div>
@@ -61,8 +123,12 @@
 
     <section id="screen-results" class="screen screen-results">
         <h1 id="result-title" class="result-title">Terminé !</h1>
+        <p id="result-lead" class="screen-lead">Tu as fini cet entraînement. Regarde ton score et continue.</p>
         <div id="stars-container" class="results-stars"></div>
         <p id="result-score" class="result-score"></p>
+        <button id="btn-results-lesson" class="btn card card--action u-hidden">
+            <span id="btn-results-lesson-label" class="card-title">REVOIR LA LEÇON</span>
+        </button>
         <button id="btn-results-menu" class="btn card card--action card--action-primary">
             <span class="card-title card-title-on-dark">RETOUR AUX THÈMES</span>
         </button>
@@ -70,28 +136,22 @@
 </div>
 
 <script src="js/storage.js"></script>
+<script src="js/security.js"></script>
 <script src="js/engines-core.js"></script>
 <script src="js/engines-documentary.js"></script>
 <script src="js/engines-math.js"></script>
 <script src="js/engines-french.js"></script>
+<script src="js/engines-board.js"></script>
 <script src="js/engines.js"></script>
 <script src="js/ui-keyboards.js"></script>
 <script src="js/ui-documentary.js"></script>
 <script src="js/ui-visuals.js"></script>
+<script src="js/ui-board.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/data-bundle.js"></script>
 <script src="js/validators.js"></script>
 <script src="js/app.js"></script>
-
-<script>
-    if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js')
-                .then(reg => console.log('✅ SW inscrit', reg.scope))
-                .catch(err => console.log('❌ SW échec', err));
-        });
-    }
-</script>
+<script src="js/bootstrap.js"></script>
 
 </body>
 

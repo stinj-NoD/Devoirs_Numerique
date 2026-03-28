@@ -7,6 +7,7 @@
         'counting',
         'math-input',
         'audio-spelling',
+        'board-interactive',
         'reading',
         'timeline'
     ]),
@@ -21,6 +22,10 @@
 
     isPositiveInteger(value) {
         return Number.isInteger(Number(value)) && Number(value) > 0;
+    },
+
+    isValidLessonFormat(value) {
+        return this.isNonEmptyString(value) && ['lesson-card'].includes(value.trim());
     },
 
     hasDuplicates(items) {
@@ -201,15 +206,29 @@
                 subjectIds.push(subject.id.trim());
 
                 for (const subtheme of subject.subthemes) {
-                    const check = this.validateTheme(subtheme, 'sous-thÃ¨me');
+                    const check = this.validateSubtheme(subtheme);
                     if (!check.valid) {
-                        return {
-                            valid: false,
-                            reason: check.reason.replace('thÃ¨me', 'sous-thÃ¨me')
-                        };
+                        return { valid: false, reason: check.reason };
                     }
 
                     subthemeIds.push(subtheme.id.trim());
+
+                    const lessonIds = [];
+                    const lessons = Array.isArray(subtheme.lessons) ? subtheme.lessons : [];
+                    for (const lesson of lessons) {
+                        const lessonCheck = this.validateLesson(lesson);
+                        if (!lessonCheck.valid) {
+                            return {
+                                valid: false,
+                                reason: `Fichier de niveau invalide : leÃ§on ${lesson?.id || 'sans id'} dans ${subtheme.id} - ${lessonCheck.reason}`
+                            };
+                        }
+                        lessonIds.push(lesson.id.trim());
+                    }
+
+                    if (this.hasDuplicates(lessonIds)) {
+                        return { valid: false, reason: `Fichier de niveau invalide : id de leÃ§ons dupliquÃ©s dans ${subtheme.id}.` };
+                    }
 
                     for (const exercise of subtheme.exercises) {
                         const exerciseCheck = this.validateExercise(exercise);
@@ -251,6 +270,99 @@
         return { valid: true };
     },
 
+    validateSubtheme(subtheme) {
+        if (!this.isPlainObject(subtheme)) {
+            return { valid: false, reason: "Fichier de niveau invalide : un sous-thÃ¨me n'est pas un objet." };
+        }
+
+        const hasExercises = Array.isArray(subtheme.exercises) && subtheme.exercises.length > 0;
+        const hasLessons = Array.isArray(subtheme.lessons) && subtheme.lessons.length > 0;
+
+        if (!this.isNonEmptyString(subtheme.id) || !this.isNonEmptyString(subtheme.title)) {
+            return { valid: false, reason: `Fichier de niveau invalide : sous-thÃ¨me incomplet (${subtheme?.id || 'id manquant'}).` };
+        }
+
+        if (!hasExercises && !hasLessons) {
+            return { valid: false, reason: `Fichier de niveau invalide : sous-thÃ¨me vide (${subtheme.id}).` };
+        }
+
+        if (subtheme.lessons !== undefined && !Array.isArray(subtheme.lessons)) {
+            return { valid: false, reason: `Fichier de niveau invalide : lessons invalide dans ${subtheme.id}.` };
+        }
+
+        if (subtheme.exercises !== undefined && !Array.isArray(subtheme.exercises)) {
+            return { valid: false, reason: `Fichier de niveau invalide : exercises invalide dans ${subtheme.id}.` };
+        }
+
+        return { valid: true };
+    },
+
+    validateLesson(lesson) {
+        if (!this.isPlainObject(lesson)) {
+            return { valid: false, reason: 'leÃ§on absente ou mal formÃ©e.' };
+        }
+        if (!this.isNonEmptyString(lesson.id) || !this.isNonEmptyString(lesson.title)) {
+            return { valid: false, reason: 'id/title de leÃ§on manquants.' };
+        }
+        if (!this.isValidLessonFormat(lesson.format)) {
+            return { valid: false, reason: 'format de leÃ§on invalide.' };
+        }
+        if (!Array.isArray(lesson.blocks) || lesson.blocks.length === 0) {
+            return { valid: false, reason: 'blocks manquants ou vides pour la leÃ§on.' };
+        }
+
+        for (const block of lesson.blocks) {
+            const blockCheck = this.validateLessonBlock(block);
+            if (!blockCheck.valid) return blockCheck;
+        }
+
+        return { valid: true };
+    },
+
+    validateLessonBlock(block) {
+        if (!this.isPlainObject(block) || !this.isNonEmptyString(block.type)) {
+            return { valid: false, reason: 'bloc de leÃ§on invalide.' };
+        }
+
+        const type = block.type.trim();
+        if (type === 'paragraph') {
+            return this.isNonEmptyString(block.text)
+                ? { valid: true }
+                : { valid: false, reason: 'bloc paragraph sans texte.' };
+        }
+
+        if (type === 'example' || type === 'tip') {
+            return this.isNonEmptyString(block.content)
+                ? { valid: true }
+                : { valid: false, reason: `bloc ${type} sans contenu.` };
+        }
+
+        if (type === 'bullets') {
+            return Array.isArray(block.items) && block.items.length > 0 && block.items.every((item) => this.isNonEmptyString(item))
+                ? { valid: true }
+                : { valid: false, reason: 'bloc bullets invalide.' };
+        }
+
+        if (type === 'mini-table') {
+            const hasHeaders = Array.isArray(block.headers)
+                && block.headers.length >= 2
+                && block.headers.every((item) => this.isNonEmptyString(item));
+            const hasRows = Array.isArray(block.rows)
+                && block.rows.length > 0
+                && block.rows.every((row) =>
+                    Array.isArray(row)
+                    && row.length === block.headers.length
+                    && row.every((cell) => this.isNonEmptyString(cell))
+                );
+
+            return hasHeaders && hasRows
+                ? { valid: true }
+                : { valid: false, reason: 'bloc mini-table invalide.' };
+        }
+
+        return { valid: false, reason: `type de bloc de leÃ§on inconnu (${type}).` };
+    },
+
     validateExercise(exercise) {
         if (!this.isPlainObject(exercise)) {
             return { valid: false, reason: 'exercice absent ou mal formÃ©.' };
@@ -282,6 +394,14 @@
         if (exercise.params.type === 'factual-qcm' && !this.isNonEmptyString(exercise.params.category)) {
             return { valid: false, reason: 'category manquante pour factual-qcm.' };
         }
+        if (exercise.engine === 'board-interactive') {
+            if (!this.isNonEmptyString(exercise.params.type) || !['tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete'].includes(exercise.params.type)) {
+                return { valid: false, reason: 'type board-interactive invalide.' };
+            }
+            if (!this.isNonEmptyString(exercise.params.category)) {
+                return { valid: false, reason: 'category manquante pour board-interactive.' };
+            }
+        }
         if (exercise.engine === 'timeline') {
             if (!this.isNonEmptyString(exercise.params.grade)) {
                 return { valid: false, reason: 'grade manquant pour timeline.' };
@@ -308,6 +428,10 @@
 
         if (exercise.params?.type === 'factual-qcm') {
             return this.validateFactualDataset(exercise, dataSet);
+        }
+
+        if (exercise.engine === 'board-interactive') {
+            return this.validateBoardDataset(exercise, dataSet);
         }
 
         if (exercise.engine === 'timeline') {
@@ -343,6 +467,63 @@
         return { valid: true };
     },
 
+    validateBoardDataset(exercise, dataSet) {
+        if (!this.isPlainObject(dataSet.categories)) {
+            return { valid: false, reason: 'dataset interactif sans categories.' };
+        }
+
+        const pool = dataSet.categories[exercise.params.category];
+        if (!Array.isArray(pool) || pool.length === 0) {
+            return { valid: false, reason: `catégorie interactive introuvable (${exercise.params.category}).` };
+        }
+
+        for (const item of pool) {
+            if (!this.isPlainObject(item) || !this.isNonEmptyString(item.prompt) || !this.isPlainObject(item.board)) {
+                return { valid: false, reason: `entrée interactive invalide dans ${exercise.params.category}.` };
+            }
+
+            if (exercise.params.type === 'tap-features') {
+                const features = Array.isArray(item.features) && item.features.length > 0;
+                const validFeatures = features && item.features.every((feature) =>
+                    this.isPlainObject(feature)
+                    && this.isNonEmptyString(feature.id)
+                    && Number.isFinite(Number(feature.x))
+                    && Number.isFinite(Number(feature.y))
+                    && typeof feature.correct === 'boolean'
+                );
+                if (!validFeatures) {
+                    return { valid: false, reason: `tap-features invalide dans ${exercise.params.category}.` };
+                }
+            }
+
+            if (exercise.params.type === 'shape-classify') {
+                const figures = Array.isArray(item.figures) && item.figures.length > 0;
+                const buckets = Array.isArray(item.buckets) && item.buckets.length > 1;
+                const answer = this.isPlainObject(item.answer);
+                if (!figures || !buckets || !answer) {
+                    return { valid: false, reason: `shape-classify invalide dans ${exercise.params.category}.` };
+                }
+            }
+
+            if (exercise.params.type === 'point-on-grid') {
+                const target = item.task?.target;
+                if (!this.isPlainObject(item.task) || !Array.isArray(target) || target.length !== 2) {
+                    return { valid: false, reason: `point-on-grid invalide dans ${exercise.params.category}.` };
+                }
+            }
+
+            if (exercise.params.type === 'symmetry-complete') {
+                const givenPoints = Array.isArray(item.givenPoints) && item.givenPoints.length > 0;
+                const targetPoints = Array.isArray(item.targetPoints) && item.targetPoints.length > 0;
+                if (!givenPoints || !targetPoints) {
+                    return { valid: false, reason: `symmetry-complete invalide dans ${exercise.params.category}.` };
+                }
+            }
+        }
+
+        return { valid: true };
+    },
+
     validateTimelineDataset(exercise, dataSet) {
         if (!this.isPlainObject(dataSet.grades)) {
             return { valid: false, reason: 'dataset frise sans grades.' };
@@ -364,7 +545,7 @@
 
         const eventIds = events.map((event) => event?.id).filter(Boolean);
         if (this.hasDuplicates(eventIds)) {
-            return { valid: false, reason: 'dataset frise invalide : id d\\'events dupliquÃ©s.' };
+            return { valid: false, reason: "dataset frise invalide : id d'events dupliqués." };
         }
 
         const periodIds = periods.map((period) => period?.id).filter(Boolean);

@@ -1,119 +1,115 @@
-﻿# Security Notes
+# Security Notes
 
 ## Périmètre
 
-Le projet est une application front-only :
+`Devoir Numérique` est une application front-only :
 - pas de backend
-- pas d’authentification serveur
-- stockage local via `localStorage`
+- pas d'authentification serveur
+- stockage local uniquement
 - rendu HTML généré côté client
-- service worker actif pour le mode offline/PWA
-- bibliothèque française modulaire chargée depuis `data/french/*.json`
+- service worker pour l'offline
+- contenu pédagogique chargé depuis des JSON versionnés
 
-La sécurité vise donc surtout :
+La sécurité porte donc surtout sur :
 - la robustesse des données
-- la réduction des états incohérents
+- la prévention des états runtime incohérents
 - la fiabilité du mode offline
-- la limitation des comportements fragiles côté client
+- la qualité du stockage local
 
-## Durcissements en place
+## Contrôles en place
 
 ### 1. Validation des données
 
-- `js/validators.js` contrôle :
-  - `data/index.json`
+- [validators.js](d:/Apps%20Dev/Devoirs_Numerique/js/validators.js) valide au runtime :
+  - `index.json`
   - les fichiers de niveau
   - les exercices
-  - la bibliothèque française modulaire
-  - les datasets `factual-qcm`
-  - les datasets `timeline`
-- `scripts/validate-data.ps1` vérifie l’ensemble du corpus avant runtime
-- les exercices invalides sont bloqués avant exécution
-- les problèmes invalides sont bloqués avant rendu
+  - les leçons et leurs blocs
+  - la bibliothèque de français
+  - les datasets documentaires
+- [validate-data.ps1](d:/Apps%20Dev/Devoirs_Numerique/scripts/validate-data.ps1) vérifie l'ensemble du corpus avant intégration
 
-### 2. Protection du runtime
+Les points bloqués explicitement :
+- sous-thème vide
+- `lessons` non tableau
+- `blocks` absents ou vides
+- format de leçon non reconnu
+- exercice sans `engine` ou `params` valides
+- références documentaires cassées
 
-- `js/app.js` ajoute des garde-fous sur :
-  - niveau invalide
-  - matière ou sous-thème vide
-  - exercice sans paramètres exploitables
-  - question moteur sans `answer`
-  - affichage de résultats sans total valide
-- un chemin de sortie de secours remet l’état dans une situation saine si un exercice devient incohérent
-- les choix QCM sont mélangés à la génération pour éviter les schémas de clics trop prévisibles
+### 2. Garde-fous runtime
 
-### 3. Durcissement des profils
+[app.js](d:/Apps%20Dev/Devoirs_Numerique/js/app.js) gère des sorties de secours sur :
+- niveau invalide
+- matière ou sous-thème vide
+- exercice sans question valide
+- réponse attendue absente
+- score final incohérent
+- écran cible introuvable
 
-- `js/storage.js` normalise les noms de profils
-- les noms sont nettoyés et limités
-- les doublons logiques sont refusés
-- les noms vides, trop courts ou invalides sont bloqués
+Objectif :
+- éviter le plantage silencieux
+- ramener l'application vers un état navigable
 
-### 4. Durcissement du stockage local
+### 3. Stockage local défensif
 
-- lecture défensive du JSON issu de `localStorage`
-- nettoyage des records invalides ou corrompus
-- vérification d’intégrité via hash simple des records
-- bornage de `score`, `total`, `percent`, `stars`
-- résolution canonique du profil courant
+[storage.js](d:/Apps%20Dev/Devoirs_Numerique/js/storage.js) protège :
+- profils
+- utilisateur courant
+- records
 
-Important :
-- `localStorage` n’est pas un mécanisme de sécurité fort
-- il sert ici à contenir les erreurs et manipulations triviales, pas à protéger contre un attaquant local déterminé
+Mesures en place :
+- sanitation des noms de profils
+- refus des profils vides ou incohérents
+- lecture défensive du JSON local
+- nettoyage des records invalides
+- fallback localStorage -> sessionStorage -> mémoire
 
-### 5. Durcissement offline/PWA
+Limite importante :
+- ce stockage n'est pas une sécurité forte
+- il limite surtout les corruptions et erreurs triviales
 
-- `sw.js` pré-cache les assets applicatifs critiques
-- `sw.js` pré-cache les datasets utiles au fonctionnement offline
-- les anciens caches sont purgés au changement de version
-- le fallback `offline.html` est renvoyé pour les navigations hors ligne
-- seules les origines internes et les fonts whitelistees sont prises en compte
-- le service worker ne référence plus de bibliothèque française legacy
+### 4. Service worker et offline
 
-### 6. Audio côté navigateur
+[sw.js](d:/Apps%20Dev/Devoirs_Numerique/sw.js) :
+- pré-cache les assets critiques
+- purge les anciens caches à chaque changement de version
+- sert [offline.html](d:/Apps%20Dev/Devoirs_Numerique/offline.html) comme fallback de navigation
 
-- la dictée audio repose sur `speechSynthesis`
-- l’application détecte sa disponibilité avant usage
-- la lecture en cours peut être annulée proprement
-- un état UI explicite évite les doubles clics pendant la lecture
+Le bundle [data-bundle.js](d:/Apps%20Dev/Devoirs_Numerique/js/data-bundle.js) offre un filet de sécurité local si certains chargements JSON échouent.
 
-Limite :
-- la qualité de la voix dépend du navigateur et du système hôte
-- ce mécanisme améliore l’usage, mais ne constitue pas une surface de sécurité forte
+### 5. Surface d'entrée utilisateur
 
-## Points sensibles
+Les seules entrées réellement libres côté utilisateur sont limitées :
+- nom du profil
+- réponses aux exercices
 
-- les contenus JSON influencent le rendu visuel et le comportement pédagogique
-- toute régression du service worker impacte directement le mode offline
-- les renderers UI utilisent encore du HTML généré côté client
-- `js/ui.js` reste dense, donc plus exposé aux régressions de maintenance
-- le moteur audio dépend des voix françaises disponibles localement
+Les contenus pédagogiques ne doivent jamais injecter de HTML arbitraire. Les leçons restent rendues comme données structurées, pas comme markup libre.
 
-## Règles de maintenance
+## Risques connus
 
-- valider les JSON avant runtime
-- ne pas introduire de contenu HTML arbitraire dans `data/*.json`
-- vérifier local/offline après changement de `sw.js`
-- régénérer `js/data-bundle.js` après changement dans `data/`
-- ne pas traiter `localStorage` comme une source totalement fiable
-- garder les bibliothèques françaises synchronisées avec leur contrat de validation
+Les risques résiduels du projet sont aujourd'hui :
+- dette d'encodage UTF-8 dans certains fichiers historiques
+- altération de JSON par outillage de sérialisation
+- divergence entre validateur hors runtime et validateur frontend si les contrats évoluent sans synchronisation
+- corruption manuelle du `localStorage`
 
-## Vérification manuelle recommandée
+## Règles de sécurité projet
 
-- création profil valide
-- refus profil vide / trop court / dupliqué
-- lancement exercice simple
-- lancement exercice documentaire
-- lancement dictée audio
-- sauvegarde du score
-- recharge navigateur
-- vérification de l’état des profils et records
-- vérification hors ligne avec service worker actif
+À chaque évolution de structure :
 
-## Limites connues
+1. mettre à jour [validators.js](d:/Apps%20Dev/Devoirs_Numerique/js/validators.js)
+2. mettre à jour [validate-data.ps1](d:/Apps%20Dev/Devoirs_Numerique/scripts/validate-data.ps1)
+3. relancer la validation complète
+4. vérifier un parcours live :
+   - profil
+   - classe
+   - leçon
+   - exercice
+   - résultat
 
-- pas de tests automatisés de sécurité
-- pas de chiffrement du stockage local
-- pas de protection serveur, l’application étant purement front-end
-- hash de record utile contre la corruption simple, pas contre une falsification locale avancée
-- qualité audio dépendante de `speechSynthesis`
+## Priorités sécurité actuelles
+
+- maintenir le contrat `lessons[]` et `blocks[]` strictement aligné entre frontend et scripts
+- éliminer les reliquats d'encodage qui peuvent casser l'affichage ou le sens
+- éviter toute régression sur la navigation locale et l'offline

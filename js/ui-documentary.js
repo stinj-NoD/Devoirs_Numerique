@@ -1,4 +1,19 @@
 const UIDocumentary = {
+    _escape(value) {
+        if (window.SecurityUtils?.escapeHtml) return window.SecurityUtils.escapeHtml(value);
+        return (value ?? "").toString()
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    },
+
+    _safeAttr(value) {
+        if (window.SecurityUtils?.escapeAttr) return window.SecurityUtils.escapeAttr(value);
+        return this._escape(value).replace(/`/g, '&#96;');
+    },
+
     drawTimelineOrder(p) {
         const d = p.data || {};
         const cards = Array.isArray(d.cards) ? d.cards : [];
@@ -11,14 +26,14 @@ const UIDocumentary = {
         return `
             <div class="timeline-card timeline-card--order">
                 <div class="timeline-badge">FRISE</div>
-                <div class="timeline-title">${d.title || "Remets dans l'ordre"}</div>
+                <div class="timeline-title">${this._escape(d.title || "Remets dans l'ordre")}</div>
                 <div class="timeline-helper">Selectionne un repere puis deplace-le avec les fleches.</div>
                 <div class="timeline-order-list">
                     ${orderedCards.map((card, index) => `
-                        <button class="timeline-event-card ${selectedId === card.id ? 'is-selected' : ''}" data-val="timeline-order:${card.id}">
+                        <button class="timeline-event-card ${selectedId === card.id ? 'is-selected' : ''}" data-val="timeline-order:${this._safeAttr(card.id)}">
                             <span class="timeline-event-rank">${index + 1}</span>
-                            <span class="timeline-event-icon">${card.icon || '\u{1F4CD}'}</span>
-                            <span class="timeline-event-text">${card.label}</span>
+                            <span class="timeline-event-icon">${this._escape(card.icon || '\u{1F4CD}')}</span>
+                            <span class="timeline-event-text">${this._escape(card.label)}</span>
                         </button>
                     `).join('')}
                 </div>
@@ -40,10 +55,10 @@ const UIDocumentary = {
         return `
             <div class="timeline-card timeline-card--place">
                 <div class="timeline-badge">FRISE</div>
-                <div class="timeline-title">${d.title || "Place sur la frise"}</div>
+                <div class="timeline-title">${this._escape(d.title || "Place sur la frise")}</div>
                 <div class="timeline-target">
-                    <span class="timeline-target-icon">${d.icon || '\u{1F4CD}'}</span>
-                    <span class="timeline-target-label">${d.prompt || "Repere historique"}</span>
+                    <span class="timeline-target-icon">${this._escape(d.icon || '\u{1F4CD}')}</span>
+                    <span class="timeline-target-label">${this._escape(d.prompt || "Repere historique")}</span>
                 </div>
                 <div class="timeline-helper">Choisis la date juste sur la graduation. La bonne reponse est parmi les dates affichees.</div>
                 <div class="timeline-ruler">
@@ -54,10 +69,10 @@ const UIDocumentary = {
                     <div class="timeline-ruler-line"></div>
                     <div class="timeline-ruler-slots">
                         ${markers.map((year, index) => `
-                            <button class="timeline-slot ${selectedYear === year.toString() ? 'is-selected' : ''} ${index % 2 === 0 ? 'is-top' : 'is-bottom'}" data-val="timeline-place:${year}">
+                            <button class="timeline-slot ${selectedYear === year.toString() ? 'is-selected' : ''} ${index % 2 === 0 ? 'is-top' : 'is-bottom'}" data-val="timeline-place:${this._safeAttr(year)}">
                                 <span class="timeline-slot-stem"></span>
                                 <span class="timeline-slot-tick"></span>
-                                <span class="timeline-slot-label">${year}</span>
+                                <span class="timeline-slot-label">${this._escape(year)}</span>
                             </button>
                         `).join('')}
                     </div>
@@ -67,13 +82,21 @@ const UIDocumentary = {
 
     drawFactualCard(p) {
         const d = p.data || {};
-        const subjectTitle = d.subjectTitle || "Question";
-        const prompt = d.prompt || p.question || "";
+        const subjectTitle = this._escape(d.subjectTitle || "Question");
+        const prompt = this._escape(d.prompt || p.question || "");
+        const context = this._escape((d.context || "").toString().trim());
         const subjectId = (d.subjectId || "general").toString().replace(/[^a-z0-9-]/gi, "").toLowerCase();
 
         return `
             <div class="factual-card factual-card-${subjectId}">
                 <div class="factual-badge">${subjectTitle}</div>
+                ${context ? `
+                    <div class="factual-context-block">
+                        <div class="factual-context-label">Texte</div>
+                        <div class="factual-context">${context}</div>
+                    </div>
+                ` : ""}
+                <div class="factual-question-label">Question</div>
                 <div class="factual-question">${prompt}</div>
             </div>
         `;

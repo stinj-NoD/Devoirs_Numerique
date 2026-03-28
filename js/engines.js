@@ -49,6 +49,10 @@ const Engines = {
                     else result = this.generators.compare(params);
                     break;
 
+                case 'board-interactive':
+                    result = this.generators.boardInteractive(params);
+                    break;
+
                 case 'reading':
                     result = this.generators.reading(params, lib);
                     break;
@@ -119,6 +123,10 @@ const Engines = {
 
         reading(...args) {
             return EnginesFrench.reading(...args);
+        },
+
+        boardInteractive(...args) {
+            return EnginesBoard.run(...args);
         },
 
         audioSpelling(...args) {

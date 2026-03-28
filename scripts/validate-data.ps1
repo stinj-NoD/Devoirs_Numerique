@@ -83,6 +83,7 @@ function Validate-Exercise($path, $themeId, $exercise) {
         'counting',
         'math-input',
         'audio-spelling',
+        'board-interactive',
         'reading',
         'timeline'
     )
@@ -142,6 +143,75 @@ function Validate-Exercise($path, $themeId, $exercise) {
             Category = $exercise.params.category
             DataFile = $exercise.params.dataFile.Replace('\', '/').TrimStart('./')
         }
+    }
+}
+
+function Validate-LessonBlock($path, $subthemeId, $lessonId, $block) {
+    if (-not (Is-PlainObject $block) -or -not (Is-NonEmptyString $block.type)) {
+        Add-Issue("${path}: bloc de leçon invalide dans ${subthemeId}/${lessonId}")
+        return
+    }
+
+    $type = $block.type.Trim()
+
+    if ($type -eq 'paragraph') {
+        if (-not (Is-NonEmptyString $block.text)) {
+            Add-Issue("${path}: bloc paragraph sans texte dans ${subthemeId}/${lessonId}")
+        }
+        return
+    }
+
+    if ($type -in @('example', 'tip')) {
+        if (-not (Is-NonEmptyString $block.content)) {
+            Add-Issue("${path}: bloc ${type} sans contenu dans ${subthemeId}/${lessonId}")
+        }
+        return
+    }
+
+    if ($type -eq 'bullets') {
+        $valid = ($block.items -is [System.Collections.IList]) -and $block.items.Count -gt 0
+        if ($valid) {
+            foreach ($item in $block.items) {
+                if (-not (Is-NonEmptyString $item)) {
+                    $valid = $false
+                    break
+                }
+            }
+        }
+        if (-not $valid) {
+            Add-Issue("${path}: bloc bullets invalide dans ${subthemeId}/${lessonId}")
+        }
+        return
+    }
+
+    if ($type -eq 'mini-table') {
+        $hasHeaders = ($block.headers -is [System.Collections.IList]) -and $block.headers.Count -ge 2
+        $hasRows = ($block.rows -is [System.Collections.IList]) -and $block.rows.Count -gt 0
+        if (-not $hasHeaders -or -not $hasRows) {
+            Add-Issue("${path}: bloc mini-table invalide dans ${subthemeId}/${lessonId}")
+        }
+        return
+    }
+
+    Add-Issue("${path}: type de bloc de leçon inconnu (${type}) dans ${subthemeId}/${lessonId}")
+}
+
+function Validate-Lesson($path, $subthemeId, $lesson) {
+    if (-not (Is-PlainObject $lesson)) {
+        Add-Issue("${path}: leçon invalide dans ${subthemeId}")
+        return
+    }
+    if (-not (Is-NonEmptyString $lesson.id) -or -not (Is-NonEmptyString $lesson.title) -or -not (Is-NonEmptyString $lesson.format)) {
+        Add-Issue("${path}: leçon incomplète dans ${subthemeId} ($($lesson.id))")
+        return
+    }
+    if (-not ($lesson.blocks -is [System.Collections.IList]) -or $lesson.blocks.Count -eq 0) {
+        Add-Issue("${path}: blocks absents ou vides pour la leçon $($lesson.id)")
+        return
+    }
+
+    foreach ($block in $lesson.blocks) {
+        Validate-LessonBlock $path $subthemeId $lesson.id $block
     }
 }
 
@@ -208,24 +278,33 @@ function Validate-GradeData($path, $data) {
                     Add-Issue("${path}: sous-thÃƒÂ¨me invalide dans $($subject.id)")
                     continue
                 }
-                if (-not (Is-NonEmptyString $subtheme.id) -or -not (Is-NonEmptyString $subtheme.title) -or -not ($subtheme.exercises -is [System.Collections.IList]) -or $subtheme.exercises.Count -eq 0) {
-                    Add-Issue("${path}: sous-thÃƒÂ¨me incomplet ($($subtheme.id))")
+                $hasExercises = ($subtheme.exercises -is [System.Collections.IList]) -and $subtheme.exercises.Count -gt 0
+                $hasLessons = ($subtheme.lessons -is [System.Collections.IList]) -and $subtheme.lessons.Count -gt 0
+                if (-not (Is-NonEmptyString $subtheme.id) -or -not (Is-NonEmptyString $subtheme.title) -or (-not $hasExercises -and -not $hasLessons)) {
+                    Add-Issue("${path}: sous-theme incomplet ($($subtheme.id))")
                     continue
                 }
                 if ($subthemeIds.ContainsKey($subtheme.id)) {
-                    Add-Issue("${path}: id de sous-thÃƒÂ¨me dupliquÃƒÂ© ($($subtheme.id))")
+                    Add-Issue("${path}: id de sous-theme duplique ($($subtheme.id))")
                 } else {
                     $subthemeIds[$subtheme.id] = $true
                 }
-                foreach ($exercise in $subtheme.exercises) {
-                    if (Is-NonEmptyString $exercise.id) {
-                        if ($exerciseIds.ContainsKey($exercise.id)) {
-                            Add-Issue("${path}: id d'exercice dupliquÃƒÂ© ($($exercise.id))")
-                        } else {
-                            $exerciseIds[$exercise.id] = $true
-                        }
+                if ($hasLessons) {
+                    foreach ($lesson in $subtheme.lessons) {
+                        Validate-Lesson $path $subtheme.id $lesson
                     }
-                    Validate-Exercise $path $subtheme.id $exercise
+                }
+                if ($hasExercises) {
+                    foreach ($exercise in $subtheme.exercises) {
+                        if (Is-NonEmptyString $exercise.id) {
+                            if ($exerciseIds.ContainsKey($exercise.id)) {
+                                Add-Issue("${path}: id d'exercice duplique ($($exercise.id))")
+                            } else {
+                                $exerciseIds[$exercise.id] = $true
+                            }
+                        }
+                        Validate-Exercise $path $subtheme.id $exercise
+                    }
                 }
             }
         }
