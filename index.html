@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -8,11 +8,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     
     <meta http-equiv="Content-Security-Policy" 
-          content="default-src 'self'; 
-                   script-src 'self' 'unsafe-inline'; 
-                   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
-                   font-src 'self' https://fonts.gstatic.com; 
-                   img-src 'self' data:;">
+          content="default-src 'self' file: data: blob:;
+                   script-src 'self' 'unsafe-inline' file: data: blob:;
+                   style-src 'self' 'unsafe-inline' file: https://fonts.googleapis.com;
+                   font-src 'self' file: data: https://fonts.gstatic.com;
+                   img-src 'self' file: data: blob:;">
 
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="icon-192.png">
@@ -20,186 +20,15 @@
     <title>Devoir Numérique</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary: #4A90E2; 
-            --secondary: #FF6B6B; 
-            --success: #48bb78;
-            --bg: #F0F4F8; 
-            --white: #FFFFFF; 
-            --dark: #2D3748;
-            --grey-light: #edf2f7;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        /* --- 1. RESET & BASE --- */
-        * { box-sizing: border-box; font-family: 'Quicksand', sans-serif; -webkit-tap-highlight-color: transparent; user-select: none; }
-        body { background: var(--bg); margin: 0; display: flex; justify-content: center; min-height: 100dvh; overflow: hidden; }
-        
-        #app { 
-            width: 100%; max-width: 600px; background: var(--white); 
-            display: flex; flex-direction: column; position: relative;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); height: 100dvh;
-        }
-
-        /* --- 2. HEADER --- */
-        header {
-            background: var(--primary); color: white; padding: 15px;
-            display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 10;
-        }
-        .btn-header { background: rgba(255,255,255,0.2); border: none; color: white; padding: 8px 15px; border-radius: 8px; cursor: pointer; font-size: 1.2rem; transition: background 0.2s; }
-        .btn-header:active { background: rgba(255,255,255,0.4); }
-
-        /* --- 3. STRUCTURE DES ÉCRANS --- */
-        .screen { display: none; flex-direction: column; height: 100%; padding: 20px; text-align: center; overflow-y: auto; overscroll-behavior: contain; }
-        .active { display: flex; animation: fadeIn 0.3s ease-out; }
-        .grid-menu { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; padding-bottom: 20px; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* --- 4. CARTES & MENUS --- */
-        .card {
-            background: var(--white); border: 2px solid #E2E8F0; border-radius: 18px;
-            padding: 20px 10px; cursor: pointer; transition: all 0.15s ease;
-            display: flex; flex-direction: column; align-items: center; gap: 10px;
-            position: relative;
-        }
-        .card:active { transform: scale(0.96); border-color: var(--primary); background: #ebf8ff; }
-        .card-icon { font-size: 2.5rem; }
-        .card-title { font-weight: 700; color: var(--dark); font-size: 1.1rem; }
-        .card-subtitle { font-size: 0.9rem; color: #718096; }
-        .menu-stars { color: #F6E05E; font-size: 1.2rem; letter-spacing: 2px; text-shadow: 0 1px 1px rgba(0,0,0,0.1); }
-
-        /* Profils Spécifique */
-        .profile-card { overflow: visible; }
-        .btn-delete-profile {
-            position: absolute; top: -10px; right: -10px; width: 35px; height: 35px;
-            background: #FC8181; color: white; border: 2px solid white; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-            cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 10;
-        }
-        .new-profile-card { flex-direction: row; padding: 15px !important; margin-top: 10px; box-shadow: var(--shadow); border: none; }
-        #new-profile-name { flex: 1; padding: 12px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1.1rem; outline: none; }
-        .btn-add-profile { width: 45px; height: 45px; background: var(--success); color: white; border: none; border-radius: 12px; font-size: 1.8rem; cursor: pointer; }
-
-        /* --- 5. ZONE DE JEU --- */
-        .game-zone { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; position: relative; }
-        .progress-container { width: 100%; height: 8px; background: #E2E8F0; border-radius: 4px; margin-bottom: 10px; overflow: hidden; }
-        .progress-bar { height: 100%; background: var(--success); width: 0%; transition: width 0.4s ease; }
-        
-        .math-problem { width: 100%; display: flex; justify-content: center; align-items: center; min-height: 180px; }
-        
-        /* Zone Réponse */
-        .answer-display { 
-            font-size: 2.5rem; font-weight: bold; color: var(--primary);
-            min-height: 60px; margin: 10px 0 20px; 
-            display: flex; align-items: center; justify-content: center;
-            border-bottom: 4px solid #E2E8F0; padding: 0 20px;
-            transition: color 0.2s;
-        }
-        .answer-display.shake { animation: shake 0.4s; }
-
-        /* --- 6. VISUELS SPÉCIFIQUES (Engines V3) --- */
-        
-        /* Carré Magique */
-        .square-container { display: flex; flex-direction: column; align-items: center; gap: 15px; }
-        .target-badge { background: var(--secondary); color: white; padding: 8px 25px; border-radius: 50px; font-size: 1.5rem; font-weight: bold; box-shadow: 0 4px 0 #c53030; }
-        .square-grid { display: grid; gap: 10px; }
-        .number-card { 
-            background: white; width: 60px; height: 60px; 
-            display: flex; align-items: center; justify-content: center; 
-            font-size: 1.6rem; font-weight: bold; border-radius: 12px; 
-            border: 2px solid #e2e8f0; box-shadow: 0 4px 0 #cbd5e0; cursor: pointer;
-        }
-        .number-card:active { transform: translateY(4px); box-shadow: none; }
-        .number-card.selected { background: var(--primary); color: white; border-color: #2b6cb0; box-shadow: 0 4px 0 #2b6cb0; }
-        .number-card.selected:active { box-shadow: none; }
-
-        /* Conjugaison */
-        .conjugation-container { width: 100%; max-width: 400px; display: flex; flex-direction: column; align-items: center; gap: 15px; }
-        .tense-badge { background: var(--primary); color: white; padding: 5px 15px; border-radius: 15px; font-weight: bold; font-size: 0.9rem; text-transform: uppercase; }
-        .verb-machine { background: white; width: 100%; padding: 20px; border-radius: 15px; border: 2px solid #E2E8F0; box-shadow: 0 6px 0 #CBD5E0; display: flex; flex-direction: column; align-items: center; }
-        .verb-infinitive { font-size: 1.3rem; font-weight: bold; color: var(--dark); margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px dashed #EDF2F7; width: 100%; text-align: center; }
-        .verb-body { display: flex; align-items: center; gap: 15px; width: 100%; justify-content: center; }
-        .pronoun-tag { background: #EDF2F7; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 1.2rem; min-width: 60px; text-align: center; }
-        .verb-input-zone { font-size: 1.5rem; font-weight: bold; color: var(--primary); border-bottom: 3px solid var(--primary); min-width: 100px; text-align: left; }
-
-        /* Spelling / Dictée */
-        .spelling-container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-        .spelling-visual { height: 140px; display: flex; align-items: center; justify-content: center; }
-        .fallback-icon { font-size: 5rem; }
-        .spelling-image { max-height: 140px; border-radius: 10px; }
-        .spelling-slots { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
-        .letter-slot { width: 35px; height: 45px; background: #EDF2F7; border-bottom: 4px solid var(--primary); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: bold; color: var(--primary); }
-
-        /* Horloge */
-        .clock-digit-block { background: #2D3748; color: #48BB78; padding: 5px 10px; border-radius: 5px; font-family: monospace; font-size: 2rem; letter-spacing: 2px; }
-        .clock-separator { font-size: 2rem; color: #2D3748; margin: 0 5px; animation: blink 1s infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
-
-        /* CP Counting */
-        .counting-area { display: flex; gap: 10px; align-items: flex-end; }
-        .ten-bar { width: 20px; display: flex; flex-direction: column-reverse; border: 1px solid #333; border-radius: 2px; overflow: hidden; }
-        .cube { width: 100%; height: 10px; background: var(--primary); border-top: 1px solid rgba(255,255,255,0.3); }
-        .cube.unit { width: 15px; height: 15px; background: #ECC94B; border: 1px solid #333; }
-
-        /* Oiseau */
-        .sky-container { width: 100%; height: 100%; position: relative; overflow: hidden; min-height: 200px; }
-        .bird-container { position: absolute; top: 20%; animation: flyAcross linear forwards; display: flex; flex-direction: column; align-items: center; }
-        .bird-sprite { font-size: 3rem; transform: scaleX(-1); }
-        .bird-bubble { background: white; padding: 5px 10px; border-radius: 10px; border: 2px solid var(--dark); font-weight: bold; margin-bottom: 5px; position: relative; }
-        @keyframes flyAcross { from { left: -100px; } to { left: 110%; } }
-
-        /* --- 7. CLAVIER VIRTUEL --- */
-        .keyboard-container { background: #E2E8F0; padding: 10px; padding-bottom: 20px; flex-shrink: 0; border-top: 1px solid #CBD5E0; }
-        .keyboard-layout { display: none; gap: 8px; width: 100%; max-width: 600px; margin: 0 auto; }
-        
-        .key { 
-            background: white; border: none; border-radius: 8px; 
-            padding: 12px 0; font-size: 1.4rem; font-weight: bold; color: var(--dark);
-            box-shadow: 0 4px 0 #CBD5E0; cursor: pointer; display: flex; justify-content: center; align-items: center;
-        }
-        .key:active { transform: translateY(4px); box-shadow: none; }
-        
-        .key.action.del { background: var(--secondary); color: white; box-shadow: 0 4px 0 #C53030; }
-        .key.action.ok { background: var(--success); color: white; box-shadow: 0 4px 0 #2F855A; }
-        .key.btn-true { background: var(--success); color: white; }
-        .key.btn-false { background: var(--secondary); color: white; }
-        .wide-btn { grid-column: 1 / -1; font-size: 1.2rem; }
-
-        /* Clavier Alpha */
-        .alpha-keyboard { display: flex; flex-direction: column; gap: 8px; width: 100%; }
-        .kb-row { display: flex; justify-content: center; gap: 4px; width: 100%; }
-        .letter-key { flex: 1; height: 45px; font-size: 1.2rem; min-width: 0; padding: 0; }
-        .accent-row .letter-key { background: #EDF2F7; font-size: 1rem; height: 35px; }
-        .space-key { flex: 4; font-size: 1rem; }
-
-        /* --- 8. ANIMATIONS & RESULTS --- */
-        .confetti { position: absolute; width: 10px; height: 10px; top: -10px; z-index: 100; animation: fall linear forwards; }
-        @keyframes fall { to { transform: translateY(100vh) rotate(720deg); } }
-        
-        .victory-bounce { animation: victoryJump 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        @keyframes victoryJump { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-        @keyframes shake { 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
-
-        .star { font-size: 3rem; color: #E2E8F0; transition: color 0.5s; }
-        .star.active { color: #F6E05E; animation: starPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-        @keyframes starPop { 0% { transform: scale(0); } 100% { transform: scale(1); } }
-
-        /* Fallback message error */
-        .error-msg { color: var(--secondary); font-weight: bold; padding: 20px; border: 2px dashed var(--secondary); border-radius: 10px; }
-
-    </style>
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
 
 <div id="app">
     <header>
-        <button id="btn-back" class="btn-header">←</button>
+        <button id="btn-back" type="button" class="btn btn--header btn-header">←</button>
         <strong id="app-title">DEVOIR NUMÉRIQUE</strong>
-        <button id="btn-home" class="btn-header">🏠</button>
+        <button id="btn-home" type="button" class="btn btn--header btn-header">🏠</button>
     </header>
 
     <section id="screen-profiles" class="screen active">
@@ -207,18 +36,20 @@
         <div id="profiles-list" class="grid-menu"></div>
         <div class="card new-profile-card">
             <input type="text" id="new-profile-name" placeholder="Prénom" autocomplete="off" maxlength="15">
-            <button id="btn-add-profile" class="btn-add-profile">+</button> 
+            <button id="btn-add-profile" type="button" class="btn btn--icon btn--success btn-add-profile">+</button> 
         </div>
     </section>
 
     <section id="screen-grades" class="screen"><h2>Ta classe ?</h2><div id="grades-list" class="grid-menu"></div></section>
     <section id="screen-themes" class="screen"><h2>Choisis un thème</h2><div id="themes-list" class="grid-menu"></div></section>
-    <section id="screen-levels" class="screen"><h2>Choisis un niveau</h2><div id="levels-list" class="grid-menu"></div></section>
+    <section id="screen-levels" class="screen"><h2>Choisis un sous-thème</h2><div id="levels-list" class="grid-menu"></div></section>
+    <section id="screen-exercises" class="screen"><h2>Choisis un exercice</h2><div id="exercises-list" class="grid-menu"></div></section>
 
     <section id="screen-game" class="screen">
         <div class="progress-container"><div id="game-progress" class="progress-bar"></div></div>
         
         <div class="game-zone">
+            <div id="game-instruction" class="game-instruction" aria-live="polite"></div>
             <div id="math-problem" class="math-problem"></div>
             <div id="user-answer" class="answer-display"></div>
         </div>
@@ -228,23 +59,32 @@
             </div>
     </section>
 
-    <section id="screen-results" class="screen">
-        <h1 id="result-title">Terminé !</h1>
-        <div id="stars-container" style="display:flex; justify-content:center; gap:10px; margin:20px 0;"></div>
-        <p id="result-score" style="font-size: 2rem; font-weight: bold; color: var(--primary);"></p>
-        <button id="btn-results-menu" class="card" style="width: 100%; margin-top:20px; background:var(--primary); color:white; border:none;">
-            <span class="card-title" style="color:white;">RETOUR AUX THÈMES</span>
+    <section id="screen-results" class="screen screen-results">
+        <h1 id="result-title" class="result-title">Terminé !</h1>
+        <div id="stars-container" class="results-stars"></div>
+        <p id="result-score" class="result-score"></p>
+        <button id="btn-results-menu" class="btn card card--action card--action-primary">
+            <span class="card-title card-title-on-dark">RETOUR AUX THÈMES</span>
         </button>
     </section>
 </div>
 
 <script src="js/storage.js"></script>
+<script src="js/engines-core.js"></script>
+<script src="js/engines-documentary.js"></script>
+<script src="js/engines-math.js"></script>
+<script src="js/engines-french.js"></script>
 <script src="js/engines.js"></script>
+<script src="js/ui-keyboards.js"></script>
+<script src="js/ui-documentary.js"></script>
+<script src="js/ui-visuals.js"></script>
 <script src="js/ui.js"></script>
+<script src="js/data-bundle.js"></script>
+<script src="js/validators.js"></script>
 <script src="js/app.js"></script>
 
 <script>
-    if ('serviceWorker' in navigator) {
+    if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('./sw.js')
                 .then(reg => console.log('✅ SW inscrit', reg.scope))

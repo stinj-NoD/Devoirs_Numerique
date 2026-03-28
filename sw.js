@@ -1,178 +1,163 @@
-/*
- * Devoir Numérique - Service Worker Sécurisé (V3)
- * Copyright (C) 2026 [Stinj-NoD]
- * Licence : GNU GPL v3
+﻿/*
+ * Devoir Numerique - Service Worker
+ * Robustesse offline/PWA
  */
 
-const CACHE_NAME = 'dn-v3.0.0-secure'; // Nouvelle version majeure
-const MAX_CACHE_AGE = 7 * 24 * 60 * 60 * 1000; // 7 jours
-const MAX_CACHE_ENTRIES = 60; // Augmenté légèrement pour couvrir tous tes assets
+const CACHE_NAME = 'dn-v3.5.0-modular-french';
+const OFFLINE_URL = './offline.html';
 
-const ASSETS_TO_CACHE = [
+const APP_ASSETS = [
   './',
   './index.html',
-  './manifest.json', // Assure-toi que ce fichier existe !
+  './offline.html',
+  './manifest.json',
+  './css/app.css',
+  './icon-192.png',
+  './icon-512.png',
   './js/app.js',
-  './js/ui.js',
-  './js/engines.js',
   './js/storage.js',
+  './js/validators.js',
+  './js/data-bundle.js',
+  './js/engines-core.js',
+  './js/engines-documentary.js',
+  './js/engines-math.js',
+  './js/engines-french.js',
+  './js/engines.js',
+  './js/ui-keyboards.js',
+  './js/ui-documentary.js',
+  './js/ui-visuals.js',
+  './js/ui.js'
+];
+
+const DATA_ASSETS = [
   './data/index.json',
-  './data/french_lib.json',
+  './data/french/spelling.json',
+  './data/french/conjugation.json',
+  './data/french/homophones.json',
+  './data/french/grammar.json',
+  './data/french/reading.json',
   './data/cp.json',
   './data/ce1.json',
   './data/ce2.json',
   './data/cm1.json',
   './data/cm2.json',
-  './offline.html'
+  './data/history_cp.json',
+  './data/history_ce1.json',
+  './data/history_ce2.json',
+  './data/history_cm1.json',
+  './data/history_cm2.json',
+  './data/history_chrono.json',
+  './data/geography_cp.json',
+  './data/geography_ce1.json',
+  './data/geography_ce2.json',
+  './data/geography_cm1.json',
+  './data/geography_cm2.json',
+  './data/science_cp.json',
+  './data/science_ce1.json',
+  './data/science_ce2.json',
+  './data/science_cm1.json',
+  './data/science_cm2.json',
+  './data/emc_cp.json',
+  './data/emc_ce1.json',
+  './data/emc_ce2.json',
+  './data/emc_cm1.json',
+  './data/emc_cm2.json'
 ];
 
-// Whitelist stricte
-const ALLOWED_ORIGINS = [self.location.origin];
+const ASSETS_TO_CACHE = [...new Set([...APP_ASSETS, ...DATA_ASSETS])];
+const ALLOWED_ORIGINS = new Set([self.location.origin]);
+const ALLOWED_FONT_HOSTS = new Set(['fonts.googleapis.com', 'fonts.gstatic.com']);
 
-// Types MIME autorisés (Sécurité)
-const ALLOWED_CONTENT_TYPES = [
-  'application/javascript',
-  'text/javascript',
-  'application/json',
-  'text/html',
-  'text/css',
-  'image/png',
-  'image/jpeg',
-  'image/svg+xml',
-  'font/woff2' // Ajout pour les polices si besoin
-];
+function isAllowedRequest(requestUrl) {
+  const url = new URL(requestUrl);
+  if (ALLOWED_ORIGINS.has(url.origin)) return true;
+  return ALLOWED_FONT_HOSTS.has(url.hostname);
+}
 
-// 1. Installation avec validation
+function isCacheableResponse(response) {
+  if (!response || response.status !== 200) return false;
+  if (!['basic', 'cors'].includes(response.type)) return false;
+
+  const contentType = (response.headers.get('content-type') || '').toLowerCase();
+  return [
+    'application/javascript',
+    'text/javascript',
+    'application/json',
+    'text/html',
+    'text/css',
+    'image/png',
+    'image/jpeg',
+    'image/svg+xml',
+    'font/woff2',
+    'font/woff'
+  ].some((type) => contentType.includes(type));
+}
+
+async function precacheAssets() {
+  const cache = await caches.open(CACHE_NAME);
+  await cache.addAll(ASSETS_TO_CACHE);
+}
+
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log('[SW] 🔒 Installation sécurisée du cache');
-      return cache.addAll(ASSETS_TO_CACHE);
-    }).catch((err) => {
-      console.error('[SW] ❌ Échec installation (Fichier manquant ?):', err);
-      // On ne jette pas l'erreur pour ne pas tuer le SW existant s'il y en a un,
-      // mais l'installation échouera naturellement.
-      throw err; 
-    })
-  );
+  event.waitUntil(precacheAssets());
   self.skipWaiting();
 });
 
-// 2. Activation avec audit sécurité
 self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    Promise.all([
-      // Nettoyage caches
-      caches.keys().then((keyList) => {
-        return Promise.all(keyList.map((key) => {
-          if (key !== CACHE_NAME) {
-            console.log('[SW] 🗑️ Suppression ancien cache:', key);
-            return caches.delete(key);
-          }
-        }));
-      }),
-      // Audit du cache actif
-      caches.open(CACHE_NAME).then(async (cache) => {
-        const keys = await cache.keys();
-        if (keys.length > MAX_CACHE_ENTRIES) {
-          console.warn('[SW] ⚠️ Cache surchargé, nettoyage...');
-          // On supprime ce qui n'est pas dans la liste critique
-          const keysToDelete = keys.filter(req => 
-            !ASSETS_TO_CACHE.some(asset => req.url.includes(asset.replace('./', '')))
-          );
-          await Promise.all(keysToDelete.map(req => cache.delete(req)));
-        }
-      })
-    ])
-  );
-  return self.clients.claim();
+  event.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(keys.map((key) => {
+      if (key !== CACHE_NAME) return caches.delete(key);
+      return Promise.resolve();
+    }));
+    await self.clients.claim();
+  })());
 });
 
-// 3. Fetch sécurisé avec validation multicouche
 self.addEventListener('fetch', (event) => {
-  // Ignorer les requêtes non-GET et les extensions Chrome/Safari
-  if (event.request.method !== 'GET' || !event.request.url.startsWith('http')) return;
+  if (event.request.method !== 'GET') return;
+  if (!event.request.url.startsWith('http')) return;
+  if (!isAllowedRequest(event.request.url)) return;
 
-  const url = new URL(event.request.url);
+  event.respondWith((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    const cachedResponse = await cache.match(event.request, { ignoreSearch: true });
 
-  // 🛡️ VALIDATION 1 : Origine (Protection contre fuites de données vers tiers)
-  // On autorise l'origine propre ET les fonts google si utilisées
-  if (!ALLOWED_ORIGINS.includes(url.origin) && !url.hostname.includes('fonts.')) {
-    // Si c'est externe non whiteliste, on laisse le réseau gérer sans cache
-    return; 
-  }
-
-  event.respondWith(
-    caches.open(CACHE_NAME).then(async (cache) => {
-      const cachedResponse = await cache.match(event.request);
-
-      // 🛡️ VALIDATION 2 : TTL du cache
-      if (cachedResponse) {
-        const dateHeader = cachedResponse.headers.get('date');
-        const cacheDate = dateHeader ? new Date(dateHeader).getTime() : Date.now();
-        const age = Date.now() - cacheDate;
-
-        if (age > MAX_CACHE_AGE) {
-          console.log('[SW] ⏰ Cache expiré pour :', url.pathname);
-          // On continuera vers le fetch réseau ci-dessous
+    const networkPromise = fetch(event.request)
+      .then(async (networkResponse) => {
+        if (isCacheableResponse(networkResponse)) {
+          await cache.put(event.request, networkResponse.clone());
         }
-      }
-
-      // Stratégie "Stale-While-Revalidate" modifiée pour la sécurité
-      // 1. On lance le réseau pour mettre à jour
-      const networkFetch = fetch(event.request).then((networkResponse) => {
-        // Si réponse invalide, on retourne telle quelle
-        if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
-          return networkResponse;
-        }
-
-        // 🛡️ VALIDATION 3 : Content-Type
-        const contentType = networkResponse.headers.get('content-type');
-        const isAllowedType = ALLOWED_CONTENT_TYPES.some(type => 
-          contentType && contentType.toLowerCase().includes(type)
-        );
-
-        // 🛡️ VALIDATION 4 : Taille (< 10 MB)
-        const contentLength = networkResponse.headers.get('content-length');
-        const isTooBig = contentLength && parseInt(contentLength) > 10 * 1024 * 1024;
-
-        if (isAllowedType && !isTooBig) {
-             cache.put(event.request, networkResponse.clone());
-        }
-
         return networkResponse;
-      }).catch(async () => {
-        // En cas d'échec réseau, on retourne la page offline SI c'est une navigation HTML
-        if (event.request.mode === 'navigate') {
-            return await cache.match('./offline.html');
-        }
-        // Sinon rien (image manquante, etc)
-      });
+      })
+      .catch(() => null);
 
-      // Si on a un cache valide (non expiré), on le sert tout de suite
-      if (cachedResponse && (Date.now() - (new Date(cachedResponse.headers.get('date')).getTime() || 0)) < MAX_CACHE_AGE) {
-          return cachedResponse;
-      }
+    if (cachedResponse) {
+      event.waitUntil(networkPromise);
+      return cachedResponse;
+    }
 
-      // Sinon on attend le réseau
-      return networkResponse || cachedResponse; 
-    })
-  );
+    const networkResponse = await networkPromise;
+    if (networkResponse) return networkResponse;
+
+    if (event.request.mode === 'navigate') {
+      return cache.match(OFFLINE_URL);
+    }
+
+    return Response.error();
+  })());
 });
 
-// 4. Message handler
 self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    console.log('[SW] 🔄 Activation forcée par l\'application'); // Correction du guillemet
+  if (event.data?.type === 'SKIP_WAITING') {
     self.skipWaiting();
+    return;
   }
-  
-  if (event.data && event.data.type === 'CLEAR_CACHE') {
-    console.log('[SW] 🗑️ Nettoyage du cache sur demande');
-    event.waitUntil(
-      caches.delete(CACHE_NAME).then(() => {
-        return caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS_TO_CACHE));
-      })
-    );
+
+  if (event.data?.type === 'CLEAR_CACHE') {
+    event.waitUntil((async () => {
+      await caches.delete(CACHE_NAME);
+      await precacheAssets();
+    })());
   }
 });
