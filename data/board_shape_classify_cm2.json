@@ -1,0 +1,152 @@
+﻿{
+    "title": "Classification de formes géométriques CM2",
+    "gradeId": "cm2",
+    "categories": {
+        "cm2_shape_classify": [
+            {
+                "prompt": "Classe ces quadrilatères selon leurs propriétés.",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Carré", "shape": "carre" },
+                    { "id": "f2", "label": "Losange", "shape": "losange" },
+                    { "id": "f3", "label": "Rectangle", "shape": "rectangle" },
+                    { "id": "f4", "label": "Parallélogramme", "shape": "parallelogramme" }
+                ],
+                "buckets": [
+                    { "id": "angles-droits", "label": "Tous les angles droits" },
+                    { "id": "sans-angle-droit", "label": "Pas tous les angles droits" }
+                ],
+                "answer": { "f1": "angles-droits", "f2": "sans-angle-droit", "f3": "angles-droits", "f4": "sans-angle-droit" }
+            },
+            {
+                "prompt": "Range ces figures selon le nombre de côtés égaux.",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Carré", "shape": "carre" },
+                    { "id": "f2", "label": "Losange", "shape": "losange" },
+                    { "id": "f3", "label": "Rectangle", "shape": "rectangle" }
+                ],
+                "buckets": [
+                    { "id": "quatre-cotes-egaux", "label": "4 côtés égaux" },
+                    { "id": "cotes-deux-a-deux", "label": "Côtés égaux deux à deux" }
+                ],
+                "answer": { "f1": "quatre-cotes-egaux", "f2": "quatre-cotes-egaux", "f3": "cotes-deux-a-deux" }
+            },
+            {
+                "prompt": "Classe ces parallélogrammes particuliers.",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Carré", "shape": "carre" },
+                    { "id": "f2", "label": "Rectangle", "shape": "rectangle" },
+                    { "id": "f3", "label": "Losange", "shape": "losange" },
+                    { "id": "f4", "label": "Parallélogramme quelconque", "shape": "parallelogramme" }
+                ],
+                "buckets": [
+                    { "id": "carre", "label": "Carré (cas particulier complet)" },
+                    { "id": "autre-parallelogramme", "label": "Autre parallélogramme" }
+                ],
+                "answer": { "f1": "carre", "f2": "autre-parallelogramme", "f3": "autre-parallelogramme", "f4": "autre-parallelogramme" }
+            },
+            {
+                "prompt": "Range ces triangles selon leurs angles.",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Triangle rectangle", "shape": "triangle-rectangle" },
+                    { "id": "f2", "label": "Triangle équilatéral", "shape": "triangle-equilateral" },
+                    { "id": "f3", "label": "Triangle obtus", "shape": "triangle-obtus" }
+                ],
+                "buckets": [
+                    { "id": "angle-droit", "label": "A un angle droit" },
+                    { "id": "sans-angle-droit", "label": "Sans angle droit" }
+                ],
+                "answer": { "f1": "angle-droit", "f2": "sans-angle-droit", "f3": "sans-angle-droit" }
+            },
+            {
+                "prompt": "Classe ces figures : ont-elles un axe de symétrie ?",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Cercle", "shape": "cercle" },
+                    { "id": "f2", "label": "Carré", "shape": "carre" },
+                    { "id": "f3", "label": "Parallélogramme quelconque", "shape": "parallelogramme" }
+                ],
+                "buckets": [
+                    { "id": "avec-symetrie", "label": "A un axe de symétrie" },
+                    { "id": "sans-symetrie", "label": "Pas d'axe de symétrie" }
+                ],
+                "answer": { "f1": "avec-symetrie", "f2": "avec-symetrie", "f3": "sans-symetrie" }
+            },
+            {
+                "prompt": "Range ces quadrilatères selon leurs diagonales.",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Carré", "shape": "carre" },
+                    { "id": "f2", "label": "Losange", "shape": "losange" },
+                    { "id": "f3", "label": "Rectangle", "shape": "rectangle" }
+                ],
+                "buckets": [
+                    { "id": "diagonales-perpendiculaires", "label": "Diagonales perpendiculaires" },
+                    { "id": "diagonales-non-perpendiculaires", "label": "Diagonales non perpendiculaires" }
+                ],
+                "answer": { "f1": "diagonales-perpendiculaires", "f2": "diagonales-perpendiculaires", "f3": "diagonales-non-perpendiculaires" }
+            },
+            {
+                "prompt": "Classe ces figures selon le nombre de côtés.",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Pentagone", "shape": "pentagone" },
+                    { "id": "f2", "label": "Hexagone", "shape": "hexagone" },
+                    { "id": "f3", "label": "Carré", "shape": "carre" }
+                ],
+                "buckets": [
+                    { "id": "cinq-cotes", "label": "5 côtés" },
+                    { "id": "six-cotes", "label": "6 côtés" },
+                    { "id": "quatre-cotes", "label": "4 côtés" }
+                ],
+                "answer": { "f1": "cinq-cotes", "f2": "six-cotes", "f3": "quatre-cotes" }
+            },
+            {
+                "prompt": "Range ces figures : polygone régulier ou non ?",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Carré", "shape": "carre" },
+                    { "id": "f2", "label": "Rectangle", "shape": "rectangle" },
+                    { "id": "f3", "label": "Triangle équilatéral", "shape": "triangle-equilateral" }
+                ],
+                "buckets": [
+                    { "id": "regulier", "label": "Polygone régulier" },
+                    { "id": "non-regulier", "label": "Polygone non régulier" }
+                ],
+                "answer": { "f1": "regulier", "f2": "non-regulier", "f3": "regulier" }
+            },
+            {
+                "prompt": "Classe ces figures selon leur périmètre constant ou non par déformation.",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Carré rigide", "shape": "carre" },
+                    { "id": "f2", "label": "Losange déformable", "shape": "losange" },
+                    { "id": "f3", "label": "Rectangle rigide", "shape": "rectangle" }
+                ],
+                "buckets": [
+                    { "id": "angles-fixes", "label": "Angles toujours droits" },
+                    { "id": "angles-variables", "label": "Angles peuvent varier" }
+                ],
+                "answer": { "f1": "angles-fixes", "f2": "angles-variables", "f3": "angles-fixes" }
+            },
+            {
+                "prompt": "Range ces figures selon qu'elles sont des quadrilatères ou des triangles.",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Losange", "shape": "losange" },
+                    { "id": "f2", "label": "Triangle rectangle", "shape": "triangle-rectangle" },
+                    { "id": "f3", "label": "Parallélogramme", "shape": "parallelogramme" },
+                    { "id": "f4", "label": "Triangle isocèle", "shape": "triangle-isocele" }
+                ],
+                "buckets": [
+                    { "id": "quadrilatere", "label": "Quadrilatères" },
+                    { "id": "triangle", "label": "Triangles" }
+                ],
+                "answer": { "f1": "quadrilatere", "f2": "triangle", "f3": "quadrilatere", "f4": "triangle" }
+            }
+        ]
+    }
+}

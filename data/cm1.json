@@ -1,0 +1,3436 @@
+﻿{
+    "gradeId": "cm1",
+    "title": "CM1",
+    "subjects": [
+        {
+            "id": "cm1-maths-subject",
+            "title": "Mathématiques",
+            "icon": "📘",
+            "subthemes": [
+                {
+                    "id": "cm1-nombres-calculs",
+                    "title": "Nombres et calculs",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "cm1-m-big",
+                            "title": "Grands Nombres",
+                            "subtitle": "Dictée jusqu'au million",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "dictée-nombres",
+                                "max": 1000000,
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-frac-1",
+                            "title": "Fractions",
+                            "subtitle": "Lecture visuelle",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "fraction-view",
+                                "maxDenom": 8,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-dec-pos-1",
+                            "title": "Décimaux : Positions (1)",
+                            "subtitle": "Dixièmes et Centièmes",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "decimal-place",
+                                "trap": false,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-dec-pos-2",
+                            "title": "Décimaux : Positions (2)",
+                            "subtitle": "Attention aux pièges ! (Dizaines vs Dixièmes)",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "decimal-place",
+                                "trap": true,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-div-1",
+                            "title": "La Moitié",
+                            "subtitle": "Calcul mental rapide",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "half",
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-div-2",
+                            "title": "Divisions Simples",
+                            "subtitle": "Tables inversées (ex: 42 : 6)",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "division-simple",
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-div-3",
+                            "title": "Le Juste Nombre",
+                            "subtitle": "Dans 26, combien de fois 5 ?",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "division-reste",
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-div-posed-1",
+                            "title": "Division posée",
+                            "subtitle": "Trouver le quotient",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "division-posed",
+                                "level": 1,
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-dec-compare",
+                            "title": "Comparer des décimaux",
+                            "subtitle": "Plus grand, plus petit ou égal",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "compare-decimals",
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-div-reste",
+                            "title": "Division posée avec reste",
+                            "subtitle": "Trouver ce qu'il reste",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "division-posed",
+                                "level": 1,
+                                "ask": "reste",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-frac-2",
+                            "title": "Lire des fractions",
+                            "subtitle": "Parts jusqu'à 12",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "fraction-view",
+                                "maxDenom": 12,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-m-big-2",
+                            "title": "Trés grands nombres",
+                            "subtitle": "Dictée jusqu'à 10 millions",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "dictée-nombres",
+                                "max": 10000000,
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-frac-3",
+                            "title": "Fractions plus précises",
+                            "subtitle": "Parts jusqu'à 16",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "fraction-view",
+                                "maxDenom": 16,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-m-big-3",
+                            "title": "Grands nombres (3)",
+                            "subtitle": "Dictée jusqu'à 100 millions",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "dictée-nombres",
+                                "max": 100000000,
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-problemes-multi-division",
+                            "title": "Problèmes multiplications/divisions",
+                            "subtitle": "Choisir la bonne opération",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle3.json",
+                                "category": "cm1-problemes-multi-division",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-problemes-mesures",
+                            "title": "Problèmes de mesures",
+                            "subtitle": "Longueurs, masses, durées, monnaie",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle3.json",
+                                "category": "cm1-problemes-mesures",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-problemes-proportionnalite",
+                            "title": "Proportionnalité",
+                            "subtitle": "Recettes, échelles, vitesses",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle3.json",
+                                "category": "cm1-problemes-proportionnalite",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-proportionnalite-1",
+                            "title": "Proportionnalité : la recette",
+                            "subtitle": "Trouver la quantité manquante",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "proportionnalite",
+                                "maxCoef": 5,
+                                "maxBase": 6,
+                                "questions": 6
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "blocks": [
+                                {
+                                    "text": "Une fraction partage une quantité en parts égales.",
+                                    "type": "paragraph"
+                                },
+                                {
+                                    "label": "Exemple",
+                                    "content": "Dans 3/4, le 4 dit que l'on partage en 4 parts égales. Le 3 dit que l'on prend 3 parts.",
+                                    "type": "example"
+                                },
+                                {
+                                    "label": "À observer",
+                                    "items": [
+                                        "Le nombre du haut s'appelle le numérateur.",
+                                        "Le nombre du bas s'appelle le dénominateur.",
+                                        "Plus le dénominateur est grand, plus les parts sont petites."
+                                    ],
+                                    "type": "bullets"
+                                },
+                                {
+                                    "label": "À retenir",
+                                    "content": "Pour lire une fraction, je regarde d'abord en combien de parts on partage.",
+                                    "type": "tip"
+                                }
+                            ],
+                            "title": "Lire une fraction",
+                            "format": "lesson-card",
+                            "id": "cm1-lesson-fractions",
+                            "subtitle": "Numérateur et dénominateur"
+                        },
+                        {
+                            "blocks": [
+                                {
+                                    "text": "Un nombre décimal se lit en regardant ce qu'il y a avant et après la virgule.",
+                                    "type": "paragraph"
+                                },
+                                {
+                                    "label": "Exemple",
+                                    "content": "Dans 12,45, 12 est la partie entière, 4 est le chiffre des dixièmes et 5 celui des centièmes.",
+                                    "type": "example"
+                                },
+                                {
+                                    "label": "Repères",
+                                    "items": [
+                                        "Avant la virgule, je lis les unités, dizaines, centaines.",
+                                        "Après la virgule, je lis d'abord les dixièmes.",
+                                        "Puis je lis les centièmes si besoin."
+                                    ],
+                                    "type": "bullets"
+                                },
+                                {
+                                    "label": "À retenir",
+                                    "content": "Chaque chiffre a une place précise dans le nombre décimal.",
+                                    "type": "tip"
+                                }
+                            ],
+                            "title": "Repérer les décimaux",
+                            "format": "lesson-card",
+                            "id": "cm1-lesson-decimaux-reperes",
+                            "subtitle": "Partie entière, dixièmes, centièmes"
+                        },
+                        {
+                            "id": "cm1-lesson-problemes-calcul",
+                            "title": "Résoudre un problème",
+                            "subtitle": "Lire, chercher, vérifier",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un problème raconte une situation. Je lis les données, je cherche ce qu'il faut calculer puis je vérifie ma réponse."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Lina a 24 billes. Elle en donne 7. Combien lui en reste-t-il ?"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je fais attention à",
+                                    "items": [
+                                        "repérer les nombres utiles",
+                                        "choisir l'opération",
+                                        "vérifier si la réponse est logique",
+                                        "écrire la phrase réponse"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Je commence toujours par comprendre la question avant de calculer."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-resoudre-probleme",
+                            "title": "Résoudre un problème",
+                            "subtitle": "Chercher les bonnes informations",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour résoudre un problème, il faut lire l'énoncé, repérer les informations utiles et choisir le bon calcul."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Lina a 24 billes. Elle en donne 6. Je cherche combien il lui en reste : 24 - 6."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "je lis la question",
+                                        "je repère les nombres utiles",
+                                        "je choisis l'opération",
+                                        "je vérifie ma réponse"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Un problème se comprend avant de se calculer."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-proportionnalite",
+                            "title": "La proportionnalité",
+                            "subtitle": "Recettes et échelles",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Deux quantités sont proportionnelles si, quand l'une est multipliée par un nombre, l'autre est multipliée par le même nombre."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une recette pour 2 personnes demande 100 g de farine. Pour 4 personnes (2 fois plus), il faut 200 g de farine (2 fois plus)."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "headers": [
+                                        "Personnes",
+                                        "Farine (g)"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "2",
+                                            "100"
+                                        ],
+                                        [
+                                            "4",
+                                            "200"
+                                        ],
+                                        [
+                                            "6",
+                                            "300"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Pour trouver la valeur manquante",
+                                    "items": [
+                                        "je trouve le coefficient (par combien on multiplie)",
+                                        "j'applique ce même coefficient à l'autre quantité",
+                                        "je vérifie que le résultat est cohérent"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Dans un tableau de proportionnalité, on multiplie ou on divise les deux lignes par le même nombre."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-grandeurs-mesures",
+                    "title": "Grandeurs et mesures",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "cm1-romains",
+                            "title": "Chiffres romains",
+                            "icon": "📘",
+                            "subtitle": "Jusqu'à XX (20)",
+                            "engine": "conversion",
+                            "params": {
+                                "subtype": "roman",
+                                "max": 20,
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-longueurs",
+                            "title": "Convertir des longueurs",
+                            "icon": "📘",
+                            "subtitle": "mètres, kilomètres, centimètres",
+                            "engine": "conversion",
+                            "params": {
+                                "subtype": "metric",
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-durees-appr",
+                            "title": "Convertir les heures",
+                            "subtitle": "Avec aide-mémoire",
+                            "icon": "📘",
+                            "engine": "conversion",
+                            "params": {
+                                "subtype": "time",
+                                "modes": "h_to_min",
+                                "memo": true,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-durees-eval",
+                            "title": "Heures et minutes",
+                            "subtitle": "Sans aide pour aller plus loin",
+                            "icon": "📘",
+                            "engine": "conversion",
+                            "params": {
+                                "subtype": "time",
+                                "modes": [
+                                    "h_to_min",
+                                    "hmin_to_min"
+                                ],
+                                "memo": false,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-time-sec",
+                            "title": "Minutes vers secondes",
+                            "subtitle": "Conversions simples",
+                            "icon": "📘",
+                            "engine": "conversion",
+                            "params": {
+                                "subtype": "time",
+                                "modes": "min_to_sec",
+                                "memo": true,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-time-hard",
+                            "title": "Convertir des durées",
+                            "subtitle": "Heures et minutes en détail",
+                            "icon": "📘",
+                            "engine": "conversion",
+                            "params": {
+                                "subtype": "time",
+                                "modes": "hmin_to_min",
+                                "memo": true,
+                                "randomMinutes": true,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-romains-50",
+                            "title": "Chiffres romains (2)",
+                            "subtitle": "Jusqu'à L (50)",
+                            "icon": "📘",
+                            "engine": "conversion",
+                            "params": {
+                                "subtype": "roman",
+                                "max": 50,
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-heures-secondes",
+                            "title": "Minutes vers secondes (2)",
+                            "subtitle": "Sans aide-mémoire",
+                            "icon": "📘",
+                            "engine": "conversion",
+                            "params": {
+                                "subtype": "time",
+                                "modes": "min_to_sec",
+                                "memo": false,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-romains-100",
+                            "icon": "📘",
+                            "params": {
+                                "questions": 5,
+                                "max": 100,
+                                "subtype": "roman"
+                            },
+                            "subtitle": "Jusqu'à C (100)",
+                            "title": "Chiffres romains (3)",
+                            "engine": "conversion"
+                        },
+                        {
+                            "id": "cm1-time-hard-2",
+                            "title": "Heures et minutes (2)",
+                            "subtitle": "Sans aide-mémoire",
+                            "engine": "conversion",
+                            "params": {
+                                "subtype": "time",
+                                "modes": "hmin_to_min",
+                                "memo": false,
+                                "randomMinutes": true,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-conversions-masses",
+                            "title": "Convertir des masses",
+                            "subtitle": "kg, g, mg...",
+                            "engine": "conversion",
+                            "params": {
+                                "subtype": "metric",
+                                "unitType": "masse",
+                                "range": [
+                                    0,
+                                    6
+                                ],
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-conversions-contenances",
+                            "title": "Convertir des contenances",
+                            "subtitle": "L, mL, cL...",
+                            "engine": "conversion",
+                            "params": {
+                                "subtype": "metric",
+                                "unitType": "capacite",
+                                "range": [
+                                    0,
+                                    6
+                                ],
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-maths-mesures-appariement",
+                            "title": "Mesures et conversions",
+                            "subtitle": "Relie chaque unité ou terme à sa définition",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_math_cm1",
+                                "dataFile": "data/math_matching.json",
+                                "questions": 3
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-conversions-mesures",
+                            "title": "Comprendre une conversion",
+                            "subtitle": "Changer d'une unité sans changer la mesure",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Convertir une mesure, c'est changer d'unité sans changer la grandeur mesurée."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "1 m = 100 cm et 2 h = 120 min."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "je garde la même longueur ou la même durée",
+                                        "je change seulement l'unité",
+                                        "je m'appuie sur les équivalences connues"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Une conversion ne modifie pas la quantité, seulement la façon de l'écrire."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-masses-contenances",
+                            "title": "Convertir masses et contenances",
+                            "subtitle": "kg, g, mg, L, mL...",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Comme pour les longueurs, les unités de masse et de contenance sont organisées par multiples ou sous-multiples de 10."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "1 kg = 1000 g. 1 L = 1000 mL. 250 g, c'est un quart de kilogramme."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "headers": [
+                                        "Unités de masse",
+                                        "Unités de contenance"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "kg, hg, dag",
+                                            "kL, hL, daL"
+                                        ],
+                                        [
+                                            "g",
+                                            "L"
+                                        ],
+                                        [
+                                            "dg, cg, mg",
+                                            "dL, cL, mL"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "g est l'unité de référence pour les masses",
+                                        "L est l'unité de référence pour les contenances",
+                                        "chaque unité vaut 10 fois la suivante"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour convertir, je compte les rangs entre les deux unités, comme pour les longueurs."
+                                }
+                            ]
+                        },
+                        {
+                            "blocks": [
+                                {
+                                    "text": "Les chiffres romains utilisent des lettres pour écrire des nombres.",
+                                    "type": "paragraph"
+                                },
+                                {
+                                    "label": "Exemple",
+                                    "content": "X = 10, V = 5, donc XV = 15.",
+                                    "type": "example"
+                                },
+                                {
+                                    "label": "Repères utiles",
+                                    "rows": [
+                                        [
+                                            "I",
+                                            "1"
+                                        ],
+                                        [
+                                            "V",
+                                            "5"
+                                        ],
+                                        [
+                                            "X",
+                                            "10"
+                                        ],
+                                        [
+                                            "L",
+                                            "50"
+                                        ],
+                                        [
+                                            "C",
+                                            "100"
+                                        ]
+                                    ],
+                                    "headers": [
+                                        "Lettre",
+                                        "Valeur"
+                                    ],
+                                    "type": "mini-table"
+                                },
+                                {
+                                    "label": "À retenir",
+                                    "content": "Quand une petite valeur est placée avant une plus grande, on la retire souvent.",
+                                    "type": "tip"
+                                }
+                            ],
+                            "title": "Lire les chiffres romains",
+                            "format": "lesson-card",
+                            "id": "cm1-lesson-lire-romains",
+                            "subtitle": "Des lettres qui valent des nombres"
+                        },
+                        {
+                            "id": "cm1-lesson-formes-geometriques",
+                            "title": "Repérer des formes géométriques",
+                            "subtitle": "Carré, rectangle, triangle, cercle",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "En géométrie, je reconnais les formes en regardant leurs côtés, leurs sommets et leurs contours."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un carré a 4 côtés égaux. Un triangle a 3 côtés. Un cercle n'a ni côté ni sommet."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je repère",
+                                    "items": [
+                                        "les côtés",
+                                        "les sommets",
+                                        "les angles",
+                                        "la forme générale"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Une forme se décrit avec des mots précis, pas seulement avec son nom."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-triangles-quadrilateres",
+                            "title": "Triangles et quadrilatères",
+                            "subtitle": "Reconnaître et décrire les formes",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un triangle a 3 côtés. Un quadrilatère a 4 côtés. On les reconnaît en observant leurs côtés et leurs angles."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le carré, le rectangle et le losange sont des quadrilatères."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "triangle = 3 côtés",
+                                        "quadrilatère = 4 côtés",
+                                        "le carré et le rectangle ont des angles droits"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour décrire une forme, je compte les côtés puis j'observe leurs longueurs et leurs angles."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-geometrie-subtheme",
+                    "title": "Géométrie",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-polygones",
+                            "title": "Reconnaître les polygones",
+                            "subtitle": "Triangles, quadrilatères et contours",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un polygone est une figure fermée formée de segments. On le reconnaît en observant ses côtés et ses sommets."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le triangle a 3 côtés. Le rectangle et le losange sont des quadrilatères car ils ont 4 côtés."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "figure fermée",
+                                        "segments",
+                                        "côtés",
+                                        "sommets"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour décrire un polygone, je compte d'abord ses côtés et ses sommets."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-angles-droits",
+                            "title": "L'angle droit",
+                            "subtitle": "Un repère utile en géométrie",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "L'angle droit est un angle particulier. Il aide à reconnaître et à construire certaines figures comme le carré ou le rectangle."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le coin d'une feuille ou d'un cahier forme souvent un angle droit."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "angle droit",
+                                        "carré",
+                                        "rectangle",
+                                        "équerre"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "L'équerre permet de vérifier si un angle est droit."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-perimetre",
+                            "title": "Le périmètre",
+                            "subtitle": "Mesurer le tour d'une figure",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le périmètre est la longueur du tour d'une figure. Pour le trouver, on additionne la longueur de tous les côtés."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un rectangle de 4 cm et 3 cm a pour périmètre 4 + 3 + 4 + 3 = 14 cm."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "tour de la figure",
+                                        "addition des côtés",
+                                        "longueur en cm ou m"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le périmètre mesure le contour d'une figure, pas son intérieur."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-aire-rectangle",
+                            "title": "L'aire du rectangle",
+                            "subtitle": "Mesurer une surface",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "L'aire mesure la surface à l'intérieur d'une figure. Pour un rectangle, l'aire s'obtient en multipliant la longueur par la largeur."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un rectangle de 4 cm sur 3 cm a pour aire 4 × 3 = 12 cm²."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "aire = longueur × largeur",
+                                        "l'aire se mesure en cm², m²...",
+                                        "le périmètre mesure le tour, l'aire mesure la surface"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Ne confonds pas périmètre (autour) et aire (à l'intérieur) !"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-volume-pave",
+                            "title": "Découvrir le volume",
+                            "subtitle": "L'espace occupé par un solide",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le volume mesure l'espace occupé par un solide, comme un pavé droit (une boîte). Pour un pavé droit, on multiplie la longueur, la largeur et la hauteur."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un pavé droit de 3 cm de longueur, 2 cm de largeur et 2 cm de hauteur a pour volume 3 × 2 × 2 = 12 cm³."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "volume du pavé droit = longueur × largeur × hauteur",
+                                        "le volume se mesure en cm³, m³...",
+                                        "l'aire mesure une surface, le volume mesure un espace en trois dimensions"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le pavé droit a trois dimensions : longueur, largeur et hauteur."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-geo-polygones",
+                            "title": "Reconnaître les polygones",
+                            "subtitle": "Triangles et quadrilatères",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_geometry_cm1.json",
+                                "category": "cm1-polygones",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-perimetre-angles",
+                            "title": "Périmètre et angle droit",
+                            "subtitle": "Mesurer et reconnaître",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_geometry_cm1.json",
+                                "category": "cm1-perimetre-angles",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-symetrie-reperage",
+                            "title": "Symétrie et repérage",
+                            "subtitle": "Axe et miroir",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_geometry_cm1.json",
+                                "category": "cm1-symetrie-reperage",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-vocabulaire",
+                            "title": "Vocabulaire géométrique",
+                            "subtitle": "Segment, sommet, parallèles",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_geometry_cm1.json",
+                                "category": "cm1-vocabulaire-geometrique",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-aire-rectangle",
+                            "title": "Calculer une aire",
+                            "subtitle": "L'aire du rectangle",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "aire-rectangle",
+                                "max": 12,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-volume-pave",
+                            "title": "Calculer un volume",
+                            "subtitle": "Le volume du pavé droit",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "volume-pave",
+                                "max": 6,
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-maths-geo-appariement",
+                            "title": "Figures et formules",
+                            "subtitle": "Relie chaque figure à sa formule ou propriété",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_math_cm1",
+                                "dataFile": "data/math_matching.json",
+                                "questions": 3
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-classement-formes",
+                            "title": "Classer les formes géométriques",
+                            "subtitle": "Glisse chaque figure dans sa famille",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "shape-classify",
+                                "dataFile": "data/board_shape_classify_cm1.json",
+                                "category": "cm1_shape_classify",
+                                "questions": 6
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "cm1-francais-subject",
+            "title": "Français",
+            "icon": "📘",
+            "subthemes": [
+                {
+                    "id": "cm1-francais-homophones",
+                    "title": "Homophones",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "cm1-h-ce",
+                            "title": "Ce ou Se ?",
+                            "subtitle": "Homophones",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "homophone-duel",
+                                "category": "ce_se",
+                                "choices": [
+                                    "ce",
+                                    "se"
+                                ],
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-h-ces",
+                            "title": "Ces ou Ses ?",
+                            "subtitle": "Homophones",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "homophone-duel",
+                                "category": "ces_ses",
+                                "choices": [
+                                    "ces",
+                                    "ses"
+                                ],
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-h-aa",
+                            "title": "A ou À ?",
+                            "subtitle": "Homophones fréquents",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "homophone-duel",
+                                "category": "a_à",
+                                "choices": [
+                                    "a",
+                                    "à"
+                                ],
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-h-son",
+                            "title": "Son ou Sont ?",
+                            "subtitle": "Le bon homophone dans la phrase",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "homophone-duel",
+                                "category": "son_sont",
+                                "choices": [
+                                    "son",
+                                    "sont"
+                                ],
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-h-on",
+                            "title": "On ou Ont ?",
+                            "subtitle": "Sujet ou auxiliaire",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "homophone-duel",
+                                "category": "on_ont",
+                                "choices": [
+                                    "on",
+                                    "ont"
+                                ],
+                                "questions": 10
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "blocks": [
+                                {
+                                    "text": "Deux mots peuvent se prononcer pareil, mais avoir un sens et une fonction différents.",
+                                    "type": "paragraph"
+                                },
+                                {
+                                    "label": "Exemple",
+                                    "content": "On part tôt. / Ils ont fini.",
+                                    "type": "example"
+                                },
+                                {
+                                    "label": "Je vérifie",
+                                    "items": [
+                                        "Je lis toute la phrase.",
+                                        "Je cherche le rôle du mot.",
+                                        "Je remplace si c'est possible."
+                                    ],
+                                    "type": "bullets"
+                                },
+                                {
+                                    "label": "À retenir",
+                                    "content": "Pour choisir un homophone, il faut comprendre la phrase entière.",
+                                    "type": "tip"
+                                }
+                            ],
+                            "title": "Reconnaître un homophone",
+                            "format": "lesson-card",
+                            "id": "cm1-lesson-homophones-strategie",
+                            "subtitle": "Le son ne suffit pas"
+                        },
+                        {
+                            "id": "cm1-lesson-homophones-a-a",
+                            "title": "A ou à ?",
+                            "subtitle": "Un verbe ou une préposition",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "A sans accent est souvent un verbe. À avec accent sert souvent à indiquer un lieu, un moment ou une relation."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Il a un livre. / Il va à l'école."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je vérifie",
+                                    "items": [
+                                        "je peux remplacer a par avait",
+                                        "à reste souvent devant un lieu ou un verbe à l'infinitif",
+                                        "je relis la phrase entière"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le sens de la phrase m'aide à choisir entre a et à."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-francais-conjugaison",
+                    "title": "Conjugaison",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "cm1-c-imp",
+                            "title": "L'Imparfait",
+                            "subtitle": "Verbes en -ER",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "imparfait_1",
+                                "tenses": "imparfait",
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-c-pc-avoir",
+                            "title": "Passé Composé (1)",
+                            "subtitle": "Auxiliaire Avoir",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "pc_1",
+                                "verbs": [
+                                    "manger",
+                                    "chanter",
+                                    "jouer",
+                                    "chercher",
+                                    "trouver"
+                                ],
+                                "tenses": "passé composé",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-c-pc-etre",
+                            "title": "Passé Composé (2)",
+                            "subtitle": "Auxiliaire Être",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "pc_1",
+                                "verbs": [
+                                    "tomber",
+                                    "monter",
+                                    "arriver",
+                                    "entrer",
+                                    "rester"
+                                ],
+                                "tenses": "passé composé",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-c-pc-mix",
+                            "title": "Passé Composé (Mix)",
+                            "subtitle": "Avoir ou être ?",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "pc_1",
+                                "tenses": "passé composé",
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-c-pc-3",
+                            "title": "Passé Composé (Expert)",
+                            "subtitle": "3ème groupe (fait, dit, vu...)",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "pc_3_cm1",
+                                "tenses": "passé composé",
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-conj-ir",
+                            "title": "Le 2ème groupe",
+                            "subtitle": "Finir, Choisir... en -ISS",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "present_2",
+                                "tenses": "présent",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-c-futur",
+                            "title": "Le futur simple",
+                            "subtitle": "Verbes du 1er groupe",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "future_1",
+                                "tenses": "futur",
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-c-ea-imp",
+                            "title": "Être et avoir à l'imparfait",
+                            "subtitle": "J'étais, nous avions...",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "etre_avoir_imp",
+                                "verbs": [
+                                    "être",
+                                    "avoir"
+                                ],
+                                "tenses": "imparfait",
+                                "questions": 8
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "blocks": [
+                                {
+                                    "text": "L'imparfait sert souvent à raconter ce qui durait ou ce qui se répétait dans le passé.",
+                                    "type": "paragraph"
+                                },
+                                {
+                                    "label": "Exemple",
+                                    "content": "chanter -> je chantais, tu chantais, il chantait, nous chantions, vous chantiez, ils chantaient",
+                                    "type": "example"
+                                },
+                                {
+                                    "label": "Terminaisons",
+                                    "items": [
+                                        "je : -ais",
+                                        "tu : -ais",
+                                        "il/elle : -ait",
+                                        "nous : -ions",
+                                        "vous : -iez",
+                                        "ils/elles : -aient"
+                                    ],
+                                    "type": "bullets"
+                                },
+                                {
+                                    "label": "À retenir",
+                                    "content": "À l'imparfait, les terminaisons restent les mêmes pour beaucoup de verbes.",
+                                    "type": "tip"
+                                }
+                            ],
+                            "title": "L'imparfait des verbes en -ER",
+                            "format": "lesson-card",
+                            "id": "cm1-lesson-imparfait-er",
+                            "subtitle": "Une action qui durait"
+                        },
+                        {
+                            "blocks": [
+                                {
+                                    "text": "Au passé composé, certains verbes utilisent avoir et d'autres utilisent être.",
+                                    "type": "paragraph"
+                                },
+                                {
+                                    "label": "Exemple",
+                                    "content": "j'ai chanté, mais je suis tombé",
+                                    "type": "example"
+                                },
+                                {
+                                    "label": "Exemples rapides",
+                                    "rows": [
+                                        [
+                                            "avoir",
+                                            "nous avons joué"
+                                        ],
+                                        [
+                                            "être",
+                                            "elles sont arrivées"
+                                        ]
+                                    ],
+                                    "headers": [
+                                        "Auxiliaire",
+                                        "Exemple"
+                                    ],
+                                    "type": "mini-table"
+                                },
+                                {
+                                    "label": "À retenir",
+                                    "content": "Quand tu apprends un verbe, apprends aussi l'auxiliaire qu'il utilise.",
+                                    "type": "tip"
+                                }
+                            ],
+                            "title": "Choisir avoir ou être",
+                            "format": "lesson-card",
+                            "id": "cm1-lesson-passe-compose-auxiliaires",
+                            "subtitle": "Le bon auxiliaire au passé composé"
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-francais-articles",
+                    "title": "Articles et genre",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-articles-genre",
+                            "title": "Choisir le bon article",
+                            "subtitle": "Genre, nombre et élision",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "L'article accompagne le nom. Pour bien le choisir, il faut regarder le genre du nom, le nombre et parfois sa première lettre."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "On dit : un cahier, une règle, l'école, les élèves."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je vérifie",
+                                    "items": [
+                                        "si le nom est masculin ou féminin",
+                                        "s'il est au singulier ou au pluriel",
+                                        "s'il commence par une voyelle ou un h muet"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le bon article aide à écrire une phrase correcte et naturelle."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-g-un-une",
+                            "title": "Un ou Une ?",
+                            "subtitle": "Vocabulaire scolaire",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "gender-articles",
+                                "category": "gender_cm1_scolaire",
+                                "options": [
+                                    "un",
+                                    "une"
+                                ],
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-g-le-la",
+                            "title": "Le, La ou L' ?",
+                            "subtitle": "Voyelle, h et élision",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "gender-articles",
+                                "category": "gender_cm1_elision",
+                                "options": [
+                                    "le",
+                                    "la",
+                                    "l'"
+                                ],
+                                "questions": 8
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-francais-grammaire",
+                    "title": "Grammaire",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "cm1-g-article-qcm",
+                            "title": "Le bon article",
+                            "subtitle": "Articles dans la phrase",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "article-choice",
+                                "category": "article_choice_cm1",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-g-pluriel-qcm",
+                            "title": "Le bon déterminant",
+                            "subtitle": "Repérer le pluriel",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "plural-choice",
+                                "category": "plural_choice_cm1",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-g-nature-qcm",
+                            "title": "Nom, verbe ou adjectif",
+                            "subtitle": "Reconnaître la nature du mot",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "word_class_choice_cm1",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-g-cloze-det",
+                            "title": "Déterminant dans la phrase",
+                            "subtitle": "Choisir le bon petit mot",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "grammar_cloze_cm1",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-g-cloze-accord",
+                            "title": "Accorder dans la phrase",
+                            "subtitle": "Nom et adjectif simples",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "grammar_agreement_cm1",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-francais-ordre-mots",
+                            "title": "Ordre des mots",
+                            "subtitle": "Remets les mots dans le bon ordre",
+                            "engine": "word-order",
+                            "params": {
+                                "category": "word_order_cm1",
+                                "dataFile": "data/french_word_order.json",
+                                "questions": 5
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "blocks": [
+                                {
+                                    "text": "La nature d'un mot indique sa famille grammaticale.",
+                                    "type": "paragraph"
+                                },
+                                {
+                                    "label": "Exemple",
+                                    "content": "Dans le petit chat dort : chat est un nom, petit un adjectif, dort un verbe.",
+                                    "type": "example"
+                                },
+                                {
+                                    "label": "Trois repères",
+                                    "rows": [
+                                        [
+                                            "nom",
+                                            "désigne une personne, un animal ou une chose"
+                                        ],
+                                        [
+                                            "verbe",
+                                            "dit ce qu'on fait ou ce qui se passe"
+                                        ],
+                                        [
+                                            "adjectif",
+                                            "donne une précision"
+                                        ]
+                                    ],
+                                    "headers": [
+                                        "Nature",
+                                        "À quoi ça sert ?"
+                                    ],
+                                    "type": "mini-table"
+                                },
+                                {
+                                    "label": "À retenir",
+                                    "content": "Pour trouver la nature d'un mot, je regarde son rôle dans la phrase.",
+                                    "type": "tip"
+                                }
+                            ],
+                            "title": "Reconnaître la nature d'un mot",
+                            "format": "lesson-card",
+                            "id": "cm1-lesson-nature-mots",
+                            "subtitle": "Nom, verbe, adjectif"
+                        },
+                        {
+                            "id": "cm1-lesson-familles-mots",
+                            "title": "Les familles de mots",
+                            "subtitle": "Même idée, mots proches",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Des mots de la même famille ont un lien de sens et partagent souvent une partie commune."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "terre, terrain, terrestre, atterrir"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je cherche",
+                                    "items": [
+                                        "le mot de base",
+                                        "les mots proches",
+                                        "le sens commun",
+                                        "la partie commune du mot"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Chercher une famille de mots aide à mieux comprendre et mieux écrire."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-francais-lecture-vocabulaire-subtheme",
+                    "title": "Lecture et vocabulaire",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-comprendre-paragraphe",
+                            "title": "Comprendre un paragraphe",
+                            "subtitle": "Idée principale et informations utiles",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour comprendre un paragraphe, il faut repérer le sujet principal, les informations importantes et les liens entre les phrases."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Si un paragraphe parle d'un château fort, je cherche ce qu'il décrit, à quoi il servait et qui y vivait."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "je cherche le sujet principal",
+                                        "je repère les mots importants",
+                                        "je relis pour vérifier le sens"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Comprendre un paragraphe, c'est retrouver son idée principale et ce qu'il apporte."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-vocabulaire-famille-mots",
+                            "title": "La famille de mots",
+                            "subtitle": "Des mots construits autour du même radical",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Des mots d'une même famille ont souvent un lien de sens et une partie commune appelée radical."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "terre, terrain, terrestre et atterrir appartiennent à la même famille de mots."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "un radical commun",
+                                        "un sens proche",
+                                        "des mots construits différemment"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Connaître les familles de mots aide à mieux comprendre et orthographier le vocabulaire."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-vocabulaire-sens-contexte",
+                            "title": "Comprendre un mot par le contexte",
+                            "subtitle": "Le sens dépend de la phrase",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le contexte aide à comprendre le sens exact d'un mot, surtout quand il peut avoir plusieurs significations."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans «la clé du coffre» et «la clé du problème», le mot clé ne désigne pas la même chose."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "je lis autour du mot",
+                                        "je cherche le sujet du texte",
+                                        "je choisis le sens qui convient"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le contexte permet de choisir le bon sens d'un mot."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-polysemie-familles",
+                            "title": "Mots polysémiques et familles de mots",
+                            "subtitle": "Un même mot, plusieurs sens ; un même radical, plusieurs mots",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un mot polysémique a plusieurs sens selon la phrase où il se trouve. Une famille de mots regroupe des mots construits sur le même radical et liés par le sens."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« bat » dans « le sportif bat son record » et « le cuisinier bat les œufs » n'a pas le même sens. Terre, terrain, terrestre, atterrir forment une famille de mots."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "je repère le mot à plusieurs sens",
+                                        "je regarde les mots autour pour choisir le bon sens",
+                                        "je cherche le radical commun d'une famille",
+                                        "un mot qui ressemble n'est pas toujours de la même famille"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "« terrible » ressemble à « terre » mais n'appartient pas à sa famille de mots."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-lecture-idee-principale",
+                            "title": "Trouver l'idée principale",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm1_lecture_idee_principale",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-vocabulaire-contexte",
+                            "title": "Comprendre un mot par le contexte",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm1_lecture_mot_contexte",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-vocabulaire-polysemie",
+                            "title": "Un mot, plusieurs sens",
+                            "subtitle": "La polysémie",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm1_vocabulaire_polysemie",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-vocabulaire-familles-mots",
+                            "title": "Les familles de mots",
+                            "subtitle": "Trouver l'intrus",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm1_vocabulaire_familles_mots",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-vocab-appariement",
+                            "title": "Familles de mots",
+                            "subtitle": "Relie chaque mot à sa famille",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_familles_mots_cm1",
+                                "dataFile": "data/french/matching.json",
+                                "questions": 2
+                            }
+                        },
+                        {
+                            "id": "cm1-vocab-appariement-champ-lexical",
+                            "title": "Champ lexical et familles de mots",
+                            "subtitle": "Relie chaque mot à son thème ou à son sens",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_vocabulaire_cm1",
+                                "dataFile": "data/french/matching.json",
+                                "questions": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-dictee-audio-subtheme",
+                    "title": "Dictée audio",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "cm1-audio-animaux-avances",
+                            "title": "Animaux du monde",
+                            "subtitle": "Écoute et écris",
+                            "engine": "audio-spelling",
+                            "params": {
+                                "category": "animals_advanced",
+                                "speechRate": 0.85,
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-audio-transports-avances",
+                            "title": "Transports",
+                            "subtitle": "Écoute et écris",
+                            "engine": "audio-spelling",
+                            "params": {
+                                "category": "transport_advanced",
+                                "speechRate": 0.85,
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-audio-homophones",
+                            "title": "Mots pièges",
+                            "subtitle": "Écoute et écris",
+                            "engine": "audio-spelling",
+                            "params": {
+                                "category": "cm1_orthographe_homophones",
+                                "speechRate": 0.85,
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-audio-nature-sciences",
+                            "title": "Nature et sciences",
+                            "subtitle": "Écoute et écris",
+                            "engine": "audio-spelling",
+                            "params": {
+                                "category": "cm1_nature_sciences",
+                                "speechRate": 0.85,
+                                "questions": 8
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-dictee-vigilance",
+                            "title": "La dictée, un exercice de vigilance",
+                            "subtitle": "Écouter, analyser, écrire",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "En CM1, les mots dictés sont plus longs et contiennent des sons complexes (-tion, -ence, -eau) ou des lettres muettes. Il faut analyser le mot avant de l'écrire."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "ATMOSPHÈRE : on entend AT-MOS-FÈRE, mais on écrit PH et un accent grave sur le È."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Ma méthode",
+                                    "items": [
+                                        "J'écoute le mot une première fois en entier.",
+                                        "Je repère les sons complexes ou les lettres muettes probables.",
+                                        "Je découpe le mot en syllabes pour l'écrire.",
+                                        "Je vérifie les accords si le mot est dans une phrase."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Plus un mot est long, plus il faut le découper mentalement avant de l'écrire."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "cm1-histoire-subject",
+            "title": "Histoire",
+            "icon": "📘",
+            "subthemes": [
+                {
+                    "id": "cm1-histoire-periodes",
+                    "title": "Grandes périodes",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-periodes",
+                            "title": "Antiquité, Moyen Âge, Temps modernes",
+                            "subtitle": "Les grandes périodes de l'histoire",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour raconter le passé, on découpe l'histoire en grandes périodes qui ont chacune des repères importants."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les grandes périodes",
+                                    "items": [
+                                        "l'Antiquité",
+                                        "le Moyen Âge",
+                                        "les Temps modernes"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Les Gaulois et les Romains appartiennent à l'Antiquité."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Une période historique aide à situer des événements, des personnages et des modes de vie."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-vie-moyen-age",
+                            "title": "La vie au Moyen Âge",
+                            "subtitle": "Seigneurs, paysans et châteaux",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Au Moyen Âge, la société est organisée autour des seigneurs, des paysans, des villages et des châteaux."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Les paysans travaillent la terre, tandis que le seigneur protège son territoire."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "des châteaux forts",
+                                        "des villages et des champs",
+                                        "des seigneurs et des paysans"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le Moyen Âge correspond à une longue période où les modes de vie sont très différents d'aujourd'hui."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-gaule-romaine",
+                            "title": "La Gaule romaine",
+                            "subtitle": "Villes, routes et vestiges",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Après la conquête romaine, la Gaule devient une partie de l'Empire romain."
+                                },
+                                {
+                                    "type": "example",
+                                    "content": "Les Romains construisent des routes, des villes et des ponts.",
+                                    "label": "Exemple"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "routes romaines",
+                                        "villes gallo-romaines",
+                                        "vestiges antiques"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "content": "Les Romains transforment la Gaule avec des routes, des villes et des monuments.",
+                                    "label": "À retenir"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-vivre-moyen-age",
+                            "title": "Vivre au Moyen Âge",
+                            "subtitle": "Seigneurs, paysans et châteaux",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Au Moyen Âge, la société s'organise autour des seigneurs, des paysans, des villages et des châteaux forts."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le seigneur protège son territoire depuis le château, tandis que de nombreux paysans travaillent les terres."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "château fort",
+                                        "seigneur",
+                                        "paysan",
+                                        "village"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le Moyen Âge correspond à une longue période où les modes de vie sont très différents d'aujourd'hui."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-histoire-antiquite",
+                            "title": "Antiquité",
+                            "subtitle": "Rome et la Gaule",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm1.json",
+                                "category": "cm1-antiquite",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-histoire-moyen-age",
+                            "title": "Moyen Âge",
+                            "subtitle": "Châteaux et chevaliers",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm1.json",
+                                "category": "cm1-moyen-age",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-histoire-temps-modernes",
+                            "title": "Temps modernes",
+                            "subtitle": "Renaissance et découvertes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm1.json",
+                                "category": "cm1-temps-modernes",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-histoire-renaissance-inventions",
+                            "title": "Renaissance et inventions",
+                            "subtitle": "Imprimerie, artistes et découvertes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm1.json",
+                                "category": "cm1-renaissance-inventions",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-histoire-humanisme-imprimerie",
+                            "title": "Humanisme et imprimerie",
+                            "subtitle": "Livres, savoirs et idées nouvelles",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm1.json",
+                                "category": "cm1-humanisme-imprimerie",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-histoire-appariement",
+                            "title": "Périodes et civilisations",
+                            "subtitle": "Relie chaque période ou civilisation à sa caractéristique",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_histoire_cm1",
+                                "dataFile": "data/history_matching.json",
+                                "questions": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-histoire-frises",
+                    "title": "Frises historiques",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-frise",
+                            "title": "Le temps des rois",
+                            "subtitle": "Châteaux, pouvoir et société",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le temps des rois correspond à une longue période où le roi dirige le royaume et où les châteaux forts protègent les territoires."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Au Moyen Âge, les seigneurs vivent souvent dans des châteaux forts, tandis que la plupart des habitants travaillent dans les campagnes."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Mots à connaître",
+                                    "items": [
+                                        "roi",
+                                        "château fort",
+                                        "seigneur",
+                                        "paysan"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Cette période montre comment le pouvoir du roi et la société ont changé au fil du temps."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-histoire-frise-ordre",
+                            "title": "Frise historique",
+                            "subtitle": "Remets les repères dans l'ordre",
+                            "engine": "timeline",
+                            "params": {
+                                "mode": "order",
+                                "grade": "cm1",
+                                "dataFile": "data/history_chrono.json",
+                                "timelineId": "cm1-reperes-celebres",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-histoire-frise-place",
+                            "title": "Placer sur la frise",
+                            "subtitle": "Mix - Repères du Moyen Âge",
+                            "engine": "timeline",
+                            "params": {
+                                "mode": "place",
+                                "grade": "cm1",
+                                "dataFile": "data/history_chrono.json",
+                                "timelineId": "cm1-place-moyen-age",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-histoire-frise-place-n1",
+                            "title": "Placer sur la frise - Niv 1",
+                            "subtitle": "Repères faciles",
+                            "engine": "timeline",
+                            "params": {
+                                "mode": "place",
+                                "grade": "cm1",
+                                "dataFile": "data/history_chrono.json",
+                                "timelineId": "cm1-place-moyen-age",
+                                "difficulty": 1,
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-histoire-frise-place-n2",
+                            "title": "Placer sur la frise - Niv 2",
+                            "subtitle": "Repères intermédiaires",
+                            "engine": "timeline",
+                            "params": {
+                                "mode": "place",
+                                "grade": "cm1",
+                                "dataFile": "data/history_chrono.json",
+                                "timelineId": "cm1-place-moyen-age",
+                                "difficulty": 2,
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-histoire-frise-place-n3",
+                            "title": "Placer sur la frise - Niv 3",
+                            "subtitle": "Repères experts",
+                            "engine": "timeline",
+                            "params": {
+                                "mode": "place",
+                                "grade": "cm1",
+                                "dataFile": "data/history_chrono.json",
+                                "timelineId": "cm1-place-moyen-age",
+                                "difficulty": 3,
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-histoire-frise-prehistoire-ordre",
+                            "title": "Frise : Préhistoire",
+                            "subtitle": "Remets les repères dans l'ordre",
+                            "engine": "timeline",
+                            "params": {
+                                "mode": "order",
+                                "grade": "cm1",
+                                "dataFile": "data/history_chrono.json",
+                                "timelineId": "cm1-ordre-prehistoire-1",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-histoire-frise-antiquite-ordre",
+                            "title": "Frise : Antiquité",
+                            "subtitle": "Classe les grands repères antiques",
+                            "engine": "timeline",
+                            "params": {
+                                "mode": "order",
+                                "grade": "cm1",
+                                "dataFile": "data/history_chrono.json",
+                                "timelineId": "cm1-antiquite-ordre-1",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-histoire-frise-modernes-ordre",
+                            "title": "Frise : Temps modernes",
+                            "subtitle": "Range les repères de la Renaissance au royaume",
+                            "engine": "timeline",
+                            "params": {
+                                "mode": "order",
+                                "grade": "cm1",
+                                "dataFile": "data/history_chrono.json",
+                                "timelineId": "cm1-ordre-modernes-2",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-histoire-frise-antiquite-place",
+                            "title": "Placer : Antiquité",
+                            "subtitle": "Place les repères du monde antique",
+                            "engine": "timeline",
+                            "params": {
+                                "mode": "place",
+                                "grade": "cm1",
+                                "dataFile": "data/history_chrono.json",
+                                "timelineId": "cm1-place-antiquite",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-histoire-frise-modernes-place",
+                            "title": "Placer : Temps modernes",
+                            "subtitle": "Replace les grands repères sur la frise",
+                            "engine": "timeline",
+                            "params": {
+                                "mode": "place",
+                                "grade": "cm1",
+                                "dataFile": "data/history_chrono.json",
+                                "timelineId": "cm1-place-modernes",
+                                "questions": 5
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "cm1-geographie-subject",
+            "title": "Géographie",
+            "icon": "📘",
+            "subthemes": [
+                {
+                    "id": "cm1-geo-relief-subtheme",
+                    "title": "Reliefs et fleuves",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-relief-paysage",
+                            "title": "Observer un paysage",
+                            "subtitle": "Relief, eau et nature",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un paysage montre ce que l'on voit dans un lieu : relief, eau, végétation et aménagements humains."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une vallée peut être traversée par un fleuve, une plaine peut accueillir des cultures et une montagne domine le relief."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Vocabulaire utile",
+                                    "items": [
+                                        "relief",
+                                        "plaine",
+                                        "vallée",
+                                        "littoral",
+                                        "cours d'eau"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "En géographie, un paysage se décrit avec des mots précis pour dire ce qu'on observe."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-paysages-france",
+                            "title": "Les paysages de France",
+                            "subtitle": "Montagne, plaine, littoral",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La France présente des paysages variés : montagnes, plaines, vallées et littoraux."
+                                },
+                                {
+                                    "type": "example",
+                                    "content": "Une vallée peut être traversée par un fleuve.",
+                                    "label": "Exemple"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "montagne",
+                                        "plaine",
+                                        "vall",
+                                        "é",
+                                        "e",
+                                        "littoral"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "content": "Un paysage se décrit avec des mots précis pour dire ce que l on voit.",
+                                    "label": "À retenir"
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-geo-relief",
+                            "title": "Reliefs et fleuves",
+                            "subtitle": "France et paysages",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-france-relief",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "params": {
+                                "questions": 10,
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-france-relief",
+                                "type": "factual-qcm"
+                            },
+                            "title": "Fleuves et reliefs de France",
+                            "engine": "choice-engine",
+                            "id": "cm1-geo-fleuves-reliefs-france",
+                            "subtitle": "Montagnes, vallées et grands cours d'eau"
+                        },
+                        {
+                            "params": {
+                                "questions": 8,
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-eaux-paysages",
+                                "type": "factual-qcm"
+                            },
+                            "title": "Eaux et paysages",
+                            "engine": "choice-engine",
+                            "id": "cm1-geo-eaux-paysages",
+                            "subtitle": "Fleuves, vallées et littoraux"
+                        },
+                        {
+                            "id": "cm1-geo-appariement",
+                            "title": "Reliefs et régions",
+                            "subtitle": "Relie chaque relief ou région à sa caractéristique",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_geo_cm1",
+                                "dataFile": "data/geography_matching.json",
+                                "questions": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-geo-territoires-subtheme",
+                    "title": "Territoires",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-territoires",
+                            "title": "Repérer un territoire",
+                            "subtitle": "Ville, campagne, littoral, montagne",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un territoire est un espace organisé par les activités des habitants et par les paysages qu'on y trouve."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une ville, une campagne ou un littoral sont des territoires différents, avec des services et des modes de vie différents."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je compare",
+                                    "items": [
+                                        "les habitations",
+                                        "les activités",
+                                        "les services",
+                                        "les paysages"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Un territoire se décrit avec ce qu'on y voit, ce qu'on y fait et ce dont les habitants ont besoin."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-carte-legende",
+                            "title": "Lire une carte de France",
+                            "subtitle": "Légende, repères et couleurs",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une carte représente un espace vu de haut. La légende aide à comprendre ce que montrent les couleurs et les symboles."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Sur une carte, le bleu peut montrer les fleuves, le vert les plaines et des symboles peuvent montrer les villes."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je regarde",
+                                    "items": [
+                                        "le titre",
+                                        "la l",
+                                        "é",
+                                        "gende",
+                                        "les couleurs",
+                                        "les symboles"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Lire une carte, c'est comprendre des repères et un vocabulaire précis."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-carte-legende-territoire",
+                            "title": "Lire une carte et sa légende",
+                            "subtitle": "Repérer les informations importantes",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une carte représente un territoire. La légende explique les couleurs, les lignes et les symboles utilisés."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une ligne bleue peut représenter un fleuve et une étoile peut montrer la capitale."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "le titre",
+                                        "la légende",
+                                        "les symboles",
+                                        "les couleurs"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Je lis d'abord le titre et la légende pour comprendre une carte."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-geo-territoires",
+                            "title": "Territoires",
+                            "subtitle": "France, villes et espaces",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-france-regions",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-types-territoires",
+                            "title": "Types de territoires",
+                            "subtitle": "Ville, campagne, littoral et montagne",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-types-territoires",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-territoires-appariement",
+                            "title": "Territoires et caractéristiques",
+                            "subtitle": "Relie chaque territoire à ce qui le caractérise",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_geo_cm1",
+                                "dataFile": "data/geography_matching.json",
+                                "questions": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-geo-deplacements-subtheme",
+                    "title": "Se déplacer",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-deplacements",
+                            "title": "Se déplacer en France",
+                            "subtitle": "Routes, trains et trajets",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Se déplacer, c'est aller d'un lieu à un autre en choisissant un moyen de transport adapté au trajet."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Pour aller à l'école, on peut marcher, prendre le bus ou venir en voiture selon la distance et le temps disponible."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je pense à",
+                                    "items": [
+                                        "la distance",
+                                        "le moyen de transport",
+                                        "le temps du trajet",
+                                        "la sécurité"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Un trajet peut être rapide, long, simple ou difficile : le bon transport dépend de la situation."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-mobilites-france",
+                            "title": "Se déplacer en France",
+                            "subtitle": "Routes, trains et transports du quotidien",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Se déplacer, c'est aller d'un lieu à un autre en choisissant un moyen de transport adapté au trajet."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "On peut aller à pied dans son quartier, prendre le bus en ville ou le train pour un trajet plus long."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "les routes relient les villes et les villages",
+                                        "les trains servent aux déplacements plus longs",
+                                        "on ne se déplace pas de la même façon partout"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Les moyens de transport dépendent des distances, des lieux et des besoins des habitants."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-geo-deplacements",
+                            "title": "Se déplacer",
+                            "subtitle": "Routes, trains et villes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-se-deplacer",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-mobilites-france",
+                            "title": "Mobilités en France",
+                            "subtitle": "Trajets, gares et transports du quotidien",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-mobilites-france",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-deplacements-appariement",
+                            "title": "Moyens de transport et usages",
+                            "subtitle": "Relie chaque moyen de transport à son usage",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_geo_cm1",
+                                "dataFile": "data/geography_matching.json",
+                                "questions": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-geo-europe-subtheme",
+                    "title": "Se situer en Europe",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-france-europe",
+                            "title": "La France en Europe",
+                            "subtitle": "Pays voisins et continent",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La France est un pays qui appartient au continent européen. Elle a des frontières avec plusieurs pays voisins et des côtes sur des mers et un océan."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "L'Espagne, l'Allemagne, la Belgique, la Suisse et l'Italie sont des pays voisins de la France."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "la France est en Europe",
+                                        "l'Europe est un continent",
+                                        "la France a des pays voisins",
+                                        "une carte du monde montre les continents et les océans"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Se situer en Europe, c'est savoir que la France appartient à un continent et qu'elle a des voisins proches."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-geo-france-europe",
+                            "title": "La France en Europe",
+                            "subtitle": "Continent, pays voisins et repères",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-europe-monde",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-se-situer-monde",
+                            "title": "Se situer dans le monde",
+                            "subtitle": "Continents, océans et cartes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-europe-monde",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-europe-appariement",
+                            "title": "Reliefs, territoires et transports",
+                            "subtitle": "Relie chaque relief, territoire ou moyen de transport à sa caractéristique",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_geo_cm1",
+                                "dataFile": "data/geography_matching.json",
+                                "questions": 2
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "cm1-sciences-subject",
+            "title": "Sciences",
+            "icon": "📘",
+            "subthemes": [
+                {
+                    "id": "cm1-sciences-vivant-subtheme",
+                    "title": "Le vivant",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-vivant",
+                            "title": "Classer le vivant",
+                            "subtitle": "Animaux, plantes et milieux",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le vivant regroupe les êtres qui naissent, grandissent, se nourrissent, se reproduisent et meurent."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un arbre et un chat sont vivants, mais une pierre ne l'est pas. On classe le vivant selon des caractères communs."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je compare",
+                                    "items": [
+                                        "les besoins",
+                                        "le milieu de vie",
+                                        "les caractères communs",
+                                        "les ressemblances et différences"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour classer le vivant, je regarde les caractères communs, le milieu de vie et les besoins."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-vivant-non-vivant",
+                            "title": "Vivant ou non-vivant ?",
+                            "subtitle": "Comparer et classer",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un être vivant naît, grandit, se nourrit, se reproduit et meurt."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un arbre et un chat sont vivants, mais une pierre ne l'est pas."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je compare",
+                                    "items": [
+                                        "les besoins",
+                                        "le milieu de vie",
+                                        "les caract",
+                                        "è",
+                                        "res communs",
+                                        "les ressemblances et diff",
+                                        "é",
+                                        "rences"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour classer le vivant, je regarde les caractères communs, le milieu de vie et les besoins."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-chaine-alimentaire",
+                            "title": "La chaîne alimentaire",
+                            "subtitle": "Qui mange qui ?",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans la nature, les êtres vivants sont liés par l'alimentation. Une chaîne alimentaire montre qui mange qui."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "L'herbe est mangée par le lapin, puis le lapin peut être mangé par le renard."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "plante",
+                                        "herbivore",
+                                        "carnivore",
+                                        "chaîne alimentaire"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Les êtres vivants dépendent les uns des autres pour se nourrir."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-sciences-vivant",
+                            "title": "Le vivant",
+                            "subtitle": "Corps, plantes et animaux",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-vivant",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "params": {
+                                "questions": 10,
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-vivant",
+                                "type": "factual-qcm"
+                            },
+                            "title": "Classer le vivant",
+                            "engine": "choice-engine",
+                            "id": "cm1-sciences-classer-vivant",
+                            "subtitle": "Animaux, plantes et milieux"
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-sciences-matiere-subtheme",
+                    "title": "Matière et énergie",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-matiere-energie",
+                            "title": "Matière et énergie",
+                            "subtitle": "Eau, chaleur et objets",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La matière est ce qui compose les objets. L'énergie permet d'agir, de chauffer, d'éclairer ou de faire fonctionner."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "L'eau peut changer d'état quand on la chauffe ou quand on la refroidit : solide, liquide ou gazeux."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je repère",
+                                    "items": [
+                                        "ce qui est solide, liquide ou gazeux",
+                                        "ce qui chauffe ou refroidit",
+                                        "ce qui consomme de l'énergie",
+                                        "ce qui change d'état"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Observer aide à comprendre comment la matière change et comment l'énergie agit."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-sciences-matiere",
+                            "title": "Matière et énergie",
+                            "subtitle": "Eau, chaleur et objets",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-matiere-energie",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-sources-energie",
+                            "title": "Sources d'énergie",
+                            "subtitle": "Soleil, vent, piles et économies",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-sources-energie",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-transformations",
+                            "title": "Transformations simples",
+                            "subtitle": "Fondre, chauffer, refroidir",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-transformations-simples",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-energie-quotidien",
+                            "title": "Énergie au quotidien",
+                            "subtitle": "Électricité, piles et économies",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-energie-quotidien",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-eau-quotidien",
+                            "title": "L'eau au quotidien",
+                            "subtitle": "Boire, arroser, éviter le gaspillage",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-eau-quotidien",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "params": {
+                                "questions": 6,
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-objets-mesures",
+                                "type": "factual-qcm"
+                            },
+                            "title": "Objets et mesures",
+                            "engine": "choice-engine",
+                            "id": "cm1-sciences-objets-mesures",
+                            "subtitle": "Thermomètre, balance et règle"
+                        },
+                        {
+                            "id": "cm1-sciences-appariement",
+                            "title": "Énergies et organes",
+                            "subtitle": "Relie chaque source d'énergie ou organe à son rôle",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_sciences_cm1",
+                                "dataFile": "data/science_matching.json",
+                                "questions": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-sciences-corps-subtheme",
+                    "title": "Corps et hygiène",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-corps-hygiene",
+                            "title": "Prendre soin de son corps",
+                            "subtitle": "Hygiène et santé au quotidien",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Prendre soin de son corps aide à rester en bonne santé et à se sentir bien."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Se laver les mains avant de manger, dormir assez et manger varié sont des gestes utiles."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je fais attention à",
+                                    "items": [
+                                        "l'hygiène",
+                                        "le sommeil",
+                                        "l'alimentation",
+                                        "l'activité physique"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "De petites habitudes peuvent protéger la santé."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-cinq-sens",
+                            "title": "Les cinq sens",
+                            "subtitle": "Voir, entendre, toucher, goûter, sentir",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Les cinq sens nous aident à comprendre le monde autour de nous."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Je vois avec les yeux, j'entends avec les oreilles, je touche avec la peau, je goûte avec la langue et je sens avec le nez."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Sens et organes",
+                                    "items": [
+                                        "la vue : les yeux",
+                                        "l'ou",
+                                        "ï",
+                                        "e : les oreilles",
+                                        "le toucher : la peau",
+                                        "le go",
+                                        "û",
+                                        "t : la langue",
+                                        "l'odorat : le nez"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Chaque sens a un rôle précis pour nous aider à vivre."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-sciences-corps",
+                            "title": "Corps et hygiène",
+                            "subtitle": "Santé au quotidien",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-corps-hygiene",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "params": {
+                                "questions": 8,
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-corps-hygiene",
+                                "type": "factual-qcm"
+                            },
+                            "title": "Hygiène et santé",
+                            "engine": "choice-engine",
+                            "id": "cm1-sciences-hygiene-sante",
+                            "subtitle": "Habitudes utiles au quotidien"
+                        },
+                        {
+                            "params": {
+                                "questions": 8,
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-alimentation-corps",
+                                "type": "factual-qcm"
+                            },
+                            "title": "Alimentation et corps",
+                            "engine": "choice-engine",
+                            "id": "cm1-sciences-alimentation-corps",
+                            "subtitle": "Habitudes utiles à la santé"
+                        },
+                        {
+                            "id": "cm1-sciences-corps-appariement",
+                            "title": "Organes et fonctions du corps",
+                            "subtitle": "Relie chaque partie du corps à son organe principal",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_sciences_cm1",
+                                "dataFile": "data/science_matching.json",
+                                "questions": 2
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "cm1-emc-subject",
+            "title": "EMC",
+            "icon": "📘",
+            "subthemes": [
+                {
+                    "id": "cm1-emc-vivre-ensemble-subtheme",
+                    "title": "Vivre ensemble",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-vivre-ensemble",
+                            "title": "Vivre ensemble",
+                            "subtitle": "Respect et entraide",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Vivre ensemble, c'est respecter les autres, écouter les différences et trouver sa place dans le groupe."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "On écoute quand un camarade parle, on respecte la règle commune et on aide quand il en a besoin."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je peux",
+                                    "items": [
+                                        "saluer",
+                                        "écouter",
+                                        "aider",
+                                        "partager"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le respect rend la vie de classe plus simple et protège le bien commun."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-emc-vivre-ensemble",
+                            "title": "Vivre ensemble",
+                            "subtitle": "Respect et entraide",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-vivre-ensemble",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "params": {
+                                "questions": 10,
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-vivre-ensemble",
+                                "type": "factual-qcm"
+                            },
+                            "title": "Respecter chacun",
+                            "engine": "choice-engine",
+                            "id": "cm1-emc-respecter-chacun",
+                            "subtitle": "Dialogue, entraide, calme"
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-emc-droits-devoirs-subtheme",
+                    "title": "Droits et devoirs",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-droits-devoirs",
+                            "title": "Droits et devoirs",
+                            "subtitle": "Règles et responsabilités",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un droit protège une personne. Un devoir rappelle ce qu'elle doit faire pour vivre avec les autres."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "J'ai le droit d'apprendre, et le devoir de respecter les règles de classe et le matériel commun."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je réfléchis",
+                                    "items": [
+                                        "à ce que je peux faire",
+                                        "à ce que je dois faire",
+                                        "à ce qui protège le groupe",
+                                        "à ce qui aide chacun"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Droits et devoirs vont ensemble : les droits protègent, les devoirs organisent la vie commune."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-laicite-ecole",
+                            "title": "La laïcité à l'école",
+                            "subtitle": "Respecter chacun et la règle commune",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La laïcité permet à chacun d'avoir ses opinions ou ses croyances tout en respectant la règle commune."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "À l'école, on respecte toutes les personnes et on garde un cadre commun pour travailler ensemble."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je fais attention",
+                                    "items": [
+                                        "au respect",
+                                        "aux paroles de chacun",
+                                        "à la règle commune",
+                                        "au climat de confiance"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "La laïcité protège la liberté de chacun et la paix dans le groupe."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-emc-droits-devoirs",
+                            "title": "Droits et devoirs",
+                            "subtitle": "Règles et responsabilités",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-droits-devoirs",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "params": {
+                                "questions": 10,
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-droits-devoirs",
+                                "type": "factual-qcm"
+                            },
+                            "title": "Règles et justice",
+                            "engine": "choice-engine",
+                            "id": "cm1-emc-regles-justice",
+                            "subtitle": "Droits, devoirs, responsabilités"
+                        },
+                        {
+                            "id": "cm1-emc-appariement",
+                            "title": "Droits, institutions et valeurs",
+                            "subtitle": "Relie chaque concept à sa définition",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_emc_cm1",
+                                "dataFile": "data/emc_matching.json",
+                                "questions": 3
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-emc-citoyennete-subtheme",
+                    "title": "Citoyenneté",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-citoyennete",
+                            "title": "Décider ensemble",
+                            "subtitle": "Vote, avis et décisions communes",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Être citoyen, c'est participer à la vie du groupe, écouter les avis et respecter les décisions communes."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "En classe, on peut voter pour choisir un projet, puis respecter la décision de la majorité."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je fais attention à",
+                                    "items": [
+                                        "écouter les avis",
+                                        "voter honnêtement",
+                                        "accepter la décision",
+                                        "respecter la parole des autres"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Décider ensemble demande de parler, d'écouter et de respecter la règle commune."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-symboles-republique",
+                            "title": "Les symboles de la République",
+                            "subtitle": "Drapeau, devise, Marseillaise",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La République a des symboles communs qui rassemblent les citoyens."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le drapeau tricolore, la devise et l'hymne national sont des symboles de la République."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je reconnais",
+                                    "items": [
+                                        "le drapeau",
+                                        "la devise",
+                                        "l'hymne",
+                                        "les lieux officiels"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Les symboles rappellent l'histoire et les valeurs communes."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-laicite-republique",
+                            "title": "La laïcité",
+                            "subtitle": "Respecter les croyances de chacun",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La laïcité permet à chacun d'être respecté dans ses croyances ou ses opinions, dans le cadre des règles communes de la République."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "À l'école, tous les élèves apprennent ensemble et sont traités de la même manière."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "respect",
+                                        "égalité",
+                                        "liberté de conscience",
+                                        "règles communes"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "La laïcité protège la liberté de chacun et la vie commune."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-emc-citoyennete",
+                            "title": "Citoyenneté",
+                            "subtitle": "Vote et vie de classe",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-citoyennete",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "params": {
+                                "questions": 8,
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-citoyennete",
+                                "type": "factual-qcm"
+                            },
+                            "title": "Participer à la vie collective",
+                            "engine": "choice-engine",
+                            "id": "cm1-emc-vie-collective",
+                            "subtitle": "Vote, avis, décisions communes"
+                        },
+                        {
+                            "params": {
+                                "questions": 8,
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-debat-cooperation",
+                                "type": "factual-qcm"
+                            },
+                            "title": "Débat et coopération",
+                            "engine": "choice-engine",
+                            "id": "cm1-emc-debat-cooperation",
+                            "subtitle": "Écouter, argumenter, agir ensemble"
+                        },
+                        {
+                            "id": "cm1-emc-parole-citoyenne",
+                            "title": "Parole citoyenne",
+                            "subtitle": "Débattre, voter, expliquer",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-parole-citoyenne",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "params": {
+                                "questions": 6,
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-engagement-classe",
+                                "type": "factual-qcm"
+                            },
+                            "title": "Engagement dans la classe",
+                            "engine": "choice-engine",
+                            "id": "cm1-emc-engagement-classe",
+                            "subtitle": "Rôles, projets et responsabilités"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
