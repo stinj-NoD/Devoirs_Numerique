@@ -62,7 +62,7 @@ Il ne gère pas encore :
 
 ## Migration recommandée
 
-1. conserver [storage.js](d:/Apps%20Dev/Devoirs_Numerique/js/storage.js) compatible avec les profils existants
+1. conserver [storage.js](js/storage.js) compatible avec les profils existants
 2. ajouter un journal léger `attempts[]`
 3. ajouter un journal léger `lessonViews[]`
 4. dériver ensuite une couche `progress`

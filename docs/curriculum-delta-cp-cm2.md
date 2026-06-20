@@ -94,8 +94,8 @@ Priorités transverses :
 
 ## Documents liés
 
-- [curriculum-audit-cp.md](d:/Apps%20Dev/Devoirs_Numerique/docs/curriculum-audit-cp.md)
-- [curriculum-audit-ce1.md](d:/Apps%20Dev/Devoirs_Numerique/docs/curriculum-audit-ce1.md)
-- [curriculum-audit-ce2.md](d:/Apps%20Dev/Devoirs_Numerique/docs/curriculum-audit-ce2.md)
-- [curriculum-audit-cm1.md](d:/Apps%20Dev/Devoirs_Numerique/docs/curriculum-audit-cm1.md)
-- [curriculum-audit-cm2.md](d:/Apps%20Dev/Devoirs_Numerique/docs/curriculum-audit-cm2.md)
+- [curriculum-audit-cp.md](docs/curriculum-audit-cp.md)
+- [curriculum-audit-ce1.md](docs/curriculum-audit-ce1.md)
+- [curriculum-audit-ce2.md](docs/curriculum-audit-ce2.md)
+- [curriculum-audit-cm1.md](docs/curriculum-audit-cm1.md)
+- [curriculum-audit-cm2.md](docs/curriculum-audit-cm2.md)

@@ -3,8 +3,8 @@
 ## Périmètre
 
 Le dépôt est fortement data-driven. Une contribution peut toucher :
-- les contenus [data/*.json](d:/Apps%20Dev/Devoirs_Numerique/data)
-- les bibliothèques [data/french/*.json](d:/Apps%20Dev/Devoirs_Numerique/data/french)
+- les contenus [data/*.json](data)
+- les bibliothèques [data/french/*.json](data/french)
 - l'UI
 - les moteurs
 - les validateurs
@@ -18,8 +18,8 @@ Le dépôt est fortement data-driven. Une contribution peut toucher :
 - ne pas introduire de `?` parasites, mojibake, `\uXXXX` inutiles ou apostrophes dégradées dans les contenus visibles
 - ne pas changer un contrat `engine + params` sans mettre à jour les validateurs
 - ne pas modifier la structure `lessons[]` sans mettre à jour :
-  - [validators.js](d:/Apps%20Dev/Devoirs_Numerique/js/validators.js)
-  - [validate-data.ps1](d:/Apps%20Dev/Devoirs_Numerique/scripts/validate-data.ps1)
+  - [validators.js](js/validators.js)
+  - [validate-data.ps1](scripts/validate-data.ps1)
 
 ## Règles sur les leçons
 
@@ -30,14 +30,14 @@ Une leçon doit :
 - utiliser un français correct et accentué
 
 Référence éditoriale :
-- [lesson-guidelines.md](d:/Apps%20Dev/Devoirs_Numerique/docs/lesson-guidelines.md)
+- [lesson-guidelines.md](docs/lesson-guidelines.md)
 
 ## Workflow obligatoire
 
 Après tout changement dans `data/` ou `js/validators.js` :
 
-1. lancer [validate-data.ps1](d:/Apps%20Dev/Devoirs_Numerique/scripts/validate-data.ps1)
-2. régénérer [data-bundle.js](d:/Apps%20Dev/Devoirs_Numerique/js/data-bundle.js)
+1. lancer [validate-data.ps1](scripts/validate-data.ps1)
+2. régénérer [data-bundle.js](js/data-bundle.js)
 3. vérifier au minimum :
    - une leçon
    - un exercice maths
@@ -86,10 +86,10 @@ Blocs supportés :
 ## Contributions docs
 
 Toute évolution importante doit être répercutée dans la doc concernée :
-- [README.md](d:/Apps%20Dev/Devoirs_Numerique/README.md)
-- [technicalaspect.md](d:/Apps%20Dev/Devoirs_Numerique/technicalaspect.md)
-- [SECURITY.md](d:/Apps%20Dev/Devoirs_Numerique/SECURITY.md)
-- [curriculum-delta-cp-cm2.md](d:/Apps%20Dev/Devoirs_Numerique/docs/curriculum-delta-cp-cm2.md)
+- [README.md](README.md)
+- [technicalaspect.md](technicalaspect.md)
+- [SECURITY.md](SECURITY.md)
+- [curriculum-delta-cp-cm2.md](docs/curriculum-delta-cp-cm2.md)
 
 ## Priorités qualité actuelles
 

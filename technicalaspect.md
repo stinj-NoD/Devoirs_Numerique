@@ -15,26 +15,26 @@ Principes structurants :
 
 ## 2. Structure du projet
 
-- [index.html](d:/Apps%20Dev/Devoirs_Numerique/index.html)
-- [css/app.css](d:/Apps%20Dev/Devoirs_Numerique/css/app.css)
-- [js/app.js](d:/Apps%20Dev/Devoirs_Numerique/js/app.js)
-- [js/ui.js](d:/Apps%20Dev/Devoirs_Numerique/js/ui.js)
-- [js/ui-keyboards.js](d:/Apps%20Dev/Devoirs_Numerique/js/ui-keyboards.js)
-- [js/ui-visuals.js](d:/Apps%20Dev/Devoirs_Numerique/js/ui-visuals.js)
-- [js/ui-documentary.js](d:/Apps%20Dev/Devoirs_Numerique/js/ui-documentary.js)
-- [js/engines.js](d:/Apps%20Dev/Devoirs_Numerique/js/engines.js)
-- [js/engines-core.js](d:/Apps%20Dev/Devoirs_Numerique/js/engines-core.js)
-- [js/engines-math.js](d:/Apps%20Dev/Devoirs_Numerique/js/engines-math.js)
-- [js/engines-french.js](d:/Apps%20Dev/Devoirs_Numerique/js/engines-french.js)
-- [js/engines-documentary.js](d:/Apps%20Dev/Devoirs_Numerique/js/engines-documentary.js)
-- [js/storage.js](d:/Apps%20Dev/Devoirs_Numerique/js/storage.js)
-- [js/validators.js](d:/Apps%20Dev/Devoirs_Numerique/js/validators.js)
-- [js/data-bundle.js](d:/Apps%20Dev/Devoirs_Numerique/js/data-bundle.js)
-- [data/](d:/Apps%20Dev/Devoirs_Numerique/data)
-- [data/french/](d:/Apps%20Dev/Devoirs_Numerique/data/french)
-- [scripts/validate-data.ps1](d:/Apps%20Dev/Devoirs_Numerique/scripts/validate-data.ps1)
-- [scripts/regenerate-data-bundle.ps1](d:/Apps%20Dev/Devoirs_Numerique/scripts/regenerate-data-bundle.ps1)
-- [sw.js](d:/Apps%20Dev/Devoirs_Numerique/sw.js)
+- [index.html](index.html)
+- [css/app.css](css/app.css)
+- [js/app.js](js/app.js)
+- [js/ui.js](js/ui.js)
+- [js/ui-keyboards.js](js/ui-keyboards.js)
+- [js/ui-visuals.js](js/ui-visuals.js)
+- [js/ui-documentary.js](js/ui-documentary.js)
+- [js/engines.js](js/engines.js)
+- [js/engines-core.js](js/engines-core.js)
+- [js/engines-math.js](js/engines-math.js)
+- [js/engines-french.js](js/engines-french.js)
+- [js/engines-documentary.js](js/engines-documentary.js)
+- [js/storage.js](js/storage.js)
+- [js/validators.js](js/validators.js)
+- [js/data-bundle.js](js/data-bundle.js)
+- [data/](data)
+- [data/french/](data/french)
+- [scripts/validate-data.ps1](scripts/validate-data.ps1)
+- [scripts/regenerate-data-bundle.ps1](scripts/regenerate-data-bundle.ps1)
+- [sw.js](sw.js)
 
 ## 3. Responsabilités des modules
 
@@ -154,9 +154,9 @@ Le mode `J'apprends` s'appuie sur une bibliothèque globale par niveau. Le mode 
 Deux couches doivent rester synchronisées :
 
 - validation frontend :
-  - [validators.js](d:/Apps%20Dev/Devoirs_Numerique/js/validators.js)
+  - [validators.js](js/validators.js)
 - validation hors runtime :
-  - [validate-data.ps1](d:/Apps%20Dev/Devoirs_Numerique/scripts/validate-data.ps1)
+  - [validate-data.ps1](scripts/validate-data.ps1)
 
 Règle absolue :
 - aucun changement de contrat JSON sans mise à jour des deux validateurs
@@ -164,7 +164,7 @@ Règle absolue :
 ## 7. Bundle et offline
 
 Le projet embarque un bundle local :
-- [data-bundle.js](d:/Apps%20Dev/Devoirs_Numerique/js/data-bundle.js)
+- [data-bundle.js](js/data-bundle.js)
 
 Il sert :
 - de fallback de chargement

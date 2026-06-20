@@ -274,8 +274,8 @@
         if (!this.isPlainObject(theme)) {
             return { valid: false, reason: `Fichier de niveau invalide : un ${label} n'est pas un objet.` };
         }
-        if (!this.isNonEmptyString(theme.id) || !this.isNonEmptyString(theme.title) || !Array.isArray(theme.exercises) || theme.exercises.length === 0) {
-            return { valid: false, reason: `Fichier de niveau invalide : ${label} incomplet (${theme?.id || 'id manquant'}).` };
+        if (!this.isNonEmptyString(theme.id) || !this.isSafeLessonText(theme.title) || !Array.isArray(theme.exercises) || theme.exercises.length === 0) {
+            return { valid: false, reason: `Fichier de niveau invalide : ${label} incomplet ou titre non sûr (${theme?.id || 'id manquant'}).` };
         }
         return { valid: true };
     },
@@ -288,8 +288,8 @@
         const hasExercises = Array.isArray(subtheme.exercises) && subtheme.exercises.length > 0;
         const hasLessons = Array.isArray(subtheme.lessons) && subtheme.lessons.length > 0;
 
-        if (!this.isNonEmptyString(subtheme.id) || !this.isNonEmptyString(subtheme.title)) {
-            return { valid: false, reason: `Fichier de niveau invalide : sous-thème incomplet (${subtheme?.id || 'id manquant'}).` };
+        if (!this.isNonEmptyString(subtheme.id) || !this.isSafeLessonText(subtheme.title)) {
+            return { valid: false, reason: `Fichier de niveau invalide : sous-thème incomplet ou titre non sûr (${subtheme?.id || 'id manquant'}).` };
         }
 
         if (!hasExercises && !hasLessons) {
@@ -377,8 +377,11 @@
         if (!this.isPlainObject(exercise)) {
             return { valid: false, reason: 'exercice absent ou mal formé.' };
         }
-        if (!this.isNonEmptyString(exercise.id) || !this.isNonEmptyString(exercise.title)) {
-            return { valid: false, reason: 'id/title manquants.' };
+        if (!this.isNonEmptyString(exercise.id) || !this.isSafeLessonText(exercise.title)) {
+            return { valid: false, reason: 'id/title manquants ou titre non sûr.' };
+        }
+        if (exercise.subtitle !== undefined && !this.isSafeLessonText(exercise.subtitle)) {
+            return { valid: false, reason: 'subtitle non sûr.' };
         }
         if (!this.isNonEmptyString(exercise.engine)) {
             return { valid: false, reason: 'engine manquant.' };
@@ -477,15 +480,18 @@
 
         const invalidItem = pool.find((item) =>
             !this.isPlainObject(item) ||
-            !this.isNonEmptyString(item.question) ||
+            !this.isSafeLessonText(item.question) ||
             !Array.isArray(item.choices) ||
             item.choices.length < 2 ||
+            !item.choices.every((choice) => this.isSafeLessonText(choice)) ||
             !this.isNonEmptyString(item.answer) ||
-            !item.choices.includes(item.answer)
+            !item.choices.includes(item.answer) ||
+            (item.context !== undefined && !this.isSafeLessonText(item.context)) ||
+            (item.explanation !== undefined && !this.isSafeLessonText(item.explanation))
         );
 
         if (invalidItem) {
-            return { valid: false, reason: `question documentaire invalide dans ${exercise.params.category}.` };
+            return { valid: false, reason: `question documentaire invalide ou non sûre dans ${exercise.params.category}.` };
         }
 
         return { valid: true };
@@ -560,18 +566,20 @@
 
         const invalidItem = pool.find((item) =>
             !this.isPlainObject(item) ||
+            (item.title !== undefined && !this.isSafeLessonText(item.title)) ||
+            (item.explanation !== undefined && !this.isSafeLessonText(item.explanation)) ||
             !Array.isArray(item.pairs) ||
             item.pairs.length < 2 ||
             item.pairs.some((pair) =>
                 !Array.isArray(pair) ||
                 pair.length !== 2 ||
-                !this.isNonEmptyString(pair[0]) ||
-                !this.isNonEmptyString(pair[1])
+                !this.isSafeLessonText(pair[0]) ||
+                !this.isSafeLessonText(pair[1])
             )
         );
 
         if (invalidItem) {
-            return { valid: false, reason: `appariement invalide dans ${exercise.params.category}.` };
+            return { valid: false, reason: `appariement invalide ou non sûr dans ${exercise.params.category}.` };
         }
 
         return { valid: true };
@@ -589,8 +597,10 @@
 
         const invalidItem = pool.find((item) =>
             !this.isPlainObject(item) ||
-            !this.isNonEmptyString(item.sentence) ||
-            item.sentence.trim().split(/\s+/).length < 3
+            !this.isSafeLessonText(item.sentence) ||
+            item.sentence.trim().split(/\s+/).length < 3 ||
+            (item.instruction !== undefined && !this.isSafeLessonText(item.instruction)) ||
+            (item.explanation !== undefined && !this.isSafeLessonText(item.explanation))
         );
 
         if (invalidItem) {

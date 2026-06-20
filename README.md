@@ -22,45 +22,45 @@ Le projet vise maintenant moins l'ajout brut de contenu que l'alignement pédago
 ## Fonctionnement
 
 L'application charge :
-- [data/index.json](d:/Apps%20Dev/Devoirs_Numerique/data/index.json)
+- [data/index.json](data/index.json)
 - un fichier de niveau par classe :
-  - [cp.json](d:/Apps%20Dev/Devoirs_Numerique/data/cp.json)
-  - [ce1.json](d:/Apps%20Dev/Devoirs_Numerique/data/ce1.json)
-  - [ce2.json](d:/Apps%20Dev/Devoirs_Numerique/data/ce2.json)
-  - [cm1.json](d:/Apps%20Dev/Devoirs_Numerique/data/cm1.json)
-  - [cm2.json](d:/Apps%20Dev/Devoirs_Numerique/data/cm2.json)
+  - [cp.json](data/cp.json)
+  - [ce1.json](data/ce1.json)
+  - [ce2.json](data/ce2.json)
+  - [cm1.json](data/cm1.json)
+  - [cm2.json](data/cm2.json)
 - une bibliothèque de langue modulaire :
-  - [spelling.json](d:/Apps%20Dev/Devoirs_Numerique/data/french/spelling.json)
-  - [conjugation.json](d:/Apps%20Dev/Devoirs_Numerique/data/french/conjugation.json)
-  - [homophones.json](d:/Apps%20Dev/Devoirs_Numerique/data/french/homophones.json)
-  - [grammar.json](d:/Apps%20Dev/Devoirs_Numerique/data/french/grammar.json)
-  - [reading.json](d:/Apps%20Dev/Devoirs_Numerique/data/french/reading.json)
+  - [spelling.json](data/french/spelling.json)
+  - [conjugation.json](data/french/conjugation.json)
+  - [homophones.json](data/french/homophones.json)
+  - [grammar.json](data/french/grammar.json)
+  - [reading.json](data/french/reading.json)
 
 Elle gère :
 - profils locaux
 - scores et étoiles
 - progression simple par exercice
 - mode offline via service worker
-- fallback données via [data-bundle.js](d:/Apps%20Dev/Devoirs_Numerique/js/data-bundle.js)
+- fallback données via [data-bundle.js](js/data-bundle.js)
 
 ## Architecture
 
 Fichiers principaux :
-- [index.html](d:/Apps%20Dev/Devoirs_Numerique/index.html) : shell SPA
-- [app.css](d:/Apps%20Dev/Devoirs_Numerique/css/app.css) : styles globaux
-- [app.js](d:/Apps%20Dev/Devoirs_Numerique/js/app.js) : orchestration, navigation, runtime
-- [ui.js](d:/Apps%20Dev/Devoirs_Numerique/js/ui.js) : rendu UI et cartes
-- [ui-keyboards.js](d:/Apps%20Dev/Devoirs_Numerique/js/ui-keyboards.js) : claviers virtuels
-- [ui-visuals.js](d:/Apps%20Dev/Devoirs_Numerique/js/ui-visuals.js) : rendu visuel maths
-- [ui-documentary.js](d:/Apps%20Dev/Devoirs_Numerique/js/ui-documentary.js) : rendu documentaire et frises
-- [engines.js](d:/Apps%20Dev/Devoirs_Numerique/js/engines.js) : point d'entrée des moteurs
-- [engines-math.js](d:/Apps%20Dev/Devoirs_Numerique/js/engines-math.js)
-- [engines-french.js](d:/Apps%20Dev/Devoirs_Numerique/js/engines-french.js)
-- [engines-documentary.js](d:/Apps%20Dev/Devoirs_Numerique/js/engines-documentary.js)
-- [storage.js](d:/Apps%20Dev/Devoirs_Numerique/js/storage.js) : profils et records
-- [validators.js](d:/Apps%20Dev/Devoirs_Numerique/js/validators.js) : validation runtime
-- [validate-data.ps1](d:/Apps%20Dev/Devoirs_Numerique/scripts/validate-data.ps1) : validation hors runtime
-- [sw.js](d:/Apps%20Dev/Devoirs_Numerique/sw.js) : cache offline/PWA
+- [index.html](index.html) : shell SPA
+- [app.css](css/app.css) : styles globaux
+- [app.js](js/app.js) : orchestration, navigation, runtime
+- [ui.js](js/ui.js) : rendu UI et cartes
+- [ui-keyboards.js](js/ui-keyboards.js) : claviers virtuels
+- [ui-visuals.js](js/ui-visuals.js) : rendu visuel maths
+- [ui-documentary.js](js/ui-documentary.js) : rendu documentaire et frises
+- [engines.js](js/engines.js) : point d'entrée des moteurs
+- [engines-math.js](js/engines-math.js)
+- [engines-french.js](js/engines-french.js)
+- [engines-documentary.js](js/engines-documentary.js)
+- [storage.js](js/storage.js) : profils et records
+- [validators.js](js/validators.js) : validation runtime
+- [validate-data.ps1](scripts/validate-data.ps1) : validation hors runtime
+- [sw.js](sw.js) : cache offline/PWA
 
 ## Structure des niveaux
 
@@ -109,19 +109,19 @@ Le flux de résultats permet aussi un retour vers la ou les leçons du sous-thè
 
 ## Documentation utile
 
-- [technicalaspect.md](d:/Apps%20Dev/Devoirs_Numerique/technicalaspect.md) : référence technique
-- [SECURITY.md](d:/Apps%20Dev/Devoirs_Numerique/SECURITY.md) : sécurité et robustesse
-- [CONTRIBUTING.md](d:/Apps%20Dev/Devoirs_Numerique/CONTRIBUTING.md) : règles de contribution
-- [lesson-guidelines.md](d:/Apps%20Dev/Devoirs_Numerique/docs/lesson-guidelines.md) : règles éditoriales des leçons
-- [curriculum-delta-cp-cm2.md](d:/Apps%20Dev/Devoirs_Numerique/docs/curriculum-delta-cp-cm2.md) : delta programme vs application
-- [content-production-backlog.md](d:/Apps%20Dev/Devoirs_Numerique/docs/content-production-backlog.md) : historique et backlog de production
+- [technicalaspect.md](technicalaspect.md) : référence technique
+- [SECURITY.md](SECURITY.md) : sécurité et robustesse
+- [CONTRIBUTING.md](CONTRIBUTING.md) : règles de contribution
+- [lesson-guidelines.md](docs/lesson-guidelines.md) : règles éditoriales des leçons
+- [curriculum-delta-cp-cm2.md](docs/curriculum-delta-cp-cm2.md) : delta programme vs application
+- [content-production-backlog.md](docs/content-production-backlog.md) : historique et backlog de production
 
 ## Workflow minimal
 
 Après toute modification de `data/` :
 
-1. lancer [validate-data.ps1](d:/Apps%20Dev/Devoirs_Numerique/scripts/validate-data.ps1)
-2. régénérer [data-bundle.js](d:/Apps%20Dev/Devoirs_Numerique/js/data-bundle.js)
+1. lancer [validate-data.ps1](scripts/validate-data.ps1)
+2. régénérer [data-bundle.js](js/data-bundle.js)
 3. vérifier au moins :
    - une leçon
    - un exercice maths

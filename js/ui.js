@@ -183,10 +183,12 @@ const UI = {
     },
 
     buildCardContent(title, subtitle = "") {
+        const safeTitle = this._escapeText(title || 'Exercice');
+        const safeSubtitle = subtitle ? this._escapeText(subtitle) : '';
         return `
             <div class="card-content">
-                <span class="card-title">${title || 'Exercice'}</span>
-                ${subtitle ? `<span class="card-subtitle">${subtitle}</span>` : ''}
+                <span class="card-title">${safeTitle}</span>
+                ${safeSubtitle ? `<span class="card-subtitle">${safeSubtitle}</span>` : ''}
             </div>
         `;
     },
@@ -245,9 +247,11 @@ const UI = {
             if (item?.kind === 'section') {
                 const section = document.createElement('div');
                 section.className = 'menu-section';
+                const safeSectionTitle = this._escapeText(item.title || 'Section');
+                const safeSectionSubtitle = item.subtitle ? this._escapeText(item.subtitle) : '';
                 section.innerHTML = `
-                    <div class="menu-section-title">${item.title || 'Section'}</div>
-                    ${item.subtitle ? `<div class="menu-section-subtitle">${item.subtitle}</div>` : ''}
+                    <div class="menu-section-title">${safeSectionTitle}</div>
+                    ${safeSectionSubtitle ? `<div class="menu-section-subtitle">${safeSectionSubtitle}</div>` : ''}
                 `;
                 container.appendChild(section);
                 return;
@@ -402,12 +406,15 @@ const UI = {
             const card = document.createElement('button');
             card.type = 'button';
             card.className = `mode-card mode-card--${item.mode || 'default'}`;
+            const safeModeTitle = this._escapeText(item.title || 'Parcours');
+            const safeModeSubtitle = item.subtitle ? this._escapeText(item.subtitle) : '';
+            const safeModeHelper = item.helper ? this._escapeText(item.helper) : '';
             card.innerHTML = `
                 <span class="mode-card-icon">${this.safeIcon(item.icon, '📘')}</span>
                 <span class="mode-card-body">
-                    <span class="mode-card-title">${item.title || 'Parcours'}</span>
-                    ${item.subtitle ? `<span class="mode-card-subtitle">${item.subtitle}</span>` : ''}
-                    ${item.helper ? `<span class="mode-card-helper">${item.helper}</span>` : ''}
+                    <span class="mode-card-title">${safeModeTitle}</span>
+                    ${safeModeSubtitle ? `<span class="mode-card-subtitle">${safeModeSubtitle}</span>` : ''}
+                    ${safeModeHelper ? `<span class="mode-card-helper">${safeModeHelper}</span>` : ''}
                 </span>
                 <span class="mode-card-arrow">→</span>
             `;
@@ -426,8 +433,8 @@ const UI = {
         const safeLessons = Array.isArray(context?.lessons) ? context.lessons : [];
         const blocksHtml = safeBlocks.map((block) => this.renderLessonBlock(block)).join('');
         const exerciseCount = Number.isFinite(context?.exerciseCount) ? context.exerciseCount : 0;
-        const themeTitle = context?.themeTitle || '';
-        const subjectTitle = context?.subjectTitle || '';
+        const themeTitle = this._escapeText(context?.themeTitle || '');
+        const subjectTitle = this._escapeText(context?.subjectTitle || '');
         const blockCount = safeBlocks.length;
         const chips = [
             themeTitle ? `<span class="lesson-chip">${themeTitle}</span>` : '',
@@ -435,9 +442,9 @@ const UI = {
             blockCount > 0 ? `<span class="lesson-chip">${blockCount} repère${blockCount > 1 ? 's' : ''}</span>` : '',
             exerciseCount > 0 ? `<span class="lesson-chip lesson-chip--accent">${exerciseCount} exercice${exerciseCount > 1 ? 's' : ''}</span>` : ''
         ].filter(Boolean).join('');
-        const summaryText = context?.summaryText || (exerciseCount > 0
+        const summaryText = this._escapeText(context?.summaryText || (exerciseCount > 0
             ? `Lis la notion, observe les exemples, puis enchaîne sur ${exerciseCount} exercice${exerciseCount > 1 ? 's' : ''}.`
-            : `Lis la notion puis reviens au sous-thème pour continuer.`);
+            : `Lis la notion puis reviens au sous-thème pour continuer.`));
         const outlineHtml = safeLessons.length > 1 ? `
             <section class="lesson-outline">
                 <div class="lesson-outline-head">
@@ -449,12 +456,12 @@ const UI = {
                         <button
                             type="button"
                             class="lesson-outline-item${item.id === lesson?.id ? ' is-active' : ''}"
-                            data-lesson-id="${item.id}"
+                            data-lesson-id="${this._escapeText(item.id)}"
                         >
                             <span class="lesson-outline-index">${index + 1}</span>
                             <span class="lesson-outline-content">
-                                <span class="lesson-outline-title">${item.title || 'Leçon'}</span>
-                                ${item.subtitle ? `<span class="lesson-outline-subtitle">${item.subtitle}</span>` : ''}
+                                <span class="lesson-outline-title">${this._escapeText(item.title || 'Leçon')}</span>
+                                ${item.subtitle ? `<span class="lesson-outline-subtitle">${this._escapeText(item.subtitle)}</span>` : ''}
                             </span>
                         </button>
                     `).join('')}
@@ -466,8 +473,8 @@ const UI = {
             <article class="lesson-card">
                 <header class="lesson-card-header">
                     <div class="lesson-eyebrow">Leçon</div>
-                    <h3 class="lesson-card-title">${lesson?.title || 'Leçon'}</h3>
-                    ${lesson?.subtitle ? `<p class="lesson-card-subtitle">${lesson.subtitle}</p>` : ''}
+                    <h3 class="lesson-card-title">${this._escapeText(lesson?.title || 'Leçon')}</h3>
+                    ${lesson?.subtitle ? `<p class="lesson-card-subtitle">${this._escapeText(lesson.subtitle)}</p>` : ''}
                     ${chips ? `<div class="lesson-chips">${chips}</div>` : ''}
                 </header>
                 ${outlineHtml}

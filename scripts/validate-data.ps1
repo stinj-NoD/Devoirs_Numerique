@@ -98,9 +98,12 @@ function Validate-Exercise($path, $themeId, $exercise) {
         Add-Issue("${path}: exercice invalide dans $themeId")
         return
     }
-    if (-not (Is-NonEmptyString $exercise.id) -or -not (Is-NonEmptyString $exercise.title)) {
-        Add-Issue("${path}: exercice incomplet dans $themeId")
+    if (-not (Is-NonEmptyString $exercise.id) -or -not (Is-SafeLessonText $exercise.title)) {
+        Add-Issue("${path}: exercice incomplet ou titre non sur dans $themeId")
         return
+    }
+    if ($null -ne $exercise.subtitle -and -not (Is-SafeLessonText $exercise.subtitle)) {
+        Add-Issue("${path}: subtitle non sur pour $($exercise.id)")
     }
     if (-not (Is-NonEmptyString $exercise.engine) -or $exercise.engine -notin $knownEngines) {
         Add-Issue("${path}: engine invalide pour $($exercise.id) ($($exercise.engine))")
@@ -264,8 +267,8 @@ function Validate-GradeData($path, $data) {
                 Add-Issue("${path}: thÃƒÂ¨me invalide")
                 continue
             }
-            if (-not (Is-NonEmptyString $theme.id) -or -not (Is-NonEmptyString $theme.title) -or -not ($theme.exercises -is [System.Collections.IList]) -or $theme.exercises.Count -eq 0) {
-                Add-Issue("${path}: thÃƒÂ¨me incomplet ($($theme.id))")
+            if (-not (Is-NonEmptyString $theme.id) -or -not (Is-SafeLessonText $theme.title) -or -not ($theme.exercises -is [System.Collections.IList]) -or $theme.exercises.Count -eq 0) {
+                Add-Issue("${path}: theme incomplet ou titre non sur ($($theme.id))")
                 continue
             }
             if ($themeIds.ContainsKey($theme.id)) {
@@ -292,8 +295,8 @@ function Validate-GradeData($path, $data) {
                 Add-Issue("${path}: matiÃƒÂ¨re invalide")
                 continue
             }
-            if (-not (Is-NonEmptyString $subject.id) -or -not (Is-NonEmptyString $subject.title) -or -not ($subject.subthemes -is [System.Collections.IList]) -or $subject.subthemes.Count -eq 0) {
-                Add-Issue("${path}: matiÃƒÂ¨re incomplÃƒÂ¨te ($($subject.id))")
+            if (-not (Is-NonEmptyString $subject.id) -or -not (Is-SafeLessonText $subject.title) -or -not ($subject.subthemes -is [System.Collections.IList]) -or $subject.subthemes.Count -eq 0) {
+                Add-Issue("${path}: matiere incomplete ou titre non sur ($($subject.id))")
                 continue
             }
             if ($subjectIds.ContainsKey($subject.id)) {
@@ -309,8 +312,8 @@ function Validate-GradeData($path, $data) {
                 }
                 $hasExercises = ($subtheme.exercises -is [System.Collections.IList]) -and $subtheme.exercises.Count -gt 0
                 $hasLessons = ($subtheme.lessons -is [System.Collections.IList]) -and $subtheme.lessons.Count -gt 0
-                if (-not (Is-NonEmptyString $subtheme.id) -or -not (Is-NonEmptyString $subtheme.title) -or (-not $hasExercises -and -not $hasLessons)) {
-                    Add-Issue("${path}: sous-theme incomplet ($($subtheme.id))")
+                if (-not (Is-NonEmptyString $subtheme.id) -or -not (Is-SafeLessonText $subtheme.title) -or (-not $hasExercises -and -not $hasLessons)) {
+                    Add-Issue("${path}: sous-theme incomplet ou titre non sur ($($subtheme.id))")
                     continue
                 }
                 if ($subthemeIds.ContainsKey($subtheme.id)) {
@@ -455,17 +458,70 @@ function Validate-FrenchLibrarySection($path, $sectionName, $data) {
 
 function Validate-FactualDataset($ref, $dataSet) {
     if (-not (Is-PlainObject $dataSet.categories)) {
-        Add-Issue("$($ref.DataFile): categories absentes (rÃƒÂ©f. $($ref.ExerciseId))")
+        Add-Issue("$($ref.DataFile): categories absentes (ref. $($ref.ExerciseId))")
         return
     }
     $pool = $dataSet.categories.$($ref.Category)
     if (-not ($pool -is [System.Collections.IList]) -or $pool.Count -eq 0) {
-        Add-Issue("$($ref.DataFile): catÃƒÂ©gorie introuvable ($($ref.Category))")
+        Add-Issue("$($ref.DataFile): categorie introuvable ($($ref.Category))")
         return
     }
     foreach ($item in $pool) {
-        if (-not (Is-PlainObject $item) -or -not (Is-NonEmptyString $item.question) -or -not ($item.choices -is [System.Collections.IList]) -or $item.choices.Count -lt 2 -or -not (Is-NonEmptyString $item.answer) -or $item.answer -notin $item.choices) {
-            Add-Issue("$($ref.DataFile): question documentaire invalide dans $($ref.Category)")
+        $choicesSafe = ($item.choices -is [System.Collections.IList]) -and $item.choices.Count -ge 2 -and (@($item.choices) | Where-Object { -not (Is-SafeLessonText $_) }).Count -eq 0
+        $contextSafe = ($null -eq $item.context) -or (Is-SafeLessonText $item.context)
+        $explanationSafe = ($null -eq $item.explanation) -or (Is-SafeLessonText $item.explanation)
+        if (-not (Is-PlainObject $item) -or -not (Is-SafeLessonText $item.question) -or -not $choicesSafe -or -not (Is-NonEmptyString $item.answer) -or $item.answer -notin $item.choices -or -not $contextSafe -or -not $explanationSafe) {
+            Add-Issue("$($ref.DataFile): question documentaire invalide ou non sure dans $($ref.Category)")
+            break
+        }
+    }
+}
+
+function Validate-MatchingDataset($ref, $dataSet) {
+    if (-not (Is-PlainObject $dataSet.categories)) {
+        Add-Issue("$($ref.DataFile): categories absentes (ref. $($ref.ExerciseId))")
+        return
+    }
+    $pool = $dataSet.categories.$($ref.Category)
+    if (-not ($pool -is [System.Collections.IList]) -or $pool.Count -eq 0) {
+        Add-Issue("$($ref.DataFile): categorie d'appariement introuvable ($($ref.Category))")
+        return
+    }
+    foreach ($item in $pool) {
+        $titleSafe = ($null -eq $item.title) -or (Is-SafeLessonText $item.title)
+        $explanationSafe = ($null -eq $item.explanation) -or (Is-SafeLessonText $item.explanation)
+        $pairsValid = ($item.pairs -is [System.Collections.IList]) -and $item.pairs.Count -ge 2
+        if ($pairsValid) {
+            foreach ($pair in $item.pairs) {
+                if (-not ($pair -is [System.Collections.IList]) -or $pair.Count -ne 2 -or -not (Is-SafeLessonText $pair[0]) -or -not (Is-SafeLessonText $pair[1])) {
+                    $pairsValid = $false
+                    break
+                }
+            }
+        }
+        if (-not (Is-PlainObject $item) -or -not $titleSafe -or -not $explanationSafe -or -not $pairsValid) {
+            Add-Issue("$($ref.DataFile): appariement invalide ou non sur dans $($ref.Category)")
+            break
+        }
+    }
+}
+
+function Validate-WordOrderDataset($ref, $dataSet) {
+    if (-not (Is-PlainObject $dataSet.categories)) {
+        Add-Issue("$($ref.DataFile): categories absentes (ref. $($ref.ExerciseId))")
+        return
+    }
+    $pool = $dataSet.categories.$($ref.Category)
+    if (-not ($pool -is [System.Collections.IList]) -or $pool.Count -eq 0) {
+        Add-Issue("$($ref.DataFile): categorie de remise en ordre introuvable ($($ref.Category))")
+        return
+    }
+    foreach ($item in $pool) {
+        $instructionSafe = ($null -eq $item.instruction) -or (Is-SafeLessonText $item.instruction)
+        $explanationSafe = ($null -eq $item.explanation) -or (Is-SafeLessonText $item.explanation)
+        $sentenceSafe = (Is-SafeLessonText $item.sentence) -and ($item.sentence.Trim() -split '\s+').Count -ge 3
+        if (-not (Is-PlainObject $item) -or -not $sentenceSafe -or -not $instructionSafe -or -not $explanationSafe) {
+            Add-Issue("$($ref.DataFile): phrase de remise en ordre invalide ou non sure dans $($ref.Category)")
             break
         }
     }
@@ -625,6 +681,10 @@ foreach ($ref in $script:ExerciseRefs) {
         Validate-FactualDataset $ref $dataSet
     } elseif ($ref.Engine -eq 'timeline') {
         Validate-TimelineDataset $ref $dataSet
+    } elseif ($ref.Engine -eq 'matching') {
+        Validate-MatchingDataset $ref $dataSet
+    } elseif ($ref.Engine -eq 'word-order') {
+        Validate-WordOrderDataset $ref $dataSet
     }
 }
 

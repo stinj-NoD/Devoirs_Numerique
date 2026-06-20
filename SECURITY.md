@@ -20,14 +20,14 @@ La sécurité porte donc surtout sur :
 
 ### 1. Validation des données
 
-- [validators.js](d:/Apps%20Dev/Devoirs_Numerique/js/validators.js) valide au runtime :
+- [validators.js](js/validators.js) valide au runtime :
   - `index.json`
   - les fichiers de niveau
   - les exercices
   - les leçons et leurs blocs
   - la bibliothèque de français
   - les datasets documentaires
-- [validate-data.ps1](d:/Apps%20Dev/Devoirs_Numerique/scripts/validate-data.ps1) vérifie l'ensemble du corpus avant intégration
+- [validate-data.ps1](scripts/validate-data.ps1) vérifie l'ensemble du corpus avant intégration
 
 Les points bloqués explicitement :
 - sous-thème vide
@@ -39,7 +39,7 @@ Les points bloqués explicitement :
 
 ### 2. Garde-fous runtime
 
-[app.js](d:/Apps%20Dev/Devoirs_Numerique/js/app.js) gère des sorties de secours sur :
+[app.js](js/app.js) gère des sorties de secours sur :
 - niveau invalide
 - matière ou sous-thème vide
 - exercice sans question valide
@@ -53,7 +53,7 @@ Objectif :
 
 ### 3. Stockage local défensif
 
-[storage.js](d:/Apps%20Dev/Devoirs_Numerique/js/storage.js) protège :
+[storage.js](js/storage.js) protège :
 - profils
 - utilisateur courant
 - records
@@ -71,12 +71,12 @@ Limite importante :
 
 ### 4. Service worker et offline
 
-[sw.js](d:/Apps%20Dev/Devoirs_Numerique/sw.js) :
+[sw.js](sw.js) :
 - pré-cache les assets critiques
 - purge les anciens caches à chaque changement de version
-- sert [offline.html](d:/Apps%20Dev/Devoirs_Numerique/offline.html) comme fallback de navigation
+- sert [offline.html](offline.html) comme fallback de navigation
 
-Le bundle [data-bundle.js](d:/Apps%20Dev/Devoirs_Numerique/js/data-bundle.js) offre un filet de sécurité local si certains chargements JSON échouent.
+Le bundle [data-bundle.js](js/data-bundle.js) offre un filet de sécurité local si certains chargements JSON échouent.
 
 ### 5. Surface d'entrée utilisateur
 
@@ -98,8 +98,8 @@ Les risques résiduels du projet sont aujourd'hui :
 
 À chaque évolution de structure :
 
-1. mettre à jour [validators.js](d:/Apps%20Dev/Devoirs_Numerique/js/validators.js)
-2. mettre à jour [validate-data.ps1](d:/Apps%20Dev/Devoirs_Numerique/scripts/validate-data.ps1)
+1. mettre à jour [validators.js](js/validators.js)
+2. mettre à jour [validate-data.ps1](scripts/validate-data.ps1)
 3. relancer la validation complète
 4. vérifier un parcours live :
    - profil
