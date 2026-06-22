@@ -1,0 +1,150 @@
+﻿{
+    "title": "Classification de formes géométriques CM1",
+    "gradeId": "cm1",
+    "categories": {
+        "cm1_shape_classify": [
+            {
+                "prompt": "Classe ces figures selon leur nombre de côtés.",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Triangle", "shape": "triangle" },
+                    { "id": "f2", "label": "Carré", "shape": "carre" },
+                    { "id": "f3", "label": "Cercle", "shape": "cercle" }
+                ],
+                "buckets": [
+                    { "id": "trois-cotes", "label": "3 côtés" },
+                    { "id": "quatre-cotes", "label": "4 côtés" },
+                    { "id": "pas-de-cotes", "label": "Pas de côtés" }
+                ],
+                "answer": { "f1": "trois-cotes", "f2": "quatre-cotes", "f3": "pas-de-cotes" }
+            },
+            {
+                "prompt": "Range chaque figure dans sa famille.",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Rectangle", "shape": "rectangle" },
+                    { "id": "f2", "label": "Triangle", "shape": "triangle" },
+                    { "id": "f3", "label": "Carré", "shape": "carre" }
+                ],
+                "buckets": [
+                    { "id": "quadrilatere", "label": "Quadrilatères" },
+                    { "id": "triangle", "label": "Triangles" }
+                ],
+                "answer": { "f1": "quadrilatere", "f2": "triangle", "f3": "quadrilatere" }
+            },
+            {
+                "prompt": "Classe ces figures : ont-elles des angles droits ?",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Carré", "shape": "carre" },
+                    { "id": "f2", "label": "Rectangle", "shape": "rectangle" },
+                    { "id": "f3", "label": "Triangle quelconque", "shape": "triangle" }
+                ],
+                "buckets": [
+                    { "id": "angles-droits", "label": "A des angles droits" },
+                    { "id": "sans-angle-droit", "label": "Sans angle droit" }
+                ],
+                "answer": { "f1": "angles-droits", "f2": "angles-droits", "f3": "sans-angle-droit" }
+            },
+            {
+                "prompt": "Classe ces figures selon qu'elles ont des côtés courbes ou droits.",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Cercle", "shape": "cercle" },
+                    { "id": "f2", "label": "Carré", "shape": "carre" },
+                    { "id": "f3", "label": "Triangle", "shape": "triangle" }
+                ],
+                "buckets": [
+                    { "id": "cotes-courbes", "label": "Côtés courbes" },
+                    { "id": "cotes-droits", "label": "Côtés droits" }
+                ],
+                "answer": { "f1": "cotes-courbes", "f2": "cotes-droits", "f3": "cotes-droits" }
+            },
+            {
+                "prompt": "Range ces quadrilatères selon leur type.",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Carré", "shape": "carre" },
+                    { "id": "f2", "label": "Rectangle", "shape": "rectangle" },
+                    { "id": "f3", "label": "Losange", "shape": "losange" }
+                ],
+                "buckets": [
+                    { "id": "carre", "label": "Carrés" },
+                    { "id": "autre-quadrilatere", "label": "Autres quadrilatères" }
+                ],
+                "answer": { "f1": "carre", "f2": "autre-quadrilatere", "f3": "autre-quadrilatere" }
+            },
+            {
+                "prompt": "Classe ces figures selon le nombre de sommets.",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Triangle", "shape": "triangle" },
+                    { "id": "f2", "label": "Rectangle", "shape": "rectangle" },
+                    { "id": "f3", "label": "Cercle", "shape": "cercle" }
+                ],
+                "buckets": [
+                    { "id": "trois-sommets", "label": "3 sommets" },
+                    { "id": "quatre-sommets", "label": "4 sommets" },
+                    { "id": "zero-sommet", "label": "0 sommet" }
+                ],
+                "answer": { "f1": "trois-sommets", "f2": "quatre-sommets", "f3": "zero-sommet" }
+            },
+            {
+                "prompt": "Classe ces triangles selon leurs côtés.",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Triangle équilatéral", "shape": "triangle-equilateral" },
+                    { "id": "f2", "label": "Triangle isocèle", "shape": "triangle-isocele" },
+                    { "id": "f3", "label": "Triangle quelconque", "shape": "triangle" }
+                ],
+                "buckets": [
+                    { "id": "cotes-egaux", "label": "Au moins 2 côtés égaux" },
+                    { "id": "cotes-differents", "label": "Côtés tous différents" }
+                ],
+                "answer": { "f1": "cotes-egaux", "f2": "cotes-egaux", "f3": "cotes-differents" }
+            },
+            {
+                "prompt": "Range ces figures selon qu'elles ont des côtés parallèles ou non.",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Rectangle", "shape": "rectangle" },
+                    { "id": "f2", "label": "Triangle", "shape": "triangle" },
+                    { "id": "f3", "label": "Carré", "shape": "carre" }
+                ],
+                "buckets": [
+                    { "id": "cotes-paralleles", "label": "A des côtés parallèles" },
+                    { "id": "sans-cotes-paralleles", "label": "Sans côtés parallèles" }
+                ],
+                "answer": { "f1": "cotes-paralleles", "f2": "sans-cotes-paralleles", "f3": "cotes-paralleles" }
+            },
+            {
+                "prompt": "Classe ces figures : polygone ou non ?",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Carré", "shape": "carre" },
+                    { "id": "f2", "label": "Cercle", "shape": "cercle" },
+                    { "id": "f3", "label": "Triangle", "shape": "triangle" }
+                ],
+                "buckets": [
+                    { "id": "polygone", "label": "Polygone" },
+                    { "id": "non-polygone", "label": "Pas un polygone" }
+                ],
+                "answer": { "f1": "polygone", "f2": "non-polygone", "f3": "polygone" }
+            },
+            {
+                "prompt": "Range ces figures par famille de quadrilatères.",
+                "board": { "width": 10, "height": 6, "grid": false },
+                "figures": [
+                    { "id": "f1", "label": "Carré", "shape": "carre" },
+                    { "id": "f2", "label": "Losange", "shape": "losange" },
+                    { "id": "f3", "label": "Rectangle", "shape": "rectangle" }
+                ],
+                "buckets": [
+                    { "id": "quatre-cotes-egaux", "label": "4 côtés égaux" },
+                    { "id": "cotes-inegaux", "label": "Côtés pas tous égaux" }
+                ],
+                "answer": { "f1": "quatre-cotes-egaux", "f2": "quatre-cotes-egaux", "f3": "cotes-inegaux" }
+            }
+        ]
+    }
+}
