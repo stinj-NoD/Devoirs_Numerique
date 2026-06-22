@@ -1,107 +1,193 @@
-## 🧱 Pile Technique
+## Technical Aspect
 
-> **Architecture volontairement minimaliste, robuste et lisible, pensée pour durer sans dette technique.**  
-> Zéro framework inutile. Zéro magie opaque. Juste du code clair qui fait exactement ce qu’on lui demande.
+Document de référence technique de `Devoir Numérique`.
 
-[![Language](https://img.shields.io/badge/Language-JavaScript_ES6+-yellow.svg)]()
-[![Architecture](https://img.shields.io/badge/Architecture-SPA_Vanilla-critical.svg)]()
-[![Data](https://img.shields.io/badge/Data-JSON_Data--Driven-blue.svg)]()
-[![Rendering](https://img.shields.io/badge/Rendering-DOM_Natif-lightgrey.svg)]()
-[![Graphics](https://img.shields.io/badge/Graphics-SVG-green.svg)]()
+## 1. Architecture générale
 
----
+Le projet est une SPA en JavaScript vanilla.
 
-### 🧠 Langage & Runtime
+Principes structurants :
+- contenu piloté par JSON
+- séparation entre données, moteurs, rendu UI et stockage
+- exécution 100% locale
+- fonctionnement offline via service worker et bundle embarqué
+- coexistence de deux parcours : `J'apprends` et `Je m'entraîne`
 
-- **JavaScript ES6+**
-  - Modules natifs (`import / export`)
-  - Classes, arrow functions, destructuring
-  - Aucun transpileur requis
-- **Navigateur moderne**
-  - Pas de dépendance Node côté client
-  - Compatible tablettes et postes scolaires standards
+## 2. Structure du projet
 
----
+- [index.html](index.html)
+- [css/app.css](css/app.css)
+- [js/app.js](js/app.js)
+- [js/ui.js](js/ui.js)
+- [js/ui-keyboards.js](js/ui-keyboards.js)
+- [js/ui-visuals.js](js/ui-visuals.js)
+- [js/ui-documentary.js](js/ui-documentary.js)
+- [js/engines.js](js/engines.js)
+- [js/engines-core.js](js/engines-core.js)
+- [js/engines-math.js](js/engines-math.js)
+- [js/engines-french.js](js/engines-french.js)
+- [js/engines-documentary.js](js/engines-documentary.js)
+- [js/storage.js](js/storage.js)
+- [js/validators.js](js/validators.js)
+- [js/data-bundle.js](js/data-bundle.js)
+- [data/](data)
+- [data/french/](data/french)
+- [scripts/validate-data.ps1](scripts/validate-data.ps1)
+- [scripts/regenerate-data-bundle.ps1](scripts/regenerate-data-bundle.ps1)
+- [sw.js](sw.js)
 
-### 🏗 Architecture Applicative
+## 3. Responsabilités des modules
 
-- **SPA (Single Page Application)**
-  - Chargement unique
-  - Navigation interne sans rechargement
-- **Event-driven**
-  - Communication par événements simples
-  - Pas de state manager usine à gaz
-- **Séparation stricte**
-  - `engines.js` → logique métier
-  - `data/*.json` → contenu pédagogique
-  - `ui/` → rendu et interactions
+### `app.js`
 
----
+Responsable de :
+- l'initialisation globale
+- la navigation SPA
+- le chargement des niveaux
+- le split `J'apprends / Je m'entraîne`
+- l'ouverture des leçons
+- le cycle question -> correction -> score -> résultat
+- le retour vers la leçon depuis les résultats
 
-### 📦 Gestion des Données
+### `ui.js`
 
-- **100 % Data-Driven**
-  - Tout le contenu est externalisé en JSON
-  - Aucun exercice codé en dur
-- **Chargement initial unique**
-  - Données chargées via `App.init()`
-  - Cache mémoire pour performances constantes
-- **Validation stricte**
-  - JSON valide obligatoire
-  - Schémas implicites respectés par les engines
+Responsable de :
+- l'affichage des écrans
+- les cartes de profils, niveaux, matières, sous-thèmes, leçons et exercices
+- le rendu des blocs de leçon
+- la composition des sections et badges
 
----
+### `engines*.js`
 
-### 🧩 Moteurs (Engines)
+Responsables de :
+- la génération des questions
+- la normalisation des sorties moteur
+- les moteurs maths, français et documentaires
 
-- **Engines indépendants**
-  - `math-input`
-  - `conjugation`
-  - `choice-engine`
-  - `reading`
-  - `clock`
-- **Contrats clairs**
-  - Chaque engine consomme un `params` normalisé
-  - Aucun engine ne connaît le contexte global
-- **Extensibilité**
-  - Ajout d’un moteur sans modifier les autres
-  - Ajout de contenu sans toucher au code
+### `storage.js`
 
----
+Responsable de :
+- la gestion des profils
+- l'utilisateur courant
+- les records par exercice
+- les fallbacks de stockage
 
-### 🎨 UI & Rendu
+### `validators.js`
 
-- **DOM natif**
-  - Pas de virtual DOM
-  - Pas de framework CSS
-- **SVG**
-  - Horloges, feedback visuel, icônes interactives
-- **CSS sobre**
-  - Lisibilité > effets
-  - Animations minimales, intentionnelles
+Responsable de :
+- valider la structure des niveaux
+- valider les exercices
+- valider les leçons et blocs de leçon
+- sécuriser le chargement runtime avant affichage
 
----
+## 4. Modèle de données actuel
 
-### ⌨️ Interaction Utilisateur
+### Niveau
 
-- **Claviers virtuels internes**
-  - Numérique
-  - AZERTY avec accents
-  - Vrai / Faux
-- **Contrôle total des entrées**
-  - Pas de dépendance au clavier système
-  - Expérience homogène tablette / desktop
+```json
+{
+  "gradeId": "ce2",
+  "title": "CE2",
+  "subjects": []
+}
+```
 
----
+### Matière
 
-### 🔒 Contraintes Assumées
+```json
+{
+  "id": "ce2-maths-subject",
+  "title": "Mathématiques",
+  "icon": "�Y"�",
+  "subthemes": []
+}
+```
 
-- Pas de backend
-- Pas d’authentification
-- Pas de tracking
-- Pas de dépendance externe critique
+### Sous-thème
 
-> **Choix assumé** : moins de couches, moins de bugs, moins de maintenance.  
-> Le logiciel éducatif n’a pas besoin d’être à la mode pour être fiable.
+```json
+{
+  "id": "ce2-multiplication",
+  "title": "Tables de multiplication",
+  "icon": "�o-️",
+  "lessons": [],
+  "exercises": []
+}
+```
 
----
+### Leçon
+
+```json
+{
+  "id": "ce2-lesson-present-er",
+  "title": "Le présent des verbes en -ER",
+  "subtitle": "Observer, retenir, appliquer",
+  "format": "lesson-card",
+  "blocks": []
+}
+```
+
+### Blocs de leçon supportés
+
+- `paragraph`
+- `example`
+- `tip`
+- `bullets`
+- `mini-table`
+
+## 5. Navigation produit
+
+Flux actuel :
+
+1. profils
+2. classe
+3. parcours
+4. matière ou bibliothèque globale des leçons
+5. sous-thème
+6. leçon ou exercice
+7. résultats
+
+Le mode `J'apprends` s'appuie sur une bibliothèque globale par niveau. Le mode `Je m'entraîne` reste centré sur les sous-thèmes et exercices.
+
+## 6. Validation technique
+
+Deux couches doivent rester synchronisées :
+
+- validation frontend :
+  - [validators.js](js/validators.js)
+- validation hors runtime :
+  - [validate-data.ps1](scripts/validate-data.ps1)
+
+Règle absolue :
+- aucun changement de contrat JSON sans mise à jour des deux validateurs
+
+## 7. Bundle et offline
+
+Le projet embarque un bundle local :
+- [data-bundle.js](js/data-bundle.js)
+
+Il sert :
+- de fallback de chargement
+- d'appui à l'offline
+- de sécurité locale quand les JSON externes ne sont pas disponibles
+
+Le service worker :
+- versionne les caches
+- purge les anciens caches
+- garantit un minimum de fonctionnement hors ligne
+
+## 8. Dette technique restante
+
+Les points encore sensibles sont :
+- reliquats d'encodage UTF-8 dans certains fichiers historiques
+- cohérence pédagogique des leçons
+- hétérogénéité éditoriale entre niveaux
+- besoin d'un suivi plus fin des usages leçon/exercice
+
+## 9. Cap suivant
+
+Le cap produit/technique n'est plus la structure, mais :
+- améliorer la qualité du corpus
+- densifier les notions manquantes
+- renforcer la bibliothèque des leçons comme outil de révision
+- préparer à terme un meilleur suivi de progression

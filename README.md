@@ -1,76 +1,137 @@
-# 🎓 Devoir Numérique
+# Devoir Numérique
 
-> **Plateforme éducative web (SPA) minimaliste, sans distraction, conçue pour l'apprentissage du CP au CM2.**
+Application éducative web, locale et offline-first, du `CP` au `CM2`.
 
-[![Status](https://img.shields.io/badge/Status-Stable-success.svg)]()
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Stack](https://img.shields.io/badge/Stack-Vanilla_JS_ES6+-orange.svg)]()
-[![UI](https://img.shields.io/badge/UI-Data--Driven-blueviolet.svg)]()
+Le projet est une SPA en JavaScript vanilla, sans backend, pilotée par des fichiers JSON versionnés. Il combine désormais deux parcours complémentaires :
+- `J'apprends` : bibliothèque de leçons courtes par niveau, matière et sous-thème
+- `Je m'entraîne` : exercices interactifs générés par moteurs
 
----
+## �?tat actuel
 
-## 🌟 Philosophie & Vision Pédagogique
+Le socle est aujourd'hui stable sur quatre axes :
+- navigation locale profils -> classe -> parcours -> matière -> sous-thème
+- bibliothèque globale de leçons par niveau
+- corpus d'exercices CP à CM2 sur maths, français, histoire, géographie, sciences et EMC
+- validation forte des données avant runtime et bundle offline régénéré
 
-**Devoir Numérique** est un outil conçu pour le **focus total**. À l'heure où les applications éducatives regorgent de publicités et d'animations superflues, ce projet mise sur la sobriété et l'efficacité pédagogique.
+Le projet vise maintenant moins l'ajout brut de contenu que l'alignement pédagogique :
+- leçons conformes au programme scolaire français
+- qualité de langue et encodage UTF-8 strict
+- meilleure couverture des notions encore partielles
 
-* **Autonomie & Design** : Une interface épurée utilisant la police *Quicksand* pour une lisibilité maximale. L'enfant navigue seul grâce à des codes couleurs et des icônes explicites.
-* **Gamification Bienveillante** : Un système d'étoiles (1 à 3) récompense la précision. L'absence de chronomètre permet à l'élève d'avancer à son propre rythme.
-* **Pédagogie du Feedback** : 
-    * ✅ **Succès** : Feedback vert rapide.
-    * ❌ **Erreur** : La correction s'affiche immédiatement en rouge. L'élève doit observer la réponse correcte avant de valider la suite, favorisant la mémorisation visuelle.
-* **Claviers Virtuels Intégrés** : L'application propose ses propres claviers (Numérique, AZERTY avec accents, Vrai/Faux) pour éviter l'encombrement des claviers natifs sur tablettes.
+## Fonctionnement
 
----
+L'application charge :
+- [data/index.json](data/index.json)
+- un fichier de niveau par classe :
+  - [cp.json](data/cp.json)
+  - [ce1.json](data/ce1.json)
+  - [ce2.json](data/ce2.json)
+  - [cm1.json](data/cm1.json)
+  - [cm2.json](data/cm2.json)
+- une bibliothèque de langue modulaire :
+  - [spelling.json](data/french/spelling.json)
+  - [conjugation.json](data/french/conjugation.json)
+  - [homophones.json](data/french/homophones.json)
+  - [grammar.json](data/french/grammar.json)
+  - [reading.json](data/french/reading.json)
 
-## 🧩 Les Moteurs de Jeu (Engines)
+Elle gère :
+- profils locaux
+- scores et étoiles
+- progression simple par exercice
+- mode offline via service worker
+- fallback données via [data-bundle.js](js/data-bundle.js)
 
-L'application utilise une logique modulaire permettant de piloter différents types d'exercices :
+## Architecture
 
-| Moteur | Usage | Particularité |
-| :--- | :--- | :--- |
-| **`math-input`** | Calcul & Orthographe | Gère les additions à trous, tables, dictées de nombres et dictée d'images. |
-| **`conjugation`**| **Verbe-o-tron** | Découpe visuelle du Radical et de la Terminaison pour une meilleure structure mentale. |
-| **`clock`** | Lecture d'heure | Horloge analogique en SVG avec saisie digitale HH:MM. |
-| **`choice-engine`**| Homophones & Logique | Interface "Vrai/Faux" ou duel de choix (ex: ce/se, a/à). |
-| **`reading`** | Lecture (Sons) | Système de lecture de syllabes ou de sons complexes (Taoki). |
+Fichiers principaux :
+- [index.html](index.html) : shell SPA
+- [app.css](css/app.css) : styles globaux
+- [app.js](js/app.js) : orchestration, navigation, runtime
+- [ui.js](js/ui.js) : rendu UI et cartes
+- [ui-keyboards.js](js/ui-keyboards.js) : claviers virtuels
+- [ui-visuals.js](js/ui-visuals.js) : rendu visuel maths
+- [ui-documentary.js](js/ui-documentary.js) : rendu documentaire et frises
+- [engines.js](js/engines.js) : point d'entrée des moteurs
+- [engines-math.js](js/engines-math.js)
+- [engines-french.js](js/engines-french.js)
+- [engines-documentary.js](js/engines-documentary.js)
+- [storage.js](js/storage.js) : profils et records
+- [validators.js](js/validators.js) : validation runtime
+- [validate-data.ps1](scripts/validate-data.ps1) : validation hors runtime
+- [sw.js](sw.js) : cache offline/PWA
 
----
+## Structure des niveaux
 
-## ⚙️ Configuration du Contenu (JSON)
+Chaque niveau expose des `subjects`, puis des `subthemes`.
 
-L'application est entièrement **Data-Driven**. Tout le contenu pédagogique est piloté par des fichiers JSON situés dans le dossier `/data`.
+Un sous-thème peut contenir :
+- `lessons[]`
+- `exercises[]`
+- ou les deux
 
-> [!IMPORTANT]
-> **Note sur l'exemple :** La structure ci-dessous est un **modèle type**. Elle montre comment imbriquer les thèmes et les exercices pour qu'ils soient reconnus par les moteurs de rendu.
-
-### Exemple de structure (`ce1.json`)
+Format minimal d'une leçon :
 
 ```json
 {
-  "gradeId": "ce1",
-  "title": "CE1",
-  "themes": [
-    {
-      "id": "ce1-tables",
-      "title": "Multiplication",
-      "icon": "✖️",
-      "exercises": [
-        { 
-          "id": "mult-2", 
-          "title": "Table de 2", 
-          "subtitle": "Les doubles", 
-          "engine": "math-input", 
-          "params": { "type": "mult", "table": 2, "questions": 10 }
-        },
-        { 
-          "id": "ce1-conj-1", 
-          "title": "Verbes en -ER", 
-          "subtitle": "Présent de l'indicatif", 
-          "engine": "conjugation", 
-          "params": { "verbs": ["chanter", "jouer"], "tenses": ["présent"], "questions": 5 }
-        }
-      ]
-    }
+  "id": "ce2-lesson-present-er",
+  "title": "Le présent des verbes en -ER",
+  "subtitle": "Observer, retenir, appliquer",
+  "format": "lesson-card",
+  "blocks": [
+    { "type": "paragraph", "text": "..." },
+    { "type": "example", "label": "Exemple", "content": "..." },
+    { "type": "tip", "label": "�? retenir", "content": "..." }
   ]
 }
+```
 
+Blocs supportés :
+- `paragraph`
+- `example`
+- `tip`
+- `bullets`
+- `mini-table`
+
+## Parcours utilisateur
+
+1. choix ou création d'un profil
+2. choix d'une classe
+3. choix du parcours :
+   - `J'apprends`
+   - `Je m'entraîne`
+4. sélection d'une matière
+5. sélection d'un sous-thème
+6. consultation d'une leçon ou lancement d'un exercice
+
+Le flux de résultats permet aussi un retour vers la ou les leçons du sous-thème.
+
+## Documentation utile
+
+- [technicalaspect.md](technicalaspect.md) : référence technique
+- [SECURITY.md](SECURITY.md) : sécurité et robustesse
+- [CONTRIBUTING.md](CONTRIBUTING.md) : règles de contribution
+- [lesson-guidelines.md](docs/lesson-guidelines.md) : règles éditoriales des leçons
+- [curriculum-delta-cp-cm2.md](docs/curriculum-delta-cp-cm2.md) : delta programme vs application
+- [content-production-backlog.md](docs/content-production-backlog.md) : historique et backlog de production
+
+## Workflow minimal
+
+Après toute modification de `data/` :
+
+1. lancer [validate-data.ps1](scripts/validate-data.ps1)
+2. régénérer [data-bundle.js](js/data-bundle.js)
+3. vérifier au moins :
+   - une leçon
+   - un exercice maths
+   - un exercice français
+   - un exercice documentaire
+
+## Direction produit
+
+Les prochaines vagues visent :
+- des leçons plus proches d'un manuel scolaire concis
+- une couverture plus complète des notions du programme
+- une qualité de langue irréprochable
+- une UX unifiée entre révision et entraînement
