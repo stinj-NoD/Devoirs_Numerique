@@ -1157,13 +1157,17 @@ const UI = {
     },
 
     showStreakToast(days) {
+        this.showSimpleToast('🔥', `${days} jours de suite !`);
+    },
+
+    showSimpleToast(icon, text) {
         const existing = document.querySelector('.streak-toast');
         if (existing) existing.remove();
 
         const toast = document.createElement('div');
         toast.className = 'streak-toast';
         toast.setAttribute('role', 'status');
-        toast.innerHTML = `<span class="streak-toast-icon">🔥</span><span class="streak-toast-text">${days} jours de suite !</span>`;
+        toast.innerHTML = `<span class="streak-toast-icon">${this._escapeText(icon)}</span><span class="streak-toast-text">${this._escapeText(text)}</span>`;
         document.body.appendChild(toast);
 
         setTimeout(() => toast.classList.add('is-visible'), 10);

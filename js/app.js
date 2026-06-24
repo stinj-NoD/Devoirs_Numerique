@@ -612,7 +612,72 @@ const App = {
             onSelect: () => this.toggleSoundMuted()
         });
 
+        actions.push({
+            title: 'Mettre à jour l\'application',
+            subtitle: 'Forcer le téléchargement des dernières nouveautés',
+            onSelect: () => this.forceAppUpdate()
+        });
+
         UI.openNavSheet?.(actions);
+    },
+
+    /**
+     * Force la vérification d'une nouvelle version : utile sur iOS/Safari où
+     * le service worker peut rester "coincé" sur une ancienne version tant
+     * que l'utilisateur ne ferme/relance pas vraiment l'app (un simple
+     * raccourci d'écran d'accueil ne suffit pas toujours à déclencher ça).
+     */
+    async forceAppUpdate() {
+        if (!('serviceWorker' in navigator) || window.location.protocol === 'file:') {
+            alert("La mise à jour automatique n'est pas disponible dans ce mode d'affichage. Ferme complètement l'application puis rouvre-la.");
+            return;
+        }
+
+        try {
+            const registration = await navigator.serviceWorker.getRegistration();
+            if (!registration) {
+                window.location.reload();
+                return;
+            }
+
+            // Un nouveau worker mis à jour passe d'abord par "installing" puis
+            // "installed" avant d'apparaître dans registration.waiting : on
+            // écoute ce cycle plutôt que de vérifier "waiting" juste après
+            // update(), sinon on arrive trop tôt (le téléchargement du
+            // précache n'est pas encore terminé).
+            let detectedUpdate = false;
+            const onUpdateFound = () => {
+                const worker = registration.installing;
+                if (!worker) return;
+                detectedUpdate = true;
+                worker.addEventListener('statechange', () => {
+                    if (worker.state === 'installed' && navigator.serviceWorker.controller) {
+                        worker.postMessage({ type: 'SKIP_WAITING' });
+                    }
+                });
+            };
+            registration.addEventListener('updatefound', onUpdateFound);
+
+            await registration.update();
+
+            // Laisse le temps à "updatefound" de se déclencher si une nouvelle
+            // version existe (l'événement est synchrone dès que update()
+            // détecte une différence, donc un court délai suffit à le capter).
+            await new Promise((resolve) => setTimeout(resolve, 300));
+            registration.removeEventListener('updatefound', onUpdateFound);
+
+            if (registration.waiting) {
+                registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+                return; // Le rechargement est déclenché par "controllerchange" (bootstrap.js).
+            }
+
+            if (!detectedUpdate) {
+                UI.showSimpleToast?.('✅', 'Tu as déjà la dernière version !');
+            }
+        } catch (error) {
+            console.error('forceAppUpdate a échoué', error);
+            alert("Impossible de vérifier les mises à jour pour le moment. Vérifie ta connexion et réessaie.");
+        }
     },
 
     returnToThemes() {
