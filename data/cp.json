@@ -185,6 +185,20 @@
                                                                                     "max":  30,
                                                                                     "questions":  5
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-bonus-soustraction-defi",
+                                                                     "title":  "Défi : super soustractions",
+                                                                     "subtitle":  "Jusqu'à 30, sans erreur",
+                                                                     "engine":  "math-input",
+                                                                     "isBonus":  true,
+                                                                     "bonusThreshold":  2,
+                                                                     "params":  {
+                                                                                    "type":  "sub-simple",
+                                                                                    "min":  10,
+                                                                                    "max":  30,
+                                                                                    "questions":  8
+                                                                                }
                                                                  }
                                                              ],
                                                "lessons":  [
@@ -615,6 +629,7 @@
                                                                      "engine":  "math-input",
                                                                      "params":  {
                                                                                     "type":  "carre-somme",
+                                                                                    "solutionCount":  2,
                                                                                     "targetMin":  10,
                                                                                     "targetMax":  10,
                                                                                     "gridSize":  4,
@@ -629,6 +644,7 @@
                                                                      "engine":  "math-input",
                                                                      "params":  {
                                                                                     "type":  "carre-somme",
+                                                                                    "solutionCount":  2,
                                                                                     "targetMin":  10,
                                                                                     "targetMax":  10,
                                                                                     "gridSize":  4,
@@ -643,6 +659,7 @@
                                                                      "engine":  "math-input",
                                                                      "params":  {
                                                                                     "type":  "carre-somme",
+                                                                                    "solutionCount":  2,
                                                                                     "targetMin":  15,
                                                                                     "targetMax":  15,
                                                                                     "gridSize":  4,
@@ -659,6 +676,7 @@
                                                                      "bonusThreshold":  2,
                                                                      "params":  {
                                                                                     "type":  "carre-somme",
+                                                                                    "solutionCount":  2,
                                                                                     "targetMin":  20,
                                                                                     "targetMax":  20,
                                                                                     "gridSize":  4,
@@ -959,6 +977,18 @@
                                                                                 }
                                                                  },
                                                                  {
+                                                                     "id":  "cp-maths-memoire",
+                                                                     "title":  "Jeu de mémoire",
+                                                                     "subtitle":  "Retrouve toutes les paires",
+                                                                     "engine":  "board-interactive",
+                                                                     "params":  {
+                                                                                    "type":  "memory-match",
+                                                                                    "dataFile":  "data/board_memory_match_cp.json",
+                                                                                    "category":  "cp_memory_match",
+                                                                                    "questions":  4
+                                                                                }
+                                                                 },
+                                                                 {
                                                                      "id":  "cp-bonus-formes-mesures-defi",
                                                                      "title":  "Défi : formes et mesures",
                                                                      "subtitle":  "Toutes les notions, plus de questions",
@@ -1016,6 +1046,21 @@
                                                                                     "min":  20,
                                                                                     "max":  69,
                                                                                     "questions":  5
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-bonus-dictee-nombres-defi",
+                                                                     "title":  "Défi : écrire les nombres",
+                                                                     "subtitle":  "De 0 à 69, sans erreur",
+                                                                     "icon":  "📘",
+                                                                     "engine":  "math-input",
+                                                                     "isBonus":  true,
+                                                                     "bonusThreshold":  2,
+                                                                     "params":  {
+                                                                                    "type":  "number-spelling",
+                                                                                    "min":  0,
+                                                                                    "max":  69,
+                                                                                    "questions":  8
                                                                                 }
                                                                  }
                                                              ],
@@ -1097,6 +1142,20 @@
                                                            "dataFile": "data/math_word_problems_cycle2.json",
                                                            "category": "cp-problemes-simples",
                                                            "questions": 6
+                                                       }
+                                                   },
+                                                   {
+                                                       "id": "cp-bonus-problemes-expert",
+                                                       "title": "Défi : petits problèmes",
+                                                       "subtitle": "Tous les problèmes, sans erreur",
+                                                       "engine": "choice-engine",
+                                                       "isBonus": true,
+                                                       "bonusThreshold": 2,
+                                                       "params": {
+                                                           "type": "factual-qcm",
+                                                           "dataFile": "data/math_word_problems_cycle2.json",
+                                                           "category": "cp-problemes-simples",
+                                                           "questions": 10
                                                        }
                                                    }
                                                ],
@@ -1995,6 +2054,20 @@
                                                                      "engine":  "choice-engine",
                                                                      "id":  "cp-histoire-jours-saisons",
                                                                      "subtitle":  "Repères du temps proche"
+                                                                 },
+                                                                 {
+                                                                     "params":  {
+                                                                                    "questions":  10,
+                                                                                    "dataFile":  "data/history_cp.json",
+                                                                                    "category":  "cp-jours-saisons",
+                                                                                    "type":  "factual-qcm"
+                                                                                },
+                                                                     "title":  "Défi : jours et saisons",
+                                                                     "subtitle":  "Sans erreur",
+                                                                     "engine":  "choice-engine",
+                                                                     "isBonus":  true,
+                                                                     "bonusThreshold":  2,
+                                                                     "id":  "cp-bonus-jours-saisons-defi"
                                                                  }
                                                              ],
                                                "lessons":  [
@@ -2382,6 +2455,20 @@
                                                                        "dataFile": "data/geography_cp.json",
                                                                        "questions": 6
                                                                    }
+                                                               },
+                                                               {
+                                                                   "id": "cp-bonus-plan-quartier-defi",
+                                                                   "title": "Défi : plan et quartier",
+                                                                   "subtitle": "Sans erreur",
+                                                                   "engine": "choice-engine",
+                                                                   "isBonus": true,
+                                                                   "bonusThreshold": 2,
+                                                                   "params": {
+                                                                       "type": "factual-qcm",
+                                                                       "category": "cp-plan-quartier",
+                                                                       "dataFile": "data/geography_cp.json",
+                                                                       "questions": 8
+                                                                   }
                                                                }
                                                              ]
                                            },
@@ -2425,6 +2512,34 @@
                                                                      "engine":  "choice-engine",
                                                                      "id":  "cp-geo-lieux-ecole",
                                                                      "subtitle":  "Retrouver les espaces du quotidien"
+                                                                 },
+                                                                 {
+                                                                     "params":  {
+                                                                                    "questions":  10,
+                                                                                    "dataFile":  "data/geography_cp.json",
+                                                                                    "category":  "cp-lieux-ecole",
+                                                                                    "type":  "factual-qcm"
+                                                                                },
+                                                                     "title":  "Défi : se repérer",
+                                                                     "subtitle":  "Sans erreur",
+                                                                     "engine":  "choice-engine",
+                                                                     "isBonus":  true,
+                                                                     "bonusThreshold":  2,
+                                                                     "id":  "cp-bonus-reperage-defi"
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-geo-carte-regions",
+                                                                     "title":  "Carte de France",
+                                                                     "subtitle":  "Touche la région demandée",
+                                                                     "engine":  "board-interactive",
+                                                                     "params":  {
+                                                                                    "type":  "map-locate",
+                                                                                    "dataFile":  "data/board_map_locate_cp.json",
+                                                                                    "mapFile":  "data/maps/france-regions.svg",
+                                                                                    "mapId":  "france-regions",
+                                                                                    "category":  "cp_map_regions_france",
+                                                                                    "questions":  3
+                                                                                }
                                                                  }
                                                              ],
                                                "lessons":  [
@@ -2695,6 +2810,20 @@
                                                                                     "category":  "cp-animaux-plantes-quotidien",
                                                                                     "questions":  6
                                                                                 }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-bonus-sciences-vivant-defi",
+                                                                     "title":  "Défi : le vivant",
+                                                                     "subtitle":  "Sans erreur",
+                                                                     "engine":  "choice-engine",
+                                                                     "isBonus":  true,
+                                                                     "bonusThreshold":  2,
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_cp.json",
+                                                                                    "category":  "cp-vivant",
+                                                                                    "questions":  9
+                                                                                }
                                                                  }
                                                              ],
                                                "lessons":  [
@@ -2820,6 +2949,20 @@
                                                                                     "dataFile":  "data/science_cp.json",
                                                                                     "category":  "cp-objets-usages",
                                                                                     "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-bonus-sciences-matiere-defi",
+                                                                     "title":  "Défi : matière et lumière",
+                                                                     "subtitle":  "Sans erreur",
+                                                                     "engine":  "choice-engine",
+                                                                     "isBonus":  true,
+                                                                     "bonusThreshold":  2,
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_cp.json",
+                                                                                    "category":  "cp-matiere",
+                                                                                    "questions":  9
                                                                                 }
                                                                  }
                                                              ],
@@ -2991,6 +3134,304 @@
                                                                               ]
                                                                }
                                                            ]
+                                           },
+                                           {
+                                               "id":  "cp-sciences-saisons-subtheme",
+                                               "title":  "Saisons et météo",
+                                               "icon":  "📘",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-sciences-saisons",
+                                                                     "title":  "Les quatre saisons",
+                                                                     "subtitle":  "Printemps, été, automne, hiver",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_cp.json",
+                                                                                    "category":  "cp-saisons-meteo",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-sciences-meteo",
+                                                                     "title":  "Le temps qu'il fait",
+                                                                     "subtitle":  "Soleil, pluie, nuage, vent, neige",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_cp.json",
+                                                                                    "category":  "cp-saisons-meteo",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-sciences-habits-saison",
+                                                                     "title":  "S'habiller selon la saison",
+                                                                     "subtitle":  "Choisir les bons vêtements",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_cp.json",
+                                                                                    "category":  "cp-saisons-meteo",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "cp-lesson-quatre-saisons",
+                                                                   "title":  "Les quatre saisons",
+                                                                   "subtitle":  "Printemps, été, automne, hiver",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "text":  "Une année est partagée en quatre saisons qui se suivent toujours dans le même ordre.",
+                                                                                      "type":  "paragraph"
+                                                                                  },
+                                                                                  {
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "Au printemps les fleurs poussent, en été il fait chaud, en automne les feuilles tombent et en hiver il fait froid.",
+                                                                                      "type":  "example"
+                                                                                  },
+                                                                                  {
+                                                                                      "items":  [
+                                                                                                    "le printemps",
+                                                                                                    "l'été",
+                                                                                                    "l'automne",
+                                                                                                    "l'hiver"
+                                                                                                ],
+                                                                                      "type":  "bullets"
+                                                                                  },
+                                                                                  {
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Les saisons reviennent toujours dans le même ordre, encore et encore.",
+                                                                                      "type":  "tip"
+                                                                                  }
+                                                                              ]
+                                                               },
+                                                               {
+                                                                   "id":  "cp-lesson-meteo-du-jour",
+                                                                   "title":  "La météo du jour",
+                                                                   "subtitle":  "Observer le temps qu'il fait",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "text":  "Chaque jour, le temps qu'il fait peut changer : on appelle cela la météo.",
+                                                                                      "type":  "paragraph"
+                                                                                  },
+                                                                                  {
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "Quand le soleil brille, il fait beau ; quand il pleut, le ciel est gris et l'eau tombe du ciel.",
+                                                                                      "type":  "example"
+                                                                                  },
+                                                                                  {
+                                                                                      "items":  [
+                                                                                                    "le soleil",
+                                                                                                    "la pluie",
+                                                                                                    "le nuage",
+                                                                                                    "le vent",
+                                                                                                    "la neige"
+                                                                                                ],
+                                                                                      "type":  "bullets"
+                                                                                  },
+                                                                                  {
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "On s'habille différemment selon le temps qu'il fait.",
+                                                                                      "type":  "tip"
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
+                                           },
+                                           {
+                                               "id":  "cp-sciences-milieux-subtheme",
+                                               "title":  "Où vivent les animaux ?",
+                                               "icon":  "📘",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-sciences-milieux-vie",
+                                                                     "title":  "Où vivent les animaux ?",
+                                                                     "subtitle":  "Forêt, mare, mer, jardin",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_cp.json",
+                                                                                    "category":  "cp-milieux-vie",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-sciences-maison-jardin",
+                                                                     "title":  "La maison et le jardin",
+                                                                     "subtitle":  "Les petites bêtes autour de nous",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_cp.json",
+                                                                                    "category":  "cp-milieux-vie",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "cp-lesson-milieux-proches",
+                                                                   "title":  "Près de chez nous",
+                                                                   "subtitle":  "La maison, le jardin, l'école",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "text":  "Autour de nous, il y a des endroits où vivent des petites bêtes et des plantes : c'est leur milieu de vie.",
+                                                                                      "type":  "paragraph"
+                                                                                  },
+                                                                                  {
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "Dans le jardin, on trouve un escargot sous une feuille et un ver de terre dans le sol.",
+                                                                                      "type":  "example"
+                                                                                  },
+                                                                                  {
+                                                                                      "items":  [
+                                                                                                    "le ver de terre vit dans le sol",
+                                                                                                    "l'escargot vit dans le jardin",
+                                                                                                    "l'oiseau vit dans les arbres",
+                                                                                                    "l'araignée vit dans un coin de la maison"
+                                                                                                ],
+                                                                                      "type":  "bullets"
+                                                                                  },
+                                                                                  {
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "On peut observer des êtres vivants tout près de chez nous, sans aller très loin.",
+                                                                                      "type":  "tip"
+                                                                                  }
+                                                                              ]
+                                                               },
+                                                               {
+                                                                   "id":  "cp-lesson-foret-mare-mer",
+                                                                   "title":  "La forêt, la mare et la mer",
+                                                                   "subtitle":  "Des milieux différents, des animaux différents",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "text":  "Chaque animal vit dans un milieu adapté à ses besoins : la forêt, la mare ou la mer ne se ressemblent pas.",
+                                                                                      "type":  "paragraph"
+                                                                                  },
+                                                                                  {
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "L'écureuil vit dans la forêt, la grenouille vit près de la mare et le poisson vit dans la mer.",
+                                                                                      "type":  "example"
+                                                                                  },
+                                                                                  {
+                                                                                      "items":  [
+                                                                                                    "la forêt : écureuil, renard",
+                                                                                                    "la mare : grenouille, canard",
+                                                                                                    "la mer : poisson, crabe"
+                                                                                                ],
+                                                                                      "type":  "bullets"
+                                                                                  },
+                                                                                  {
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Un animal ne peut pas vivre n'importe où : il a besoin d'un milieu adapté.",
+                                                                                      "type":  "tip"
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
+                                           },
+                                           {
+                                               "id":  "cp-sciences-objets-subtheme",
+                                               "title":  "Objets du quotidien",
+                                               "icon":  "📘",
+                                               "exercises":  [
+                                                                 {
+                                                                     "id":  "cp-sciences-objets-fonction",
+                                                                     "title":  "À quoi ça sert ?",
+                                                                     "subtitle":  "La fonction des objets familiers",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_cp.json",
+                                                                                    "category":  "cp-objets-quotidien",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-sciences-objets-materiaux",
+                                                                     "title":  "En quoi c'est fait ?",
+                                                                     "subtitle":  "Bois, plastique, métal, papier, tissu",
+                                                                     "engine":  "choice-engine",
+                                                                     "params":  {
+                                                                                    "type":  "factual-qcm",
+                                                                                    "dataFile":  "data/science_cp.json",
+                                                                                    "category":  "cp-objets-quotidien",
+                                                                                    "questions":  6
+                                                                                }
+                                                                 }
+                                                             ],
+                                               "lessons":  [
+                                                               {
+                                                                   "id":  "cp-lesson-fonction-objets",
+                                                                   "title":  "À quoi servent les objets ?",
+                                                                   "subtitle":  "Chaque objet a une utilité",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "text":  "Tous les jours, j'utilise des objets familiers qui m'aident à faire quelque chose de précis.",
+                                                                                      "type":  "paragraph"
+                                                                                  },
+                                                                                  {
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "Les ciseaux servent à couper, la brosse à dents sert à laver les dents et la cuillère sert à manger la soupe.",
+                                                                                      "type":  "example"
+                                                                                  },
+                                                                                  {
+                                                                                      "items":  [
+                                                                                                    "ciseaux : couper",
+                                                                                                    "brosse à dents : se laver les dents",
+                                                                                                    "cuillère : manger",
+                                                                                                    "parapluie : se protéger de la pluie"
+                                                                                                ],
+                                                                                      "type":  "bullets"
+                                                                                  },
+                                                                                  {
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Chaque objet est utile pour faire une action précise.",
+                                                                                      "type":  "tip"
+                                                                                  }
+                                                                              ]
+                                                               },
+                                                               {
+                                                                   "id":  "cp-lesson-materiaux-simples",
+                                                                   "title":  "En quoi sont faits les objets ?",
+                                                                   "subtitle":  "Bois, plastique, métal, papier, tissu",
+                                                                   "format":  "lesson-card",
+                                                                   "blocks":  [
+                                                                                  {
+                                                                                      "text":  "Les objets sont fabriqués avec des matières différentes : le bois, le plastique, le métal, le papier ou le tissu.",
+                                                                                      "type":  "paragraph"
+                                                                                  },
+                                                                                  {
+                                                                                      "label":  "Exemple",
+                                                                                      "content":  "Un crayon est en bois, une fourchette est en métal et un pull est en tissu.",
+                                                                                      "type":  "example"
+                                                                                  },
+                                                                                  {
+                                                                                      "items":  [
+                                                                                                    "bois : crayon, table",
+                                                                                                    "plastique : seau, jouet",
+                                                                                                    "métal : fourchette, clé",
+                                                                                                    "papier : feuille, livre",
+                                                                                                    "tissu : pull, écharpe"
+                                                                                                ],
+                                                                                      "type":  "bullets"
+                                                                                  },
+                                                                                  {
+                                                                                      "label":  "À retenir",
+                                                                                      "content":  "Je peux reconnaître la matière d'un objet en le regardant et en le touchant.",
+                                                                                      "type":  "tip"
+                                                                                  }
+                                                                              ]
+                                                               }
+                                                           ]
                                            }
                                        ]
                      },
@@ -3039,6 +3480,17 @@
                                                                      "engine":  "choice-engine",
                                                                      "id":  "cp-emc-politesse-classe",
                                                                      "subtitle":  "Bonjour, merci, pardon"
+                                                                 },
+                                                                 {
+                                                                     "id":  "cp-emc-appariement",
+                                                                     "title":  "Politesse et émotions",
+                                                                     "subtitle":  "Relie chaque mot ou émotion",
+                                                                     "engine":  "matching",
+                                                                     "params":  {
+                                                                                    "category":  "matching_emc_cp",
+                                                                                    "dataFile":  "data/emc_matching.json",
+                                                                                    "questions":  3
+                                                                                }
                                                                  }
                                                              ],
                                                "lessons":  [

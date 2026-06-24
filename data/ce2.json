@@ -215,6 +215,36 @@
                             }
                         },
                         {
+                            "id": "ce2-carre-magique-1",
+                            "title": "Carré Magique",
+                            "subtitle": "Trouve 3 nombres",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "carre-somme",
+                                "solutionCount": 3,
+                                "targetMin": 15,
+                                "targetMax": 25,
+                                "gridSize": 9,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-carre-magique-defi",
+                            "title": "Défi : Carré Magique Expert",
+                            "subtitle": "Cibles plus grandes, sans aide",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "carre-somme",
+                                "solutionCount": 3,
+                                "targetMin": 25,
+                                "targetMax": 35,
+                                "gridSize": 9,
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "ce2-comp-100",
                             "title": "Compléments à 100",
                             "subtitle": "Calcul mental rapide",
@@ -308,6 +338,20 @@
                                 "dataFile": "data/math_word_problems_cycle3.json",
                                 "category": "ce2-problemes-multiplicatifs",
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-problemes-expert",
+                            "title": "Défi : problèmes en rafale",
+                            "subtitle": "Additifs et multiplicatifs, sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle3.json",
+                                "category": "ce2-problemes-multiplicatifs",
+                                "questions": 10
                             }
                         },
                         {
@@ -725,6 +769,18 @@
                             }
                         },
                         {
+                            "id": "ce2-geo-angle-droit-pratique",
+                            "title": "Touche les angles droits",
+                            "subtitle": "Repère-les sur la figure",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_tap_features_ce2.json",
+                                "category": "ce2_tap_angle_droit",
+                                "questions": 4
+                            }
+                        },
+                        {
                             "id": "ce2-geo-symetrie-quadrillage",
                             "title": "Symétrie et quadrillage",
                             "subtitle": "Axe de symétrie, repérage sur quadrillage",
@@ -737,6 +793,30 @@
                             }
                         },
                         {
+                            "id": "ce2-geo-symetrie-pratique",
+                            "title": "Complète la figure symétrique",
+                            "subtitle": "Place les points sur le quadrillage",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "symmetry-complete",
+                                "dataFile": "data/board_symmetry_complete_ce2.json",
+                                "category": "ce2_symmetry_complete",
+                                "questions": 4
+                            }
+                        },
+                        {
+                            "id": "ce2-geo-reperage-pratique",
+                            "title": "Place le point sur le quadrillage",
+                            "subtitle": "Repérage par coordonnées",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "point-on-grid",
+                                "dataFile": "data/board_point_on_grid_ce2.json",
+                                "category": "ce2_point_on_grid",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "ce2-maths-geo-appariement",
                             "title": "Figures et propriétés",
                             "subtitle": "Relie chaque figure à sa propriété",
@@ -745,6 +825,18 @@
                                 "category": "matching_math_ce2",
                                 "dataFile": "data/math_matching.json",
                                 "questions": 3
+                            }
+                        },
+                        {
+                            "id": "ce2-maths-memoire",
+                            "title": "Jeu de mémoire",
+                            "subtitle": "Retrouve toutes les paires",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "memory-match",
+                                "dataFile": "data/board_memory_match_ce2.json",
+                                "category": "ce2_memory_match",
+                                "questions": 5
                             }
                         },
                         {
@@ -969,6 +1061,16 @@
                                 "type": "grammar-cloze",
                                 "category": "grammar_cloze_ce2",
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-g-cloze-ecrit",
+                            "title": "Écris le bon mot",
+                            "subtitle": "Complète la phrase sans aide",
+                            "engine": "cloze-fill-in",
+                            "params": {
+                                "category": "grammar_cloze_ce2",
+                                "questions": 6
                             }
                         },
                         {
@@ -2522,6 +2624,32 @@
                                 "category": "ce2-chaines-alimentaires-simples",
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "ce2-bonus-sciences-chaines-alimentaires-defi",
+                            "title": "Défi : chaînes alimentaires",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-chaines-alimentaires-simples",
+                                "questions": 9
+                            }
+                        },
+                        {
+                            "id": "ce2-sciences-tap-corps",
+                            "title": "Les parties du corps",
+                            "subtitle": "Touche la tête, le tronc, les bras, les jambes",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_tap_features_science.json",
+                                "category": "ce2_tap_corps_humain",
+                                "questions": 4
+                            }
                         }
                     ],
                     "lessons": [
@@ -2837,6 +2965,274 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "id": "ce2-sciences-saisons-subtheme",
+                    "title": "Saisons et météo",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "ce2-sciences-cycle-saisons",
+                            "title": "Le cycle des saisons",
+                            "subtitle": "Printemps, été, automne, hiver",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-saisons-meteo",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-sciences-mesurer-meteo",
+                            "title": "Mesurer la météo",
+                            "subtitle": "Thermomètre, girouette, pluviomètre",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-saisons-meteo",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-sciences-climat-environnement",
+                            "title": "Climat et environnement",
+                            "subtitle": "Les saisons et les êtres vivants",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-saisons-meteo",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-sciences-saisons",
+                            "title": "Défi : saisons et météo",
+                            "subtitle": "Super série sur le cycle des saisons",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-saisons-meteo",
+                                "questions": 10
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "ce2-lesson-cycle-saisons",
+                            "title": "Le cycle des saisons",
+                            "subtitle": "Printemps, été, automne, hiver",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La Terre tourne autour du Soleil en une année, ce qui crée les quatre saisons : printemps, été, automne et hiver. La durée du jour change aussi selon la saison : les jours sont longs en été et courts en hiver."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "En été, le jour dure longtemps et il fait chaud. En hiver, la nuit tombe plus tôt et il fait plus froid."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "printemps : les plantes repoussent",
+                                        "été : jours longs et chaleur",
+                                        "automne : les feuilles tombent",
+                                        "hiver : jours courts et froid"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Ce n'est pas la distance au Soleil qui change avec les saisons : c'est la façon dont la Terre est inclinée qui fait varier la lumière et la chaleur reçues au fil de l'année."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-instruments-meteo",
+                            "title": "Les instruments de la météo",
+                            "subtitle": "Thermomètre, girouette, pluviomètre",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour étudier le temps qu'il fait, on utilise des instruments qui mesurent la température, le vent et la pluie."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le thermomètre indique qu'il fait 5 degrés ce matin : on sait alors qu'il fait froid."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "headers": [
+                                        "Instrument",
+                                        "Ce qu'il mesure"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "thermomètre",
+                                            "la température"
+                                        ],
+                                        [
+                                            "girouette",
+                                            "la direction du vent"
+                                        ],
+                                        [
+                                            "pluviomètre",
+                                            "la quantité de pluie"
+                                        ],
+                                        [
+                                            "anémomètre",
+                                            "la force du vent"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Chaque instrument météo mesure une seule chose précise, ce qui permet de décrire le temps avec des chiffres."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "ce2-sciences-milieux-subtheme",
+                    "title": "Les milieux de vie",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "ce2-sciences-ecosystemes-simples",
+                            "title": "Les écosystèmes simples",
+                            "subtitle": "Un milieu où vivent ensemble des êtres vivants",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-milieux-vie",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-sciences-biodiversite",
+                            "title": "La biodiversité autour de nous",
+                            "subtitle": "Plusieurs espèces dans un même milieu",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-milieux-vie",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-sciences-proteger-milieux",
+                            "title": "Protéger les milieux",
+                            "subtitle": "Préserver la nature autour de nous",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-milieux-vie",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-sciences-milieux",
+                            "title": "Défi : les milieux de vie",
+                            "subtitle": "Super série sur les écosystèmes et la biodiversité",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-milieux-vie",
+                                "questions": 10
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "ce2-lesson-ecosysteme-simple",
+                            "title": "Qu'est-ce qu'un milieu de vie ?",
+                            "subtitle": "Des êtres vivants qui dépendent les uns des autres",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un milieu de vie regroupe plusieurs êtres vivants qui dépendent les uns des autres et de leur environnement : l'eau, le sol et le climat du lieu."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans une forêt, les arbres donnent de l'ombre et des abris, le sol nourrit les racines, et les animaux trouvent là de quoi manger et se cacher."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "milieu de vie",
+                                        "êtres vivants",
+                                        "eau, sol, climat",
+                                        "les êtres vivants dépendent les uns des autres"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Dans un milieu, rien ne vit tout seul : chaque être vivant a besoin des autres et de son environnement."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-biodiversite-milieux",
+                            "title": "La biodiversité d'un milieu",
+                            "subtitle": "Plusieurs espèces vivent ensemble",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un même milieu abrite souvent plusieurs espèces différentes. On appelle cela la biodiversité : c'est la diversité des êtres vivants dans un lieu."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans une mare, on trouve des grenouilles, des insectes et des plantes aquatiques. Dans une forêt, on trouve des arbres, des oiseaux, des champignons et des insectes."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "headers": [
+                                        "Milieu",
+                                        "Exemples d'êtres vivants"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "la mare",
+                                            "grenouilles, insectes, plantes aquatiques"
+                                        ],
+                                        [
+                                            "la forêt",
+                                            "arbres, oiseaux, champignons, insectes"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Plus un milieu compte d'espèces différentes, plus sa biodiversité est riche : il faut donc le protéger."
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -2875,9 +3271,34 @@
                             }
                         },
                         {
+                            "id": "ce2-bonus-emc-regles-defi",
+                            "title": "Défi : règles communes",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce2.json",
+                                "category": "ce2-lieux-objets-communs",
+                                "questions": 9
+                            }
+                        },
+                        {
                             "id": "ce2-emc-appariement",
                             "title": "Droits et devoirs",
                             "subtitle": "Relie chaque droit à son devoir",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_emc_ce2",
+                                "dataFile": "data/emc_matching.json",
+                                "questions": 3
+                            }
+                        },
+                        {
+                            "id": "ce2-emc-appariement-2",
+                            "title": "Symboles et valeurs de la République",
+                            "subtitle": "Relie chaque symbole à sa signification",
                             "engine": "matching",
                             "params": {
                                 "category": "matching_emc_ce2",
@@ -3296,6 +3717,20 @@
                                 "dataFile": "data/emc_ce2.json",
                                 "category": "ce2-esprit-critique",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-emc-esprit-critique-defi",
+                            "title": "Défi : esprit critique",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce2.json",
+                                "category": "ce2-esprit-critique",
+                                "questions": 9
                             }
                         },
                         {

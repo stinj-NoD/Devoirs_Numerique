@@ -1,0 +1,268 @@
+{
+    "title": "Sciences : touche les bons éléments",
+    "categories": {
+        "ce1_tap_plante": [
+            {
+                "prompt": "Voici une plante. Touche la fleur, en haut de la tige.",
+                "board": { "width": 10, "height": 10, "grid": false },
+                "drawing": {
+                    "lines": [
+                        { "x1": 5, "y1": 9, "x2": 5, "y2": 3 },
+                        { "x1": 5, "y1": 6, "x2": 2, "y2": 7 },
+                        { "x1": 5, "y1": 5, "x2": 8, "y2": 6 },
+                        { "x1": 3, "y1": 9, "x2": 7, "y2": 9 }
+                    ]
+                },
+                "features": [
+                    { "id": "fleur", "x": 5, "y": 2, "correct": true },
+                    { "id": "tige", "x": 5, "y": 6, "correct": false },
+                    { "id": "racine", "x": 5, "y": 9, "correct": false }
+                ]
+            },
+            {
+                "prompt": "Touche la racine de la plante, sous la terre.",
+                "board": { "width": 10, "height": 10, "grid": false },
+                "drawing": {
+                    "lines": [
+                        { "x1": 5, "y1": 8, "x2": 5, "y2": 2 },
+                        { "x1": 2, "y1": 9, "x2": 5, "y2": 8 },
+                        { "x1": 5, "y1": 8, "x2": 8, "y2": 9 }
+                    ]
+                },
+                "features": [
+                    { "id": "fleur", "x": 5, "y": 2, "correct": false },
+                    { "id": "tige", "x": 5, "y": 5, "correct": false },
+                    { "id": "racine", "x": 5, "y": 8, "correct": true }
+                ]
+            },
+            {
+                "prompt": "Touche la tige, la partie qui relie la racine à la fleur.",
+                "board": { "width": 10, "height": 10, "grid": false },
+                "drawing": {
+                    "lines": [
+                        { "x1": 5, "y1": 8, "x2": 5, "y2": 2 },
+                        { "x1": 2, "y1": 9, "x2": 5, "y2": 8 },
+                        { "x1": 5, "y1": 8, "x2": 8, "y2": 9 }
+                    ]
+                },
+                "features": [
+                    { "id": "fleur", "x": 5, "y": 2, "correct": false },
+                    { "id": "tige", "x": 5, "y": 5, "correct": true },
+                    { "id": "racine", "x": 5, "y": 8, "correct": false }
+                ]
+            },
+            {
+                "prompt": "Cette plante a une feuille. Touche-la.",
+                "board": { "width": 10, "height": 10, "grid": false },
+                "drawing": {
+                    "lines": [
+                        { "x1": 5, "y1": 8, "x2": 5, "y2": 2 },
+                        { "x1": 5, "y1": 6, "x2": 2, "y2": 4 },
+                        { "x1": 2, "y1": 9, "x2": 5, "y2": 8 },
+                        { "x1": 5, "y1": 8, "x2": 8, "y2": 9 }
+                    ]
+                },
+                "features": [
+                    { "id": "fleur", "x": 5, "y": 2, "correct": false },
+                    { "id": "feuille", "x": 2, "y": 4, "correct": true },
+                    { "id": "racine", "x": 5, "y": 8, "correct": false }
+                ]
+            }
+        ],
+        "ce2_tap_corps_humain": [
+            {
+                "prompt": "Touche la tête, en haut du corps.",
+                "board": { "width": 10, "height": 10, "grid": false },
+                "drawing": {
+                    "lines": [
+                        { "x1": 5, "y1": 4, "x2": 5, "y2": 8 },
+                        { "x1": 5, "y1": 5, "x2": 2, "y2": 6 },
+                        { "x1": 5, "y1": 5, "x2": 8, "y2": 6 },
+                        { "x1": 5, "y1": 8, "x2": 3, "y2": 9 },
+                        { "x1": 5, "y1": 8, "x2": 7, "y2": 9 }
+                    ]
+                },
+                "features": [
+                    { "id": "tete", "x": 5, "y": 2, "correct": true },
+                    { "id": "bras", "x": 8, "y": 6, "correct": false },
+                    { "id": "jambe", "x": 7, "y": 9, "correct": false }
+                ]
+            },
+            {
+                "prompt": "Touche un bras.",
+                "board": { "width": 10, "height": 10, "grid": false },
+                "drawing": {
+                    "lines": [
+                        { "x1": 5, "y1": 4, "x2": 5, "y2": 8 },
+                        { "x1": 5, "y1": 5, "x2": 2, "y2": 6 },
+                        { "x1": 5, "y1": 5, "x2": 8, "y2": 6 },
+                        { "x1": 5, "y1": 8, "x2": 3, "y2": 9 },
+                        { "x1": 5, "y1": 8, "x2": 7, "y2": 9 }
+                    ]
+                },
+                "features": [
+                    { "id": "tete", "x": 5, "y": 2, "correct": false },
+                    { "id": "bras", "x": 8, "y": 6, "correct": true },
+                    { "id": "jambe", "x": 7, "y": 9, "correct": false }
+                ]
+            },
+            {
+                "prompt": "Touche une jambe.",
+                "board": { "width": 10, "height": 10, "grid": false },
+                "drawing": {
+                    "lines": [
+                        { "x1": 5, "y1": 4, "x2": 5, "y2": 8 },
+                        { "x1": 5, "y1": 5, "x2": 2, "y2": 6 },
+                        { "x1": 5, "y1": 5, "x2": 8, "y2": 6 },
+                        { "x1": 5, "y1": 8, "x2": 3, "y2": 9 },
+                        { "x1": 5, "y1": 8, "x2": 7, "y2": 9 }
+                    ]
+                },
+                "features": [
+                    { "id": "tete", "x": 5, "y": 2, "correct": false },
+                    { "id": "bras", "x": 8, "y": 6, "correct": false },
+                    { "id": "jambe", "x": 7, "y": 9, "correct": true }
+                ]
+            },
+            {
+                "prompt": "Le tronc relie la tête aux bras et aux jambes. Touche le tronc.",
+                "board": { "width": 10, "height": 10, "grid": false },
+                "drawing": {
+                    "lines": [
+                        { "x1": 5, "y1": 4, "x2": 5, "y2": 8 },
+                        { "x1": 5, "y1": 5, "x2": 2, "y2": 6 },
+                        { "x1": 5, "y1": 5, "x2": 8, "y2": 6 },
+                        { "x1": 5, "y1": 8, "x2": 3, "y2": 9 },
+                        { "x1": 5, "y1": 8, "x2": 7, "y2": 9 }
+                    ]
+                },
+                "features": [
+                    { "id": "tete", "x": 5, "y": 2, "correct": false },
+                    { "id": "tronc", "x": 5, "y": 6, "correct": true },
+                    { "id": "jambe", "x": 7, "y": 9, "correct": false }
+                ]
+            }
+        ],
+        "cm1_tap_etats_matiere": [
+            {
+                "prompt": "Voici trois récipients : un glaçon (solide), de l'eau (liquide) et un nuage de vapeur (gaz). Touche le solide.",
+                "board": { "width": 12, "height": 8, "grid": false },
+                "drawing": {
+                    "lines": [
+                        { "x1": 1, "y1": 6, "x2": 1, "y2": 4 },
+                        { "x1": 1, "y1": 4, "x2": 3, "y2": 4 },
+                        { "x1": 3, "y1": 4, "x2": 3, "y2": 6 },
+                        { "x1": 5, "y1": 6, "x2": 5, "y2": 4 },
+                        { "x1": 5, "y1": 4, "x2": 7, "y2": 4 },
+                        { "x1": 7, "y1": 4, "x2": 7, "y2": 6 },
+                        { "x1": 9, "y1": 6, "x2": 9, "y2": 4 },
+                        { "x1": 9, "y1": 4, "x2": 11, "y2": 4 },
+                        { "x1": 11, "y1": 4, "x2": 11, "y2": 6 }
+                    ]
+                },
+                "features": [
+                    { "id": "solide", "x": 2, "y": 5, "correct": true },
+                    { "id": "liquide", "x": 6, "y": 5, "correct": false },
+                    { "id": "gaz", "x": 10, "y": 5, "correct": false }
+                ]
+            },
+            {
+                "prompt": "Touche le récipient contenant un liquide.",
+                "board": { "width": 12, "height": 8, "grid": false },
+                "drawing": {
+                    "lines": [
+                        { "x1": 1, "y1": 6, "x2": 1, "y2": 4 },
+                        { "x1": 1, "y1": 4, "x2": 3, "y2": 4 },
+                        { "x1": 3, "y1": 4, "x2": 3, "y2": 6 },
+                        { "x1": 5, "y1": 6, "x2": 5, "y2": 4 },
+                        { "x1": 5, "y1": 4, "x2": 7, "y2": 4 },
+                        { "x1": 7, "y1": 4, "x2": 7, "y2": 6 },
+                        { "x1": 9, "y1": 6, "x2": 9, "y2": 4 },
+                        { "x1": 9, "y1": 4, "x2": 11, "y2": 4 },
+                        { "x1": 11, "y1": 4, "x2": 11, "y2": 6 }
+                    ]
+                },
+                "features": [
+                    { "id": "solide", "x": 2, "y": 5, "correct": false },
+                    { "id": "liquide", "x": 6, "y": 5, "correct": true },
+                    { "id": "gaz", "x": 10, "y": 5, "correct": false }
+                ]
+            },
+            {
+                "prompt": "Touche le récipient contenant un gaz.",
+                "board": { "width": 12, "height": 8, "grid": false },
+                "drawing": {
+                    "lines": [
+                        { "x1": 1, "y1": 6, "x2": 1, "y2": 4 },
+                        { "x1": 1, "y1": 4, "x2": 3, "y2": 4 },
+                        { "x1": 3, "y1": 4, "x2": 3, "y2": 6 },
+                        { "x1": 5, "y1": 6, "x2": 5, "y2": 4 },
+                        { "x1": 5, "y1": 4, "x2": 7, "y2": 4 },
+                        { "x1": 7, "y1": 4, "x2": 7, "y2": 6 },
+                        { "x1": 9, "y1": 6, "x2": 9, "y2": 4 },
+                        { "x1": 9, "y1": 4, "x2": 11, "y2": 4 },
+                        { "x1": 11, "y1": 4, "x2": 11, "y2": 6 }
+                    ]
+                },
+                "features": [
+                    { "id": "solide", "x": 2, "y": 5, "correct": false },
+                    { "id": "liquide", "x": 6, "y": 5, "correct": false },
+                    { "id": "gaz", "x": 10, "y": 5, "correct": true }
+                ]
+            }
+        ],
+        "cm2_tap_circuit_electrique": [
+            {
+                "prompt": "Ce circuit électrique a une pile, un fil et une ampoule. Touche la pile (source d'énergie).",
+                "board": { "width": 10, "height": 8, "grid": false },
+                "drawing": {
+                    "lines": [
+                        { "x1": 2, "y1": 6, "x2": 2, "y2": 2 },
+                        { "x1": 2, "y1": 2, "x2": 8, "y2": 2 },
+                        { "x1": 8, "y1": 2, "x2": 8, "y2": 6 },
+                        { "x1": 8, "y1": 6, "x2": 2, "y2": 6 }
+                    ]
+                },
+                "features": [
+                    { "id": "pile", "x": 2, "y": 6, "correct": true },
+                    { "id": "fil", "x": 2, "y": 4, "correct": false },
+                    { "id": "ampoule", "x": 8, "y": 4, "correct": false }
+                ]
+            },
+            {
+                "prompt": "Touche l'ampoule du circuit.",
+                "board": { "width": 10, "height": 8, "grid": false },
+                "drawing": {
+                    "lines": [
+                        { "x1": 2, "y1": 6, "x2": 2, "y2": 2 },
+                        { "x1": 2, "y1": 2, "x2": 8, "y2": 2 },
+                        { "x1": 8, "y1": 2, "x2": 8, "y2": 6 },
+                        { "x1": 8, "y1": 6, "x2": 2, "y2": 6 }
+                    ]
+                },
+                "features": [
+                    { "id": "pile", "x": 2, "y": 6, "correct": false },
+                    { "id": "fil", "x": 2, "y": 4, "correct": false },
+                    { "id": "ampoule", "x": 8, "y": 4, "correct": true }
+                ]
+            },
+            {
+                "prompt": "Touche le fil conducteur qui relie la pile à l'ampoule.",
+                "board": { "width": 10, "height": 8, "grid": false },
+                "drawing": {
+                    "lines": [
+                        { "x1": 2, "y1": 6, "x2": 2, "y2": 2 },
+                        { "x1": 2, "y1": 2, "x2": 8, "y2": 2 },
+                        { "x1": 8, "y1": 2, "x2": 8, "y2": 6 },
+                        { "x1": 8, "y1": 6, "x2": 2, "y2": 6 }
+                    ]
+                },
+                "features": [
+                    { "id": "pile", "x": 2, "y": 6, "correct": false },
+                    { "id": "fil", "x": 2, "y": 4, "correct": true },
+                    { "id": "ampoule", "x": 8, "y": 4, "correct": false }
+                ]
+            }
+        ]
+    }
+}

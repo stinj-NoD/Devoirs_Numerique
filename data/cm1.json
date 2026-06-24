@@ -35,6 +35,18 @@
                             }
                         },
                         {
+                            "id": "cm1-frac-build",
+                            "title": "Construis la fraction",
+                            "subtitle": "Touche les bonnes parts",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "fraction-build",
+                                "minDenom": 2,
+                                "maxDenom": 8,
+                                "questions": 8
+                            }
+                        },
+                        {
                             "id": "cm1-dec-pos-1",
                             "title": "Décimaux : Positions (1)",
                             "subtitle": "Dixièmes et Centièmes",
@@ -209,6 +221,43 @@
                                 "maxCoef": 5,
                                 "maxBase": 6,
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-echelle-1",
+                            "title": "Lire une échelle de plan",
+                            "subtitle": "Du plan à la réalité",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "echelle",
+                                "echelles": [50, 100, 200],
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-pourcentage-1",
+                            "title": "Calculer un pourcentage simple",
+                            "subtitle": "10 %, 20 %, 25 %, 50 %",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "pourcentage",
+                                "values": [10, 20, 25, 50],
+                                "maxMultiple": 8,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-proportionnalite-expert",
+                            "title": "Défi : proportionnalité experte",
+                            "subtitle": "Coefficients plus grands, sans erreur",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "proportionnalite",
+                                "maxCoef": 9,
+                                "maxBase": 9,
+                                "questions": 8
                             }
                         },
                         {
@@ -985,6 +1034,18 @@
                             }
                         },
                         {
+                            "id": "cm1-geo-angle-droit-pratique",
+                            "title": "Touche les angles droits",
+                            "subtitle": "Repère-les sur la figure",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_tap_features_cm1.json",
+                                "category": "cm1_tap_angle_droit",
+                                "questions": 5
+                            }
+                        },
+                        {
                             "id": "cm1-geo-symetrie-reperage",
                             "title": "Symétrie et repérage",
                             "subtitle": "Axe et miroir",
@@ -994,6 +1055,30 @@
                                 "dataFile": "data/math_geometry_cm1.json",
                                 "category": "cm1-symetrie-reperage",
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-reperage-pratique",
+                            "title": "Place le point sur le quadrillage",
+                            "subtitle": "Repérage par coordonnées",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "point-on-grid",
+                                "dataFile": "data/board_point_on_grid_cm1.json",
+                                "category": "cm1_point_on_grid",
+                                "questions": 7
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-symetrie-pratique",
+                            "title": "Complète la figure symétrique",
+                            "subtitle": "Place les points sur le quadrillage",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "symmetry-complete",
+                                "dataFile": "data/board_symmetry_complete_cm1.json",
+                                "category": "cm1_symmetry_complete",
+                                "questions": 5
                             }
                         },
                         {
@@ -1066,6 +1151,72 @@
                                 "category": "cm1-perimetre-angles",
                                 "questions": 12
                             }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-graphiques-subtheme",
+                    "title": "Lire un graphique",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "cm1-graphique-lecture",
+                            "title": "Lire un diagramme en barres",
+                            "subtitle": "Trouver le maximum, le minimum, le total",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "bar-chart-read",
+                                "maxBars": 4,
+                                "maxValue": 20,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-graphique-expert",
+                            "title": "Défi : graphiques en rafale",
+                            "subtitle": "Toutes les questions, sans erreur",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "bar-chart-read",
+                                "maxBars": 5,
+                                "maxValue": 25,
+                                "questions": 8
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-lire-graphique",
+                            "title": "Lire un diagramme en barres",
+                            "subtitle": "Comparer des quantités d'un coup d'œil",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un diagramme en barres représente des quantités par des barres : plus la barre est haute, plus la quantité est grande."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Si la barre « Lundi » est plus haute que la barre « Mardi », alors il y a eu plus d'élèves présents le lundi."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "la barre la plus haute donne le maximum",
+                                        "la barre la plus basse donne le minimum",
+                                        "on peut additionner toutes les valeurs pour avoir le total",
+                                        "la différence entre deux barres se calcule par soustraction"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour lire un graphique, je compare d'abord les hauteurs des barres avant de calculer."
+                                }
+                            ]
                         }
                     ]
                 }
@@ -1551,6 +1702,17 @@
                             }
                         },
                         {
+                            "id": "cm1-g-fonction-qcm",
+                            "title": "Sujet, verbe ou complément",
+                            "subtitle": "Trouver le rôle du mot dans la phrase",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "sentence_function_choice_cm1",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "cm1-g-cloze-det",
                             "title": "Déterminant dans la phrase",
                             "subtitle": "Choisir le bon petit mot",
@@ -1559,6 +1721,16 @@
                                 "type": "grammar-cloze",
                                 "category": "grammar_cloze_cm1",
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-g-cloze-ecrit",
+                            "title": "Écris le bon mot",
+                            "subtitle": "Complète la phrase sans aide",
+                            "engine": "cloze-fill-in",
+                            "params": {
+                                "category": "grammar_cloze_cm1",
+                                "questions": 6
                             }
                         },
                         {
@@ -2703,6 +2875,20 @@
                             }
                         },
                         {
+                            "id": "cm1-bonus-geo-territoires-defi",
+                            "title": "Défi : types de territoires",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-types-territoires",
+                                "questions": 10
+                            }
+                        },
+                        {
                             "id": "cm1-geo-territoires-appariement",
                             "title": "Territoires et caractéristiques",
                             "subtitle": "Relie chaque territoire à ce qui le caractérise",
@@ -2795,6 +2981,20 @@
                                 "dataFile": "data/geography_cm1.json",
                                 "category": "cm1-se-deplacer",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-geo-deplacements-defi",
+                            "title": "Défi : se déplacer",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-se-deplacer",
+                                "questions": 10
                             }
                         },
                         {
@@ -3190,6 +3390,32 @@
                             "engine": "choice-engine",
                             "id": "cm1-sciences-classer-vivant",
                             "subtitle": "Animaux, plantes et milieux"
+                        },
+                        {
+                            "id": "cm1-sciences-ecosystemes",
+                            "title": "Écosystèmes et adaptation",
+                            "subtitle": "Chaînes alimentaires et biodiversité",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-vivant",
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-sciences-vivant-defi",
+                            "title": "Défi : le vivant",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-vivant",
+                                "questions": 12
+                            }
                         }
                     ]
                 },
@@ -3254,6 +3480,18 @@
                                 "dataFile": "data/science_cm1.json",
                                 "category": "cm1-sources-energie",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-tap-etats-matiere",
+                            "title": "Solide, liquide ou gaz ?",
+                            "subtitle": "Touche le bon état de la matière",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_tap_features_science.json",
+                                "category": "cm1_tap_etats_matiere",
+                                "questions": 3
                             }
                         },
                         {
@@ -3465,6 +3703,252 @@
                             }
                         }
                     ]
+                },
+                {
+                    "id": "cm1-sciences-electricite-subtheme",
+                    "title": "Électricité",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-circuit-simple",
+                            "title": "Le circuit électrique simple",
+                            "subtitle": "Pile, fil et ampoule",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour qu'une ampoule s'allume, il faut relier une pile à l'ampoule avec des fils, sans laisser de trou dans le circuit."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Si les fils relient bien la pile et l'ampoule, le circuit est fermé et la lampe s'allume."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "un circuit fermé permet à la lampe de s'allumer",
+                                        "un circuit ouvert ne permet rien d'allumer",
+                                        "la pile, les fils et l'ampoule doivent être bien reliés",
+                                        "un interrupteur ouvre ou ferme le circuit"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Une lampe s'allume seulement si le circuit est complet, sans coupure."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-securite-electrique-base",
+                            "title": "La sécurité électrique de base",
+                            "subtitle": "Prises, mains mouillées et prudence",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "L'électricité est utile mais peut être dangereuse. Il faut respecter quelques règles simples pour rester en sécurité."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "On ne touche jamais une prise avec les mains mouillées, car l'eau laisse passer le courant électrique."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "ne jamais toucher une prise avec les mains mouillées",
+                                        "ne jamais mettre d'objet métallique dans une prise",
+                                        "demander à un adulte pour utiliser un appareil électrique",
+                                        "prévenir un adulte si un appareil semble abîmé"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Face à l'électricité à la maison, je reste prudent et je demande de l'aide à un adulte."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-sciences-circuit-electrique",
+                            "title": "Le circuit électrique",
+                            "subtitle": "Pile, fil et ampoule",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-electricite-base",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-piles-appareils",
+                            "title": "Piles et appareils",
+                            "subtitle": "Utiliser l'électricité au quotidien",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-electricite-base",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-securite-electrique",
+                            "title": "Sécurité électrique",
+                            "subtitle": "Prises, prudence et bons réflexes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-electricite-base",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-sciences-electricite-base",
+                            "title": "Défi : électricité et sécurité",
+                            "subtitle": "Circuits et prudence en série longue",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-electricite-base",
+                                "questions": 10
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-sciences-environnement-subtheme",
+                    "title": "Environnement",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-tri-dechets-simple",
+                            "title": "Les déchets et le tri simple",
+                            "subtitle": "Poubelle jaune, verte et ordures",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Tous les déchets ne se jettent pas dans la même poubelle. Bien trier permet de recycler une partie de nos déchets."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une bouteille en plastique ou un emballage en carton se mettent souvent dans la poubelle jaune."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je trie",
+                                    "items": [
+                                        "le papier et le carton",
+                                        "le verre",
+                                        "le plastique",
+                                        "les déchets qui ne se recyclent pas"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Bien trier ses déchets aide à les recycler au lieu de les jeter tous ensemble."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-gestes-environnement-simples",
+                            "title": "Des gestes simples pour la nature",
+                            "subtitle": "Économiser et respecter",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Chacun peut agir au quotidien avec des gestes simples pour protéger la nature autour de soi."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Éteindre la lumière en sortant d'une pièce ou fermer le robinet pendant le brossage des dents économise des ressources."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je peux agir",
+                                    "items": [
+                                        "économiser l'eau",
+                                        "éteindre la lumière en sortant",
+                                        "ne pas jeter de déchets dans la nature",
+                                        "respecter les animaux et les plantes"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "De petits gestes simples, répétés chaque jour, aident à protéger la nature."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-sciences-trier-dechets",
+                            "title": "Trier ses déchets",
+                            "subtitle": "Poubelle jaune, verte et ordures",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-environnement-gestes",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-economiser-ressources",
+                            "title": "Économiser les ressources",
+                            "subtitle": "Eau et électricité au quotidien",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-environnement-gestes",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-proteger-nature",
+                            "title": "Protéger la nature",
+                            "subtitle": "Respecter les animaux et les plantes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-environnement-gestes",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-sciences-environnement-gestes",
+                            "title": "Défi : gestes pour l'environnement",
+                            "subtitle": "Tri et écologie en série longue",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-environnement-gestes",
+                                "questions": 10
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -3535,6 +4019,20 @@
                             "engine": "choice-engine",
                             "id": "cm1-emc-respecter-chacun",
                             "subtitle": "Dialogue, entraide, calme"
+                        },
+                        {
+                            "id": "cm1-bonus-emc-vivre-ensemble-defi",
+                            "title": "Défi : vivre ensemble",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-vivre-ensemble",
+                                "questions": 12
+                            }
                         }
                     ]
                 },
@@ -3634,9 +4132,34 @@
                             "subtitle": "Droits, devoirs, responsabilités"
                         },
                         {
+                            "id": "cm1-bonus-emc-droits-devoirs-defi",
+                            "title": "Défi : droits et devoirs",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-droits-devoirs",
+                                "questions": 12
+                            }
+                        },
+                        {
                             "id": "cm1-emc-appariement",
                             "title": "Droits, institutions et valeurs",
                             "subtitle": "Relie chaque concept à sa définition",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_emc_cm1",
+                                "dataFile": "data/emc_matching.json",
+                                "questions": 3
+                            }
+                        },
+                        {
+                            "id": "cm1-emc-appariement-2",
+                            "title": "Citoyenneté au quotidien",
+                            "subtitle": "Relie chaque comportement à sa valeur",
                             "engine": "matching",
                             "params": {
                                 "category": "matching_emc_cm1",

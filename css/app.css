@@ -1850,9 +1850,8 @@ header {
 
 .visual-card--bird {
     min-height: 220px;
-    background:
-        radial-gradient(circle at top left, rgba(144, 205, 244, 0.22), transparent 32%),
-        linear-gradient(180deg, #eef8ff 0%, #f8fbff 100%);
+    /* Le fond ciel/nuages est porté par .sky-container (même élément),
+       qui a la priorité ici car déclaré plus loin dans la feuille. */
 }
 
 .visual-card--conversion,
@@ -2018,21 +2017,121 @@ header {
 
 .board-panel--map {
     background: linear-gradient(180deg, rgba(235, 246, 255, 0.98) 0%, rgba(220, 238, 252, 0.96) 100%);
+    height: min(70vh, 560px);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #app.theme-dark .board-panel--map {
     background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-soft, var(--color-surface)) 100%);
 }
 
+.board-memory-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--memory-cols, 4), 1fr);
+    gap: 10px;
+}
+
+.board-memory-card {
+    position: relative;
+    min-height: 84px;
+    border-radius: 14px;
+    border: 1px solid rgba(74, 144, 226, 0.24);
+    background: transparent;
+    cursor: pointer;
+    perspective: 600px;
+    padding: 0;
+}
+
+.board-memory-card-face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    backface-visibility: hidden;
+    transition: transform 0.3s ease;
+    font-weight: 700;
+    text-align: center;
+    padding: 8px;
+}
+
+.board-memory-card-back {
+    background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-strong) 100%);
+    color: white;
+    font-size: 1.4rem;
+    transform: rotateY(0deg);
+}
+
+.board-memory-card-front {
+    background: rgba(255, 255, 255, 0.96);
+    color: var(--color-text);
+    transform: rotateY(180deg);
+}
+
+.board-memory-card.is-flipped .board-memory-card-back,
+.board-memory-card.is-matched .board-memory-card-back {
+    transform: rotateY(-180deg);
+}
+
+.board-memory-card.is-flipped .board-memory-card-front,
+.board-memory-card.is-matched .board-memory-card-front {
+    transform: rotateY(0deg);
+}
+
+.board-memory-card.is-matched .board-memory-card-front {
+    background: var(--color-success-soft, #e6f9ee);
+    border: 2px solid var(--color-success, #48bb78);
+}
+
+.board-memory-card:disabled {
+    cursor: default;
+}
+
+#app.theme-dark .board-memory-card-front {
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+
+#app.theme-dark .board-memory-card.is-matched .board-memory-card-front {
+    background: rgba(72, 187, 120, 0.18);
+}
+
+.board-fraction-slice {
+    fill: rgba(74, 144, 226, 0.12);
+    stroke: var(--color-text, #2d3748);
+    stroke-width: 1.5;
+    cursor: pointer;
+    transition: fill 0.15s ease;
+}
+
+.board-fraction-slice:focus {
+    outline: 3px solid var(--primary, #4A90E2);
+    outline-offset: 2px;
+}
+
+.board-fraction-slice.is-selected {
+    fill: var(--primary, #4A90E2);
+    fill-opacity: 0.75;
+}
+
 .board-map-svg {
     max-width: 100%;
     width: 100%;
+    height: 100%;
+    max-height: 100%;
+    display: block;
+    overflow: hidden;
 }
 
 .board-map-zone {
     fill: rgba(74, 144, 226, 0.18);
     stroke: var(--subject-accent, #4a90e2);
     stroke-width: 1.2;
+    vector-effect: non-scaling-stroke;
     cursor: pointer;
     transition: fill 0.15s ease;
 }
@@ -2217,9 +2316,8 @@ header {
 }
 
 .money-token {
+    position: relative;
     min-height: 72px;
-    border: 2px solid rgba(45, 55, 72, 0.12);
-    box-shadow: 0 8px 20px rgba(45, 55, 72, 0.08);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2228,34 +2326,189 @@ header {
     color: #243b53;
 }
 
+/* Pieces : disque bicolore (centre + anneau exterieur de teinte differente),
+   comme les vraies pieces de 1 EUR et 2 EUR. */
 .money-token--coin {
     border-radius: 999px;
     aspect-ratio: 1;
     max-width: 84px;
     justify-self: center;
+    box-shadow:
+        0 6px 14px rgba(45, 55, 72, 0.3),
+        inset 0 2px 3px rgba(255, 255, 255, 0.5),
+        inset 0 -3px 5px rgba(0, 0, 0, 0.2);
 }
 
+.money-token--coin .money-token-value,
+.money-token--coin .money-token-currency {
+    position: relative;
+    z-index: 1;
+}
+
+/* Anneau exterieur strie (cannelures) + centre en relief, par-dessus le
+   degrade de fond pose par les classes de teinte (bronze/silver). */
+.money-token--coin::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: repeating-conic-gradient(
+        rgba(255, 255, 255, 0.22) 0deg 4deg,
+        rgba(0, 0, 0, 0.08) 4deg 8deg
+    );
+    -webkit-mask: radial-gradient(circle, transparent 64%, #000 66%, #000 100%);
+            mask: radial-gradient(circle, transparent 64%, #000 66%, #000 100%);
+}
+
+.money-token--coin::after {
+    content: "";
+    position: absolute;
+    inset: 17%;
+    border-radius: 999px;
+    box-shadow:
+        inset 0 2px 3px rgba(255, 255, 255, 0.55),
+        inset 0 -3px 4px rgba(0, 0, 0, 0.18),
+        0 0 0 1.5px rgba(45, 55, 72, 0.2);
+}
+
+/* 1 EUR : centre argente, anneau dore. 2 EUR : l'inverse, comme les vraies pieces. */
+.money-token--bronze {
+    background: radial-gradient(circle, #eef1f4 0%, #eef1f4 63%, #e2b765 66%, #c8923c 100%);
+}
+.money-token--silver {
+    background: radial-gradient(circle, #e7b454 0%, #e7b454 63%, #e8ecef 66%, #c3cdd6 100%);
+}
+
+/* Billets : couleurs officielles BCE, fenetre transparente, etoiles UE et
+   bande holographique, pour un rendu plus proche d'un vrai billet. */
 .money-token--bill {
-    border-radius: 16px;
-    min-height: 76px;
+    /* Un billet doit rester nettement plus large que haut : on lui donne 2
+       colonnes de la grille (les pieces n'en occupent qu'une), mais on
+       plafonne sa largeur/hauteur réelles pour rester compact. */
+    grid-column: span 2;
+    border-radius: 6px;
+    max-width: 150px;
+    max-height: 62px;
+    margin: 0 auto;
+    aspect-ratio: 2.2 / 1;
+    border: 1px solid rgba(45, 55, 72, 0.3);
+    box-shadow:
+        0 5px 10px rgba(45, 55, 72, 0.25),
+        inset 0 0 0 3px rgba(255, 255, 255, 0.55),
+        inset 0 0 0 4px rgba(45, 55, 72, 0.15);
 }
 
-.money-token--bronze { background: linear-gradient(180deg, #d9a56c 0%, #c18442 100%); }
-.money-token--silver { background: linear-gradient(180deg, #eceff3 0%, #c9d1d9 100%); }
-.money-token--green { background: linear-gradient(180deg, #daf5dc 0%, #92d09a 100%); }
-.money-token--red { background: linear-gradient(180deg, #ffe0e0 0%, #f1a3a3 100%); }
-.money-token--blue { background: linear-gradient(180deg, #dcedff 0%, #8fc0ff 100%); }
-.money-token--gold { background: linear-gradient(180deg, #ffe9c7 0%, #f6be62 100%); }
+/* Filet decoratif fin, comme le motif guilloche au bord des vrais billets */
+.money-token--bill::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: 1px dashed rgba(255, 255, 255, 0.65);
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+/* Bande holographique argentee, a droite */
+.money-token--bill::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    right: 7px;
+    width: 6px;
+    border-radius: 4px;
+    background: linear-gradient(180deg, #ffffff 0%, #cfd8e2 50%, #ffffff 100%);
+    box-shadow: inset 0 0 0 1px rgba(45, 55, 72, 0.2);
+}
+
+/* Fenetre ovale transparente, a gauche, comme le filigrane des vrais billets */
+.money-token-window {
+    position: absolute;
+    top: 50%;
+    left: 9px;
+    width: 16px;
+    height: 16px;
+    transform: translateY(-50%);
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 70%, transparent 100%);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
+    z-index: 1;
+}
+
+/* Petit numero de serie stylise, en bas a gauche, esprit "vrai billet" */
+.money-token-serial {
+    position: absolute;
+    bottom: 4px;
+    left: 9px;
+    font-size: 0.4rem;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    opacity: 0.75;
+    z-index: 1;
+}
+
+.money-token--green {
+    /* billet 5 EUR : gris officiel */
+    background: linear-gradient(135deg, #e4e7ea 0%, #c3c9cf 55%, #9aa3ac 100%);
+    color: #2b3540;
+}
+.money-token--red {
+    /* billet 10 EUR : rouge officiel */
+    background: linear-gradient(135deg, #f4a8a8 0%, #df6a6a 55%, #b83a3a 100%);
+    color: #441010;
+}
+.money-token--blue {
+    /* billet 20 EUR : bleu officiel */
+    background: linear-gradient(135deg, #9ec3f0 0%, #5e8fd8 55%, #2f5fa8 100%);
+    color: #112143;
+}
+.money-token--gold {
+    /* billet 50 EUR : orange officiel */
+    background: linear-gradient(135deg, #ffc97a 0%, #f59a3c 55%, #d9711c 100%);
+    color: #4a2607;
+}
 
 .money-token-value {
+    position: relative;
+    z-index: 1;
     font-size: 1.5rem;
     line-height: 1;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .money-token-currency {
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
+    position: relative;
+    z-index: 1;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+    opacity: 0.85;
+}
+
+.money-token--coin .money-token-currency {
+    margin-top: 2px;
+}
+
+.money-token--bill .money-token-value {
+    font-size: 1.15rem;
     margin-top: 6px;
+}
+
+.money-token--bill .money-token-currency {
+    font-size: 0.55rem;
+    margin-top: 0;
+}
+
+/* Petites etoiles UE en haut a droite (avant la bande), comme un repere
+   discret de drapeau europeen sans gener la valeur centrale. */
+.money-token--bill .money-token-stars {
+    position: absolute;
+    top: 4px;
+    right: 16px;
+    font-size: 0.4rem;
+    letter-spacing: 1px;
+    color: rgba(255, 221, 0, 0.9);
+    z-index: 1;
 }
 
 .money-empty-state {
@@ -2266,6 +2519,69 @@ header {
     text-align: center;
     color: #718096;
     font-weight: 700;
+}
+
+.visual-card--barchart {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: calc(var(--panel-padding) - 2px);
+}
+
+.bar-chart-unit {
+    text-align: center;
+    font-weight: 700;
+    color: var(--color-text-soft, var(--color-text));
+    margin-bottom: 14px;
+}
+
+.bar-chart-grid {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 14px;
+    min-height: 180px;
+    padding: 0 8px;
+}
+
+.bar-chart-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    max-width: 70px;
+    height: 100%;
+}
+
+.bar-chart-value {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    margin-bottom: 4px;
+}
+
+.bar-chart-bar {
+    width: 100%;
+    height: var(--bar-height, 10%);
+    border-radius: 8px 8px 4px 4px;
+    box-shadow: 0 4px 10px rgba(45, 55, 72, 0.18);
+    transition: height 0.3s ease;
+}
+
+.bar-chart-bar--blue { background: linear-gradient(180deg, #8fc0ff 0%, #5d96e0 100%); }
+.bar-chart-bar--red { background: linear-gradient(180deg, #f3a6a6 0%, #d96868 100%); }
+.bar-chart-bar--green { background: linear-gradient(180deg, #9fdda9 0%, #5fae71 100%); }
+.bar-chart-bar--gold { background: linear-gradient(180deg, #f8cd7c 0%, #dba23e 100%); }
+.bar-chart-bar--silver { background: linear-gradient(180deg, #eceff3 0%, #aab6c2 100%); }
+
+.bar-chart-label {
+    margin-top: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-text-soft, var(--color-text));
+    text-align: center;
+    word-break: break-word;
 }
 
 .counting-stage {
@@ -2490,6 +2806,7 @@ header {
 .answer-display.shake { animation: shake 0.4s; }
 .square-container { display: flex; flex-direction: column; align-items: center; gap: 15px; }
 .target-badge { background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-secondary-strong) 100%); color: white; padding: 8px 25px; border-radius: 50px; font-size: 1.5rem; font-weight: bold; box-shadow: 0 4px 0 #b63e3e; }
+.square-hint { color: var(--color-text-soft, var(--color-text)); font-size: 0.95rem; text-align: center; }
 .square-grid { display: grid; gap: 10px; }
 
 .number-card {
@@ -3248,11 +3565,161 @@ header {
 .answer-display.is-success .clock-digit-block { color: #9ae6b4; }
 .clock-separator { font-size: 2rem; color: var(--color-text); margin: 0 5px; animation: blink 1s infinite; }
 @keyframes blink { 50% { opacity: 0; } }
-.sky-container { width: 100%; height: 100%; position: relative; overflow: hidden; min-height: 200px; }
-.bird-container { position: absolute; top: 20%; animation: flyAcross linear forwards; display: flex; flex-direction: column; align-items: center; }
-.bird-sprite { font-size: 3rem; transform: scaleX(-1); }
-.bird-bubble { background: white; padding: 5px 10px; border-radius: 10px; border: 2px solid var(--dark); font-weight: bold; margin-bottom: 5px; position: relative; }
-@keyframes flyAcross { from { left: -100px; } to { left: 110%; } }
+.sky-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+    background: linear-gradient(180deg, #aee2ff 0%, #d8f1ff 60%, #eef9ff 100%);
+    border-radius: var(--radius-lg, 18px);
+}
+
+.bird-container {
+    position: absolute;
+    top: 20%;
+    left: -120px;
+    animation: flyAcross linear forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Le battement d'ailes tourne en boucle independamment de la traversee,
+   pendant que flyAcross gere le deplacement horizontal + oscillation
+   verticale (vol en vague) sur le meme element. */
+.bird-sprite {
+    position: relative;
+    width: 56px;
+    height: 40px;
+    animation: birdFlap 0.45s ease-in-out infinite;
+    transform: scaleX(-1);
+}
+
+.bird-sprite-body {
+    position: absolute;
+    left: 14px;
+    top: 8px;
+    width: 30px;
+    height: 22px;
+    background: radial-gradient(circle at 35% 30%, #ffd76a 0%, #f6a623 70%, #d9890f 100%);
+    border-radius: 60% 60% 55% 55%;
+    box-shadow: 0 3px 6px rgba(45, 55, 72, 0.25);
+}
+
+.bird-sprite-body::before {
+    /* bec */
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: 9px;
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-right: 9px solid #e8762a;
+}
+
+.bird-sprite-body::after {
+    /* oeil */
+    content: "";
+    position: absolute;
+    right: 6px;
+    top: 5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #2d3748;
+}
+
+.bird-sprite-wing {
+    position: absolute;
+    top: 6px;
+    left: 18px;
+    width: 24px;
+    height: 16px;
+    background: linear-gradient(135deg, #fff1c2 0%, #f6a623 100%);
+    border-radius: 80% 20% 60% 40%;
+    transform-origin: 0% 50%;
+}
+
+.bird-sprite-wing--back {
+    opacity: 0.85;
+    animation: birdWingBack 0.45s ease-in-out infinite;
+}
+
+.bird-sprite-wing--front {
+    animation: birdWingFront 0.45s ease-in-out infinite;
+}
+
+.bird-bubble {
+    background: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 2px solid var(--dark);
+    font-weight: bold;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+/* Le vol en vague : la translation verticale oscille pendant que la
+   traversee horizontale avance lineairement de left a right. */
+@keyframes flyAcross {
+    0%   { left: -120px; transform: translateY(0); }
+    12%  { transform: translateY(-22px); }
+    25%  { transform: translateY(0); }
+    37%  { transform: translateY(22px); }
+    50%  { transform: translateY(0); }
+    62%  { transform: translateY(-22px); }
+    75%  { transform: translateY(0); }
+    87%  { transform: translateY(22px); }
+    100% { left: 110%; transform: translateY(0); }
+}
+
+@keyframes birdFlap {
+    0%, 100% { transform: scaleX(-1) translateY(0); }
+    50% { transform: scaleX(-1) translateY(-2px); }
+}
+
+@keyframes birdWingBack {
+    0%, 100% { transform: rotate(10deg); }
+    50% { transform: rotate(-25deg); }
+}
+
+@keyframes birdWingFront {
+    0%, 100% { transform: rotate(-15deg); }
+    50% { transform: rotate(30deg); }
+}
+
+/* Nuages de decor : leur nombre et leur vitesse dependent de la difficulte
+   (calcules cote JS), pour que le ciel semble plus charge quand l'oiseau
+   va plus vite. */
+.sky-cloud {
+    position: absolute;
+    top: var(--cloud-top, 20%);
+    left: -140px;
+    width: 90px;
+    height: 36px;
+    opacity: 0.85;
+    background: #ffffff;
+    border-radius: 999px;
+    box-shadow:
+        18px 6px 0 -4px #ffffff,
+        -16px 8px 0 -6px #ffffff,
+        6px -10px 0 -8px #ffffff;
+    animation: cloudDrift linear infinite;
+    animation-duration: var(--cloud-duration, 12s);
+    animation-delay: var(--cloud-delay, 0s);
+}
+
+.sky-cloud--layer1 { transform: scale(0.7); opacity: 0.6; filter: blur(0.3px); }
+.sky-cloud--layer2 { transform: scale(0.95); opacity: 0.8; }
+.sky-cloud--layer3 { transform: scale(1.15); opacity: 0.95; }
+
+@keyframes cloudDrift {
+    from { left: -140px; }
+    to { left: 110%; }
+}
 .keyboard-container { background: linear-gradient(180deg, rgba(237, 243, 248, 0.92) 0%, rgba(244, 247, 251, 0.98) 100%); padding: 10px; padding-bottom: 20px; flex-shrink: 0; border-top: 1px solid var(--color-border-strong); backdrop-filter: blur(8px); }
 .keyboard-layout { display: none; gap: var(--space-2); width: 100%; max-width: var(--container-max); margin: 0 auto; }
 
@@ -3541,6 +4008,62 @@ header {
     opacity: 0.45;
 }
 
+.collection-section {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto var(--space-6);
+}
+
+.collection-section-title {
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+    text-align: center;
+    font-size: var(--font-size-lg);
+}
+
+.collection-badges-list,
+.collection-maps-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+}
+
+.collection-badge,
+.collection-map {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+}
+
+.collection-badge.is-unlocked,
+.collection-map.is-unlocked {
+    border-color: rgba(247, 197, 72, 0.5);
+    background: var(--color-primary-soft);
+}
+
+.collection-badge.is-locked,
+.collection-map.is-locked {
+    opacity: 0.55;
+}
+
+.collection-badge-icon,
+.collection-map-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+}
+
+.collection-badge-label,
+.collection-map-label {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-text);
+}
+
 .streak-toast {
     position: fixed;
     top: var(--space-5);
@@ -3793,6 +4316,10 @@ header {
 .board-grid-node:focus-visible .board-grid-hit {
     outline: 3px solid var(--color-focus);
     outline-offset: 2px;
+}
+
+.board-map-zone {
+    outline: none;
 }
 
 .board-map-zone:focus-visible {

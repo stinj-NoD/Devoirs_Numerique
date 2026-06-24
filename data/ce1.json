@@ -268,6 +268,18 @@
                             }
                         },
                         {
+                            "id": "ce1-maths-memoire",
+                            "title": "Jeu de mémoire",
+                            "subtitle": "Retrouve toutes les paires",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "memory-match",
+                                "dataFile": "data/board_memory_match_ce1.json",
+                                "category": "ce1_memory_match",
+                                "questions": 5
+                            }
+                        },
+                        {
                             "id": "ce1-bonus-additions-100",
                             "title": "Défi : additions jusqu'à 100",
                             "subtitle": "Calcul mental grand format",
@@ -568,6 +580,20 @@
                                 "dataFile": "data/math_word_problems_cycle2.json",
                                 "category": "ce1-problemes-mixtes",
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-problemes-expert",
+                            "title": "Défi : problèmes en rafale",
+                            "subtitle": "Additifs et à étapes, sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle2.json",
+                                "category": "ce1-problemes-mixtes",
+                                "questions": 10
                             }
                         }
                     ],
@@ -1275,6 +1301,16 @@
                             }
                         },
                         {
+                            "id": "ce1-gram-cloze-ecrit",
+                            "title": "Écris le bon mot",
+                            "subtitle": "Complète la phrase sans aide",
+                            "engine": "cloze-fill-in",
+                            "params": {
+                                "category": "grammar_cloze_ce1",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "ce1-gram-pluriel",
                             "title": "Singulier ou pluriel",
                             "subtitle": "Former le bon nom",
@@ -1564,6 +1600,20 @@
                             }
                         },
                         {
+                            "id": "ce1-bonus-histoire-vie-autrefois-defi",
+                            "title": "Défi : vivre autrefois",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce1.json",
+                                "category": "ce1-vie-autrefois",
+                                "questions": 9
+                            }
+                        },
+                        {
                             "id": "ce1-histoire-ecole-autrefois",
                             "title": "L'école d'autrefois",
                             "subtitle": "Classe, écriture et habitudes",
@@ -1834,6 +1884,20 @@
                             }
                         },
                         {
+                            "id": "ce1-geo-carte-regions",
+                            "title": "Carte de France",
+                            "subtitle": "Touche la région demandée",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "map-locate",
+                                "dataFile": "data/board_map_locate_ce1.json",
+                                "mapFile": "data/maps/france-regions.svg",
+                                "mapId": "france-regions",
+                                "category": "ce1_map_regions_france",
+                                "questions": 4
+                            }
+                        },
+                        {
                             "id": "ce1-bonus-geo-reperage-expert",
                             "title": "Défi : super repérage",
                             "subtitle": "Plan, symboles et lieux en rafale",
@@ -2073,6 +2137,18 @@
                             }
                         },
                         {
+                            "id": "ce1-sciences-tap-plante",
+                            "title": "Les parties de la plante",
+                            "subtitle": "Touche la fleur, la tige, la racine",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_tap_features_science.json",
+                                "category": "ce1_tap_plante",
+                                "questions": 4
+                            }
+                        },
+                        {
                             "id": "ce1-sciences-appariement",
                             "title": "Êtres vivants et besoins",
                             "subtitle": "Relie chaque être vivant à son besoin",
@@ -2152,6 +2228,20 @@
                                 "dataFile": "data/science_ce1.json",
                                 "category": "ce1-melanges-simples",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-sciences-melanges-defi",
+                            "title": "Défi : mélanges simples",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-melanges-simples",
+                                "questions": 10
                             }
                         }
                     ],
@@ -2315,6 +2405,361 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "id": "ce1-sciences-saisons-subtheme",
+                    "title": "Saisons et météo",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "ce1-sciences-saisons-annee",
+                            "title": "Les saisons de l'année",
+                            "subtitle": "Hiver, printemps, été, automne",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-saisons-meteo",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-sciences-observer-meteo",
+                            "title": "Observer la météo",
+                            "subtitle": "Pluie, vent, neige, orage",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-saisons-meteo",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce1-sciences-climat-activites",
+                            "title": "Climat et activités",
+                            "subtitle": "S'adapter aux saisons",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-saisons-meteo",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-sciences-saisons-expert",
+                            "title": "Défi : super saisons et météo",
+                            "subtitle": "Encore plus de questions sur le temps qu'il fait",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-saisons-meteo",
+                                "questions": 10
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "ce1-lesson-quatre-saisons",
+                            "title": "Le cycle des quatre saisons",
+                            "subtitle": "Hiver, printemps, été, automne",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Au cours d'une année, quatre saisons se suivent toujours dans le même ordre : l'hiver, le printemps, l'été et l'automne. Chaque saison dure environ trois mois et apporte des changements de température, de lumière et de végétation."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "En hiver, les jours sont courts et il fait froid. En été, les jours sont longs et il fait chaud. Les arbres perdent leurs feuilles en automne et les bourgeons repoussent au printemps."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "hiver : jours courts, froid, arbres souvent nus",
+                                        "printemps : températures plus douces, bourgeons et fleurs",
+                                        "été : jours longs, forte chaleur, feuillage abondant",
+                                        "automne : jours plus courts, feuilles qui tombent et changent de couleur"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Les saisons reviennent toujours dans le même ordre, comme un cycle qui recommence chaque année."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-phenomenes-meteo",
+                            "title": "Les phénomènes météo",
+                            "subtitle": "Pluie, vent, neige, orage, brouillard",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La météo, c'est le temps qu'il fait dehors à un moment donné. Elle peut changer plusieurs fois dans la même journée et dépend surtout de la saison."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Quand le ciel se couvre de gros nuages noirs, on entend parfois le tonnerre et on voit des éclairs : c'est un orage. Quand il fait très froid en hiver, la pluie peut se transformer en neige."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "la pluie : des gouttes d'eau tombent des nuages",
+                                        "le vent : de l'air qui se déplace, parfois fort",
+                                        "la neige : de l'eau gelée qui tombe en flocons quand il fait très froid",
+                                        "l'orage : tonnerre, éclairs et pluie forte ensemble",
+                                        "le brouillard : un nuage très bas qui réduit la visibilité"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le thermomètre et l'observation du ciel aident à décrire et prévoir la météo du jour."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "ce1-sciences-milieux-subtheme",
+                    "title": "Les milieux de vie",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "ce1-sciences-milieux-vie",
+                            "title": "Les milieux de vie",
+                            "subtitle": "Forêt, mare, jardin, bord de mer",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-milieux-vie",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-sciences-qui-vit-ou",
+                            "title": "Qui vit où ?",
+                            "subtitle": "Associer un animal à son milieu",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-milieux-vie",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce1-sciences-sadapter-milieu",
+                            "title": "S'adapter à son milieu",
+                            "subtitle": "Vivre dans l'eau, sur terre, dans les airs",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-milieux-vie",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-sciences-milieux-expert",
+                            "title": "Défi : super milieux de vie",
+                            "subtitle": "Encore plus de questions sur les milieux de vie",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-milieux-vie",
+                                "questions": 10
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "ce1-lesson-milieu-de-vie",
+                            "title": "Qu'est-ce qu'un milieu de vie ?",
+                            "subtitle": "Un endroit où vivre",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un milieu de vie est un endroit où un être vivant trouve tout ce dont il a besoin pour vivre : de la nourriture, un abri et de l'eau."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le poisson trouve dans la mare l'eau, la nourriture et l'abri dont il a besoin pour vivre."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "un milieu de vie apporte de la nourriture",
+                                        "un milieu de vie apporte un abri",
+                                        "un milieu de vie apporte de l'eau"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Chaque être vivant a besoin d'un milieu adapté pour trouver ce qui lui est nécessaire."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-milieux-france",
+                            "title": "Des milieux de vie en France",
+                            "subtitle": "Forêt, mare, jardin, bord de mer",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "En France, il existe plusieurs milieux de vie où l'on peut observer des plantes et des animaux différents."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans la forêt vivent le renard, l'écureuil et le chêne. Dans la mare vivent la grenouille, le poisson et le nénuphar."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "la forêt : renard, écureuil, chêne",
+                                        "la mare ou l'étang : grenouille, poisson, nénuphar",
+                                        "le jardin ou le potager : abeille, escargot, salade",
+                                        "le bord de mer : mouette, crabe, algue"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Chaque milieu de vie accueille des êtres vivants différents, adaptés à ce lieu."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "ce1-sciences-objets-subtheme",
+                    "title": "Objets et matériaux",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "ce1-sciences-objets-techniques",
+                            "title": "Les objets techniques",
+                            "subtitle": "Un objet pour répondre à un besoin",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-objets-materiaux",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-sciences-proprietes-materiaux",
+                            "title": "Propriétés des matériaux",
+                            "subtitle": "Dur, mou, transparent, opaque, flotte ou coule",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-objets-materiaux",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce1-sciences-choisir-materiau",
+                            "title": "Bien choisir son matériau",
+                            "subtitle": "Choisir selon l'usage de l'objet",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-objets-materiaux",
+                                "questions": 6
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "ce1-lesson-objets-techniques",
+                            "title": "Les objets techniques simples",
+                            "subtitle": "Un objet fabriqué pour un besoin précis",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un objet technique est un objet fabriqué par les humains pour répondre à un besoin précis."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "La lampe répond au besoin d'éclairer. Le vélo répond au besoin de se déplacer."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "un objet technique répond à un besoin",
+                                        "lampe : éclairer",
+                                        "vélo : se déplacer",
+                                        "deux objets différents peuvent répondre au même besoin"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour comprendre un objet technique, je cherche à quel besoin il répond."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-proprietes-materiaux",
+                            "title": "Les propriétés des matériaux",
+                            "subtitle": "Dur ou mou, transparent ou opaque",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un matériau a des propriétés qu'on peut observer : il peut être dur ou mou, transparent ou opaque, il peut flotter ou couler dans l'eau."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le verre est transparent et dur. L'éponge est molle. Le bois flotte sur l'eau, le caillou coule."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "dur / mou",
+                                        "transparent / opaque",
+                                        "flotte / coule",
+                                        "isolant : protège de la chaleur ou du froid"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Observer un matériau aide à comprendre pourquoi il est utilisé pour un objet précis."
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -2368,6 +2813,17 @@
                             "id": "ce1-emc-appariement",
                             "title": "Règles et valeurs",
                             "subtitle": "Relie chaque règle à sa raison",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_emc_ce1",
+                                "dataFile": "data/emc_matching.json",
+                                "questions": 3
+                            }
+                        },
+                        {
+                            "id": "ce1-emc-appariement-2",
+                            "title": "Émotions et attitudes",
+                            "subtitle": "Relie chaque situation à la bonne réaction",
                             "engine": "matching",
                             "params": {
                                 "category": "matching_emc_ce1",
@@ -2468,6 +2924,20 @@
                                 "dataFile": "data/emc_ce1.json",
                                 "category": "ce1-citoyen",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-emc-citoyen-defi",
+                            "title": "Défi : être citoyen",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce1.json",
+                                "category": "ce1-citoyen",
+                                "questions": 9
                             }
                         },
                         {

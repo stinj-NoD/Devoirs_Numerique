@@ -1,0 +1,38 @@
+{
+    "title": "Repérage sur quadrillage CE2",
+    "gradeId": "ce2",
+    "categories": {
+        "ce2_point_on_grid": [
+            {
+                "prompt": "Place le point au croisement de la colonne 3 et de la ligne 2.",
+                "board": { "width": 8, "height": 8, "grid": true },
+                "task": { "label": "Colonne 3, ligne 2", "target": [3, 2] }
+            },
+            {
+                "prompt": "Place le point aux coordonnées (5 ; 4).",
+                "board": { "width": 8, "height": 8, "grid": true },
+                "task": { "label": "Point (5 ; 4)", "target": [5, 4] }
+            },
+            {
+                "prompt": "Place le point tout en bas à droite du quadrillage.",
+                "board": { "width": 8, "height": 8, "grid": true },
+                "task": { "label": "En bas à droite", "target": [7, 7] }
+            },
+            {
+                "prompt": "Place le point au centre du quadrillage.",
+                "board": { "width": 8, "height": 8, "grid": true },
+                "task": { "label": "Au centre", "target": [4, 4] }
+            },
+            {
+                "prompt": "Place le point aux coordonnées (1 ; 6).",
+                "board": { "width": 8, "height": 8, "grid": true },
+                "task": { "label": "Point (1 ; 6)", "target": [1, 6] }
+            },
+            {
+                "prompt": "Place le point tout en haut à gauche du quadrillage.",
+                "board": { "width": 8, "height": 8, "grid": true },
+                "task": { "label": "En haut à gauche", "target": [0, 0] }
+            }
+        ]
+    }
+}

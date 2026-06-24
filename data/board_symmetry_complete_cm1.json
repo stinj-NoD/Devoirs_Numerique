@@ -1,0 +1,43 @@
+{
+    "title": "Symétrie par quadrillage CM1",
+    "gradeId": "cm1",
+    "categories": {
+        "cm1_symmetry_complete": [
+            {
+                "prompt": "Complète la figure en plaçant les points symétriques par rapport à l'axe.",
+                "board": { "width": 12, "height": 8, "grid": true, "axis": { "type": "vertical", "x": 6 } },
+                "givenPoints": [[2, 1], [3, 4], [1, 6], [4, 7]],
+                "targetPoints": [[10, 1], [9, 4], [11, 6], [8, 7]],
+                "tolerance": 0
+            },
+            {
+                "prompt": "Place les points manquants pour obtenir une figure symétrique.",
+                "board": { "width": 12, "height": 8, "grid": true, "axis": { "type": "vertical", "x": 6 } },
+                "givenPoints": [[1, 2], [2, 5], [4, 6], [5, 3]],
+                "targetPoints": [[11, 2], [10, 5], [8, 6], [7, 3]],
+                "tolerance": 0
+            },
+            {
+                "prompt": "Complète le papillon symétrique en plaçant les points qui manquent.",
+                "board": { "width": 12, "height": 8, "grid": true, "axis": { "type": "vertical", "x": 6 } },
+                "givenPoints": [[3, 1], [1, 3], [2, 6], [4, 4]],
+                "targetPoints": [[9, 1], [11, 3], [10, 6], [8, 4]],
+                "tolerance": 0
+            },
+            {
+                "prompt": "Termine la figure symétrique en ajoutant les points manquants.",
+                "board": { "width": 12, "height": 8, "grid": true, "axis": { "type": "vertical", "x": 6 } },
+                "givenPoints": [[2, 2], [3, 3], [1, 5], [4, 7]],
+                "targetPoints": [[10, 2], [9, 3], [11, 5], [8, 7]],
+                "tolerance": 0
+            },
+            {
+                "prompt": "Place les points symétriques pour compléter l'étoile.",
+                "board": { "width": 12, "height": 8, "grid": true, "axis": { "type": "vertical", "x": 6 } },
+                "givenPoints": [[5, 1], [3, 2], [2, 5], [4, 6]],
+                "targetPoints": [[7, 1], [9, 2], [10, 5], [8, 6]],
+                "tolerance": 0
+            }
+        ]
+    }
+}

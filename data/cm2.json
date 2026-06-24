@@ -220,6 +220,18 @@
                             }
                         },
                         {
+                            "id": "cm2-frac-build",
+                            "title": "Construis la fraction",
+                            "subtitle": "Touche les bonnes parts",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "fraction-build",
+                                "minDenom": 2,
+                                "maxDenom": 12,
+                                "questions": 8
+                            }
+                        },
+                        {
                             "id": "cm2_decimaux_positions",
                             "title": "Décimaux : positions",
                             "subtitle": "Dixièmes, centièmes et pièges",
@@ -648,6 +660,31 @@
                             }
                         },
                         {
+                            "id": "cm2-vitesse-1",
+                            "title": "Vitesse, distance, durée",
+                            "subtitle": "Calculer une distance ou une durée",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "vitesse",
+                                "maxHeures": 5,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-proportionnalite-expert",
+                            "title": "Défi : proportionnalité experte",
+                            "subtitle": "Pourcentages, échelles et vitesses en rafale",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "pourcentage",
+                                "values": [10, 20, 25, 50],
+                                "maxMultiple": 12,
+                                "questions": 8
+                            }
+                        },
+                        {
                             "id": "cm2-conversions-masses",
                             "title": "Convertir des masses",
                             "subtitle": "kg, g, mg...",
@@ -1010,6 +1047,18 @@
                             }
                         },
                         {
+                            "id": "cm2-geo-symetrie-pratique",
+                            "title": "Complète la figure symétrique",
+                            "subtitle": "Place les points sur le quadrillage",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "symmetry-complete",
+                                "dataFile": "data/board_symmetry_complete_cm2.json",
+                                "category": "cm2_symmetry_complete",
+                                "questions": 5
+                            }
+                        },
+                        {
                             "id": "cm2-geo-vocabulaire-construction",
                             "title": "Construction géométrique",
                             "subtitle": "Compas, rayon, diamètre",
@@ -1090,6 +1139,72 @@
                                 "max": 15,
                                 "questions": 6
                             }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm2-graphiques-subtheme",
+                    "title": "Lire un graphique",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "cm2-graphique-lecture",
+                            "title": "Lire un diagramme en barres",
+                            "subtitle": "Trouver le maximum, le minimum, le total",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "bar-chart-read",
+                                "maxBars": 5,
+                                "maxValue": 30,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-graphique-expert",
+                            "title": "Défi : graphiques en rafale",
+                            "subtitle": "Toutes les questions, sans erreur",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "bar-chart-read",
+                                "maxBars": 5,
+                                "maxValue": 40,
+                                "questions": 8
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "cm2-lesson-lire-graphique",
+                            "title": "Lire un diagramme en barres",
+                            "subtitle": "Comparer des quantités d'un coup d'œil",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un diagramme en barres représente des quantités par des barres : plus la barre est haute, plus la quantité est grande."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Pour comparer les ventes de plusieurs magasins, on lit la hauteur de chaque barre plutôt que de longues phrases."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "la barre la plus haute donne le maximum",
+                                        "la barre la plus basse donne le minimum",
+                                        "la somme de toutes les valeurs donne le total",
+                                        "la différence entre deux barres se calcule par soustraction"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Un graphique permet de comparer des données rapidement, sans tout recalculer."
+                                }
+                            ]
                         }
                     ]
                 }
@@ -1578,6 +1693,17 @@
                             }
                         },
                         {
+                            "id": "cm2_g_fonction_qcm",
+                            "title": "Sujet, verbe ou complément",
+                            "subtitle": "Trouver le rôle du mot dans la phrase",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "sentence_function_choice_cm2",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "cm2_g_cloze_det",
                             "title": "Déterminant dans la phrase",
                             "subtitle": "Choisir le bon mot outil",
@@ -1586,6 +1712,16 @@
                                 "type": "grammar-cloze",
                                 "category": "grammar_cloze_cm2",
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2_g_cloze_ecrit",
+                            "title": "Écris le bon mot",
+                            "subtitle": "Complète la phrase sans aide",
+                            "engine": "cloze-fill-in",
+                            "params": {
+                                "category": "grammar_cloze_cm2",
+                                "questions": 6
                             }
                         },
                         {
@@ -2597,6 +2733,20 @@
                                 "dataFile": "data/history_cm2.json",
                                 "questions": 8
                             }
+                        },
+                        {
+                            "id": "cm2-bonus-histoire-recits-expert",
+                            "title": "Défi : récits historiques",
+                            "subtitle": "Révolution et République, sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "category": "cm2-recits-historiques",
+                                "dataFile": "data/history_cm2.json",
+                                "questions": 8
+                            }
                         }
                     ]
                 }
@@ -2808,6 +2958,20 @@
                             "engine": "choice-engine",
                             "id": "cm2-geo-habiter-espaces",
                             "subtitle": "Métropoles, littoraux, campagnes"
+                        },
+                        {
+                            "id": "cm2-bonus-geo-habiter-defi",
+                            "title": "Défi : habiter",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm2.json",
+                                "category": "cm2-habiter",
+                                "questions": 7
+                            }
                         }
                     ],
                     "lessons": [
@@ -3684,6 +3848,18 @@
                             }
                         },
                         {
+                            "id": "cm2-sciences-tap-circuit",
+                            "title": "Le circuit électrique",
+                            "subtitle": "Touche la pile, le fil ou l'ampoule",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_tap_features_science.json",
+                                "category": "cm2_tap_circuit_electrique",
+                                "questions": 3
+                            }
+                        },
+                        {
                             "id": "cm2-sciences-electricite-appariement",
                             "title": "Sécurité électrique et appareils",
                             "subtitle": "Relie chaque appareil électrique à une règle de sécurité",
@@ -3778,6 +3954,20 @@
                                 "dataFile": "data/science_cm2.json",
                                 "category": "cm2-risques-climatiques",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-sciences-climat-defi",
+                            "title": "Défi : risques climatiques",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-risques-climatiques",
+                                "questions": 5
                             }
                         }
                     ]
@@ -4073,6 +4263,17 @@
                             "id": "cm2-emc-appariement",
                             "title": "Institutions et démocratie",
                             "subtitle": "Relie chaque institution à son rôle",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_emc_cm2",
+                                "dataFile": "data/emc_matching.json",
+                                "questions": 3
+                            }
+                        },
+                        {
+                            "id": "cm2-emc-appariement-2",
+                            "title": "Valeurs et engagement citoyen",
+                            "subtitle": "Relie chaque engagement à sa valeur",
                             "engine": "matching",
                             "params": {
                                 "category": "matching_emc_cm2",
@@ -4452,6 +4653,32 @@
                                 "category": "cm2-institutions-debat",
                                 "dataFile": "data/emc_cm2.json",
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-emc-institutions-republique",
+                            "title": "Les institutions de la République",
+                            "subtitle": "Président, Parlement, Constitution",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "category": "cm2-citoyennete",
+                                "dataFile": "data/emc_cm2.json",
+                                "questions": 7
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-institutions-debat-expert",
+                            "title": "Défi : institutions et débat",
+                            "subtitle": "Égalité, justice et institutions en rafale",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "category": "cm2-institutions-debat",
+                                "dataFile": "data/emc_cm2.json",
+                                "questions": 9
                             }
                         }
                     ]
