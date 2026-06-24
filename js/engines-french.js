@@ -91,7 +91,7 @@
         const cat = p.category || "animals";
         const pool = lib?.spelling?.[cat];
         if (!pool || !pool.length) return Engines.fallback("Mots indisponibles");
-        const picked = Engines.utils.pick(pool);
+        const picked = Engines.utils.pickUnused(pool, p.usedSet);
         return { isVisual: true, visualType: "spelling", inputType: "alpha", answer: picked.word.toLowerCase().trim(), data: { word: picked.word.toUpperCase(), img: picked.img, icon: picked.icon } };
     },
 
@@ -99,7 +99,7 @@
         const cat = p.category || "animals";
         const pool = lib?.spelling?.[cat];
         if (!pool || !pool.length) return Engines.fallback("Dictée audio indisponible");
-        const picked = Engines.utils.pick(pool);
+        const picked = Engines.utils.pickUnused(pool, p.usedSet);
         const answer = (picked.word || "").toString().trim();
         if (!answer) return Engines.fallback("Mot audio indisponible");
         return {
@@ -129,7 +129,7 @@
         }
         const pool = lib.homophones[cat];
         if (!pool || !pool.length) return Engines.fallback("Catégorie vide");
-        const picked = Engines.utils.pick(pool);
+        const picked = Engines.utils.pickUnused(pool, p.usedSet);
         const rawQ = SecurityUtils.escapeHtml(picked.sentence || picked.q || "");
         return { isVisual: true, visualType: "homophones", inputType: "qcm", question: `<span class="small-question">${rawQ.replace(/(\.\.\.|___)/g, '<span style="color:var(--primary)">_____</span>')}</span>`, answer: picked.answer || picked.a, data: { choices: picked.choices || cat.split("_") } };
     },
@@ -137,7 +137,7 @@
     reading(params, lib) {
         const pool = lib?.reading?.[params.category];
         if (!pool || !pool.length) return Engines.fallback("Lecture indisponible");
-        const picked = Engines.utils.pick(pool);
+        const picked = Engines.utils.pickUnused(pool, params.usedSet);
         const text = (picked.text || "").toString().trim();
         const syllables = Array.isArray(picked.syllables) ? picked.syllables.filter(Boolean) : [];
         const answer = (picked.answer || picked.a || text).toString().trim();
@@ -170,7 +170,7 @@
     grammarChoice(params, lib) {
         const pool = lib?.grammar?.[params.category];
         if (!pool || !pool.length) return Engines.fallback("Grammaire indisponible");
-        const picked = Engines.utils.pick(pool);
+        const picked = Engines.utils.pickUnused(pool, params.usedSet);
         const rawQuestion = (picked.question || picked.sentence || "").toString().trim();
         const answer = (picked.answer || picked.a || "").toString().trim();
         const choices = Array.isArray(picked.choices) ? picked.choices : [];
@@ -189,7 +189,7 @@
     grammarCloze(params, lib) {
         const pool = lib?.grammar?.[params.category];
         if (!pool || !pool.length) return Engines.fallback("Phrase à trou indisponible");
-        const picked = Engines.utils.pick(pool);
+        const picked = Engines.utils.pickUnused(pool, params.usedSet);
         const rawSentence = (picked.sentence || picked.question || "").toString().trim();
         const answer = (picked.answer || picked.a || "").toString().trim();
         const choices = Array.isArray(picked.choices) ? picked.choices : [];
@@ -210,9 +210,38 @@
         };
     },
 
+    /**
+     * Variante saisie libre de grammarCloze : la même phrase à trou, mais
+     * l'enfant tape la réponse au clavier au lieu de choisir parmi des
+     * propositions — réutilise les mêmes données grammar_cloze_* déjà
+     * présentes dans la bibliothèque française, juste un autre inputType.
+     */
+    clozeFillIn(params, lib) {
+        const pool = lib?.grammar?.[params.category];
+        if (!pool || !pool.length) return Engines.fallback("Phrase à trou indisponible");
+        const picked = Engines.utils.pickUnused(pool, params.usedSet);
+        const rawSentence = (picked.sentence || picked.question || "").toString().trim();
+        const answer = (picked.answer || picked.a || "").toString().trim();
+        if (!rawSentence || !answer) {
+            return Engines.fallback("Phrase à trou incomplète");
+        }
+        const escapedSentence = SecurityUtils.escapeHtml(rawSentence);
+        const prompt = escapedSentence.includes("___")
+            ? escapedSentence.replace(/___/g, '<span style="color:var(--primary); font-weight:800;">_____</span>')
+            : `${escapedSentence} <span style="color:var(--primary); font-weight:800;">_____</span>`;
+        return {
+            question: `<span class="small-question">${prompt}</span>`,
+            answer,
+            inputType: "alpha",
+            isVisual: false,
+            explanation: (picked.explanation || "").toString().trim(),
+            data: { allowNoHyphen: true }
+        };
+    },
+
     genderArticles(params, lib) {
         const cat = lib.grammar?.[params.category] || [];
-        const item = Engines.utils.pick(cat);
+        const item = Engines.utils.pickUnused(cat, params.usedSet);
         if (!item || !item.word) return { question: "Erreur Lib", answer: "ok" };
         let expected;
         const choices = [...(params.options || ["un", "une"])];

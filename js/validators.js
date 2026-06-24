@@ -11,7 +11,8 @@
         'reading',
         'timeline',
         'matching',
-        'word-order'
+        'word-order',
+        'cloze-fill-in'
     ]),
 
     isPlainObject(value) {
@@ -449,12 +450,23 @@
         if (exercise.engine === 'word-order' && !this.isNonEmptyString(exercise.params.category)) {
             return { valid: false, reason: 'category manquante pour word-order.' };
         }
+        if (exercise.engine === 'cloze-fill-in' && !this.isNonEmptyString(exercise.params.category)) {
+            return { valid: false, reason: 'category manquante pour cloze-fill-in.' };
+        }
         if (exercise.engine === 'board-interactive') {
-            if (!this.isNonEmptyString(exercise.params.type) || !['tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete', 'map-locate'].includes(exercise.params.type)) {
+            if (!this.isNonEmptyString(exercise.params.type) || !['tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete', 'map-locate', 'memory-match', 'fraction-build'].includes(exercise.params.type)) {
                 return { valid: false, reason: 'type board-interactive invalide.' };
             }
-            if (!this.isNonEmptyString(exercise.params.category)) {
+            if (exercise.params.type !== 'fraction-build' && !this.isNonEmptyString(exercise.params.category)) {
                 return { valid: false, reason: 'category manquante pour board-interactive.' };
+            }
+            if (exercise.params.type === 'fraction-build') {
+                if (exercise.params.minDenom !== undefined && (!Number.isFinite(Number(exercise.params.minDenom)) || Number(exercise.params.minDenom) < 2)) {
+                    return { valid: false, reason: 'minDenom invalide pour fraction-build.' };
+                }
+                if (exercise.params.maxDenom !== undefined && (!Number.isFinite(Number(exercise.params.maxDenom)) || Number(exercise.params.maxDenom) < 2)) {
+                    return { valid: false, reason: 'maxDenom invalide pour fraction-build.' };
+                }
             }
             if (exercise.params.type === 'map-locate') {
                 if (!this.isMapFilePath(exercise.params.mapFile)) {
@@ -559,6 +571,21 @@
                     || !this.isSafeLessonText(item.targetLabel)
                     || (item.prompt !== undefined && !this.isSafeLessonText(item.prompt))) {
                     return { valid: false, reason: `map-locate invalide dans ${exercise.params.category}.` };
+                }
+                continue;
+            }
+
+            if (exercise.params.type === 'memory-match') {
+                const pairs = Array.isArray(item.pairs) ? item.pairs : [];
+                const validPairs = pairs.length >= 3 && pairs.every((pair) =>
+                    Array.isArray(pair) && pair.length === 2
+                    && this.isSafeLessonText(pair[0]) && this.isSafeLessonText(pair[1])
+                );
+                if (!this.isPlainObject(item)
+                    || (item.title !== undefined && !this.isSafeLessonText(item.title))
+                    || (item.explanation !== undefined && !this.isSafeLessonText(item.explanation))
+                    || !validPairs) {
+                    return { valid: false, reason: `memory-match invalide dans ${exercise.params.category}.` };
                 }
                 continue;
             }

@@ -458,11 +458,17 @@ const Storage = {
         { id: 'ten-stars', icon: '🌟', label: '10 étoiles', test: (s) => s.totalStars >= 10 },
         { id: 'fifty-stars', icon: '✨', label: '50 étoiles', test: (s) => s.totalStars >= 50 },
         { id: 'hundred-stars', icon: '💫', label: '100 étoiles', test: (s) => s.totalStars >= 100 },
+        { id: 'two-hundred-stars', icon: '🌠', label: '200 étoiles', test: (s) => s.totalStars >= 200 },
         { id: 'first-perfect', icon: '🏆', label: 'Premier sans-faute', test: (s) => s.perfectCount >= 1 },
         { id: 'ten-perfect', icon: '🏅', label: '10 sans-faute', test: (s) => s.perfectCount >= 10 },
+        { id: 'twenty-five-perfect', icon: '👑', label: '25 sans-faute', test: (s) => s.perfectCount >= 25 },
         { id: 'streak-3', icon: '🔥', label: '3 jours de suite', test: (s) => s.bestStreak >= 3 },
         { id: 'streak-7', icon: '🔥', label: '7 jours de suite', test: (s) => s.bestStreak >= 7 },
-        { id: 'streak-30', icon: '🔥', label: '30 jours de suite', test: (s) => s.bestStreak >= 30 }
+        { id: 'streak-30', icon: '🔥', label: '30 jours de suite', test: (s) => s.bestStreak >= 30 },
+        { id: 'explorer-10', icon: '🧭', label: '10 exercices essayés', test: (s) => s.exercisesAttempted >= 10 },
+        { id: 'explorer-25', icon: '🗺️', label: '25 exercices essayés', test: (s) => s.exercisesAttempted >= 25 },
+        { id: 'explorer-50', icon: '🌍', label: '50 exercices essayés', test: (s) => s.exercisesAttempted >= 50 },
+        { id: 'explorer-100', icon: '🚀', label: '100 exercices essayés', test: (s) => s.exercisesAttempted >= 100 }
     ],
 
     getBadges(name = this.getCurrentUser()) {
@@ -471,7 +477,11 @@ const Storage = {
         const totalStars = entries.reduce((sum, entry) => sum + (entry.stars || 0), 0);
         const perfectCount = entries.filter((entry) => entry.percent === 100).length;
         const bestStreak = this._readStreak(name).best;
-        const stats = { totalStars, perfectCount, bestStreak };
+        // Compte les exercices distincts réussis (au moins une fois, sans
+        // contrainte de score) : une mesure d'exploration complémentaire aux
+        // étoiles, qui mesurent plutôt la performance.
+        const exercisesAttempted = entries.length;
+        const stats = { totalStars, perfectCount, bestStreak, exercisesAttempted };
 
         return this._badgeDefinitions.map((def) => ({
             id: def.id,

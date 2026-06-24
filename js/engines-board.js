@@ -3,7 +3,7 @@ const EnginesBoard = {
         const category = p?.category;
         const pool = p?.dataSet?.categories?.[category];
         if (!Array.isArray(pool) || pool.length === 0) return null;
-        return Engines.utils.pick(pool);
+        return Engines.utils.pickUnused(pool, p?.usedSet);
     },
 
     canonicalizeAssignments(answerMap) {
@@ -29,7 +29,19 @@ const EnginesBoard = {
             .join('|');
     },
 
+    canonicalizeMatchedPairs(matchedPairIds) {
+        if (!Array.isArray(matchedPairIds)) return '';
+        return [...new Set(matchedPairIds)].map(String).sort().join(',');
+    },
+
     run(p = {}) {
+        // fraction-build est généré procéduralement (comme math-input) plutôt
+        // que pioché dans un fichier de données : il n'y a rien à varier
+        // d'une entrée à l'autre à part le dénominateur/numérateur aléatoires.
+        if (p.type === 'fraction-build') {
+            return this.fractionBuild(p);
+        }
+
         const entry = this.getPoolEntry(p);
         if (!entry) {
             return Engines.fallback("Activité interactive indisponible");
@@ -46,6 +58,8 @@ const EnginesBoard = {
                 return this.symmetryComplete(entry);
             case 'map-locate':
                 return this.mapLocate(entry, p);
+            case 'memory-match':
+                return this.memoryMatch(entry);
             default:
                 return Engines.fallback("Type d'activité interactive inconnu");
         }
@@ -160,6 +174,69 @@ const EnginesBoard = {
                 tolerance: Number.isFinite(Number(entry.tolerance)) ? Number(entry.tolerance) : 0,
                 userState: {
                     placedPoints: []
+                }
+            }
+        };
+    },
+
+    memoryMatch(entry) {
+        const { shuffle } = Engines.utils;
+        const allPairs = Array.isArray(entry.pairs)
+            ? entry.pairs.filter((pair) => Array.isArray(pair) && pair.length === 2)
+            : [];
+        if (allPairs.length < 3) {
+            return Engines.fallback("Mémoire indisponible");
+        }
+
+        const maxPairs = Math.min(6, allPairs.length);
+        const pairs = shuffle(allPairs).slice(0, maxPairs);
+        const allPairIds = pairs.map((_, index) => `p${index}`);
+
+        const cards = [];
+        pairs.forEach((pair, index) => {
+            const pairId = `p${index}`;
+            cards.push({ id: `${pairId}-a`, pairId, label: pair[0] });
+            cards.push({ id: `${pairId}-b`, pairId, label: pair[1] });
+        });
+
+        return {
+            question: entry.title || "Retrouve toutes les paires.",
+            answer: this.canonicalizeMatchedPairs(allPairIds),
+            inputType: 'board',
+            isVisual: true,
+            visualType: 'geometry-board',
+            explanation: entry.explanation || "",
+            data: {
+                boardKind: 'memory-match',
+                cards: shuffle(cards),
+                totalPairs: pairs.length,
+                userState: {
+                    flippedIds: [],
+                    matchedPairIds: []
+                }
+            }
+        };
+    },
+
+    fractionBuild(p) {
+        const { rnd } = Engines.utils;
+        const minDenom = Number.isFinite(Number(p.minDenom)) ? Number(p.minDenom) : 2;
+        const maxDenom = Number.isFinite(Number(p.maxDenom)) ? Number(p.maxDenom) : 8;
+        const denominator = rnd(Math.max(2, minDenom), Math.max(2, maxDenom));
+        const numerator = rnd(1, denominator - 1);
+
+        return {
+            question: SecurityUtils.escapeHtml(`Touche ${numerator} part${numerator > 1 ? 's' : ''} sur ${denominator} pour construire la fraction ${numerator}/${denominator}.`),
+            answer: String(numerator),
+            inputType: 'board',
+            isVisual: true,
+            visualType: 'geometry-board',
+            data: {
+                boardKind: 'fraction-build',
+                denominator,
+                numerator,
+                userState: {
+                    selectedSlices: []
                 }
             }
         };

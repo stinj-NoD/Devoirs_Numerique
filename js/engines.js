@@ -69,6 +69,10 @@ const Engines = {
                     result = this.generators.audioSpelling(params, lib);
                     break;
 
+                case 'cloze-fill-in':
+                    result = this.generators.clozeFillIn(params, lib);
+                    break;
+
                 case 'conjugation': result = this.generators.conjugation(params, lib); break;
                 case 'clock': result = this.generators.clock(params); break;
                 case 'counting': result = this.generators.counting(params); break;
@@ -166,6 +170,9 @@ const Engines = {
         },
         grammarCloze(...args) {
             return EnginesFrench.grammarCloze(...args);
+        },
+        clozeFillIn(...args) {
+            return EnginesFrench.clozeFillIn(...args);
         },
 
 factualQcm(...args) {

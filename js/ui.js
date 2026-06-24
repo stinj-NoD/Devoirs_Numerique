@@ -800,7 +800,7 @@ const UI = {
                     square:'drawSquare', reading: 'drawReading', counting: 'drawCountingCard', fraction: 'drawFraction',
                     conversionTable: 'drawConversionCard', timeMemo: 'drawTimeMemoCard', factualCard: 'drawFactualCard',
                     timelineOrder: 'drawTimelineOrder', timelinePlace: 'drawTimelinePlace', matching: 'drawMatching',
-                    wordOrder: 'drawWordOrder', 'geometry-board': 'drawGeometryBoard'
+                    wordOrder: 'drawWordOrder', 'geometry-board': 'drawGeometryBoard', barChart: 'drawBarChart'
                 };
                 const method = drawMethods[p.visualType];
                 
@@ -938,6 +938,10 @@ const UI = {
 
     drawFraction(...args) {
         return UIVisuals.drawFraction(...args);
+    },
+
+    drawBarChart(...args) {
+        return UIVisuals.drawBarChart(...args);
     },
 
     drawClockCard(...args) {
@@ -1194,6 +1198,28 @@ const UI = {
         if (lead) lead.textContent = `Défi de ${duration} secondes terminé.`;
         if (scoreEl) scoreEl.textContent = `${score} bonne${score > 1 ? 's' : ''} réponse${score > 1 ? 's' : ''}`;
         if (bestEl) bestEl.textContent = isNewBest ? '🏆 Tu bats ton record !' : '';
+    },
+
+    renderCollectionBadges(badges) {
+        const container = document.getElementById('collection-badges-list');
+        if (!container) return;
+        container.innerHTML = (badges || []).map((b) => `
+            <div class="collection-badge ${b.unlocked ? 'is-unlocked' : 'is-locked'}">
+                <span class="collection-badge-icon" aria-hidden="true">${b.unlocked ? b.icon : '🔒'}</span>
+                <span class="collection-badge-label">${this._escapeText(b.label)}</span>
+            </div>
+        `).join('');
+    },
+
+    renderCollectionMaps(maps) {
+        const container = document.getElementById('collection-maps-list');
+        if (!container) return;
+        container.innerHTML = (maps || []).map((m) => `
+            <div class="collection-map ${m.unlocked ? 'is-unlocked' : 'is-locked'}">
+                <span class="collection-map-icon" aria-hidden="true">${m.unlocked ? m.icon : '🔒'}</span>
+                <span class="collection-map-label">${this._escapeText(m.label)}</span>
+            </div>
+        `).join('');
     }
 };
 

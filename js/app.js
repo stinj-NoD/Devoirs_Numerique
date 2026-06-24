@@ -64,6 +64,22 @@ const App = {
             console.error("Bindings globaux impossibles", e);
         }
 
+        // Débloque la synthèse vocale dès le premier geste utilisateur : sur
+        // de nombreux navigateurs mobiles, speechSynthesis.speak() est ignoré
+        // silencieusement s'il n'a jamais été appelé depuis un vrai clic/tap.
+        this.unlockSpeechSynthesisOnFirstInteraction();
+
+        // Les voix sont chargées de façon asynchrone par le navigateur : un
+        // premier appel à getVoices() peut renvoyer un tableau vide. On force
+        // le chargement et on écoute l'événement pour que getFrenchVoice()
+        // dispose des voix dès qu'elles sont prêtes.
+        if (this.supportsSpeechSynthesis()) {
+            window.speechSynthesis.getVoices();
+            window.speechSynthesis.addEventListener?.('voiceschanged', () => {
+                window.speechSynthesis.getVoices();
+            });
+        }
+
         // 4. Démarrage
         if (!Storage.getPreference('onboarding_seen')) {
             this.showOnboarding();
@@ -120,6 +136,13 @@ const App = {
                 if (e.key !== 'Enter' && e.key !== ' ') return;
                 const target = e.target.closest('[data-val]');
                 if (!target) return;
+                // Un <button> natif (ex: cartes du jeu de mémoire) déclenche déjà
+                // un vrai événement "click" sur Entrée/Espace : laisser le
+                // navigateur faire son travail évite un double appel de
+                // handleInput pour le même appui. Seuls les éléments non
+                // nativement interactifs (les <g> SVG des autres plateaux)
+                // ont besoin de ce relais clavier manuel.
+                if (target.tagName === 'BUTTON') return;
                 e.preventDefault();
                 this.handleInput(target.getAttribute('data-val'), target);
             };
@@ -136,6 +159,10 @@ const App = {
         if (btnChampionRetry) btnChampionRetry.onclick = () => this.showChampionSetup();
         const btnChampionMenu = get('btn-champion-menu');
         if (btnChampionMenu) btnChampionMenu.onclick = () => UI.showScreen('screen-mode');
+
+        // Collection
+        const btnOpenCollection = get('btn-open-collection');
+        if (btnOpenCollection) btnOpenCollection.onclick = () => this.showCollectionScreen();
     },
 
     async loadFrenchLibrary() {
@@ -284,6 +311,26 @@ const App = {
         return typeof window !== 'undefined'
             && 'speechSynthesis' in window
             && typeof window.SpeechSynthesisUtterance !== 'undefined';
+    },
+
+    unlockSpeechSynthesisOnFirstInteraction() {
+        if (!this.supportsSpeechSynthesis()) return;
+        let unlocked = false;
+        const unlock = () => {
+            if (unlocked) return;
+            unlocked = true;
+            try {
+                const utterance = new SpeechSynthesisUtterance(' ');
+                utterance.volume = 0;
+                window.speechSynthesis.speak(utterance);
+            } catch (error) {
+                console.warn("Déblocage audio impossible", error);
+            }
+            document.removeEventListener('pointerdown', unlock);
+            document.removeEventListener('keydown', unlock);
+        };
+        document.addEventListener('pointerdown', unlock, { once: true });
+        document.addEventListener('keydown', unlock, { once: true });
     },
 
     stopSpeech() {
@@ -531,6 +578,7 @@ const App = {
                 subtitle: 'Revenir au choix de classe',
                 onSelect: () => {
                     if (!this.confirmLeaveExercise()) return;
+                    this.stopCurrentExercise();
                     UI.showScreen('screen-grades');
                 }
             });
@@ -606,6 +654,7 @@ const App = {
         const currentScreen = document.querySelector('.screen.active')?.id;
         const actions = {
             'screen-progress': () => UI.showScreen('screen-mode'),
+            'screen-collection': () => UI.showScreen('screen-progress'),
             'screen-champion-setup': () => UI.showScreen('screen-mode'),
             'screen-champion-results': () => UI.showScreen('screen-mode'),
             'screen-profile-customize': () => {
@@ -850,6 +899,75 @@ const App = {
         return result;
     },
 
+    mapCollectionDefinitions: [
+        { mapId: 'france-regions', icon: '🇫🇷', label: 'France (régions)' },
+        { mapId: 'world-continents', icon: '🌍', label: 'Le monde (continents)' },
+        { mapId: 'europe-countries', icon: '🇪🇺', label: "L'Europe" },
+        { mapId: 'asia-countries', icon: '🌏', label: "L'Asie" },
+        { mapId: 'africa-countries', icon: '🌍', label: "L'Afrique" },
+        { mapId: 'north-america-countries', icon: '🌎', label: "L'Amérique du Nord" },
+        { mapId: 'south-america-countries', icon: '🌎', label: "L'Amérique du Sud" }
+    ],
+
+    /**
+     * Pour chaque carte connue (mapCollectionDefinitions), regarde tous les
+     * exercices map-locate de TOUS les niveaux (pas seulement celui en
+     * cours) qui pointent vers ce mapId, et la considère débloquée si l'un
+     * d'eux a été réussi à au moins 50% — le même seuil que "à revoir" déjà
+     * utilisé dans l'écran de progression.
+     */
+    getMapCollectionStatus() {
+        const gradeFiles = ['cp', 'ce1', 'ce2', 'cm1', 'cm2'];
+        const cachedGrades = this._collectionGradesCache || {};
+        const exercisesByMapId = {};
+
+        gradeFiles.forEach((gradeId) => {
+            const gradeData = cachedGrades[gradeId];
+            if (!gradeData) return;
+            const subjects = Array.isArray(gradeData.subjects) ? gradeData.subjects : [];
+            subjects.forEach((subject) => {
+                (subject?.subthemes || []).forEach((subtheme) => {
+                    (subtheme?.exercises || []).forEach((exercise) => {
+                        if (exercise.engine !== 'board-interactive' || exercise.params?.type !== 'map-locate') return;
+                        const mapId = exercise.params?.mapId;
+                        if (!mapId) return;
+                        if (!exercisesByMapId[mapId]) exercisesByMapId[mapId] = [];
+                        exercisesByMapId[mapId].push({ exercise, gradeId });
+                    });
+                });
+            });
+        });
+
+        return this.mapCollectionDefinitions.map((def) => {
+            const entries = exercisesByMapId[def.mapId] || [];
+            const unlocked = entries.some(({ exercise, gradeId }) => {
+                const record = Storage.getRecord(exercise.id, gradeId);
+                const percent = record ? Math.round((record.lastPercent ?? record.percent) || 0) : 0;
+                return percent >= 50;
+            });
+            return { ...def, unlocked };
+        });
+    },
+
+    async showCollectionScreen() {
+        if (!this._collectionGradesCache) {
+            this._collectionGradesCache = {};
+            try {
+                const index = await this.fetchJson(['data/index.json', './data/index.json']);
+                const loaded = await Promise.all((index.grades || []).map((g) =>
+                    this.fetchJson([g.dataFile, `./${g.dataFile.replace(/^\.\//, '')}`]).catch(() => null)
+                ));
+                (index.grades || []).forEach((g, i) => { this._collectionGradesCache[g.id] = loaded[i]; });
+            } catch (error) {
+                console.error("Impossible de charger la collection", error);
+            }
+        }
+
+        UI.renderCollectionBadges(Storage.getBadges());
+        UI.renderCollectionMaps(this.getMapCollectionStatus());
+        UI.showScreen('screen-collection');
+    },
+
     championDurations: [60, 90, 120],
 
     showChampionSetup() {
@@ -898,6 +1016,7 @@ const App = {
             duration,
             pool,
             dataCache,
+            usedSetsByExercise: new Map(),
             score: 0,
             answered: 0,
             endAt: Date.now() + duration * 1000,
@@ -946,10 +1065,15 @@ const App = {
         }
 
         const exercise = Engines.utils.pick(championMode.pool);
+        const usedSetKey = exercise.id || `${exercise.params?.dataFile || ''}::${exercise.params?.category || ''}`;
+        if (!championMode.usedSetsByExercise.has(usedSetKey)) {
+            championMode.usedSetsByExercise.set(usedSetKey, new Set());
+        }
         const cfg = {
             ...(exercise.params || {}),
             dataSet: exercise.params?.dataFile ? championMode.dataCache[exercise.params.dataFile] : undefined,
-            mapSvg: ""
+            mapSvg: "",
+            usedSet: championMode.usedSetsByExercise.get(usedSetKey)
         };
         const problem = Engines.run(exercise.engine, cfg, this.state.frenchLib);
         const check = window.Validators?.validateProblem(problem);
@@ -1567,18 +1691,19 @@ const App = {
             }
         }
 
-        // Reset propre de l'Ã©tat
+        // Reset propre de l'état
         this.state.currentExercise = e;
         this.state.currentExerciseMapSvg = mapSvg;
         this.state.currentExerciseData = exerciseData;
-        this.state.currentQuestion = 0; 
+        this.state.currentQuestion = 0;
         this.state.score = 0;
         this.state.userInput = "";
         this.state.problemData = null;
         this.state.targetAnswer = null;
-        this.state.isValidating = false; // ðŸ”“ On dÃ©verrouille au dÃ©but
+        this.state.isValidating = false; // VERROU : on déverrouille au début
+        this.state.usedQuestionsSet = new Set();
         this.applyVisualContext();
-        UI.showScreen('screen-game'); 
+        UI.showScreen('screen-game');
         this.generateNextQuestion();
     },
 
@@ -1600,11 +1725,12 @@ const App = {
         this.state.userInput = ""; 
         this.state.speechStatus = 'idle';
         
-        // ExÃ©cution sÃ©curisÃ©e du moteur
+        // Exécution sécurisée du moteur
         const cfg = {
             ...(this.state.currentExercise.params || {}),
             dataSet: this.state.currentExerciseData,
-            mapSvg: this.state.currentExerciseMapSvg || ""
+            mapSvg: this.state.currentExerciseMapSvg || "",
+            usedSet: this.state.usedQuestionsSet
         };
         const problem = Engines.run(this.state.currentExercise.engine, cfg, this.state.frenchLib);
         const check = window.Validators?.validateProblem(problem);
@@ -1669,14 +1795,25 @@ const App = {
             if (!d.selectedIndices) d.selectedIndices = [];
 
             const pos = d.selectedIndices.indexOf(idx);
-            if (pos > -1) d.selectedIndices.splice(pos, 1);
-            else d.selectedIndices.push(idx);
+            if (pos > -1) {
+                d.selectedIndices.splice(pos, 1);
+            } else {
+                // Le nombre de cases à choisir est fixé par solutionCount
+                // (2 en CP, 3 dès CE2) : au-delà, un nouveau clic remplace la
+                // première case choisie plutôt que de s'accumuler sans limite,
+                // pour rester cohérent avec la consigne affichée à l'enfant.
+                const maxSelection = d.solutionCount || 3;
+                if (d.selectedIndices.length >= maxSelection) {
+                    d.selectedIndices.shift();
+                }
+                d.selectedIndices.push(idx);
+            }
 
             const sum = d.selectedIndices.reduce((acc, i) => acc + (Number(d.numbers[i]) || 0), 0);
             this.state.userInput = sum.toString();
-            
+
             this.refreshUI();
-            return; 
+            return;
         }
 
         // --- CAS SPÃ‰CIAL : Frise chronologique ---
@@ -1787,6 +1924,7 @@ const App = {
                 else if (d.boardKind === 'shape-classify') d.userState = { selectedFigureId: null, assignments: {} };
                 else if (d.boardKind === 'point-on-grid') d.userState = { point: null };
                 else if (d.boardKind === 'symmetry-complete') d.userState = { placedPoints: [] };
+                else if (d.boardKind === 'fraction-build') d.userState = { selectedSlices: [] };
                 d.revealed = false;
                 this.state.userInput = "";
                 this.refreshUI();
@@ -1806,6 +1944,9 @@ const App = {
                 } else if (d.boardKind === 'symmetry-complete') {
                     const points = d.userState?.placedPoints || [];
                     this.state.userInput = EnginesBoard.canonicalizePoints(points);
+                } else if (d.boardKind === 'fraction-build') {
+                    const slices = Array.isArray(d.userState?.selectedSlices) ? d.userState.selectedSlices : [];
+                    this.state.userInput = String(slices.length);
                 }
                 d.revealed = true;
                 this.refreshUI();
@@ -1886,6 +2027,65 @@ const App = {
                 d.revealed = true;
                 this.refreshUI();
                 return this.validateAnswer();
+            }
+
+            if (val.startsWith('board-flip-card:') && d.boardKind === 'memory-match') {
+                if (d.locked) return;
+                const cardId = val.replace('board-flip-card:', '');
+                if (!d.userState) d.userState = { flippedIds: [], matchedPairIds: [] };
+                if (!Array.isArray(d.userState.flippedIds)) d.userState.flippedIds = [];
+                if (!Array.isArray(d.userState.matchedPairIds)) d.userState.matchedPairIds = [];
+
+                const card = (d.cards || []).find((c) => c.id === cardId);
+                if (!card) return;
+                if (d.userState.matchedPairIds.includes(card.pairId)) return;
+                if (d.userState.flippedIds.includes(cardId)) return;
+                if (d.userState.flippedIds.length >= 2) return;
+
+                d.userState.flippedIds.push(cardId);
+                this.refreshUI();
+
+                if (d.userState.flippedIds.length === 2) {
+                    const [firstId, secondId] = d.userState.flippedIds;
+                    const firstCard = d.cards.find((c) => c.id === firstId);
+                    const secondCard = d.cards.find((c) => c.id === secondId);
+                    const isMatch = firstCard && secondCard && firstCard.pairId === secondCard.pairId;
+
+                    d.locked = true;
+                    setTimeout(() => {
+                        if (this.state.problemData !== p) return;
+                        d.locked = false;
+                        if (isMatch) {
+                            d.userState.matchedPairIds.push(firstCard.pairId);
+                        }
+                        d.userState.flippedIds = [];
+
+                        const total = Number(d.totalPairs) || 0;
+                        if (total > 0 && d.userState.matchedPairIds.length === total) {
+                            this.state.userInput = EnginesBoard.canonicalizeMatchedPairs(d.userState.matchedPairIds);
+                            d.revealed = true;
+                            this.refreshUI();
+                            this.validateAnswer();
+                            return;
+                        }
+                        this.refreshUI();
+                    }, isMatch ? 500 : 900);
+                }
+                return;
+            }
+
+            if (val.startsWith('board-toggle-slice:') && d.boardKind === 'fraction-build') {
+                if (d.revealed) return;
+                const sliceIndex = parseInt(val.replace('board-toggle-slice:', ''));
+                if (isNaN(sliceIndex)) return;
+                if (!d.userState) d.userState = { selectedSlices: [] };
+                if (!Array.isArray(d.userState.selectedSlices)) d.userState.selectedSlices = [];
+                const idx = d.userState.selectedSlices.indexOf(sliceIndex);
+                if (idx > -1) d.userState.selectedSlices.splice(idx, 1);
+                else d.userState.selectedSlices.push(sliceIndex);
+                this.state.userInput = String(d.userState.selectedSlices.length);
+                this.refreshUI();
+                return;
             }
 
             return;

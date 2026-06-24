@@ -1,13 +1,13 @@
 const EnginesDocumentary = {
     factualQcm(p) {
-        const { pick } = Engines.utils;
+        const { pickUnused } = Engines.utils;
         const pool = p.dataSet?.categories?.[p.category] || [];
 
         if (!pool.length) {
             return Engines.fallback("Questions d'histoire indisponibles");
         }
 
-        const item = pick(pool);
+        const item = pickUnused(pool, p.usedSet);
         if (!item?.question || !Array.isArray(item.choices) || item.choices.length < 2 || !item.answer) {
             return Engines.fallback("Question d'histoire invalide");
         }
@@ -30,14 +30,14 @@ const EnginesDocumentary = {
     },
 
     matching(p) {
-        const { pick, shuffle } = Engines.utils;
+        const { pickUnused, shuffle } = Engines.utils;
         const pool = p.dataSet?.categories?.[p.category] || [];
 
         if (!pool.length) {
             return Engines.fallback("Activité d'appariement indisponible");
         }
 
-        const item = pick(pool);
+        const item = pickUnused(pool, p.usedSet);
         const allPairs = Array.isArray(item?.pairs) ? item.pairs.filter((pair) => Array.isArray(pair) && pair.length === 2) : [];
         if (allPairs.length < 2) {
             return Engines.fallback("Appariement invalide");
@@ -65,14 +65,14 @@ const EnginesDocumentary = {
     },
 
     wordOrder(p) {
-        const { pick, shuffle } = Engines.utils;
+        const { pickUnused, shuffle } = Engines.utils;
         const pool = p.dataSet?.categories?.[p.category] || [];
 
         if (!pool.length) {
             return Engines.fallback("Activité remise en ordre indisponible");
         }
 
-        const item = pick(pool);
+        const item = pickUnused(pool, p.usedSet);
         if (!item?.sentence || typeof item.sentence !== 'string') {
             return Engines.fallback("Phrase invalide pour remise en ordre");
         }
@@ -100,7 +100,7 @@ const EnginesDocumentary = {
     },
 
     timeline(p) {
-        const { pick, shuffle } = Engines.utils;
+        const { pick, pickUnused, shuffle } = Engines.utils;
         const gradeId = (p.grade || "").toString().toLowerCase();
         const gradeData = p.dataSet?.grades?.[gradeId];
         if (!gradeData) return Engines.fallback("Frise indisponible");
@@ -162,7 +162,7 @@ const EnginesDocumentary = {
 
         if (timelineDef.mode === 'place') {
             const targetPool = items.filter(matchesDifficulty);
-            const target = pick(targetPool.length ? targetPool : items);
+            const target = pickUnused(targetPool.length ? targetPool : items, p.usedSet);
             if (!target) return Engines.fallback("Repère chronologique manquant");
             const range = timelineDef.range || p.range || [0, 2000];
             const step = Number(timelineDef.step || p.step || 100);

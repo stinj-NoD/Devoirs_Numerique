@@ -137,9 +137,24 @@
             }
             case 'echelle': {
                 const echelle = pick(p.echelles || [50, 100, 200, 1000]);
-                const planCm = rnd(1, 9);
+                const step = Math.max(1, Math.round(100 / echelle) || 1);
+                const planCm = rnd(1, 9) * step;
                 const reelM = (planCm * echelle) / 100;
                 return { question: `<span class="small-question">Sur un plan à l'échelle 1/${echelle},<br>${planCm} cm représente combien de mètres dans la réalité ?</span>`, answer: reelM, inputType: 'numeric', explanation: `${planCm} cm × ${echelle} = ${planCm * echelle} cm dans la réalité, soit ${reelM} m.` };
+            }
+            case 'vitesse': {
+                const vitesses = p.vitesses || [30, 40, 50, 60, 80, 90, 100];
+                const vitesse = pick(vitesses);
+                const heures = rnd(1, p.maxHeures || 4);
+                const distance = vitesse * heures;
+                const askDistance = Math.random() > 0.5;
+                const question = askDistance
+                    ? `Une voiture roule à ${vitesse} km/h pendant ${heures} h.<br>Quelle distance parcourt-elle (en km) ?`
+                    : `Une voiture roule à ${vitesse} km/h et parcourt ${distance} km.<br>Combien de temps roule-t-elle (en h) ?`;
+                const vitesseExplanation = askDistance
+                    ? `distance = vitesse × temps = ${vitesse} × ${heures} = ${distance} km.`
+                    : `temps = distance ÷ vitesse = ${distance} ÷ ${vitesse} = ${heures} h.`;
+                return { question: `<span class="small-question">${question}</span>`, answer: askDistance ? distance : heures, inputType: 'numeric', explanation: vitesseExplanation };
             }
             case 'division-posed': {
                 const level = p.level || 1;
@@ -156,6 +171,72 @@
                 const askRemainder = p.ask === 'reste';
                 const divExplanation = `${d_dividend} : ${d_divisor} : le quotient est ${d_q} (${d_divisor} × ${d_q} = ${d_divisor * d_q}) et il reste ${d_r}.`;
                 return { question: askRemainder ? "Quel est le reste ?" : "Quel est le quotient ?", answer: askRemainder ? d_r : d_q, isVisual: true, visualType: 'division', inputType: 'numeric', data: { dividend: d_dividend, divisor: d_divisor, askRemainder }, explanation: divExplanation };
+            }
+            case 'bar-chart-read': {
+                const themes = p.themes || [
+                    { unit: 'fruits récoltés', labels: ['Pommes', 'Poires', 'Cerises', 'Prunes'] },
+                    { unit: 'livres lus', labels: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] },
+                    { unit: 'buts marqués', labels: ['Équipe A', 'Équipe B', 'Équipe C', 'Équipe D'] },
+                    { unit: 'élèves présents', labels: ['CP', 'CE1', 'CE2', 'CM1', 'CM2'] }
+                ];
+                const theme = pick(themes);
+                const barCount = Math.max(3, Math.min(theme.labels.length, p.maxBars || theme.labels.length));
+                const labels = shuffle(theme.labels).slice(0, barCount);
+                // maxVal doit pouvoir fournir au moins barCount valeurs
+                // distinctes dans [1, maxVal], sinon on l'élève au minimum
+                // nécessaire (évite tout risque de génération bloquante).
+                const maxVal = Math.max(p.maxValue || 20, barCount);
+
+                // Valeurs distinctes piochées par mélange (pas de boucle de
+                // retirage) pour qu'un maximum/minimum soit toujours sans
+                // ambiguïté : deux barres égales rendraient "la plus grande ?"
+                // sans réponse unique.
+                const values = shuffle(Array.from({ length: maxVal }, (_, i) => i + 1)).slice(0, barCount);
+
+                const bars = labels.map((label, i) => ({ label, value: values[i] }));
+                const total = values.reduce((a, b) => a + b, 0);
+                const maxBar = bars.reduce((best, b) => (b.value > best.value ? b : best), bars[0]);
+                const minBar = bars.reduce((best, b) => (b.value < best.value ? b : best), bars[0]);
+
+                const questionKinds = p.questionKinds || ['max', 'min', 'value', 'total', 'difference'];
+                const kind = pick(questionKinds);
+
+                let question, answer, choices, explanation;
+                if (kind === 'max') {
+                    question = `Quelle barre a le plus de ${theme.unit} ?`;
+                    answer = maxBar.label;
+                    choices = shuffle([maxBar.label, ...shuffle(bars.filter(b => b !== maxBar)).slice(0, 2).map(b => b.label)]);
+                    explanation = `${maxBar.label} a la plus grande valeur : ${maxBar.value}.`;
+                } else if (kind === 'min') {
+                    question = `Quelle barre a le moins de ${theme.unit} ?`;
+                    answer = minBar.label;
+                    choices = shuffle([minBar.label, ...shuffle(bars.filter(b => b !== minBar)).slice(0, 2).map(b => b.label)]);
+                    explanation = `${minBar.label} a la plus petite valeur : ${minBar.value}.`;
+                } else if (kind === 'value') {
+                    const target = pick(bars);
+                    question = `Combien de ${theme.unit} pour « ${target.label} » ?`;
+                    answer = target.value;
+                    explanation = `La barre « ${target.label} » indique ${target.value}.`;
+                } else if (kind === 'total') {
+                    question = `Quel est le total de ${theme.unit} ?`;
+                    answer = total;
+                    explanation = `${values.join(' + ')} = ${total}.`;
+                } else {
+                    question = `Quelle est la différence entre « ${maxBar.label} » et « ${minBar.label} » ?`;
+                    answer = maxBar.value - minBar.value;
+                    explanation = `${maxBar.value} - ${minBar.value} = ${maxBar.value - minBar.value}.`;
+                }
+
+                const isNumeric = typeof answer === 'number';
+                return {
+                    question: SecurityUtils.escapeHtml(question),
+                    answer: answer.toString(),
+                    inputType: isNumeric ? 'numeric' : 'qcm',
+                    isVisual: true,
+                    visualType: 'barChart',
+                    data: { bars, unit: theme.unit, choices: isNumeric ? undefined : choices },
+                    explanation
+                };
             }
             default:
                 return { question: "Calcul inconnu", answer: 0 };
@@ -226,14 +307,78 @@
     carreSomme(p) {
         const { rnd, shuffle } = Engines.utils;
         const size = p.gridSize || 9;
-        const target = rnd(p.targetMin || 10, p.targetMax || 30);
-        const n1 = rnd(1, Math.floor(target / 2.5));
-        const n2 = rnd(1, Math.floor(target / 2.5));
-        const n3 = target - (n1 + n2);
-        let numbers = [n1, n2, n3];
-        const pool = Array.from({ length: Math.max(target + 10, size + 5) }, (_, i) => i + 1).filter(x => !numbers.includes(x));
-        numbers = shuffle([...numbers, ...shuffle(pool).slice(0, size - 3)]);
-        return { isVisual: true, visualType: 'square', inputType: 'selection', answer: target, data: { target, numbers, selectedIndices: [] } };
+        // solutionCount fixe le nombre de cases que l'enfant doit choisir pour
+        // atteindre la cible : 2 valeurs en CP (plus simple), 3 valeurs à partir
+        // de CE2 (calcul à trois termes), pour suivre la progression du programme.
+        const solutionCount = p.solutionCount === 2 ? 2 : 3;
+        // Avec solutionCount valeurs positives et distinctes, la somme minimale
+        // possible est 1+2 (=3) ou 1+2+3 (=6) : on relève targetMin si besoin
+        // pour ne jamais demander une cible mathématiquement impossible à
+        // atteindre avec des valeurs distinctes (sinon la génération boucle).
+        const minPossibleTarget = solutionCount === 2 ? 3 : 6;
+        const targetMin = Math.max(p.targetMin || 10, minPossibleTarget);
+        const targetMax = Math.max(p.targetMax || 30, targetMin);
+        const target = rnd(targetMin, targetMax);
+
+        let solution;
+        if (solutionCount === 2) {
+            // n1 < target/2 garantit toujours n1 !== n2 (n2 = target - n1 > n1).
+            const n1 = rnd(1, Math.max(1, Math.floor((target - 1) / 2)));
+            const n2 = target - n1;
+            solution = [n1, n2];
+        } else {
+            // Tire 2 valeurs distinctes dans [1, target-3] (laisse au moins 1+2
+            // pour la troisième), puis dérive la troisième par soustraction.
+            const half = Math.max(2, Math.floor(target / 2.5));
+            let n1 = rnd(1, half);
+            let n2 = rnd(1, half);
+            if (n1 === n2) n2 = n2 < half ? n2 + 1 : n2 - 1;
+            let n3 = target - (n1 + n2);
+            if (n3 <= 0 || n3 === n1 || n3 === n2) {
+                // Repli déterministe garanti positif et distinct : comme
+                // target >= 6, (target-3, 1, 2) laisse toujours target-3 >= 3,
+                // donc différent de 1 et 2.
+                n1 = 1;
+                n2 = 2;
+                n3 = target - 3;
+            }
+            solution = [n1, n2, n3];
+        }
+
+        // Construit la grille en ajoutant les distracteurs un par un, en
+        // refusant toute valeur qui créerait :
+        // 1) un doublon (case ambiguë au clic) ;
+        // 2) une sous-combinaison de moins de solutionCount cases atteignant
+        //    déjà la cible (l'enfant pourrait valider sans utiliser le bon
+        //    nombre de termes, ce qui contredit la progression visée).
+        const grid = [...solution];
+        const sumsToTarget = (candidate) => {
+            // k = 0 couvre le cas où le candidat seul égale déjà la cible.
+            for (let k = 0; k < solutionCount; k++) {
+                if (this.hasSubsetSumHelper(grid, k, target - candidate, 0)) return true;
+            }
+            return false;
+        };
+        const poolMax = Math.max(target + 10, size + 5);
+        const candidates = shuffle(Array.from({ length: poolMax }, (_, i) => i + 1));
+        for (const v of candidates) {
+            if (grid.length >= size) break;
+            if (grid.includes(v)) continue;
+            if (sumsToTarget(v)) continue;
+            grid.push(v);
+        }
+        const numbers = shuffle(grid);
+        return { isVisual: true, visualType: 'square', inputType: 'selection', answer: target, data: { target, numbers, solutionCount, selectedIndices: [] } };
+    },
+
+    // Vrai s'il existe une combinaison de exactement `k` valeurs de `arr`
+    // (cases déjà placées dans la grille) dont la somme vaut `sum`.
+    hasSubsetSumHelper(arr, k, sum, startIndex) {
+        if (k === 0) return sum === 0;
+        for (let i = startIndex; i <= arr.length - k; i++) {
+            if (arr[i] <= sum && this.hasSubsetSumHelper(arr, k - 1, sum - arr[i], i + 1)) return true;
+        }
+        return false;
     },
     clock(p = {}) {
         const { rnd } = Engines.utils;

@@ -106,7 +106,7 @@ const UIKeyboards = {
 
         let html = '<div class="alpha-keyboard">';
 
-        html += `<div class="kb-row accent-row">` + "\u00e9\u00e8\u00e0\u00e7\u00ea\u00ee\u00f4\u00fb-,".split('').map(a =>
+        html += `<div class="kb-row accent-row">` + "\u00e9\u00e8\u00ea\u00eb\u00e0\u00e2\u00e7\u00ee\u00ef\u00f4\u00fb\u00f9-,".split('').map(a =>
             `<button class="btn key letter-key" data-val="${a}">${a}</button>`
         ).join('') + `</div>`;
 
