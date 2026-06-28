@@ -27,6 +27,8 @@ Principes structurants :
 - [js/engines-math.js](js/engines-math.js)
 - [js/engines-french.js](js/engines-french.js)
 - [js/engines-documentary.js](js/engines-documentary.js)
+- [js/engines-board.js](js/engines-board.js)
+- [js/ui-board.js](js/ui-board.js)
 - [js/storage.js](js/storage.js)
 - [js/validators.js](js/validators.js)
 - [js/data-bundle.js](js/data-bundle.js)
@@ -63,6 +65,7 @@ Responsables de :
 - la génération des questions
 - la normalisation des sorties moteur
 - les moteurs maths, français et documentaires
+- `engines-board.js` : activités interactives non-QCM (cartes à toucher, classement de figures, mémoire, point sur quadrillage, symétrie, fraction à construire, carte à localiser, lecture de graphique)
 
 ### `storage.js`
 
@@ -70,6 +73,7 @@ Responsable de :
 - la gestion des profils
 - l'utilisateur courant
 - les records par exercice
+- les badges et la série de jours consécutifs
 - les fallbacks de stockage
 
 ### `validators.js`
@@ -98,7 +102,7 @@ Responsable de :
 {
   "id": "ce2-maths-subject",
   "title": "Mathématiques",
-  "icon": "�Y"�",
+  "icon": "📘",
   "subthemes": []
 }
 ```
@@ -109,7 +113,7 @@ Responsable de :
 {
   "id": "ce2-multiplication",
   "title": "Tables de multiplication",
-  "icon": "�o-️",
+  "icon": "📘",
   "lessons": [],
   "exercises": []
 }
@@ -172,9 +176,13 @@ Il sert :
 - de sécurité locale quand les JSON externes ne sont pas disponibles
 
 Le service worker :
-- versionne les caches
+- versionne les caches via `CACHE_NAME` dans [sw.js](sw.js)
 - purge les anciens caches
 - garantit un minimum de fonctionnement hors ligne
+
+**Important** : `CACHE_NAME` doit être incrémenté à chaque déploiement qui modifie du contenu (`data/*.json`) ou du code. Sans ce changement, le navigateur considère `sw.js` identique et ne télécharge jamais la nouvelle version, même en rechargeant la page — c'est particulièrement sensible sur iOS/Safari.
+
+Un bouton « Mettre à jour l'application » (menu ☰, `App.forceAppUpdate()` dans [app.js](js/app.js)) permet à l'utilisateur de forcer la vérification immédiate : `registration.update()`, puis activation du nouveau worker (`SKIP_WAITING`) et rechargement automatique dès qu'une nouvelle version est détectée.
 
 ## 8. Dette technique restante
 
@@ -183,6 +191,7 @@ Les points encore sensibles sont :
 - cohérence pédagogique des leçons
 - hétérogénéité éditoriale entre niveaux
 - besoin d'un suivi plus fin des usages leçon/exercice
+- `CACHE_NAME` (sw.js) à incrémenter manuellement à chaque déploiement de contenu
 
 ## 9. Cap suivant
 
