@@ -1313,6 +1313,17 @@
                                 "tenses": "passé composé",
                                 "questions": 14
                             }
+                        },
+                        {
+                            "id": "cm2-conj-passe-simple-reco",
+                            "title": "Reconnaître le passé simple",
+                            "subtitle": "Dans un texte, à quel temps est ce verbe ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "passe_simple_recognition_cm2",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -1418,6 +1429,37 @@
                             "format": "lesson-card",
                             "id": "cm2-lesson-etre-avoir-imparfait",
                             "subtitle": "Des formes fréquentes à maîtriser"
+                        },
+                        {
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le passé simple est surtout utilisé dans les récits écrits (contes, romans) pour raconter des actions au passé. On l'apprend d'abord à le reconnaître à la lecture."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Il alla au marché. Elle prit son cahier. Ils arrivèrent à la gare."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Repères utiles",
+                                    "items": [
+                                        "Le passé simple ne s'utilise presque jamais à l'oral.",
+                                        "On le rencontre surtout dans les contes et les récits.",
+                                        "Au 3e groupe, les terminaisons sont souvent surprenantes : il vit, il prit, il fut."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Si une phrase raconte une action ponctuelle dans un récit écrit, c'est souvent du passé simple."
+                                }
+                            ],
+                            "title": "Reconnaître le passé simple",
+                            "format": "lesson-card",
+                            "id": "cm2-lesson-passe-simple",
+                            "subtitle": "Le temps des récits écrits"
                         }
                     ]
                 },
@@ -1739,6 +1781,17 @@
                             "id": "cm2-francais-ordre-mots",
                             "title": "Ordre des mots",
                             "subtitle": "Remets les mots dans le bon ordre",
+                            "engine": "word-order",
+                            "params": {
+                                "category": "word_order_cm2",
+                                "dataFile": "data/french_word_order.json",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm2-francais-structure-recit",
+                            "title": "Structurer un récit ou une lettre",
+                            "subtitle": "Connecteurs et formules de politesse",
                             "engine": "word-order",
                             "params": {
                                 "category": "word_order_cm2",
