@@ -1,4 +1,4 @@
-﻿{
+{
     "gradeId": "ce2",
     "title": "CE2",
     "subjects": [
@@ -341,6 +341,18 @@
                             }
                         },
                         {
+                            "id": "ce2-maths-monnaie",
+                            "title": "Monnaie et rendu de monnaie",
+                            "subtitle": "Calculer un prix et une monnaie",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle2.json",
+                                "category": "ce2-monnaie",
+                                "questions": 8
+                            }
+                        },
+                        {
                             "id": "ce2-bonus-problemes-expert",
                             "title": "Défi : problèmes en rafale",
                             "subtitle": "Additifs et multiplicatifs, sans erreur",
@@ -385,6 +397,40 @@
                             }
                         },
                         {
+                            "id": "ce2-division-posee",
+                            "title": "Division posée",
+                            "subtitle": "Trouver le quotient",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "division-posed",
+                                "level": 1,
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce2-division-posee-reste",
+                            "title": "Division posée avec reste",
+                            "subtitle": "Trouver ce qu'il reste",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "division-posed",
+                                "level": 1,
+                                "ask": "reste",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce2-fractions-simples",
+                            "title": "Lire des fractions simples",
+                            "subtitle": "Demi, tiers, quart",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "fraction-view",
+                                "maxDenom": 4,
+                                "questions": 8
+                            }
+                        },
+                        {
                             "id": "ce2-bonus-comp-5000",
                             "title": "Défi : compléments à 5000",
                             "subtitle": "Calcul mental chez les grands nombres",
@@ -399,6 +445,54 @@
                         }
                     ],
                     "lessons": [
+                        {
+                            "id": "ce2-lesson-division-posee",
+                            "title": "Poser une division",
+                            "subtitle": "Trouver le quotient et le reste",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Diviser, c'est partager un nombre en parts égales. Le quotient est le nombre de parts, et le reste est ce qu'il manque pour faire une part complète de plus."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "23 : 4 : on cherche combien de fois 4 tient dans 23. 4 × 5 = 20, donc le quotient est 5. Il reste 23 - 20 = 3."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le reste doit toujours être plus petit que le diviseur, sinon on peut encore faire une part de plus."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-fractions-simples",
+                            "title": "Les fractions simples",
+                            "subtitle": "Demi, tiers et quart",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une fraction permet de représenter une partie d'un tout partagé en parts égales."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les fractions à connaître",
+                                    "items": [
+                                        "un demi (1/2) : on partage en 2 parts égales",
+                                        "un tiers (1/3) : on partage en 3 parts égales",
+                                        "un quart (1/4) : on partage en 4 parts égales"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le nombre du bas (dénominateur) indique en combien de parts on partage le tout."
+                                }
+                            ]
+                        },
                         {
                             "id": "ce2-lesson-complements-1000",
                             "title": "Chercher le complément",
@@ -1138,6 +1232,17 @@
                             }
                         },
                         {
+                            "id": "ce2-g-types-phrases",
+                            "title": "Types et formes de phrases",
+                            "subtitle": "Déclarative, interrogative, négative...",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "grammar_phrase_types_ce2",
+                                "questions": 8
+                            }
+                        },
+                        {
                             "id": "ce2-bonus-ordre-mots-expert",
                             "title": "Défi : phrases mélangées",
                             "subtitle": "Super série sur l'ordre des mots",
@@ -1148,6 +1253,17 @@
                                 "category": "word_order_ce2",
                                 "dataFile": "data/french_word_order.json",
                                 "questions": 10
+                            }
+                        },
+                        {
+                            "id": "ce2-francais-raconte-histoire",
+                            "title": "Raconte une histoire",
+                            "subtitle": "Remets les phrases dans l'ordre",
+                            "engine": "word-order",
+                            "params": {
+                                "category": "story_order_ce2",
+                                "dataFile": "data/french_word_order.json",
+                                "questions": 4
                             }
                         }
                     ],
@@ -1369,6 +1485,37 @@
                                     "content": "Être et avoir servent très souvent dans les phrases du quotidien."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce2-lesson-passe-compose",
+                            "title": "Le passé composé",
+                            "subtitle": "Raconter ce qui s'est déjà passé",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le passé composé sert à raconter une action déjà terminée. Il se forme avec avoir ou être suivi du participe passé du verbe."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "J'ai mangé une pomme. Elle est tombée dans la cour."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "la plupart des verbes utilisent avoir (j'ai joué, tu as chanté)",
+                                        "quelques verbes de déplacement utilisent être (je suis tombé, elle est arrivée)",
+                                        "le participe passé des verbes en -ER se termine par -É"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Avoir ou être + participe passé = passé composé."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -1491,6 +1638,42 @@
                                 "category": "present_2",
                                 "tenses": "présent",
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-conj-pc-avoir",
+                            "title": "Passé composé : avoir",
+                            "subtitle": "J'ai mangé, tu as joué...",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "pc_1",
+                                "verbs": [
+                                    "manger",
+                                    "chanter",
+                                    "jouer",
+                                    "chercher",
+                                    "trouver"
+                                ],
+                                "tenses": "passé composé",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-conj-pc-etre",
+                            "title": "Passé composé : être",
+                            "subtitle": "Je suis tombé, elle est arrivée...",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "pc_1",
+                                "verbs": [
+                                    "tomber",
+                                    "monter",
+                                    "arriver",
+                                    "entrer",
+                                    "rester"
+                                ],
+                                "tenses": "passé composé",
+                                "questions": 6
                             }
                         },
                         {
@@ -1679,6 +1862,99 @@
                             }
                         },
                         {
+                            "id": "ce2-vocab-ordre-alpha",
+                            "title": "Ordre alphabétique",
+                            "subtitle": "Classe les mots comme dans un dictionnaire",
+                            "engine": "word-order",
+                            "params": {
+                                "category": "alpha_order_ce2",
+                                "dataFile": "data/french_word_order.json",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce2-lecture-inferences",
+                            "title": "Lire entre les lignes",
+                            "subtitle": "Deviner ce que le texte ne dit pas",
+                            "engine": "reading",
+                            "params": {
+                                "category": "ce2_lecture_inferences",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-lecture-comprehension-courte",
+                            "title": "Comprendre un texte court",
+                            "subtitle": "Réponds aux questions sur un court texte",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/french_ce2_reading.json",
+                                "category": "ce2_lecture_comprehension_courte",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-lecture-sens-contexte",
+                            "title": "Sens d'un mot en contexte",
+                            "subtitle": "Quel sens a ce mot dans la phrase ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/french_ce2_reading.json",
+                                "category": "ce2_lecture_sens_contexte",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-vocabulaire-themes",
+                            "title": "Vocabulaire par thèmes",
+                            "subtitle": "Quel mot appartient à ce thème ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/french_ce2_reading.json",
+                                "category": "ce2_vocabulaire_themes",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-lecture-reperage-infos",
+                            "title": "Repérer les informations",
+                            "subtitle": "Trouve les informations dans le texte",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/french_ce2_reading.json",
+                                "category": "ce2_lecture_reperage_infos",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-vocabulaire-synonymes",
+                            "title": "Les synonymes",
+                            "subtitle": "Trouve le mot qui veut dire la même chose",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/french_ce2_reading.json",
+                                "category": "ce2_vocabulaire_synonymes",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-vocabulaire-familles-mots",
+                            "title": "Familles de mots",
+                            "subtitle": "Trouve le mot de la même famille",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/french_ce2_reading.json",
+                                "category": "ce2_vocabulaire_familles_mots",
+                                "questions": 8
+                            }
+                        },
+                        {
                             "id": "ce2-bonus-lecture-idee-principale",
                             "title": "Défi : super lecteur",
                             "subtitle": "Trouver l'idée principale, série longue",
@@ -1801,6 +2077,32 @@
                             "engine": "choice-engine",
                             "id": "ce2-histoire-situer-temps",
                             "subtitle": "Avant, après, repères"
+                        },
+                        {
+                            "id": "ce2-histoire-frise-chrono",
+                            "title": "La frise chronologique",
+                            "subtitle": "Placer les evenements dans le temps",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce2.json",
+                                "category": "ce2-frise-vie-famille",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-histoire-reperes-defi",
+                            "title": "Defi : reperes dans le temps",
+                            "subtitle": "Situer des evenements sur une frise",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce2.json",
+                                "category": "ce2-reperes",
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
@@ -1868,6 +2170,32 @@
                             "engine": "choice-engine",
                             "id": "ce2-histoire-comparer-autrefois",
                             "subtitle": "Maison, école et objets"
+                        },
+                        {
+                            "id": "ce2-histoire-personnages-vie-autrefois",
+                            "title": "Personnages celebres de notre histoire",
+                            "subtitle": "Des gens qui ont marque leur epoque",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce2.json",
+                                "category": "ce2-personnages-celebres",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-histoire-vie-defi",
+                            "title": "Defi : vie autrefois et personnages",
+                            "subtitle": "Comparer le passe et le present",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce2.json",
+                                "category": "ce2-vie-autrefois",
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
@@ -2574,6 +2902,32 @@
                             "engine": "choice-engine",
                             "id": "ce2-geo-voyager-deplacer",
                             "subtitle": "Train, bus, port, gare"
+                        },
+                        {
+                            "id": "ce2-geo-transports-cartes",
+                            "title": "Lire une carte de transports",
+                            "subtitle": "Symboles et réseaux",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_ce2.json",
+                                "category": "ce2-cartes-symboles",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-geo-transports-defi",
+                            "title": "Défi : trajets et transports",
+                            "subtitle": "Choisir le bon moyen de transport",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_ce2.json",
+                                "category": "ce2-transports",
+                                "questions": 8
+                            }
                         }
                     ]
                 }
@@ -3537,6 +3891,32 @@
                             "engine": "choice-engine",
                             "id": "ce2-emc-aider-cooperer",
                             "subtitle": "Soutenir et agir ensemble"
+                        },
+                        {
+                            "id": "ce2-emc-cooperation-classe",
+                            "title": "Cooperer en classe",
+                            "subtitle": "Travailler ensemble vers un but commun",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce2.json",
+                                "category": "ce2-cooperation",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-emc-entraide-defi",
+                            "title": "Defi : entraide et cooperation",
+                            "subtitle": "Solidarite et travail d'equipe",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce2.json",
+                                "category": "ce2-entraide",
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
@@ -3602,6 +3982,32 @@
                             "engine": "choice-engine",
                             "id": "ce2-emc-etre-responsable",
                             "subtitle": "Choix, autonomie, sécurité"
+                        },
+                        {
+                            "id": "ce2-emc-parole-ecoute-responsable",
+                            "title": "Parole et ecoute",
+                            "subtitle": "S'exprimer et ecouter les autres",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce2.json",
+                                "category": "ce2-parole-ecoute",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-emc-responsabilite-defi",
+                            "title": "Defi : responsabilite et engagement",
+                            "subtitle": "Agir de facon responsable",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce2.json",
+                                "category": "ce2-responsabilite",
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [

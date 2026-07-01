@@ -1,502 +1,1034 @@
-﻿{
-    "title": "Problèmes mathématiques cycle 3",
-    "subjectId": "math",
-    "categories": {
-        "ce2-problemes-additifs": [
-            {
-                "question": "Lina a 28 billes. Son frère lui en donne 15. Combien de billes a-t-elle maintenant ?",
-                "choices": ["43", "13", "53"],
-                "answer": "43",
-                "explanation": "On ajoute les deux quantités : 28 + 15 = 43 billes."
-            },
-            {
-                "question": "La bibliothèque possède 64 livres de contes et 27 livres documentaires. Combien de livres au total ?",
-                "choices": ["91", "37", "81"],
-                "answer": "91",
-                "explanation": "On additionne les deux quantités de livres : 64 + 27 = 91."
-            },
-            {
-                "question": "Le car transporte 72 élèves. 18 descendent au musée. Combien restent dans le car ?",
-                "choices": ["54", "60", "90"],
-                "answer": "54",
-                "explanation": "Il faut soustraire les élèves qui descendent : 72 - 18 = 54."
-            },
-            {
-                "question": "Un magasin vend 39 cahiers le matin et 22 l'après-midi. Combien de cahiers vendus ?",
-                "choices": ["61", "51", "71"],
-                "answer": "61",
-                "explanation": "On additionne les ventes du matin et de l'après-midi : 39 + 22 = 61."
-            },
-            {
-                "question": "Sara lit 17 pages lundi et 19 pages mardi. Combien de pages en deux jours ?",
-                "choices": ["36", "26", "46"],
-                "answer": "36",
-                "explanation": "On additionne les pages lues chaque jour : 17 + 19 = 36."
-            },
-            {
-                "question": "Dans une boîte, il y a 95 perles. On en utilise 27. Combien en reste-t-il ?",
-                "choices": ["68", "72", "58"],
-                "answer": "68",
-                "explanation": "On soustrait les perles utilisées du total : 95 - 27 = 68."
-            },
-            {
-                "question": "Un jardinier plante 45 fleurs rouges et 38 fleurs jaunes. Combien de fleurs au total ?",
-                "choices": ["83", "73", "93"],
-                "answer": "83",
-                "explanation": "On additionne les deux groupes de fleurs : 45 + 38 = 83."
-            },
-            {
-                "question": "Le train parcourt 120 km le matin et 85 km l'après-midi. Quelle distance totale ?",
-                "choices": ["205 km", "195 km", "215 km"],
-                "answer": "205 km",
-                "explanation": "On additionne les deux distances parcourues : 120 + 85 = 205 km."
-            },
-            {
-                "question": "Un fermier récolte 56 kg de pommes le matin et 34 kg l'après-midi. Quelle est la récolte totale ?",
-                "choices": ["90 kg", "80 kg", "100 kg"],
-                "answer": "90 kg",
-                "explanation": "On additionne les deux récoltes : 56 + 34 = 90 kg."
-            },
-            {
-                "question": "Une piscine contient 150 baigneurs. 47 d'entre eux repartent. Combien reste-t-il de baigneurs ?",
-                "choices": ["103", "113", "93"],
-                "answer": "103",
-                "explanation": "On soustrait les baigneurs qui partent du total : 150 - 47 = 103."
-            }
+{
+  "title": "Problèmes mathématiques cycle 3",
+  "subjectId": "math",
+  "categories": {
+    "ce2-problemes-additifs": [
+      {
+        "question": "Lina a 28 billes. Son frère lui en donne 15. Combien de billes a-t-elle maintenant ?",
+        "choices": [
+          "43",
+          "13",
+          "53"
         ],
-        "ce2-problemes-multiplicatifs": [
-            {
-                "question": "Un fleuriste prépare 7 bouquets de 6 roses. Combien de roses au total ?",
-                "choices": ["42", "36", "48"],
-                "answer": "42",
-                "explanation": "On multiplie le nombre de bouquets par le nombre de roses : 7 × 6 = 42."
-            },
-            {
-                "question": "Une boîte contient 5 rangées de 8 chocolats. Combien de chocolats dans la boîte ?",
-                "choices": ["40", "35", "45"],
-                "answer": "40",
-                "explanation": "On multiplie le nombre de rangées par le nombre de chocolats par rangée : 5 × 8 = 40."
-            },
-            {
-                "question": "Un autobus a 9 sièges doubles. Combien de places au total ?",
-                "choices": ["18", "16", "20"],
-                "answer": "18",
-                "explanation": "Chaque siège double compte 2 places : 9 × 2 = 18 places."
-            },
-            {
-                "question": "Une classe range 4 paquets de 25 crayons. Combien de crayons au total ?",
-                "choices": ["100", "90", "110"],
-                "answer": "100",
-                "explanation": "On multiplie le nombre de paquets par le nombre de crayons : 4 × 25 = 100."
-            },
-            {
-                "question": "Un pâtissier fait 6 plateaux de 9 tartelettes. Combien de tartelettes en tout ?",
-                "choices": ["54", "48", "60"],
-                "answer": "54",
-                "explanation": "On multiplie le nombre de plateaux par le nombre de tartelettes : 6 × 9 = 54."
-            },
-            {
-                "question": "Dans un parking, il y a 8 rangées de 7 voitures. Combien de voitures au total ?",
-                "choices": ["56", "49", "64"],
-                "answer": "56",
-                "explanation": "On multiplie le nombre de rangées par le nombre de voitures : 8 × 7 = 56."
-            },
-            {
-                "question": "Un enseignant distribue 3 feuilles à chacun des 24 élèves. Combien de feuilles distribuées ?",
-                "choices": ["72", "69", "75"],
-                "answer": "72",
-                "explanation": "On multiplie le nombre d'élèves par le nombre de feuilles : 24 × 3 = 72."
-            },
-            {
-                "question": "Un agriculteur plante 6 rangs de 15 pieds de tomates. Combien de pieds plantés ?",
-                "choices": ["90", "85", "95"],
-                "answer": "90",
-                "explanation": "On multiplie le nombre de rangs par le nombre de pieds par rang : 6 × 15 = 90."
-            },
-            {
-                "question": "Un commerçant range 7 cartons de 12 bouteilles. Combien de bouteilles en tout ?",
-                "choices": ["84", "76", "94"],
-                "answer": "84",
-                "explanation": "On multiplie le nombre de cartons par le nombre de bouteilles : 7 × 12 = 84."
-            },
-            {
-                "question": "Une salle de cinéma compte 10 rangées de 14 fauteuils. Combien de fauteuils au total ?",
-                "choices": ["140", "130", "150"],
-                "answer": "140",
-                "explanation": "On multiplie le nombre de rangées par le nombre de fauteuils : 10 × 14 = 140."
-            }
+        "answer": "43",
+        "explanation": "On ajoute les deux quantités : 28 + 15 = 43 billes."
+      },
+      {
+        "question": "La bibliothèque possède 64 livres de contes et 27 livres documentaires. Combien de livres au total ?",
+        "choices": [
+          "91",
+          "37",
+          "81"
         ],
-        "cm1-problemes-multi-division": [
-            {
-                "question": "Un club achète 6 boîtes de 24 feutres. Combien de feutres au total ?",
-                "choices": ["144", "30", "124"],
-                "answer": "144",
-                "explanation": "On multiplie le nombre de boîtes par le nombre de feutres : 6 × 24 = 144."
-            },
-            {
-                "question": "On range 56 cartes en paquets de 8. Combien de paquets complets ?",
-                "choices": ["7", "6", "8"],
-                "answer": "7",
-                "explanation": "On divise le total de cartes par la taille d'un paquet : 56 ÷ 8 = 7."
-            },
-            {
-                "question": "Un bus fait 5 trajets de 37 km. Quelle distance totale ?",
-                "choices": ["185 km", "175 km", "195 km"],
-                "answer": "185 km",
-                "explanation": "On multiplie le nombre de trajets par la distance de chaque trajet : 5 × 37 = 185 km."
-            },
-            {
-                "question": "Une classe de 28 élèves est répartie en équipes de 4. Combien d'équipes ?",
-                "choices": ["7", "6", "8"],
-                "answer": "7",
-                "explanation": "On divise le nombre d'élèves par la taille d'une équipe : 28 ÷ 4 = 7."
-            },
-            {
-                "question": "Un boulanger prépare 9 plaques de 12 biscuits. Combien de biscuits ?",
-                "choices": ["108", "96", "118"],
-                "answer": "108",
-                "explanation": "On multiplie le nombre de plaques par le nombre de biscuits : 9 × 12 = 108."
-            },
-            {
-                "question": "On partage 63 bonbons entre 9 enfants. Combien chacun reçoit-il ?",
-                "choices": ["7", "6", "8"],
-                "answer": "7",
-                "explanation": "On divise le total de bonbons par le nombre d'enfants : 63 ÷ 9 = 7."
-            },
-            {
-                "question": "Un stade accueille 14 rangées de 25 places. Combien de places ?",
-                "choices": ["350", "325", "375"],
-                "answer": "350",
-                "explanation": "On multiplie le nombre de rangées par le nombre de places : 14 × 25 = 350."
-            },
-            {
-                "question": "Une corde de 96 m est coupée en morceaux de 12 m. Combien de morceaux ?",
-                "choices": ["8", "7", "9"],
-                "answer": "8",
-                "explanation": "On divise la longueur totale par la longueur d'un morceau : 96 ÷ 12 = 8."
-            },
-            {
-                "question": "Un éleveur répartit 84 œufs dans des boîtes de 6. Combien de boîtes complètes ?",
-                "choices": ["14", "12", "16"],
-                "answer": "14",
-                "explanation": "On divise le nombre d'œufs par la capacité d'une boîte : 84 ÷ 6 = 14."
-            },
-            {
-                "question": "Une entreprise commande 8 palettes de 45 cartons. Combien de cartons au total ?",
-                "choices": ["360", "350", "370"],
-                "answer": "360",
-                "explanation": "On multiplie le nombre de palettes par le nombre de cartons : 8 × 45 = 360."
-            }
+        "answer": "91",
+        "explanation": "On additionne les deux quantités de livres : 64 + 27 = 91."
+      },
+      {
+        "question": "Le car transporte 72 élèves. 18 descendent au musée. Combien restent dans le car ?",
+        "choices": [
+          "54",
+          "60",
+          "90"
         ],
-        "cm1-problemes-mesures": [
-            {
-                "question": "Un trajet de 3,5 km est parcouru 4 fois par semaine. Quelle distance totale ?",
-                "choices": ["14 km", "12 km", "16 km"],
-                "answer": "14 km",
-                "explanation": "On multiplie la distance d'un trajet par le nombre de fois : 3,5 × 4 = 14 km."
-            },
-            {
-                "question": "Un sac de farine pèse 1,2 kg. On achète 5 sacs. Quelle masse totale ?",
-                "choices": ["6 kg", "5 kg", "7 kg"],
-                "answer": "6 kg",
-                "explanation": "On multiplie la masse d'un sac par le nombre de sacs : 1,2 × 5 = 6 kg."
-            },
-            {
-                "question": "Un film dure 1h45min et commence à 14h00. À quelle heure se termine-t-il ?",
-                "choices": ["15h45", "15h30", "16h00"],
-                "answer": "15h45",
-                "explanation": "On ajoute la durée du film à l'heure de début : 14h00 + 1h45 = 15h45."
-            },
-            {
-                "question": "Une bouteille de jus coûte 2,30 €. On en achète 3. Quel est le prix total ?",
-                "choices": ["6,90 €", "6,60 €", "7,20 €"],
-                "answer": "6,90 €",
-                "explanation": "On multiplie le prix d'une bouteille par le nombre de bouteilles : 2,30 × 3 = 6,90 €."
-            },
-            {
-                "question": "Un coureur parcourt 800 m en 4 minutes. Combien de mètres parcourt-il en 1 minute en moyenne ?",
-                "choices": ["200 m", "150 m", "250 m"],
-                "answer": "200 m",
-                "explanation": "On divise la distance totale par le temps : 800 ÷ 4 = 200 m par minute."
-            },
-            {
-                "question": "Une planche mesure 2,5 m. On la coupe en 5 morceaux égaux. Quelle est la longueur de chaque morceau ?",
-                "choices": ["0,5 m", "0,4 m", "0,6 m"],
-                "answer": "0,5 m",
-                "explanation": "On divise la longueur totale par le nombre de morceaux : 2,5 ÷ 5 = 0,5 m."
-            },
-            {
-                "question": "Léa a 15 € et achète un cahier à 3,50 €. Combien lui reste-t-il ?",
-                "choices": ["11,50 €", "12,50 €", "10,50 €"],
-                "answer": "11,50 €",
-                "explanation": "On soustrait le prix du cahier de la somme initiale : 15 - 3,50 = 11,50 €."
-            },
-            {
-                "question": "Un sportif s'entraîne 45 minutes par jour pendant 6 jours. Quelle durée totale d'entraînement ?",
-                "choices": ["4h30", "4h00", "5h00"],
-                "answer": "4h30",
-                "explanation": "On multiplie la durée quotidienne par le nombre de jours : 45 × 6 = 270 min = 4h30."
-            },
-            {
-                "question": "Un camion transporte des caisses de 25 kg. Il en charge 12. Quelle masse totale transporte-t-il ?",
-                "choices": ["300 kg", "280 kg", "320 kg"],
-                "answer": "300 kg",
-                "explanation": "On multiplie la masse d'une caisse par le nombre de caisses : 25 × 12 = 300 kg."
-            },
-            {
-                "question": "Un robinet coule pendant 3 heures et remplit 1,5 L par heure. Quel volume total est recueilli ?",
-                "choices": ["4,5 L", "4 L", "5 L"],
-                "answer": "4,5 L",
-                "explanation": "On multiplie le débit horaire par le nombre d'heures : 1,5 × 3 = 4,5 L."
-            }
+        "answer": "54",
+        "explanation": "Il faut soustraire les élèves qui descendent : 72 - 18 = 54."
+      },
+      {
+        "question": "Un magasin vend 39 cahiers le matin et 22 l'après-midi. Combien de cahiers vendus ?",
+        "choices": [
+          "61",
+          "51",
+          "71"
         ],
-        "cm1-problemes-proportionnalite": [
-            {
-                "question": "Une recette pour 4 personnes nécessite 200 g de farine. Quelle quantité pour 6 personnes ?",
-                "choices": ["300 g", "250 g", "350 g"],
-                "answer": "300 g",
-                "explanation": "Pour 1 personne il faut 200 ÷ 4 = 50 g, donc pour 6 personnes : 50 × 6 = 300 g."
-            },
-            {
-                "question": "Sur un plan, 1 cm représente 5 km en réalité. Quelle distance réelle représente 3 cm sur le plan ?",
-                "choices": ["15 km", "10 km", "20 km"],
-                "answer": "15 km",
-                "explanation": "On multiplie l'échelle par le nombre de centimètres : 5 × 3 = 15 km."
-            },
-            {
-                "question": "Une voiture roule à vitesse constante et parcourt 90 km en 1 heure. Quelle distance parcourt-elle en 3 heures ?",
-                "choices": ["270 km", "180 km", "300 km"],
-                "answer": "270 km",
-                "explanation": "À vitesse constante, on multiplie par le nombre d'heures : 90 × 3 = 270 km."
-            },
-            {
-                "question": "3 stylos coûtent 6 €. Combien coûtent 9 stylos au même prix unitaire ?",
-                "choices": ["18 €", "15 €", "21 €"],
-                "answer": "18 €",
-                "explanation": "Un stylo coûte 6 ÷ 3 = 2 €, donc 9 stylos coûtent 2 × 9 = 18 €."
-            },
-            {
-                "question": "Une recette pour 2 personnes utilise 100 g de sucre. Quelle quantité faut-il pour 8 personnes ?",
-                "choices": ["400 g", "350 g", "450 g"],
-                "answer": "400 g",
-                "explanation": "On multiplie par 4 car 8 personnes = 4 fois 2 personnes : 100 × 4 = 400 g."
-            },
-            {
-                "question": "Un ouvrier pose 5 carreaux en 10 minutes à un rythme constant. Combien de carreaux pose-t-il en 30 minutes ?",
-                "choices": ["15", "10", "20"],
-                "answer": "15",
-                "explanation": "30 minutes représentent 3 fois 10 minutes : 5 × 3 = 15 carreaux."
-            },
-            {
-                "question": "Sur une carte, 2 cm représentent 8 km. Quelle distance réelle représente 5 cm ?",
-                "choices": ["20 km", "16 km", "24 km"],
-                "answer": "20 km",
-                "explanation": "1 cm représente 8 ÷ 2 = 4 km, donc 5 cm représentent 4 × 5 = 20 km."
-            },
-            {
-                "question": "4 kg de pommes coûtent 8 €. Quel est le prix de 6 kg de pommes ?",
-                "choices": ["12 €", "10 €", "14 €"],
-                "answer": "12 €",
-                "explanation": "1 kg coûte 8 ÷ 4 = 2 €, donc 6 kg coûtent 2 × 6 = 12 €."
-            },
-            {
-                "question": "Une recette pour 4 personnes demande 2 œufs. Combien d'œufs pour 10 personnes ?",
-                "choices": ["5", "4", "6"],
-                "answer": "5",
-                "explanation": "Pour 1 personne il faut 2 ÷ 4 = 0,5 œuf, donc pour 10 personnes : 0,5 × 10 = 5 œufs."
-            },
-            {
-                "question": "Un cycliste roule à vitesse constante de 20 km/h. Quelle distance parcourt-il en 2h30 ?",
-                "choices": ["50 km", "40 km", "60 km"],
-                "answer": "50 km",
-                "explanation": "On multiplie la vitesse par le temps : 20 × 2,5 = 50 km."
-            }
+        "answer": "61",
+        "explanation": "On additionne les ventes du matin et de l'après-midi : 39 + 22 = 61."
+      },
+      {
+        "question": "Sara lit 17 pages lundi et 19 pages mardi. Combien de pages en deux jours ?",
+        "choices": [
+          "36",
+          "26",
+          "46"
         ],
-        "cm2-problemes-decimaux-fractions": [
-            {
-                "question": "Une bouteille contient 1,5 L de jus. On verse 0,4 L. Combien reste-t-il ?",
-                "choices": ["1,1 L", "1,9 L", "0,9 L"],
-                "answer": "1,1 L",
-                "explanation": "On soustrait le volume versé du volume initial : 1,5 - 0,4 = 1,1 L."
-            },
-            {
-                "question": "Un ruban mesure 3,2 m. On coupe 1,7 m. Quelle longueur reste ?",
-                "choices": ["1,5 m", "2,5 m", "1,7 m"],
-                "answer": "1,5 m",
-                "explanation": "On soustrait la longueur coupée de la longueur initiale : 3,2 - 1,7 = 1,5 m."
-            },
-            {
-                "question": "Dans une classe de 28 élèves, 1/4 fait chorale. Combien d'élèves ?",
-                "choices": ["7", "6", "8"],
-                "answer": "7",
-                "explanation": "Le quart de 28 se calcule en divisant par 4 : 28 ÷ 4 = 7 élèves."
-            },
-            {
-                "question": "Un gâteau est partagé en 8 parts égales. Paul mange 3 parts. Quelle fraction a-t-il mangée ?",
-                "choices": ["3/8", "5/8", "8/3"],
-                "answer": "3/8",
-                "explanation": "Paul mange 3 parts sur les 8 parts égales du gâteau, soit la fraction 3/8."
-            },
-            {
-                "question": "Un article coûte 24 €. On applique une réduction de 5 €. Quel nouveau prix ?",
-                "choices": ["19 €", "29 €", "18 €"],
-                "answer": "19 €",
-                "explanation": "On soustrait la réduction du prix initial : 24 - 5 = 19 €."
-            },
-            {
-                "question": "Une voiture parcourt 125,6 km puis 84,4 km. Distance totale ?",
-                "choices": ["210,0 km", "209,0 km", "211,0 km"],
-                "answer": "210,0 km",
-                "explanation": "On additionne les deux distances décimales : 125,6 + 84,4 = 210,0 km."
-            },
-            {
-                "question": "On remplit 6 boîtes avec 2,5 kg chacune. Quelle masse totale ?",
-                "choices": ["15 kg", "12,5 kg", "8,5 kg"],
-                "answer": "15 kg",
-                "explanation": "On multiplie la masse d'une boîte par le nombre de boîtes : 2,5 × 6 = 15 kg."
-            },
-            {
-                "question": "Un rectangle a un périmètre de 30 cm. Deux longueurs mesurent 9 cm chacune. Les deux largeurs mesurent...",
-                "choices": ["6 cm chacune", "12 cm chacune", "3 cm chacune"],
-                "answer": "6 cm chacune",
-                "explanation": "Les deux longueurs totalisent 18 cm, il reste 30 - 18 = 12 cm pour les deux largeurs, soit 6 cm chacune."
-            },
-            {
-                "question": "Une pizza est coupée en 6 parts. Trois amis mangent chacun 1/6. Quelle fraction reste-t-il ?",
-                "choices": ["3/6", "2/6", "4/6"],
-                "answer": "3/6",
-                "explanation": "Les trois amis mangent 3/6 de la pizza, il reste donc 6/6 - 3/6 = 3/6."
-            },
-            {
-                "question": "Un réservoir contient 12,8 L. On y ajoute 3,7 L. Quel est le volume final ?",
-                "choices": ["16,5 L", "15,5 L", "17,5 L"],
-                "answer": "16,5 L",
-                "explanation": "On additionne les deux volumes décimaux : 12,8 + 3,7 = 16,5 L."
-            }
+        "answer": "36",
+        "explanation": "On additionne les pages lues chaque jour : 17 + 19 = 36."
+      },
+      {
+        "question": "Dans une boîte, il y a 95 perles. On en utilise 27. Combien en reste-t-il ?",
+        "choices": [
+          "68",
+          "72",
+          "58"
         ],
-        "cm2-problemes-pourcentages": [
-            {
-                "question": "Un article à 80 € est réduit de 25%. Quel est le nouveau prix ?",
-                "choices": ["60 €", "55 €", "65 €"],
-                "answer": "60 €",
-                "explanation": "25% de 80 € = 20 €, donc le nouveau prix est 80 - 20 = 60 €."
-            },
-            {
-                "question": "Dans une classe de 20 élèves, 30% sont des filles. Combien de filles ?",
-                "choices": ["6", "5", "7"],
-                "answer": "6",
-                "explanation": "30% de 20 se calcule ainsi : 20 × 30 ÷ 100 = 6 filles."
-            },
-            {
-                "question": "Un pantalon coûte 50 € avec une remise de 10%. Quel est le prix après remise ?",
-                "choices": ["45 €", "40 €", "48 €"],
-                "answer": "45 €",
-                "explanation": "10% de 50 € = 5 €, donc le prix après remise est 50 - 5 = 45 €."
-            },
-            {
-                "question": "Sur 200 personnes interrogées, 40% préfèrent le chocolat. Combien de personnes cela représente-t-il ?",
-                "choices": ["80", "60", "100"],
-                "answer": "80",
-                "explanation": "40% de 200 se calcule ainsi : 200 × 40 ÷ 100 = 80 personnes."
-            },
-            {
-                "question": "Un livre à 15 € bénéficie d'une réduction de 20%. Quel est le prix réduit ?",
-                "choices": ["12 €", "13 €", "11 €"],
-                "answer": "12 €",
-                "explanation": "20% de 15 € = 3 €, donc le prix réduit est 15 - 3 = 12 €."
-            },
-            {
-                "question": "Une équipe de 25 joueurs compte 20% de gardiens. Combien de gardiens ?",
-                "choices": ["5", "4", "6"],
-                "answer": "5",
-                "explanation": "20% de 25 se calcule ainsi : 25 × 20 ÷ 100 = 5 gardiens."
-            },
-            {
-                "question": "Un vélo à 120 € est soldé à -50%. Quel est le prix soldé ?",
-                "choices": ["60 €", "70 €", "50 €"],
-                "answer": "60 €",
-                "explanation": "50% de 120 € = 60 €, donc le prix soldé est 120 - 60 = 60 €."
-            },
-            {
-                "question": "Sur 50 questions d'un contrôle, un élève en réussit 90%. Combien de questions a-t-il réussies ?",
-                "choices": ["45", "40", "48"],
-                "answer": "45",
-                "explanation": "90% de 50 se calcule ainsi : 50 × 90 ÷ 100 = 45 questions."
-            },
-            {
-                "question": "Un sac à dos à 40 € a une remise de 15%. Quel est le montant de la remise ?",
-                "choices": ["6 €", "5 €", "8 €"],
-                "answer": "6 €",
-                "explanation": "15% de 40 € se calcule ainsi : 40 × 15 ÷ 100 = 6 €."
-            },
-            {
-                "question": "Une bibliothèque a 300 livres, dont 10% sont des bandes dessinées. Combien de bandes dessinées ?",
-                "choices": ["30", "25", "35"],
-                "answer": "30",
-                "explanation": "10% de 300 se calcule ainsi : 300 × 10 ÷ 100 = 30 bandes dessinées."
-            }
+        "answer": "68",
+        "explanation": "On soustrait les perles utilisées du total : 95 - 27 = 68."
+      },
+      {
+        "question": "Un jardinier plante 45 fleurs rouges et 38 fleurs jaunes. Combien de fleurs au total ?",
+        "choices": [
+          "83",
+          "73",
+          "93"
         ],
-        "cm2-problemes-multi-etapes": [
-            {
-                "question": "Un magasin achète 50 jouets à 8 € pièce et les revend à 15 € pièce. Quel est le bénéfice total ?",
-                "choices": ["350 €", "300 €", "400 €"],
-                "answer": "350 €",
-                "explanation": "Le bénéfice par jouet est 15 - 8 = 7 €, donc pour 50 jouets : 7 × 50 = 350 €."
-            },
-            {
-                "question": "Marc achète 3 livres à 12 € et 2 cahiers à 4 €. Il paie avec un billet de 50 €. Combien lui rend-on ?",
-                "choices": ["6 €", "8 €", "4 €"],
-                "answer": "6 €",
-                "explanation": "Le total dépensé est 3×12 + 2×4 = 36 + 8 = 44 €. La monnaie rendue est 50 - 44 = 6 €."
-            },
-            {
-                "question": "Une classe de 24 élèves se répartit en groupes de 4 pour un projet, puis chaque groupe reçoit 3 feuilles. Combien de feuilles distribuées en tout ?",
-                "choices": ["18", "24", "12"],
-                "answer": "18",
-                "explanation": "Il y a 24 ÷ 4 = 6 groupes, donc 6 × 3 = 18 feuilles distribuées."
-            },
-            {
-                "question": "Un fermier vend 40 kg de pommes à 2 € le kg et 25 kg de poires à 3 € le kg. Quelle est sa recette totale ?",
-                "choices": ["155 €", "145 €", "165 €"],
-                "answer": "155 €",
-                "explanation": "Les pommes rapportent 40 × 2 = 80 €, les poires 25 × 3 = 75 €. Total : 80 + 75 = 155 €."
-            },
-            {
-                "question": "Une famille de 5 personnes va au cinéma. Les places adultes coûtent 9 € (2 adultes) et les places enfants 6 € (3 enfants). Quelle est la dépense totale ?",
-                "choices": ["36 €", "33 €", "39 €"],
-                "answer": "36 €",
-                "explanation": "Les adultes coûtent 2 × 9 = 18 €, les enfants 3 × 6 = 18 €. Total : 18 + 18 = 36 €."
-            },
-            {
-                "question": "Un boulanger fabrique 120 croissants. Il en vend 80 à 1,20 € pièce et offre le reste. Quelle est sa recette ?",
-                "choices": ["96 €", "100 €", "90 €"],
-                "answer": "96 €",
-                "explanation": "Seuls les croissants vendus comptent : 80 × 1,20 = 96 €."
-            },
-            {
-                "question": "Une école achète 15 ballons à 6 € et reçoit une remise de 10 € sur la commande totale. Quel est le montant payé ?",
-                "choices": ["80 €", "90 €", "70 €"],
-                "answer": "80 €",
-                "explanation": "Le coût initial est 15 × 6 = 90 €, puis on soustrait la remise : 90 - 10 = 80 €."
-            },
-            {
-                "question": "Un trajet en train coûte 18 € à l'aller et le retour est à moitié prix. Quel est le coût total aller-retour ?",
-                "choices": ["27 €", "24 €", "30 €"],
-                "answer": "27 €",
-                "explanation": "Le retour coûte 18 ÷ 2 = 9 €, donc le total est 18 + 9 = 27 €."
-            },
-            {
-                "question": "Une coopérative récolte 300 kg de blé, en garde 1/3 pour les semences et vend le reste à 2 € le kg. Quelle est la recette de la vente ?",
-                "choices": ["400 €", "300 €", "500 €"],
-                "answer": "400 €",
-                "explanation": "Les semences représentent 300 ÷ 3 = 100 kg, il reste 200 kg vendus à 2 € : 200 × 2 = 400 €."
-            },
-            {
-                "question": "Un club sportif compte 60 membres. La moitié pratique le foot, et parmi eux, 1/5 sont gardiens. Combien de gardiens ?",
-                "choices": ["6", "5", "12"],
-                "answer": "6",
-                "explanation": "Les joueurs de foot sont 60 ÷ 2 = 30, et les gardiens sont 30 ÷ 5 = 6."
-            }
-        ]
-    }
+        "answer": "83",
+        "explanation": "On additionne les deux groupes de fleurs : 45 + 38 = 83."
+      },
+      {
+        "question": "Le train parcourt 120 km le matin et 85 km l'après-midi. Quelle distance totale ?",
+        "choices": [
+          "205 km",
+          "195 km",
+          "215 km"
+        ],
+        "answer": "205 km",
+        "explanation": "On additionne les deux distances parcourues : 120 + 85 = 205 km."
+      },
+      {
+        "question": "Un fermier récolte 56 kg de pommes le matin et 34 kg l'après-midi. Quelle est la récolte totale ?",
+        "choices": [
+          "90 kg",
+          "80 kg",
+          "100 kg"
+        ],
+        "answer": "90 kg",
+        "explanation": "On additionne les deux récoltes : 56 + 34 = 90 kg."
+      },
+      {
+        "question": "Une piscine contient 150 baigneurs. 47 d'entre eux repartent. Combien reste-t-il de baigneurs ?",
+        "choices": [
+          "103",
+          "113",
+          "93"
+        ],
+        "answer": "103",
+        "explanation": "On soustrait les baigneurs qui partent du total : 150 - 47 = 103."
+      }
+    ],
+    "ce2-problemes-multiplicatifs": [
+      {
+        "question": "Un fleuriste prépare 7 bouquets de 6 roses. Combien de roses au total ?",
+        "choices": [
+          "42",
+          "36",
+          "48"
+        ],
+        "answer": "42",
+        "explanation": "On multiplie le nombre de bouquets par le nombre de roses : 7 × 6 = 42."
+      },
+      {
+        "question": "Une boîte contient 5 rangées de 8 chocolats. Combien de chocolats dans la boîte ?",
+        "choices": [
+          "40",
+          "35",
+          "45"
+        ],
+        "answer": "40",
+        "explanation": "On multiplie le nombre de rangées par le nombre de chocolats par rangée : 5 × 8 = 40."
+      },
+      {
+        "question": "Un autobus a 9 sièges doubles. Combien de places au total ?",
+        "choices": [
+          "18",
+          "16",
+          "20"
+        ],
+        "answer": "18",
+        "explanation": "Chaque siège double compte 2 places : 9 × 2 = 18 places."
+      },
+      {
+        "question": "Une classe range 4 paquets de 25 crayons. Combien de crayons au total ?",
+        "choices": [
+          "100",
+          "90",
+          "110"
+        ],
+        "answer": "100",
+        "explanation": "On multiplie le nombre de paquets par le nombre de crayons : 4 × 25 = 100."
+      },
+      {
+        "question": "Un pâtissier fait 6 plateaux de 9 tartelettes. Combien de tartelettes en tout ?",
+        "choices": [
+          "54",
+          "48",
+          "60"
+        ],
+        "answer": "54",
+        "explanation": "On multiplie le nombre de plateaux par le nombre de tartelettes : 6 × 9 = 54."
+      },
+      {
+        "question": "Dans un parking, il y a 8 rangées de 7 voitures. Combien de voitures au total ?",
+        "choices": [
+          "56",
+          "49",
+          "64"
+        ],
+        "answer": "56",
+        "explanation": "On multiplie le nombre de rangées par le nombre de voitures : 8 × 7 = 56."
+      },
+      {
+        "question": "Un enseignant distribue 3 feuilles à chacun des 24 élèves. Combien de feuilles distribuées ?",
+        "choices": [
+          "72",
+          "69",
+          "75"
+        ],
+        "answer": "72",
+        "explanation": "On multiplie le nombre d'élèves par le nombre de feuilles : 24 × 3 = 72."
+      },
+      {
+        "question": "Un agriculteur plante 6 rangs de 15 pieds de tomates. Combien de pieds plantés ?",
+        "choices": [
+          "90",
+          "85",
+          "95"
+        ],
+        "answer": "90",
+        "explanation": "On multiplie le nombre de rangs par le nombre de pieds par rang : 6 × 15 = 90."
+      },
+      {
+        "question": "Un commerçant range 7 cartons de 12 bouteilles. Combien de bouteilles en tout ?",
+        "choices": [
+          "84",
+          "76",
+          "94"
+        ],
+        "answer": "84",
+        "explanation": "On multiplie le nombre de cartons par le nombre de bouteilles : 7 × 12 = 84."
+      },
+      {
+        "question": "Une salle de cinéma compte 10 rangées de 14 fauteuils. Combien de fauteuils au total ?",
+        "choices": [
+          "140",
+          "130",
+          "150"
+        ],
+        "answer": "140",
+        "explanation": "On multiplie le nombre de rangées par le nombre de fauteuils : 10 × 14 = 140."
+      }
+    ],
+    "cm1-problemes-multi-division": [
+      {
+        "question": "Un club achète 6 boîtes de 24 feutres. Combien de feutres au total ?",
+        "choices": [
+          "144",
+          "30",
+          "124"
+        ],
+        "answer": "144",
+        "explanation": "On multiplie le nombre de boîtes par le nombre de feutres : 6 × 24 = 144."
+      },
+      {
+        "question": "On range 56 cartes en paquets de 8. Combien de paquets complets ?",
+        "choices": [
+          "7",
+          "6",
+          "8"
+        ],
+        "answer": "7",
+        "explanation": "On divise le total de cartes par la taille d'un paquet : 56 ÷ 8 = 7."
+      },
+      {
+        "question": "Un bus fait 5 trajets de 37 km. Quelle distance totale ?",
+        "choices": [
+          "185 km",
+          "175 km",
+          "195 km"
+        ],
+        "answer": "185 km",
+        "explanation": "On multiplie le nombre de trajets par la distance de chaque trajet : 5 × 37 = 185 km."
+      },
+      {
+        "question": "Une classe de 28 élèves est répartie en équipes de 4. Combien d'équipes ?",
+        "choices": [
+          "7",
+          "6",
+          "8"
+        ],
+        "answer": "7",
+        "explanation": "On divise le nombre d'élèves par la taille d'une équipe : 28 ÷ 4 = 7."
+      },
+      {
+        "question": "Un boulanger prépare 9 plaques de 12 biscuits. Combien de biscuits ?",
+        "choices": [
+          "108",
+          "96",
+          "118"
+        ],
+        "answer": "108",
+        "explanation": "On multiplie le nombre de plaques par le nombre de biscuits : 9 × 12 = 108."
+      },
+      {
+        "question": "On partage 63 bonbons entre 9 enfants. Combien chacun reçoit-il ?",
+        "choices": [
+          "7",
+          "6",
+          "8"
+        ],
+        "answer": "7",
+        "explanation": "On divise le total de bonbons par le nombre d'enfants : 63 ÷ 9 = 7."
+      },
+      {
+        "question": "Un stade accueille 14 rangées de 25 places. Combien de places ?",
+        "choices": [
+          "350",
+          "325",
+          "375"
+        ],
+        "answer": "350",
+        "explanation": "On multiplie le nombre de rangées par le nombre de places : 14 × 25 = 350."
+      },
+      {
+        "question": "Une corde de 96 m est coupée en morceaux de 12 m. Combien de morceaux ?",
+        "choices": [
+          "8",
+          "7",
+          "9"
+        ],
+        "answer": "8",
+        "explanation": "On divise la longueur totale par la longueur d'un morceau : 96 ÷ 12 = 8."
+      },
+      {
+        "question": "Un éleveur répartit 84 œufs dans des boîtes de 6. Combien de boîtes complètes ?",
+        "choices": [
+          "14",
+          "12",
+          "16"
+        ],
+        "answer": "14",
+        "explanation": "On divise le nombre d'œufs par la capacité d'une boîte : 84 ÷ 6 = 14."
+      },
+      {
+        "question": "Une entreprise commande 8 palettes de 45 cartons. Combien de cartons au total ?",
+        "choices": [
+          "360",
+          "350",
+          "370"
+        ],
+        "answer": "360",
+        "explanation": "On multiplie le nombre de palettes par le nombre de cartons : 8 × 45 = 360."
+      }
+    ],
+    "cm1-problemes-mesures": [
+      {
+        "question": "Un trajet de 3,5 km est parcouru 4 fois par semaine. Quelle distance totale ?",
+        "choices": [
+          "14 km",
+          "12 km",
+          "16 km"
+        ],
+        "answer": "14 km",
+        "explanation": "On multiplie la distance d'un trajet par le nombre de fois : 3,5 × 4 = 14 km."
+      },
+      {
+        "question": "Un sac de farine pèse 1,2 kg. On achète 5 sacs. Quelle masse totale ?",
+        "choices": [
+          "6 kg",
+          "5 kg",
+          "7 kg"
+        ],
+        "answer": "6 kg",
+        "explanation": "On multiplie la masse d'un sac par le nombre de sacs : 1,2 × 5 = 6 kg."
+      },
+      {
+        "question": "Un film dure 1h45min et commence à 14h00. À quelle heure se termine-t-il ?",
+        "choices": [
+          "15h45",
+          "15h30",
+          "16h00"
+        ],
+        "answer": "15h45",
+        "explanation": "On ajoute la durée du film à l'heure de début : 14h00 + 1h45 = 15h45."
+      },
+      {
+        "question": "Une bouteille de jus coûte 2,30 €. On en achète 3. Quel est le prix total ?",
+        "choices": [
+          "6,90 €",
+          "6,60 €",
+          "7,20 €"
+        ],
+        "answer": "6,90 €",
+        "explanation": "On multiplie le prix d'une bouteille par le nombre de bouteilles : 2,30 × 3 = 6,90 €."
+      },
+      {
+        "question": "Un coureur parcourt 800 m en 4 minutes. Combien de mètres parcourt-il en 1 minute en moyenne ?",
+        "choices": [
+          "200 m",
+          "150 m",
+          "250 m"
+        ],
+        "answer": "200 m",
+        "explanation": "On divise la distance totale par le temps : 800 ÷ 4 = 200 m par minute."
+      },
+      {
+        "question": "Une planche mesure 2,5 m. On la coupe en 5 morceaux égaux. Quelle est la longueur de chaque morceau ?",
+        "choices": [
+          "0,5 m",
+          "0,4 m",
+          "0,6 m"
+        ],
+        "answer": "0,5 m",
+        "explanation": "On divise la longueur totale par le nombre de morceaux : 2,5 ÷ 5 = 0,5 m."
+      },
+      {
+        "question": "Léa a 15 € et achète un cahier à 3,50 €. Combien lui reste-t-il ?",
+        "choices": [
+          "11,50 €",
+          "12,50 €",
+          "10,50 €"
+        ],
+        "answer": "11,50 €",
+        "explanation": "On soustrait le prix du cahier de la somme initiale : 15 - 3,50 = 11,50 €."
+      },
+      {
+        "question": "Un sportif s'entraîne 45 minutes par jour pendant 6 jours. Quelle durée totale d'entraînement ?",
+        "choices": [
+          "4h30",
+          "4h00",
+          "5h00"
+        ],
+        "answer": "4h30",
+        "explanation": "On multiplie la durée quotidienne par le nombre de jours : 45 × 6 = 270 min = 4h30."
+      },
+      {
+        "question": "Un camion transporte des caisses de 25 kg. Il en charge 12. Quelle masse totale transporte-t-il ?",
+        "choices": [
+          "300 kg",
+          "280 kg",
+          "320 kg"
+        ],
+        "answer": "300 kg",
+        "explanation": "On multiplie la masse d'une caisse par le nombre de caisses : 25 × 12 = 300 kg."
+      },
+      {
+        "question": "Un robinet coule pendant 3 heures et remplit 1,5 L par heure. Quel volume total est recueilli ?",
+        "choices": [
+          "4,5 L",
+          "4 L",
+          "5 L"
+        ],
+        "answer": "4,5 L",
+        "explanation": "On multiplie le débit horaire par le nombre d'heures : 1,5 × 3 = 4,5 L."
+      }
+    ],
+    "cm1-problemes-proportionnalite": [
+      {
+        "question": "Une recette pour 4 personnes nécessite 200 g de farine. Quelle quantité pour 6 personnes ?",
+        "choices": [
+          "300 g",
+          "250 g",
+          "350 g"
+        ],
+        "answer": "300 g",
+        "explanation": "Pour 1 personne il faut 200 ÷ 4 = 50 g, donc pour 6 personnes : 50 × 6 = 300 g."
+      },
+      {
+        "question": "Sur un plan, 1 cm représente 5 km en réalité. Quelle distance réelle représente 3 cm sur le plan ?",
+        "choices": [
+          "15 km",
+          "10 km",
+          "20 km"
+        ],
+        "answer": "15 km",
+        "explanation": "On multiplie l'échelle par le nombre de centimètres : 5 × 3 = 15 km."
+      },
+      {
+        "question": "Une voiture roule à vitesse constante et parcourt 90 km en 1 heure. Quelle distance parcourt-elle en 3 heures ?",
+        "choices": [
+          "270 km",
+          "180 km",
+          "300 km"
+        ],
+        "answer": "270 km",
+        "explanation": "À vitesse constante, on multiplie par le nombre d'heures : 90 × 3 = 270 km."
+      },
+      {
+        "question": "3 stylos coûtent 6 €. Combien coûtent 9 stylos au même prix unitaire ?",
+        "choices": [
+          "18 €",
+          "15 €",
+          "21 €"
+        ],
+        "answer": "18 €",
+        "explanation": "Un stylo coûte 6 ÷ 3 = 2 €, donc 9 stylos coûtent 2 × 9 = 18 €."
+      },
+      {
+        "question": "Une recette pour 2 personnes utilise 100 g de sucre. Quelle quantité faut-il pour 8 personnes ?",
+        "choices": [
+          "400 g",
+          "350 g",
+          "450 g"
+        ],
+        "answer": "400 g",
+        "explanation": "On multiplie par 4 car 8 personnes = 4 fois 2 personnes : 100 × 4 = 400 g."
+      },
+      {
+        "question": "Un ouvrier pose 5 carreaux en 10 minutes à un rythme constant. Combien de carreaux pose-t-il en 30 minutes ?",
+        "choices": [
+          "15",
+          "10",
+          "20"
+        ],
+        "answer": "15",
+        "explanation": "30 minutes représentent 3 fois 10 minutes : 5 × 3 = 15 carreaux."
+      },
+      {
+        "question": "Sur une carte, 2 cm représentent 8 km. Quelle distance réelle représente 5 cm ?",
+        "choices": [
+          "20 km",
+          "16 km",
+          "24 km"
+        ],
+        "answer": "20 km",
+        "explanation": "1 cm représente 8 ÷ 2 = 4 km, donc 5 cm représentent 4 × 5 = 20 km."
+      },
+      {
+        "question": "4 kg de pommes coûtent 8 €. Quel est le prix de 6 kg de pommes ?",
+        "choices": [
+          "12 €",
+          "10 €",
+          "14 €"
+        ],
+        "answer": "12 €",
+        "explanation": "1 kg coûte 8 ÷ 4 = 2 €, donc 6 kg coûtent 2 × 6 = 12 €."
+      },
+      {
+        "question": "Une recette pour 4 personnes demande 2 œufs. Combien d'œufs pour 10 personnes ?",
+        "choices": [
+          "5",
+          "4",
+          "6"
+        ],
+        "answer": "5",
+        "explanation": "Pour 1 personne il faut 2 ÷ 4 = 0,5 œuf, donc pour 10 personnes : 0,5 × 10 = 5 œufs."
+      },
+      {
+        "question": "Un cycliste roule à vitesse constante de 20 km/h. Quelle distance parcourt-il en 2h30 ?",
+        "choices": [
+          "50 km",
+          "40 km",
+          "60 km"
+        ],
+        "answer": "50 km",
+        "explanation": "On multiplie la vitesse par le temps : 20 × 2,5 = 50 km."
+      }
+    ],
+    "cm2-problemes-decimaux-fractions": [
+      {
+        "question": "Une bouteille contient 1,5 L de jus. On verse 0,4 L. Combien reste-t-il ?",
+        "choices": [
+          "1,1 L",
+          "1,9 L",
+          "0,9 L"
+        ],
+        "answer": "1,1 L",
+        "explanation": "On soustrait le volume versé du volume initial : 1,5 - 0,4 = 1,1 L."
+      },
+      {
+        "question": "Un ruban mesure 3,2 m. On coupe 1,7 m. Quelle longueur reste ?",
+        "choices": [
+          "1,5 m",
+          "2,5 m",
+          "1,7 m"
+        ],
+        "answer": "1,5 m",
+        "explanation": "On soustrait la longueur coupée de la longueur initiale : 3,2 - 1,7 = 1,5 m."
+      },
+      {
+        "question": "Dans une classe de 28 élèves, 1/4 fait chorale. Combien d'élèves ?",
+        "choices": [
+          "7",
+          "6",
+          "8"
+        ],
+        "answer": "7",
+        "explanation": "Le quart de 28 se calcule en divisant par 4 : 28 ÷ 4 = 7 élèves."
+      },
+      {
+        "question": "Un gâteau est partagé en 8 parts égales. Paul mange 3 parts. Quelle fraction a-t-il mangée ?",
+        "choices": [
+          "3/8",
+          "5/8",
+          "8/3"
+        ],
+        "answer": "3/8",
+        "explanation": "Paul mange 3 parts sur les 8 parts égales du gâteau, soit la fraction 3/8."
+      },
+      {
+        "question": "Un article coûte 24 €. On applique une réduction de 5 €. Quel nouveau prix ?",
+        "choices": [
+          "19 €",
+          "29 €",
+          "18 €"
+        ],
+        "answer": "19 €",
+        "explanation": "On soustrait la réduction du prix initial : 24 - 5 = 19 €."
+      },
+      {
+        "question": "Une voiture parcourt 125,6 km puis 84,4 km. Distance totale ?",
+        "choices": [
+          "210,0 km",
+          "209,0 km",
+          "211,0 km"
+        ],
+        "answer": "210,0 km",
+        "explanation": "On additionne les deux distances décimales : 125,6 + 84,4 = 210,0 km."
+      },
+      {
+        "question": "On remplit 6 boîtes avec 2,5 kg chacune. Quelle masse totale ?",
+        "choices": [
+          "15 kg",
+          "12,5 kg",
+          "8,5 kg"
+        ],
+        "answer": "15 kg",
+        "explanation": "On multiplie la masse d'une boîte par le nombre de boîtes : 2,5 × 6 = 15 kg."
+      },
+      {
+        "question": "Un rectangle a un périmètre de 30 cm. Deux longueurs mesurent 9 cm chacune. Les deux largeurs mesurent...",
+        "choices": [
+          "6 cm chacune",
+          "12 cm chacune",
+          "3 cm chacune"
+        ],
+        "answer": "6 cm chacune",
+        "explanation": "Les deux longueurs totalisent 18 cm, il reste 30 - 18 = 12 cm pour les deux largeurs, soit 6 cm chacune."
+      },
+      {
+        "question": "Une pizza est coupée en 6 parts. Trois amis mangent chacun 1/6. Quelle fraction reste-t-il ?",
+        "choices": [
+          "3/6",
+          "2/6",
+          "4/6"
+        ],
+        "answer": "3/6",
+        "explanation": "Les trois amis mangent 3/6 de la pizza, il reste donc 6/6 - 3/6 = 3/6."
+      },
+      {
+        "question": "Un réservoir contient 12,8 L. On y ajoute 3,7 L. Quel est le volume final ?",
+        "choices": [
+          "16,5 L",
+          "15,5 L",
+          "17,5 L"
+        ],
+        "answer": "16,5 L",
+        "explanation": "On additionne les deux volumes décimaux : 12,8 + 3,7 = 16,5 L."
+      }
+    ],
+    "cm2-problemes-pourcentages": [
+      {
+        "question": "Un article à 80 € est réduit de 25%. Quel est le nouveau prix ?",
+        "choices": [
+          "60 €",
+          "55 €",
+          "65 €"
+        ],
+        "answer": "60 €",
+        "explanation": "25% de 80 € = 20 €, donc le nouveau prix est 80 - 20 = 60 €."
+      },
+      {
+        "question": "Dans une classe de 20 élèves, 30% sont des filles. Combien de filles ?",
+        "choices": [
+          "6",
+          "5",
+          "7"
+        ],
+        "answer": "6",
+        "explanation": "30% de 20 se calcule ainsi : 20 × 30 ÷ 100 = 6 filles."
+      },
+      {
+        "question": "Un pantalon coûte 50 € avec une remise de 10%. Quel est le prix après remise ?",
+        "choices": [
+          "45 €",
+          "40 €",
+          "48 €"
+        ],
+        "answer": "45 €",
+        "explanation": "10% de 50 € = 5 €, donc le prix après remise est 50 - 5 = 45 €."
+      },
+      {
+        "question": "Sur 200 personnes interrogées, 40% préfèrent le chocolat. Combien de personnes cela représente-t-il ?",
+        "choices": [
+          "80",
+          "60",
+          "100"
+        ],
+        "answer": "80",
+        "explanation": "40% de 200 se calcule ainsi : 200 × 40 ÷ 100 = 80 personnes."
+      },
+      {
+        "question": "Un livre à 15 € bénéficie d'une réduction de 20%. Quel est le prix réduit ?",
+        "choices": [
+          "12 €",
+          "13 €",
+          "11 €"
+        ],
+        "answer": "12 €",
+        "explanation": "20% de 15 € = 3 €, donc le prix réduit est 15 - 3 = 12 €."
+      },
+      {
+        "question": "Une équipe de 25 joueurs compte 20% de gardiens. Combien de gardiens ?",
+        "choices": [
+          "5",
+          "4",
+          "6"
+        ],
+        "answer": "5",
+        "explanation": "20% de 25 se calcule ainsi : 25 × 20 ÷ 100 = 5 gardiens."
+      },
+      {
+        "question": "Un vélo à 120 € est soldé à -50%. Quel est le prix soldé ?",
+        "choices": [
+          "60 €",
+          "70 €",
+          "50 €"
+        ],
+        "answer": "60 €",
+        "explanation": "50% de 120 € = 60 €, donc le prix soldé est 120 - 60 = 60 €."
+      },
+      {
+        "question": "Sur 50 questions d'un contrôle, un élève en réussit 90%. Combien de questions a-t-il réussies ?",
+        "choices": [
+          "45",
+          "40",
+          "48"
+        ],
+        "answer": "45",
+        "explanation": "90% de 50 se calcule ainsi : 50 × 90 ÷ 100 = 45 questions."
+      },
+      {
+        "question": "Un sac à dos à 40 € a une remise de 15%. Quel est le montant de la remise ?",
+        "choices": [
+          "6 €",
+          "5 €",
+          "8 €"
+        ],
+        "answer": "6 €",
+        "explanation": "15% de 40 € se calcule ainsi : 40 × 15 ÷ 100 = 6 €."
+      },
+      {
+        "question": "Une bibliothèque a 300 livres, dont 10% sont des bandes dessinées. Combien de bandes dessinées ?",
+        "choices": [
+          "30",
+          "25",
+          "35"
+        ],
+        "answer": "30",
+        "explanation": "10% de 300 se calcule ainsi : 300 × 10 ÷ 100 = 30 bandes dessinées."
+      }
+    ],
+    "cm2-problemes-multi-etapes": [
+      {
+        "question": "Un magasin achète 50 jouets à 8 € pièce et les revend à 15 € pièce. Quel est le bénéfice total ?",
+        "choices": [
+          "350 €",
+          "300 €",
+          "400 €"
+        ],
+        "answer": "350 €",
+        "explanation": "Le bénéfice par jouet est 15 - 8 = 7 €, donc pour 50 jouets : 7 × 50 = 350 €."
+      },
+      {
+        "question": "Marc achète 3 livres à 12 € et 2 cahiers à 4 €. Il paie avec un billet de 50 €. Combien lui rend-on ?",
+        "choices": [
+          "6 €",
+          "8 €",
+          "4 €"
+        ],
+        "answer": "6 €",
+        "explanation": "Le total dépensé est 3×12 + 2×4 = 36 + 8 = 44 €. La monnaie rendue est 50 - 44 = 6 €."
+      },
+      {
+        "question": "Une classe de 24 élèves se répartit en groupes de 4 pour un projet, puis chaque groupe reçoit 3 feuilles. Combien de feuilles distribuées en tout ?",
+        "choices": [
+          "18",
+          "24",
+          "12"
+        ],
+        "answer": "18",
+        "explanation": "Il y a 24 ÷ 4 = 6 groupes, donc 6 × 3 = 18 feuilles distribuées."
+      },
+      {
+        "question": "Un fermier vend 40 kg de pommes à 2 € le kg et 25 kg de poires à 3 € le kg. Quelle est sa recette totale ?",
+        "choices": [
+          "155 €",
+          "145 €",
+          "165 €"
+        ],
+        "answer": "155 €",
+        "explanation": "Les pommes rapportent 40 × 2 = 80 €, les poires 25 × 3 = 75 €. Total : 80 + 75 = 155 €."
+      },
+      {
+        "question": "Une famille de 5 personnes va au cinéma. Les places adultes coûtent 9 € (2 adultes) et les places enfants 6 € (3 enfants). Quelle est la dépense totale ?",
+        "choices": [
+          "36 €",
+          "33 €",
+          "39 €"
+        ],
+        "answer": "36 €",
+        "explanation": "Les adultes coûtent 2 × 9 = 18 €, les enfants 3 × 6 = 18 €. Total : 18 + 18 = 36 €."
+      },
+      {
+        "question": "Un boulanger fabrique 120 croissants. Il en vend 80 à 1,20 € pièce et offre le reste. Quelle est sa recette ?",
+        "choices": [
+          "96 €",
+          "100 €",
+          "90 €"
+        ],
+        "answer": "96 €",
+        "explanation": "Seuls les croissants vendus comptent : 80 × 1,20 = 96 €."
+      },
+      {
+        "question": "Une école achète 15 ballons à 6 € et reçoit une remise de 10 € sur la commande totale. Quel est le montant payé ?",
+        "choices": [
+          "80 €",
+          "90 €",
+          "70 €"
+        ],
+        "answer": "80 €",
+        "explanation": "Le coût initial est 15 × 6 = 90 €, puis on soustrait la remise : 90 - 10 = 80 €."
+      },
+      {
+        "question": "Un trajet en train coûte 18 € à l'aller et le retour est à moitié prix. Quel est le coût total aller-retour ?",
+        "choices": [
+          "27 €",
+          "24 €",
+          "30 €"
+        ],
+        "answer": "27 €",
+        "explanation": "Le retour coûte 18 ÷ 2 = 9 €, donc le total est 18 + 9 = 27 €."
+      },
+      {
+        "question": "Une coopérative récolte 300 kg de blé, en garde 1/3 pour les semences et vend le reste à 2 € le kg. Quelle est la recette de la vente ?",
+        "choices": [
+          "400 €",
+          "300 €",
+          "500 €"
+        ],
+        "answer": "400 €",
+        "explanation": "Les semences représentent 300 ÷ 3 = 100 kg, il reste 200 kg vendus à 2 € : 200 × 2 = 400 €."
+      },
+      {
+        "question": "Un club sportif compte 60 membres. La moitié pratique le foot, et parmi eux, 1/5 sont gardiens. Combien de gardiens ?",
+        "choices": [
+          "6",
+          "5",
+          "12"
+        ],
+        "answer": "6",
+        "explanation": "Les joueurs de foot sont 60 ÷ 2 = 30, et les gardiens sont 30 ÷ 5 = 6."
+      }
+    ],
+    "cm1-donnees-tableaux": [
+      {
+        "question": "Un tableau montre les températures : lundi 12°C, mardi 15°C, mercredi 11°C, jeudi 14°C, vendredi 13°C. Quelle est la température la plus élevée ?",
+        "choices": [
+          "15°C (mardi)",
+          "14°C (jeudi)",
+          "13°C (vendredi)"
+        ],
+        "answer": "15°C (mardi)",
+        "explanation": "On lit les valeurs du tableau et on cherche le maximum : 15°C le mardi est la valeur la plus grande."
+      },
+      {
+        "question": "Un diagramme en barres montre les scores de 3 élèves : Alice 16, Brice 12, Clara 18. Qui a le meilleur score ?",
+        "choices": [
+          "Clara (18)",
+          "Alice (16)",
+          "Brice (12)"
+        ],
+        "answer": "Clara (18)",
+        "explanation": "On compare les valeurs : 18 > 16 > 12, donc Clara a le meilleur score."
+      },
+      {
+        "question": "Un tableau montre le nombre de livres lus : Tom 5, Léa 8, Hugo 3, Marie 6. Quelle est la moyenne du groupe ?",
+        "choices": [
+          "5,5",
+          "6",
+          "22"
+        ],
+        "answer": "5,5",
+        "explanation": "Moyenne = total ÷ nombre d'élèves = (5 + 8 + 3 + 6) ÷ 4 = 22 ÷ 4 = 5,5."
+      },
+      {
+        "question": "Un tableau de fréquences montre : pomme 12, banane 8, orange 15, poire 5. Combien de fruits en tout ?",
+        "choices": [
+          "40",
+          "35",
+          "45"
+        ],
+        "answer": "40",
+        "explanation": "Total = 12 + 8 + 15 + 5 = 40 fruits au total dans le tableau."
+      },
+      {
+        "question": "La cantine sert ces repas : lundi 120, mardi 95, mercredi 80, jeudi 110. Quel jour y a-t-il eu le moins de repas servis ?",
+        "choices": [
+          "Mercredi (80)",
+          "Mardi (95)",
+          "Jeudi (110)"
+        ],
+        "answer": "Mercredi (80)",
+        "explanation": "On lit le tableau : 80 < 95 < 110 < 120, donc c'est mercredi."
+      },
+      {
+        "question": "Les notes d'un élève sont : 14, 16, 12, 18, 10. Quelle est sa moyenne ?",
+        "choices": [
+          "14",
+          "13",
+          "16"
+        ],
+        "answer": "14",
+        "explanation": "Moyenne = (14 + 16 + 12 + 18 + 10) ÷ 5 = 70 ÷ 5 = 14."
+      },
+      {
+        "question": "Un diagramme montre les préférences sportives de 40 élèves : foot 20, natation 10, tennis 10. Quel pourcentage d'élèves préfère le foot ?",
+        "choices": [
+          "50%",
+          "25%",
+          "40%"
+        ],
+        "answer": "50%",
+        "explanation": "Pourcentage = (nombre / total) × 100 = (20 / 40) × 100 = 50%."
+      },
+      {
+        "question": "Un tableau montre les ventes de limonade : matin 35 bouteilles, après-midi 45 bouteilles, soir 20 bouteilles. Quelle est la vente totale de la journée ?",
+        "choices": [
+          "100",
+          "90",
+          "80"
+        ],
+        "answer": "100",
+        "explanation": "Total = 35 + 45 + 20 = 100 bouteilles vendues dans la journée."
+      },
+      {
+        "question": "Les températures moyennes sur 3 jours sont 12°C, 15°C et 18°C. Quelle est la moyenne des 3 jours ?",
+        "choices": [
+          "15°C",
+          "18°C",
+          "12°C"
+        ],
+        "answer": "15°C",
+        "explanation": "Moyenne = (12 + 15 + 18) ÷ 3 = 45 ÷ 3 = 15°C."
+      },
+      {
+        "question": "Un tableau montre que la classe A a lu 120 pages et la classe B a lu 90 pages cette semaine. De combien de pages la classe A est-elle en avance ?",
+        "choices": [
+          "30 pages",
+          "20 pages",
+          "210 pages"
+        ],
+        "answer": "30 pages",
+        "explanation": "Différence = 120 - 90 = 30 pages. La classe A est en avance de 30 pages."
+      }
+    ],
+    "cm2-donnees-tableaux": [
+      {
+        "question": "Un tableau indique les scores de 4 eleves : Alice 18, Baptiste 14, Camille 20, Diego 11. Qui a le meilleur score ?",
+        "choices": [
+          "Camille",
+          "Alice",
+          "Baptiste",
+          "Diego"
+        ],
+        "answer": "Camille",
+        "explanation": "Camille a 20, c'est le score le plus eleve."
+      },
+      {
+        "question": "Le tableau montre les temperatures : lundi 12, mardi 15, mercredi 9, jeudi 17, vendredi 13. Quel jour fait-il le plus chaud ?",
+        "choices": [
+          "Jeudi",
+          "Lundi",
+          "Mercredi",
+          "Vendredi"
+        ],
+        "answer": "Jeudi",
+        "explanation": "Jeudi : 17 degres, c'est le maximum."
+      },
+      {
+        "question": "Un tableau de ventes : pommes 45 kg, poires 32 kg, bananes 28 kg. Quelle est la vente totale ?",
+        "choices": [
+          "105 kg",
+          "95 kg",
+          "110 kg",
+          "100 kg"
+        ],
+        "answer": "105 kg",
+        "explanation": "45 + 32 + 28 = 105 kg."
+      },
+      {
+        "question": "Le graphique montre 5 barres : 8, 12, 6, 15, 9. Quelle est la valeur la plus petite ?",
+        "choices": [
+          "6",
+          "8",
+          "9",
+          "12"
+        ],
+        "answer": "6",
+        "explanation": "6 est la valeur minimale parmi les 5 barres."
+      },
+      {
+        "question": "Un tableau indique les distances en km : Paris-Lyon 465, Paris-Marseille 775, Paris-Bordeaux 580. Quelle ville est la plus proche de Paris ?",
+        "choices": [
+          "Lyon",
+          "Marseille",
+          "Bordeaux"
+        ],
+        "answer": "Lyon",
+        "explanation": "Lyon est a 465 km, c'est la distance la plus courte."
+      },
+      {
+        "question": "Le graphique montre les notes de 3 eleves sur 5 controles. Marie a pour moyenne 14. Elle a eu : 12, 16, 14, 13, 15. Est-ce exact ?",
+        "choices": [
+          "Oui, 12+16+14+13+15=70 divise par 5 = 14",
+          "Non, la moyenne est 13",
+          "Non, la moyenne est 15"
+        ],
+        "answer": "Oui, 12+16+14+13+15=70 divise par 5 = 14",
+        "explanation": "70 / 5 = 14. La moyenne est bien 14."
+      },
+      {
+        "question": "Un tableau montre le nombre de visiteurs par mois : janvier 120, fevrier 95, mars 140. Combien de visiteurs en 3 mois ?",
+        "choices": [
+          "355",
+          "345",
+          "360",
+          "350"
+        ],
+        "answer": "355",
+        "explanation": "120 + 95 + 140 = 355 visiteurs."
+      },
+      {
+        "question": "Dans un graphique a barres, les barres mesurent 4, 7, 3, 8, 5. Quelle est la valeur mediane (au milieu quand on les range dans l'ordre) ?",
+        "choices": [
+          "5",
+          "4",
+          "7",
+          "3"
+        ],
+        "answer": "5",
+        "explanation": "En ordre : 3, 4, 5, 7, 8. La valeur du milieu est 5."
+      },
+      {
+        "question": "Un tableau de donnees montre : 3 filles et 5 garcons aiment le football, 6 filles et 2 garcons preferent la danse. Combien d'eleves au total ?",
+        "choices": [
+          "16",
+          "14",
+          "18",
+          "12"
+        ],
+        "answer": "16",
+        "explanation": "3+5+6+2 = 16 eleves."
+      },
+      {
+        "question": "Le graphique compare les ventes de janvier a juin. Les barres sont : 30, 45, 25, 50, 40, 35. En quel mois les ventes sont-elles maximales ?",
+        "choices": [
+          "Avril (barre 4)",
+          "Fevrier (barre 2)",
+          "Mai (barre 5)",
+          "Juin (barre 6)"
+        ],
+        "answer": "Avril (barre 4)",
+        "explanation": "La 4e barre vaut 50, c'est la plus haute."
+      }
+    ]
+  }
 }

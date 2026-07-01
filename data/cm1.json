@@ -1,4 +1,4 @@
-﻿{
+{
     "gradeId": "cm1",
     "title": "CM1",
     "subjects": [
@@ -230,7 +230,11 @@
                             "engine": "math-input",
                             "params": {
                                 "type": "echelle",
-                                "echelles": [50, 100, 200],
+                                "echelles": [
+                                    50,
+                                    100,
+                                    200
+                                ],
                                 "questions": 6
                             }
                         },
@@ -241,7 +245,12 @@
                             "engine": "math-input",
                             "params": {
                                 "type": "pourcentage",
-                                "values": [10, 20, 25, 50],
+                                "values": [
+                                    10,
+                                    20,
+                                    25,
+                                    50
+                                ],
                                 "maxMultiple": 8,
                                 "questions": 6
                             }
@@ -918,6 +927,36 @@
                             ]
                         },
                         {
+                            "id": "cm1-lesson-familles-angles",
+                            "title": "Les familles d'angles",
+                            "subtitle": "Aigu, droit, obtus",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un angle peut être plus petit, égal, ou plus grand qu'un angle droit. On le classe alors dans une famille."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Les pointes d'une étoile forment souvent des angles aigus, bien plus fermés qu'un angle droit."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "angle aigu : plus petit qu'un angle droit",
+                                        "angle droit : exactement comme le coin d'une feuille",
+                                        "angle obtus : plus grand qu'un angle droit, mais pas complètement ouvert"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour comparer, imagine toujours le coin d'une feuille : plus fermé = aigu, plus ouvert = obtus."
+                                }
+                            ]
+                        },
+                        {
                             "id": "cm1-lesson-perimetre",
                             "title": "Le périmètre",
                             "subtitle": "Mesurer le tour d'une figure",
@@ -1043,6 +1082,30 @@
                                 "dataFile": "data/board_tap_features_cm1.json",
                                 "category": "cm1_tap_angle_droit",
                                 "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-angle-classify",
+                            "title": "Aigu, droit ou obtus ?",
+                            "subtitle": "Classe chaque angle observé",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "angle-classify",
+                                "dataFile": "data/board_angle_classify_cm1.json",
+                                "category": "cm1_angle_classify",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-perpendiculaires-pratique",
+                            "title": "Droites perpendiculaires",
+                            "subtitle": "Touche les droites perpendiculaires",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_geometry_cm1.json",
+                                "category": "cm1_perpendiculaires_tap",
+                                "questions": 3
                             }
                         },
                         {
@@ -1172,6 +1235,18 @@
                             }
                         },
                         {
+                            "id": "cm1-donnees-tableaux",
+                            "title": "Lire un tableau de données",
+                            "subtitle": "Trouver le total, le minimum, la moyenne",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle3.json",
+                                "category": "cm1-donnees-tableaux",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "cm1-bonus-graphique-expert",
                             "title": "Défi : graphiques en rafale",
                             "subtitle": "Toutes les questions, sans erreur",
@@ -1215,6 +1290,37 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Pour lire un graphique, je compare d'abord les hauteurs des barres avant de calculer."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-moyenne",
+                            "title": "Calculer une moyenne",
+                            "subtitle": "Additionner puis diviser",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La moyenne d'une série de valeurs s'obtient en additionnant toutes les valeurs, puis en divisant par le nombre de valeurs."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Notes : 12, 14, 16. Moyenne = (12 + 14 + 16) ÷ 3 = 42 ÷ 3 = 14."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Étapes",
+                                    "items": [
+                                        "1. J'additionne toutes les valeurs",
+                                        "2. Je compte combien il y a de valeurs",
+                                        "3. Je divise le total par ce nombre"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Moyenne = total ÷ nombre de valeurs."
                                 }
                             ]
                         }
@@ -1476,12 +1582,45 @@
                             }
                         },
                         {
+                            "id": "cm1-conj-present-3g",
+                            "title": "Présent : 3e groupe",
+                            "subtitle": "Aller, faire, dire, pouvoir...",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "present_3_freq",
+                                "tenses": "présent",
+                                "questions": 10
+                            }
+                        },
+                        {
                             "id": "cm1-c-futur",
                             "title": "Le futur simple",
                             "subtitle": "Verbes du 1er groupe",
                             "engine": "conjugation",
                             "params": {
                                 "category": "future_1",
+                                "tenses": "futur",
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-c-futur-2g",
+                            "title": "Futur : 2e groupe",
+                            "subtitle": "Finir, choisir, grandir...",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "future_2",
+                                "tenses": "futur",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-c-futur-3g",
+                            "title": "Futur : 3e groupe",
+                            "subtitle": "Aller, faire, pouvoir, vouloir...",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "future_3_freq",
                                 "tenses": "futur",
                                 "questions": 10
                             }
@@ -1498,6 +1637,17 @@
                                     "avoir"
                                 ],
                                 "tenses": "imparfait",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-c-pc-3-etre",
+                            "title": "Passé Composé avec être",
+                            "subtitle": "Aller, venir, partir, sortir...",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "pc_3_freq",
+                                "tenses": "passé composé",
                                 "questions": 8
                             }
                         },
@@ -1761,7 +1911,7 @@
                             "subtitle": "D'abord, ensuite, enfin...",
                             "engine": "word-order",
                             "params": {
-                                "category": "word_order_cm1",
+                                "category": "story_order_cm1",
                                 "dataFile": "data/french_word_order.json",
                                 "questions": 4
                             }
@@ -2044,6 +2194,36 @@
                                 "category": "matching_vocabulaire_cm1",
                                 "dataFile": "data/french/matching.json",
                                 "questions": 2
+                            }
+                        },
+                        {
+                            "id": "cm1-lecture-inferences",
+                            "title": "Lire entre les lignes",
+                            "subtitle": "Déduire ce que le texte suggère",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm1_lecture_inferences",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-lecture-expression-imagee",
+                            "title": "Expressions imagées",
+                            "subtitle": "Comprendre le sens des expressions",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm1_lecture_expression_imagee",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-lecture-fait-opinion",
+                            "title": "Fait ou opinion ?",
+                            "subtitle": "Distinguer ce qui est vrai de ce qu'on pense",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm1_lecture_fait_opinion",
+                                "questions": 6
                             }
                         },
                         {
@@ -3958,6 +4138,75 @@
                                 "category": "cm1-environnement-gestes",
                                 "questions": 10
                             }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-sciences-techno-subtheme",
+                    "title": "Objets techniques",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "cm1-sciences-techno-objets",
+                            "title": "Machines simples",
+                            "subtitle": "Levier, plan incliné, engrenage",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-techno-objets",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-techno-energie",
+                            "title": "Sources d'energie",
+                            "subtitle": "Electrique, solaire, mecanique...",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-techno-objets",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-sciences-techno-defi",
+                            "title": "Defi : machines et energie",
+                            "subtitle": "Machines simples et sources d'energie",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-techno-objets",
+                                "questions": 8
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-objets-techniques",
+                            "title": "Les machines simples",
+                            "subtitle": "Levier, plan incliné, poulie, engrenage",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Les machines simples permettent de déplacer ou soulever des objets en faisant moins d'effort. Les principales sont le levier, le plan incliné, la poulie et l'engrenage."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemples",
+                                    "content": "Un ciseaux = deux leviers. Une rampe = un plan incliné. Un vélo = des engrenages. Une grue = des poulies."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Un levier tourne autour d'un point d'appui. Un engrenage transmet le mouvement grâce à des roues dentées."
+                                }
+                            ]
                         }
                     ]
                 }

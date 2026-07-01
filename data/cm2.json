@@ -1,4 +1,4 @@
-﻿{
+{
     "gradeId": "cm2",
     "title": "CM2",
     "subjects": [
@@ -679,7 +679,12 @@
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "pourcentage",
-                                "values": [10, 20, 25, 50],
+                                "values": [
+                                    10,
+                                    20,
+                                    25,
+                                    50
+                                ],
                                 "maxMultiple": 12,
                                 "questions": 8
                             }
@@ -1128,6 +1133,54 @@
                             }
                         },
                         {
+                            "id": "cm2-geo-reperage-pratique",
+                            "title": "Place le point",
+                            "subtitle": "Repérage sur quadrillage",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "point-on-grid",
+                                "dataFile": "data/board_geometry_cm2.json",
+                                "category": "cm2_point_quadrillage",
+                                "questions": 4
+                            }
+                        },
+                        {
+                            "id": "cm2-geo-droites-paralleles-pratique",
+                            "title": "Droites parallèles",
+                            "subtitle": "Touche les droites parallèles",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_geometry_cm2.json",
+                                "category": "cm2_droites_paralleles_tap",
+                                "questions": 3
+                            }
+                        },
+                        {
+                            "id": "cm2-geo-angles-droits-pratique",
+                            "title": "Angles droits",
+                            "subtitle": "Touche les angles droits",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_geometry_cm2.json",
+                                "category": "cm2_angles_droits_tap",
+                                "questions": 3
+                            }
+                        },
+                        {
+                            "id": "cm2-geo-perpendiculaires-pratique",
+                            "title": "Droites perpendiculaires",
+                            "subtitle": "Touche les droites perpendiculaires",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_geometry_cm2.json",
+                                "category": "cm2_perpendiculaires_tap",
+                                "questions": 3
+                            }
+                        },
+                        {
                             "id": "cm2-bonus-volume-pave-expert",
                             "title": "Défi : volumes experts",
                             "subtitle": "Pavés droits jusqu'à 15",
@@ -1157,6 +1210,30 @@
                                 "maxBars": 5,
                                 "maxValue": 30,
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-donnees-tableaux",
+                            "title": "Lire un tableau de données",
+                            "subtitle": "Totaux, minimums, moyennes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle3.json",
+                                "category": "cm2-donnees-tableaux",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-graphique-camembert",
+                            "title": "Lire un diagramme circulaire",
+                            "subtitle": "Interpréter des pourcentages",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle3.json",
+                                "category": "cm2-problemes-pourcentages",
+                                "questions": 5
                             }
                         },
                         {
@@ -1794,9 +1871,20 @@
                             "subtitle": "Connecteurs et formules de politesse",
                             "engine": "word-order",
                             "params": {
-                                "category": "word_order_cm2",
+                                "category": "story_order_cm2",
                                 "dataFile": "data/french_word_order.json",
                                 "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm2-g-pp-accord",
+                            "title": "Accord du participe passé",
+                            "subtitle": "Avec être ou avoir ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "grammar_pp_accord_cm2",
+                                "questions": 8
                             }
                         },
                         {
@@ -2114,6 +2202,26 @@
                             }
                         },
                         {
+                            "id": "cm2-lecture-inference-personnage",
+                            "title": "Comprendre un personnage",
+                            "subtitle": "Déduire ses sentiments et intentions",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm2_lecture_inference_personnage",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-lecture-connecteurs-logiques",
+                            "title": "Connecteurs logiques",
+                            "subtitle": "Donc, mais, car, pourtant...",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm2_lecture_connecteurs_logiques",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "cm2-bonus-vocabulaire-polysemie-expert",
                             "title": "Défi : polysémie experte",
                             "subtitle": "Mots à sens multiples, série longue",
@@ -2306,6 +2414,30 @@
                                 "category": "matching_histoire_cm2",
                                 "dataFile": "data/history_matching.json",
                                 "questions": 2
+                            }
+                        },
+                        {
+                            "id": "cm2-histoire-guerres-narratif",
+                            "title": "Guerres mondiales : causes et enjeux",
+                            "subtitle": "Au-delà des dates : résistance, Shoah, paix",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm2.json",
+                                "category": "cm2-guerres-narratif",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-histoire-decolonisation",
+                            "title": "La décolonisation",
+                            "subtitle": "Indépendances et droits humains",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm2.json",
+                                "category": "cm2-decolonisation",
+                                "questions": 6
                             }
                         },
                         {
@@ -2800,6 +2932,44 @@
                                 "dataFile": "data/history_cm2.json",
                                 "questions": 8
                             }
+                        },
+                        {
+                            "id": "cm2-histoire-recits-revolution",
+                            "title": "La Revolution francaise",
+                            "subtitle": "1789 : un tournant historique",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm2.json",
+                                "category": "cm2-revolution",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-histoire-xxe-siecle",
+                            "title": "Le XXe siecle",
+                            "subtitle": "Guerres, paix et grandes transformations",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm2.json",
+                                "category": "cm2-xxe-siecle",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-histoire-recits-defi",
+                            "title": "Defi : grands recits de l'histoire",
+                            "subtitle": "Revolution, guerres, republique",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm2.json",
+                                "category": "cm2-recits-historiques",
+                                "questions": 10
+                            }
                         }
                     ]
                 }
@@ -3011,6 +3181,30 @@
                             "engine": "choice-engine",
                             "id": "cm2-geo-habiter-espaces",
                             "subtitle": "Métropoles, littoraux, campagnes"
+                        },
+                        {
+                            "id": "cm2-geo-espaces-littoraux",
+                            "title": "Espaces littoraux",
+                            "subtitle": "Vivre et travailler au bord de la mer",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm2.json",
+                                "category": "cm2-espaces-littoraux",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-geo-espaces-montagnards",
+                            "title": "Espaces montagnards",
+                            "subtitle": "Vivre et travailler en montagne",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm2.json",
+                                "category": "cm2-espaces-montagnards",
+                                "questions": 8
+                            }
                         },
                         {
                             "id": "cm2-bonus-geo-habiter-defi",
@@ -3417,6 +3611,181 @@
             "icon": "📘",
             "subthemes": [
                 {
+                    "id": "cm2-sciences-vivant-subtheme",
+                    "title": "Le vivant",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm2-lesson-classification-vivant",
+                            "title": "Classer les êtres vivants",
+                            "subtitle": "Vertébrés, invertébrés et végétaux",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le monde du vivant regroupe les animaux, les végétaux, les champignons et de nombreux organismes invisibles à l'œil nu. Pour mieux les comprendre, les scientifiques les classent selon leurs ressemblances et leurs différences."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les vertébrés (squelette interne)",
+                                    "items": [
+                                        "les mammifères : allaitent leurs petits",
+                                        "les oiseaux : pondent des œufs, ont des plumes",
+                                        "les poissons : respirent avec des branchies",
+                                        "les reptiles : peau écailleuse",
+                                        "les amphibiens : vivent dans l'eau puis sur terre"
+                                    ]
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les invertébrés (sans squelette interne)",
+                                    "items": [
+                                        "les insectes (papillon, fourmi)",
+                                        "les mollusques (escargot, pieuvre)",
+                                        "les arachnides (araignée)"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Les végétaux se distinguent des animaux car ils produisent leur propre nourriture grâce à la lumière (photosynthèse)."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-reproduction-vivant",
+                            "title": "La reproduction des êtres vivants",
+                            "subtitle": "Ovipares, vivipares et reproduction des plantes",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Tous les êtres vivants se reproduisent, mais pas toujours de la même façon."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Chez les animaux",
+                                    "items": [
+                                        "vivipares : le petit se développe dans le ventre de la mère (la plupart des mammifères)",
+                                        "ovipares : le petit se développe dans un œuf pondu (oiseaux, reptiles, poissons)",
+                                        "métamorphose : changement complet de forme au cours de la vie (chenille → papillon, têtard → grenouille)"
+                                    ]
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Chez les plantes",
+                                    "items": [
+                                        "la pollinisation transporte le pollen d'une fleur à l'autre",
+                                        "la fleur pollinisée produit des graines",
+                                        "certaines plantes se reproduisent aussi par bouturage, sans graine"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "La chenille devient une chrysalide, puis se transforme en papillon : c'est une métamorphose complète."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-chaines-alimentaires",
+                            "title": "Chaînes alimentaires et écosystèmes",
+                            "subtitle": "Producteurs, consommateurs et décomposeurs",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans la nature, les êtres vivants dépendent les uns des autres pour se nourrir. C'est ce qu'on appelle une chaîne alimentaire."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les rôles dans une chaîne alimentaire",
+                                    "items": [
+                                        "producteurs : les plantes vertes, qui fabriquent leur nourriture grâce à la lumière",
+                                        "herbivores : se nourrissent uniquement de végétaux",
+                                        "carnivores : se nourrissent d'autres animaux",
+                                        "omnivores : se nourrissent de végétaux et d'animaux",
+                                        "décomposeurs : champignons et bactéries qui recyclent la matière morte"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple de chaîne",
+                                    "content": "herbe → lapin → renard : l'herbe nourrit le lapin, qui est mangé par le renard."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Un écosystème est en équilibre : si un maillon disparaît, toute la chaîne peut être perturbée."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm2-sciences-vivant-classification",
+                            "title": "Classer les êtres vivants",
+                            "subtitle": "Vertébrés, invertébrés, végétaux",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-vivant-classification",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-sciences-vivant-reproduction",
+                            "title": "La reproduction des êtres vivants",
+                            "subtitle": "Ovipares, vivipares, métamorphose",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-vivant-reproduction",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-sciences-vivant-chaines",
+                            "title": "Chaînes alimentaires",
+                            "subtitle": "Producteurs, consommateurs, décomposeurs",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-vivant-chaines-alimentaires",
+                                "questions": 7
+                            }
+                        },
+                        {
+                            "id": "cm2-sciences-vivant-appariement",
+                            "title": "Le vivant : groupes et rôles",
+                            "subtitle": "Relie chaque être vivant à son groupe ou à son rôle",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_sciences_cm2",
+                                "dataFile": "data/science_matching.json",
+                                "questions": 2
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-sciences-vivant-expert",
+                            "title": "Défi : le vivant",
+                            "subtitle": "Série longue, toutes les notions du vivant",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-vivant-classification",
+                                "questions": 10
+                            }
+                        }
+                    ]
+                },
+                {
                     "id": "cm2-sciences-corps-subtheme",
                     "title": "Corps et santé",
                     "icon": "📘",
@@ -3531,6 +3900,32 @@
                             "engine": "choice-engine",
                             "id": "cm2-sciences-preserver-sante",
                             "subtitle": "Sommeil, alimentation, hygiène"
+                        },
+                        {
+                            "id": "cm2-sciences-corps-prevention",
+                            "title": "Hygiene et prevention",
+                            "subtitle": "Prendre soin de son corps au quotidien",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-prevention-dechets",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-sciences-corps-defi",
+                            "title": "Defi : corps et sante",
+                            "subtitle": "Corps, hygiene et bien-etre",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-corps-sante",
+                                "questions": 10
+                            }
                         }
                     ]
                 },
@@ -3828,6 +4223,32 @@
                             "engine": "choice-engine",
                             "id": "cm2-sciences-respirer-recuperer",
                             "subtitle": "Effort, muscles et repos"
+                        },
+                        {
+                            "id": "cm2-sciences-effort-lumiere-son",
+                            "title": "Lumiere et son",
+                            "subtitle": "Propagation, reflexion et vitesse",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-lumiere-son",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-sciences-effort-defi",
+                            "title": "Defi : mouvement et energie",
+                            "subtitle": "Corps, effort et physique",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-corps-effort",
+                                "questions": 10
+                            }
                         }
                     ]
                 },
@@ -4135,6 +4556,18 @@
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm2.json",
                                 "category": "cm2-matiere-transformations",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-sciences-lumiere-son",
+                            "title": "Lumière et son",
+                            "subtitle": "Propagation, ombre, vibration",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-lumiere-son",
                                 "questions": 8
                             }
                         },
@@ -4490,6 +4923,44 @@
                             "engine": "choice-engine",
                             "id": "cm2-emc-sengager-classe",
                             "subtitle": "Participer et proposer"
+                        },
+                        {
+                            "id": "cm2-emc-engagement-solidarite",
+                            "title": "Solidarite au quotidien",
+                            "subtitle": "Agir pour les autres dans la vie de tous les jours",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm2.json",
+                                "category": "cm2-solidarite-quotidienne",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-emc-engagement-projet",
+                            "title": "Le projet collectif",
+                            "subtitle": "Construire ensemble un projet de classe",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm2.json",
+                                "category": "cm2-projet-collectif",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-emc-engagement-defi",
+                            "title": "Defi : engagement citoyen",
+                            "subtitle": "Solidarite, projet et action collective",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm2.json",
+                                "category": "cm2-engagement",
+                                "questions": 8
+                            }
                         }
                     ]
                 },

@@ -1,4 +1,4 @@
-﻿{
+{
     "gradeId": "ce1",
     "title": "CE1",
     "subjects": [
@@ -766,6 +766,36 @@
                             }
                         },
                         {
+                            "id": "ce1-homo-onont",
+                            "title": "On ou Ont?",
+                            "subtitle": "Homophones fréquents",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "homophone-duel",
+                                "category": "on_ont",
+                                "choices": [
+                                    "on",
+                                    "ont"
+                                ],
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "ce1-homo-ouou",
+                            "title": "Ou ou Où?",
+                            "subtitle": "Homophones fréquents",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "homophone-duel",
+                                "category": "ou_où",
+                                "choices": [
+                                    "ou",
+                                    "où"
+                                ],
+                                "questions": 10
+                            }
+                        },
+                        {
                             "id": "ce1-bonus-dictee-vetements",
                             "title": "Défi : dictée des vêtements",
                             "subtitle": "Mots plus nombreux à retenir",
@@ -1006,6 +1036,46 @@
                                 "category": "ce1_comprendre_phrase_courte",
                                 "questions": 5
                             }
+                        },
+                        {
+                            "id": "ce1-lecture-comprehension-courte",
+                            "title": "Comprendre un texte court",
+                            "subtitle": "3 à 4 phrases et une question",
+                            "engine": "reading",
+                            "params": {
+                                "category": "ce1_comprehension_courte",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-lecture-inference-simple",
+                            "title": "Deviner la suite",
+                            "subtitle": "Ce que le texte laisse comprendre",
+                            "engine": "reading",
+                            "params": {
+                                "category": "ce1_lecture_inference_simple",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce1-lecture-mot-contexte",
+                            "title": "Quel sens a ce mot ?",
+                            "subtitle": "Comprendre un mot grâce au contexte",
+                            "engine": "reading",
+                            "params": {
+                                "category": "ce1_lecture_mot_contexte",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce1-lecture-ordre-evenements",
+                            "title": "Dans quel ordre ?",
+                            "subtitle": "Retrouver l'ordre des événements",
+                            "engine": "reading",
+                            "params": {
+                                "category": "ce1_lecture_ordre_evenements",
+                                "questions": 5
+                            }
                         }
                     ],
                     "lessons": [
@@ -1210,6 +1280,17 @@
                             }
                         },
                         {
+                            "id": "ce1-vocab-ordre-alpha",
+                            "title": "Ordre alphabétique",
+                            "subtitle": "Remets les mots dans l'ordre",
+                            "engine": "word-order",
+                            "params": {
+                                "category": "alpha_order_ce1",
+                                "dataFile": "data/french_word_order.json",
+                                "questions": 5
+                            }
+                        },
+                        {
                             "id": "ce1-bonus-vocab-antonymes-expert",
                             "title": "Défi : super contraires",
                             "subtitle": "Encore plus de mots opposés",
@@ -1323,13 +1404,13 @@
                         },
                         {
                             "id": "ce1-gram-det-phrase",
-                            "title": "Compléter avec le bon mot",
-                            "subtitle": "Petit mot ou nom au pluriel",
+                            "title": "Accord dans le groupe nominal",
+                            "subtitle": "Déterminant, nom et adjectif",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "grammar-cloze",
                                 "category": "grammar_agreement_ce1",
-                                "questions": 8
+                                "questions": 10
                             }
                         },
                         {
@@ -1341,6 +1422,28 @@
                                 "category": "word_order_ce1",
                                 "dataFile": "data/french_word_order.json",
                                 "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce1-francais-raconte-histoire",
+                            "title": "Raconte une histoire",
+                            "subtitle": "Remets les phrases dans l'ordre",
+                            "engine": "word-order",
+                            "params": {
+                                "category": "story_order_ce1",
+                                "dataFile": "data/french_word_order.json",
+                                "questions": 4
+                            }
+                        },
+                        {
+                            "id": "ce1-gram-types-phrases",
+                            "title": "Types de phrases",
+                            "subtitle": "Déclarative, interrogative ou exclamative ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "grammar_phrase_types_ce1",
+                                "questions": 8
                             }
                         },
                         {
@@ -1669,6 +1772,44 @@
                             "engine": "choice-engine",
                             "id": "ce1-histoire-monuments-passe",
                             "subtitle": "Observer des traces historiques"
+                        },
+                        {
+                            "id": "ce1-histoire-monuments-ecole",
+                            "title": "L'ecole autrefois",
+                            "subtitle": "La classe d'il y a 100 ans",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce1.json",
+                                "category": "ce1-ecole-autrefois",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-histoire-monuments-objets",
+                            "title": "Objets d'autrefois",
+                            "subtitle": "Reconnaitre et dater un objet ancien",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce1.json",
+                                "category": "ce1-objets-passe",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-histoire-monuments-defi",
+                            "title": "Defi : monuments et personnages",
+                            "subtitle": "Grands noms et lieux de memoire",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce1.json",
+                                "category": "ce1-monuments-personnages",
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
@@ -3008,6 +3149,30 @@
                             "engine": "choice-engine",
                             "id": "ce1-emc-sentraider-quotidien",
                             "subtitle": "Aider, rassurer, partager"
+                        },
+                        {
+                            "id": "ce1-emc-entraide-emotions",
+                            "title": "Emotions et respect",
+                            "subtitle": "Comprendre les emotions pour mieux s'entendre",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce1.json",
+                                "category": "ce1-emotions-respect",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-emc-entraide-dialogue",
+                            "title": "Dialogue et politesse",
+                            "subtitle": "S'exprimer avec respect",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce1.json",
+                                "category": "ce1-dialogue-politesse",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [

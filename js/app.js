@@ -163,6 +163,42 @@ const App = {
         // Collection
         const btnOpenCollection = get('btn-open-collection');
         if (btnOpenCollection) btnOpenCollection.onclick = () => this.showCollectionScreen();
+
+        // Espace parents
+        const btnOpenParents = get('btn-open-parents');
+        if (btnOpenParents) btnOpenParents.onclick = () => this.openParentsGate();
+        const btnChangeParentPin = get('btn-parents-change-pin');
+        if (btnChangeParentPin) btnChangeParentPin.onclick = () => this.promptChangeParentPin();
+        const btnExportData = get('btn-parents-export');
+        if (btnExportData) btnExportData.onclick = () => this.exportParentData();
+        const btnParentsProgram = get('btn-parents-program');
+        if (btnParentsProgram) btnParentsProgram.onclick = () => this.showProgramOverview();
+        const btnParentsProgramBack = get('btn-parents-program-back');
+        if (btnParentsProgramBack) btnParentsProgramBack.onclick = () => UI.showScreen('screen-parents');
+    },
+
+    exportParentData() {
+        const data = Storage.exportAllData();
+        const json = JSON.stringify(data, null, 2);
+        const blob = new Blob([json], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const link = document.getElementById('parents-export-link');
+        if (!link) return;
+        link.href = url;
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+    },
+
+    async showProgramOverview() {
+        try {
+            await this.loadAllGradesCache();
+        } catch (e) {
+            console.error('Erreur chargement programme :', e);
+        }
+        const grades = this._gradesIndexCache || [];
+        const gradeDataById = this._collectionGradesCache || {};
+        UI.renderProgramOverview(grades, gradeDataById);
+        UI.showScreen('screen-parents-program');
     },
 
     async loadFrenchLibrary() {
@@ -491,6 +527,10 @@ const App = {
             const appearance = Storage.getProfileAppearance(currentUser);
             const accent = Storage.getAccentChoices().find((entry) => entry.id === appearance.accent);
             if (accent) appShell.style.setProperty('--profile-accent', accent.color);
+            const evolution = Storage.getAvatarEvolutionState(currentUser);
+            UI.renderHeaderAvatar({ avatar: evolution.emoji, prestigeTier: evolution.prestigeTier });
+        } else {
+            UI.renderHeaderAvatar(null);
         }
     },
 
@@ -499,6 +539,7 @@ const App = {
         if (!appShell) return;
         appShell.classList.toggle('theme-dark', Storage.getPreference('dark_mode'));
         appShell.classList.toggle('reduced-motion', Storage.getPreference('reduced_motion'));
+        appShell.classList.toggle('quiet-mode', Storage.getPreference('quiet_mode'));
     },
 
     toggleDarkMode() {
@@ -508,6 +549,11 @@ const App = {
 
     toggleReducedMotion() {
         Storage.setPreference('reduced_motion', !Storage.getPreference('reduced_motion'));
+        this.applyPreferences();
+    },
+
+    toggleQuietMode() {
+        Storage.setPreference('quiet_mode', !Storage.getPreference('quiet_mode'));
         this.applyPreferences();
     },
 
@@ -595,6 +641,15 @@ const App = {
         });
 
         actions.push({
+            title: 'Espace parents',
+            subtitle: 'Suivi de progression protégé par code',
+            onSelect: () => {
+                if (!this.confirmLeaveExercise()) return;
+                this.openParentsGate();
+            }
+        });
+
+        actions.push({
             title: Storage.getPreference('dark_mode') ? 'Mode clair' : 'Mode sombre',
             subtitle: 'Changer l\'apparence de l\'application',
             onSelect: () => this.toggleDarkMode()
@@ -610,6 +665,12 @@ const App = {
             title: Storage.getPreference('sound_muted') ? 'Réactiver les sons' : 'Couper les sons',
             subtitle: 'Sons de validation et de réussite',
             onSelect: () => this.toggleSoundMuted()
+        });
+
+        actions.push({
+            title: Storage.getPreference('quiet_mode') ? 'Réactiver la gamification' : 'Mode sans distraction',
+            subtitle: 'Masquer badges, confettis et défi du jour',
+            onSelect: () => this.toggleQuietMode()
         });
 
         actions.push({
@@ -688,6 +749,7 @@ const App = {
             return this.goHome();
         }
 
+        const wasEveningRitual = this.state.currentLessonOrigin === 'evening';
         this.state.currentTheme = null;
         this.state.currentLessonOrigin = null;
         this.state.currentExercise = null;
@@ -696,6 +758,10 @@ const App = {
         this.state.userInput = "";
         this.applyVisualContext();
         UI.updateHeader(`${grade.title || grade.gradeId || "Classe"}`);
+        if (wasEveningRitual) {
+            this.showBrowseModeMenu();
+            return;
+        }
         if ((this.state.currentBrowseMode || 'exercises') === 'lessons') {
             this.openLessonLibrary();
             return;
@@ -720,6 +786,9 @@ const App = {
         const actions = {
             'screen-progress': () => UI.showScreen('screen-mode'),
             'screen-collection': () => UI.showScreen('screen-progress'),
+            'screen-parents-pin': () => this.renderProfilesScreen(),
+            'screen-parents': () => this.renderProfilesScreen(),
+            'screen-parents-program': () => UI.showScreen('screen-parents'),
             'screen-champion-setup': () => UI.showScreen('screen-mode'),
             'screen-champion-results': () => UI.showScreen('screen-mode'),
             'screen-profile-customize': () => {
@@ -731,9 +800,17 @@ const App = {
                     UI.showScreen('screen-champion-setup');
                     return;
                 }
+                if (this.state.currentLessonOrigin === 'evening') {
+                    UI.showScreen('screen-mode');
+                    return;
+                }
                 UI.showScreen('screen-exercises');
             },
             'screen-lesson': () => {
+                if (this.state.currentLessonOrigin === 'evening') {
+                    UI.showScreen('screen-mode');
+                    return;
+                }
                 if ((this.state.currentBrowseMode || 'exercises') === 'lessons' && this.state.currentLessonOrigin === 'library') {
                     UI.showScreen('screen-library');
                     return;
@@ -800,6 +877,7 @@ const App = {
 
     renderProfilesScreen() {
         UI.updateHeader("Devoir Numérique");
+        UI.renderHeaderAvatar(null);
         UI.showScreen('screen-profiles');
         const names = Storage.getProfiles();
         const accentChoices = Storage.getAccentChoices();
@@ -823,21 +901,38 @@ const App = {
         }
     },
 
-    showProfileCustomize(profile) {
-        this.state.customizingProfile = profile.name;
+    renderProfileCustomizeScreen(profile) {
         const current = Storage.getProfileAppearance(profile.name);
         UI.renderProfileCustomize({
             profileName: profile.name,
-            avatars: Storage.getAvatarChoices(),
-            accents: Storage.getAccentChoices(),
+            totalStars: Storage.getTotalStars(profile.name),
+            hasStarter: Storage.hasAvatarStarter(profile.name),
+            starters: Storage.getAvatarStarterChoices(),
+            evolution: Storage.getAvatarEvolutionState(profile.name),
+            accents: Storage.getAccentChoicesWithUnlock(profile.name),
             current
-        }, (choice) => {
-            Storage.setProfileAppearance(profile.name, choice);
+        }, {
+            onChooseStarter: (starterId) => {
+                Storage.chooseAvatarStarter(starterId, profile.name);
+                this.renderProfileCustomizeScreen(profile);
+            },
+            onEvolve: (childId) => {
+                Storage.evolveAvatarTo(childId, profile.name);
+                this.renderProfileCustomizeScreen(profile);
+            },
+            onChangeAccent: (accent) => {
+                Storage.setProfileAppearance(profile.name, { accent });
+            }
         }, () => {
             this.state.customizingProfile = null;
             this.renderProfilesScreen();
             UI.showScreen('screen-profiles');
         });
+    },
+
+    showProfileCustomize(profile) {
+        this.state.customizingProfile = profile.name;
+        this.renderProfileCustomizeScreen(profile);
         UI.showScreen('screen-profile-customize');
     },
 
@@ -887,6 +982,8 @@ const App = {
         const grade = this.state.currentGrade;
         if (!grade) return;
 
+        UI.renderDailyChallenge(Storage.getCurrentUser() ? Storage.getDailyChallenge() : null);
+
         const modes = [];
         const lessonsCount = this.countGradeModeEntries('lessons');
         const exercisesCount = this.countGradeModeEntries('exercises');
@@ -935,8 +1032,73 @@ const App = {
             });
         }
 
+        if (this.getEveningRitualSubthemes().length > 0) {
+            modes.push({
+                id: 'browse-evening',
+                mode: 'evening',
+                icon: '🌙',
+                title: 'Rituel du soir',
+                subtitle: 'Une leçon courte + 1 exercice, 5 minutes',
+                helper: 'Un petit moment calme avant de se coucher.'
+            });
+        }
+
         UI.renderBrowseModes(modes, (entry) => this.selectBrowseMode(entry.mode));
         UI.showScreen('screen-mode');
+    },
+
+    /**
+     * Sous-thèmes éligibles au rituel du soir : il faut au moins une leçon
+     * ET au moins un exercice non-bonus, pour pouvoir enchaîner les deux à la
+     * suite sans dépendre du Mode Champions (qui mélange tout, trop excitant
+     * pour un rituel calme avant le coucher).
+     */
+    getEveningRitualSubthemes() {
+        const grade = this.state.currentGrade;
+        if (!grade || !this.currentGradeUsesSubjects()) return [];
+
+        const result = [];
+        (grade.subjects || []).forEach((subject) => {
+            (subject?.subthemes || []).forEach((subtheme) => {
+                const lessons = Array.isArray(subtheme?.lessons) ? subtheme.lessons : [];
+                const exercises = (Array.isArray(subtheme?.exercises) ? subtheme.exercises : [])
+                    .filter((exercise) => !exercise.isBonus && this.hasRunnableExercise(exercise));
+                if (lessons.length > 0 && exercises.length > 0) {
+                    result.push({ subject, subtheme, lessons, exercises });
+                }
+            });
+        });
+        return result;
+    },
+
+    startEveningRitual() {
+        const candidates = this.getEveningRitualSubthemes();
+        if (!candidates.length) {
+            alert("Aucun rituel du soir disponible pour ce niveau.");
+            return;
+        }
+        const picked = candidates[Math.floor(Math.random() * candidates.length)];
+        const lesson = picked.lessons[Math.floor(Math.random() * picked.lessons.length)];
+        const exercise = picked.exercises[Math.floor(Math.random() * picked.exercises.length)];
+
+        this.state.currentSubject = picked.subject;
+        this.state.currentTheme = picked.subtheme;
+        this.state.currentLessonOrigin = 'evening';
+        this.state.eveningRitualExercise = exercise;
+        this.applyVisualContext();
+
+        UI.renderLesson(lesson, () => {
+            const nextExercise = this.state.eveningRitualExercise;
+            this.state.eveningRitualExercise = null;
+            if (nextExercise) this.startExercise(nextExercise);
+        }, {
+            themeTitle: picked.subtheme?.title || '',
+            subjectTitle: picked.subject?.title || '',
+            lessons: [],
+            exerciseCount: 1,
+            summaryText: "Lis cette leçon calmement, puis termine avec un seul petit exercice avant de te coucher."
+        });
+        UI.showScreen('screen-lesson');
     },
 
     /**
@@ -1014,7 +1176,57 @@ const App = {
         });
     },
 
-    async showCollectionScreen() {
+    subjectCollectionDefinitions: [
+        { keywords: ['français', 'francais'], icon: '📖', label: 'Champion de français' },
+        { keywords: ['math'], icon: '🔢', label: 'Champion de maths' },
+        { keywords: ['sciences', 'science'], icon: '🔬', label: 'Champion de sciences' },
+        { keywords: ['histoire'], icon: '🏛️', label: "Champion d'histoire" },
+        { keywords: ['géographie', 'geographie'], icon: '🗺️', label: 'Champion de géographie' },
+        { keywords: ['emc', 'morale', 'civique'], icon: '🤝', label: 'Champion EMC' }
+    ],
+
+    /**
+     * Série "Champion de matière" : un badge débloqué par matière si la
+     * moyenne d'étoiles sur tous les exercices tentés de cette matière (toutes
+     * classes confondues) atteint 2,5/3 — réutilise les records déjà stockés,
+     * pas de nouveau contenu à créer pour étendre la Collection.
+     */
+    getSubjectCollectionStatus() {
+        const cachedGrades = this._collectionGradesCache || {};
+        const starsBySubjectKeyword = {};
+
+        Object.entries(cachedGrades).forEach(([gradeId, gradeData]) => {
+            const subjects = Array.isArray(gradeData?.subjects) ? gradeData.subjects : [];
+            subjects.forEach((subject) => {
+                const title = (subject?.title || '').toLowerCase();
+                (subject?.subthemes || []).forEach((subtheme) => {
+                    (subtheme?.exercises || []).forEach((exercise) => {
+                        if (exercise.isBonus) return;
+                        const record = Storage.getRecord(exercise.id, gradeId);
+                        if (!record) return;
+                        if (!starsBySubjectKeyword[title]) starsBySubjectKeyword[title] = { stars: 0, count: 0 };
+                        starsBySubjectKeyword[title].stars += record.stars || 0;
+                        starsBySubjectKeyword[title].count++;
+                    });
+                });
+            });
+        });
+
+        return this.subjectCollectionDefinitions.map((def) => {
+            let totalStars = 0;
+            let totalCount = 0;
+            Object.entries(starsBySubjectKeyword).forEach(([title, stats]) => {
+                if (def.keywords.some((keyword) => title.includes(keyword))) {
+                    totalStars += stats.stars;
+                    totalCount += stats.count;
+                }
+            });
+            const average = totalCount > 0 ? totalStars / totalCount : 0;
+            return { ...def, unlocked: totalCount >= 5 && average >= 2.5 };
+        });
+    },
+
+    async loadAllGradesCache() {
         if (!this._collectionGradesCache) {
             this._collectionGradesCache = {};
             try {
@@ -1022,15 +1234,148 @@ const App = {
                 const loaded = await Promise.all((index.grades || []).map((g) =>
                     this.fetchJson([g.dataFile, `./${g.dataFile.replace(/^\.\//, '')}`]).catch(() => null)
                 ));
+                this._gradesIndexCache = index.grades || [];
                 (index.grades || []).forEach((g, i) => { this._collectionGradesCache[g.id] = loaded[i]; });
             } catch (error) {
-                console.error("Impossible de charger la collection", error);
+                console.error("Impossible de charger les niveaux", error);
             }
         }
+        return this._collectionGradesCache;
+    },
 
+    async showCollectionScreen() {
+        await this.loadAllGradesCache();
         UI.renderCollectionBadges(Storage.getBadges());
         UI.renderCollectionMaps(this.getMapCollectionStatus());
+        UI.renderCollectionSubjects(this.getSubjectCollectionStatus());
         UI.showScreen('screen-collection');
+    },
+
+    // --- ESPACE PARENTS ---
+
+    openParentsGate() {
+        this.state.parentsPinInput = "";
+        UI.renderParentsPinPad(
+            (digit) => this.parentsPinInput(digit),
+            () => this.parentsPinBackspace()
+        );
+        this.refreshParentsPinDisplay();
+        const hint = document.getElementById('parents-pin-hint');
+        if (hint) {
+            hint.textContent = Storage.isDefaultParentPin()
+                ? 'Code par défaut : 0000 (à personnaliser dans l\'espace parents).'
+                : '';
+        }
+        const error = document.getElementById('parents-pin-error');
+        if (error) error.classList.add('is-hidden');
+        UI.showScreen('screen-parents-pin');
+    },
+
+    refreshParentsPinDisplay() {
+        const display = document.getElementById('parents-pin-display');
+        if (!display) return;
+        const input = this.state.parentsPinInput || "";
+        display.textContent = '●'.repeat(input.length) + '○'.repeat(Math.max(0, 4 - input.length));
+    },
+
+    parentsPinBackspace() {
+        this.state.parentsPinInput = (this.state.parentsPinInput || "").slice(0, -1);
+        this.refreshParentsPinDisplay();
+    },
+
+    async parentsPinInput(digit) {
+        const current = (this.state.parentsPinInput || "") + digit;
+        if (current.length > 4) return;
+        this.state.parentsPinInput = current;
+        this.refreshParentsPinDisplay();
+
+        if (current.length === 4) {
+            if (current === Storage.getParentPin()) {
+                this.state.parentsPinInput = "";
+                await this.showParentsDashboard();
+            } else {
+                const error = document.getElementById('parents-pin-error');
+                if (error) error.classList.remove('is-hidden');
+                this.state.parentsPinInput = "";
+                this.refreshParentsPinDisplay();
+            }
+        }
+    },
+
+    async getParentDashboardData() {
+        await this.loadAllGradesCache();
+        const grades = this._gradesIndexCache || [];
+        const gradeDataById = this._collectionGradesCache || {};
+
+        return Storage.getProfiles().map((name) => {
+            let totalExercises = 0;
+            let totalDone = 0;
+            let totalStars = 0;
+            let lastTimestamp = 0;
+            const toReview = [];
+
+            grades.forEach((grade) => {
+                const gradeData = gradeDataById[grade.id];
+                const subjects = Array.isArray(gradeData?.subjects) ? gradeData.subjects : [];
+                subjects.forEach((subject) => {
+                    (subject?.subthemes || []).forEach((subtheme) => {
+                        (subtheme?.exercises || []).forEach((exercise) => {
+                            totalExercises++;
+                            const record = Storage.getRecord(exercise.id, grade.id, name);
+                            if (record) {
+                                totalDone++;
+                                totalStars += record.stars || 0;
+                                const ts = record.lastTimestamp || record.timestamp || 0;
+                                if (ts > lastTimestamp) lastTimestamp = ts;
+
+                                const percent = Math.round((record.lastPercent ?? record.percent) || 0);
+                                if (percent < 50) {
+                                    toReview.push({
+                                        title: exercise.title || 'Exercice',
+                                        subjectTitle: subject?.title || 'Matière',
+                                        gradeTitle: grade.title || grade.id,
+                                        percent
+                                    });
+                                }
+                            }
+                        });
+                    });
+                });
+            });
+
+            toReview.sort((a, b) => a.percent - b.percent);
+
+            return {
+                name,
+                appearance: Storage.getProfileAppearance(name),
+                totalExercises,
+                totalDone,
+                totalStars,
+                maxStars: totalExercises * 3,
+                streak: Storage.getStreak(name),
+                badges: Storage.getBadges(name),
+                lastTimestamp,
+                weekly: Storage.getWeeklyActivity(name),
+                toReview: toReview.slice(0, 5)
+            };
+        });
+    },
+
+    async showParentsDashboard() {
+        const data = await this.getParentDashboardData();
+        UI.renderParentsDashboard(data);
+        UI.showScreen('screen-parents');
+    },
+
+    promptChangeParentPin() {
+        const current = prompt("Nouveau code parent (4 chiffres) :");
+        if (current === null) return;
+        const ok = Storage.setParentPin(current.trim());
+        if (!ok) {
+            alert("Le code doit contenir exactement 4 chiffres.");
+            return;
+        }
+        alert("Code parent mis à jour.");
     },
 
     championDurations: [60, 90, 120],
@@ -1205,6 +1550,10 @@ const App = {
         }
         if (mode === 'champion') {
             this.showChampionSetup();
+            return;
+        }
+        if (mode === 'evening') {
+            this.startEveningRitual();
             return;
         }
         this.state.currentBrowseMode = mode === 'lessons' ? 'lessons' : 'exercises';
@@ -1990,6 +2339,7 @@ const App = {
                 else if (d.boardKind === 'point-on-grid') d.userState = { point: null };
                 else if (d.boardKind === 'symmetry-complete') d.userState = { placedPoints: [] };
                 else if (d.boardKind === 'fraction-build') d.userState = { selectedSlices: [] };
+                else if (d.boardKind === 'angle-classify') d.userState = { selectedId: null };
                 d.revealed = false;
                 this.state.userInput = "";
                 this.refreshUI();
@@ -2013,6 +2363,16 @@ const App = {
                     const slices = Array.isArray(d.userState?.selectedSlices) ? d.userState.selectedSlices : [];
                     this.state.userInput = String(slices.length);
                 }
+                d.revealed = true;
+                this.refreshUI();
+                return this.validateAnswer();
+            }
+
+            if (val.startsWith('board-pick-angle:') && d.boardKind === 'angle-classify') {
+                const bucketId = val.replace('board-pick-angle:', '');
+                if (!d.userState) d.userState = { selectedId: null };
+                d.userState.selectedId = bucketId;
+                this.state.userInput = bucketId;
                 d.revealed = true;
                 this.refreshUI();
                 return this.validateAnswer();
@@ -2314,6 +2674,38 @@ const App = {
         }, delay);
     },
 
+    /**
+     * Compare l'état avant/après un exercice pour détecter un déblocage
+     * franchi pendant cette tentative (couleur, palier de prestige, ou
+     * simplement "ton compagnon peut évoluer"). Priorité décroissante :
+     * évolution > prestige > couleur, pour n'afficher qu'un seul toast.
+     */
+    getNewAvatarUnlockToast(starsBefore, starsAfter) {
+        if (starsAfter <= starsBefore) return null;
+
+        const evolutionAfter = Storage.getAvatarEvolutionState(Storage.getCurrentUser(), starsAfter);
+        if (evolutionAfter.canEvolve) {
+            const evolutionBefore = Storage.getAvatarEvolutionState(Storage.getCurrentUser(), starsBefore);
+            if (!evolutionBefore.canEvolve) {
+                return { icon: '🐾', text: 'Ton compagnon peut évoluer !' };
+            }
+        }
+
+        const prestigeAfter = Storage.getAvatarPrestigeTier(starsAfter);
+        const prestigeBefore = Storage.getAvatarPrestigeTier(starsBefore);
+        if (prestigeAfter && prestigeAfter.id !== prestigeBefore?.id) {
+            return { icon: '👑', text: `Nouveau niveau : ${prestigeAfter.label} !` };
+        }
+
+        const accents = Storage.getAccentChoicesWithUnlock();
+        const newlyUnlockedAccent = accents.find((accent) => accent.unlockAt > starsBefore && accent.unlockAt <= starsAfter);
+        if (newlyUnlockedAccent) {
+            return { icon: '🎨', text: `Nouvelle couleur débloquée : ${newlyUnlockedAccent.label} !` };
+        }
+
+        return null;
+    },
+
     showFinalResults() {
         const { score, currentGrade, currentExercise } = this.state;
         const total = this.getQuestionTarget(currentExercise);
@@ -2325,22 +2717,54 @@ const App = {
         // ðŸ›¡ï¸ SÃ‰CURITÃ‰ SCORE : On s'assure que le score ne dÃ©passe jamais le total
         const safeScore = Math.min(score, total);
         const percent = Math.round((safeScore / total) * 100);
+        const starsBefore = Storage.getTotalStars();
+        const badgesBefore = Storage.getBadges();
 
         if (currentGrade && currentGrade.gradeId) {
             Storage.saveRecord(currentGrade.gradeId, currentExercise.id, safeScore, total);
         }
         const streakResult = Storage.recordSessionActivity();
+        const challengeResult = Storage.recordDailyChallengeAttempt(safeScore === total);
+        const starsEarned = (percent === 100 ? 3 : percent >= 75 ? 2 : percent >= 50 ? 1 : 0);
+        Storage.recordDailyActivity(starsEarned);
+        const unlockToast = this.getNewAvatarUnlockToast(starsBefore, Storage.getTotalStars());
+        const newBadges = Array.isArray(badgesBefore) ? Storage.getNewlyUnlockedBadges(badgesBefore) : [];
 
         UI.renderStars(safeScore, total);
+        UI.renderMascotReaction(percent);
         UI.showScreen('screen-results');
+        this.applyVisualContext();
 
         if (safeScore === total) {
             UI.launchCelebration();
             if (window.AudioFeedback) AudioFeedback.playPerfect();
         }
 
-        if (streakResult && streakResult.isNewDay && streakResult.current > 1) {
+        // Cancel any badge toasts still pending from a previous exercise
+        if (this._badgeToastTimers) {
+            this._badgeToastTimers.forEach((id) => clearTimeout(id));
+        }
+        this._badgeToastTimers = [];
+
+        if (unlockToast) {
+            UI.showSimpleToast(unlockToast.icon, unlockToast.text);
+        } else if (challengeResult?.justCompleted) {
+            UI.showSimpleToast('🎉', 'Défi du jour réussi !');
+        } else if (streakResult && streakResult.isNewDay && streakResult.current > 1) {
             UI.showStreakToast(streakResult.current);
+        }
+
+        // Badge toasts: each badge needs its own slot so they don't clobber each other.
+        // showSimpleToast auto-removes any visible toast — space them at 3500ms so the
+        // previous one has finished its 3200ms lifetime before the next fires.
+        if (newBadges.length > 0) {
+            const firstDelay = (unlockToast || challengeResult?.justCompleted || (streakResult?.isNewDay && streakResult.current > 1)) ? 3500 : 400;
+            newBadges.forEach((badge, i) => {
+                const t = setTimeout(() => {
+                    UI.showSimpleToast(badge.icon, `Nouveau badge : ${badge.label} !`);
+                }, firstDelay + i * 3500);
+                this._badgeToastTimers.push(t);
+            });
         }
 
         const scEl = document.getElementById('result-score');

@@ -73,20 +73,22 @@ const EnginesDocumentary = {
         }
 
         const item = pickUnused(pool, p.usedSet);
-        if (!item?.sentence || typeof item.sentence !== 'string') {
-            return Engines.fallback("Phrase invalide pour remise en ordre");
+        const isStorySequence = Array.isArray(item?.sentences);
+        const units = isStorySequence
+            ? item.sentences.map((s) => (s || "").toString().trim()).filter(Boolean)
+            : (typeof item?.sentence === 'string' ? item.sentence.trim().split(/\s+/) : []);
+
+        if (units.length < 3) {
+            return Engines.fallback(isStorySequence ? "Récit trop court pour remise en ordre" : "Phrase invalide pour remise en ordre");
         }
 
-        const words = item.sentence.trim().split(/\s+/);
-        if (words.length < 3) {
-            return Engines.fallback("Phrase trop courte pour remise en ordre");
-        }
-
-        const shuffled = shuffle(words.map((word, index) => ({ id: index, label: word })));
+        const shuffled = shuffle(units.map((label, index) => ({ id: index, label })));
 
         return {
-            question: item.instruction || "Remets les mots dans le bon ordre pour former une phrase.",
-            answer: words.map((_, i) => i).join(","),
+            question: item.instruction || (isStorySequence
+                ? "Remets les phrases dans le bon ordre pour reconstituer le récit."
+                : "Remets les mots dans le bon ordre pour former une phrase."),
+            answer: units.map((_, i) => i).join(","),
             inputType: "word-order",
             isVisual: true,
             visualType: "wordOrder",
@@ -94,7 +96,8 @@ const EnginesDocumentary = {
             data: {
                 words: shuffled,
                 picked: [],
-                sentence: item.sentence
+                sentence: units,
+                isStorySequence
             }
         };
     },

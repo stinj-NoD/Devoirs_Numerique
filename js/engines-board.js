@@ -60,9 +60,40 @@ const EnginesBoard = {
                 return this.mapLocate(entry, p);
             case 'memory-match':
                 return this.memoryMatch(entry);
+            case 'angle-classify':
+                return this.angleClassify(entry);
             default:
                 return Engines.fallback("Type d'activité interactive inconnu");
         }
+    },
+
+    angleClassify(entry) {
+        const buckets = Array.isArray(entry.buckets) && entry.buckets.length
+            ? entry.buckets
+            : [
+                { id: 'aigu', label: 'Aigu (< 90°)' },
+                { id: 'droit', label: 'Droit (= 90°)' },
+                { id: 'obtu', label: 'Obtus (> 90°)' }
+            ];
+        const answerId = (entry.answer || '').toString();
+        return {
+            question: SecurityUtils.escapeHtml(entry.prompt || "Cet angle est-il aigu, droit ou obtus ?"),
+            answer: answerId,
+            inputType: 'board',
+            isVisual: true,
+            visualType: 'geometry-board',
+            explanation: entry.explanation || "",
+            data: {
+                boardKind: 'angle-classify',
+                board: entry.board || { width: 10, height: 6, grid: false },
+                drawing: entry.drawing || {},
+                buckets,
+                answerId,
+                userState: {
+                    selectedId: null
+                }
+            }
+        };
     },
 
     tapFeatures(entry) {
