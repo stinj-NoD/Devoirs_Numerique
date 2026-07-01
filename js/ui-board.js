@@ -68,9 +68,84 @@ const UIBoard = {
                 return this.renderMemoryMatch(problem);
             case 'fraction-build':
                 return this.renderFractionBuild(problem);
+            case 'angle-classify':
+                return this.renderAngleClassify(problem);
             default:
                 return `<div class="board-card"><p>Moteur interactif prêt, activité non reconnue.</p></div>`;
         }
+    },
+
+    renderAngleClassify(problem) {
+        const data = problem.data || {};
+        const board = data.board || { width: 10, height: 6 };
+        const drawing = data.drawing || {};
+        const buckets = Array.isArray(data.buckets) ? data.buckets : [];
+        const revealed = !!data.revealed;
+        const selectedId = data.userState?.selectedId || null;
+        const answerId = data.answerId || '';
+        const width = Number(board.width) || 10;
+        const height = Number(board.height) || 6;
+        const size = 280;
+        const pad = 24;
+        const stepX = (size - pad * 2) / Math.max(width, 1);
+        const stepY = (size - pad * 2) / Math.max(height, 1);
+        const toX = (value) => pad + Number(value) * stepX;
+        const toY = (value) => pad + Number(value) * stepY;
+
+        const lines = (Array.isArray(drawing.lines) ? drawing.lines : []).map((line) => `
+            <line
+                x1="${toX(line.x1)}"
+                y1="${toY(line.y1)}"
+                x2="${toX(line.x2)}"
+                y2="${toY(line.y2)}"
+                class="board-shape-line"
+            />
+        `).join('');
+
+        let arc = '';
+        if (drawing.arc && Array.isArray(drawing.arc.vertex) && Array.isArray(drawing.arc.start) && Array.isArray(drawing.arc.end)) {
+            const a = drawing.arc;
+            const vx = toX(a.vertex[0]), vy = toY(a.vertex[1]);
+            const sx = toX(a.start[0]), sy = toY(a.start[1]);
+            const ex = toX(a.end[0]), ey = toY(a.end[1]);
+            const radius = Math.hypot(sx - vx, sy - vy);
+            const largeArc = a.largeArc ? 1 : 0;
+            const path = `M ${vx} ${vy} L ${sx} ${sy} A ${radius} ${radius} 0 ${largeArc} 0 ${ex} ${ey} Z`;
+            arc = `<path d="${this._escape(path)}" class="board-angle-arc" />`;
+        }
+
+        const bucketButtons = buckets.map((bucket) => {
+            let stateCls = selectedId === bucket.id ? 'is-selected' : '';
+            if (revealed && selectedId === bucket.id) {
+                stateCls = bucket.id === answerId ? 'is-correct' : 'is-incorrect';
+            } else if (revealed && bucket.id === answerId) {
+                stateCls = 'is-correct';
+            }
+            return `
+                <button
+                    type="button"
+                    class="board-bucket board-angle-choice ${stateCls}"
+                    data-val="board-pick-angle:${SecurityUtils.sanitizeId(bucket.id)}"
+                    ${revealed ? 'disabled' : ''}
+                >
+                    <span class="board-bucket-title">${this._escape(bucket.label || bucket.id)}</span>
+                </button>
+            `;
+        }).join('');
+
+        return `
+            <div class="board-card">
+                <div class="board-panel">
+                    <svg class="board-svg" viewBox="0 0 ${size} ${size}" role="img" aria-label="Angle à classer">
+                        ${lines}
+                        ${arc}
+                    </svg>
+                </div>
+                <div class="board-panel">
+                    <div class="board-bucket-list board-angle-list">${bucketButtons}</div>
+                </div>
+            </div>
+        `;
     },
 
     renderTapFeatures(problem) {

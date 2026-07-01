@@ -21,11 +21,12 @@ const UI = {
     showScreen(id) {
         // 1. Gestion des Ã©crans
         if (this.screens.length === 0) return console.warn("UI: Aucun écran trouvé dans le DOM");
-        
+
         this.screens.forEach(s => {
             if (s.id === id) {
                 s.classList.add('active');
                 s.style.display = 'flex';
+                s.scrollTop = 0;
             } else {
                 s.classList.remove('active');
                 s.style.display = 'none';
@@ -146,6 +147,21 @@ const UI = {
         if (title) title.innerText = text || "Devoir Numérique";
     },
 
+    renderHeaderAvatar(appearance) {
+        const el = document.getElementById('header-avatar');
+        if (!el) return;
+        if (!appearance || !appearance.avatar) {
+            el.classList.add('is-hidden');
+            el.innerHTML = '';
+            return;
+        }
+        el.classList.remove('is-hidden');
+        el.classList.toggle('avatar-prestige-gold', appearance.prestigeTier?.id === 'gold');
+        el.classList.toggle('avatar-prestige-stars', appearance.prestigeTier?.id === 'stars');
+        el.classList.toggle('avatar-prestige-crown', appearance.prestigeTier?.id === 'crown');
+        el.textContent = appearance.avatar;
+    },
+
     safeIcon(value, fallback = '\u{1F4DD}') {
         const icon = (value || "").toString().trim();
         if (!icon) return fallback;
@@ -171,11 +187,45 @@ const UI = {
             .replace(/[\u0300-\u036f]/g, '');
 
         if (menuVariant === 'grades') return '🎒';
-        if (/math|calcul|nombre|geometr|mesure|fraction|operation|table|monnaie/.test(text)) return '🔢';
-        if (/francais|lecture|grammaire|orthographe|conjug|dictee|vocabulaire|homophone/.test(text)) return '✍️';
-        if (/histoire|roman|temps|antiquite|moyen age|revolution/.test(text)) return '🏺';
-        if (/geographie|geo|paysage|carte|continent|ville|espace/.test(text)) return '🗺️';
-        if (/science|vivant|corps|matiere|energie|technologie|nature/.test(text)) return '🔬';
+
+        // Règles spécifiques aux mesures, testées AVANT la règle générale
+        // "math" : sinon chiffres romains, durées, longueurs, masses et
+        // contenances retombaient tous sur la même icône 🔢, peu lisible
+        // dans une liste où plusieurs exercices de mesure se suivent.
+        if (/romain/.test(text)) return '🏛️';
+        if (/duree|heure|minute|seconde|horloge/.test(text)) return '⏱️';
+        if (/longueur|metre|kilometre|centimetre|distance/.test(text)) return '📏';
+        if (/masse|poids|kilogramme|gramme|balance/.test(text)) return '⚖️';
+        if (/contenance|capacite|litre|volume/.test(text)) return '🧪';
+        if (/monnaie|euro|argent|prix|achat|marche|caisse|piece|billet/.test(text)) return '💶';
+        if (/aire|perimetre|surface/.test(text)) return '📐';
+        if (/angle|triangle|cercle|quadrilatere|polygone|figure/.test(text)) return '📐';
+        if (/fraction|partage|demi|tiers|quart/.test(text)) return '🍰';
+        if (/pourcentage|proportionnalite|vitesse|echelle/.test(text)) return '📊';
+        if (/tableau|graphique|diagramme|statistique/.test(text)) return '📊';
+        if (/addition|complet.*jusqu|super addition/.test(text)) return '➕';
+        if (/soustraction|retirer|enlever/.test(text)) return '➖';
+        if (/multipli|table de/.test(text)) return '✖️';
+        if (/division|quotient/.test(text)) return '➗';
+        if (/decimal|virgule|dixieme|centieme/.test(text)) return '🔟';
+        if (/comparer|plus grand|plus petit|egal/.test(text)) return '⚖️';
+        if (/probleme/.test(text)) return '🧩';
+        if (/carre magique|cible/.test(text)) return '🎯';
+
+        if (/imparfait|present|futur|passe compose|conjug|2eme groupe|3eme groupe|1er groupe|verbe|etre et avoir/.test(text)) return '🔤';
+        if (/article|determinant|un ou une|le.{0,3}la.{0,3}l|elision/.test(text)) return '🔡';
+        if (/sujet|complement|nature.*mot|nom ou verbe|fonction.*mot|singulier|pluriel/.test(text)) return '🧠';
+        if (/famille de mots|champ lexical|synonyme|antonyme|vocabulaire|ranger les mots/.test(text)) return '📖';
+        if (/dictee|ecoute et ecris|audio/.test(text)) return '🎧';
+        if (/lecture|comprehension|texte/.test(text)) return '📖';
+        if (/orthographe|accord/.test(text)) return '🖊️';
+        if (/mot outil|ponctuation|phrase/.test(text)) return '✍️';
+
+        if (/math|calcul|nombre|geometr|mesure|operation|table/.test(text)) return '🔢';
+        if (/francais|grammaire|conjug|homophone/.test(text)) return '✍️';
+        if (/histoire|antiquite|moyen age|revolution|musee|passe/.test(text)) return '🏺';
+        if (/geographie|geo|paysage|carte|continent|ville|espace|voyageur|transport/.test(text)) return '🗺️';
+        if (/science|vivant|corps|matiere|energie|technologie|nature|animaux/.test(text)) return '🔬';
         if (/emc|citoyen|regle|respect|valeur|republique/.test(text)) return '🤝';
         if (item?.kind === 'lesson' || menuVariant === 'library') return '📘';
         if (menuVariant === 'exercises') return '✏️';
@@ -256,54 +306,105 @@ const UI = {
         });
     },
 
-    renderProfileCustomize({ profileName, avatars, accents, current }, onChange, onDone) {
+    renderProfileCustomize({ profileName, totalStars, hasStarter, starters, evolution, accents, current }, handlers, onDone) {
+        const { onChooseStarter, onEvolve, onChangeAccent } = handlers;
         const lead = document.getElementById('profile-customize-lead');
-        if (lead) lead.textContent = `Profil de ${profileName}`;
+        if (lead) {
+            lead.textContent = Number.isFinite(totalStars)
+                ? `Profil de ${profileName} · ${totalStars} ★ cumulées`
+                : `Profil de ${profileName}`;
+        }
 
-        let selectedAvatar = current.avatar;
         let selectedAccent = current.accent;
 
-        const avatarContainer = document.getElementById('profile-customize-avatars');
+        const starterContainer = document.getElementById('profile-customize-starter');
+        const companionContainer = document.getElementById('profile-customize-companion');
         const accentContainer = document.getElementById('profile-customize-accents');
-        if (!avatarContainer || !accentContainer) return;
+        if (!starterContainer || !companionContainer || !accentContainer) return;
 
-        const renderAvatars = () => {
-            avatarContainer.innerHTML = '';
-            avatars.forEach((avatar) => {
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = `profile-customize-avatar${avatar === selectedAvatar ? ' is-selected' : ''}`;
-                btn.setAttribute('aria-label', `Avatar ${avatar}`);
-                btn.setAttribute('aria-pressed', avatar === selectedAvatar ? 'true' : 'false');
-                btn.textContent = avatar;
-                btn.onclick = () => {
-                    selectedAvatar = avatar;
-                    onChange({ avatar: selectedAvatar, accent: selectedAccent });
-                    renderAvatars();
-                };
-                avatarContainer.appendChild(btn);
+        if (!hasStarter) {
+            starterContainer.classList.remove('u-hidden');
+            companionContainer.classList.add('u-hidden');
+            starterContainer.innerHTML = `
+                <p class="profile-customize-starter-intro">Choisis ton premier compagnon, il grandira avec tes étoiles !</p>
+                <div class="profile-customize-starter-list">
+                    ${starters.map((s) => `
+                        <button type="button" class="profile-customize-starter-option" data-starter-id="${this._escapeText(s.id)}">
+                            <span class="profile-customize-starter-emoji">${s.emoji}</span>
+                            <span class="profile-customize-starter-label">${this._escapeText(s.label)}</span>
+                        </button>
+                    `).join('')}
+                </div>`;
+            starterContainer.querySelectorAll('[data-starter-id]').forEach((btn) => {
+                btn.onclick = () => onChooseStarter(btn.dataset.starterId);
             });
-        };
+        } else {
+            starterContainer.classList.add('u-hidden');
+            companionContainer.classList.remove('u-hidden');
+
+            const nextOptions = evolution.nextOptions || [];
+            const prestigeClass = evolution.prestigeTier ? ` ${evolution.prestigeTier.className}` : '';
+
+            let nextHtml;
+            if (nextOptions.length > 0) {
+                nextHtml = `
+                    <div class="profile-customize-evolve-title">
+                        ${nextOptions.length > 1 ? 'Ton compagnon peut évoluer, choisis sa branche !' : 'Ton compagnon peut évoluer !'}
+                    </div>
+                    <div class="profile-customize-evolve-options">
+                        ${nextOptions.map((opt) => `
+                            <button type="button" class="profile-customize-evolve-option" data-evolve-id="${this._escapeText(opt.id)}">
+                                <span class="profile-customize-evolve-emoji">${opt.emoji}</span>
+                                <span class="profile-customize-evolve-label">${this._escapeText(opt.label)}</span>
+                            </button>
+                        `).join('')}
+                    </div>`;
+            } else if (evolution.isFinalStage) {
+                const tierLabel = evolution.prestigeTier
+                    ? `Niveau de prestige actuel : ${this._escapeText(evolution.prestigeTier.label)} !`
+                    : "Ton compagnon a atteint son stade final.";
+                const nextTierText = evolution.nextPrestigeTier
+                    ? `Encore ${evolution.nextPrestigeTier.requires - evolution.totalStars} ★ pour débloquer « ${this._escapeText(evolution.nextPrestigeTier.label)} ».`
+                    : "Il a atteint le plus haut niveau de prestige !";
+                nextHtml = `<p class="profile-customize-evolve-locked">${tierLabel}<br>${nextTierText}</p>`;
+            } else {
+                nextHtml = `<p class="profile-customize-evolve-locked">Continue à gagner des étoiles pour faire évoluer ton compagnon !</p>`;
+            }
+
+            companionContainer.innerHTML = `
+                <div class="profile-customize-companion-current${prestigeClass}">
+                    <span class="profile-customize-companion-emoji">${evolution.emoji}</span>
+                    <span class="profile-customize-companion-label">${this._escapeText(evolution.label)}</span>
+                </div>
+                ${nextHtml}
+            `;
+            companionContainer.querySelectorAll('[data-evolve-id]').forEach((btn) => {
+                btn.onclick = () => onEvolve(btn.dataset.evolveId);
+            });
+        }
 
         const renderAccents = () => {
             accentContainer.innerHTML = '';
             accents.forEach((accent) => {
+                const unlocked = accent.unlocked !== false;
                 const btn = document.createElement('button');
                 btn.type = 'button';
-                btn.className = `profile-customize-accent${accent.id === selectedAccent ? ' is-selected' : ''}`;
-                btn.style.backgroundColor = accent.color;
-                btn.setAttribute('aria-label', accent.label);
+                btn.className = `profile-customize-accent${accent.id === selectedAccent ? ' is-selected' : ''}${unlocked ? '' : ' is-locked'}`;
+                btn.style.backgroundColor = unlocked ? accent.color : '#cbd5e1';
+                btn.setAttribute('aria-label', unlocked ? accent.label : `${accent.label} verrouillé, débloqué à ${accent.unlockAt} étoiles`);
                 btn.setAttribute('aria-pressed', accent.id === selectedAccent ? 'true' : 'false');
+                btn.setAttribute('aria-disabled', unlocked ? 'false' : 'true');
+                btn.innerHTML = unlocked ? '' : `<span class="profile-customize-lock-icon">🔒</span>`;
                 btn.onclick = () => {
+                    if (!unlocked) return;
                     selectedAccent = accent.id;
-                    onChange({ avatar: selectedAvatar, accent: selectedAccent });
+                    onChangeAccent(selectedAccent);
                     renderAccents();
                 };
                 accentContainer.appendChild(btn);
             });
         };
 
-        renderAvatars();
         renderAccents();
 
         const doneBtn = document.getElementById('btn-profile-customize-done');
@@ -1117,6 +1218,48 @@ const UI = {
         this.showScreen('screen-results');
     },
 
+    _mascotReactions: {
+        perfect: [
+            { icon: '🦉', text: "Sans-faute ! Tu es un champion !" },
+            { icon: '🦉', text: "Incroyable, pas une seule erreur !" },
+            { icon: '🦉', text: "Parfait du début à la fin, bravo !" }
+        ],
+        good: [
+            { icon: '🦉', text: "Très bien joué, continue comme ça !" },
+            { icon: '🦉', text: "Belle réussite, tu progresses bien !" },
+            { icon: '🦉', text: "Bravo, c'est du bon travail !" }
+        ],
+        average: [
+            { icon: '🦉', text: "Pas mal ! Encore un effort et ce sera parfait." },
+            { icon: '🦉', text: "C'est un bon début, tu vas y arriver." },
+            { icon: '🦉', text: "Tu avances, continue à t'entraîner !" }
+        ],
+        encourage: [
+            { icon: '🦉', text: "Ce n'est pas grave, on apprend en se trompant !" },
+            { icon: '🦉', text: "Essaie encore, je suis sûr que tu peux mieux faire !" },
+            { icon: '🦉', text: "Courage, relis la leçon et retente ta chance !" }
+        ]
+    },
+
+    renderMascotReaction(percent) {
+        const container = document.getElementById('mascot-reaction');
+        if (!container) return;
+
+        const pool = percent === 100
+            ? this._mascotReactions.perfect
+            : percent >= 75
+                ? this._mascotReactions.good
+                : percent >= 50
+                    ? this._mascotReactions.average
+                    : this._mascotReactions.encourage;
+
+        const reaction = pool[Math.floor(Math.random() * pool.length)];
+        container.innerHTML = `
+            <span class="mascot-reaction-icon" aria-hidden="true">${reaction.icon}</span>
+            <span class="mascot-reaction-text">${this._escapeText(reaction.text)}</span>
+        `;
+    },
+
     renderStars(score, total) {
         const container = document.getElementById('stars-container');
         if (!container) return;
@@ -1158,6 +1301,32 @@ const UI = {
 
     showStreakToast(days) {
         this.showSimpleToast('🔥', `${days} jours de suite !`);
+    },
+
+    renderDailyChallenge(challenge) {
+        const card = document.getElementById('daily-challenge-card');
+        if (!card) return;
+
+        if (!challenge) {
+            card.classList.add('is-hidden');
+            card.innerHTML = "";
+            return;
+        }
+
+        const percent = challenge.target > 0 ? Math.round((challenge.progress / challenge.target) * 100) : 0;
+        card.classList.remove('is-hidden');
+        card.classList.toggle('is-completed', !!challenge.completed);
+        card.innerHTML = `
+            <span class="daily-challenge-icon" aria-hidden="true">${challenge.completed ? '✅' : this._escapeText(challenge.icon)}</span>
+            <span class="daily-challenge-body">
+                <span class="daily-challenge-title">Défi du jour</span>
+                <span class="daily-challenge-text">${this._escapeText(challenge.label)}</span>
+                <div class="progress-bar-track progress-bar-track--small">
+                    <div class="progress-bar-fill" style="width: ${Math.min(100, percent)}%"></div>
+                </div>
+            </span>
+            <span class="daily-challenge-count">${Math.min(challenge.progress, challenge.target)}/${challenge.target}</span>
+        `;
     },
 
     showSimpleToast(icon, text) {
@@ -1224,6 +1393,159 @@ const UI = {
                 <span class="collection-map-label">${this._escapeText(m.label)}</span>
             </div>
         `).join('');
+    },
+
+    renderCollectionSubjects(subjects) {
+        const container = document.getElementById('collection-subjects-list');
+        if (!container) return;
+        container.innerHTML = (subjects || []).map((s) => `
+            <div class="collection-map ${s.unlocked ? 'is-unlocked' : 'is-locked'}">
+                <span class="collection-map-icon" aria-hidden="true">${s.unlocked ? s.icon : '🔒'}</span>
+                <span class="collection-map-label">${this._escapeText(s.label)}</span>
+            </div>
+        `).join('');
+    },
+
+    renderParentsPinPad(onDigit, onBackspace) {
+        const container = document.getElementById('parents-pin-keypad');
+        if (!container) return;
+        const keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '⌫', '0'];
+        container.innerHTML = "";
+        keys.forEach((key) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'parents-pin-key';
+            if (key === '⌫') {
+                btn.classList.add('parents-pin-key--back');
+                btn.setAttribute('aria-label', 'Effacer');
+                btn.textContent = '⌫';
+                btn.onclick = () => onBackspace();
+            } else {
+                btn.textContent = key;
+                btn.onclick = () => onDigit(key);
+            }
+            container.appendChild(btn);
+        });
+    },
+
+    renderParentsDashboard(profiles) {
+        const container = document.getElementById('parents-dashboard-list');
+        if (!container) return;
+
+        if (!profiles || profiles.length === 0) {
+            container.innerHTML = `<p class="screen-lead">Aucun profil enfant pour le moment.</p>`;
+            return;
+        }
+
+        container.innerHTML = profiles.map((profile) => {
+            const percent = profile.maxStars > 0 ? Math.round((profile.totalStars / profile.maxStars) * 100) : 0;
+            const unlockedBadges = (profile.badges || []).filter((b) => b.unlocked).length;
+            const lastActivityText = profile.lastTimestamp
+                ? new Date(profile.lastTimestamp).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' })
+                : 'Jamais';
+            const streakText = profile.streak?.current > 0
+                ? `🔥 ${profile.streak.current} jour${profile.streak.current > 1 ? 's' : ''}`
+                : 'Pas de série en cours';
+
+            const weekly = profile.weekly || { attempts: 0, stars: 0, activeDays: 0 };
+            const weeklyText = weekly.attempts > 0
+                ? `Cette semaine : ${weekly.attempts} exercice${weekly.attempts > 1 ? 's' : ''} fait${weekly.attempts > 1 ? 's' : ''} sur ${weekly.activeDays} jour${weekly.activeDays > 1 ? 's' : ''}, ${weekly.stars} ★ gagnées.`
+                : "Cette semaine : pas encore d'activité.";
+
+            const toReview = Array.isArray(profile.toReview) ? profile.toReview : [];
+            const toReviewHtml = toReview.length > 0 ? `
+                <div class="parents-profile-review">
+                    <div class="parents-profile-review-title">À réviser en priorité</div>
+                    ${toReview.map((entry) => `
+                        <div class="parents-profile-review-item">
+                            <span>${this._escapeText(entry.title)}</span>
+                            <span class="parents-profile-review-meta">${this._escapeText(entry.subjectTitle)} · ${this._escapeText(entry.gradeTitle)} · ${entry.percent}%</span>
+                        </div>
+                    `).join('')}
+                </div>` : '';
+
+            return `
+                <div class="parents-profile-card">
+                    <div class="parents-profile-head">
+                        <span class="parents-profile-avatar" aria-hidden="true">${this._escapeText(profile.appearance?.avatar || '🐣')}</span>
+                        <span class="parents-profile-name">${this._escapeText(profile.name)}</span>
+                    </div>
+                    <div class="progress-bar-track">
+                        <div class="progress-bar-fill" style="width: ${percent}%"></div>
+                    </div>
+                    <div class="parents-profile-stats">
+                        <span>${profile.totalDone}/${profile.totalExercises} exercices</span>
+                        <span>${profile.totalStars}/${profile.maxStars} ★</span>
+                        <span>${unlockedBadges} badge${unlockedBadges > 1 ? 's' : ''}</span>
+                    </div>
+                    <div class="parents-profile-footer">
+                        <span>${streakText}</span>
+                        <span>Dernière activité : ${lastActivityText}</span>
+                    </div>
+                    <div class="parents-profile-weekly">${this._escapeText(weeklyText)}</div>
+                    ${toReviewHtml}
+                </div>`;
+        }).join('');
+    },
+
+    renderProgramOverview(grades, gradeDataById) {
+        const container = document.getElementById('parents-program-content');
+        if (!container) return;
+
+        if (!grades || grades.length === 0) {
+            container.innerHTML = `<p class="screen-lead">Programme non disponible (données non chargées).</p>`;
+            return;
+        }
+
+        // Canonical subject order for display
+        const SUBJECT_ORDER = ['maths', 'francais', 'histoire', 'geo', 'sciences', 'emc'];
+        const subjectSortKey = (subjectId) => {
+            const idx = SUBJECT_ORDER.findIndex((key) => subjectId.includes(key));
+            return idx === -1 ? 99 : idx;
+        };
+
+        container.innerHTML = grades.map((grade) => {
+            const gradeData = gradeDataById[grade.id];
+            if (!gradeData) return '';
+            const subjects = Array.isArray(gradeData.subjects) ? [...gradeData.subjects] : [];
+
+            // Sort subjects in canonical curriculum order
+            subjects.sort((a, b) => subjectSortKey(a.id) - subjectSortKey(b.id));
+
+            const totalExercises = subjects.reduce((sum, s) =>
+                sum + (s.subthemes || []).reduce((ss, t) => ss + (t.exercises || []).length, 0), 0);
+
+            const subjectsHtml = subjects.map((subject) => {
+                const subthemes = subject.subthemes || [];
+                const subExCount = subthemes.reduce((sum, t) => sum + (t.exercises || []).length, 0);
+
+                const subthemesHtml = subthemes.map((subtheme) => {
+                    const exCount = (subtheme.exercises || []).length;
+                    return `<li class="program-subtheme">
+                        <span class="program-subtheme-title">${this._escapeText(subtheme.title)}</span>
+                        <span class="program-subtheme-count">${exCount} ex.</span>
+                    </li>`;
+                }).join('');
+
+                return `<div class="program-subject">
+                    <div class="program-subject-head">
+                        <span class="program-subject-icon" aria-hidden="true">${this._escapeText(subject.icon || '')}</span>
+                        <span class="program-subject-title">${this._escapeText(subject.title)}</span>
+                        <span class="program-subject-count">${subExCount} exercices</span>
+                    </div>
+                    <ul class="program-subtheme-list">${subthemesHtml}</ul>
+                </div>`;
+            }).join('');
+
+            return `<div class="program-grade">
+                <div class="program-grade-head">
+                    <span class="program-grade-icon" aria-hidden="true">${this._escapeText(grade.icon || '')}</span>
+                    <span class="program-grade-title">${this._escapeText(grade.title)}</span>
+                    <span class="program-grade-count">${totalExercises} exercices au total</span>
+                </div>
+                ${subjectsHtml}
+            </div>`;
+        }).join('');
     }
 };
 

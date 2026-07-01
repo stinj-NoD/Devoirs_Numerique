@@ -140,6 +140,7 @@ const UIDocumentary = {
         const words = Array.isArray(d.words) ? d.words : [];
         const picked = Array.isArray(d.picked) ? d.picked : [];
         const revealed = !!d.revealed;
+        const isStorySequence = !!d.isStorySequence;
         const pickedIds = new Set(picked.map((w) => w.id));
         const available = words.filter((w) => !pickedIds.has(w.id));
 
@@ -147,34 +148,37 @@ const UIDocumentary = {
             ? d.sentence
             : (typeof d.sentence === 'string' ? d.sentence.trim().split(/\s+/) : words.map((w) => w.label));
 
+        const tokenCls = isStorySequence ? 'word-order-token word-order-token--sentence' : 'word-order-token';
+        const joiner = isStorySequence ? '' : ' ';
+
         let pickedHtml;
         if (picked.length) {
             pickedHtml = picked.map((w, pos) => {
-                let cls = 'word-order-token word-order-token--picked';
+                let cls = `${tokenCls} word-order-token--picked`;
                 if (revealed) {
                     const isCorrect = correctOrder[pos] === w.label;
                     cls += isCorrect ? ' is-correct' : ' is-incorrect';
                 }
                 const interactive = revealed ? 'disabled' : `data-val="word-order-remove:${pos}"`;
                 return `<button class="${cls}" ${interactive}>${this._escape(w.label)}</button>`;
-            }).join('');
+            }).join(joiner);
         } else {
-            pickedHtml = `<span class="word-order-placeholder">Touche les mots ci-dessous pour former la phrase&hellip;</span>`;
+            pickedHtml = `<span class="word-order-placeholder">${isStorySequence ? 'Touche les phrases ci-dessous pour reconstituer le récit&hellip;' : 'Touche les mots ci-dessous pour former la phrase&hellip;'}</span>`;
         }
 
         const availableHtml = available.map((w) => `
-            <button class="word-order-token word-order-token--available" data-val="word-order-pick:${this._safeAttr(w.id)}">
+            <button class="${tokenCls} word-order-token--available" data-val="word-order-pick:${this._safeAttr(w.id)}">
                 ${this._escape(w.label)}
             </button>
         `).join('');
 
         const correctPhraseHtml = revealed && !available.length
-            ? `<div class="word-order-correct-phrase">${this._escape(correctOrder.join(' '))}</div>`
+            ? `<div class="word-order-correct-phrase">${correctOrder.map((s) => this._escape(s)).join(isStorySequence ? '<br>' : ' ')}</div>`
             : '';
 
         return `
-            <div class="word-order-card">
-                <div class="word-order-helper">Construis la phrase en touchant les mots dans le bon ordre.</div>
+            <div class="word-order-card${isStorySequence ? ' word-order-card--story' : ''}">
+                <div class="word-order-helper">${isStorySequence ? 'Reconstitue le récit en touchant les phrases dans le bon ordre.' : 'Construis la phrase en touchant les mots dans le bon ordre.'}</div>
                 <div class="word-order-sentence">
                     ${pickedHtml}
                 </div>

@@ -33,7 +33,10 @@
 <div id="app">
     <header>
         <button id="btn-back" type="button" class="btn btn--header btn-header" aria-label="Retour">←</button>
-        <strong id="app-title">DEVOIR NUMÉRIQUE</strong>
+        <span class="header-title-group">
+            <span id="header-avatar" class="header-avatar is-hidden" aria-hidden="true"></span>
+            <strong id="app-title">DEVOIR NUMÉRIQUE</strong>
+        </span>
         <button id="btn-home" type="button" class="btn btn--header btn-header" aria-label="Menu">☰</button>
     </header>
     <div id="nav-sheet" class="nav-sheet" hidden aria-hidden="true">
@@ -93,14 +96,52 @@
                 aria-label="Ajouter un profil"
             >+</button>
         </div>
+        <button id="btn-open-parents" type="button" class="parents-link-btn">
+            👨‍👩‍👧 Espace parents
+        </button>
+    </section>
+
+    <section id="screen-parents-pin" class="screen">
+        <h2>Espace parents</h2>
+        <p class="screen-lead">Entre le code parent pour voir le suivi de progression.</p>
+        <div id="parents-pin-display" class="parents-pin-display" aria-live="polite"></div>
+        <div id="parents-pin-error" class="parents-pin-error is-hidden" role="alert">Code incorrect, réessaie.</div>
+        <div id="parents-pin-keypad" class="parents-pin-keypad"></div>
+        <p class="parents-pin-hint" id="parents-pin-hint"></p>
+    </section>
+
+    <section id="screen-parents" class="screen">
+        <h2>Suivi des enfants</h2>
+        <p class="screen-lead">Progression cumulée sur toutes les classes, profil par profil.</p>
+        <div id="parents-dashboard-list" class="parents-dashboard-list"></div>
+        <button id="btn-parents-export" type="button" class="btn card card--action">
+            <span class="card-title">💾 EXPORTER LES DONNÉES</span>
+        </button>
+        <a id="parents-export-link" class="u-hidden" download="devoir-numerique-export.json" aria-hidden="true"></a>
+        <button id="btn-parents-program" type="button" class="btn card card--action">
+            <span class="card-title">📘 VOIR LE PROGRAMME COUVERT</span>
+        </button>
+        <button id="btn-parents-change-pin" type="button" class="btn card card--action">
+            <span class="card-title">CHANGER LE CODE PARENT</span>
+        </button>
+    </section>
+
+    <section id="screen-parents-program" class="screen">
+        <h2>Programme couvert</h2>
+        <p class="screen-lead">Toutes les matières et notions abordées, du CP au CM2.</p>
+        <div id="parents-program-content" class="parents-program-content"></div>
+        <button id="btn-parents-program-back" type="button" class="btn card card--action">
+            <span class="card-title">← RETOUR AU SUIVI</span>
+        </button>
     </section>
 
     <section id="screen-profile-customize" class="screen">
         <h2>Personnalise ton profil</h2>
         <p id="profile-customize-lead" class="screen-lead"></p>
         <div class="profile-customize-section">
-            <div class="profile-customize-title">Choisis un avatar</div>
-            <div id="profile-customize-avatars" class="profile-customize-avatars"></div>
+            <div class="profile-customize-title">Ton compagnon</div>
+            <div id="profile-customize-starter" class="profile-customize-starter u-hidden"></div>
+            <div id="profile-customize-companion" class="profile-customize-companion u-hidden"></div>
         </div>
         <div class="profile-customize-section">
             <div class="profile-customize-title">Choisis une couleur</div>
@@ -119,6 +160,7 @@
     <section id="screen-mode" class="screen">
         <h2>Choisis ton parcours</h2>
         <p class="screen-intro">Tu peux d'abord comprendre avec une leçon ou t'entraîner avec des exercices.</p>
+        <div id="daily-challenge-card" class="daily-challenge-card is-hidden"></div>
         <div id="mode-list" class="mode-grid"></div>
     </section>
     <section id="screen-champion-setup" class="screen">
@@ -212,10 +254,15 @@
             <div class="collection-section-title">Cartes du monde</div>
             <div id="collection-maps-list" class="collection-maps-list"></div>
         </div>
+        <div class="collection-section">
+            <div class="collection-section-title">Champions de matière</div>
+            <div id="collection-subjects-list" class="collection-maps-list"></div>
+        </div>
     </section>
 
     <section id="screen-results" class="screen screen-results">
         <h1 id="result-title" class="result-title">Terminé !</h1>
+        <div id="mascot-reaction" class="mascot-reaction" aria-live="polite"></div>
         <p id="result-lead" class="screen-lead">Tu as fini cet entraînement. Regarde ton score et continue.</p>
         <div id="stars-container" class="results-stars"></div>
         <p id="result-score" class="result-score"></p>

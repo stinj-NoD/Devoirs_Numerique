@@ -454,7 +454,7 @@
             return { valid: false, reason: 'category manquante pour cloze-fill-in.' };
         }
         if (exercise.engine === 'board-interactive') {
-            if (!this.isNonEmptyString(exercise.params.type) || !['tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete', 'map-locate', 'memory-match', 'fraction-build'].includes(exercise.params.type)) {
+            if (!this.isNonEmptyString(exercise.params.type) || !['tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete', 'map-locate', 'memory-match', 'fraction-build', 'angle-classify'].includes(exercise.params.type)) {
                 return { valid: false, reason: 'type board-interactive invalide.' };
             }
             if (exercise.params.type !== 'fraction-build' && !this.isNonEmptyString(exercise.params.category)) {
