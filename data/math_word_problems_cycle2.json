@@ -1,127 +1,279 @@
-﻿{
+{
     "title": "Problèmes mathématiques cycle 2",
     "subjectId": "math",
     "categories": {
         "cp-problemes-simples": [
             {
                 "question": "Léo a 5 billes. Sa sœur lui en donne 3. Combien en a-t-il maintenant ?",
-                "choices": ["8", "2", "7"],
+                "choices": [
+                    "8",
+                    "2",
+                    "7"
+                ],
                 "answer": "8",
                 "explanation": "On ajoute 3 à 5 car la sœur donne des billes en plus : 5 + 3 = 8."
             },
             {
                 "question": "Dans le panier, il y a 9 pommes. Maman en mange 2. Combien reste-t-il de pommes ?",
-                "choices": ["7", "11", "6"],
+                "choices": [
+                    "7",
+                    "11",
+                    "6"
+                ],
                 "answer": "7",
                 "explanation": "On retire 2 pommes du panier car elles sont mangées : 9 - 2 = 7."
             },
             {
                 "question": "Tom a 4 voitures. Son ami lui en offre 4 autres. Combien de voitures a-t-il en tout ?",
-                "choices": ["8", "4", "0"],
+                "choices": [
+                    "8",
+                    "4",
+                    "0"
+                ],
                 "answer": "8",
                 "explanation": "On additionne les deux quantités de voitures : 4 + 4 = 8."
             },
             {
                 "question": "Il y a 10 oiseaux sur la branche. 3 oiseaux s'envolent. Combien reste-t-il d'oiseaux ?",
-                "choices": ["7", "13", "3"],
+                "choices": [
+                    "7",
+                    "13",
+                    "3"
+                ],
                 "answer": "7",
                 "explanation": "Les oiseaux qui s'envolent ne sont plus là : 10 - 3 = 7."
             },
             {
                 "question": "Léa a 6 bonbons. Elle en achète encore 5. Combien de bonbons a-t-elle maintenant ?",
-                "choices": ["11", "1", "10"],
+                "choices": [
+                    "11",
+                    "1",
+                    "10"
+                ],
                 "answer": "11",
                 "explanation": "Acheter, c'est ajouter des bonbons : 6 + 5 = 11."
             },
             {
                 "question": "Dans la classe, il y a 8 crayons rouges et 2 crayons bleus. Combien de crayons en tout ?",
-                "choices": ["10", "6", "9"],
+                "choices": [
+                    "10",
+                    "6",
+                    "9"
+                ],
                 "answer": "10",
                 "explanation": "On réunit les crayons rouges et bleus : 8 + 2 = 10."
             },
             {
                 "question": "Sami avait 12 images. Il en donne 4 à son copain. Combien lui en reste-t-il ?",
-                "choices": ["8", "16", "9"],
+                "choices": [
+                    "8",
+                    "16",
+                    "9"
+                ],
                 "answer": "8",
                 "explanation": "Donner des images, c'est en avoir moins : 12 - 4 = 8."
             },
             {
                 "question": "Il y a 7 canards dans la mare. 6 autres canards arrivent. Combien de canards maintenant ?",
-                "choices": ["13", "1", "12"],
+                "choices": [
+                    "13",
+                    "1",
+                    "12"
+                ],
                 "answer": "13",
                 "explanation": "Des canards arrivent en plus, donc on additionne : 7 + 6 = 13."
             },
             {
                 "question": "Manon a 15 perles. Elle en perd 5 dans le jardin. Combien de perles lui reste-t-il ?",
-                "choices": ["10", "20", "11"],
+                "choices": [
+                    "10",
+                    "20",
+                    "11"
+                ],
                 "answer": "10",
                 "explanation": "Perdre des perles, c'est en avoir moins : 15 - 5 = 10."
             },
             {
                 "question": "Il y a 9 enfants dans la cour. 8 autres enfants arrivent pour jouer. Combien d'enfants en tout ?",
-                "choices": ["17", "1", "16"],
+                "choices": [
+                    "17",
+                    "1",
+                    "16"
+                ],
                 "answer": "17",
                 "explanation": "On additionne les enfants déjà présents et ceux qui arrivent : 9 + 8 = 17."
+            },
+            {
+                "question": "Léa a 4 billes. Elle en gagne 3 à la récré. Combien en a-t-elle ?",
+                "choices": [
+                    "7",
+                    "6",
+                    "8"
+                ],
+                "answer": "7"
+            },
+            {
+                "question": "Il y a 9 oiseaux sur le fil. 4 s'envolent. Combien en reste-t-il ?",
+                "choices": [
+                    "5",
+                    "6",
+                    "4"
+                ],
+                "answer": "5"
+            },
+            {
+                "question": "Tom a 2 voitures rouges et 5 voitures bleues. Combien de voitures en tout ?",
+                "choices": [
+                    "7",
+                    "8",
+                    "6"
+                ],
+                "answer": "7"
+            },
+            {
+                "question": "Maman achète 10 pommes. On en mange 6. Combien en reste-t-il ?",
+                "choices": [
+                    "4",
+                    "5",
+                    "3"
+                ],
+                "answer": "4"
+            },
+            {
+                "question": "Dans la classe, il y a 6 filles et 6 garçons. Combien d'élèves en tout ?",
+                "choices": [
+                    "12",
+                    "11",
+                    "13"
+                ],
+                "answer": "12"
+            },
+            {
+                "question": "J'ai 8 crayons. J'en prête 2 à mon voisin. Combien m'en reste-t-il ?",
+                "choices": [
+                    "6",
+                    "5",
+                    "7"
+                ],
+                "answer": "6"
+            },
+            {
+                "question": "Le fermier a 3 poules et chacune pond 1 œuf. Combien d'œufs ce matin ?",
+                "choices": [
+                    "3",
+                    "2",
+                    "4"
+                ],
+                "answer": "3"
+            },
+            {
+                "question": "Paul a 5 images. Il lui en faut 10 pour remplir sa page. Combien lui en manque-t-il ?",
+                "choices": [
+                    "5",
+                    "4",
+                    "6"
+                ],
+                "answer": "5"
             }
         ],
         "ce1-problemes-additifs": [
             {
                 "question": "Inès a 24 € dans sa tirelire. Elle reçoit 15 € pour son anniversaire. Combien a-t-elle maintenant ?",
-                "choices": ["39 €", "9 €", "29 €"],
+                "choices": [
+                    "39 €",
+                    "9 €",
+                    "29 €"
+                ],
                 "answer": "39 €",
                 "explanation": "Recevoir de l'argent en plus s'ajoute à la somme déjà présente : 24 + 15 = 39."
             },
             {
                 "question": "Un car parcourt 35 km le matin et 28 km l'après-midi. Quelle distance parcourt-il en tout ?",
-                "choices": ["63 km", "7 km", "53 km"],
+                "choices": [
+                    "63 km",
+                    "7 km",
+                    "53 km"
+                ],
                 "answer": "63 km",
                 "explanation": "On additionne les deux distances parcourues dans la journée : 35 + 28 = 63."
             },
             {
                 "question": "Dans la classe, il y a 32 livres. La maîtresse en range 9 dans une autre étagère. Combien reste-t-il de livres sur l'étagère de départ ?",
-                "choices": ["23", "41", "22"],
+                "choices": [
+                    "23",
+                    "41",
+                    "22"
+                ],
                 "answer": "23",
                 "explanation": "Ranger ailleurs, c'est retirer des livres de l'étagère de départ : 32 - 9 = 23."
             },
             {
                 "question": "Au marché, Paul achète des légumes pour 18 € et des fruits pour 14 €. Combien dépense-t-il en tout ?",
-                "choices": ["32 €", "4 €", "22 €"],
+                "choices": [
+                    "32 €",
+                    "4 €",
+                    "22 €"
+                ],
                 "answer": "32 €",
                 "explanation": "On additionne les deux dépenses pour connaître le total : 18 + 14 = 32."
             },
             {
                 "question": "Une école compte 56 élèves. 23 élèves partent en sortie scolaire. Combien reste-t-il d'élèves à l'école ?",
-                "choices": ["33", "79", "43"],
+                "choices": [
+                    "33",
+                    "79",
+                    "43"
+                ],
                 "answer": "33",
                 "explanation": "Les élèves partis ne sont plus à l'école, on les soustrait : 56 - 23 = 33."
             },
             {
                 "question": "Lina a parcouru 42 m à vélo puis encore 30 m. Quelle distance a-t-elle parcourue en tout ?",
-                "choices": ["72 m", "12 m", "62 m"],
+                "choices": [
+                    "72 m",
+                    "12 m",
+                    "62 m"
+                ],
                 "answer": "72 m",
                 "explanation": "On additionne les deux distances parcourues : 42 + 30 = 72."
             },
             {
                 "question": "Un boulanger a fait 48 croissants. Il en vend 19 le matin. Combien lui en reste-t-il ?",
-                "choices": ["29", "67", "39"],
+                "choices": [
+                    "29",
+                    "67",
+                    "39"
+                ],
                 "answer": "29",
                 "explanation": "Vendre, c'est enlever des croissants du stock : 48 - 19 = 29."
             },
             {
                 "question": "Léo collectionne des cartes. Il en avait 37, puis il en gagne 25. Combien de cartes a-t-il maintenant ?",
-                "choices": ["62", "12", "52"],
+                "choices": [
+                    "62",
+                    "12",
+                    "52"
+                ],
                 "answer": "62",
                 "explanation": "Gagner des cartes s'ajoute à la collection : 37 + 25 = 62."
             },
             {
                 "question": "Une bibliothèque a 90 BD. 36 BD sont prêtées aux élèves. Combien de BD restent à la bibliothèque ?",
-                "choices": ["54", "126", "64"],
+                "choices": [
+                    "54",
+                    "126",
+                    "64"
+                ],
                 "answer": "54",
                 "explanation": "Les BD prêtées ne sont plus sur les étagères : 90 - 36 = 54."
             },
             {
                 "question": "Sami a 27 billes rouges et 19 billes vertes. Combien de billes a-t-il en tout ?",
-                "choices": ["46", "8", "36"],
+                "choices": [
+                    "46",
+                    "8",
+                    "36"
+                ],
                 "answer": "46",
                 "explanation": "On réunit les deux groupes de billes pour avoir le total : 27 + 19 = 46."
             }
@@ -129,61 +281,101 @@
         "ce1-problemes-mixtes": [
             {
                 "question": "Mia range ses jouets en 3 paquets de 4 figurines. Combien de figurines a-t-elle en tout ?",
-                "choices": ["12", "7", "16"],
+                "choices": [
+                    "12",
+                    "7",
+                    "16"
+                ],
                 "answer": "12",
                 "explanation": "3 paquets de 4, c'est 4 + 4 + 4 = 12 (ou 3 × 4 = 12)."
             },
             {
                 "question": "Un fleuriste a 50 fleurs. Il en utilise 18 pour un bouquet, puis 12 pour un autre. Combien de fleurs lui reste-t-il ?",
-                "choices": ["20", "80", "30"],
+                "choices": [
+                    "20",
+                    "80",
+                    "30"
+                ],
                 "answer": "20",
                 "explanation": "On enlève d'abord 18, puis encore 12 : 50 - 18 = 32, puis 32 - 12 = 20."
             },
             {
                 "question": "Le double de 14 billes, combien cela fait-il de billes ?",
-                "choices": ["28", "16", "7"],
+                "choices": [
+                    "28",
+                    "16",
+                    "7"
+                ],
                 "answer": "28",
                 "explanation": "Le double, c'est deux fois la même quantité : 14 + 14 = 28."
             },
             {
                 "question": "Dans la cour, il y a 4 groupes de 5 enfants. Combien d'enfants en tout ?",
-                "choices": ["20", "9", "25"],
+                "choices": [
+                    "20",
+                    "9",
+                    "25"
+                ],
                 "answer": "20",
                 "explanation": "4 groupes de 5, c'est 5 + 5 + 5 + 5 = 20 (ou 4 × 5 = 20)."
             },
             {
                 "question": "Léa a 45 images. Elle en colle 20 dans son album, puis sa sœur lui en donne 10. Combien d'images a-t-elle maintenant ?",
-                "choices": ["35", "75", "55"],
+                "choices": [
+                    "35",
+                    "75",
+                    "55"
+                ],
                 "answer": "35",
                 "explanation": "On enlève d'abord les images collées puis on ajoute celles données : 45 - 20 = 25, puis 25 + 10 = 35."
             },
             {
                 "question": "Un jardinier plante 3 rangées de 6 fleurs. Combien de fleurs plante-t-il en tout ?",
-                "choices": ["18", "9", "21"],
+                "choices": [
+                    "18",
+                    "9",
+                    "21"
+                ],
                 "answer": "18",
                 "explanation": "3 rangées de 6, c'est 6 + 6 + 6 = 18 (ou 3 × 6 = 18)."
             },
             {
                 "question": "Un sac contient 60 billes. On en retire 25, puis on en ajoute 15. Combien de billes reste-t-il dans le sac ?",
-                "choices": ["50", "100", "70"],
+                "choices": [
+                    "50",
+                    "100",
+                    "70"
+                ],
                 "answer": "50",
                 "explanation": "On retire d'abord 25, puis on ajoute 15 : 60 - 25 = 35, puis 35 + 15 = 50."
             },
             {
                 "question": "Quelle est la moitié de 26 bonbons ?",
-                "choices": ["13", "52", "11"],
+                "choices": [
+                    "13",
+                    "52",
+                    "11"
+                ],
                 "answer": "13",
                 "explanation": "La moitié, c'est partager en deux parts égales : 26 partagé en 2 fois 13."
             },
             {
                 "question": "Un magasin reçoit 5 boîtes de 8 stylos. Combien de stylos en tout ?",
-                "choices": ["40", "13", "35"],
+                "choices": [
+                    "40",
+                    "13",
+                    "35"
+                ],
                 "answer": "40",
                 "explanation": "5 boîtes de 8, c'est 8 + 8 + 8 + 8 + 8 = 40 (ou 5 × 8 = 40)."
             },
             {
                 "question": "Tom a 70 €. Il achète un jeu à 25 € et un livre à 15 €. Combien d'argent lui reste-t-il ?",
-                "choices": ["30 €", "60 €", "40 €"],
+                "choices": [
+                    "30 €",
+                    "60 €",
+                    "40 €"
+                ],
                 "answer": "30 €",
                 "explanation": "On retire les deux achats l'un après l'autre : 70 - 25 = 45, puis 45 - 15 = 30."
             }
@@ -191,61 +383,101 @@
         "ce2-monnaie": [
             {
                 "question": "Tu achètes une gomme à 0,50 € et un crayon à 1,20 €. Combien dépenses-tu en tout ?",
-                "choices": ["1,70 €", "0,70 €", "1,20 €"],
+                "choices": [
+                    "1,70 €",
+                    "0,70 €",
+                    "1,20 €"
+                ],
                 "answer": "1,70 €",
                 "explanation": "0,50 + 1,20 = 1,70 €."
             },
             {
                 "question": "Tu paies avec une pièce de 2 €. Tu achètes un stylo à 1,30 €. Quelle monnaie reçois-tu ?",
-                "choices": ["0,70 €", "1,30 €", "0,30 €"],
+                "choices": [
+                    "0,70 €",
+                    "1,30 €",
+                    "0,30 €"
+                ],
                 "answer": "0,70 €",
                 "explanation": "2,00 - 1,30 = 0,70 €."
             },
             {
                 "question": "Un livre coûte 3 €. Tu donnes un billet de 5 €. Combien te rend-on ?",
-                "choices": ["2 €", "3 €", "5 €"],
+                "choices": [
+                    "2 €",
+                    "3 €",
+                    "5 €"
+                ],
                 "answer": "2 €",
                 "explanation": "5 - 3 = 2 €."
             },
             {
                 "question": "Emma a 4,50 €. Elle achète un jus à 1,50 €. Combien lui reste-t-il ?",
-                "choices": ["3 €", "6 €", "2,50 €"],
+                "choices": [
+                    "3 €",
+                    "6 €",
+                    "2,50 €"
+                ],
                 "answer": "3 €",
                 "explanation": "4,50 - 1,50 = 3 €."
             },
             {
                 "question": "Un sandwich coûte 2,50 €. Tu donnes 3 pièces de 1 €. Quelle monnaie reçois-tu ?",
-                "choices": ["0,50 €", "0,50 centime", "1,50 €"],
+                "choices": [
+                    "0,50 €",
+                    "0,50 centime",
+                    "1,50 €"
+                ],
                 "answer": "0,50 €",
                 "explanation": "3,00 - 2,50 = 0,50 €."
             },
             {
                 "question": "Léo a 2 pièces de 50 centimes et 1 pièce de 20 centimes. Combien a-t-il en tout ?",
-                "choices": ["1,20 €", "0,70 €", "1,50 €"],
+                "choices": [
+                    "1,20 €",
+                    "0,70 €",
+                    "1,50 €"
+                ],
                 "answer": "1,20 €",
                 "explanation": "0,50 + 0,50 + 0,20 = 1,20 €."
             },
             {
                 "question": "Une boule de glace coûte 1 €. Tu en prends 3. Tu paies avec un billet de 5 €. Combien te rend-on ?",
-                "choices": ["2 €", "3 €", "4 €"],
+                "choices": [
+                    "2 €",
+                    "3 €",
+                    "4 €"
+                ],
                 "answer": "2 €",
                 "explanation": "3 boules : 3 × 1 = 3 €. Monnaie : 5 - 3 = 2 €."
             },
             {
                 "question": "Une peluche coûte 8,50 €. Maman a un bon de réduction de 2 €. Combien paie-t-elle ?",
-                "choices": ["6,50 €", "10,50 €", "7 €"],
+                "choices": [
+                    "6,50 €",
+                    "10,50 €",
+                    "7 €"
+                ],
                 "answer": "6,50 €",
                 "explanation": "8,50 - 2,00 = 6,50 €."
             },
             {
                 "question": "Paul a 5 pièces de 20 centimes. A-t-il assez pour payer un gâteau à 1,20 € ?",
-                "choices": ["Non, il lui manque 0,20 €", "Oui, exactement", "Oui, il lui reste 0,20 €"],
+                "choices": [
+                    "Non, il lui manque 0,20 €",
+                    "Oui, exactement",
+                    "Oui, il lui reste 0,20 €"
+                ],
                 "answer": "Non, il lui manque 0,20 €",
                 "explanation": "5 × 0,20 = 1,00 €. Le gâteau coûte 1,20 €. Il manque 0,20 €."
             },
             {
                 "question": "Tu achètes 2 croissants à 0,80 € chacun. Tu paies avec 2 €. Quelle monnaie reçois-tu ?",
-                "choices": ["0,40 €", "0,80 €", "1,60 €"],
+                "choices": [
+                    "0,40 €",
+                    "0,80 €",
+                    "1,60 €"
+                ],
                 "answer": "0,40 €",
                 "explanation": "2 × 0,80 = 1,60 €. Monnaie : 2,00 - 1,60 = 0,40 €."
             }

@@ -2155,6 +2155,44 @@
                                 "dataFile": "data/geography_matching.json",
                                 "questions": 2
                             }
+                        },
+                        {
+                            "id": "ce1-geo-mer-montagne",
+                            "title": "Mer, montagne, campagne",
+                            "subtitle": "Reconnaître les grands paysages",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_ce1.json",
+                                "category": "ce1-mer-montagne",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-geo-village-ville",
+                            "title": "Village ou ville ?",
+                            "subtitle": "Comparer deux façons de vivre",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_ce1.json",
+                                "category": "ce1-village-ville",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-paysages-france",
+                            "title": "Défi : paysages de France",
+                            "subtitle": "Mer, montagne, ville et village",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_ce1.json",
+                                "category": "ce1-mer-montagne",
+                                "questions": 8
+                            },
+                            "isBonus": true,
+                            "bonusThreshold": 2
                         }
                     ],
                     "lessons": [
@@ -3104,6 +3142,18 @@
                                 "category": "ce1-dialogue-politesse",
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "ce1-emc-securite-urgence",
+                            "title": "Les bons réflexes",
+                            "subtitle": "Numéros d'urgence et sécurité",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce1.json",
+                                "category": "ce1-securite-urgence",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -3173,6 +3223,32 @@
                                 "category": "ce1-dialogue-politesse",
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "ce1-emc-respect-differences",
+                            "title": "Tous différents, tous ensemble",
+                            "subtitle": "Respecter les différences",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce1.json",
+                                "category": "ce1-respect-differences",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-differences-defi",
+                            "title": "Défi : vivre ensemble",
+                            "subtitle": "Différences, entraide et respect",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce1.json",
+                                "category": "ce1-respect-differences",
+                                "questions": 8
+                            },
+                            "isBonus": true,
+                            "bonusThreshold": 2
                         }
                     ],
                     "lessons": [

@@ -1,4 +1,4 @@
-﻿{
+{
     "subjectId": "french",
     "gradeId": "cp",
     "title": "Français CP - Grammaire",
@@ -310,28 +310,282 @@
             }
         ],
         "cp_lire_mots_simples": [
-            { "question": "Quel mot vois-tu ici ? « chat »", "choices": ["chat", "chant", "char"], "answer": "chat", "explanation": "Le mot « chat » se termine par un t muet. Il ne faut pas confondre avec « chant » (qui a un n) ou « char » (sans t)." },
-            { "question": "Quel mot vois-tu ici ? « pain »", "choices": ["pain", "bain", "main"], "answer": "pain", "explanation": "Le mot « pain » commence par p. « Bain » commence par b et « main » commence par m : ils se ressemblent mais sont différents." },
-            { "question": "Quel mot vois-tu ici ? « roue »", "choices": ["roue", "roux", "rou"], "answer": "roue", "explanation": "Le mot « roue » s'écrit avec un e final. « Roux » s'écrit avec x et a un autre sens." },
-            { "question": "Quel mot vois-tu ici ? « pied »", "choices": ["pied", "pier", "piet"], "answer": "pied", "explanation": "Le mot « pied » se termine par -ied. Attention aux mots proches comme « pier » ou « piet » qui n'existent pas en français." },
-            { "question": "Quel mot vois-tu ici ? « lune »", "choices": ["lune", "lane", "line"], "answer": "lune", "explanation": "Le mot « lune » contient la voyelle u. « Lane » et « line » ont des voyelles différentes." },
-            { "question": "Quel mot vois-tu ici ? « bras »", "choices": ["bras", "gras", "brac"], "answer": "bras", "explanation": "Le mot « bras » commence par br et se termine par s muet. « Gras » commence par gr : c'est un autre mot." },
-            { "question": "Quel mot vois-tu ici ? « fleur »", "choices": ["fleur", "flour", "fluor"], "answer": "fleur", "explanation": "Le mot « fleur » s'écrit avec eu. « Flour » et « fluor » ont des combinaisons de lettres différentes." },
-            { "question": "Quel mot vois-tu ici ? « maison »", "choices": ["maison", "maïson", "maisn"], "answer": "maison", "explanation": "Le mot « maison » s'écrit avec ai et on. C'est un mot fréquent à bien mémoriser." },
-            { "question": "Quel mot vois-tu ici ? « école »", "choices": ["école", "ecole", "écolle"], "answer": "école", "explanation": "Le mot « école » commence par é (avec un accent). Sans accent, « ecole » est une faute d'orthographe." },
-            { "question": "Quel mot vois-tu ici ? « ours »", "choices": ["ours", "oeur", "oures"], "answer": "ours", "explanation": "Le mot « ours » s'écrit avec ou et se termine par s. C'est un mot court à bien reconnaître." }
+            {
+                "question": "Quel mot vois-tu ici ? « chat »",
+                "choices": [
+                    "chat",
+                    "chant",
+                    "char"
+                ],
+                "answer": "chat",
+                "explanation": "Le mot « chat » se termine par un t muet. Il ne faut pas confondre avec « chant » (qui a un n) ou « char » (sans t)."
+            },
+            {
+                "question": "Quel mot vois-tu ici ? « pain »",
+                "choices": [
+                    "pain",
+                    "bain",
+                    "main"
+                ],
+                "answer": "pain",
+                "explanation": "Le mot « pain » commence par p. « Bain » commence par b et « main » commence par m : ils se ressemblent mais sont différents."
+            },
+            {
+                "question": "Quel mot vois-tu ici ? « roue »",
+                "choices": [
+                    "roue",
+                    "roux",
+                    "rou"
+                ],
+                "answer": "roue",
+                "explanation": "Le mot « roue » s'écrit avec un e final. « Roux » s'écrit avec x et a un autre sens."
+            },
+            {
+                "question": "Quel mot vois-tu ici ? « pied »",
+                "choices": [
+                    "pied",
+                    "pier",
+                    "piet"
+                ],
+                "answer": "pied",
+                "explanation": "Le mot « pied » se termine par -ied. Attention aux mots proches comme « pier » ou « piet » qui n'existent pas en français."
+            },
+            {
+                "question": "Quel mot vois-tu ici ? « lune »",
+                "choices": [
+                    "lune",
+                    "lane",
+                    "line"
+                ],
+                "answer": "lune",
+                "explanation": "Le mot « lune » contient la voyelle u. « Lane » et « line » ont des voyelles différentes."
+            },
+            {
+                "question": "Quel mot vois-tu ici ? « bras »",
+                "choices": [
+                    "bras",
+                    "gras",
+                    "brac"
+                ],
+                "answer": "bras",
+                "explanation": "Le mot « bras » commence par br et se termine par s muet. « Gras » commence par gr : c'est un autre mot."
+            },
+            {
+                "question": "Quel mot vois-tu ici ? « fleur »",
+                "choices": [
+                    "fleur",
+                    "flour",
+                    "fluor"
+                ],
+                "answer": "fleur",
+                "explanation": "Le mot « fleur » s'écrit avec eu. « Flour » et « fluor » ont des combinaisons de lettres différentes."
+            },
+            {
+                "question": "Quel mot vois-tu ici ? « maison »",
+                "choices": [
+                    "maison",
+                    "maïson",
+                    "maisn"
+                ],
+                "answer": "maison",
+                "explanation": "Le mot « maison » s'écrit avec ai et on. C'est un mot fréquent à bien mémoriser."
+            },
+            {
+                "question": "Quel mot vois-tu ici ? « école »",
+                "choices": [
+                    "école",
+                    "ecole",
+                    "écolle"
+                ],
+                "answer": "école",
+                "explanation": "Le mot « école » commence par é (avec un accent). Sans accent, « ecole » est une faute d'orthographe."
+            },
+            {
+                "question": "Quel mot vois-tu ici ? « ours »",
+                "choices": [
+                    "ours",
+                    "oeur",
+                    "oures"
+                ],
+                "answer": "ours",
+                "explanation": "Le mot « ours » s'écrit avec ou et se termine par s. C'est un mot court à bien reconnaître."
+            }
         ],
         "cp_comprendre_phrase": [
-            { "question": "« Le chat boit du lait. » Qu'est-ce que le chat boit ?", "choices": ["du lait", "de l'eau", "du jus"], "answer": "du lait", "explanation": "La phrase dit que le chat boit du lait. Il faut lire toute la phrase pour trouver la réponse." },
-            { "question": "« La fille joue dans le jardin. » Où est la fille ?", "choices": ["dans le jardin", "dans la maison", "à l'école"], "answer": "dans le jardin", "explanation": "La phrase dit que la fille joue dans le jardin. Le mot « dans » indique où elle se trouve." },
-            { "question": "« Le chien dort sur le canapé. » Où dort le chien ?", "choices": ["sur le canapé", "dans son panier", "sous la table"], "answer": "sur le canapé", "explanation": "La phrase dit que le chien dort sur le canapé. « Sur » indique l'endroit précis." },
-            { "question": "« Maman prépare un gâteau. » Que prépare maman ?", "choices": ["un gâteau", "une soupe", "une salade"], "answer": "un gâteau", "explanation": "La phrase dit que maman prépare un gâteau. Le verbe « prépare » indique ce qu'elle fait." },
-            { "question": "« Paul a un chapeau rouge. » De quelle couleur est le chapeau ?", "choices": ["rouge", "bleu", "vert"], "answer": "rouge", "explanation": "La phrase précise que le chapeau est rouge. Les adjectifs de couleur décrivent l'objet." },
-            { "question": "« Le soleil brille dans le ciel. » Où brille le soleil ?", "choices": ["dans le ciel", "dans la mer", "derrière la maison"], "answer": "dans le ciel", "explanation": "La phrase dit que le soleil brille dans le ciel. « Dans » indique où se passe l'action." },
-            { "question": "« Léa mange une pomme. » Que mange Léa ?", "choices": ["une pomme", "une poire", "une banane"], "answer": "une pomme", "explanation": "La phrase dit que Léa mange une pomme. Le mot après le verbe « mange » indique ce qu'elle mange." },
-            { "question": "« Le lapin saute dans le pré. » Que fait le lapin ?", "choices": ["il saute", "il dort", "il mange"], "answer": "il saute", "explanation": "Le verbe « saute » indique l'action du lapin. C'est ce que fait le lapin dans cette phrase." },
-            { "question": "« Mon frère lit un livre. » Qui lit le livre ?", "choices": ["mon frère", "ma sœur", "papa"], "answer": "mon frère", "explanation": "Le sujet de la phrase est « mon frère » : c'est lui qui fait l'action de lire." },
-            { "question": "« Les oiseaux chantent le matin. » Quand chantent les oiseaux ?", "choices": ["le matin", "le soir", "la nuit"], "answer": "le matin", "explanation": "La phrase dit que les oiseaux chantent le matin. « Le matin » indique le moment de l'action." }
+            {
+                "question": "« Le chat boit du lait. » Qu'est-ce que le chat boit ?",
+                "choices": [
+                    "du lait",
+                    "de l'eau",
+                    "du jus"
+                ],
+                "answer": "du lait",
+                "explanation": "La phrase dit que le chat boit du lait. Il faut lire toute la phrase pour trouver la réponse."
+            },
+            {
+                "question": "« La fille joue dans le jardin. » Où est la fille ?",
+                "choices": [
+                    "dans le jardin",
+                    "dans la maison",
+                    "à l'école"
+                ],
+                "answer": "dans le jardin",
+                "explanation": "La phrase dit que la fille joue dans le jardin. Le mot « dans » indique où elle se trouve."
+            },
+            {
+                "question": "« Le chien dort sur le canapé. » Où dort le chien ?",
+                "choices": [
+                    "sur le canapé",
+                    "dans son panier",
+                    "sous la table"
+                ],
+                "answer": "sur le canapé",
+                "explanation": "La phrase dit que le chien dort sur le canapé. « Sur » indique l'endroit précis."
+            },
+            {
+                "question": "« Maman prépare un gâteau. » Que prépare maman ?",
+                "choices": [
+                    "un gâteau",
+                    "une soupe",
+                    "une salade"
+                ],
+                "answer": "un gâteau",
+                "explanation": "La phrase dit que maman prépare un gâteau. Le verbe « prépare » indique ce qu'elle fait."
+            },
+            {
+                "question": "« Paul a un chapeau rouge. » De quelle couleur est le chapeau ?",
+                "choices": [
+                    "rouge",
+                    "bleu",
+                    "vert"
+                ],
+                "answer": "rouge",
+                "explanation": "La phrase précise que le chapeau est rouge. Les adjectifs de couleur décrivent l'objet."
+            },
+            {
+                "question": "« Le soleil brille dans le ciel. » Où brille le soleil ?",
+                "choices": [
+                    "dans le ciel",
+                    "dans la mer",
+                    "derrière la maison"
+                ],
+                "answer": "dans le ciel",
+                "explanation": "La phrase dit que le soleil brille dans le ciel. « Dans » indique où se passe l'action."
+            },
+            {
+                "question": "« Léa mange une pomme. » Que mange Léa ?",
+                "choices": [
+                    "une pomme",
+                    "une poire",
+                    "une banane"
+                ],
+                "answer": "une pomme",
+                "explanation": "La phrase dit que Léa mange une pomme. Le mot après le verbe « mange » indique ce qu'elle mange."
+            },
+            {
+                "question": "« Le lapin saute dans le pré. » Que fait le lapin ?",
+                "choices": [
+                    "il saute",
+                    "il dort",
+                    "il mange"
+                ],
+                "answer": "il saute",
+                "explanation": "Le verbe « saute » indique l'action du lapin. C'est ce que fait le lapin dans cette phrase."
+            },
+            {
+                "question": "« Mon frère lit un livre. » Qui lit le livre ?",
+                "choices": [
+                    "mon frère",
+                    "ma sœur",
+                    "papa"
+                ],
+                "answer": "mon frère",
+                "explanation": "Le sujet de la phrase est « mon frère » : c'est lui qui fait l'action de lire."
+            },
+            {
+                "question": "« Les oiseaux chantent le matin. » Quand chantent les oiseaux ?",
+                "choices": [
+                    "le matin",
+                    "le soir",
+                    "la nuit"
+                ],
+                "answer": "le matin",
+                "explanation": "La phrase dit que les oiseaux chantent le matin. « Le matin » indique le moment de l'action."
+            }
+        ],
+        "cp_comprendre_histoire": [
+            {
+                "question": "« Le chat dort sur le tapis. » Où dort le chat ?",
+                "choices": [
+                    "sur le tapis",
+                    "sur le lit",
+                    "dans le jardin"
+                ],
+                "answer": "sur le tapis"
+            },
+            {
+                "question": "« Lila met ses bottes car il pleut. » Pourquoi met-elle ses bottes ?",
+                "choices": [
+                    "parce qu'il pleut",
+                    "parce qu'il neige",
+                    "pour danser"
+                ],
+                "answer": "parce qu'il pleut"
+            },
+            {
+                "question": "« Papa coupe le pain avec un couteau. » Que coupe papa ?",
+                "choices": [
+                    "le pain",
+                    "le gâteau",
+                    "le papier"
+                ],
+                "answer": "le pain"
+            },
+            {
+                "question": "« Le soir, Nino lit une histoire avec sa maman. » Quand Nino lit-il ?",
+                "choices": [
+                    "le soir",
+                    "le matin",
+                    "à midi"
+                ],
+                "answer": "le soir"
+            },
+            {
+                "question": "« Zoé donne une carotte au lapin. » Qui mange la carotte ?",
+                "choices": [
+                    "le lapin",
+                    "Zoé",
+                    "le chien"
+                ],
+                "answer": "le lapin"
+            },
+            {
+                "question": "« Il fait froid, Tom ferme la fenêtre. » Pourquoi Tom ferme-t-il la fenêtre ?",
+                "choices": [
+                    "parce qu'il fait froid",
+                    "parce qu'il fait nuit",
+                    "pour jouer"
+                ],
+                "answer": "parce qu'il fait froid"
+            },
+            {
+                "question": "« La maîtresse écrit la date au tableau. » Où écrit-elle la date ?",
+                "choices": [
+                    "au tableau",
+                    "dans le cahier",
+                    "sur la porte"
+                ],
+                "answer": "au tableau"
+            },
+            {
+                "question": "« Sami perd sa dent et sourit. » Comment se sent Sami ?",
+                "choices": [
+                    "content",
+                    "fâché",
+                    "triste"
+                ],
+                "answer": "content"
+            }
         ]
     }
 }

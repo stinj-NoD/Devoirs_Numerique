@@ -4293,6 +4293,44 @@
                                 "category": "cm1-vivre-ensemble",
                                 "questions": 12
                             }
+                        },
+                        {
+                            "id": "cm1-emc-egalite-respect",
+                            "title": "Égalité et respect",
+                            "subtitle": "Filles-garçons, préjugés, harcèlement",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-egalite-respect",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-emc-alerte-secours",
+                            "title": "Alerter et secourir",
+                            "subtitle": "Les gestes qui sauvent",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-alerte-secours",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-egalite-defi",
+                            "title": "Défi : citoyens solidaires",
+                            "subtitle": "Égalité, respect et premiers secours",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-egalite-respect",
+                                "questions": 8
+                            },
+                            "isBonus": true,
+                            "bonusThreshold": 2
                         }
                     ]
                 },

@@ -1157,6 +1157,18 @@
                                 "category": "cp-problemes-simples",
                                 "questions": 10
                             }
+                        },
+                        {
+                            "id": "cp-problemes-quotidien",
+                            "title": "Problèmes du quotidien",
+                            "subtitle": "Lire, réfléchir, calculer",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle2.json",
+                                "category": "cp-problemes-simples",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -2059,6 +2071,18 @@
                                 "category": "cp_comprendre_phrase",
                                 "questions": 5
                             }
+                        },
+                        {
+                            "id": "cp-lecture-comprendre-histoire",
+                            "title": "Comprendre une petite histoire",
+                            "subtitle": "Qui ? Où ? Pourquoi ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/french_cp_grammar.json",
+                                "category": "cp_comprendre_histoire",
+                                "questions": 5
+                            }
                         }
                     ],
                     "lessons": [
@@ -2322,6 +2346,32 @@
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "id": "cp-bonus-jours-saisons-defi"
+                        },
+                        {
+                            "id": "cp-histoire-generations",
+                            "title": "Les générations",
+                            "subtitle": "Bébé, enfant, parent, grand-parent",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cp.json",
+                                "category": "cp-generations",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-bonus-generations-defi",
+                            "title": "Défi : la famille dans le temps",
+                            "subtitle": "Générations et souvenirs",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cp.json",
+                                "category": "cp-generations",
+                                "questions": 8
+                            },
+                            "isBonus": true,
+                            "bonusThreshold": 2
                         }
                     ],
                     "lessons": [
@@ -2441,6 +2491,18 @@
                                 "dataFile": "data/history_cp.json",
                                 "category": "cp-vie-autrefois",
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cp-histoire-metiers-autrefois",
+                            "title": "Les métiers d'autrefois",
+                            "subtitle": "Des métiers qui ont disparu",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cp.json",
+                                "category": "cp-metiers-autrefois",
+                                "questions": 6
                             }
                         }
                     ],

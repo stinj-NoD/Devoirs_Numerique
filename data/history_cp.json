@@ -1,619 +1,783 @@
-﻿{
-    "subjectId":  "history",
-    "gradeId":  "cp",
-    "title":  "Histoire CP",
-    "categories":  {
-                       "cp-avant-apres":  [
-                                              {
-                                                  "question":  "Quand on parle de ce qui est arrivé hier, parle-t-on du passé ou du futur ?",
-                                                  "choices":  [
-                                                                  "Du passé",
-                                                                  "Du futur",
-                                                                  "De demain"
-                                                              ],
-                                                  "answer":  "Du passé",
-                                                  "explanation":  "Hier, c'est avant aujourd'hui. Tout ce qui est arrivé avant appartient au passé."
-                                              },
-                                              {
-                                                  "question":  "Pour raconter ce qui va arriver demain, on parle de...",
-                                                  "choices":  [
-                                                                  "l'avenir",
-                                                                  "hier",
-                                                                  "avant"
-                                                              ],
-                                                  "answer":  "l'avenir",
-                                                  "explanation":  "Demain n'est pas encore arrivé. On appelle cela l'avenir ou le futur."
-                                              },
-                                              {
-                                                  "question":  "Le bébé devient plus tard...",
-                                                  "choices":  [
-                                                                  "un enfant",
-                                                                  "un nuage",
-                                                                  "une voiture"
-                                                              ],
-                                                  "answer":  "un enfant",
-                                                  "explanation":  "Un bébé grandit et devient un enfant, puis un adulte. C'est l'ordre du temps."
-                                              },
-                                              {
-                                                  "question":  "Une photo de quand papi était petit montre...",
-                                                  "choices":  [
-                                                                  "le passé",
-                                                                  "la nuit",
-                                                                  "le futur"
-                                                              ],
-                                                  "answer":  "le passé",
-                                                  "explanation":  "Une vieille photo montre un moment qui a déjà eu lieu. C'est une trace du passé."
-                                              },
-                                              {
-                                                  "question":  "Avant aujourd'hui, il y avait...",
-                                                  "choices":  [
-                                                                  "hier",
-                                                                  "demain",
-                                                                  "la semaine prochaine"
-                                                              ],
-                                                  "answer":  "hier",
-                                                  "explanation":  "Hier est le jour juste avant aujourd'hui. Demain est le jour d'après."
-                                              },
-                                              {
-                                                  "question":  "Sur une frise du temps, ce qui vient avant est placé...",
-                                                  "choices":  [
-                                                                  "à gauche",
-                                                                  "à droite",
-                                                                  "au milieu toujours"
-                                                              ],
-                                                  "answer":  "à gauche",
-                                                  "explanation":  "Sur une frise du temps, on lit de gauche à droite. Le passé est à gauche, le futur à droite."
-                                              },
-                                              {
-                                                  "question":  "Avant le petit-déjeuner, il se passe...",
-                                                  "choices":  [
-                                                                  "le matin",
-                                                                  "la nuit",
-                                                                  "demain"
-                                                              ],
-                                                  "answer":  "le matin",
-                                                  "explanation":  "Le petit-déjeuner se prend le matin. C'est le premier repas de la journée."
-                                              },
-                                              {
-                                                  "question":  "Après hier vient...",
-                                                  "choices":  [
-                                                                  "aujourd'hui",
-                                                                  "le Moyen Âge",
-                                                                  "le train"
-                                                              ],
-                                                  "answer":  "aujourd'hui",
-                                                  "explanation":  "Hier est le jour avant. Juste après hier, c'est aujourd'hui. C'est l'ordre des jours."
-                                              },
-                                              {
-                                                  "question":  "Ce matin, c'était avant ou après cet après-midi ?",
-                                                  "choices":  [
-                                                                  "Avant",
-                                                                  "Après",
-                                                                  "En même temps"
-                                                              ],
-                                                  "answer":  "Avant",
-                                                  "explanation":  "La matinée arrive toujours avant l'après-midi dans une journée."
-                                              },
-                                              {
-                                                  "question":  "Dans une journée, qu'est-ce qui vient en premier ?",
-                                                  "choices":  [
-                                                                  "Le matin",
-                                                                  "Le soir",
-                                                                  "La nuit"
-                                                              ],
-                                                  "answer":  "Le matin",
-                                                  "explanation":  "Une journée commence par le matin, puis vient l'après-midi, et enfin le soir."
-                                              }
-                                          ],
-                       "cp-vie-autrefois":  [
-                                                {
-                                                    "question":  "Autrefois, beaucoup de gens écrivaient avec...",
-                                                    "choices":  [
-                                                                    "un porte-plume",
-                                                                    "une tablette tactile",
-                                                                    "un clavier"
-                                                                ],
-                                                    "answer":  "un porte-plume",
-                                                    "explanation":  "Avant les stylos et les ordinateurs, on écrivait avec une plume trempée dans l'encre."
-                                                },
-                                                {
-                                                    "question":  "Autrefois, on envoyait souvent des nouvelles par...",
-                                                    "choices":  [
-                                                                    "lettre",
-                                                                    "message instantané",
-                                                                    "visioconférence"
-                                                                ],
-                                                    "answer":  "lettre",
-                                                    "explanation":  "Avant internet, on s'écrivait des lettres envoyées par la poste pour donner des nouvelles."
-                                                },
-                                                {
-                                                    "question":  "Un objet ancien dans une maison peut être...",
-                                                    "choices":  [
-                                                                    "un vieux téléphone",
-                                                                    "un satellite",
-                                                                    "un drone"
-                                                                ],
-                                                    "answer":  "un vieux téléphone",
-                                                    "explanation":  "Un vieux téléphone est un objet du passé. Les satellites et drones sont des inventions récentes."
-                                                },
-                                                {
-                                                    "question":  "Le château fort fait penser plutôt...",
-                                                    "choices":  [
-                                                                    "au passé",
-                                                                    "au futur",
-                                                                    "à l'espace"
-                                                                ],
-                                                    "answer":  "au passé",
-                                                    "explanation":  "Les châteaux forts ont été construits il y a très longtemps. Ils sont des traces du passé."
-                                                },
-                                                {
-                                                    "question":  "Pour savoir comment on vivait avant, on peut regarder...",
-                                                    "choices":  [
-                                                                    "des photos anciennes",
-                                                                    "des bulles de savon",
-                                                                    "des ombres"
-                                                                ],
-                                                    "answer":  "des photos anciennes",
-                                                    "explanation":  "Les photos anciennes montrent comment les gens vivaient, s'habillaient et travaillaient avant."
-                                                },
-                                                {
-                                                    "question":  "Un moulin ancien fait penser...",
-                                                    "choices":  [
-                                                                    "au passé",
-                                                                    "à demain",
-                                                                    "à l'espace"
-                                                                ],
-                                                    "answer":  "au passé",
-                                                    "explanation":  "Les moulins à vent étaient utilisés autrefois pour moudre le grain. Ce sont des traces du passé."
-                                                },
-                                                {
-                                                    "question":  "Autrefois, pour éclairer une pièce, on utilisait souvent...",
-                                                    "choices":  [
-                                                                    "une bougie",
-                                                                    "une tablette",
-                                                                    "un robot"
-                                                                ],
-                                                    "answer":  "une bougie",
-                                                    "explanation":  "Avant l'électricité, on utilisait des bougies et des lampes à huile pour s'éclairer."
-                                                },
-                                                {
-                                                    "question":  "Une radio ancienne servait à...",
-                                                    "choices":  [
-                                                                    "écouter les informations",
-                                                                    "faire du calcul",
-                                                                    "jouer au football"
-                                                                ],
-                                                    "answer":  "écouter les informations",
-                                                    "explanation":  "Autrefois, la radio permettait d'écouter de la musique et les informations sans avoir la télévision."
-                                                },
-                                                {
-                                                    "question":  "Autrefois, les enfants allaient souvent chercher de l'eau...",
-                                                    "choices":  [
-                                                                    "à la fontaine",
-                                                                    "au supermarché",
-                                                                    "dans le frigo"
-                                                                ],
-                                                    "answer":  "à la fontaine",
-                                                    "explanation":  "Avant les robinets dans les maisons, on allait chercher l'eau à la fontaine du village."
-                                                },
-                                                {
-                                                    "question":  "Autrefois, le lait était souvent livré...",
-                                                    "choices":  [
-                                                                    "par le laitier à la porte",
-                                                                    "par satellite",
-                                                                    "par drone"
-                                                                ],
-                                                    "answer":  "par le laitier à la porte",
-                                                    "explanation":  "Avant les supermarchés, le laitier passait chaque matin livrer le lait frais à la maison."
-                                                }
-                                            ],
-                       "cp-personnages-traces":  [
-                                                     {
-                                                         "question":  "Un monument ancien est une trace...",
-                                                         "choices":  [
-                                                                         "du passé",
-                                                                         "de la cantine",
-                                                                         "de la météo"
-                                                                     ],
-                                                         "answer":  "du passé",
-                                                         "explanation":  "Un vieux monument a été construit il y a longtemps. Il nous rappelle comment vivaient les gens avant."
-                                                     },
-                                                     {
-                                                         "question":  "Une statue très ancienne peut raconter...",
-                                                         "choices":  [
-                                                                         "l'histoire",
-                                                                         "une recette",
-                                                                         "un match"
-                                                                     ],
-                                                         "answer":  "l'histoire",
-                                                         "explanation":  "Les statues représentent des personnages ou des événements importants du passé."
-                                                     },
-                                                     {
-                                                         "question":  "Dans un musée, on peut voir...",
-                                                         "choices":  [
-                                                                         "des objets anciens",
-                                                                         "des devoirs de maths seulement",
-                                                                         "des fusées toujours"
-                                                                     ],
-                                                         "answer":  "des objets anciens",
-                                                         "explanation":  "Le musée conserve des objets et des œuvres du passé pour que tout le monde puisse les voir."
-                                                     },
-                                                     {
-                                                         "question":  "Une vieille pièce de monnaie est...",
-                                                         "choices":  [
-                                                                         "un objet du passé",
-                                                                         "un objet du futur",
-                                                                         "un animal"
-                                                                     ],
-                                                         "answer":  "un objet du passé",
-                                                         "explanation":  "Une vieille pièce était utilisée autrefois pour payer. Elle nous renseigne sur le passé."
-                                                     },
-                                                     {
-                                                         "question":  "Un château ancien nous aide à connaître...",
-                                                         "choices":  [
-                                                                         "la vie d'autrefois",
-                                                                         "la table de 9",
-                                                                         "les saisons de demain"
-                                                                     ],
-                                                         "answer":  "la vie d'autrefois",
-                                                         "explanation":  "Observer un vieux château nous apprend comment les gens vivaient, se défendaient et habitaient avant."
-                                                     },
-                                                     {
-                                                         "question":  "Une trace du passé peut être...",
-                                                         "choices":  [
-                                                                         "un vieux bâtiment",
-                                                                         "un nuage",
-                                                                         "un bruit"
-                                                                     ],
-                                                         "answer":  "un vieux bâtiment",
-                                                         "explanation":  "Un vieux bâtiment existe depuis longtemps. Il est une trace visible du passé."
-                                                     },
-                                                     {
-                                                         "question":  "Un vieux monument peut être une trace de...",
-                                                         "choices":  [
-                                                                         "l'histoire",
-                                                                         "de la météo",
-                                                                         "du football"
-                                                                     ],
-                                                         "answer":  "l'histoire",
-                                                         "explanation":  "Les vieux monuments nous montrent ce qui était important pour les gens qui vivaient avant nous."
-                                                     },
-                                                     {
-                                                         "question":  "Un document ancien aide à comprendre...",
-                                                         "choices":  [
-                                                                         "le passé",
-                                                                         "la pluie",
-                                                                         "les saisons de demain"
-                                                                     ],
-                                                         "answer":  "le passé",
-                                                         "explanation":  "Un vieux document, comme une lettre ou un livre ancien, raconte comment les choses se passaient avant."
-                                                     },
-                                                     {
-                                                         "question":  "On appelle «historien» quelqu'un qui...",
-                                                         "choices":  [
-                                                                         "étudie le passé",
-                                                                         "prédit la météo",
-                                                                         "construit des maisons"
-                                                                     ],
-                                                         "answer":  "étudie le passé",
-                                                         "explanation":  "Un historien cherche à comprendre comment les gens vivaient avant, grâce aux traces qu'ils ont laissées."
-                                                     },
-                                                     {
-                                                         "question":  "Un tableau peint très ancien peut montrer...",
-                                                         "choices":  [
-                                                                         "une scène du passé",
-                                                                         "une chanson",
-                                                                         "un calcul"
-                                                                     ],
-                                                         "answer":  "une scène du passé",
-                                                         "explanation":  "Les vieux tableaux représentent des gens, des paysages ou des événements tels qu'ils étaient autrefois."
-                                                     }
-                                                 ],
-                       "cp-jours-saisons":  [
-                                                {
-                                                    "question":  "Lundi, mardi et mercredi sont...",
-                                                    "choices":  [
-                                                                    "des jours de la semaine",
-                                                                    "des mois",
-                                                                    "des années"
-                                                                ],
-                                                    "answer":  "des jours de la semaine",
-                                                    "explanation":  "Une semaine compte 7 jours : lundi, mardi, mercredi, jeudi, vendredi, samedi et dimanche."
-                                                },
-                                                {
-                                                    "question":  "L'hiver, le printemps, l'été et l'automne sont...",
-                                                    "choices":  [
-                                                                    "les saisons",
-                                                                    "les continents",
-                                                                    "les planètes"
-                                                                ],
-                                                    "answer":  "les saisons",
-                                                    "explanation":  "L'année est découpée en 4 saisons. Chacune a son climat et ses particularités."
-                                                },
-                                                {
-                                                    "question":  "Après le printemps vient souvent...",
-                                                    "choices":  [
-                                                                    "l'été",
-                                                                    "l'hiver",
-                                                                    "la nuit"
-                                                                ],
-                                                    "answer":  "l'été",
-                                                    "explanation":  "Les saisons se suivent toujours dans le même ordre : printemps, été, automne, hiver."
-                                                },
-                                                {
-                                                    "question":  "Un calendrier aide à...",
-                                                    "choices":  [
-                                                                    "se repérer dans le temps",
-                                                                    "mesurer une route",
-                                                                    "dessiner un animal"
-                                                                ],
-                                                    "answer":  "se repérer dans le temps",
-                                                    "explanation":  "Le calendrier montre les jours, les semaines et les mois pour savoir où on en est dans l'année."
-                                                },
-                                                {
-                                                    "question":  "Une année compte...",
-                                                    "choices":  [
-                                                                    "plusieurs mois",
-                                                                    "deux jours",
-                                                                    "une seule saison"
-                                                                ],
-                                                    "answer":  "plusieurs mois",
-                                                    "explanation":  "Une année compte 12 mois. Il y a 4 saisons et 365 jours environ dans une année."
-                                                },
-                                                {
-                                                    "question":  "Les saisons reviennent...",
-                                                    "choices":  [
-                                                                    "chaque année",
-                                                                    "chaque heure",
-                                                                    "une seule fois"
-                                                                ],
-                                                    "answer":  "chaque année",
-                                                    "explanation":  "Les saisons forment un cycle qui recommence chaque année : printemps, été, automne, hiver."
-                                                },
-                                                {
-                                                    "question":  "Après mercredi vient...",
-                                                    "choices":  [
-                                                                    "jeudi",
-                                                                    "octobre",
-                                                                    "l'été"
-                                                                ],
-                                                    "answer":  "jeudi",
-                                                    "explanation":  "Les jours de la semaine s'enchaînent toujours dans le même ordre. Après mercredi vient jeudi."
-                                                },
-                                                {
-                                                    "question":  "Au printemps, les fleurs...",
-                                                    "choices":  [
-                                                                    "poussent",
-                                                                    "dorment",
-                                                                    "gèlent"
-                                                                ],
-                                                    "answer":  "poussent",
-                                                    "explanation":  "Au printemps, il fait plus chaud et il pleut. Les plantes se réveillent et fleurissent."
-                                                },
-                                                {
-                                                    "question":  "En hiver, la nature est souvent...",
-                                                    "choices":  [
-                                                                    "froide et endormie",
-                                                                    "chaude et fleurie",
-                                                                    "pluvieuse et verte"
-                                                                ],
-                                                    "answer":  "froide et endormie",
-                                                    "explanation":  "En hiver, les températures baissent. Les arbres perdent leurs feuilles et la nature se repose."
-                                                },
-                                                {
-                                                    "question":  "Quel jour vient après vendredi ?",
-                                                    "choices":  [
-                                                                    "Samedi",
-                                                                    "Lundi",
-                                                                    "Mercredi"
-                                                                ],
-                                                    "answer":  "Samedi",
-                                                    "explanation":  "Vendredi est le dernier jour d'école de la semaine. Après vient samedi, le début du week-end."
-                                                }
-                                            ],
-                       "cp-photos-souvenirs":  [
-                                                   {
-                                                       "question":  "Une photo de bébé montre...",
-                                                       "choices":  [
-                                                                       "un moment du passé",
-                                                                       "un trajet en bus",
-                                                                       "une addition"
-                                                                   ],
-                                                       "answer":  "un moment du passé",
-                                                       "explanation":  "Une photo de bébé montre comment on était avant. C'est une trace du passé."
-                                                   },
-                                                   {
-                                                       "question":  "Un album de famille aide à...",
-                                                       "choices":  [
-                                                                       "garder des souvenirs",
-                                                                       "faire pousser des arbres",
-                                                                       "mesurer la pluie"
-                                                                   ],
-                                                       "answer":  "garder des souvenirs",
-                                                       "explanation":  "L'album de famille rassemble des photos de moments importants pour ne pas les oublier."
-                                                   },
-                                                   {
-                                                       "question":  "Regarder une vieille photo permet de voir...",
-                                                       "choices":  [
-                                                                       "ce qui a changé",
-                                                                       "la météo de demain",
-                                                                       "la table de 7"
-                                                                   ],
-                                                       "answer":  "ce qui a changé",
-                                                       "explanation":  "En comparant une vieille photo avec aujourd'hui, on voit comment les gens ou les lieux ont changé."
-                                                   },
-                                                   {
-                                                       "question":  "Une photo de classe ancienne est une trace...",
-                                                       "choices":  [
-                                                                       "du passé",
-                                                                       "d'un calcul",
-                                                                       "d'un paysage"
-                                                                   ],
-                                                       "answer":  "du passé",
-                                                       "explanation":  "Une vieille photo de classe montre des élèves et une école tels qu'ils étaient autrefois."
-                                                   },
-                                                   {
-                                                       "question":  "Conserver un souvenir aide à...",
-                                                       "choices":  [
-                                                                       "se rappeler un moment",
-                                                                       "changer les saisons",
-                                                                       "effacer le temps"
-                                                                   ],
-                                                       "answer":  "se rappeler un moment",
-                                                       "explanation":  "Garder un souvenir, comme une photo ou un dessin, aide à ne pas oublier des moments importants."
-                                                   },
-                                                   {
-                                                       "question":  "Les souvenirs racontent souvent...",
-                                                       "choices":  [
-                                                                       "une histoire vécue",
-                                                                       "une recette seulement",
-                                                                       "un règlement sportif"
-                                                                   ],
-                                                       "answer":  "une histoire vécue",
-                                                       "explanation":  "Un souvenir, c'est le récit d'une chose qui s'est vraiment passée dans la vie de quelqu'un."
-                                                   },
-                                                   {
-                                                       "question":  "Une photo de mariage garde...",
-                                                       "choices":  [
-                                                                       "un souvenir",
-                                                                       "une addition",
-                                                                       "un trajet"
-                                                                   ],
-                                                       "answer":  "un souvenir",
-                                                       "explanation":  "La photo de mariage permet de se rappeler ce jour spécial même beaucoup plus tard."
-                                                   },
-                                                   {
-                                                       "question":  "On regarde un album pour...",
-                                                       "choices":  [
-                                                                       "se rappeler des moments",
-                                                                       "faire la vaisselle",
-                                                                       "calculer la date"
-                                                                   ],
-                                                       "answer":  "se rappeler des moments",
-                                                       "explanation":  "Feuilleter un album de photos permet de revivre des moments du passé et de partager des souvenirs."
-                                                   },
-                                                   {
-                                                       "question":  "Un objet gardé en souvenir s'appelle...",
-                                                       "choices":  [
-                                                                       "un souvenir",
-                                                                       "un outil",
-                                                                       "un légume"
-                                                                   ],
-                                                       "answer":  "un souvenir",
-                                                       "explanation":  "On garde parfois un caillou, un ticket ou un dessin pour se rappeler d'un moment spécial."
-                                                   },
-                                                   {
-                                                       "question":  "Les souvenirs peuvent être gardés dans...",
-                                                       "choices":  [
-                                                                       "un album ou une boîte",
-                                                                       "le frigo",
-                                                                       "un cartable vide"
-                                                                   ],
-                                                       "answer":  "un album ou une boîte",
-                                                       "explanation":  "On range souvent les souvenirs (photos, dessins, billets) dans un album ou une boîte à souvenirs."
-                                                   }
-                                               ],
-                       "cp-objets-anciens":  [
-                                                 {
-                                                     "question":  "Un objet ancien vient...",
-                                                     "choices":  [
-                                                                     "d'autrefois",
-                                                                     "de demain",
-                                                                     "de la mer"
-                                                                 ],
-                                                     "answer":  "d'autrefois",
-                                                     "explanation":  "Un objet ancien a été fabriqué et utilisé il y a longtemps. Il appartient au passé."
-                                                 },
-                                                 {
-                                                     "question":  "Une vieille clé peut être...",
-                                                     "choices":  [
-                                                                     "un objet du passé",
-                                                                     "une saison",
-                                                                     "un animal"
-                                                                 ],
-                                                     "answer":  "un objet du passé",
-                                                     "explanation":  "Une vieille clé en métal rouillé vient souvent du passé. Elle servait à ouvrir des serrures d'autrefois."
-                                                 },
-                                                 {
-                                                     "question":  "Observer un objet ancien aide à...",
-                                                     "choices":  [
-                                                                     "mieux connaître la vie d'autrefois",
-                                                                     "faire une addition",
-                                                                     "dessiner une carte"
-                                                                 ],
-                                                     "answer":  "mieux connaître la vie d'autrefois",
-                                                     "explanation":  "En regardant un objet ancien, on comprend à quoi il servait et comment on vivait à cette époque."
-                                                 },
-                                                 {
-                                                     "question":  "Un objet utilisé il y a longtemps est...",
-                                                     "choices":  [
-                                                                     "une trace du passé",
-                                                                     "un trajet",
-                                                                     "une couleur"
-                                                                 ],
-                                                     "answer":  "une trace du passé",
-                                                     "explanation":  "Les objets anciens nous informent sur la vie des gens avant nous. Ce sont des traces du passé."
-                                                 },
-                                                 {
-                                                     "question":  "Des objets anciens peuvent être gardés dans...",
-                                                     "choices":  [
-                                                                     "un musée",
-                                                                     "une forêt",
-                                                                     "une piscine"
-                                                                 ],
-                                                     "answer":  "un musée",
-                                                     "explanation":  "Le musée conserve les objets anciens pour que tout le monde puisse les voir et apprendre de l'histoire."
-                                                 },
-                                                 {
-                                                     "question":  "Regarder des objets anciens permet de...",
-                                                     "choices":  [
-                                                                     "voir ce qui a changé",
-                                                                     "arrêter le temps",
-                                                                     "faire tomber la pluie"
-                                                                 ],
-                                                     "answer":  "voir ce qui a changé",
-                                                     "explanation":  "En comparant les objets anciens aux objets d'aujourd'hui, on voit comment la vie a évolué."
-                                                 },
-                                                 {
-                                                     "question":  "Un objet de musée peut être...",
-                                                     "choices":  [
-                                                                     "très ancien",
-                                                                     "en plastique magique",
-                                                                     "un repas"
-                                                                 ],
-                                                     "answer":  "très ancien",
-                                                     "explanation":  "Les musées conservent des objets qui ont parfois des centaines ou des milliers d'années."
-                                                 },
-                                                 {
-                                                     "question":  "Une montre à gousset est...",
-                                                     "choices":  [
-                                                                     "un objet du passé",
-                                                                     "une planète",
-                                                                     "une saison"
-                                                                 ],
-                                                     "answer":  "un objet du passé",
-                                                     "explanation":  "La montre à gousset était portée dans la poche avant les montres-bracelets. C'est un objet ancien."
-                                                 },
-                                                 {
-                                                     "question":  "Un vieux livre peut nous apprendre...",
-                                                     "choices":  [
-                                                                     "des choses sur le passé",
-                                                                     "à faire du vélo",
-                                                                     "à nager"
-                                                                 ],
-                                                     "answer":  "des choses sur le passé",
-                                                     "explanation":  "Un livre écrit autrefois parle de comment les gens vivaient, pensaient et s'exprimaient à cette époque."
-                                                 },
-                                                 {
-                                                     "question":  "Quand on dit qu'un objet est «ancien», cela veut dire qu'il est...",
-                                                     "choices":  [
-                                                                     "vieux",
-                                                                     "tout neuf",
-                                                                     "invisible"
-                                                                 ],
-                                                     "answer":  "vieux",
-                                                     "explanation":  "Un objet ancien est un objet fabriqué depuis longtemps. Il est vieux et vient du passé."
-                                                 }
-                                             ]
-                   }
+{
+    "subjectId": "history",
+    "gradeId": "cp",
+    "title": "Histoire CP",
+    "categories": {
+        "cp-avant-apres": [
+            {
+                "question": "Quand on parle de ce qui est arrivé hier, parle-t-on du passé ou du futur ?",
+                "choices": [
+                    "Du passé",
+                    "Du futur",
+                    "De demain"
+                ],
+                "answer": "Du passé",
+                "explanation": "Hier, c'est avant aujourd'hui. Tout ce qui est arrivé avant appartient au passé."
+            },
+            {
+                "question": "Pour raconter ce qui va arriver demain, on parle de...",
+                "choices": [
+                    "l'avenir",
+                    "hier",
+                    "avant"
+                ],
+                "answer": "l'avenir",
+                "explanation": "Demain n'est pas encore arrivé. On appelle cela l'avenir ou le futur."
+            },
+            {
+                "question": "Le bébé devient plus tard...",
+                "choices": [
+                    "un enfant",
+                    "un nuage",
+                    "une voiture"
+                ],
+                "answer": "un enfant",
+                "explanation": "Un bébé grandit et devient un enfant, puis un adulte. C'est l'ordre du temps."
+            },
+            {
+                "question": "Une photo de quand papi était petit montre...",
+                "choices": [
+                    "le passé",
+                    "la nuit",
+                    "le futur"
+                ],
+                "answer": "le passé",
+                "explanation": "Une vieille photo montre un moment qui a déjà eu lieu. C'est une trace du passé."
+            },
+            {
+                "question": "Avant aujourd'hui, il y avait...",
+                "choices": [
+                    "hier",
+                    "demain",
+                    "la semaine prochaine"
+                ],
+                "answer": "hier",
+                "explanation": "Hier est le jour juste avant aujourd'hui. Demain est le jour d'après."
+            },
+            {
+                "question": "Sur une frise du temps, ce qui vient avant est placé...",
+                "choices": [
+                    "à gauche",
+                    "à droite",
+                    "au milieu toujours"
+                ],
+                "answer": "à gauche",
+                "explanation": "Sur une frise du temps, on lit de gauche à droite. Le passé est à gauche, le futur à droite."
+            },
+            {
+                "question": "Avant le petit-déjeuner, il se passe...",
+                "choices": [
+                    "le matin",
+                    "la nuit",
+                    "demain"
+                ],
+                "answer": "le matin",
+                "explanation": "Le petit-déjeuner se prend le matin. C'est le premier repas de la journée."
+            },
+            {
+                "question": "Après hier vient...",
+                "choices": [
+                    "aujourd'hui",
+                    "le Moyen Âge",
+                    "le train"
+                ],
+                "answer": "aujourd'hui",
+                "explanation": "Hier est le jour avant. Juste après hier, c'est aujourd'hui. C'est l'ordre des jours."
+            },
+            {
+                "question": "Ce matin, c'était avant ou après cet après-midi ?",
+                "choices": [
+                    "Avant",
+                    "Après",
+                    "En même temps"
+                ],
+                "answer": "Avant",
+                "explanation": "La matinée arrive toujours avant l'après-midi dans une journée."
+            },
+            {
+                "question": "Dans une journée, qu'est-ce qui vient en premier ?",
+                "choices": [
+                    "Le matin",
+                    "Le soir",
+                    "La nuit"
+                ],
+                "answer": "Le matin",
+                "explanation": "Une journée commence par le matin, puis vient l'après-midi, et enfin le soir."
+            }
+        ],
+        "cp-vie-autrefois": [
+            {
+                "question": "Autrefois, beaucoup de gens écrivaient avec...",
+                "choices": [
+                    "un porte-plume",
+                    "une tablette tactile",
+                    "un clavier"
+                ],
+                "answer": "un porte-plume",
+                "explanation": "Avant les stylos et les ordinateurs, on écrivait avec une plume trempée dans l'encre."
+            },
+            {
+                "question": "Autrefois, on envoyait souvent des nouvelles par...",
+                "choices": [
+                    "lettre",
+                    "message instantané",
+                    "visioconférence"
+                ],
+                "answer": "lettre",
+                "explanation": "Avant internet, on s'écrivait des lettres envoyées par la poste pour donner des nouvelles."
+            },
+            {
+                "question": "Un objet ancien dans une maison peut être...",
+                "choices": [
+                    "un vieux téléphone",
+                    "un satellite",
+                    "un drone"
+                ],
+                "answer": "un vieux téléphone",
+                "explanation": "Un vieux téléphone est un objet du passé. Les satellites et drones sont des inventions récentes."
+            },
+            {
+                "question": "Le château fort fait penser plutôt...",
+                "choices": [
+                    "au passé",
+                    "au futur",
+                    "à l'espace"
+                ],
+                "answer": "au passé",
+                "explanation": "Les châteaux forts ont été construits il y a très longtemps. Ils sont des traces du passé."
+            },
+            {
+                "question": "Pour savoir comment on vivait avant, on peut regarder...",
+                "choices": [
+                    "des photos anciennes",
+                    "des bulles de savon",
+                    "des ombres"
+                ],
+                "answer": "des photos anciennes",
+                "explanation": "Les photos anciennes montrent comment les gens vivaient, s'habillaient et travaillaient avant."
+            },
+            {
+                "question": "Un moulin ancien fait penser...",
+                "choices": [
+                    "au passé",
+                    "à demain",
+                    "à l'espace"
+                ],
+                "answer": "au passé",
+                "explanation": "Les moulins à vent étaient utilisés autrefois pour moudre le grain. Ce sont des traces du passé."
+            },
+            {
+                "question": "Autrefois, pour éclairer une pièce, on utilisait souvent...",
+                "choices": [
+                    "une bougie",
+                    "une tablette",
+                    "un robot"
+                ],
+                "answer": "une bougie",
+                "explanation": "Avant l'électricité, on utilisait des bougies et des lampes à huile pour s'éclairer."
+            },
+            {
+                "question": "Une radio ancienne servait à...",
+                "choices": [
+                    "écouter les informations",
+                    "faire du calcul",
+                    "jouer au football"
+                ],
+                "answer": "écouter les informations",
+                "explanation": "Autrefois, la radio permettait d'écouter de la musique et les informations sans avoir la télévision."
+            },
+            {
+                "question": "Autrefois, les enfants allaient souvent chercher de l'eau...",
+                "choices": [
+                    "à la fontaine",
+                    "au supermarché",
+                    "dans le frigo"
+                ],
+                "answer": "à la fontaine",
+                "explanation": "Avant les robinets dans les maisons, on allait chercher l'eau à la fontaine du village."
+            },
+            {
+                "question": "Autrefois, le lait était souvent livré...",
+                "choices": [
+                    "par le laitier à la porte",
+                    "par satellite",
+                    "par drone"
+                ],
+                "answer": "par le laitier à la porte",
+                "explanation": "Avant les supermarchés, le laitier passait chaque matin livrer le lait frais à la maison."
+            }
+        ],
+        "cp-personnages-traces": [
+            {
+                "question": "Un monument ancien est une trace...",
+                "choices": [
+                    "du passé",
+                    "de la cantine",
+                    "de la météo"
+                ],
+                "answer": "du passé",
+                "explanation": "Un vieux monument a été construit il y a longtemps. Il nous rappelle comment vivaient les gens avant."
+            },
+            {
+                "question": "Une statue très ancienne peut raconter...",
+                "choices": [
+                    "l'histoire",
+                    "une recette",
+                    "un match"
+                ],
+                "answer": "l'histoire",
+                "explanation": "Les statues représentent des personnages ou des événements importants du passé."
+            },
+            {
+                "question": "Dans un musée, on peut voir...",
+                "choices": [
+                    "des objets anciens",
+                    "des devoirs de maths seulement",
+                    "des fusées toujours"
+                ],
+                "answer": "des objets anciens",
+                "explanation": "Le musée conserve des objets et des œuvres du passé pour que tout le monde puisse les voir."
+            },
+            {
+                "question": "Une vieille pièce de monnaie est...",
+                "choices": [
+                    "un objet du passé",
+                    "un objet du futur",
+                    "un animal"
+                ],
+                "answer": "un objet du passé",
+                "explanation": "Une vieille pièce était utilisée autrefois pour payer. Elle nous renseigne sur le passé."
+            },
+            {
+                "question": "Un château ancien nous aide à connaître...",
+                "choices": [
+                    "la vie d'autrefois",
+                    "la table de 9",
+                    "les saisons de demain"
+                ],
+                "answer": "la vie d'autrefois",
+                "explanation": "Observer un vieux château nous apprend comment les gens vivaient, se défendaient et habitaient avant."
+            },
+            {
+                "question": "Une trace du passé peut être...",
+                "choices": [
+                    "un vieux bâtiment",
+                    "un nuage",
+                    "un bruit"
+                ],
+                "answer": "un vieux bâtiment",
+                "explanation": "Un vieux bâtiment existe depuis longtemps. Il est une trace visible du passé."
+            },
+            {
+                "question": "Un vieux monument peut être une trace de...",
+                "choices": [
+                    "l'histoire",
+                    "de la météo",
+                    "du football"
+                ],
+                "answer": "l'histoire",
+                "explanation": "Les vieux monuments nous montrent ce qui était important pour les gens qui vivaient avant nous."
+            },
+            {
+                "question": "Un document ancien aide à comprendre...",
+                "choices": [
+                    "le passé",
+                    "la pluie",
+                    "les saisons de demain"
+                ],
+                "answer": "le passé",
+                "explanation": "Un vieux document, comme une lettre ou un livre ancien, raconte comment les choses se passaient avant."
+            },
+            {
+                "question": "On appelle «historien» quelqu'un qui...",
+                "choices": [
+                    "étudie le passé",
+                    "prédit la météo",
+                    "construit des maisons"
+                ],
+                "answer": "étudie le passé",
+                "explanation": "Un historien cherche à comprendre comment les gens vivaient avant, grâce aux traces qu'ils ont laissées."
+            },
+            {
+                "question": "Un tableau peint très ancien peut montrer...",
+                "choices": [
+                    "une scène du passé",
+                    "une chanson",
+                    "un calcul"
+                ],
+                "answer": "une scène du passé",
+                "explanation": "Les vieux tableaux représentent des gens, des paysages ou des événements tels qu'ils étaient autrefois."
+            }
+        ],
+        "cp-jours-saisons": [
+            {
+                "question": "Lundi, mardi et mercredi sont...",
+                "choices": [
+                    "des jours de la semaine",
+                    "des mois",
+                    "des années"
+                ],
+                "answer": "des jours de la semaine",
+                "explanation": "Une semaine compte 7 jours : lundi, mardi, mercredi, jeudi, vendredi, samedi et dimanche."
+            },
+            {
+                "question": "L'hiver, le printemps, l'été et l'automne sont...",
+                "choices": [
+                    "les saisons",
+                    "les continents",
+                    "les planètes"
+                ],
+                "answer": "les saisons",
+                "explanation": "L'année est découpée en 4 saisons. Chacune a son climat et ses particularités."
+            },
+            {
+                "question": "Après le printemps vient souvent...",
+                "choices": [
+                    "l'été",
+                    "l'hiver",
+                    "la nuit"
+                ],
+                "answer": "l'été",
+                "explanation": "Les saisons se suivent toujours dans le même ordre : printemps, été, automne, hiver."
+            },
+            {
+                "question": "Un calendrier aide à...",
+                "choices": [
+                    "se repérer dans le temps",
+                    "mesurer une route",
+                    "dessiner un animal"
+                ],
+                "answer": "se repérer dans le temps",
+                "explanation": "Le calendrier montre les jours, les semaines et les mois pour savoir où on en est dans l'année."
+            },
+            {
+                "question": "Une année compte...",
+                "choices": [
+                    "plusieurs mois",
+                    "deux jours",
+                    "une seule saison"
+                ],
+                "answer": "plusieurs mois",
+                "explanation": "Une année compte 12 mois. Il y a 4 saisons et 365 jours environ dans une année."
+            },
+            {
+                "question": "Les saisons reviennent...",
+                "choices": [
+                    "chaque année",
+                    "chaque heure",
+                    "une seule fois"
+                ],
+                "answer": "chaque année",
+                "explanation": "Les saisons forment un cycle qui recommence chaque année : printemps, été, automne, hiver."
+            },
+            {
+                "question": "Après mercredi vient...",
+                "choices": [
+                    "jeudi",
+                    "octobre",
+                    "l'été"
+                ],
+                "answer": "jeudi",
+                "explanation": "Les jours de la semaine s'enchaînent toujours dans le même ordre. Après mercredi vient jeudi."
+            },
+            {
+                "question": "Au printemps, les fleurs...",
+                "choices": [
+                    "poussent",
+                    "dorment",
+                    "gèlent"
+                ],
+                "answer": "poussent",
+                "explanation": "Au printemps, il fait plus chaud et il pleut. Les plantes se réveillent et fleurissent."
+            },
+            {
+                "question": "En hiver, la nature est souvent...",
+                "choices": [
+                    "froide et endormie",
+                    "chaude et fleurie",
+                    "pluvieuse et verte"
+                ],
+                "answer": "froide et endormie",
+                "explanation": "En hiver, les températures baissent. Les arbres perdent leurs feuilles et la nature se repose."
+            },
+            {
+                "question": "Quel jour vient après vendredi ?",
+                "choices": [
+                    "Samedi",
+                    "Lundi",
+                    "Mercredi"
+                ],
+                "answer": "Samedi",
+                "explanation": "Vendredi est le dernier jour d'école de la semaine. Après vient samedi, le début du week-end."
+            }
+        ],
+        "cp-photos-souvenirs": [
+            {
+                "question": "Une photo de bébé montre...",
+                "choices": [
+                    "un moment du passé",
+                    "un trajet en bus",
+                    "une addition"
+                ],
+                "answer": "un moment du passé",
+                "explanation": "Une photo de bébé montre comment on était avant. C'est une trace du passé."
+            },
+            {
+                "question": "Un album de famille aide à...",
+                "choices": [
+                    "garder des souvenirs",
+                    "faire pousser des arbres",
+                    "mesurer la pluie"
+                ],
+                "answer": "garder des souvenirs",
+                "explanation": "L'album de famille rassemble des photos de moments importants pour ne pas les oublier."
+            },
+            {
+                "question": "Regarder une vieille photo permet de voir...",
+                "choices": [
+                    "ce qui a changé",
+                    "la météo de demain",
+                    "la table de 7"
+                ],
+                "answer": "ce qui a changé",
+                "explanation": "En comparant une vieille photo avec aujourd'hui, on voit comment les gens ou les lieux ont changé."
+            },
+            {
+                "question": "Une photo de classe ancienne est une trace...",
+                "choices": [
+                    "du passé",
+                    "d'un calcul",
+                    "d'un paysage"
+                ],
+                "answer": "du passé",
+                "explanation": "Une vieille photo de classe montre des élèves et une école tels qu'ils étaient autrefois."
+            },
+            {
+                "question": "Conserver un souvenir aide à...",
+                "choices": [
+                    "se rappeler un moment",
+                    "changer les saisons",
+                    "effacer le temps"
+                ],
+                "answer": "se rappeler un moment",
+                "explanation": "Garder un souvenir, comme une photo ou un dessin, aide à ne pas oublier des moments importants."
+            },
+            {
+                "question": "Les souvenirs racontent souvent...",
+                "choices": [
+                    "une histoire vécue",
+                    "une recette seulement",
+                    "un règlement sportif"
+                ],
+                "answer": "une histoire vécue",
+                "explanation": "Un souvenir, c'est le récit d'une chose qui s'est vraiment passée dans la vie de quelqu'un."
+            },
+            {
+                "question": "Une photo de mariage garde...",
+                "choices": [
+                    "un souvenir",
+                    "une addition",
+                    "un trajet"
+                ],
+                "answer": "un souvenir",
+                "explanation": "La photo de mariage permet de se rappeler ce jour spécial même beaucoup plus tard."
+            },
+            {
+                "question": "On regarde un album pour...",
+                "choices": [
+                    "se rappeler des moments",
+                    "faire la vaisselle",
+                    "calculer la date"
+                ],
+                "answer": "se rappeler des moments",
+                "explanation": "Feuilleter un album de photos permet de revivre des moments du passé et de partager des souvenirs."
+            },
+            {
+                "question": "Un objet gardé en souvenir s'appelle...",
+                "choices": [
+                    "un souvenir",
+                    "un outil",
+                    "un légume"
+                ],
+                "answer": "un souvenir",
+                "explanation": "On garde parfois un caillou, un ticket ou un dessin pour se rappeler d'un moment spécial."
+            },
+            {
+                "question": "Les souvenirs peuvent être gardés dans...",
+                "choices": [
+                    "un album ou une boîte",
+                    "le frigo",
+                    "un cartable vide"
+                ],
+                "answer": "un album ou une boîte",
+                "explanation": "On range souvent les souvenirs (photos, dessins, billets) dans un album ou une boîte à souvenirs."
+            }
+        ],
+        "cp-objets-anciens": [
+            {
+                "question": "Un objet ancien vient...",
+                "choices": [
+                    "d'autrefois",
+                    "de demain",
+                    "de la mer"
+                ],
+                "answer": "d'autrefois",
+                "explanation": "Un objet ancien a été fabriqué et utilisé il y a longtemps. Il appartient au passé."
+            },
+            {
+                "question": "Une vieille clé peut être...",
+                "choices": [
+                    "un objet du passé",
+                    "une saison",
+                    "un animal"
+                ],
+                "answer": "un objet du passé",
+                "explanation": "Une vieille clé en métal rouillé vient souvent du passé. Elle servait à ouvrir des serrures d'autrefois."
+            },
+            {
+                "question": "Observer un objet ancien aide à...",
+                "choices": [
+                    "mieux connaître la vie d'autrefois",
+                    "faire une addition",
+                    "dessiner une carte"
+                ],
+                "answer": "mieux connaître la vie d'autrefois",
+                "explanation": "En regardant un objet ancien, on comprend à quoi il servait et comment on vivait à cette époque."
+            },
+            {
+                "question": "Un objet utilisé il y a longtemps est...",
+                "choices": [
+                    "une trace du passé",
+                    "un trajet",
+                    "une couleur"
+                ],
+                "answer": "une trace du passé",
+                "explanation": "Les objets anciens nous informent sur la vie des gens avant nous. Ce sont des traces du passé."
+            },
+            {
+                "question": "Des objets anciens peuvent être gardés dans...",
+                "choices": [
+                    "un musée",
+                    "une forêt",
+                    "une piscine"
+                ],
+                "answer": "un musée",
+                "explanation": "Le musée conserve les objets anciens pour que tout le monde puisse les voir et apprendre de l'histoire."
+            },
+            {
+                "question": "Regarder des objets anciens permet de...",
+                "choices": [
+                    "voir ce qui a changé",
+                    "arrêter le temps",
+                    "faire tomber la pluie"
+                ],
+                "answer": "voir ce qui a changé",
+                "explanation": "En comparant les objets anciens aux objets d'aujourd'hui, on voit comment la vie a évolué."
+            },
+            {
+                "question": "Un objet de musée peut être...",
+                "choices": [
+                    "très ancien",
+                    "en plastique magique",
+                    "un repas"
+                ],
+                "answer": "très ancien",
+                "explanation": "Les musées conservent des objets qui ont parfois des centaines ou des milliers d'années."
+            },
+            {
+                "question": "Une montre à gousset est...",
+                "choices": [
+                    "un objet du passé",
+                    "une planète",
+                    "une saison"
+                ],
+                "answer": "un objet du passé",
+                "explanation": "La montre à gousset était portée dans la poche avant les montres-bracelets. C'est un objet ancien."
+            },
+            {
+                "question": "Un vieux livre peut nous apprendre...",
+                "choices": [
+                    "des choses sur le passé",
+                    "à faire du vélo",
+                    "à nager"
+                ],
+                "answer": "des choses sur le passé",
+                "explanation": "Un livre écrit autrefois parle de comment les gens vivaient, pensaient et s'exprimaient à cette époque."
+            },
+            {
+                "question": "Quand on dit qu'un objet est «ancien», cela veut dire qu'il est...",
+                "choices": [
+                    "vieux",
+                    "tout neuf",
+                    "invisible"
+                ],
+                "answer": "vieux",
+                "explanation": "Un objet ancien est un objet fabriqué depuis longtemps. Il est vieux et vient du passé."
+            }
+        ],
+        "cp-generations": [
+            {
+                "question": "Qui est né en premier ?",
+                "choices": [
+                    "grand-père",
+                    "papa",
+                    "moi"
+                ],
+                "answer": "grand-père",
+                "explanation": "Les générations se suivent : les grands-parents, puis les parents, puis les enfants."
+            },
+            {
+                "question": "La maman de ma maman, c'est ma...",
+                "choices": [
+                    "grand-mère",
+                    "tante",
+                    "cousine"
+                ],
+                "answer": "grand-mère",
+                "explanation": "Les parents de nos parents sont nos grands-parents."
+            },
+            {
+                "question": "Quand papi avait mon âge, il était...",
+                "choices": [
+                    "un enfant, comme moi aujourd'hui",
+                    "déjà grand-père",
+                    "un bébé"
+                ],
+                "answer": "un enfant, comme moi aujourd'hui",
+                "explanation": "Tout le monde a été enfant : c'était il y a longtemps pour papi."
+            },
+            {
+                "question": "Sur une photo ancienne de famille, les personnes sont...",
+                "choices": [
+                    "plus jeunes qu'aujourd'hui",
+                    "plus vieilles qu'aujourd'hui",
+                    "pareilles"
+                ],
+                "answer": "plus jeunes qu'aujourd'hui",
+                "explanation": "La photo fige un moment du passé : depuis, chacun a grandi ou vieilli."
+            },
+            {
+                "question": "Dans l'ordre du plus jeune au plus âgé :",
+                "choices": [
+                    "bébé, enfant, parent, grand-parent",
+                    "grand-parent, bébé, parent, enfant",
+                    "parent, bébé, grand-parent, enfant"
+                ],
+                "answer": "bébé, enfant, parent, grand-parent",
+                "explanation": "On grandit dans cet ordre : bébé, enfant, adulte, puis grand-parent."
+            },
+            {
+                "question": "Mes grands-parents peuvent me raconter...",
+                "choices": [
+                    "comment c'était quand ils étaient petits",
+                    "ce qui se passera demain",
+                    "mes rêves de cette nuit"
+                ],
+                "answer": "comment c'était quand ils étaient petits",
+                "explanation": "Les aînés sont la mémoire de la famille : ils ont vécu le passé."
+            },
+            {
+                "question": "Une génération, c'est...",
+                "choices": [
+                    "les personnes qui ont à peu près le même âge dans la famille",
+                    "un jeu de société",
+                    "une saison de l'année"
+                ],
+                "answer": "les personnes qui ont à peu près le même âge dans la famille",
+                "explanation": "Enfants, parents, grands-parents : trois générations d'une même famille."
+            },
+            {
+                "question": "Qu'est-ce qui n'existait pas quand mamie était enfant ?",
+                "choices": [
+                    "les tablettes tactiles",
+                    "les livres",
+                    "les vélos"
+                ],
+                "answer": "les tablettes tactiles",
+                "explanation": "Les écrans tactiles sont récents ; les livres et les vélos existaient déjà."
+            }
+        ],
+        "cp-metiers-autrefois": [
+            {
+                "question": "Autrefois, le maréchal-ferrant s'occupait...",
+                "choices": [
+                    "des fers des chevaux",
+                    "des ordinateurs",
+                    "des avions"
+                ],
+                "answer": "des fers des chevaux",
+                "explanation": "Quand on voyageait à cheval, ce métier était très important."
+            },
+            {
+                "question": "Avant les machines à laver, on lavait le linge...",
+                "choices": [
+                    "au lavoir, à la main",
+                    "au supermarché",
+                    "avec un robot"
+                ],
+                "answer": "au lavoir, à la main",
+                "explanation": "Les lavandières frottaient le linge au lavoir du village."
+            },
+            {
+                "question": "Le rémouleur passait dans les rues pour...",
+                "choices": [
+                    "aiguiser les couteaux et les ciseaux",
+                    "vendre des glaces",
+                    "réparer les télévisions"
+                ],
+                "answer": "aiguiser les couteaux et les ciseaux",
+                "explanation": "Ce métier ambulant a presque disparu aujourd'hui."
+            },
+            {
+                "question": "Autrefois, qui apportait l'eau dans les maisons sans robinet ?",
+                "choices": [
+                    "on allait la chercher au puits ou à la fontaine",
+                    "un camion-citerne la livrait",
+                    "elle arrivait par le toit"
+                ],
+                "answer": "on allait la chercher au puits ou à la fontaine",
+                "explanation": "L'eau courante à la maison est une invention récente."
+            },
+            {
+                "question": "Le métier d'allumeur de réverbères consistait à...",
+                "choices": [
+                    "allumer les lampes des rues chaque soir",
+                    "réveiller les habitants",
+                    "éteindre les étoiles"
+                ],
+                "answer": "allumer les lampes des rues chaque soir",
+                "explanation": "Avant l'électricité, on allumait les lampadaires à gaz un par un."
+            },
+            {
+                "question": "Quel métier existe encore aujourd'hui comme autrefois ?",
+                "choices": [
+                    "boulanger",
+                    "allumeur de réverbères",
+                    "crieur public"
+                ],
+                "answer": "boulanger",
+                "explanation": "On fait toujours le pain, même si le fournil a changé."
+            },
+            {
+                "question": "Le crieur public servait à...",
+                "choices": [
+                    "annoncer les nouvelles sur la place du village",
+                    "faire du bruit pour s'amuser",
+                    "vendre des journaux télévisés"
+                ],
+                "answer": "annoncer les nouvelles sur la place du village",
+                "explanation": "Sans radio ni télévision, il informait les habitants à voix haute."
+            },
+            {
+                "question": "Autrefois, les champs étaient labourés...",
+                "choices": [
+                    "avec des chevaux ou des bœufs",
+                    "avec des tracteurs électriques",
+                    "avec des drones"
+                ],
+                "answer": "avec des chevaux ou des bœufs",
+                "explanation": "Les animaux de trait tiraient la charrue avant l'invention du tracteur."
+            }
+        ]
+    }
 }

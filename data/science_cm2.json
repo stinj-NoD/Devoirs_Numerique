@@ -3,6 +3,222 @@
     "gradeId": "cm2",
     "title": "Sciences CM2",
     "categories": {
+        "cm2-vivant-classification": [
+            {
+                "question": "Un animal qui a un squelette interne est un...",
+                "choices": [
+                    "vertébré",
+                    "invertébré",
+                    "végétal"
+                ],
+                "answer": "vertébré",
+                "explanation": "Les vertébrés (mammifères, oiseaux, poissons, reptiles, amphibiens) possèdent une colonne vertébrale et un squelette interne."
+            },
+            {
+                "question": "L'escargot, l'araignée et le papillon sont des...",
+                "choices": [
+                    "invertébrés",
+                    "vertébrés",
+                    "champignons"
+                ],
+                "answer": "invertébrés",
+                "explanation": "Les invertébrés n'ont pas de squelette interne ; certains ont une coquille ou un squelette externe (carapace, exosquelette)."
+            },
+            {
+                "question": "Les mammifères se distinguent des autres vertébrés car ils...",
+                "choices": [
+                    "allaitent leurs petits",
+                    "vivent toujours dans l'eau",
+                    "n'ont pas de squelette"
+                ],
+                "answer": "allaitent leurs petits",
+                "explanation": "Tous les mammifères nourrissent leurs petits avec le lait produit par la mère, même la baleine ou la chauve-souris."
+            },
+            {
+                "question": "Une grenouille adulte respire principalement avec...",
+                "choices": [
+                    "des poumons",
+                    "des branchies",
+                    "sa peau uniquement"
+                ],
+                "answer": "des poumons",
+                "explanation": "Les amphibiens comme la grenouille respirent avec des branchies au stade têtard, puis avec des poumons une fois adultes."
+            },
+            {
+                "question": "Les poissons respirent grâce à...",
+                "choices": [
+                    "des branchies",
+                    "des poumons",
+                    "leur queue"
+                ],
+                "answer": "des branchies",
+                "explanation": "Les branchies permettent aux poissons de récupérer l'oxygène dissous directement dans l'eau."
+            },
+            {
+                "question": "Un arbre, une fougère et un champignon appartiennent tous au monde...",
+                "choices": [
+                    "du vivant",
+                    "des minéraux",
+                    "des objets fabriqués"
+                ],
+                "answer": "du vivant",
+                "explanation": "Le vivant regroupe les animaux, les végétaux, les champignons et de nombreux organismes microscopiques."
+            },
+            {
+                "question": "Ce qui distingue surtout un végétal d'un animal, c'est que le végétal...",
+                "choices": [
+                    "produit sa propre nourriture grâce à la lumière",
+                    "se déplace toujours très vite",
+                    "n'a jamais besoin d'eau"
+                ],
+                "answer": "produit sa propre nourriture grâce à la lumière",
+                "explanation": "Grâce à la photosynthèse, les plantes fabriquent leur nourriture à partir de la lumière, de l'eau et du dioxyde de carbone."
+            },
+            {
+                "question": "Classer les êtres vivants sert surtout à...",
+                "choices": [
+                    "mieux comprendre leurs ressemblances et différences",
+                    "leur donner des prix au marché",
+                    "les empêcher de se reproduire"
+                ],
+                "answer": "mieux comprendre leurs ressemblances et différences",
+                "explanation": "La classification scientifique regroupe les espèces selon des caractéristiques communes (squelette, mode de reproduction, respiration)."
+            }
+        ],
+        "cm2-vivant-reproduction": [
+            {
+                "question": "Chez la plupart des mammifères, le développement du petit se fait...",
+                "choices": [
+                    "dans le ventre de la mère",
+                    "dans un œuf pondu au sol",
+                    "dans l'eau uniquement"
+                ],
+                "answer": "dans le ventre de la mère",
+                "explanation": "C'est la viviparité : chez les mammifères, l'embryon se développe à l'intérieur du corps de la mère avant la naissance."
+            },
+            {
+                "question": "Les oiseaux et la plupart des reptiles se reproduisent en...",
+                "choices": [
+                    "pondant des œufs",
+                    "allaitant leurs petits",
+                    "se divisant en deux"
+                ],
+                "answer": "pondant des œufs",
+                "explanation": "C'est l'oviparité : l'embryon se développe dans un œuf pondu à l'extérieur du corps de la mère."
+            },
+            {
+                "question": "Pour qu'une fleur produise une graine, il faut d'abord...",
+                "choices": [
+                    "une pollinisation",
+                    "une éclipse",
+                    "une mue"
+                ],
+                "answer": "une pollinisation",
+                "explanation": "La pollinisation transporte le pollen d'une fleur à une autre, souvent grâce aux insectes ou au vent, ce qui permet la formation de graines."
+            },
+            {
+                "question": "Une bouture de plante permet d'obtenir une nouvelle plante...",
+                "choices": [
+                    "sans graine, à partir d'un morceau de la plante d'origine",
+                    "uniquement avec des graines",
+                    "uniquement grâce aux abeilles"
+                ],
+                "answer": "sans graine, à partir d'un morceau de la plante d'origine",
+                "explanation": "Le bouturage est une reproduction sans graine : une tige coupée peut développer ses propres racines et devenir une nouvelle plante."
+            },
+            {
+                "question": "Le têtard est une étape de la vie...",
+                "choices": [
+                    "de la grenouille",
+                    "du papillon",
+                    "de l'oiseau"
+                ],
+                "answer": "de la grenouille",
+                "explanation": "Le têtard vit dans l'eau et respire par des branchies, avant de se transformer en grenouille adulte qui respire par des poumons."
+            },
+            {
+                "question": "La chenille se transforme en papillon après une étape appelée...",
+                "choices": [
+                    "la chrysalide (ou nymphe)",
+                    "la pollinisation",
+                    "la mue annuelle"
+                ],
+                "answer": "la chrysalide (ou nymphe)",
+                "explanation": "Durant la métamorphose, la chenille s'enferme dans une chrysalide où son corps se transforme entièrement en papillon."
+            }
+        ],
+        "cm2-vivant-chaines-alimentaires": [
+            {
+                "question": "Dans une chaîne alimentaire, une plante verte est généralement...",
+                "choices": [
+                    "le premier maillon, le producteur",
+                    "toujours le dernier maillon",
+                    "un prédateur"
+                ],
+                "answer": "le premier maillon, le producteur",
+                "explanation": "Les plantes vertes produisent leur propre matière grâce à la photosynthèse : elles sont à la base de presque toutes les chaînes alimentaires."
+            },
+            {
+                "question": "Un animal qui se nourrit uniquement de végétaux est...",
+                "choices": [
+                    "herbivore",
+                    "carnivore",
+                    "minéral"
+                ],
+                "answer": "herbivore",
+                "explanation": "Les herbivores comme la vache ou le lapin se nourrissent exclusivement de plantes."
+            },
+            {
+                "question": "Un animal qui mange à la fois des végétaux et d'autres animaux est...",
+                "choices": [
+                    "omnivore",
+                    "herbivore strict",
+                    "producteur"
+                ],
+                "answer": "omnivore",
+                "explanation": "Les omnivores, comme l'être humain ou le sanglier, ont un régime alimentaire varié incluant plantes et animaux."
+            },
+            {
+                "question": "Dans la chaîne « herbe → lapin → renard », le renard est...",
+                "choices": [
+                    "un prédateur du lapin",
+                    "un producteur",
+                    "une proie de l'herbe"
+                ],
+                "answer": "un prédateur du lapin",
+                "explanation": "Le renard chasse et mange le lapin : il est donc le prédateur, et le lapin sa proie dans cette chaîne alimentaire."
+            },
+            {
+                "question": "Un écosystème est constitué...",
+                "choices": [
+                    "des êtres vivants et de leur milieu, en interaction",
+                    "uniquement des animaux",
+                    "uniquement des plantes"
+                ],
+                "answer": "des êtres vivants et de leur milieu, en interaction",
+                "explanation": "Un écosystème regroupe tous les êtres vivants d'un même milieu (forêt, mare, prairie) ainsi que les éléments non vivants (eau, sol, air) avec lesquels ils interagissent."
+            },
+            {
+                "question": "Si tous les renards disparaissaient d'un écosystème, la population de lapins risquerait de...",
+                "choices": [
+                    "fortement augmenter, faute de prédateur",
+                    "disparaître immédiatement",
+                    "ne jamais changer"
+                ],
+                "answer": "fortement augmenter, faute de prédateur",
+                "explanation": "Les chaînes alimentaires sont en équilibre : la disparition d'un prédateur peut provoquer une explosion de la population de ses proies."
+            },
+            {
+                "question": "Les champignons et certaines bactéries jouent un rôle de...",
+                "choices": [
+                    "décomposeurs, qui recyclent la matière morte",
+                    "prédateurs uniquement",
+                    "producteurs d'oxygène uniquement"
+                ],
+                "answer": "décomposeurs, qui recyclent la matière morte",
+                "explanation": "Les décomposeurs transforment les êtres vivants morts en matière qui retourne au sol, nourrissant à nouveau les plantes."
+            }
+        ],
         "cm2-corps-sante": [
             {
                 "question": "Les muscles servent surtout a...",
@@ -1359,6 +1575,68 @@
                 ],
                 "answer": "limiter le réchauffement climatique",
                 "explanation": "Moins de gaz à effet de serre rejetés dans l'atmosphère signifie moins de chaleur retenue et un réchauffement limité."
+            }
+        ],
+        "cm2-lumiere-son": [
+            {
+                "question": "La lumière se déplace...",
+                "choices": ["en ligne droite", "en courbe", "en zigzag"],
+                "answer": "en ligne droite",
+                "explanation": "La lumière se propage toujours en ligne droite dans un milieu transparent et homogène."
+            },
+            {
+                "question": "Une ombre se forme quand un objet...",
+                "choices": ["bloque la lumière", "absorbe le son", "réfléchit l'eau"],
+                "answer": "bloque la lumière",
+                "explanation": "Quand un objet opaque s'interpose entre une source lumineuse et une surface, il crée une zone d'ombre."
+            },
+            {
+                "question": "Un objet transparent...",
+                "choices": ["laisse passer la lumière", "bloque complètement la lumière", "absorbe toute la lumière"],
+                "answer": "laisse passer la lumière",
+                "explanation": "Un objet transparent comme le verre laisse passer la lumière, contrairement à un objet opaque."
+            },
+            {
+                "question": "Le son est produit par...",
+                "choices": ["la vibration d'un objet", "le déplacement de la lumière", "la chaleur de l'air"],
+                "answer": "la vibration d'un objet",
+                "explanation": "Tout son résulte d'une vibration. Lorsqu'un objet vibre, il fait vibrer l'air autour de lui, ce qui produit un son."
+            },
+            {
+                "question": "Le son se propage...",
+                "choices": ["dans l'air, l'eau et les solides", "uniquement dans l'air", "uniquement dans le vide"],
+                "answer": "dans l'air, l'eau et les solides",
+                "explanation": "Le son a besoin d'un milieu matériel pour se propager : il voyage dans les gaz (air), les liquides (eau) et les solides."
+            },
+            {
+                "question": "Un son très fort peut...",
+                "choices": ["abîmer l'ouïe", "produire de la lumière", "refroidir l'air"],
+                "answer": "abîmer l'ouïe",
+                "explanation": "Les sons trop forts (concerts, chantiers) peuvent endommager les cellules de l'oreille interne de façon irréversible."
+            },
+            {
+                "question": "La réflexion de la lumière sur une surface polie, c'est...",
+                "choices": ["le principe du miroir", "le principe de l'écho", "le principe de la chaleur"],
+                "answer": "le principe du miroir",
+                "explanation": "Un miroir réfléchit la lumière et la renvoie dans une direction précise : c'est le phénomène de réflexion."
+            },
+            {
+                "question": "Un écho est produit quand le son...",
+                "choices": ["rebondit sur une surface", "traverse une vitre", "s'arrête dans le vide"],
+                "answer": "rebondit sur une surface",
+                "explanation": "L'écho est la réflexion du son sur une surface dure. Il revient à l'oreille avec un léger retard."
+            },
+            {
+                "question": "Pour se protéger des sons trop forts, on peut...",
+                "choices": ["porter des protections auditives", "fermer les yeux", "respirer plus vite"],
+                "answer": "porter des protections auditives",
+                "explanation": "Les protections auditives (bouchons, casques antibruit) réduisent l'intensité sonore perçue par l'oreille."
+            },
+            {
+                "question": "La lumière du Soleil met environ ___ pour atteindre la Terre.",
+                "choices": ["8 minutes", "8 secondes", "8 heures"],
+                "answer": "8 minutes",
+                "explanation": "La vitesse de la lumière est d'environ 300 000 km/s et la distance Terre-Soleil d'environ 150 millions de km, soit environ 8 minutes."
             }
         ]
     }
