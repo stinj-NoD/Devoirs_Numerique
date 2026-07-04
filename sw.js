@@ -3,7 +3,7 @@
  * Robustesse offline/PWA
  */
 
-const CACHE_NAME = 'dn-v4.0.0-grimoire';
+const CACHE_NAME = 'dn-v4.1.1-cards-fix';
 const OFFLINE_URL = './offline.html';
 
 const APP_ASSETS = [
@@ -126,10 +126,29 @@ const CARD_ASSETS = [
   './data/cards/c-1.webp',
   './data/cards/c-2.webp',
   './data/cards/c-3.webp',
+  './data/cards/capy-bebe.webp',
+  './data/cards/capy-dore.webp',
+  './data/cards/capy-fleur.webp',
+  './data/cards/capy-foret.webp',
+  './data/cards/capy-jardin.webp',
+  './data/cards/capy-oeuf.webp',
+  './data/cards/capy-roi.webp',
+  './data/cards/capy-sage.webp',
   './data/cards/d-1.webp',
   './data/cards/d-2.webp',
   './data/cards/d-3.webp',
   './data/cards/d-4.webp',
+  './data/cards/dauphin-abysse.webp',
+  './data/cards/dauphin-acier.webp',
+  './data/cards/dauphin-bebe.webp',
+  './data/cards/dauphin-fee.webp',
+  './data/cards/dauphin-foudre.webp',
+  './data/cards/dauphin-glace.webp',
+  './data/cards/dauphin-jeune.webp',
+  './data/cards/dauphin-nuit.webp',
+  './data/cards/dauphin-oeuf.webp',
+  './data/cards/dauphin-plante.webp',
+  './data/cards/dauphin-poison.webp',
   './data/cards/e-1.webp',
   './data/cards/e-2.webp',
   './data/cards/e-3.webp',
@@ -140,6 +159,14 @@ const CARD_ASSETS = [
   './data/cards/g-1.webp',
   './data/cards/g-2.webp',
   './data/cards/g-3.webp',
+  './data/cards/hibou-bebe.webp',
+  './data/cards/hibou-esprit.webp',
+  './data/cards/hibou-foret.webp',
+  './data/cards/hibou-glace.webp',
+  './data/cards/hibou-lumiere.webp',
+  './data/cards/hibou-nuit.webp',
+  './data/cards/hibou-oeuf.webp',
+  './data/cards/hibou-phenix.webp',
   './data/cards/z-1.webp',
   './data/cards/z-2.webp',
   './data/cards/z-3.webp',

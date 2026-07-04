@@ -231,7 +231,8 @@ const Storage = {
         return cleanName ? `cards_${cleanName}` : null;
     },
 
-    // Collection : { ownedIds: {cardId: count}, boostersSansNouvelle: n }
+    // Collection : { ownedIds: {cardId: count}, boostersSansNouvelle: n,
+    //                seriesClaimed: {familyId: true} }
     _readCardState(name = this.getCurrentUser()) {
         const key = this._getCardsKey(name);
         const raw = key ? this._safeParseObject(this._getItem(key)) : {};
@@ -241,11 +242,75 @@ const Storage = {
             const n = Math.max(0, Math.round(Number(count) || 0));
             if (n > 0 && typeof id === 'string') clean[id] = n;
         });
+        const seriesClaimed = (raw.seriesClaimed && typeof raw.seriesClaimed === 'object' && !Array.isArray(raw.seriesClaimed)) ? raw.seriesClaimed : {};
         return {
             key,
             ownedIds: clean,
-            boostersSansNouvelle: Math.max(0, Number(raw.boostersSansNouvelle) || 0)
+            boostersSansNouvelle: Math.max(0, Number(raw.boostersSansNouvelle) || 0),
+            seriesClaimed
         };
+    },
+
+    /**
+     * Statut de chaque série (famille) : possédées / total. La complétion
+     * se joue sur les cartes de BASE (hors prismatiques) — les variantes ✨
+     * restent une chasse bonus au-delà.
+     */
+    getSeriesStatus(catalog, name = this.getCurrentUser()) {
+        const owned = this.getOwnedCards(name);
+        const families = {};
+        (catalog?.cards || []).forEach((card) => {
+            const f = families[card.family] = families[card.family] || { base: 0, baseOwned: 0, total: 0, totalOwned: 0 };
+            f.total++;
+            if (owned[card.id]) f.totalOwned++;
+            if (card.rarity !== 'brillante') {
+                f.base++;
+                if (owned[card.id]) f.baseOwned++;
+            }
+        });
+        Object.values(families).forEach((f) => {
+            f.complete = f.base > 0 && f.baseOwned === f.base;
+            f.perfect = f.totalOwned === f.total;
+        });
+        return families;
+    },
+
+    _seriesBonusFor(baseCount) {
+        return baseCount * 5 + 5;
+    },
+
+    /**
+     * Crédite (une seule fois par série) le bonus de complétion des séries
+     * tout juste terminées. Retourne la liste des séries nouvellement
+     * complétées avec leur bonus, pour l'affichage.
+     */
+    claimSeriesBonuses(catalog, name = this.getCurrentUser()) {
+        const state = this._readCardState(name);
+        if (!state.key) return [];
+        const status = this.getSeriesStatus(catalog, name);
+        const newlyCompleted = [];
+
+        Object.entries(status).forEach(([familyId, f]) => {
+            if (!f.complete || state.seriesClaimed[familyId]) return;
+            const bonus = this._seriesBonusFor(f.base);
+            this.addCoins(bonus, name);
+            state.seriesClaimed[familyId] = true;
+            newlyCompleted.push({
+                familyId,
+                label: catalog?.families?.[familyId]?.label || familyId,
+                icon: catalog?.families?.[familyId]?.icon || '🏆',
+                bonus
+            });
+        });
+
+        if (newlyCompleted.length) {
+            this._setItem(state.key, JSON.stringify({
+                ownedIds: state.ownedIds,
+                boostersSansNouvelle: state.boostersSansNouvelle,
+                seriesClaimed: state.seriesClaimed
+            }));
+        }
+        return newlyCompleted;
     },
 
     getOwnedCards(name = this.getCurrentUser()) {
@@ -255,10 +320,13 @@ const Storage = {
     boosterCost: 25,
     // Remboursement des doublons, par rareté
     _duplicateRefund: { commune: 2, rare: 4, epique: 8, legendaire: 15, brillante: 25 },
-    // Probabilités de tirage par carte. Le légendaire est volontairement
-    // très rare (~1 carte sur 200) et la Prismatique encore plus (~1 sur 400) :
-    // les trouver doit être un événement.
-    _rarityWeights: { commune: 63, rare: 27, epique: 9.25, legendaire: 0.5, brillante: 0.25 },
+    // Probabilités de tirage par carte (2 premiers emplacements du booster).
+    // Le légendaire est volontairement très rare et la Prismatique encore
+    // plus : les trouver doit être un événement.
+    _rarityWeights: { commune: 70, rare: 24.5, epique: 5, legendaire: 0.35, brillante: 0.15 },
+    // 3e emplacement : « slot rare garanti », comme dans tous les grands jeux
+    // de cartes — un booster ne peut jamais sortir 3 communes.
+    _rareSlotWeights: { rare: 86, epique: 12.5, legendaire: 1, brillante: 0.5 },
 
     /**
      * Ouvre un booster de 3 cartes parmi `catalog` (data/cards.json).
@@ -282,8 +350,8 @@ const Storage = {
             (byRarity[card.rarity] = byRarity[card.rarity] || []).push(card);
         });
 
-        const drawWeightedRarity = () => {
-            const entries = Object.entries(this._rarityWeights).filter(([r]) => byRarity[r]?.length);
+        const drawWeightedRarity = (weights) => {
+            const entries = Object.entries(weights).filter(([r]) => byRarity[r]?.length);
             const totalW = entries.reduce((sum, [, w]) => sum + w, 0);
             let roll = Math.random() * totalW;
             for (const [rarity, w] of entries) {
@@ -315,7 +383,9 @@ const Storage = {
                 }
                 card = pick(unownedByRarity[rarity]);
             } else {
-                card = pick(byRarity[drawWeightedRarity()]);
+                // Le 3e emplacement est le slot rare garanti
+                const weights = i === 2 ? this._rareSlotWeights : this._rarityWeights;
+                card = pick(byRarity[drawWeightedRarity(weights)]);
             }
             const isNew = !owned[card.id];
             owned[card.id] = (owned[card.id] || 0) + 1;
@@ -329,7 +399,8 @@ const Storage = {
         const gotNew = results.some((r) => r.isNew);
         this._setItem(state.key, JSON.stringify({
             ownedIds: owned,
-            boostersSansNouvelle: gotNew ? 0 : state.boostersSansNouvelle + 1
+            boostersSansNouvelle: gotNew ? 0 : state.boostersSansNouvelle + 1,
+            seriesClaimed: state.seriesClaimed
         }));
 
         return { cards: results, refundTotal };

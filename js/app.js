@@ -1447,11 +1447,23 @@ const App = {
         UI.updateGrimoireCoins(coins, Storage.boosterCost);
     },
 
+    // Toasts de séries complétées, espacés pour ne pas se chevaucher
+    _toastCompletedSeries(completed) {
+        (completed || []).forEach((serie, i) => {
+            setTimeout(() => {
+                UI.showSimpleToast(serie.icon, `${serie.label} complète ! +${serie.bonus} 🪙`);
+            }, 400 + i * 3500);
+        });
+    },
+
     async showGrimoire() {
         const catalog = await this.getCardsCatalog();
+        // Rétroactif : crédite les séries déjà complètes jamais récompensées
+        const completed = Storage.claimSeriesBonuses(catalog);
         UI.renderGrimoire(catalog, Storage.getOwnedCards(), Storage.getCoins(), Storage.boosterCost, () => this.openBoosterFlow());
         this.refreshCoinsDisplays();
         UI.showScreen('screen-grimoire');
+        this._toastCompletedSeries(completed);
     },
 
     async openBoosterFlow() {
@@ -1463,10 +1475,13 @@ const App = {
         }
         const result = Storage.openBooster(catalog);
         if (!result) return;
-        if (window.AudioFeedback) AudioFeedback.playPerfect();
+        // Bonus de série éventuel : crédité tout de suite, annoncé à la fin
+        // de la révélation pour ne pas déflorer le contenu du paquet.
+        const completed = Storage.claimSeriesBonuses(catalog);
         UI.renderBoosterReveal(result, catalog, () => {
             UI.renderGrimoire(catalog, Storage.getOwnedCards(), Storage.getCoins(), Storage.boosterCost, () => this.openBoosterFlow());
             this.refreshCoinsDisplays();
+            this._toastCompletedSeries(completed);
         });
         this.refreshCoinsDisplays();
     },

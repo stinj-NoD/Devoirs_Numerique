@@ -1616,6 +1616,32 @@ const UI = {
 
     // ---------- GRIMOIRE ----------
 
+    // Logo maison du Grimoire : livre de sorts ouvert + étincelle.
+    // SVG inline (net à toutes les tailles, aucun asset à charger).
+    grimoireLogoSvg(size = 48) {
+        return `
+        <svg class="grimoire-logo" width="${size}" height="${size}" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <defs>
+                <linearGradient id="grimoire-gold" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#ffe9a8"/>
+                    <stop offset="1" stop-color="#f3b13c"/>
+                </linearGradient>
+            </defs>
+            <!-- livre ouvert -->
+            <path d="M8 46 C16 40 26 40 32 44 C38 40 48 40 56 46 L56 24 C48 18 38 18 32 22 C26 18 16 18 8 24 Z"
+                fill="url(#grimoire-gold)" stroke="#8a5b00" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M32 22 L32 44" stroke="#8a5b00" stroke-width="2"/>
+            <path d="M13 27 C19 24 25 24 29 26 M13 33 C19 30 25 30 29 32 M35 26 C39 24 45 24 51 27 M35 32 C39 30 45 30 51 33"
+                stroke="#b8862f" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+            <!-- grande étincelle -->
+            <path d="M32 2 L35 10 L43 13 L35 16 L32 24 L29 16 L21 13 L29 10 Z" fill="#fff"/>
+            <path d="M32 5 L34.2 10.8 L40 13 L34.2 15.2 L32 21 L29.8 15.2 L24 13 L29.8 10.8 Z" fill="url(#grimoire-gold)"/>
+            <!-- petites étoiles -->
+            <path d="M14 8 l1.4 3 3 1.4 -3 1.4 -1.4 3 -1.4 -3 -3 -1.4 3 -1.4 Z" fill="#ffe9a8"/>
+            <path d="M50 6 l1.2 2.6 2.6 1.2 -2.6 1.2 -1.2 2.6 -1.2 -2.6 -2.6 -1.2 2.6 -1.2 Z" fill="#ffe9a8"/>
+        </svg>`;
+    },
+
     updateGrimoireCoins(coins, boosterCost) {
         const el = document.getElementById('grimoire-coins');
         if (el) el.innerHTML = `🪙 <strong>${Math.max(0, Number(coins) || 0)}</strong> pièce${coins > 1 ? 's' : ''}`;
@@ -1648,7 +1674,7 @@ const UI = {
         }
 
         const rarities = catalog?.rarities || {};
-        grid.innerHTML = cards.map((card) => {
+        const cardHtml = (card) => {
             const count = ownedIds[card.id] || 0;
             if (!count) {
                 return `
@@ -1663,6 +1689,43 @@ const UI = {
                     <div class="grimoire-card-name">${this._escapeText(card.name)}</div>
                     ${count > 1 ? `<div class="grimoire-card-count">×${count}</div>` : ''}
                 </button>`;
+        };
+
+        // Groupement par famille (ordre d'apparition dans le catalogue),
+        // avec en-tête de progression et état doré quand la série est
+        // complète (cartes de base — les ✨ prismatiques visent la perfection).
+        const familyOrder = [];
+        const byFamily = {};
+        cards.forEach((card) => {
+            if (!byFamily[card.family]) {
+                byFamily[card.family] = [];
+                familyOrder.push(card.family);
+            }
+            byFamily[card.family].push(card);
+        });
+        const seriesStatus = (typeof Storage !== 'undefined' && Storage.getSeriesStatus)
+            ? Storage.getSeriesStatus(catalog)
+            : {};
+
+        grid.innerHTML = familyOrder.map((familyId) => {
+            const familyCards = byFamily[familyId];
+            const meta = catalog?.families?.[familyId] || { label: familyId, icon: '🃏' };
+            const status = seriesStatus[familyId] || { baseOwned: 0, base: familyCards.length, complete: false, perfect: false };
+            let badge = '';
+            if (status.perfect) badge = '<span class="grimoire-serie-state grimoire-serie-state--perfect">✨ Parfaite !</span>';
+            else if (status.complete) badge = '<span class="grimoire-serie-state grimoire-serie-state--complete">🏆 Complète !</span>';
+            return `
+                <div class="grimoire-serie${status.complete ? ' is-complete' : ''}${status.perfect ? ' is-perfect' : ''}">
+                    <div class="grimoire-serie-head">
+                        <span class="grimoire-serie-icon" aria-hidden="true">${meta.icon}</span>
+                        <span class="grimoire-serie-title">${this._escapeText(meta.label)}</span>
+                        <span class="grimoire-serie-progress">${status.baseOwned}/${status.base}</span>
+                        ${badge}
+                    </div>
+                    <div class="grimoire-serie-cards">
+                        ${familyCards.map(cardHtml).join('')}
+                    </div>
+                </div>`;
         }).join('');
 
         grid.onclick = (event) => {
@@ -1703,30 +1766,217 @@ const UI = {
         box.querySelector('.card-detail-close').onclick = close;
     },
 
+    _rarityRank: { commune: 0, rare: 1, epique: 2, legendaire: 3, brillante: 4 },
+    _rarityGlowColors: { epique: '#9c6bd6', legendaire: '#f3b13c', brillante: '#e05ce0' },
+
+    // Meilleure rareté contenue dans le booster : pilote l'intensité de
+    // toute la mise en scène (charge du paquet, éclatement, secousse).
+    _bestRarity(result) {
+        return result.cards.reduce((best, { card }) =>
+            (this._rarityRank[card.rarity] || 0) > (this._rarityRank[best] || 0) ? card.rarity : best, 'commune');
+    },
+
     renderBoosterReveal(result, catalog, onDone) {
         const reveal = document.getElementById('booster-reveal');
         if (!reveal) return;
         const rarities = catalog?.rarities || {};
         reveal.classList.remove('is-hidden');
+
+        // --- Étape 1 : le paquet scellé, à déchirer d'un glissement de doigt ---
+        reveal.innerHTML = `
+            <div class="booster-stage">
+                <button type="button" class="booster-pack" aria-label="Glisse ton doigt sur le paquet pour le déchirer, ou touche-le">
+                    <div class="booster-pack-tear">
+                        <span class="booster-pack-tear-strip"></span>
+                    </div>
+                    <div class="booster-pack-shine"></div>
+                    <div class="booster-pack-logo">${this.grimoireLogoSvg(64)}</div>
+                    <div class="booster-pack-title">GRIMOIRE</div>
+                    <div class="booster-pack-sub">3 cartes magiques</div>
+                </button>
+                <div class="booster-hint">✂️ Glisse ton doigt pour déchirer le paquet !</div>
+            </div>
+        `;
+        reveal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        const pack = reveal.querySelector('.booster-pack');
+
+        // Le paquet se "charge" de la couleur de sa meilleure carte : une
+        // énergie s'échappe de la déchirure sans révéler laquelle c'est.
+        const best = this._bestRarity(result);
+        const bestRank = this._rarityRank[best] || 0;
+        const glowColor = this._rarityGlowColors[best] || null;
+        if (glowColor) {
+            pack.classList.add('booster-pack--charged');
+            pack.style.setProperty('--charge-color', glowColor);
+        }
+
+        let opened = false;
+        const open = () => {
+            if (opened) return;
+            opened = true;
+            pack.classList.add('is-bursting');
+            this._spawnBoosterSparks(pack, bestRank);
+            this._spawnShockwave(pack, glowColor);
+            if (bestRank >= 3) {
+                const stage = reveal.querySelector('.booster-stage');
+                if (stage) stage.classList.add('is-quaking');
+            }
+            const hint = reveal.querySelector('.booster-hint');
+            if (hint) hint.textContent = '';
+            setTimeout(() => this._renderBoosterCards(reveal, result, rarities, onDone), bestRank >= 3 ? 750 : 550);
+        };
+
+        // Déchirure au glisser : la bande du haut suit le doigt ; au-delà de
+        // 70 % de la largeur, le paquet s'ouvre. Un simple tap marche aussi
+        // (accessibilité + souris).
+        let tearStart = null;
+        pack.onpointerdown = (event) => {
+            tearStart = event.clientX;
+            pack.setPointerCapture?.(event.pointerId);
+        };
+        pack.onpointermove = (event) => {
+            if (tearStart === null || opened) return;
+            const progress = Math.min(1, Math.max(0, (event.clientX - tearStart) / (pack.offsetWidth * 0.7)));
+            pack.style.setProperty('--tear', progress);
+            if (progress >= 1) open();
+        };
+        pack.onpointerup = () => {
+            if (opened) return;
+            const progress = Number(pack.style.getPropertyValue('--tear')) || 0;
+            if (progress < 0.3) {
+                open(); // tap simple
+            } else {
+                pack.style.setProperty('--tear', 0); // déchirure abandonnée
+            }
+            tearStart = null;
+        };
+        pack.onclick = (event) => event.preventDefault();
+        pack.onkeydown = (event) => {
+            if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); open(); }
+        };
+    },
+
+    // Gerbe d'étincelles à l'éclatement — d'autant plus fournie que le
+    // booster contient une belle carte.
+    _spawnBoosterSparks(pack, bestRank = 0) {
+        const stage = pack.closest('.booster-stage');
+        if (!stage) return;
+        const emojis = bestRank >= 3 ? ['✨', '⭐', '💫', '🌟'] : ['✨', '⭐', '💫'];
+        const count = 12 + bestRank * 5;
+        for (let i = 0; i < count; i++) {
+            const spark = document.createElement('span');
+            spark.className = 'booster-spark';
+            spark.textContent = emojis[i % emojis.length];
+            const angle = (Math.PI * 2 * i) / count + Math.random() * 0.5;
+            const dist = (90 + Math.random() * 110) * (1 + bestRank * 0.15);
+            spark.style.setProperty('--dx', `${Math.cos(angle) * dist}px`);
+            spark.style.setProperty('--dy', `${Math.sin(angle) * dist - 40}px`);
+            spark.style.animationDelay = `${Math.random() * 0.15}s`;
+            stage.appendChild(spark);
+            setTimeout(() => spark.remove(), 1500);
+        }
+    },
+
+    // Onde de choc colorée selon la meilleure rareté du paquet
+    _spawnShockwave(pack, color) {
+        const stage = pack.closest('.booster-stage');
+        if (!stage) return;
+        const wave = document.createElement('span');
+        wave.className = 'booster-shockwave';
+        if (color) wave.style.setProperty('--wave-color', color);
+        stage.appendChild(wave);
+        setTimeout(() => wave.remove(), 900);
+    },
+
+    // --- Étape 2 : 3 cartes face cachée, à retourner une par une ---
+    _renderBoosterCards(reveal, result, rarities, onDone) {
         reveal.innerHTML = `
             <div class="booster-cards">
-                ${result.cards.map(({ card, isNew, refund }, i) => `
-                    <div class="booster-card ${this._cardRarityClass(card.rarity)}" style="animation-delay: ${i * 0.45}s">
-                        <img class="grimoire-card-img" src="${this._escapeText(card.image)}" alt="">
-                        <div class="grimoire-card-name">${this._escapeText(card.name)}</div>
-                        <div class="booster-card-tag">${isNew
-                            ? `<span class="booster-new">NOUVEAU !</span>`
-                            : `<span class="booster-dupe">doublon +${refund} 🪙</span>`}</div>
-                        <div class="booster-card-rarity" style="color: ${this._escapeText(rarities[card.rarity]?.color || '#8d99ae')}">${this._escapeText(rarities[card.rarity]?.label || '')}</div>
-                    </div>
-                `).join('')}
+                ${result.cards.map(({ card, isNew, refund }, i) => {
+                    // Aura d'anticipation : les hautes raretés brillent AVANT
+                    // d'être retournées — le suspense monte d'un cran.
+                    const aura = ['epique', 'legendaire', 'brillante'].includes(card.rarity)
+                        ? ` booster-flip--aura-${card.rarity}` : '';
+                    return `
+                    <button type="button" class="booster-flip${aura}" style="animation-delay: ${i * 0.15}s"
+                        data-index="${i}" aria-label="Carte ${i + 1}, toucher pour retourner">
+                        <div class="booster-flip-inner">
+                            <div class="booster-flip-back">
+                                <span class="booster-flip-back-logo">${this.grimoireLogoSvg(44)}</span>
+                            </div>
+                            <div class="booster-flip-front booster-card ${this._cardRarityClass(card.rarity)}">
+                                <img class="grimoire-card-img" src="${this._escapeText(card.image)}" alt="">
+                                <div class="grimoire-card-name">${this._escapeText(card.name)}</div>
+                                <div class="booster-card-tag">${isNew
+                                    ? `<span class="booster-new">NOUVEAU !</span>`
+                                    : `<span class="booster-dupe">doublon +${refund} 🪙</span>`}</div>
+                                <div class="booster-card-rarity" style="color: ${this._escapeText(rarities[card.rarity]?.color || '#8d99ae')}">${this._escapeText(rarities[card.rarity]?.label || '')}</div>
+                            </div>
+                        </div>
+                    </button>
+                `;
+                }).join('')}
             </div>
-            <button type="button" class="btn card card--action booster-done-btn">
+            <div class="booster-hint">Retourne tes cartes !</div>
+            <button type="button" class="btn card card--action booster-done-btn is-hidden">
                 <span class="card-title">SUPER !</span>
             </button>
         `;
-        reveal.querySelector('.booster-done-btn').onclick = onDone;
-        reveal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        let flipped = 0;
+        const total = result.cards.length;
+        const buttons = Array.from(reveal.querySelectorAll('.booster-flip'));
+
+        // Roulement de tambour : quand il ne reste qu'une carte à retourner
+        // et qu'elle contient une haute rareté, elle tremble d'impatience.
+        const updateDrumroll = () => {
+            const remaining = buttons.filter((b) => !b.classList.contains('is-flipped'));
+            if (remaining.length === 1) {
+                const rarity = result.cards[Number(remaining[0].dataset.index)]?.card?.rarity;
+                if (['epique', 'legendaire', 'brillante'].includes(rarity)) {
+                    remaining[0].classList.add('is-drumroll');
+                }
+            }
+        };
+
+        buttons.forEach((btn) => {
+            btn.onclick = () => {
+                if (btn.classList.contains('is-flipped')) return;
+                btn.classList.add('is-flipped');
+                btn.classList.remove('is-drumroll');
+                const rarity = result.cards[Number(btn.dataset.index)]?.card?.rarity;
+
+                if (['epique', 'legendaire', 'brillante'].includes(rarity)) {
+                    btn.classList.add('is-high-rarity');
+                    if (window.AudioFeedback?.playPerfect) AudioFeedback.playPerfect();
+                    // Rayons de lumière rotatifs derrière la carte, aux
+                    // couleurs de sa rareté
+                    const rays = document.createElement('span');
+                    rays.className = 'flip-rays';
+                    rays.style.setProperty('--ray-color', this._rarityGlowColors[rarity] || '#f3b13c');
+                    btn.appendChild(rays);
+                    setTimeout(() => rays.remove(), 2600);
+                }
+                // Légendaire et Prismatique : pluie de confettis en plus
+                if (['legendaire', 'brillante'].includes(rarity)) {
+                    this.launchCelebration();
+                }
+
+                flipped++;
+                updateDrumroll();
+                if (flipped === total) {
+                    const hint = reveal.querySelector('.booster-hint');
+                    if (hint) hint.textContent = '';
+                    const done = reveal.querySelector('.booster-done-btn');
+                    if (done) {
+                        done.classList.remove('is-hidden');
+                        done.onclick = onDone;
+                    }
+                }
+            };
+        });
+        updateDrumroll();
     },
 
     renderParentsPinPad(onDigit, onBackspace) {
