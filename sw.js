@@ -3,7 +3,7 @@
  * Robustesse offline/PWA
  */
 
-const CACHE_NAME = 'dn-v3.9.0-update-button';
+const CACHE_NAME = 'dn-v4.0.0-grimoire';
 const OFFLINE_URL = './offline.html';
 
 const APP_ASSETS = [
@@ -113,7 +113,58 @@ const DATA_ASSETS = [
   './data/science_matching.json'
 ];
 
-const ASSETS_TO_CACHE = [...new Set([...APP_ASSETS, ...DATA_ASSETS])];
+const CARD_ASSETS = [
+  './data/cards.json',
+  './data/cards/a-1.webp',
+  './data/cards/a-2.webp',
+  './data/cards/a-3.webp',
+  './data/cards/a-4.webp',
+  './data/cards/a-5.webp',
+  './data/cards/b-1.webp',
+  './data/cards/b-2.webp',
+  './data/cards/b-3.webp',
+  './data/cards/c-1.webp',
+  './data/cards/c-2.webp',
+  './data/cards/c-3.webp',
+  './data/cards/d-1.webp',
+  './data/cards/d-2.webp',
+  './data/cards/d-3.webp',
+  './data/cards/d-4.webp',
+  './data/cards/e-1.webp',
+  './data/cards/e-2.webp',
+  './data/cards/e-3.webp',
+  './data/cards/f-1.webp',
+  './data/cards/f-2.webp',
+  './data/cards/f-3.webp',
+  './data/cards/f-4.webp',
+  './data/cards/g-1.webp',
+  './data/cards/g-2.webp',
+  './data/cards/g-3.webp',
+  './data/cards/z-1.webp',
+  './data/cards/z-2.webp',
+  './data/cards/z-3.webp',
+  './data/cards/z-acier-spectre.webp',
+  './data/cards/z-acier.webp',
+  './data/cards/z-dragon.webp',
+  './data/cards/z-eau-fee.webp',
+  './data/cards/z-eau.webp',
+  './data/cards/z-fee.webp',
+  './data/cards/z-feu-poison.webp',
+  './data/cards/z-feu.webp',
+  './data/cards/z-glace-psy.webp',
+  './data/cards/z-glace.webp',
+  './data/cards/z-plante-spectre.webp',
+  './data/cards/z-plante-tenebre.webp',
+  './data/cards/z-plante.webp',
+  './data/cards/z-poison-dragon.webp',
+  './data/cards/z-poison.webp',
+  './data/cards/z-psy.webp',
+  './data/cards/z-spectre.webp',
+  './data/cards/z-ultime.webp',
+  './data/cards/z-vol.webp'
+];
+
+const ASSETS_TO_CACHE = [...new Set([...APP_ASSETS, ...DATA_ASSETS, ...CARD_ASSETS])];
 const ALLOWED_ORIGINS = new Set([self.location.origin]);
 
 function isAllowedRequest(requestUrl) {
@@ -133,6 +184,7 @@ function isCacheableResponse(response) {
     'text/html',
     'text/css',
     'image/png',
+    'image/webp',
     'image/jpeg',
     'image/svg+xml',
     'font/woff2',

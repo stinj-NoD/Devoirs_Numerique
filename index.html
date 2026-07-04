@@ -96,9 +96,14 @@
                 aria-label="Ajouter un profil"
             >+</button>
         </div>
-        <button id="btn-open-parents" type="button" class="parents-link-btn">
-            👨‍👩‍👧 Espace parents
-        </button>
+        <div class="home-footer-links">
+            <button id="btn-open-parents" type="button" class="parents-link-btn">
+                👨‍👩‍👧 Espace parents
+            </button>
+            <button id="btn-open-guide" type="button" class="parents-link-btn">
+                ❓ Mode d'emploi
+            </button>
+        </div>
     </section>
 
     <section id="screen-parents-pin" class="screen">
@@ -118,11 +123,91 @@
             <span class="card-title">💾 EXPORTER LES DONNÉES</span>
         </button>
         <a id="parents-export-link" class="u-hidden" download="devoir-numerique-export.json" aria-hidden="true"></a>
+        <button id="btn-parents-import" type="button" class="btn card card--action">
+            <span class="card-title">📥 RESTAURER UNE SAUVEGARDE</span>
+        </button>
+        <input id="parents-import-file" type="file" accept=".json,application/json" class="u-hidden" aria-hidden="true">
+
         <button id="btn-parents-program" type="button" class="btn card card--action">
             <span class="card-title">📘 VOIR LE PROGRAMME COUVERT</span>
         </button>
+        <button id="btn-parents-guide" type="button" class="btn card card--action">
+            <span class="card-title">❓ MODE D'EMPLOI</span>
+        </button>
         <button id="btn-parents-change-pin" type="button" class="btn card card--action">
             <span class="card-title">CHANGER LE CODE PARENT</span>
+        </button>
+    </section>
+
+    <section id="screen-parents-guide" class="screen">
+        <h2>Mode d'emploi</h2>
+        <p class="screen-lead">Tout ce qu'il faut savoir pour bien démarrer avec Devoir Numérique.</p>
+        <div class="guide-content">
+
+            <div class="guide-section">
+                <div class="guide-section-title">🚀 Premiers pas</div>
+                <ul class="guide-list">
+                    <li>Créez un profil par enfant depuis l'écran d'accueil (bouton <strong>+</strong>).</li>
+                    <li>Chaque profil est indépendant : progression, étoiles et badges sont séparés.</li>
+                    <li>L'enfant choisit son niveau (CP → CM2) à chaque session — il peut explorer plusieurs niveaux librement.</li>
+                    <li>L'application fonctionne <strong>hors ligne</strong> une fois chargée : pas besoin d'internet pour jouer.</li>
+                </ul>
+            </div>
+
+            <div class="guide-section">
+                <div class="guide-section-title">🎯 Comment se déroule une session ?</div>
+                <ul class="guide-list">
+                    <li>L'enfant navigue par <strong>matière → thème → exercice</strong>.</li>
+                    <li>Chaque exercice donne de 0 à 3 ⭐ selon le score (≥ 50 % → 1 ★, ≥ 75 % → 2 ★, 100 % → 3 ★).</li>
+                    <li>Un <strong>Défi du jour</strong> est proposé chaque jour pour motiver la régularité.</li>
+                    <li>Le <strong>Mode Champions</strong> est un sprint chronométré toutes matières mélangées — idéal en fin de semaine.</li>
+                    <li>Les exercices bonus (🏅) se débloquent quand l'enfant a fait au moins 2 exercices du même thème.</li>
+                </ul>
+            </div>
+
+            <div class="guide-section">
+                <div class="guide-section-title">🏆 Système de récompenses</div>
+                <ul class="guide-list">
+                    <li><strong>Étoiles</strong> : accumulées à vie, elles font progresser le compagnon virtuel et débloquent des couleurs d'interface.</li>
+                    <li><strong>Badges</strong> : 25 badges au total — exploration, régularité (séries de jours), sans-fautes, complétion par classe, maîtrise par matière.</li>
+                    <li><strong>Compagnon évolutif</strong> : l'œuf ou l'animal choisi à la création évolue en plusieurs stades selon les étoiles gagnées.</li>
+                    <li><strong>Série (🔥)</strong> : nombre de jours consécutifs avec au moins un exercice. Elle se remet à zéro si un jour est manqué.</li>
+                    <li><strong>Grimoire (🃏)</strong> : les réussites rapportent des pièces qui permettent d'ouvrir des boosters de cartes-créatures à collectionner. Aucun achat réel : tout se gagne en s'entraînant.</li>
+                </ul>
+            </div>
+
+            <div class="guide-section">
+                <div class="guide-section-title">📊 Lire le tableau de bord</div>
+                <ul class="guide-list">
+                    <li><strong>Barre de progression</strong> : ratio exercices tentés / total disponible dans le niveau sélectionné.</li>
+                    <li><strong>À réviser en priorité</strong> : exercices avec un score inférieur à 50 % — utiles pour cibler les lacunes.</li>
+                    <li><strong>Cette semaine</strong> : activité des 7 derniers jours (exercices faits, étoiles, jours actifs).</li>
+                    <li>Le bouton <strong>Exporter les données</strong> génère un fichier de sauvegarde, et <strong>Restaurer une sauvegarde</strong> le réimporte — pratique pour changer d'appareil sans rien perdre.</li>
+                </ul>
+            </div>
+
+            <div class="guide-section">
+                <div class="guide-section-title">🔒 Code parent</div>
+                <ul class="guide-list">
+                    <li>L'espace parents est protégé par un code à 4 chiffres (par défaut : <strong>0000</strong> — à changer dès que possible).</li>
+                    <li>Le code évite que l'enfant accède au tableau de bord ou modifie les paramètres.</li>
+                    <li>En cas d'oubli : les données sont stockées localement sur l'appareil — effacer le cache du navigateur remet tout à zéro.</li>
+                </ul>
+            </div>
+
+            <div class="guide-section">
+                <div class="guide-section-title">💡 Conseils d'utilisation</div>
+                <ul class="guide-list">
+                    <li>10 à 15 minutes par jour valent mieux qu'une longue session hebdomadaire.</li>
+                    <li>Laissez l'enfant choisir sa matière pour maintenir la motivation — la progression reste suivie dans toutes les matières.</li>
+                    <li>Les leçons associées aux exercices (bouton 📖) peuvent être lues ensemble avant de jouer.</li>
+                    <li>L'application ne collecte aucune donnée : tout reste sur l'appareil, aucun compte requis.</li>
+                </ul>
+            </div>
+
+        </div>
+        <button id="btn-parents-guide-back" type="button" class="btn card card--action">
+            <span id="parents-guide-back-label" class="card-title">← RETOUR</span>
         </button>
     </section>
 
@@ -147,6 +232,10 @@
             <div class="profile-customize-title">Choisis une couleur</div>
             <div id="profile-customize-accents" class="profile-customize-accents"></div>
         </div>
+        <div class="profile-customize-section">
+            <div class="profile-customize-title">Accessoires (gagnés avec les badges)</div>
+            <div id="profile-customize-accessories" class="profile-customize-accessories"></div>
+        </div>
         <button id="btn-profile-customize-done" class="btn card card--action card--action-primary">
             <span class="card-title card-title-on-dark">TERMINÉ</span>
         </button>
@@ -156,13 +245,36 @@
         <h2>Ta classe ?</h2>
         <p id="grades-lead" class="screen-lead">Choisis ta classe pour retrouver les bonnes activités.</p>
         <div id="grades-list" class="grid-menu"></div>
+        <button id="btn-open-grimoire" type="button" class="btn card card--action grimoire-entry-btn">
+            <span class="card-icon" aria-hidden="true">🃏</span>
+            <span class="card-title">MON GRIMOIRE</span>
+            <span id="grimoire-entry-coins" class="grimoire-entry-coins"></span>
+        </button>
     </section>
     <section id="screen-mode" class="screen">
         <h2>Choisis ton parcours</h2>
         <p class="screen-intro">Tu peux d'abord comprendre avec une leçon ou t'entraîner avec des exercices.</p>
+        <div id="today-recap" class="today-recap is-hidden"></div>
         <div id="daily-challenge-card" class="daily-challenge-card is-hidden"></div>
         <div id="mode-list" class="mode-grid"></div>
     </section>
+    <section id="screen-grimoire" class="screen">
+        <h2>Mon Grimoire</h2>
+        <p class="screen-lead">Collectionne les créatures magiques en gagnant des pièces !</p>
+        <div class="grimoire-header">
+            <div id="grimoire-coins" class="grimoire-coins" aria-live="polite"></div>
+            <button id="btn-open-booster" type="button" class="btn grimoire-booster-btn">
+                🎁 OUVRIR UN BOOSTER
+            </button>
+        </div>
+        <div id="booster-reveal" class="booster-reveal is-hidden" aria-live="polite"></div>
+        <div id="grimoire-progress" class="grimoire-progress"></div>
+        <div id="grimoire-grid" class="grimoire-grid"></div>
+        <div id="card-detail-overlay" class="card-detail-overlay is-hidden" role="dialog" aria-modal="true">
+            <div id="card-detail" class="card-detail"></div>
+        </div>
+    </section>
+
     <section id="screen-champion-setup" class="screen">
         <h2>Mode Champions</h2>
         <p class="screen-intro">Choisis la durée du défi. Réponds à un maximum de questions de toutes les matières avant la fin du temps !</p>
@@ -258,6 +370,10 @@
             <div class="collection-section-title">Champions de matière</div>
             <div id="collection-subjects-list" class="collection-maps-list"></div>
         </div>
+        <div class="collection-section">
+            <div class="collection-section-title">Séries à collectionner</div>
+            <div id="collection-themes-list" class="collection-themes-list"></div>
+        </div>
     </section>
 
     <section id="screen-results" class="screen screen-results">
@@ -266,6 +382,7 @@
         <p id="result-lead" class="screen-lead">Tu as fini cet entraînement. Regarde ton score et continue.</p>
         <div id="stars-container" class="results-stars"></div>
         <p id="result-score" class="result-score"></p>
+        <p id="result-coins" class="result-coins is-hidden" aria-live="polite"></p>
         <button id="btn-results-lesson" class="btn card card--action u-hidden">
             <span id="btn-results-lesson-label" class="card-title">REVOIR LA LEÇON</span>
         </button>

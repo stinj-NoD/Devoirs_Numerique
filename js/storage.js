@@ -163,7 +163,193 @@ const Storage = {
             normalized.lastTimestamp = Number.isFinite(lastTimestamp) && lastTimestamp > 0 ? lastTimestamp : normalized.timestamp;
         }
 
+        if (this._canonicalSubjects.includes(entry.subject)) {
+            normalized.subject = entry.subject;
+        }
+
         return normalized;
+    },
+
+    _getRedemptionKey(name = this.getCurrentUser()) {
+        const cleanName = this._sanitize(name).slice(0, this._profileNameMaxLength);
+        return cleanName ? `redemptions_${cleanName}` : null;
+    },
+
+    // Compte les "rattrapages" : un exercice qui était < 50 % et repasse ≥ 75 %.
+    // Alimente les badges de persévérance et la mission rattrapage.
+    recordRedemption(name = this.getCurrentUser()) {
+        const key = this._getRedemptionKey(name);
+        if (!key) return;
+        const current = Math.max(0, Number(this._getItem(key)) || 0);
+        this._setItem(key, String(current + 1));
+    },
+
+    getRedemptionCount(name = this.getCurrentUser()) {
+        const key = this._getRedemptionKey(name);
+        return key ? Math.max(0, Number(this._getItem(key)) || 0) : 0;
+    },
+
+    // ---------- GRIMOIRE : pièces, collection de cartes, boosters ----------
+
+    _getCoinsKey(name = this.getCurrentUser()) {
+        const cleanName = this._sanitize(name).slice(0, this._profileNameMaxLength);
+        return cleanName ? `coins_${cleanName}` : null;
+    },
+
+    getCoins(name = this.getCurrentUser()) {
+        const key = this._getCoinsKey(name);
+        if (!key) return 0;
+        const raw = this._getItem(key);
+        if (raw === null) {
+            // Migration unique : les profils créés avant le Grimoire ont déjà
+            // gagné des étoiles — on les crédite rétroactivement en pièces
+            // pour ne pas démarrer la collection à zéro.
+            const initial = this.getTotalStars(name);
+            this._setItem(key, String(initial));
+            return initial;
+        }
+        return Math.max(0, Number(raw) || 0);
+    },
+
+    addCoins(amount, name = this.getCurrentUser()) {
+        const key = this._getCoinsKey(name);
+        if (!key) return 0;
+        const next = Math.max(0, this.getCoins(name) + Math.round(Number(amount) || 0));
+        this._setItem(key, String(next));
+        return next;
+    },
+
+    spendCoins(amount, name = this.getCurrentUser()) {
+        const cost = Math.max(0, Math.round(Number(amount) || 0));
+        if (this.getCoins(name) < cost) return false;
+        this.addCoins(-cost, name);
+        return true;
+    },
+
+    _getCardsKey(name = this.getCurrentUser()) {
+        const cleanName = this._sanitize(name).slice(0, this._profileNameMaxLength);
+        return cleanName ? `cards_${cleanName}` : null;
+    },
+
+    // Collection : { ownedIds: {cardId: count}, boostersSansNouvelle: n }
+    _readCardState(name = this.getCurrentUser()) {
+        const key = this._getCardsKey(name);
+        const raw = key ? this._safeParseObject(this._getItem(key)) : {};
+        const ownedIds = (raw.ownedIds && typeof raw.ownedIds === 'object' && !Array.isArray(raw.ownedIds)) ? raw.ownedIds : {};
+        const clean = {};
+        Object.entries(ownedIds).forEach(([id, count]) => {
+            const n = Math.max(0, Math.round(Number(count) || 0));
+            if (n > 0 && typeof id === 'string') clean[id] = n;
+        });
+        return {
+            key,
+            ownedIds: clean,
+            boostersSansNouvelle: Math.max(0, Number(raw.boostersSansNouvelle) || 0)
+        };
+    },
+
+    getOwnedCards(name = this.getCurrentUser()) {
+        return this._readCardState(name).ownedIds;
+    },
+
+    boosterCost: 25,
+    // Remboursement des doublons, par rareté
+    _duplicateRefund: { commune: 2, rare: 4, epique: 8, legendaire: 15, brillante: 25 },
+    // Probabilités de tirage par carte. Le légendaire est volontairement
+    // très rare (~1 carte sur 200) et la Prismatique encore plus (~1 sur 400) :
+    // les trouver doit être un événement.
+    _rarityWeights: { commune: 63, rare: 27, epique: 9.25, legendaire: 0.5, brillante: 0.25 },
+
+    /**
+     * Ouvre un booster de 3 cartes parmi `catalog` (data/cards.json).
+     * Tirage pondéré par rareté ; garde-fou anti-frustration : si les 2
+     * boosters précédents n'ont apporté aucune nouvelle carte, la première
+     * carte du paquet est forcée parmi les non possédées.
+     * Retourne { cards: [{card, isNew, refund}], refundTotal } ou null si
+     * pièces insuffisantes.
+     */
+    openBooster(catalog, name = this.getCurrentUser()) {
+        const all = Array.isArray(catalog?.cards) ? catalog.cards : [];
+        if (!all.length) return null;
+        if (!this.spendCoins(this.boosterCost, name)) return null;
+
+        const state = this._readCardState(name);
+        if (!state.key) return null;
+        const owned = { ...state.ownedIds };
+
+        const byRarity = {};
+        all.forEach((card) => {
+            (byRarity[card.rarity] = byRarity[card.rarity] || []).push(card);
+        });
+
+        const drawWeightedRarity = () => {
+            const entries = Object.entries(this._rarityWeights).filter(([r]) => byRarity[r]?.length);
+            const totalW = entries.reduce((sum, [, w]) => sum + w, 0);
+            let roll = Math.random() * totalW;
+            for (const [rarity, w] of entries) {
+                roll -= w;
+                if (roll <= 0) return rarity;
+            }
+            return entries[entries.length - 1][0];
+        };
+
+        const pick = (pool) => pool[Math.floor(Math.random() * pool.length)];
+        const results = [];
+        const pityActive = state.boostersSansNouvelle >= 2 && all.some((c) => !owned[c.id]);
+
+        for (let i = 0; i < 3; i++) {
+            let card;
+            if (i === 0 && pityActive) {
+                // Carte garantie nouvelle : tirage de rareté restreint aux non possédées
+                const unownedByRarity = {};
+                all.forEach((c) => {
+                    if (!owned[c.id]) (unownedByRarity[c.rarity] = unownedByRarity[c.rarity] || []).push(c);
+                });
+                const entries = Object.entries(this._rarityWeights).filter(([r]) => unownedByRarity[r]?.length);
+                const totalW = entries.reduce((sum, [, w]) => sum + w, 0);
+                let roll = Math.random() * totalW;
+                let rarity = entries[entries.length - 1][0];
+                for (const [r, w] of entries) {
+                    roll -= w;
+                    if (roll <= 0) { rarity = r; break; }
+                }
+                card = pick(unownedByRarity[rarity]);
+            } else {
+                card = pick(byRarity[drawWeightedRarity()]);
+            }
+            const isNew = !owned[card.id];
+            owned[card.id] = (owned[card.id] || 0) + 1;
+            const refund = isNew ? 0 : (this._duplicateRefund[card.rarity] || 2);
+            results.push({ card, isNew, refund });
+        }
+
+        const refundTotal = results.reduce((sum, r) => sum + r.refund, 0);
+        if (refundTotal > 0) this.addCoins(refundTotal, name);
+
+        const gotNew = results.some((r) => r.isNew);
+        this._setItem(state.key, JSON.stringify({
+            ownedIds: owned,
+            boostersSansNouvelle: gotNew ? 0 : state.boostersSansNouvelle + 1
+        }));
+
+        return { cards: results, refundTotal };
+    },
+
+    _canonicalSubjects: ['maths', 'francais', 'histoire', 'geo', 'sciences', 'emc'],
+
+    // Matière canonique d'après l'id d'un nœud sujet des fichiers de niveaux
+    // (ex: 'cm1-maths-subject' → 'maths'). Source de vérité pour classer un
+    // exercice au moment de la sauvegarde.
+    canonicalizeSubjectId(subjectId) {
+        const id = String(subjectId || '').toLowerCase();
+        if (!id) return null;
+        if (id.includes('maths')) return 'maths';
+        if (id.includes('francais')) return 'francais';
+        if (id.includes('histoire')) return 'histoire';
+        if (id.includes('geographie') || id.includes('geo')) return 'geo';
+        if (id.includes('sciences')) return 'sciences';
+        if (id.includes('emc')) return 'emc';
+        return null;
     },
 
     _getRecordsKey(name = this.getCurrentUser()) {
@@ -264,7 +450,7 @@ const Storage = {
         return `${safeGradeId}::${safeExerciseId}`;
     },
 
-    saveRecord(gradeId, exerciseId, score, total) {
+    saveRecord(gradeId, exerciseId, score, total, subject = null) {
         const currentUser = this.getCurrentUser();
         if (!currentUser) return;
 
@@ -290,6 +476,11 @@ const Storage = {
         }
         entry.lastPercent = percent;
         entry.lastTimestamp = now;
+        // La matière est fournie par l'appelant (sujet parent au moment du jeu) ;
+        // on met aussi à niveau les anciens records qui n'en avaient pas.
+        if (this._canonicalSubjects.includes(subject)) {
+            entry.subject = subject;
+        }
 
         records[recordKey] = entry;
         if (records[exerciseId]) delete records[exerciseId];
@@ -328,6 +519,9 @@ const Storage = {
         this._removeItem(`avatar_state_${resolvedName}`);
         this._removeItem(`activity_log_${resolvedName}`);
         this._removeItem(`daily_challenge_${resolvedName}`);
+        this._removeItem(`redemptions_${resolvedName}`);
+        this._removeItem(`coins_${resolvedName}`);
+        this._removeItem(`cards_${resolvedName}`);
         this._removeItem(this._getAppearanceKey(resolvedName));
 
         if (this._normalizeProfileName(this.getCurrentUser()) === normalized) {
@@ -526,9 +720,18 @@ const Storage = {
         return this.getAvatarEvolutionState(name);
     },
 
+    _sumStars(records) {
+        return Object.values(records || {}).reduce((sum, entry) => sum + (entry.stars || 0), 0);
+    },
+
     getTotalStars(name = this.getCurrentUser()) {
         const { records } = this._readRecords(name);
-        return Object.values(records || {}).reduce((sum, entry) => sum + (entry.stars || 0), 0);
+        return this._sumStars(records);
+    },
+
+    getPerfectCount(name = this.getCurrentUser()) {
+        const { records } = this._readRecords(name);
+        return Object.values(records || {}).filter((entry) => entry.percent === 100).length;
     },
 
     _getActivityLogKey(name = this.getCurrentUser()) {
@@ -578,13 +781,92 @@ const Storage = {
             exportedAt: new Date().toISOString(),
             profiles: profiles.map((name) => {
                 const cleanName = this._sanitize(name).slice(0, this._profileNameMaxLength);
+                const streak = this._readStreak(cleanName);
                 return {
                     name: cleanName,
                     records: this._readRecords(cleanName).records,
-                    streak: this._readStreak(cleanName),
-                    appearance: this.getProfileAppearance(cleanName)
+                    streak: { current: streak.current, best: streak.best, lastDay: streak.lastDay },
+                    appearance: this.getProfileAppearance(cleanName),
+                    avatarState: this._safeParseObject(this._getItem(`avatar_state_${cleanName}`)),
+                    activityLog: this._safeParseObject(this._getItem(`activity_log_${cleanName}`)),
+                    champion: this._safeParseObject(this._getItem(`champion_${cleanName}`)),
+                    redemptions: this.getRedemptionCount(cleanName),
+                    coins: this.getCoins(cleanName),
+                    cards: this._safeParseObject(this._getItem(`cards_${cleanName}`))
                 };
             })
+        };
+    },
+
+    /**
+     * Restaure une sauvegarde produite par exportAllData. Les profils sont
+     * fusionnés (ajoutés s'ils n'existent pas, écrasés sinon). Chaque bloc
+     * passe par les mêmes validations que le stockage normal : les records
+     * sont re-filtrés par _sanitizeRecordEntry à la lecture, l'apparence et
+     * l'avatar par leurs setters. Accepte les anciens exports (blocs absents).
+     */
+    importAllData(data) {
+        if (!data || typeof data !== 'object' || !Array.isArray(data.profiles)) {
+            return { ok: false, imported: 0, error: 'format' };
+        }
+
+        let imported = 0;
+        for (const profile of data.profiles) {
+            const validation = this.validateProfileName(profile?.name);
+            if (!validation.ok) continue;
+            const cleanName = validation.cleanName;
+            this.addProfile(cleanName);
+
+            if (profile.records && typeof profile.records === 'object' && !Array.isArray(profile.records)) {
+                this._setItem(`records_${cleanName}`, JSON.stringify(profile.records));
+            }
+            if (profile.streak && typeof profile.streak === 'object') {
+                const current = Math.max(0, Number(profile.streak.current) || 0);
+                const best = Math.max(current, Number(profile.streak.best) || 0);
+                const lastDay = Math.max(0, Number(profile.streak.lastDay) || 0);
+                this._setItem(`streak_${cleanName}`, JSON.stringify({ current, best, lastDay }));
+            }
+            if (profile.avatarState && this._avatarTree[profile.avatarState.currentId]) {
+                this._setItem(`avatar_state_${cleanName}`, JSON.stringify({ currentId: profile.avatarState.currentId }));
+            }
+            if (profile.activityLog && typeof profile.activityLog === 'object' && !Array.isArray(profile.activityLog)) {
+                this._setItem(`activity_log_${cleanName}`, JSON.stringify(profile.activityLog));
+            }
+            if (profile.champion && typeof profile.champion === 'object' && !Array.isArray(profile.champion)) {
+                this._setItem(`champion_${cleanName}`, JSON.stringify(profile.champion));
+            }
+            const redemptions = Math.max(0, Number(profile.redemptions) || 0);
+            if (redemptions > 0) {
+                this._setItem(`redemptions_${cleanName}`, String(redemptions));
+            }
+            const coins = Math.max(0, Number(profile.coins) || 0);
+            if (coins > 0) {
+                this._setItem(`coins_${cleanName}`, String(coins));
+            }
+            if (profile.cards && typeof profile.cards === 'object' && !Array.isArray(profile.cards)) {
+                this._setItem(`cards_${cleanName}`, JSON.stringify(profile.cards));
+            }
+            // L'apparence en dernier : le déblocage d'un accessoire dépend des
+            // badges, donc des records qui viennent d'être restaurés.
+            if (profile.appearance && typeof profile.appearance === 'object') {
+                this.setProfileAppearance(cleanName, {
+                    accent: profile.appearance.accent,
+                    accessory: profile.appearance.accessory ?? undefined
+                });
+            }
+            imported++;
+        }
+
+        return { ok: imported > 0, imported, error: imported > 0 ? null : 'empty' };
+    },
+
+    getTodayActivity(name = this.getCurrentUser()) {
+        const key = this._getActivityLogKey(name);
+        const log = key ? this._safeParseObject(this._getItem(key)) : {};
+        const entry = log[this._dayNumber(Date.now())];
+        return {
+            attempts: Math.max(0, Number(entry?.attempts) || 0),
+            stars: Math.max(0, Number(entry?.stars) || 0)
         };
     },
 
@@ -619,23 +901,63 @@ const Storage = {
      * plus que l'accent (couleur) ; l'avatar renvoyé ici est juste un
      * confort pour les écrans qui veulent les deux d'un coup.
      */
+    // Accessoires cosmétiques du compagnon, débloqués par des badges précis :
+    // donne une raison de viser un badge en particulier. 'none' est toujours
+    // disponible.
+    _accessoryDefinitions: [
+        { id: 'cap', emoji: '🧢', label: 'Casquette', badgeId: 'ten-stars' },
+        { id: 'glasses', emoji: '🕶️', label: 'Lunettes', badgeId: 'explorer-25' },
+        { id: 'scarf', emoji: '🧣', label: 'Écharpe', badgeId: 'streak-7' },
+        { id: 'medal', emoji: '🎖️', label: 'Médaille', badgeId: 'rattrapage-5' },
+        { id: 'tophat', emoji: '🎩', label: 'Haut-de-forme', badgeId: 'twenty-five-perfect' },
+        { id: 'crown', emoji: '👑', label: 'Couronne', badgeId: 'hundred-stars' }
+    ],
+
+    getAccessoryChoicesWithUnlock(name = this.getCurrentUser()) {
+        const badges = this.getBadges(name);
+        const unlockedBadgeIds = new Set(badges.filter((b) => b.unlocked).map((b) => b.id));
+        const badgeLabelById = Object.fromEntries(badges.map((b) => [b.id, b.label]));
+        const selected = this.getProfileAppearance(name).accessory;
+        return this._accessoryDefinitions.map((def) => ({
+            ...def,
+            unlocked: unlockedBadgeIds.has(def.badgeId),
+            badgeLabel: badgeLabelById[def.badgeId] || '',
+            selected: selected === def.id
+        }));
+    },
+
     getProfileAppearance(name = this.getCurrentUser()) {
         const key = this._getAppearanceKey(name);
         const fallback = { accent: this._accentChoices[0].id };
         const raw = key ? this._safeParseObject(this._getItem(key)) : {};
         const accent = this._accentChoices.some((entry) => entry.id === raw.accent) ? raw.accent : fallback.accent;
+        const accessory = this._accessoryDefinitions.some((entry) => entry.id === raw.accessory) ? raw.accessory : null;
         const avatarState = this.getAvatarEvolutionState(name);
-        return { avatar: avatarState.emoji, accent };
+        return { avatar: avatarState.emoji, accent, accessory };
     },
 
-    setProfileAppearance(name, { accent } = {}) {
+    getAccessoryEmoji(name = this.getCurrentUser()) {
+        const { accessory } = this.getProfileAppearance(name);
+        if (!accessory) return null;
+        return this._accessoryDefinitions.find((entry) => entry.id === accessory)?.emoji || null;
+    },
+
+    setProfileAppearance(name, { accent, accessory } = {}) {
         const key = this._getAppearanceKey(name);
         if (!key) return null;
         const current = this.getProfileAppearance(name);
         const safeAccent = this._accentChoices.some((entry) => entry.id === accent) ? accent : current.accent;
-        const next = { accent: safeAccent };
+        // accessory : undefined = inchangé, null = retiré, id valide ET débloqué = choisi
+        let safeAccessory = current.accessory;
+        if (accessory === null) {
+            safeAccessory = null;
+        } else if (accessory !== undefined) {
+            const choice = this.getAccessoryChoicesWithUnlock(name).find((entry) => entry.id === accessory);
+            if (choice && choice.unlocked) safeAccessory = accessory;
+        }
+        const next = { accent: safeAccent, accessory: safeAccessory };
         this._setItem(key, JSON.stringify(next));
-        return { avatar: current.avatar, accent: safeAccent };
+        return { avatar: current.avatar, accent: safeAccent, accessory: safeAccessory };
     },
 
     getPreference(key) {
@@ -812,99 +1134,86 @@ const Storage = {
         { id: 'master-francais', icon: '📖', label: 'Maître du français', test: (s) => (s.subjectMastery['francais'] || 0) >= 5 },
         { id: 'master-histoire', icon: '🏛️', label: 'Historien en herbe', test: (s) => (s.subjectMastery['histoire'] || 0) >= 5 },
         { id: 'master-sciences', icon: '🔬', label: 'Petit scientifique', test: (s) => (s.subjectMastery['sciences'] || 0) >= 5 },
-        { id: 'master-geo', icon: '🗺️', label: 'Géographe en herbe', test: (s) => (s.subjectMastery['geo'] || 0) >= 5 }
+        { id: 'master-geo', icon: '🗺️', label: 'Géographe en herbe', test: (s) => (s.subjectMastery['geo'] || 0) >= 5 },
+        // Persévérance : exercices "rattrapés" (< 50 % transformé en ≥ 75 %)
+        { id: 'rattrapage-1', icon: '🎯', label: 'Premier rattrapage', test: (s) => s.redemptions >= 1 },
+        { id: 'rattrapage-5', icon: '💪', label: '5 rattrapages', test: (s) => s.redemptions >= 5 },
+        { id: 'rattrapage-15', icon: '🦸', label: '15 rattrapages', test: (s) => s.redemptions >= 15 }
     ],
 
-    // Maps exercise-id prefixes to canonical subject keys used by mastery badges.
-    // Prefix matching beats segment[1] parsing because many IDs have non-subject
-    // second segments (e.g. 'cm1-frac-1', 'add-1') or use 'geo' for both geography
-    // and math-geometry exercises. Longest prefix wins (checked in order).
-    _subjectPrefixes: [
-        // Maths — must come before geography to claim cm*-geo-* geometry ids
+    // Classification matière d'un id d'exercice, en deux temps :
+    // 1. exceptions ordonnées (ids legacy sans préfixe de niveau, et familles
+    //    'geo' ambiguës : géométrie maths vs géographie) — la plus spécifique d'abord ;
+    // 2. sinon, on retire le préfixe de niveau éventuel et on cherche le premier
+    //    segment dans la carte ci-dessous.
+    // Validé par scripts/validate-subjects.js qui confronte chaque exercice des
+    // fichiers de niveaux à la matière de son sujet parent.
+    _subjectExceptions: [
+        // Ids legacy sans préfixe de niveau
         ['add-', 'maths'], ['sub-', 'maths'], ['comp-', 'maths'], ['mul-', 'maths'],
         ['div-', 'maths'], ['cible-', 'maths'], ['banquier-', 'maths'], ['oiseau-', 'maths'],
-        ['carre-', 'maths'], ['math-', 'maths'],
-        ['cp-maths-', 'maths'], ['ce1-maths-', 'maths'], ['ce2-maths-', 'maths'],
-        ['cm1-maths-', 'maths'], ['cm2-maths-', 'maths'],
-        ['cm1-m-', 'maths'], ['cm2-m-', 'maths'],
-        ['cm1-frac-', 'maths'], ['cm2-frac-', 'maths'],
-        ['cm1-dec-', 'maths'], ['cm2-dec-', 'maths'],
-        ['cm1-div-', 'maths'], ['cm2-div-', 'maths'],
-        ['cm1-nombres-', 'maths'], ['cm2-nombres-', 'maths'],
-        ['cm1-longueurs', 'maths'], ['cm2-longueurs', 'maths'],
-        ['cm1-romains', 'maths'], ['cm2-romains', 'maths'],
-        ['cm1-graphique-', 'maths'], ['cm2-graphique-', 'maths'],
-        ['cm1-donnees-', 'maths'], ['cm2-donnees-', 'maths'],
-        ['cm1-geo-', 'maths'], ['cm2-geo-', 'maths'],   // math geometry, not geography
-        ['ce2-geo-perim-', 'maths'], ['ce2-geo-aire-', 'maths'],
-        ['ce1-geo-formes-', 'maths'], ['cp-geo-formes-', 'maths'],
-        ['cp-geo-comp-', 'maths'],
-        // Français
-        ['fr-', 'francais'], ['cp-audio-', 'francais'],
-        ['cp-francais-', 'francais'], ['ce1-francais-', 'francais'],
-        ['ce2-francais-', 'francais'], ['cm1-francais-', 'francais'],
-        ['cm2-francais-', 'francais'],
-        ['cp-lecture-', 'francais'], ['ce1-lecture-', 'francais'],
-        ['ce2-lecture-', 'francais'], ['cm1-lecture-', 'francais'],
-        ['cm2-lecture-', 'francais'],
-        ['cp-conj-', 'francais'], ['ce1-conj-', 'francais'],
-        ['ce2-conj-', 'francais'], ['cm1-conj-', 'francais'],
-        ['cm2-conj-', 'francais'],
-        ['cp-gram-', 'francais'], ['ce1-gram-', 'francais'],
-        ['ce2-gram-', 'francais'], ['cm1-gram-', 'francais'],
-        ['cm2-gram-', 'francais'],
-        ['cp-ortho-', 'francais'], ['ce1-ortho-', 'francais'],
-        ['ce2-ortho-', 'francais'], ['cm1-ortho-', 'francais'],
-        ['cm2-ortho-', 'francais'],
-        ['cp-vocabulaire-', 'francais'], ['ce1-vocabulaire-', 'francais'],
-        ['ce2-vocabulaire-', 'francais'], ['cm1-vocabulaire-', 'francais'],
-        ['cm2-vocabulaire-', 'francais'],
-        ['cp-dictee-', 'francais'], ['ce1-dictee-', 'francais'],
-        ['cp-phrase-', 'francais'], ['ce1-phrase-', 'francais'],
-        ['ce2-phrase-', 'francais'],
-        ['cp-conjugaison-', 'francais'], ['ce1-conjugaison-', 'francais'],
-        ['cp-un-', 'francais'], ['cp-mon-', 'francais'],
-        ['cp-ordre-', 'francais'],
-        // Histoire
-        ['cp-histoire-', 'histoire'], ['ce1-histoire-', 'histoire'],
-        ['ce2-histoire-', 'histoire'], ['cm1-histoire-', 'histoire'],
-        ['cm2-histoire-', 'histoire'],
-        ['cm1-periodes-', 'histoire'], ['cm1-prehistoire-', 'histoire'],
-        ['cm1-moyen-', 'histoire'], ['cm1-antiquite-', 'histoire'],
-        ['cm2-revolution-', 'histoire'], ['cm2-xxe-', 'histoire'],
-        // Géographie (real geography — distinct from math geometry above)
+        ['carre-', 'maths'], ['math-', 'maths'], ['fr-', 'francais'],
+        // Segment 'geo' ambigu — géographie d'abord (plus spécifique)…
+        ['cm1-geo-relief-', 'geo'], ['cm1-geo-europe-', 'geo'], ['cm1-geo-france-', 'geo'],
+        ['cm2-geo-monde-', 'geo'], ['cm2-geo-france-', 'geo'], ['cm2-geo-ue-', 'geo'],
+        ['ce2-geo-transports-', 'geo'], ['ce2-geo-relief-', 'geo'], ['ce2-geo-france-', 'geo'],
         ['cp-geo-plan-', 'geo'], ['cp-geo-paysages-', 'geo'],
         ['cp-geo-transports-', 'geo'], ['cp-geo-se-', 'geo'],
-        ['cp-plan-', 'geo'],
-        ['ce1-geo-', 'geo'], ['ce2-geo-transports-', 'geo'],
-        ['ce2-geo-relief-', 'geo'], ['ce2-geo-france-', 'geo'],
-        ['ce2-geographie-', 'geo'],
-        ['cm1-geographie-', 'geo'], ['cm1-geo-relief-', 'geo'],
-        ['cm1-geo-europe-', 'geo'], ['cm1-geo-france-', 'geo'],
-        ['cm2-geographie-', 'geo'], ['cm2-geo-monde-', 'geo'],
-        ['cm2-geo-france-', 'geo'], ['cm2-geo-ue-', 'geo'],
-        // Sciences
-        ['cp-sciences-', 'sciences'], ['ce1-sciences-', 'sciences'],
-        ['ce2-sciences-', 'sciences'], ['cm1-sciences-', 'sciences'],
-        ['cm2-sciences-', 'sciences'],
-        // EMC (no badge for now — entries still counted in subjectMastery for future use)
-        ['cp-emc-', 'emc'], ['ce1-emc-', 'emc'], ['ce2-emc-', 'emc'],
-        ['cm1-emc-', 'emc'], ['cm2-emc-', 'emc']
+        // …puis géométrie maths en rattrapage sur le reste des cm*/ce2/formes
+        ['cm1-geo-', 'maths'], ['cm2-geo-', 'maths'],
+        ['ce2-geo-perim-', 'maths'], ['ce2-geo-aire-', 'maths'],
+        ['ce1-geo-formes-', 'maths'], ['cp-geo-formes-', 'maths'], ['cp-geo-comp-', 'maths']
     ],
 
+    _subjectBySegment: {
+        maths: 'maths', m: 'maths', frac: 'maths', dec: 'maths', div: 'maths',
+        nombres: 'maths', longueurs: 'maths', romains: 'maths', graphique: 'maths',
+        donnees: 'maths',
+        francais: 'francais', lecture: 'francais', conj: 'francais', conjugaison: 'francais',
+        gram: 'francais', ortho: 'francais', vocabulaire: 'francais', dictee: 'francais',
+        phrase: 'francais', audio: 'francais', un: 'francais', mon: 'francais',
+        ordre: 'francais',
+        histoire: 'histoire', periodes: 'histoire', prehistoire: 'histoire',
+        moyen: 'histoire', antiquite: 'histoire', revolution: 'histoire', xxe: 'histoire',
+        geographie: 'geo', geo: 'geo', plan: 'geo',
+        sciences: 'sciences',
+        // EMC : pas de badge pour l'instant, mais compté pour usage futur
+        emc: 'emc'
+    },
+
     _extractSubjectFromExerciseId(exerciseId) {
-        const id = exerciseId.toLowerCase();
-        for (const [prefix, subject] of this._subjectPrefixes) {
+        const id = String(exerciseId || '').toLowerCase();
+        for (const [prefix, subject] of this._subjectExceptions) {
             if (id.startsWith(prefix)) return subject;
         }
-        return null;
+        const withoutGrade = id.replace(/^(cp|ce1|ce2|cm1|cm2)-/, '');
+        const segment = withoutGrade.split('-')[0];
+        return this._subjectBySegment[segment] || null;
+    },
+
+    // Nombre d'exercices maîtrisés (≥ 75%) par matière canonique.
+    // entry.subject (écrit à la sauvegarde depuis le sujet parent) fait foi ;
+    // le parsing d'id ne sert que de fallback pour les records antérieurs.
+    // `preloadedRecords` évite une relecture quand l'appelant les a déjà.
+    getSubjectMasteryCounts(name = this.getCurrentUser(), preloadedRecords = null) {
+        const rawRecords = preloadedRecords || this._readRecords(name).records || {};
+        const subjectMastery = {};
+        for (const [key, entry] of Object.entries(rawRecords)) {
+            if ((entry.percent || 0) < 75) continue;
+            const sep = key.indexOf('::');
+            if (sep === -1) continue;
+            const exerciseId = key.slice(sep + 2);
+            const subject = entry.subject || this._extractSubjectFromExerciseId(exerciseId);
+            if (subject) subjectMastery[subject] = (subjectMastery[subject] || 0) + 1;
+        }
+        return subjectMastery;
     },
 
     getBadges(name = this.getCurrentUser()) {
         const { records } = this._readRecords(name);
         const rawRecords = records || {};
         const entries = Object.values(rawRecords);
-        const totalStars = entries.reduce((sum, entry) => sum + (entry.stars || 0), 0);
+        const totalStars = this._sumStars(rawRecords);
         const perfectCount = entries.filter((entry) => entry.percent === 100).length;
         const bestStreak = this._readStreak(name).best;
         const exercisesAttempted = entries.length;
@@ -918,18 +1227,10 @@ const Storage = {
             gradeExercises[gradeId] = (gradeExercises[gradeId] || 0) + 1;
         }
 
-        // Subject mastery: count exercises per subject where percent >= 75
-        const subjectMastery = {};
-        for (const [key, entry] of Object.entries(rawRecords)) {
-            if ((entry.percent || 0) < 75) continue;
-            const sep = key.indexOf('::');
-            if (sep === -1) continue;
-            const exerciseId = key.slice(sep + 2);
-            const subject = this._extractSubjectFromExerciseId(exerciseId);
-            if (subject) subjectMastery[subject] = (subjectMastery[subject] || 0) + 1;
-        }
+        const subjectMastery = this.getSubjectMasteryCounts(name, rawRecords);
 
-        const stats = { totalStars, perfectCount, bestStreak, exercisesAttempted, gradeExercises, subjectMastery };
+        const redemptions = this.getRedemptionCount(name);
+        const stats = { totalStars, perfectCount, bestStreak, exercisesAttempted, gradeExercises, subjectMastery, redemptions };
 
         return this._badgeDefinitions.map((def) => ({
             id: def.id,

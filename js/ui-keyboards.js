@@ -160,13 +160,20 @@ const UIKeyboards = {
 
 	    renderQCM(choices) {
         const kb = document.getElementById('keyboard-num');
-        if (!kb) return;
+        if (!kb || !Array.isArray(choices) || choices.length === 0) return;
 
-        const cols = Math.min(choices.length, 3);
-        kb.style.gridTemplateColumns = `repeat(${choices.length > 4 ? 2 : cols}, 1fr)`;
+        // Use 2 columns when any label is long (> 18 chars) or there are more than 3 choices,
+        // to prevent text overflow on narrow screens.
+        const hasLongLabel = choices.some(v => String(v).length > 18);
+        const cols = (choices.length > 3 || hasLongLabel) ? 2 : Math.min(choices.length, 3);
+        kb.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
         kb.style.gap = "10px";
 
-	        kb.innerHTML = choices.map(v => {
+        // With an odd count in a 2-column grid, the last button would sit alone
+        // at half width; make it span the full row instead.
+        const lastSpansRow = cols === 2 && choices.length % 2 === 1;
+
+	        kb.innerHTML = choices.map((v, index) => {
                 const safeLabel = this._escape(v);
                 const safeValue = this._safeAttr(v);
 	            let cssClass = "btn key";
@@ -175,7 +182,8 @@ const UIKeyboards = {
 	            else cssClass += " btn-neutral";
 
 	            if (['<', '>', '='].includes(v)) cssClass += " qcm-symbol";
-	            return `<button class="${cssClass}" data-val="${safeValue}">${safeLabel}</button>`;
+	            const spanStyle = (lastSpansRow && index === choices.length - 1) ? ' style="grid-column: 1 / -1;"' : '';
+	            return `<button class="${cssClass}" data-val="${safeValue}"${spanStyle}>${safeLabel}</button>`;
 	        }).join("");
 	    }
 };

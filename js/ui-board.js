@@ -525,7 +525,7 @@ const UIBoard = {
                     <div class="board-status">${statusText}</div>
                 </div>
                 <div class="board-panel board-panel--map">
-                    <svg class="board-svg board-map-svg" viewBox="${this._escape(viewBox)}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Carte interactive">
+                    <svg class="board-svg board-map-svg${(data.mapId || '') === 'france-regions' ? ' board-map-svg--flat' : ''}" viewBox="${this._escape(viewBox)}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Carte interactive">
                         ${pathsHtml}
                     </svg>
                 </div>

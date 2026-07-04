@@ -171,10 +171,24 @@ const App = {
         if (btnChangeParentPin) btnChangeParentPin.onclick = () => this.promptChangeParentPin();
         const btnExportData = get('btn-parents-export');
         if (btnExportData) btnExportData.onclick = () => this.exportParentData();
+        const btnImportData = get('btn-parents-import');
+        const importFileInput = get('parents-import-file');
+        if (btnImportData && importFileInput) {
+            btnImportData.onclick = () => importFileInput.click();
+            importFileInput.onchange = () => this.importParentData(importFileInput);
+        }
         const btnParentsProgram = get('btn-parents-program');
         if (btnParentsProgram) btnParentsProgram.onclick = () => this.showProgramOverview();
         const btnParentsProgramBack = get('btn-parents-program-back');
         if (btnParentsProgramBack) btnParentsProgramBack.onclick = () => UI.showScreen('screen-parents');
+        const btnParentsGuide = get('btn-parents-guide');
+        if (btnParentsGuide) btnParentsGuide.onclick = () => this.showGuide('screen-parents');
+        const btnOpenGuide = get('btn-open-guide');
+        if (btnOpenGuide) btnOpenGuide.onclick = () => this.showGuide('screen-profiles');
+        const btnOpenGrimoire = get('btn-open-grimoire');
+        if (btnOpenGrimoire) btnOpenGrimoire.onclick = () => this.showGrimoire();
+        const btnParentsGuideBack = get('btn-parents-guide-back');
+        if (btnParentsGuideBack) btnParentsGuideBack.onclick = () => this.leaveGuide();
     },
 
     exportParentData() {
@@ -187,6 +201,60 @@ const App = {
         link.href = url;
         link.click();
         setTimeout(() => URL.revokeObjectURL(url), 1000);
+    },
+
+    async importParentData(fileInput) {
+        const file = fileInput.files?.[0];
+        fileInput.value = ''; // permet de re-sélectionner le même fichier
+        if (!file) return;
+
+        let data;
+        try {
+            data = JSON.parse(await file.text());
+        } catch (e) {
+            alert("Ce fichier n'est pas une sauvegarde valide (JSON illisible).");
+            return;
+        }
+
+        const names = Array.isArray(data?.profiles)
+            ? data.profiles.map((p) => p?.name).filter(Boolean)
+            : [];
+        if (!names.length) {
+            alert("Ce fichier ne contient aucun profil à restaurer.");
+            return;
+        }
+
+        const confirmed = confirm(
+            `Restaurer ${names.length} profil${names.length > 1 ? 's' : ''} : ${names.join(', ')} ?\n\n` +
+            "Les profils du même nom seront remplacés par les données de la sauvegarde."
+        );
+        if (!confirmed) return;
+
+        const result = Storage.importAllData(data);
+        if (!result.ok) {
+            alert("La restauration a échoué : aucun profil valide dans ce fichier.");
+            return;
+        }
+        alert(`Restauration réussie : ${result.imported} profil${result.imported > 1 ? 's' : ''} importé${result.imported > 1 ? 's' : ''}.`);
+        this.showParentsDashboard();
+    },
+
+    showGuide(origin = 'screen-profiles') {
+        this.state.guideOrigin = origin;
+        const backLabel = document.getElementById('parents-guide-back-label');
+        if (backLabel) {
+            backLabel.textContent = origin === 'screen-parents' ? '← RETOUR AU SUIVI' : "← RETOUR À L'ACCUEIL";
+        }
+        UI.showScreen('screen-parents-guide');
+    },
+
+    // Reads and clears the guide origin so a stale value can never route a
+    // later navigation (e.g. straight onto the PIN-gated parents dashboard).
+    leaveGuide() {
+        const target = this.state.guideOrigin || 'screen-profiles';
+        this.state.guideOrigin = null;
+        if (target === 'screen-profiles') this.renderProfilesScreen();
+        else UI.showScreen(target);
     },
 
     async showProgramOverview() {
@@ -528,7 +596,11 @@ const App = {
             const accent = Storage.getAccentChoices().find((entry) => entry.id === appearance.accent);
             if (accent) appShell.style.setProperty('--profile-accent', accent.color);
             const evolution = Storage.getAvatarEvolutionState(currentUser);
-            UI.renderHeaderAvatar({ avatar: evolution.emoji, prestigeTier: evolution.prestigeTier });
+            UI.renderHeaderAvatar({
+                avatar: evolution.emoji,
+                prestigeTier: evolution.prestigeTier,
+                accessoryEmoji: Storage.getAccessoryEmoji(currentUser)
+            });
         } else {
             UI.renderHeaderAvatar(null);
         }
@@ -749,7 +821,7 @@ const App = {
             return this.goHome();
         }
 
-        const wasEveningRitual = this.state.currentLessonOrigin === 'evening';
+        const wasEveningRitual = this.state.currentLessonOrigin === 'evening' || this.state.currentLessonOrigin === 'mission';
         this.state.currentTheme = null;
         this.state.currentLessonOrigin = null;
         this.state.currentExercise = null;
@@ -780,15 +852,19 @@ const App = {
         if (!this.confirmLeaveExercise()) return;
         UI.closeNavSheet?.();
         const wasChampionMode = !!this.state.championMode;
-        this.stopCurrentExercise();
-
         const currentScreen = document.querySelector('.screen.active')?.id;
+        this.stopCurrentExercise();
         const actions = {
             'screen-progress': () => UI.showScreen('screen-mode'),
             'screen-collection': () => UI.showScreen('screen-progress'),
             'screen-parents-pin': () => this.renderProfilesScreen(),
             'screen-parents': () => this.renderProfilesScreen(),
             'screen-parents-program': () => UI.showScreen('screen-parents'),
+            'screen-parents-guide': () => this.leaveGuide(),
+            'screen-grimoire': () => {
+                this.refreshCoinsDisplays();
+                UI.showScreen('screen-grades');
+            },
             'screen-champion-setup': () => UI.showScreen('screen-mode'),
             'screen-champion-results': () => UI.showScreen('screen-mode'),
             'screen-profile-customize': () => {
@@ -800,7 +876,7 @@ const App = {
                     UI.showScreen('screen-champion-setup');
                     return;
                 }
-                if (this.state.currentLessonOrigin === 'evening') {
+                if (this.state.currentLessonOrigin === 'evening' || this.state.currentLessonOrigin === 'mission') {
                     UI.showScreen('screen-mode');
                     return;
                 }
@@ -910,6 +986,7 @@ const App = {
             starters: Storage.getAvatarStarterChoices(),
             evolution: Storage.getAvatarEvolutionState(profile.name),
             accents: Storage.getAccentChoicesWithUnlock(profile.name),
+            accessories: Storage.getAccessoryChoicesWithUnlock(profile.name),
             current
         }, {
             onChooseStarter: (starterId) => {
@@ -922,6 +999,9 @@ const App = {
             },
             onChangeAccent: (accent) => {
                 Storage.setProfileAppearance(profile.name, { accent });
+            },
+            onChangeAccessory: (accessory) => {
+                Storage.setProfileAppearance(profile.name, { accessory });
             }
         }, () => {
             this.state.customizingProfile = null;
@@ -936,7 +1016,7 @@ const App = {
         UI.showScreen('screen-profile-customize');
     },
 
-    // --- CHARGEMENT DES DONNÃ‰ES ---
+    // --- CHARGEMENT DES DONNÉES ---
 
     async loadGradesMenu() {
         try {
@@ -948,6 +1028,8 @@ const App = {
             if (check && !check.valid) throw new Error(check.reason);
             this.applyVisualContext();
             UI.renderMenu('grades-list', d.grades, (g) => this.loadGrade(g));
+            const coinsEl = document.getElementById('grimoire-entry-coins');
+            if (coinsEl) coinsEl.textContent = `🪙 ${Storage.getCoins()}`;
             UI.showScreen('screen-grades');
         } catch (e) { 
             console.error(e);
@@ -983,6 +1065,10 @@ const App = {
         if (!grade) return;
 
         UI.renderDailyChallenge(Storage.getCurrentUser() ? Storage.getDailyChallenge() : null);
+        UI.renderTodayRecap(
+            Storage.getCurrentUser() ? Storage.getTodayActivity() : null,
+            Storage.getAvatarEvolutionState()?.emoji || '🦉'
+        );
 
         const modes = [];
         const lessonsCount = this.countGradeModeEntries('lessons');
@@ -1043,6 +1129,18 @@ const App = {
             });
         }
 
+        const weakCount = this.getWeakExercises().length;
+        if (weakCount > 0) {
+            modes.push({
+                id: 'browse-mission',
+                mode: 'mission',
+                icon: '🎯',
+                title: 'Mission rattrapage',
+                subtitle: `${weakCount} exercice${weakCount > 1 ? 's' : ''} à transformer en réussite`,
+                helper: 'Je retente un exercice difficile pour devenir plus fort.'
+            });
+        }
+
         UI.renderBrowseModes(modes, (entry) => this.selectBrowseMode(entry.mode));
         UI.showScreen('screen-mode');
     },
@@ -1099,6 +1197,48 @@ const App = {
             summaryText: "Lis cette leçon calmement, puis termine avec un seul petit exercice avant de te coucher."
         });
         UI.showScreen('screen-lesson');
+    },
+
+    /**
+     * Exercices "à rattraper" : déjà tentés mais jamais réussis à 50 % —
+     * le même seuil que "à réviser" côté parents. Alimente la Mission
+     * rattrapage, qui transforme la remédiation en défi positif.
+     */
+    getWeakExercises() {
+        const grade = this.state.currentGrade;
+        if (!grade || !grade.gradeId) return [];
+        const subjects = this.currentGradeUsesSubjects()
+            ? grade.subjects
+            : this.normalizeGradeThemes(grade).map((theme) => ({ ...theme, subthemes: [theme] }));
+
+        const result = [];
+        (subjects || []).forEach((subject) => {
+            (subject?.subthemes || []).forEach((subtheme) => {
+                (subtheme?.exercises || []).forEach((exercise) => {
+                    if (exercise.isBonus) return;
+                    if (!this.hasRunnableExercise(exercise)) return;
+                    const record = Storage.getRecord(exercise.id, grade.gradeId);
+                    if (!record) return;
+                    if (Math.round(record.percent || 0) >= 50) return;
+                    result.push({ exercise, subject, subtheme });
+                });
+            });
+        });
+        return result;
+    },
+
+    startMissionRattrapage() {
+        const weak = this.getWeakExercises();
+        if (!weak.length) {
+            alert("Aucun exercice à rattraper : tout est déjà réussi, bravo !");
+            return;
+        }
+        const picked = weak[Math.floor(Math.random() * weak.length)];
+        this.state.currentSubject = picked.subject;
+        this.state.currentTheme = picked.subtheme;
+        this.state.currentLessonOrigin = 'mission';
+        this.applyVisualContext();
+        this.startExercise(picked.exercise);
     },
 
     /**
@@ -1226,6 +1366,111 @@ const App = {
         });
     },
 
+    /**
+     * Séries à collectionner, débloquées par la maîtrise (≥ 75%) d'exercices
+     * de la matière liée. Récompense la progression réelle plutôt que le
+     * temps d'écran : chaque carte a un seuil croissant d'exercices maîtrisés.
+     * Pas d'emojis drapeaux (rendu cassé sous Windows).
+     */
+    themedCollectionDefinitions: [
+        {
+            id: 'animaux', title: 'Animaux', subject: 'sciences',
+            cards: [
+                { icon: '🐞', label: 'Coccinelle', requires: 1, fact: "Une coccinelle peut manger jusqu'à 100 pucerons par jour : c'est l'amie des jardiniers !" },
+                { icon: '🦔', label: 'Hérisson', requires: 3, fact: "Le hérisson a environ 6000 piquants et dort tout l'hiver : c'est l'hibernation." },
+                { icon: '🦉', label: 'Chouette', requires: 6, fact: "La chouette peut tourner sa tête aux trois quarts, mais ses yeux, eux, ne bougent pas !" },
+                { icon: '🦊', label: 'Renard', requires: 10, fact: "Le renard utilise le champ magnétique de la Terre pour viser quand il bondit sur une proie." },
+                { icon: '🐬', label: 'Dauphin', requires: 15, fact: "Le dauphin dort avec une moitié du cerveau éveillée pour penser à remonter respirer." },
+                { icon: '🦁', label: 'Lion', requires: 20, fact: "Le rugissement du lion s'entend jusqu'à 8 kilomètres : c'est le plus puissant des félins." }
+            ]
+        },
+        {
+            id: 'monuments', title: 'Monuments', subject: 'histoire',
+            cards: [
+                { icon: '🗼', label: 'Tour Eiffel', requires: 1, fact: "La tour Eiffel grandit d'environ 15 cm l'été : le métal se dilate avec la chaleur !" },
+                { icon: '🏰', label: 'Château fort', requires: 3, fact: "Les escaliers des châteaux forts tournent souvent dans le sens qui gênait l'épée des attaquants." },
+                { icon: '🏛️', label: 'Temple antique', requires: 6, fact: "Le Parthénon d'Athènes a près de 2500 ans et a inspiré des monuments dans le monde entier." },
+                { icon: '🕌', label: 'Palais oriental', requires: 10, fact: "Le Taj Mahal, en Inde, a demandé plus de 20 ans de travail à 20 000 ouvriers." },
+                { icon: '🗿', label: 'Statue mystérieuse', requires: 15, fact: "Les statues de l'île de Pâques, les moaï, peuvent peser aussi lourd que 10 éléphants." },
+                { icon: '🏯', label: 'Château japonais', requires: 20, fact: "Le château de Himeji, au Japon, est surnommé « le héron blanc » à cause de ses murs blancs." }
+            ]
+        },
+        {
+            id: 'tresors-monde', title: 'Trésors du monde', subject: 'geo',
+            cards: [
+                { icon: '🏝️', label: 'Île tropicale', requires: 1, fact: "Il existe plus de 100 000 îles sur Terre, et la plus grande est le Groenland." },
+                { icon: '🏔️', label: 'Haute montagne', requires: 3, fact: "L'Everest, plus haut sommet du monde, grandit encore de quelques millimètres chaque année !" },
+                { icon: '🌋', label: 'Volcan', requires: 6, fact: "Il y a environ 1500 volcans actifs sur Terre, et beaucoup d'autres sous les océans." },
+                { icon: '🏜️', label: 'Désert', requires: 10, fact: "Le Sahara est presque aussi grand que l'Europe entière… et il neige parfois dessus !" },
+                { icon: '🌊', label: 'Grande vague', requires: 15, fact: "Les océans couvrent plus de 70 % de la Terre : voilà pourquoi on l'appelle la planète bleue." },
+                { icon: '🗻', label: 'Mont légendaire', requires: 20, fact: "Le mont Fuji, au Japon, est un volcan sacré que des milliers de personnes gravissent chaque été." }
+            ]
+        }
+    ],
+
+    getThemedCollectionStatus() {
+        const mastery = Storage.getSubjectMasteryCounts();
+        return this.themedCollectionDefinitions.map((series) => {
+            const count = mastery[series.subject] || 0;
+            const cards = series.cards.map((card) => ({ ...card, unlocked: count >= card.requires }));
+            return {
+                id: series.id,
+                title: series.title,
+                unlockedCount: cards.filter((c) => c.unlocked).length,
+                totalCount: cards.length,
+                cards
+            };
+        });
+    },
+
+    // ---------- GRIMOIRE ----------
+
+    async getCardsCatalog() {
+        if (!this._cardsCatalogCache) {
+            try {
+                this._cardsCatalogCache = await this.fetchJson(['data/cards.json', './data/cards.json']);
+            } catch (e) {
+                console.error('Catalogue de cartes indisponible', e);
+                this._cardsCatalogCache = { cards: [], rarities: {} };
+            }
+        }
+        return this._cardsCatalogCache;
+    },
+
+    // Met à jour tous les compteurs de pièces affichés (bouton d'entrée sur
+    // l'écran des classes + en-tête du Grimoire). À appeler après tout gain
+    // ou dépense de pièces.
+    refreshCoinsDisplays() {
+        const coins = Storage.getCoins();
+        const entry = document.getElementById('grimoire-entry-coins');
+        if (entry) entry.textContent = `🪙 ${coins}`;
+        UI.updateGrimoireCoins(coins, Storage.boosterCost);
+    },
+
+    async showGrimoire() {
+        const catalog = await this.getCardsCatalog();
+        UI.renderGrimoire(catalog, Storage.getOwnedCards(), Storage.getCoins(), Storage.boosterCost, () => this.openBoosterFlow());
+        this.refreshCoinsDisplays();
+        UI.showScreen('screen-grimoire');
+    },
+
+    async openBoosterFlow() {
+        const catalog = await this.getCardsCatalog();
+        if (!catalog.cards.length) return;
+        if (Storage.getCoins() < Storage.boosterCost) {
+            UI.showSimpleToast('🪙', `Il te faut ${Storage.boosterCost} pièces pour un booster. Gagne des étoiles !`);
+            return;
+        }
+        const result = Storage.openBooster(catalog);
+        if (!result) return;
+        if (window.AudioFeedback) AudioFeedback.playPerfect();
+        UI.renderBoosterReveal(result, catalog, () => {
+            UI.renderGrimoire(catalog, Storage.getOwnedCards(), Storage.getCoins(), Storage.boosterCost, () => this.openBoosterFlow());
+            this.refreshCoinsDisplays();
+        });
+        this.refreshCoinsDisplays();
+    },
+
     async loadAllGradesCache() {
         if (!this._collectionGradesCache) {
             this._collectionGradesCache = {};
@@ -1248,6 +1493,7 @@ const App = {
         UI.renderCollectionBadges(Storage.getBadges());
         UI.renderCollectionMaps(this.getMapCollectionStatus());
         UI.renderCollectionSubjects(this.getSubjectCollectionStatus());
+        UI.renderCollectionThemes(this.getThemedCollectionStatus());
         UI.showScreen('screen-collection');
     },
 
@@ -1556,6 +1802,10 @@ const App = {
             this.startEveningRitual();
             return;
         }
+        if (mode === 'mission') {
+            this.startMissionRattrapage();
+            return;
+        }
         this.state.currentBrowseMode = mode === 'lessons' ? 'lessons' : 'exercises';
         this.state.currentSubject = null;
         this.state.currentTheme = null;
@@ -1655,6 +1905,22 @@ const App = {
         const streak = Storage.getStreak();
         const badges = Storage.getBadges();
 
+        // "Mes exploits" : records personnels toutes classes confondues
+        const perfectCount = Storage.getPerfectCount();
+        const bestChampion = this.championDurations.reduce((best, duration) => {
+            const top = Storage.getChampionScores(grade.gradeId, duration)[0]?.score || 0;
+            return Math.max(best, top);
+        }, 0);
+        const feats = {
+            bestStreak: streak.best || 0,
+            totalStarsAllGrades: Storage.getTotalStars(),
+            perfectCount,
+            redemptions: Storage.getRedemptionCount(),
+            badgesUnlocked: badges.filter((b) => b.unlocked).length,
+            badgesTotal: badges.length,
+            bestChampion
+        };
+
         UI.renderProgressScreen({
             totalExercises,
             totalDone,
@@ -1663,6 +1929,7 @@ const App = {
             subjects: subjectRows,
             streak,
             badges,
+            feats,
             toReview: toReview.slice(0, 8)
         }, (exerciseId) => {
             const exercise = this._progressExerciseIndex.get(exerciseId);
@@ -2181,7 +2448,7 @@ const App = {
             }, 320);
         }
 
-        // ðŸ”“ ON OUVRE LE VERROU POUR LA NOUVELLE QUESTION
+        // 🔓 ON OUVRE LE VERROU POUR LA NOUVELLE QUESTION
         this.state.isValidating = false;
 
         // Gestion Timer (Oiseau)
@@ -2200,7 +2467,7 @@ const App = {
 
         if (val === "timeout") return this.validateAnswer(false);
 
-        // --- CAS SPÃ‰CIAL : CarrÃ© Magique ---
+        // --- CAS SPÉCIAL : Carré Magique ---
         if (val === 'card-click' && target) {
             const idx = parseInt(target.getAttribute('data-idx'));
             if (isNaN(idx) || !p.data) return;
@@ -2230,7 +2497,7 @@ const App = {
             return;
         }
 
-        // --- CAS SPÃ‰CIAL : Frise chronologique ---
+        // --- CAS SPÉCIAL : Frise chronologique ---
         if (typeof val === 'string' && val.startsWith('timeline-order:')) {
             const selectedId = val.replace('timeline-order:', '');
             if (p.visualType !== 'timelineOrder' || !p.data) return;
@@ -2254,7 +2521,7 @@ const App = {
             return;
         }
 
-        // --- CAS SPÃ‰CIAL : Appariement ---
+        // --- CAS SPÉCIAL : Appariement ---
         if (typeof val === 'string' && val.startsWith('matching-select:')) {
             if (p.visualType !== 'matching' || !p.data) return;
             const [, side, rawId] = val.split(':');
@@ -2558,9 +2825,9 @@ const App = {
     },
 
     validateAnswer(hasAnswered = true) {
-        // ðŸ›‘ ANTI-SPAM : Si dÃ©jÃ  en cours, on arrÃªte tout de suite
+        // 🛑 ANTI-SPAM : Si déjà en cours, on arrête tout de suite
         if (this.state.isValidating) return;
-        this.state.isValidating = true; // ðŸ”’ On verrouille
+        this.state.isValidating = true; // 🔒 On verrouille
 
         if (this.state.timer) clearTimeout(this.state.timer);
         
@@ -2572,12 +2839,12 @@ const App = {
         }
         const ansZone = document.getElementById('user-answer');
         
-        // 1. NETTOYAGE & TOLÃ‰RANCE
+        // 1. NETTOYAGE & TOLÉRANCE
         const clean = s => (s || "").toString().toLowerCase().trim();
         let uInput = clean(userInput);
         let tAnswer = clean(targetAnswer);
 
-        // TolÃ©rance Tiret/Espace (ex: dictÃ©e nombres)
+        // Tolérance Tiret/Espace (ex: dictée nombres)
         if (problemData && problemData.data && problemData.data.allowNoHyphen) {
             uInput = uInput.replace(/-/g, " ").replace(/\s+/g, " ");
             tAnswer = tAnswer.replace(/-/g, " ").replace(/\s+/g, " ");
@@ -2670,7 +2937,7 @@ const App = {
             } else {
                 this.showFinalResults();
             }
-            // âš ï¸ On ne dÃ©verrouille PAS ici, c'est fait au dÃ©but de generateNextQuestion
+            // ⚠️ On ne déverrouille PAS ici, c'est fait au début de generateNextQuestion
         }, delay);
     },
 
@@ -2714,15 +2981,26 @@ const App = {
             return;
         }
         
-        // ðŸ›¡ï¸ SÃ‰CURITÃ‰ SCORE : On s'assure que le score ne dÃ©passe jamais le total
+        // 🛡️ SÉCURITÉ SCORE : On s'assure que le score ne dépasse jamais le total
         const safeScore = Math.min(score, total);
         const percent = Math.round((safeScore / total) * 100);
         const starsBefore = Storage.getTotalStars();
         const badgesBefore = Storage.getBadges();
 
+        // Contexte pour la réaction de la mascotte : record battu, exercice
+        // "rattrapé" (était < 50 %, passe ≥ 75 %) — lu AVANT la sauvegarde.
+        const previousRecord = (currentGrade && currentGrade.gradeId)
+            ? Storage.getRecord(currentExercise.id, currentGrade.gradeId)
+            : null;
+        const previousPercent = previousRecord ? Math.round(previousRecord.percent || 0) : null;
+        const isRecord = previousPercent !== null && percent > previousPercent;
+        const isRedemption = previousPercent !== null && previousPercent < 50 && percent >= 75;
+
         if (currentGrade && currentGrade.gradeId) {
-            Storage.saveRecord(currentGrade.gradeId, currentExercise.id, safeScore, total);
+            const subject = Storage.canonicalizeSubjectId(this.state.currentSubject?.id);
+            Storage.saveRecord(currentGrade.gradeId, currentExercise.id, safeScore, total, subject);
         }
+        if (isRedemption) Storage.recordRedemption();
         const streakResult = Storage.recordSessionActivity();
         const challengeResult = Storage.recordDailyChallengeAttempt(safeScore === total);
         const starsEarned = (percent === 100 ? 3 : percent >= 75 ? 2 : percent >= 50 ? 1 : 0);
@@ -2730,13 +3008,37 @@ const App = {
         const unlockToast = this.getNewAvatarUnlockToast(starsBefore, Storage.getTotalStars());
         const newBadges = Array.isArray(badgesBefore) ? Storage.getNewlyUnlockedBadges(badgesBefore) : [];
 
+        // Pièces du Grimoire (mode hybride) : étoiles + gros bonus sur les
+        // accomplissements (défi du jour, rattrapage, nouveau badge).
+        let coinsEarned = starsEarned;
+        if (challengeResult?.justCompleted) coinsEarned += 3;
+        if (isRedemption) coinsEarned += 5;
+        coinsEarned += newBadges.length * 5;
+        if (coinsEarned > 0) {
+            Storage.addCoins(coinsEarned);
+            this.refreshCoinsDisplays();
+        }
+        const coinsEl = document.getElementById('result-coins');
+        if (coinsEl) {
+            if (coinsEarned > 0) {
+                coinsEl.textContent = `🪙 +${coinsEarned} pièce${coinsEarned > 1 ? 's' : ''} pour ton Grimoire !`;
+                coinsEl.classList.remove('is-hidden');
+            } else {
+                coinsEl.classList.add('is-hidden');
+            }
+        }
+
         UI.renderStars(safeScore, total);
-        UI.renderMascotReaction(percent);
+        UI.renderMascotReaction(percent, {
+            isRecord,
+            isRedemption,
+            companionEmoji: Storage.getAvatarEvolutionState()?.emoji || null
+        });
         UI.showScreen('screen-results');
         this.applyVisualContext();
 
         if (safeScore === total) {
-            UI.launchCelebration();
+            UI.launchCelebration(Storage.canonicalizeSubjectId(this.state.currentSubject?.id));
             if (window.AudioFeedback) AudioFeedback.playPerfect();
         }
 
@@ -2746,19 +3048,22 @@ const App = {
         }
         this._badgeToastTimers = [];
 
+        let priorToastShown = true;
         if (unlockToast) {
             UI.showSimpleToast(unlockToast.icon, unlockToast.text);
         } else if (challengeResult?.justCompleted) {
             UI.showSimpleToast('🎉', 'Défi du jour réussi !');
         } else if (streakResult && streakResult.isNewDay && streakResult.current > 1) {
             UI.showStreakToast(streakResult.current);
+        } else {
+            priorToastShown = false;
         }
 
         // Badge toasts: each badge needs its own slot so they don't clobber each other.
         // showSimpleToast auto-removes any visible toast — space them at 3500ms so the
         // previous one has finished its 3200ms lifetime before the next fires.
         if (newBadges.length > 0) {
-            const firstDelay = (unlockToast || challengeResult?.justCompleted || (streakResult?.isNewDay && streakResult.current > 1)) ? 3500 : 400;
+            const firstDelay = priorToastShown ? 3500 : 400;
             newBadges.forEach((badge, i) => {
                 const t = setTimeout(() => {
                     UI.showSimpleToast(badge.icon, `Nouveau badge : ${badge.label} !`);

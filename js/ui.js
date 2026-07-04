@@ -1,11 +1,11 @@
 ﻿/*
- * Devoir NumÃ©rique - UI.js
+ * Devoir Numérique - UI.js
  * Copyright (C) 2026 [Stinj-NoD]
  * Version : 3.0 (Hardened & Secure)
  */
 
 const UI = {
-    // Getters sÃ©curisÃ©s (retournent null si Ã©lÃ©ment absent)
+    // Getters sécurisés (retournent null si élément absent)
     get screens() { return document.querySelectorAll('.screen'); },
     get btnBack() { return document.getElementById('btn-back'); },
     get btnHome() { return document.getElementById('btn-home'); },
@@ -16,10 +16,10 @@ const UI = {
     _navInitialized: false,
 
     /**
-     * Gestionnaire d'affichage des Ã©crans
+     * Gestionnaire d'affichage des écrans
      */
     showScreen(id) {
-        // 1. Gestion des Ã©crans
+        // 1. Gestion des écrans
         if (this.screens.length === 0) return console.warn("UI: Aucun écran trouvé dans le DOM");
 
         this.screens.forEach(s => {
@@ -160,6 +160,13 @@ const UI = {
         el.classList.toggle('avatar-prestige-stars', appearance.prestigeTier?.id === 'stars');
         el.classList.toggle('avatar-prestige-crown', appearance.prestigeTier?.id === 'crown');
         el.textContent = appearance.avatar;
+        if (appearance.accessoryEmoji) {
+            const badge = document.createElement('span');
+            badge.className = 'header-avatar-accessory';
+            badge.setAttribute('aria-hidden', 'true');
+            badge.textContent = appearance.accessoryEmoji;
+            el.appendChild(badge);
+        }
     },
 
     safeIcon(value, fallback = '\u{1F4DD}') {
@@ -257,6 +264,17 @@ const UI = {
                 : '';
             const profileName = p.name || 'Anonyme';
 
+            // Aperçu de progression : étoiles cumulées + badges débloqués,
+            // visibles d'un coup d'œil sans entrer dans le profil.
+            let statsHtml = '';
+            if (typeof Storage !== 'undefined' && Storage.getTotalStars) {
+                const stars = Storage.getTotalStars(p.name);
+                const badges = Storage.getBadges ? Storage.getBadges(p.name).filter(b => b.unlocked).length : 0;
+                if (stars > 0 || badges > 0) {
+                    statsHtml = `<span class="profile-card-stats">⭐ ${stars}${badges > 0 ? ` · 🏅 ${badges}` : ''}</span>`;
+                }
+            }
+
             const wrapper = document.createElement('div');
             wrapper.className = 'profile-card-wrapper';
 
@@ -272,6 +290,7 @@ const UI = {
                 ${streakHtml}
                 <span class="card-icon" aria-hidden="true">${this.safeIcon(p.avatar, '\u{1F464}')}</span>
                 ${this.buildCardContent(profileName)}
+                ${statsHtml}
                 <span class="profile-card-helper">Entrer</span>
             `;
             card.onclick = () => onSelect(p);
@@ -306,8 +325,8 @@ const UI = {
         });
     },
 
-    renderProfileCustomize({ profileName, totalStars, hasStarter, starters, evolution, accents, current }, handlers, onDone) {
-        const { onChooseStarter, onEvolve, onChangeAccent } = handlers;
+    renderProfileCustomize({ profileName, totalStars, hasStarter, starters, evolution, accents, accessories, current }, handlers, onDone) {
+        const { onChooseStarter, onEvolve, onChangeAccent, onChangeAccessory } = handlers;
         const lead = document.getElementById('profile-customize-lead');
         if (lead) {
             lead.textContent = Number.isFinite(totalStars)
@@ -407,6 +426,48 @@ const UI = {
 
         renderAccents();
 
+        // Accessoires débloqués par des badges précis
+        const accessoryContainer = document.getElementById('profile-customize-accessories');
+        if (accessoryContainer && Array.isArray(accessories)) {
+            let selectedAccessory = current.accessory || null;
+            const renderAccessories = () => {
+                accessoryContainer.innerHTML = '';
+                const noneBtn = document.createElement('button');
+                noneBtn.type = 'button';
+                noneBtn.className = `profile-customize-accessory${selectedAccessory === null ? ' is-selected' : ''}`;
+                noneBtn.textContent = '∅';
+                noneBtn.setAttribute('aria-label', 'Aucun accessoire');
+                noneBtn.setAttribute('aria-pressed', selectedAccessory === null ? 'true' : 'false');
+                noneBtn.onclick = () => {
+                    selectedAccessory = null;
+                    if (typeof onChangeAccessory === 'function') onChangeAccessory(null);
+                    renderAccessories();
+                };
+                accessoryContainer.appendChild(noneBtn);
+
+                accessories.forEach((acc) => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = `profile-customize-accessory${acc.id === selectedAccessory ? ' is-selected' : ''}${acc.unlocked ? '' : ' is-locked'}`;
+                    btn.textContent = acc.unlocked ? acc.emoji : '🔒';
+                    btn.setAttribute('aria-label', acc.unlocked
+                        ? acc.label
+                        : `${acc.label} verrouillé — gagne le badge « ${acc.badgeLabel} »`);
+                    btn.setAttribute('aria-pressed', acc.id === selectedAccessory ? 'true' : 'false');
+                    btn.setAttribute('aria-disabled', acc.unlocked ? 'false' : 'true');
+                    btn.title = acc.unlocked ? acc.label : `Débloqué par le badge « ${acc.badgeLabel} »`;
+                    btn.onclick = () => {
+                        if (!acc.unlocked) return;
+                        selectedAccessory = acc.id;
+                        if (typeof onChangeAccessory === 'function') onChangeAccessory(acc.id);
+                        renderAccessories();
+                    };
+                    accessoryContainer.appendChild(btn);
+                });
+            };
+            renderAccessories();
+        }
+
         const doneBtn = document.getElementById('btn-profile-customize-done');
         if (doneBtn) doneBtn.onclick = () => onDone();
     },
@@ -442,7 +503,7 @@ const UI = {
                 return;
             }
 
-            // AccÃ¨s sÃ©curisÃ© au Storage
+            // Accès sécurisé au Storage
             let stars = 0;
             let needsReview = false;
             try {
@@ -512,6 +573,33 @@ const UI = {
                     <span class="progress-badge-icon">${b.icon}</span>
                 </div>`).join('')}</div>`
             : '';
+        // "Mes exploits" : records personnels, toutes classes confondues
+        let featsHtml = '';
+        const feats = stats.feats;
+        if (feats) {
+            const rows = [
+                feats.bestStreak > 0 ? { icon: '🔥', label: 'Ma plus longue série', value: `${feats.bestStreak} jour${feats.bestStreak > 1 ? 's' : ''}` } : null,
+                feats.totalStarsAllGrades > 0 ? { icon: '⭐', label: 'Mes étoiles', value: `${feats.totalStarsAllGrades}` } : null,
+                feats.perfectCount > 0 ? { icon: '🏆', label: 'Mes sans-faute', value: `${feats.perfectCount}` } : null,
+                feats.redemptions > 0 ? { icon: '🎯', label: 'Mes rattrapages', value: `${feats.redemptions}` } : null,
+                feats.bestChampion > 0 ? { icon: '⚡', label: 'Record Champions', value: `${feats.bestChampion} pts` } : null,
+                { icon: '🏅', label: 'Mes badges', value: `${feats.badgesUnlocked}/${feats.badgesTotal}` }
+            ].filter(Boolean);
+            featsHtml = `
+                <div class="progress-feats">
+                    <div class="progress-feats-title">Mes exploits</div>
+                    <div class="progress-feats-grid">
+                        ${rows.map((r) => `
+                            <div class="progress-feat">
+                                <span class="progress-feat-icon" aria-hidden="true">${r.icon}</span>
+                                <span class="progress-feat-value">${this._escapeText(r.value)}</span>
+                                <span class="progress-feat-label">${this._escapeText(r.label)}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>`;
+        }
+
         summary.innerHTML = `
             <div class="progress-summary-card">
                 ${streakHtml}
@@ -522,6 +610,7 @@ const UI = {
                 <div class="progress-bar-track">
                     <div class="progress-bar-fill" style="width: ${totalPercent}%"></div>
                 </div>
+                ${featsHtml}
                 ${badgesHtml}
             </div>`;
 
@@ -823,7 +912,7 @@ const UI = {
         return UIKeyboards.renderQCM(...args);
     },
 
-    // --- MOTEUR D'AFFICHAGE (Le CÅ“ur) ---
+    // --- MOTEUR D'AFFICHAGE (Le Cœur) ---
 
     getExerciseSurfaceClass(p, isQCM) {
         if (!p) return 'exercise-surface exercise-surface--formula';
@@ -876,7 +965,7 @@ const UI = {
             gameScreen.classList.remove('compact-number-spelling-long', 'compact-number-spelling-huge');
         }
     
-    // DÃ©tection du mode QCM (Boutons au lieu de saisie clavier)
+    // Détection du mode QCM (Boutons au lieu de saisie clavier)
     const isQCM = (p.inputType === 'qcm' || p.inputType === 'boolean');
     const rendersQuestionInProblemZone = !p.isVisual || ['homophones', 'timeMemo'].includes(p.visualType);
 
@@ -918,7 +1007,7 @@ const UI = {
                 this.getExerciseSurfaceClass(p, isQCM)
             );
 
-            // RÃ©-attachement des clics pour le CarrÃ© Magique (Square)
+            // Ré-attachement des clics pour le Carré Magique (Square)
             if (p.visualType === 'square') {
                 const cards = problemZone.querySelectorAll('.number-card');
                 cards.forEach(card => {
@@ -930,8 +1019,8 @@ const UI = {
                 });
             }
         } else {
-            // Mode texte (Calculs simples, DictÃ©e de nombres)
-            // p.question contient soit le texte, soit le HTML du gros chiffre (DictÃ©e CP)
+            // Mode texte (Calculs simples, Dictée de nombres)
+            // p.question contient soit le texte, soit le HTML du gros chiffre (Dictée CP)
             const formulaClasses = ['math-formula', 'prompt-card', 'prompt-card--formula'];
             const questionHtml = p.question || "";
             let compactMode = '';
@@ -965,7 +1054,7 @@ const UI = {
         );
     }
 
-	    // 3. ZONE DE RÃ‰PONSE (Barre du bas)
+	    // 3. ZONE DE RÉPONSE (Barre du bas)
 	    // On masque la barre si c'est visuel ET textuel (Spelling/Conjugaison) OU si c'est un QCM
 	    const hideBottomBar = (['spelling', 'audioSpelling', 'conjugation', 'matching', 'wordOrder', 'geometry-board'].includes(p.visualType)) || isQCM;
 	    
@@ -990,7 +1079,7 @@ const UI = {
             } else if (p.visualType === 'timelinePlace') {
                 answerZone.innerHTML = `Date choisie : <b class="selection-answer-value">${input || "?"}</b>`;
             } else if (p.inputType === "selection") {
-                // Cas spÃ©cifique pour le CarrÃ© Magique si on affiche la somme en bas
+                // Cas spécifique pour le Carré Magique si on affiche la somme en bas
                 answerZone.innerHTML = `Somme : <b class="selection-answer-value">${input || 0}</b> / ${p.data?.target || "?"}`;
             } else {
                 answerZone.innerText = input || "\u00A0";
@@ -1015,7 +1104,7 @@ const UI = {
         }
 		},
 
-    // --- FONCTIONS DE DESSIN (Toutes protÃ©gÃ©es par d = p.data || {}) ---
+    // --- FONCTIONS DE DESSIN (Toutes protégées par d = p.data || {}) ---
 
     drawGeometryBoard(problem) {
         return UIBoard.render(problem);
@@ -1207,56 +1296,86 @@ const UI = {
     },
 	    
 	    showFinalResults(score, total) {
-        // 1. Mise Ã  jour des Ã©toiles
+        // 1. Mise à jour des étoiles
         this.renderStars(score, total);
         
-        // 2. Mise Ã  jour du texte du score
+        // 2. Mise à jour du texte du score
         const scoreEl = document.getElementById('result-score');
         if (scoreEl) scoreEl.innerText = `Score : ${score} / ${total}`;
 
-        // 3. Affichage de l'Ã©cran
+        // 3. Affichage de l'écran
         this.showScreen('screen-results');
     },
 
     _mascotReactions: {
+        // Contextes prioritaires (testés avant le score)
+        record: [
+            "Tu as battu ton record sur cet exercice, chapeau !",
+            "Encore mieux que la dernière fois, quel progrès !",
+            "Nouveau record personnel, tu montes en puissance !"
+        ],
+        redemption: [
+            "Tu as transformé une difficulté en réussite, c'est ça un champion !",
+            "Cet exercice te résistait… plus maintenant. Bravo !",
+            "Mission rattrapage accomplie, je suis fier de toi !"
+        ],
+        // Par score
         perfect: [
-            { icon: '🦉', text: "Sans-faute ! Tu es un champion !" },
-            { icon: '🦉', text: "Incroyable, pas une seule erreur !" },
-            { icon: '🦉', text: "Parfait du début à la fin, bravo !" }
+            "Sans-faute ! Tu es un champion !",
+            "Incroyable, pas une seule erreur !",
+            "Parfait du début à la fin, bravo !",
+            "Score parfait ! Tu m'impressionnes !",
+            "Rien à redire, c'était magistral !"
         ],
         good: [
-            { icon: '🦉', text: "Très bien joué, continue comme ça !" },
-            { icon: '🦉', text: "Belle réussite, tu progresses bien !" },
-            { icon: '🦉', text: "Bravo, c'est du bon travail !" }
+            "Très bien joué, continue comme ça !",
+            "Belle réussite, tu progresses bien !",
+            "Bravo, c'est du bon travail !",
+            "Presque parfait, tu y es presque !",
+            "Tu deviens de plus en plus fort !"
         ],
         average: [
-            { icon: '🦉', text: "Pas mal ! Encore un effort et ce sera parfait." },
-            { icon: '🦉', text: "C'est un bon début, tu vas y arriver." },
-            { icon: '🦉', text: "Tu avances, continue à t'entraîner !" }
+            "Pas mal ! Encore un effort et ce sera parfait.",
+            "C'est un bon début, tu vas y arriver.",
+            "Tu avances, continue à t'entraîner !",
+            "La moitié du chemin est faite, on continue ?",
+            "Chaque essai te rend plus fort !"
         ],
         encourage: [
-            { icon: '🦉', text: "Ce n'est pas grave, on apprend en se trompant !" },
-            { icon: '🦉', text: "Essaie encore, je suis sûr que tu peux mieux faire !" },
-            { icon: '🦉', text: "Courage, relis la leçon et retente ta chance !" }
+            "Ce n'est pas grave, on apprend en se trompant !",
+            "Essaie encore, je suis sûr que tu peux mieux faire !",
+            "Courage, relis la leçon et retente ta chance !",
+            "Même les champions ratent parfois. On réessaie ?",
+            "Respire un bon coup, tu vas y arriver !"
         ]
     },
 
-    renderMascotReaction(percent) {
+    renderMascotReaction(percent, context = {}) {
         const container = document.getElementById('mascot-reaction');
         if (!container) return;
 
-        const pool = percent === 100
-            ? this._mascotReactions.perfect
-            : percent >= 75
-                ? this._mascotReactions.good
-                : percent >= 50
-                    ? this._mascotReactions.average
-                    : this._mascotReactions.encourage;
+        let pool;
+        if (context.isRedemption) {
+            pool = this._mascotReactions.redemption;
+        } else if (context.isRecord && percent >= 50) {
+            pool = this._mascotReactions.record;
+        } else {
+            pool = percent === 100
+                ? this._mascotReactions.perfect
+                : percent >= 75
+                    ? this._mascotReactions.good
+                    : percent >= 50
+                        ? this._mascotReactions.average
+                        : this._mascotReactions.encourage;
+        }
 
-        const reaction = pool[Math.floor(Math.random() * pool.length)];
+        const text = pool[Math.floor(Math.random() * pool.length)];
+        // C'est le compagnon de l'enfant qui parle quand on le connaît —
+        // le hibou reste le porte-parole par défaut.
+        const icon = context.companionEmoji || '🦉';
         container.innerHTML = `
-            <span class="mascot-reaction-icon" aria-hidden="true">${reaction.icon}</span>
-            <span class="mascot-reaction-text">${this._escapeText(reaction.text)}</span>
+            <span class="mascot-reaction-icon" aria-hidden="true">${icon}</span>
+            <span class="mascot-reaction-text">${this._escapeText(text)}</span>
         `;
     },
 
@@ -1264,7 +1383,7 @@ const UI = {
         const container = document.getElementById('stars-container');
         if (!container) return;
         
-        // Division par zÃ©ro protection
+        // Division par zéro protection
         if(total === 0) total = 1;
         
         const p = (score/total)*100;
@@ -1273,24 +1392,42 @@ const UI = {
         container.innerHTML = Array(3).fill(0).map((_, i) => `<span class="star ${i < count ? 'active' : ''}">★</span>`).join("");
     },
 
-    launchCelebration() {
-        const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722'];
+    // Thèmes de célébration par matière : couleurs + emojis mêlés aux confettis.
+    _celebrationThemes: {
+        maths: { colors: ['#2196f3', '#03a9f4', '#3f51b5', '#00bcd4', '#ffc107'], emojis: ['🔢', '✨', '➕'] },
+        francais: { colors: ['#9c27b0', '#673ab7', '#e91e63', '#f06292', '#ba68c8'], emojis: ['📚', '✏️', '💜'] },
+        histoire: { colors: ['#ff9800', '#ffb300', '#8d6e63', '#ffca28', '#d4a373'], emojis: ['🏛️', '⏳', '👑'] },
+        geo: { colors: ['#4caf50', '#2196f3', '#00bcd4', '#8bc34a', '#26a69a'], emojis: ['🌍', '🗺️', '🧭'] },
+        sciences: { colors: ['#4caf50', '#8bc34a', '#cddc39', '#00e676', '#26c6da'], emojis: ['🔬', '🌱', '⚗️'] },
+        emc: { colors: ['#e91e63', '#ff7043', '#ffca28', '#f06292', '#ff8a65'], emojis: ['🤝', '❤️', '🕊️'] }
+    },
+
+    launchCelebration(subject = null) {
+        const theme = this._celebrationThemes[subject] || null;
+        const colors = theme?.colors
+            || ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722'];
         const container = document.body;
         if(!container) return;
 
         // Limite pour ne pas surcharger le navigateur
         for (let i = 0; i < 40; i++) {
             const div = document.createElement('div');
-            div.className = 'confetti';
+            // Environ 1 confetti sur 5 devient un emoji de la matière
+            if (theme && i % 5 === 0) {
+                div.className = 'confetti confetti--emoji';
+                div.textContent = theme.emojis[Math.floor(Math.random() * theme.emojis.length)];
+            } else {
+                div.className = 'confetti';
+                div.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            }
             div.style.left = Math.random() * 100 + 'vw';
-            div.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
             div.style.animationDuration = (Math.random() * 2 + 1) + 's';
             div.style.opacity = Math.random();
             container.appendChild(div);
 
             setTimeout(() => { if(div.parentNode) div.remove(); }, 3000);
         }
-        
+
         const resScreen = document.getElementById('screen-results');
         if (resScreen) {
             resScreen.classList.remove('victory-bounce'); // Reset
@@ -1349,14 +1486,19 @@ const UI = {
     renderChampionScores(scoresByDuration) {
         const container = document.getElementById('champion-scores-list');
         if (!container) return;
+        const medals = ['🥇', '🥈', '🥉'];
         container.innerHTML = (scoresByDuration || []).map((entry) => {
-            const top = entry.scores[0];
+            const top3 = (entry.scores || []).slice(0, 3);
             const label = `${entry.duration} s`;
-            const valueText = top ? `${top.score} pt${top.score > 1 ? 's' : ''}` : 'Pas encore joué';
+            const scoresHtml = top3.length
+                ? top3.map((s, i) => `
+                    <span class="champion-score-medal">${medals[i]} ${s.score} pt${s.score > 1 ? 's' : ''}</span>
+                `).join('')
+                : '<span class="champion-score-empty">Pas encore joué</span>';
             return `
                 <div class="champion-score-row">
                     <span class="champion-score-duration">${this._escapeText(label)}</span>
-                    <span class="champion-score-value">${this._escapeText(valueText)}</span>
+                    <span class="champion-score-value">${scoresHtml}</span>
                 </div>`;
         }).join('');
     },
@@ -1404,6 +1546,187 @@ const UI = {
                 <span class="collection-map-label">${this._escapeText(s.label)}</span>
             </div>
         `).join('');
+    },
+
+    // Petit bandeau "ton aventure du jour" : valorise ce qui est déjà fait
+    // aujourd'hui (on peut s'arrêter fier), sans pousser à continuer.
+    renderTodayRecap(activity, companionEmoji) {
+        const banner = document.getElementById('today-recap');
+        if (!banner) return;
+        if (!activity || activity.attempts === 0) {
+            banner.classList.add('is-hidden');
+            banner.innerHTML = '';
+            return;
+        }
+        const ex = `${activity.attempts} exercice${activity.attempts > 1 ? 's' : ''}`;
+        const stars = activity.stars > 0 ? ` et gagné ${activity.stars} ⭐` : '';
+        banner.innerHTML = `
+            <span class="today-recap-icon" aria-hidden="true">${this.safeIcon(companionEmoji, '🦉')}</span>
+            <span class="today-recap-text">Aujourd'hui, tu as déjà fait ${this._escapeText(ex)}${this._escapeText(stars)}. Bravo !</span>
+        `;
+        banner.classList.remove('is-hidden');
+    },
+
+    renderCollectionThemes(seriesList) {
+        const container = document.getElementById('collection-themes-list');
+        if (!container) return;
+        container.innerHTML = (seriesList || []).map((series) => `
+            <div class="collection-theme">
+                <div class="collection-theme-head">
+                    <span class="collection-theme-title">${this._escapeText(series.title)}</span>
+                    <span class="collection-theme-progress">${series.unlockedCount}/${series.totalCount}</span>
+                </div>
+                <div class="collection-maps-list">
+                    ${series.cards.map((c) => c.unlocked ? `
+                        <button type="button" class="collection-map is-unlocked collection-map--fact"
+                            data-fact="${this._escapeText(c.fact || '')}"
+                            aria-label="${this._escapeText(c.label)} — toucher pour découvrir une anecdote">
+                            <span class="collection-map-icon" aria-hidden="true">${c.icon}</span>
+                            <span class="collection-map-label">${this._escapeText(c.label)}</span>
+                        </button>
+                    ` : `
+                        <div class="collection-map is-locked" title="Réussis ${c.requires} exercices à 75 % ou plus">
+                            <span class="collection-map-icon" aria-hidden="true">🔒</span>
+                            <span class="collection-map-label">???</span>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="collection-theme-fact is-hidden" aria-live="polite"></div>
+            </div>
+        `).join('');
+
+        // Tap sur une carte débloquée → affiche l'anecdote sous sa série.
+        container.onclick = (event) => {
+            const card = event.target.closest('.collection-map--fact');
+            if (!card) return;
+            const factBox = card.closest('.collection-theme')?.querySelector('.collection-theme-fact');
+            if (!factBox) return;
+            const fact = card.getAttribute('data-fact') || '';
+            const alreadyShown = !factBox.classList.contains('is-hidden') && factBox.dataset.for === card.getAttribute('aria-label');
+            if (alreadyShown || !fact) {
+                factBox.classList.add('is-hidden');
+                factBox.dataset.for = '';
+                return;
+            }
+            factBox.textContent = `💡 Le savais-tu ? ${fact}`;
+            factBox.dataset.for = card.getAttribute('aria-label');
+            factBox.classList.remove('is-hidden');
+        };
+    },
+
+    // ---------- GRIMOIRE ----------
+
+    updateGrimoireCoins(coins, boosterCost) {
+        const el = document.getElementById('grimoire-coins');
+        if (el) el.innerHTML = `🪙 <strong>${Math.max(0, Number(coins) || 0)}</strong> pièce${coins > 1 ? 's' : ''}`;
+        const btn = document.getElementById('btn-open-booster');
+        if (btn) {
+            btn.disabled = coins < boosterCost;
+            btn.textContent = `🎁 OUVRIR UN BOOSTER (${boosterCost} 🪙)`;
+        }
+    },
+
+    _cardRarityClass(rarity) {
+        return `grimoire-card--${['commune', 'rare', 'epique', 'legendaire', 'brillante'].includes(rarity) ? rarity : 'commune'}`;
+    },
+
+    renderGrimoire(catalog, ownedIds, coins, boosterCost, onOpenBooster) {
+        const grid = document.getElementById('grimoire-grid');
+        const progress = document.getElementById('grimoire-progress');
+        const reveal = document.getElementById('booster-reveal');
+        if (!grid) return;
+
+        if (reveal) { reveal.classList.add('is-hidden'); reveal.innerHTML = ''; }
+        this.updateGrimoireCoins(coins, boosterCost);
+        const btn = document.getElementById('btn-open-booster');
+        if (btn) btn.onclick = onOpenBooster;
+
+        const cards = Array.isArray(catalog?.cards) ? catalog.cards : [];
+        const ownedCount = cards.filter((c) => ownedIds[c.id]).length;
+        if (progress) {
+            progress.innerHTML = `<strong>${ownedCount}</strong> / ${cards.length} créatures découvertes`;
+        }
+
+        const rarities = catalog?.rarities || {};
+        grid.innerHTML = cards.map((card) => {
+            const count = ownedIds[card.id] || 0;
+            if (!count) {
+                return `
+                    <div class="grimoire-card grimoire-card--locked" aria-label="Créature mystérieuse non découverte">
+                        <div class="grimoire-card-back">?</div>
+                    </div>`;
+            }
+            return `
+                <button type="button" class="grimoire-card ${this._cardRarityClass(card.rarity)}" data-card-id="${this._escapeText(card.id)}"
+                    aria-label="${this._escapeText(card.name)}, carte ${this._escapeText(rarities[card.rarity]?.label || card.rarity)}">
+                    <img class="grimoire-card-img" src="${this._escapeText(card.image)}" alt="" loading="lazy">
+                    <div class="grimoire-card-name">${this._escapeText(card.name)}</div>
+                    ${count > 1 ? `<div class="grimoire-card-count">×${count}</div>` : ''}
+                </button>`;
+        }).join('');
+
+        grid.onclick = (event) => {
+            const cardBtn = event.target.closest('[data-card-id]');
+            if (!cardBtn) return;
+            const card = cards.find((c) => c.id === cardBtn.dataset.cardId);
+            if (card) this.showCardDetail(card, catalog, cards);
+        };
+    },
+
+    showCardDetail(card, catalog, allCards) {
+        const overlay = document.getElementById('card-detail-overlay');
+        const box = document.getElementById('card-detail');
+        if (!overlay || !box) return;
+        const rarity = catalog?.rarities?.[card.rarity] || { label: card.rarity, color: '#8d99ae' };
+        const from = card.evolvesFrom ? allCards.find((c) => c.id === card.evolvesFrom) : null;
+        const evolvesTo = allCards.filter((c) => c.evolvesFrom === card.id);
+        const chainParts = [];
+        if (from) chainParts.push(`Évolue depuis <strong>${this._escapeText(from.name)}</strong>`);
+        if (evolvesTo.length) chainParts.push(`Peut évoluer en <strong>${evolvesTo.map((c) => this._escapeText(c.name)).join(', ')}</strong>`);
+        if (card.variantOf) {
+            const original = allCards.find((c) => c.id === card.variantOf);
+            if (original) chainParts.push(`Version prismatique de <strong>${this._escapeText(original.name)}</strong>`);
+        }
+
+        box.className = `card-detail ${this._cardRarityClass(card.rarity)}`;
+        box.innerHTML = `
+            <div class="card-detail-rarity" style="color: ${this._escapeText(rarity.color)}">${this._escapeText(rarity.label)}</div>
+            <img class="card-detail-img" src="${this._escapeText(card.image)}" alt="${this._escapeText(card.name)}">
+            <div class="card-detail-name">${this._escapeText(card.name)}</div>
+            <p class="card-detail-lore">${this._escapeText(card.lore || '')}</p>
+            ${chainParts.length ? `<p class="card-detail-evolution">${chainParts.join('<br>')}</p>` : ''}
+            <button type="button" class="btn card-detail-close">FERMER</button>
+        `;
+        overlay.classList.remove('is-hidden');
+        const close = () => overlay.classList.add('is-hidden');
+        overlay.onclick = (event) => { if (event.target === overlay) close(); };
+        box.querySelector('.card-detail-close').onclick = close;
+    },
+
+    renderBoosterReveal(result, catalog, onDone) {
+        const reveal = document.getElementById('booster-reveal');
+        if (!reveal) return;
+        const rarities = catalog?.rarities || {};
+        reveal.classList.remove('is-hidden');
+        reveal.innerHTML = `
+            <div class="booster-cards">
+                ${result.cards.map(({ card, isNew, refund }, i) => `
+                    <div class="booster-card ${this._cardRarityClass(card.rarity)}" style="animation-delay: ${i * 0.45}s">
+                        <img class="grimoire-card-img" src="${this._escapeText(card.image)}" alt="">
+                        <div class="grimoire-card-name">${this._escapeText(card.name)}</div>
+                        <div class="booster-card-tag">${isNew
+                            ? `<span class="booster-new">NOUVEAU !</span>`
+                            : `<span class="booster-dupe">doublon +${refund} 🪙</span>`}</div>
+                        <div class="booster-card-rarity" style="color: ${this._escapeText(rarities[card.rarity]?.color || '#8d99ae')}">${this._escapeText(rarities[card.rarity]?.label || '')}</div>
+                    </div>
+                `).join('')}
+            </div>
+            <button type="button" class="btn card card--action booster-done-btn">
+                <span class="card-title">SUPER !</span>
+            </button>
+        `;
+        reveal.querySelector('.booster-done-btn').onclick = onDone;
+        reveal.scrollIntoView({ behavior: 'smooth', block: 'start' });
     },
 
     renderParentsPinPad(onDigit, onBackspace) {

@@ -312,6 +312,28 @@ header {
     transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease, border-color 0.2s ease;
 }
 
+/* Tactile : supprime le délai de double-tap-zoom sur les contrôles et
+   empêche la sélection de texte au toucher long sur les boutons de jeu.
+   Le texte des leçons et des questions reste sélectionnable. */
+button,
+.btn,
+.key,
+.board-map-zone,
+.board-feature,
+.board-memory-card {
+    touch-action: manipulation;
+}
+
+.btn,
+.key,
+.menu-card,
+.board-memory-card,
+.profile-customize-accent,
+.profile-customize-accessory {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
 .u-hidden {
     display: none !important;
 }
@@ -532,7 +554,9 @@ header {
 
 .grid-menu {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* Colonnes adaptatives : 1 sur petit téléphone, 2 sur mobile large/640px,
+       3+ quand le conteneur s'élargit (tablette paysage, PC). */
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
     gap: var(--space-4);
     margin-top: var(--space-5);
     padding-bottom: var(--space-5);
@@ -592,6 +616,9 @@ header {
         radial-gradient(circle at top right, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 34%),
         linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
     overflow: hidden;
+    /* Hauteur adaptée à la hauteur d'écran : compacte sur petit écran/paysage,
+       confortable sur grand écran. */
+    min-height: clamp(112px, 16vh, 152px);
 }
 
 .menu-card .card-content {
@@ -693,6 +720,15 @@ header {
     box-shadow: 0 0 0 3px var(--profile-card-accent), var(--shadow-1);
 }
 
+.profile-card-stats {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-text-muted, #6b7280);
+}
+
 .profile-card-helper {
     display: inline-flex;
     align-items: center;
@@ -762,7 +798,9 @@ header {
     width: min(100%, 760px);
     margin: 0 auto;
     display: grid;
-    gap: var(--space-5);
+    gap: var(--space-4);
+    /* 2 colonnes dès que la place le permet (tablette paysage, PC) */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .mode-card {
@@ -862,6 +900,56 @@ header {
 #screen-levels .grid-menu,
 #screen-exercises .grid-menu {
     margin-top: var(--space-4);
+}
+
+/* Écran de choix des classes : tuiles compactes pour que les 5 classes et
+   le bouton Grimoire tiennent à l'écran sans (ou avec peu de) défilement,
+   sur PC comme sur tablette. */
+#screen-grades .grid-menu {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-3);
+    margin-top: var(--space-3);
+    padding-bottom: var(--space-3);
+}
+
+#screen-grades .menu-card {
+    min-height: 108px;
+    padding: var(--space-3) var(--space-2);
+    gap: var(--space-2);
+}
+
+#screen-grades .menu-card .card-icon {
+    font-size: 1.9rem;
+}
+
+#screen-grades .menu-card .card-title {
+    font-size: var(--font-size-md);
+}
+
+#screen-grades .menu-card .card-subtitle {
+    font-size: var(--font-size-xs);
+}
+
+#screen-grades .grimoire-entry-btn {
+    margin-top: var(--space-2);
+    min-height: 64px;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+}
+
+#screen-grades .grimoire-entry-btn .card-icon {
+    font-size: 1.6rem;
+}
+
+@media (max-width: 640px) {
+    #screen-grades .grid-menu {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    #screen-grades .menu-card {
+        min-height: 96px;
+    }
 }
 
 #screen-library,
@@ -975,8 +1063,8 @@ header {
     position: absolute;
     top: -10px;
     right: -10px;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border: 2px solid white;
     border-radius: 50%;
     display: flex;
@@ -992,8 +1080,8 @@ header {
     position: absolute;
     bottom: -10px;
     right: -10px;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border: 2px solid white;
     border-radius: 50%;
     display: flex;
@@ -1004,6 +1092,16 @@ header {
     background: var(--color-surface);
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     z-index: 10;
+}
+
+/* Zone de tap étendue au-delà du cercle visible (cible tactile ≥ 44px)
+   sans grossir visuellement les boutons. */
+.btn-delete-profile::before,
+.btn-edit-profile::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
 }
 
 .profile-customize-section {
@@ -1176,6 +1274,46 @@ header {
 
 .profile-customize-lock-icon {
     font-size: 1.2rem;
+}
+
+.profile-customize-accessories {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
+
+.profile-customize-accessory {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 3px solid var(--color-surface);
+    box-shadow: 0 0 0 2px var(--color-border);
+    background: var(--color-surface-soft, #f1f5f9);
+    font-size: 1.4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.profile-customize-accessory.is-selected {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 3px var(--color-text);
+}
+
+.profile-customize-accessory.is-locked {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.header-avatar-accessory {
+    position: absolute;
+    top: -8px;
+    right: -6px;
+    font-size: 0.85rem;
+    line-height: 1;
 }
 
 .new-profile-card {
@@ -2310,6 +2448,70 @@ header {
 #app.theme-dark .board-map-zone.is-incorrect {
     fill: var(--color-danger-strong, #e53e3e);
     stroke: var(--color-danger-strong, #c53030);
+}
+
+/* Carte "flat" (régions de France) : les tracés régionaux sont issus de la
+   fusion des départements — un contour tracerait toutes les frontières
+   départementales internes et surchargerait la carte. On supprime donc le
+   trait et on distingue les régions par une palette de remplissages pastel
+   qui alterne suivant l'ordre des zones dans le SVG. */
+.board-map-svg--flat .board-map-zone {
+    stroke: none;
+}
+
+.board-map-svg--flat .board-map-zone:nth-of-type(6n+1) { fill: #a8c8ec; }
+.board-map-svg--flat .board-map-zone:nth-of-type(6n+2) { fill: #b8e0b9; }
+.board-map-svg--flat .board-map-zone:nth-of-type(6n+3) { fill: #f5d5a0; }
+.board-map-svg--flat .board-map-zone:nth-of-type(6n+4) { fill: #d8bfe8; }
+.board-map-svg--flat .board-map-zone:nth-of-type(6n+5) { fill: #f2bfc6; }
+.board-map-svg--flat .board-map-zone:nth-of-type(6n+6) { fill: #a9dcd4; }
+
+.board-map-svg--flat .board-map-zone:hover {
+    fill: rgba(74, 144, 226, 0.6);
+}
+
+.board-map-svg--flat .board-map-zone.is-selected {
+    fill: rgba(74, 144, 226, 0.75);
+}
+
+.board-map-svg--flat .board-map-zone.is-correct {
+    fill: var(--color-success, #48bb78);
+}
+
+.board-map-svg--flat .board-map-zone.is-incorrect {
+    fill: var(--color-danger-strong, #e53e3e);
+}
+
+.board-map-svg--flat .board-map-zone:focus-visible {
+    stroke: var(--color-focus);
+    stroke-width: 3px;
+    vector-effect: non-scaling-stroke;
+}
+
+/* Les règles #app.theme-dark .board-map-zone (spécificité avec ID) écrasent
+   la palette flat : on les re-déclare au même niveau de spécificité. */
+#app.theme-dark .board-map-svg--flat .board-map-zone { stroke: none; }
+#app.theme-dark .board-map-svg--flat .board-map-zone:nth-of-type(6n+1) { fill: #3d5a80; }
+#app.theme-dark .board-map-svg--flat .board-map-zone:nth-of-type(6n+2) { fill: #3f6b47; }
+#app.theme-dark .board-map-svg--flat .board-map-zone:nth-of-type(6n+3) { fill: #8a6d3b; }
+#app.theme-dark .board-map-svg--flat .board-map-zone:nth-of-type(6n+4) { fill: #6b4d8a; }
+#app.theme-dark .board-map-svg--flat .board-map-zone:nth-of-type(6n+5) { fill: #8a4d5c; }
+#app.theme-dark .board-map-svg--flat .board-map-zone:nth-of-type(6n+6) { fill: #3d7a72; }
+
+#app.theme-dark .board-map-svg--flat .board-map-zone:hover {
+    fill: rgba(96, 165, 250, 0.6);
+}
+
+#app.theme-dark .board-map-svg--flat .board-map-zone.is-selected {
+    fill: rgba(96, 165, 250, 0.75);
+}
+
+#app.theme-dark .board-map-svg--flat .board-map-zone.is-correct {
+    fill: var(--color-success, #48bb78);
+}
+
+#app.theme-dark .board-map-svg--flat .board-map-zone.is-incorrect {
+    fill: var(--color-danger-strong, #e53e3e);
 }
 
 .board-map-error {
@@ -3917,6 +4119,11 @@ header {
     box-shadow: 0 6px 0 #cbd5e0;
     line-height: 1.2;
     padding: 12px 10px;
+    font-size: clamp(0.8rem, 2.5vw, 1.4rem);
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+    hyphens: auto;
 }
 
 .btn-neutral {
@@ -4232,10 +4439,442 @@ header {
     color: var(--color-text);
 }
 
+.collection-themes-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.collection-theme-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-2);
+}
+
+.collection-theme-title {
+    font-weight: 800;
+    color: var(--color-text);
+}
+
+.collection-theme-progress {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-text-muted, #6b7280);
+}
+
+button.collection-map--fact {
+    cursor: pointer;
+    border: inherit;
+    font: inherit;
+    text-align: inherit;
+}
+
+.collection-theme-fact {
+    margin-top: var(--space-2);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    background: var(--color-primary-soft, #eef4ff);
+    font-size: var(--font-size-sm);
+    line-height: 1.45;
+    color: var(--color-text);
+}
+
+.collection-theme-fact.is-hidden {
+    display: none;
+}
+
+.today-recap {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    max-width: 560px;
+    margin: 0 auto var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-lg);
+    background: var(--color-primary-soft, #eef4ff);
+    border: 1px solid var(--color-border);
+}
+
+.today-recap.is-hidden {
+    display: none;
+}
+
+.today-recap-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.today-recap-text {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.4;
+}
+
+/* Mes exploits (écran progression) */
+.progress-feats {
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border);
+}
+
+.progress-feats-title {
+    font-weight: 800;
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+    text-align: center;
+}
+
+.progress-feats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: var(--space-2);
+}
+
+.progress-feat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: var(--space-2);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-soft, #f8fafc);
+}
+
+.progress-feat-icon {
+    font-size: 1.3rem;
+}
+
+.progress-feat-value {
+    font-weight: 800;
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+}
+
+.progress-feat-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted, #6b7280);
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* ---------- GRIMOIRE ---------- */
+
+.grimoire-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto var(--space-3);
+    flex-wrap: wrap;
+}
+
+.grimoire-coins {
+    font-size: var(--font-size-lg);
+    font-weight: 800;
+    color: var(--color-text);
+}
+
+.grimoire-booster-btn {
+    background: linear-gradient(135deg, #f3b13c 0%, #e8912d 100%);
+    color: #4a2c00;
+    font-weight: 800;
+}
+
+.grimoire-booster-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.grimoire-progress {
+    text-align: center;
+    color: var(--color-text-muted, #6b7280);
+    margin-bottom: var(--space-3);
+    font-weight: 600;
+}
+
+.grimoire-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+    gap: var(--space-3);
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.grimoire-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 6px;
+    border-radius: 12px;
+    border: 2px solid var(--color-border);
+    background: var(--color-surface);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.grimoire-card:not(.grimoire-card--locked):hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+.grimoire-card--commune { border-color: #8d99ae; }
+.grimoire-card--rare { border-color: #4a90e2; box-shadow: 0 0 8px rgba(74, 144, 226, 0.35); }
+.grimoire-card--epique { border-color: #9c6bd6; box-shadow: 0 0 12px rgba(156, 107, 214, 0.45); }
+.grimoire-card--legendaire {
+    border-color: #f3b13c;
+    box-shadow: 0 0 16px rgba(243, 177, 60, 0.55);
+    background: linear-gradient(180deg, #fffaf0 0%, var(--color-surface) 100%);
+}
+
+/* Prismatique : effet holographique animé (reflet arc-en-ciel qui balaie
+   la carte), même illustration que l'originale. */
+.grimoire-card--brillante {
+    border-color: #e05ce0;
+    box-shadow: 0 0 18px rgba(224, 92, 224, 0.55);
+    background: linear-gradient(120deg, #fdf3ff 0%, #f0f7ff 50%, #fff5ec 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.grimoire-card--brillante::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(115deg,
+        transparent 32%,
+        rgba(255, 80, 200, 0.16) 42%,
+        rgba(80, 200, 255, 0.20) 50%,
+        rgba(255, 230, 90, 0.16) 58%,
+        transparent 68%);
+    background-size: 300% 300%;
+    animation: holo-sweep 3.2s ease-in-out infinite;
+    border-radius: inherit;
+}
+
+@keyframes holo-sweep {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .grimoire-card--brillante::after { animation: none; }
+}
+
+.grimoire-card--locked {
+    cursor: default;
+    opacity: 0.85;
+}
+
+.grimoire-card-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 8px;
+    background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,0.14) 0%, transparent 40%),
+        linear-gradient(135deg, #3d4a6b 0%, #232c45 100%);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.grimoire-card-img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.grimoire-card-name {
+    font-size: var(--font-size-xs);
+    font-weight: 800;
+    color: var(--color-text);
+    text-align: center;
+    line-height: 1.15;
+}
+
+.grimoire-card-count {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: var(--color-primary);
+    color: white;
+    font-size: var(--font-size-xs);
+    font-weight: 800;
+}
+
+/* Ouverture de booster */
+.booster-reveal {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto var(--space-4);
+}
+
+.booster-reveal.is-hidden { display: none; }
+
+.booster-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+}
+
+.booster-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 8px;
+    border-radius: 14px;
+    border: 3px solid var(--color-border);
+    background: var(--color-surface);
+    opacity: 0;
+    transform: rotateY(90deg) scale(0.8);
+    animation: booster-flip 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.booster-card.grimoire-card--rare { border-color: #4a90e2; }
+.booster-card.grimoire-card--epique { border-color: #9c6bd6; box-shadow: 0 0 14px rgba(156, 107, 214, 0.5); }
+.booster-card.grimoire-card--legendaire { border-color: #f3b13c; box-shadow: 0 0 20px rgba(243, 177, 60, 0.65); }
+
+@keyframes booster-flip {
+    0% { opacity: 0; transform: rotateY(90deg) scale(0.8); }
+    100% { opacity: 1; transform: rotateY(0deg) scale(1); }
+}
+
+.booster-new {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--color-success, #48bb78);
+    color: white;
+    font-size: var(--font-size-xs);
+    font-weight: 800;
+}
+
+.booster-dupe {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted, #6b7280);
+    font-weight: 700;
+}
+
+.booster-card-rarity {
+    font-size: var(--font-size-xs);
+    font-weight: 800;
+}
+
+/* Fiche carte en grand */
+.card-detail-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: var(--space-4);
+}
+
+.card-detail-overlay.is-hidden { display: none; }
+
+.card-detail {
+    width: min(92vw, 360px);
+    max-height: 88vh;
+    overflow-y: auto;
+    background: var(--color-surface);
+    border-radius: 18px;
+    border: 4px solid var(--color-border);
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    text-align: center;
+}
+
+.card-detail.grimoire-card--rare { border-color: #4a90e2; }
+.card-detail.grimoire-card--epique { border-color: #9c6bd6; box-shadow: 0 0 24px rgba(156, 107, 214, 0.5); }
+.card-detail.grimoire-card--legendaire { border-color: #f3b13c; box-shadow: 0 0 30px rgba(243, 177, 60, 0.6); }
+
+.card-detail-rarity {
+    font-weight: 800;
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.card-detail-img {
+    width: 100%;
+    max-height: 46vh;
+    object-fit: contain;
+}
+
+.card-detail-name {
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    color: var(--color-text);
+}
+
+.card-detail-lore {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    line-height: 1.5;
+    font-style: italic;
+    margin: 0;
+}
+
+.card-detail-evolution {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted, #6b7280);
+    margin: 0;
+}
+
+.result-coins {
+    font-weight: 800;
+    color: #8a5b00;
+    margin: var(--space-2) 0;
+}
+
+#app.theme-dark .result-coins { color: #fcd34d; }
+
+.grimoire-entry-btn {
+    background: linear-gradient(135deg, #3d4a6b 0%, #232c45 100%);
+    color: white;
+}
+
+.grimoire-entry-btn .card-title {
+    color: white;
+}
+
+.grimoire-entry-coins {
+    font-weight: 800;
+    color: #fcd34d;
+}
+#app.theme-dark .grimoire-card--legendaire { background: linear-gradient(180deg, #3a2f14 0%, var(--color-surface) 100%); }
+
+.home-footer-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+    flex-wrap: wrap;
+}
+
 .parents-link-btn {
-    display: block;
-    margin: var(--space-4) auto 0;
-    padding: var(--space-2) var(--space-4);
+    display: inline-block;
+    padding: var(--space-2) var(--space-3);
     border: none;
     background: transparent;
     color: var(--color-text-muted, #6b7280);
@@ -4464,6 +5103,57 @@ header {
     font-weight: 600;
     white-space: nowrap;
     margin-left: var(--space-2);
+}
+
+/* Mode d'emploi parents */
+.guide-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.guide-section {
+    background: var(--color-surface, #fff);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+}
+
+.guide-section-title {
+    font-weight: 800;
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+}
+
+.guide-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.guide-list li {
+    padding-left: var(--space-3);
+    position: relative;
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    line-height: 1.5;
+}
+
+.guide-list li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted, #6b7280);
+}
+
+.guide-list strong {
+    font-weight: 700;
+    color: var(--color-text);
 }
 
 .mascot-reaction {
@@ -4767,6 +5457,7 @@ header {
 }
 
 .confetti { position: absolute; width: 10px; height: 10px; top: -10px; z-index: 100; animation: fall linear forwards; }
+.confetti--emoji { width: auto; height: auto; background: transparent; font-size: 1.3rem; line-height: 1; }
 @keyframes fall { to { transform: translateY(100vh) rotate(720deg); } }
 .victory-bounce { animation: victoryJump 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 @keyframes victoryJump { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
@@ -4809,7 +5500,8 @@ header {
         padding: 12px 14px;
     }
     .screen { padding: 16px; gap: var(--space-4); }
-    .grid-menu { grid-template-columns: 1fr; gap: var(--space-3); }
+    /* auto-fill gère seul le passage 1/2 colonnes selon la largeur du téléphone */
+    .grid-menu { gap: var(--space-3); }
     .card {
         min-height: 132px;
         padding: var(--space-4) var(--space-3);
@@ -4974,6 +5666,13 @@ header {
     .btn-neutral {
         min-height: 64px;
         padding: 10px 8px;
+        /* Re-assert after the .key mobile rule above (same specificity, later
+           source order wins) so long QCM labels keep shrinking on phones. */
+        font-size: clamp(0.75rem, 3.2vw, 1.2rem);
+    }
+    .qcm-symbol {
+        /* Keep < > = symbols large and distinguishable on phones. */
+        font-size: 2.2rem;
     }
     .alpha-keyboard,
     .roman-keyboard {
@@ -5024,6 +5723,68 @@ header {
     .game-zone {
         padding-top: var(--space-2);
     }
+}
+
+/* Grands écrans (tablette paysage, PC) : on élargit le conteneur pour que
+   les grilles passent en 3 colonnes et réduisent le défilement. Les zones
+   de jeu/claviers gardent leur largeur de lecture via --container-max. */
+@media (min-width: 900px) {
+    #app {
+        max-width: 860px;
+    }
+
+    /* Largeurs de contenu harmonisées avec le conteneur élargi */
+    :root {
+        --reading-max: 680px;   /* leçons plus larges, lecture confortable */
+    }
+
+    .progress-summary,
+    .progress-subjects,
+    .progress-review-section,
+    .today-recap,
+    .champion-hud,
+    .daily-challenge-card {
+        width: 100%;
+        max-width: 680px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .champion-scores {
+        max-width: 560px;
+    }
+
+    #btn-results-lesson,
+    #btn-results-menu {
+        max-width: 520px;
+    }
+}
+
+/* Le bouton "Passer aux exercices" sous la leçon s'aligne sur la largeur de
+   lecture de la leçon plutôt que sur toute la largeur de l'écran. */
+#btn-lesson-exercises {
+    width: 100%;
+    max-width: var(--reading-max);
+    align-self: center;
+}
+
+/* Podium du Mode Champions : top 3 par durée */
+.champion-score-value {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.champion-score-medal {
+    font-weight: 700;
+    color: var(--color-text);
+    white-space: nowrap;
+}
+
+.champion-score-empty {
+    color: var(--color-text-muted, #6b7280);
+    font-weight: 600;
 }
 
 @media (min-width: 560px) and (min-height: 760px) {
