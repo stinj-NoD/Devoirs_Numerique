@@ -707,6 +707,397 @@
       "lore": "Version prismatique : on raconte qu'elle n'apparaît qu'aux collectionneurs qui n'abandonnent jamais.",
       "evolvesFrom": null,
       "variantOf": "z-poison-dragon"
+    },
+    {
+      "id": "hibou-oeuf",
+      "name": "Plumœuf",
+      "family": "hibou",
+      "stage": 1,
+      "rarity": "commune",
+      "element": "mystere",
+      "image": "data/cards/hibou-oeuf.webp",
+      "lore": "Un œuf couvert de plumes et de feuilles. On entend parfois un petit hululement à l'intérieur.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "hibou-bebe",
+      "name": "Chouquette",
+      "family": "hibou",
+      "stage": 2,
+      "rarity": "commune",
+      "element": "mystere",
+      "image": "data/cards/hibou-bebe.webp",
+      "lore": "À peine sortie de sa coquille, elle observe déjà tout avec ses grands yeux. Rien ne lui échappe.",
+      "evolvesFrom": "hibou-oeuf"
+    },
+    {
+      "id": "hibou-foret",
+      "name": "Sylvouette",
+      "family": "hibou",
+      "stage": 3,
+      "rarity": "rare",
+      "element": "plante",
+      "image": "data/cards/hibou-foret.webp",
+      "lore": "Elle a choisi la voie de la forêt : ses ailes de feuillage abritent les petites créatures perdues.",
+      "evolvesFrom": "hibou-bebe"
+    },
+    {
+      "id": "hibou-lumiere",
+      "name": "Lumihou",
+      "family": "hibou",
+      "stage": 3,
+      "rarity": "rare",
+      "element": "lumiere",
+      "image": "data/cards/hibou-lumiere.webp",
+      "lore": "Il a choisi la voie de la lumière : il éclaire les pages des livres lus sous la couette.",
+      "evolvesFrom": "hibou-bebe"
+    },
+    {
+      "id": "hibou-glace",
+      "name": "Givrhou",
+      "family": "hibou",
+      "stage": 3,
+      "rarity": "rare",
+      "element": "glace",
+      "image": "data/cards/hibou-glace.webp",
+      "lore": "Il a choisi la voie du givre : ses battements d'ailes font tomber une neige d'étoiles.",
+      "evolvesFrom": "hibou-bebe"
+    },
+    {
+      "id": "hibou-nuit",
+      "name": "Cosmhou",
+      "family": "hibou",
+      "stage": 3,
+      "rarity": "epique",
+      "element": "nuit",
+      "image": "data/cards/hibou-nuit.webp",
+      "lore": "Il a choisi la voie du cosmos : chaque plume est un morceau de ciel nocturne.",
+      "evolvesFrom": "hibou-bebe"
+    },
+    {
+      "id": "hibou-phenix",
+      "name": "Azurhou",
+      "family": "hibou",
+      "stage": 3,
+      "rarity": "epique",
+      "element": "feu",
+      "image": "data/cards/hibou-phenix.webp",
+      "lore": "Il a choisi la voie du phénix : sa flamme bleue ne brûle pas, elle donne du courage.",
+      "evolvesFrom": "hibou-bebe"
+    },
+    {
+      "id": "hibou-esprit",
+      "name": "Brumhou",
+      "family": "hibou",
+      "stage": 3,
+      "rarity": "rare",
+      "element": "spectre",
+      "image": "data/cards/hibou-esprit.webp",
+      "lore": "Il a choisi la voie des esprits : il veille sur les rêves et chasse les cauchemars.",
+      "evolvesFrom": "hibou-bebe"
+    },
+    {
+      "id": "dauphin-oeuf",
+      "name": "Marœuf",
+      "family": "dauphin",
+      "stage": 1,
+      "rarity": "commune",
+      "element": "eau",
+      "image": "data/cards/dauphin-oeuf.webp",
+      "lore": "Un œuf d'eau pure où tournent de minuscules vagues. Il sent la mer et les vacances.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dauphin-bebe",
+      "name": "Delfino",
+      "family": "dauphin",
+      "stage": 2,
+      "rarity": "commune",
+      "element": "eau",
+      "image": "data/cards/dauphin-bebe.webp",
+      "lore": "Un bébé dauphin joueur qui fait des bonds à chaque bonne réponse.",
+      "evolvesFrom": "dauphin-oeuf"
+    },
+    {
+      "id": "dauphin-jeune",
+      "name": "Delphio",
+      "family": "dauphin",
+      "stage": 3,
+      "rarity": "rare",
+      "element": "eau",
+      "image": "data/cards/dauphin-jeune.webp",
+      "lore": "Il nage dans les courants du savoir. Son avenir dépend de l'océan qu'il choisira.",
+      "evolvesFrom": "dauphin-bebe"
+    },
+    {
+      "id": "dauphin-glace",
+      "name": "Delphigel",
+      "family": "dauphin",
+      "stage": 4,
+      "rarity": "rare",
+      "element": "glace",
+      "image": "data/cards/dauphin-glace.webp",
+      "lore": "Il a choisi les mers polaires : il glisse sous la banquise comme une flèche d'argent.",
+      "evolvesFrom": "dauphin-jeune"
+    },
+    {
+      "id": "dauphin-foudre",
+      "name": "Delphivolt",
+      "family": "dauphin",
+      "stage": 4,
+      "rarity": "rare",
+      "element": "foudre",
+      "image": "data/cards/dauphin-foudre.webp",
+      "lore": "Il a choisi l'orage : ses sauts déchirent les vagues dans un éclair doré.",
+      "evolvesFrom": "dauphin-jeune"
+    },
+    {
+      "id": "dauphin-plante",
+      "name": "Delphiflor",
+      "family": "dauphin",
+      "stage": 4,
+      "rarity": "rare",
+      "element": "plante",
+      "image": "data/cards/dauphin-plante.webp",
+      "lore": "Il a choisi les lagons verts : les algues fleurissent sur son passage.",
+      "evolvesFrom": "dauphin-jeune"
+    },
+    {
+      "id": "dauphin-nuit",
+      "name": "Delphinuit",
+      "family": "dauphin",
+      "stage": 4,
+      "rarity": "epique",
+      "element": "nuit",
+      "image": "data/cards/dauphin-nuit.webp",
+      "lore": "Il a choisi l'océan des étoiles : il nage dans la Voie lactée les nuits sans lune.",
+      "evolvesFrom": "dauphin-jeune"
+    },
+    {
+      "id": "dauphin-fee",
+      "name": "Delphifée",
+      "family": "dauphin",
+      "stage": 4,
+      "rarity": "rare",
+      "element": "fee",
+      "image": "data/cards/dauphin-fee.webp",
+      "lore": "Il a choisi les eaux enchantées : son sillage exauce les petits vœux.",
+      "evolvesFrom": "dauphin-jeune"
+    },
+    {
+      "id": "dauphin-poison",
+      "name": "Delphitox",
+      "family": "dauphin",
+      "stage": 4,
+      "rarity": "epique",
+      "element": "poison",
+      "image": "data/cards/dauphin-poison.webp",
+      "lore": "Il a choisi les profondeurs violettes : son venin n'endort que la paresse.",
+      "evolvesFrom": "dauphin-jeune"
+    },
+    {
+      "id": "dauphin-acier",
+      "name": "Delphacier",
+      "family": "dauphin",
+      "stage": 4,
+      "rarity": "epique",
+      "element": "acier",
+      "image": "data/cards/dauphin-acier.webp",
+      "lore": "Il a choisi les épaves anciennes : son armure d'argent garde leurs secrets.",
+      "evolvesFrom": "dauphin-jeune"
+    },
+    {
+      "id": "dauphin-abysse",
+      "name": "Delphysse",
+      "family": "dauphin",
+      "stage": 5,
+      "rarity": "legendaire",
+      "element": "nuit",
+      "image": "data/cards/dauphin-abysse.webp",
+      "lore": "Le maître des abysses, né là où la lumière n'arrive jamais. Ceux qui le croisent disent avoir vu l'océan rêver.",
+      "evolvesFrom": "dauphin-jeune"
+    },
+    {
+      "id": "capy-oeuf",
+      "name": "Moussœuf",
+      "family": "capybara",
+      "stage": 1,
+      "rarity": "commune",
+      "element": "plante",
+      "image": "data/cards/capy-oeuf.webp",
+      "lore": "Un œuf couvert de mousse tiède. Il pousse plus qu'il n'éclot, disent les jardiniers.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "capy-bebe",
+      "name": "Capichou",
+      "family": "capybara",
+      "stage": 2,
+      "rarity": "commune",
+      "element": "plante",
+      "image": "data/cards/capy-bebe.webp",
+      "lore": "Un bébé capybara zen avec une pousse sur la tête. Rien ne le stresse, jamais.",
+      "evolvesFrom": "capy-oeuf"
+    },
+    {
+      "id": "capy-fleur",
+      "name": "Capifleur",
+      "family": "capybara",
+      "stage": 3,
+      "rarity": "rare",
+      "element": "plante",
+      "image": "data/cards/capy-fleur.webp",
+      "lore": "Des fleurs s'ouvrent sur son dos quand il est content. Il est souvent très fleuri.",
+      "evolvesFrom": "capy-bebe"
+    },
+    {
+      "id": "capy-jardin",
+      "name": "Capijardin",
+      "family": "capybara",
+      "stage": 4,
+      "rarity": "rare",
+      "element": "plante",
+      "image": "data/cards/capy-jardin.webp",
+      "lore": "Un potager entier vit sur son dos : champignons, fleurs et herbes folles.",
+      "evolvesFrom": "capy-fleur"
+    },
+    {
+      "id": "capy-foret",
+      "name": "Capiforêt",
+      "family": "capybara",
+      "stage": 5,
+      "rarity": "rare",
+      "element": "plante",
+      "image": "data/cards/capy-foret.webp",
+      "lore": "Son pelage est devenu écorce. Les oiseaux y nichent, il ne les dérange pas.",
+      "evolvesFrom": "capy-jardin"
+    },
+    {
+      "id": "capy-dore",
+      "name": "Capidor",
+      "family": "capybara",
+      "stage": 6,
+      "rarity": "epique",
+      "element": "lumiere",
+      "image": "data/cards/capy-dore.webp",
+      "lore": "Des bois dorés ont poussé sur sa tête. Il marche lentement, mais il arrive toujours.",
+      "evolvesFrom": "capy-foret"
+    },
+    {
+      "id": "capy-roi",
+      "name": "Capiroi",
+      "family": "capybara",
+      "stage": 7,
+      "rarity": "epique",
+      "element": "lumiere",
+      "image": "data/cards/capy-roi.webp",
+      "lore": "Le roi tranquille de la clairière d'or. Sa couronne est un jardin suspendu.",
+      "evolvesFrom": "capy-dore"
+    },
+    {
+      "id": "capy-sage",
+      "name": "Capysage",
+      "family": "capybara",
+      "stage": 8,
+      "rarity": "legendaire",
+      "element": "lumiere",
+      "image": "data/cards/capy-sage.webp",
+      "lore": "Le Grand Sage des prairies éternelles. On dit qu'il connaît la réponse à toutes les questions, mais qu'il préfère laisser chercher.",
+      "evolvesFrom": "capy-roi"
+    },
+    {
+      "id": "dauphin-abysse-prisme",
+      "name": "Delphysse ✨",
+      "family": "dauphin",
+      "stage": 5,
+      "rarity": "brillante",
+      "element": "nuit",
+      "image": "data/cards/dauphin-abysse.webp",
+      "lore": "Version prismatique : on raconte qu'elle n'apparaît qu'aux collectionneurs qui n'abandonnent jamais.",
+      "evolvesFrom": null,
+      "variantOf": "dauphin-abysse"
+    },
+    {
+      "id": "capy-sage-prisme",
+      "name": "Capysage ✨",
+      "family": "capybara",
+      "stage": 8,
+      "rarity": "brillante",
+      "element": "lumiere",
+      "image": "data/cards/capy-sage.webp",
+      "lore": "Version prismatique : on raconte qu'elle n'apparaît qu'aux collectionneurs qui n'abandonnent jamais.",
+      "evolvesFrom": null,
+      "variantOf": "capy-sage"
+    },
+    {
+      "id": "hibou-phenix-prisme",
+      "name": "Azurhou ✨",
+      "family": "hibou",
+      "stage": 3,
+      "rarity": "brillante",
+      "element": "feu",
+      "image": "data/cards/hibou-phenix.webp",
+      "lore": "Version prismatique : on raconte qu'elle n'apparaît qu'aux collectionneurs qui n'abandonnent jamais.",
+      "evolvesFrom": null,
+      "variantOf": "hibou-phenix"
+    },
+    {
+      "id": "hibou-nuit-prisme",
+      "name": "Cosmhou ✨",
+      "family": "hibou",
+      "stage": 3,
+      "rarity": "brillante",
+      "element": "nuit",
+      "image": "data/cards/hibou-nuit.webp",
+      "lore": "Version prismatique : on raconte qu'elle n'apparaît qu'aux collectionneurs qui n'abandonnent jamais.",
+      "evolvesFrom": null,
+      "variantOf": "hibou-nuit"
     }
-  ]
+  ],
+  "families": {
+    "cristal": {
+      "label": "Lignée de Cristal",
+      "icon": "💎"
+    },
+    "braise": {
+      "label": "Lignée de Braise",
+      "icon": "🔥"
+    },
+    "ambre": {
+      "label": "Lignée d'Ambre",
+      "icon": "🟠"
+    },
+    "etoile": {
+      "label": "Lignée Étoilée",
+      "icon": "⭐"
+    },
+    "brume": {
+      "label": "Lignée de Brume",
+      "icon": "🌫️"
+    },
+    "givre": {
+      "label": "Lignée de Givre",
+      "icon": "❄️"
+    },
+    "perle": {
+      "label": "Lignée de Perle",
+      "icon": "🫧"
+    },
+    "zephyr": {
+      "label": "Famille Zéphyr",
+      "icon": "🥚"
+    },
+    "hibou": {
+      "label": "Famille des Hiboux",
+      "icon": "🦉"
+    },
+    "dauphin": {
+      "label": "Famille des Dauphins",
+      "icon": "🐬"
+    },
+    "capybara": {
+      "label": "Famille des Capybaras",
+      "icon": "🌿"
+    }
+  }
 }
