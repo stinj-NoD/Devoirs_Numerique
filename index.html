@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#4A90E2">
     <meta name="description" content="Application éducative pour réviser le calcul et le français du CP au CM2.">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     
     <meta http-equiv="Content-Security-Policy" 
@@ -173,6 +174,8 @@
                     <li><strong>Compagnon évolutif</strong> : l'œuf ou l'animal choisi à la création évolue en plusieurs stades selon les étoiles gagnées.</li>
                     <li><strong>Série (🔥)</strong> : nombre de jours consécutifs avec au moins un exercice. Elle se remet à zéro si un jour est manqué.</li>
                     <li><strong>Grimoire (🃏)</strong> : les réussites rapportent des pièces qui permettent d'ouvrir des boosters de cartes-créatures à collectionner. Aucun achat réel : tout se gagne en s'entraînant.</li>
+                    <li><strong>Avatar-carte</strong> : une carte débloquée dans le Grimoire peut devenir l'avatar du profil (bouton ✏️ sur l'écran d'accueil).</li>
+                    <li><strong>Le Grand Quiz (🧠)</strong> : culture générale façon « Incollables », hors programme scolaire — 10 questions sans chrono avec une anecdote à chaque réponse. Le tableau des records est commun à tous les profils de l'appareil : parents et enfants peuvent se défier !</li>
                 </ul>
             </div>
 
@@ -236,6 +239,10 @@
             <div class="profile-customize-title">Accessoires (gagnés avec les badges)</div>
             <div id="profile-customize-accessories" class="profile-customize-accessories"></div>
         </div>
+        <div class="profile-customize-section">
+            <div class="profile-customize-title">Ton avatar (cartes du Grimoire)</div>
+            <div id="profile-customize-card-avatar" class="profile-customize-card-avatar"></div>
+        </div>
         <button id="btn-profile-customize-done" class="btn card card--action card--action-primary">
             <span class="card-title card-title-on-dark">TERMINÉ</span>
         </button>
@@ -249,6 +256,49 @@
             <span class="card-icon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 64 64" focusable="false"><defs><linearGradient id="grimoire-gold-entry" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe9a8"/><stop offset="1" stop-color="#f3b13c"/></linearGradient></defs><path d="M8 46 C16 40 26 40 32 44 C38 40 48 40 56 46 L56 24 C48 18 38 18 32 22 C26 18 16 18 8 24 Z" fill="url(#grimoire-gold-entry)" stroke="#8a5b00" stroke-width="2" stroke-linejoin="round"/><path d="M32 22 L32 44" stroke="#8a5b00" stroke-width="2"/><path d="M13 27 C19 24 25 24 29 26 M13 33 C19 30 25 30 29 32 M35 26 C39 24 45 24 51 27 M35 32 C39 30 45 30 51 33" stroke="#b8862f" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M32 2 L35 10 L43 13 L35 16 L32 24 L29 16 L21 13 L29 10 Z" fill="#fff"/><path d="M32 5 L34.2 10.8 L40 13 L34.2 15.2 L32 21 L29.8 15.2 L24 13 L29.8 10.8 Z" fill="url(#grimoire-gold-entry)"/><path d="M14 8 l1.4 3 3 1.4 -3 1.4 -1.4 3 -1.4 -3 -3 -1.4 3 -1.4 Z" fill="#ffe9a8"/><path d="M50 6 l1.2 2.6 2.6 1.2 -2.6 1.2 -1.2 2.6 -1.2 -2.6 -2.6 -1.2 2.6 -1.2 Z" fill="#ffe9a8"/></svg></span>
             <span class="card-title">MON GRIMOIRE</span>
             <span id="grimoire-entry-coins" class="grimoire-entry-coins"></span>
+        </button>
+        <button id="btn-open-quiz" type="button" class="btn card card--action quiz-entry-btn">
+            <span class="card-icon" aria-hidden="true">🧠</span>
+            <span class="card-title">LE GRAND QUIZ</span>
+            <span class="quiz-entry-subtitle">Culture générale — défie ta famille !</span>
+        </button>
+    </section>
+
+    <section id="screen-quiz-home" class="screen">
+        <h2>Le Grand Quiz</h2>
+        <p class="screen-lead">10 questions de culture générale, sans chrono. Réfléchis bien : chaque question t'apprend un secret !</p>
+        <div id="quiz-level-list" class="mode-grid"></div>
+        <div class="quiz-scores">
+            <div class="quiz-scores-title">🏆 Records de l'appareil</div>
+            <div id="quiz-scores-list" class="quiz-scores-list"></div>
+        </div>
+    </section>
+
+    <section id="screen-quiz-play" class="screen">
+        <div class="quiz-hud">
+            <span id="quiz-progress-label" class="quiz-progress-label"></span>
+            <span id="quiz-score-label" class="quiz-score-label" aria-live="polite"></span>
+        </div>
+        <div class="progress-container"><div id="quiz-progress-bar" class="progress-bar"></div></div>
+        <div id="quiz-theme" class="quiz-theme"></div>
+        <div id="quiz-question" class="quiz-question" aria-live="polite"></div>
+        <div id="quiz-choices" class="quiz-choices"></div>
+        <div id="quiz-feedback" class="quiz-feedback is-hidden" aria-live="polite"></div>
+        <button id="btn-quiz-next" class="btn card card--action card--action-primary is-hidden">
+            <span id="btn-quiz-next-label" class="card-title card-title-on-dark">QUESTION SUIVANTE</span>
+        </button>
+    </section>
+
+    <section id="screen-quiz-results" class="screen screen-results">
+        <h1 id="quiz-result-title" class="result-title"></h1>
+        <p id="quiz-result-lead" class="screen-lead"></p>
+        <p id="quiz-result-score" class="result-score"></p>
+        <div id="quiz-result-best" class="quiz-result-best"></div>
+        <button id="btn-quiz-retry" class="btn card card--action card--action-primary">
+            <span class="card-title card-title-on-dark">REJOUER</span>
+        </button>
+        <button id="btn-quiz-menu" class="btn card card--action">
+            <span class="card-title">CHOIX DU NIVEAU</span>
         </button>
     </section>
     <section id="screen-mode" class="screen">

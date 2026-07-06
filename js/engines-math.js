@@ -78,8 +78,13 @@
                 return { isVisual: true, visualType: p.skin === 'money' ? 'money' : 'target', data: { zonesDefinitions: zones, hits: touches }, answer: totalScore, explanation: `${touches.map(t => t.val).join(' + ')} = ${totalScore}` };
             }
             case 'half': {
-                const pair = rnd(10, 100) * 2;
+                // min/max bornent la MOITIÉ demandée (ex: min 5, max 25 → moitié de 10 à 50)
+                const pair = rnd(p.min || 10, p.max || 100) * 2;
                 return { question: `Moitié de ${pair} ?`, answer: pair / 2, explanation: `La moitié de ${pair} est ${pair / 2}, car ${pair / 2} + ${pair / 2} = ${pair}.` };
+            }
+            case 'double': {
+                const base = rnd(p.min || 5, p.max || 50);
+                return { question: `Double de ${base} ?`, answer: base * 2, explanation: `Le double de ${base} est ${base * 2}, car ${base} + ${base} = ${base * 2}.` };
             }
             case 'division-simple':
                 b = rnd(2, 9);

@@ -594,6 +594,7 @@ const Storage = {
         this._removeItem(`coins_${resolvedName}`);
         this._removeItem(`cards_${resolvedName}`);
         this._removeItem(this._getAppearanceKey(resolvedName));
+        this._removeQuizScoresOf(resolvedName);
 
         if (this._normalizeProfileName(this.getCurrentUser()) === normalized) {
             this.currentUser = null;
@@ -850,6 +851,7 @@ const Storage = {
         const profiles = this.getProfiles();
         return {
             exportedAt: new Date().toISOString(),
+            quizScores: this._readQuizScores(),
             profiles: profiles.map((name) => {
                 const cleanName = this._sanitize(name).slice(0, this._profileNameMaxLength);
                 const streak = this._readStreak(cleanName);
@@ -884,9 +886,18 @@ const Storage = {
         let imported = 0;
         for (const profile of data.profiles) {
             const validation = this.validateProfileName(profile?.name);
-            if (!validation.ok) continue;
-            const cleanName = validation.cleanName;
-            this.addProfile(cleanName);
+            let cleanName = validation.cleanName;
+            if (!validation.ok) {
+                // 'duplicate' = le profil existe déjà sur l'appareil : la
+                // restauration doit l'écraser, pas le sauter. On reprend le
+                // nom déjà enregistré pour que les clés de stockage matchent
+                // même si la casse diffère dans la sauvegarde.
+                if (validation.code !== 'duplicate') continue;
+                const normalized = this._normalizeProfileName(cleanName);
+                cleanName = this.getProfiles().find((p) => this._normalizeProfileName(p) === normalized) || cleanName;
+            } else {
+                this.addProfile(cleanName);
+            }
 
             if (profile.records && typeof profile.records === 'object' && !Array.isArray(profile.records)) {
                 this._setItem(`records_${cleanName}`, JSON.stringify(profile.records));
@@ -922,10 +933,33 @@ const Storage = {
             if (profile.appearance && typeof profile.appearance === 'object') {
                 this.setProfileAppearance(cleanName, {
                     accent: profile.appearance.accent,
-                    accessory: profile.appearance.accessory ?? undefined
+                    accessory: profile.appearance.accessory ?? undefined,
+                    cardAvatar: profile.appearance.cardAvatar ?? undefined
                 });
             }
             imported++;
+        }
+
+        // Classement du Grand Quiz (appareil entier) : fusion avec l'existant,
+        // dédoublonné pour qu'un double import ne duplique pas les lignes.
+        if (data.quizScores && typeof data.quizScores === 'object') {
+            const all = this._readQuizScores();
+            for (const levelId of this._quizLevelIds) {
+                const incoming = (Array.isArray(data.quizScores[levelId]) ? data.quizScores[levelId] : [])
+                    .map((e) => this._sanitizeQuizEntry(e))
+                    .filter(Boolean);
+                const seen = new Set(all[levelId].map((e) => `${this._normalizeProfileName(e.name)}|${e.score}|${e.timestamp}`));
+                for (const entry of incoming) {
+                    const key = `${this._normalizeProfileName(entry.name)}|${entry.score}|${entry.timestamp}`;
+                    if (!seen.has(key)) {
+                        seen.add(key);
+                        all[levelId].push(entry);
+                    }
+                }
+                all[levelId].sort((a, b) => b.score - a.score || a.timestamp - b.timestamp);
+                all[levelId] = all[levelId].slice(0, this._quizScoresMaxEntries);
+            }
+            this._setItem(this._quizScoresKey, JSON.stringify(all));
         }
 
         return { ok: imported > 0, imported, error: imported > 0 ? null : 'empty' };
@@ -1003,8 +1037,13 @@ const Storage = {
         const raw = key ? this._safeParseObject(this._getItem(key)) : {};
         const accent = this._accentChoices.some((entry) => entry.id === raw.accent) ? raw.accent : fallback.accent;
         const accessory = this._accessoryDefinitions.some((entry) => entry.id === raw.accessory) ? raw.accessory : null;
+        // Avatar-carte : une carte du Grimoire choisie comme avatar. Validée
+        // contre la collection à chaque lecture — si la carte n'est plus
+        // possédée (import d'une autre sauvegarde), retour au compagnon.
+        const cardAvatar = (typeof raw.cardAvatar === 'string' && this.getOwnedCards(name)[raw.cardAvatar])
+            ? raw.cardAvatar : null;
         const avatarState = this.getAvatarEvolutionState(name);
-        return { avatar: avatarState.emoji, accent, accessory };
+        return { avatar: avatarState.emoji, accent, accessory, cardAvatar };
     },
 
     getAccessoryEmoji(name = this.getCurrentUser()) {
@@ -1013,7 +1052,7 @@ const Storage = {
         return this._accessoryDefinitions.find((entry) => entry.id === accessory)?.emoji || null;
     },
 
-    setProfileAppearance(name, { accent, accessory } = {}) {
+    setProfileAppearance(name, { accent, accessory, cardAvatar } = {}) {
         const key = this._getAppearanceKey(name);
         if (!key) return null;
         const current = this.getProfileAppearance(name);
@@ -1026,9 +1065,17 @@ const Storage = {
             const choice = this.getAccessoryChoicesWithUnlock(name).find((entry) => entry.id === accessory);
             if (choice && choice.unlocked) safeAccessory = accessory;
         }
-        const next = { accent: safeAccent, accessory: safeAccessory };
+        // cardAvatar : undefined = inchangé, null = retour au compagnon,
+        // id de carte POSSÉDÉE = la carte devient l'avatar
+        let safeCardAvatar = current.cardAvatar;
+        if (cardAvatar === null) {
+            safeCardAvatar = null;
+        } else if (typeof cardAvatar === 'string' && this.getOwnedCards(name)[cardAvatar]) {
+            safeCardAvatar = cardAvatar;
+        }
+        const next = { accent: safeAccent, accessory: safeAccessory, cardAvatar: safeCardAvatar };
         this._setItem(key, JSON.stringify(next));
-        return { avatar: current.avatar, accent: safeAccent, accessory: safeAccessory };
+        return { avatar: current.avatar, accent: safeAccent, accessory: safeAccessory, cardAvatar: safeCardAvatar };
     },
 
     getPreference(key) {
@@ -1371,6 +1418,69 @@ const Storage = {
         const entryKey = `${safeGradeId}::${safeDuration}`;
         const list = Array.isArray(all[entryKey]) ? all[entryKey] : [];
         return list.map((e) => this._sanitizeChampionEntry(e)).filter(Boolean);
+    },
+
+    // --- Le Grand Quiz (culture générale) ---
+    // Classement PARTAGÉ entre tous les profils de l'appareil (une seule clé,
+    // pas une par profil) : l'esprit est un tableau des records de la famille.
+    _quizScoresKey: 'dn_quiz_scores',
+    _quizScoresMaxEntries: 5,
+    _quizLevelIds: ['cp', 'ce1', 'ce2', 'cm1', 'cm2'],
+
+    _sanitizeQuizEntry(entry) {
+        if (!entry || typeof entry !== 'object') return null;
+        const name = this._sanitize(entry.name).slice(0, this._profileNameMaxLength);
+        const score = Number(entry.score);
+        const total = Number(entry.total);
+        const timestamp = Number(entry.timestamp);
+        if (!name || !Number.isInteger(score) || score < 0) return null;
+        return {
+            name,
+            score,
+            total: Number.isInteger(total) && total > 0 ? total : 10,
+            timestamp: Number.isFinite(timestamp) && timestamp > 0 ? timestamp : Date.now()
+        };
+    },
+
+    _readQuizScores() {
+        const all = this._safeParseObject(this._getItem(this._quizScoresKey));
+        const clean = {};
+        for (const levelId of this._quizLevelIds) {
+            clean[levelId] = (Array.isArray(all[levelId]) ? all[levelId] : [])
+                .map((e) => this._sanitizeQuizEntry(e))
+                .filter(Boolean);
+        }
+        return clean;
+    },
+
+    saveQuizScore(levelId, score, total) {
+        const currentUser = this.getCurrentUser();
+        if (!currentUser || !this._quizLevelIds.includes(levelId)) return [];
+        const all = this._readQuizScores();
+        const entry = this._sanitizeQuizEntry({ name: currentUser, score, total, timestamp: Date.now() });
+        if (!entry) return all[levelId];
+        all[levelId].push(entry);
+        all[levelId].sort((a, b) => b.score - a.score || a.timestamp - b.timestamp);
+        all[levelId] = all[levelId].slice(0, this._quizScoresMaxEntries);
+        this._setItem(this._quizScoresKey, JSON.stringify(all));
+        return all[levelId];
+    },
+
+    getQuizScores(levelId) {
+        if (!this._quizLevelIds.includes(levelId)) return [];
+        return this._readQuizScores()[levelId];
+    },
+
+    _removeQuizScoresOf(name) {
+        const normalized = this._normalizeProfileName(name);
+        const all = this._readQuizScores();
+        let touched = false;
+        for (const levelId of this._quizLevelIds) {
+            const kept = all[levelId].filter((e) => this._normalizeProfileName(e.name) !== normalized);
+            if (kept.length !== all[levelId].length) touched = true;
+            all[levelId] = kept;
+        }
+        if (touched) this._setItem(this._quizScoresKey, JSON.stringify(all));
     }
 };
 

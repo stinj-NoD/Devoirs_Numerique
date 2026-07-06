@@ -3,7 +3,7 @@
  * Robustesse offline/PWA
  */
 
-const CACHE_NAME = 'dn-v4.1.1-cards-fix';
+const CACHE_NAME = 'dn-v4.4.0-grand-quiz';
 const OFFLINE_URL = './offline.html';
 
 const APP_ASSETS = [
@@ -149,6 +149,27 @@ const CARD_ASSETS = [
   './data/cards/dauphin-oeuf.webp',
   './data/cards/dauphin-plante.webp',
   './data/cards/dauphin-poison.webp',
+  './data/cards/dragon-aido-hwedo.webp',
+  './data/cards/dragon-astral.webp',
+  './data/cards/dragon-bahamut.webp',
+  './data/cards/dragon-fafnir.webp',
+  './data/cards/dragon-hydre.webp',
+  './data/cards/dragon-jormungandr.webp',
+  './data/cards/dragon-kukulkan.webp',
+  './data/cards/dragon-ladon.webp',
+  './data/cards/dragon-leviathan.webp',
+  './data/cards/dragon-long.webp',
+  './data/cards/dragon-naga.webp',
+  './data/cards/dragon-nidhoggr.webp',
+  './data/cards/dragon-orochi.webp',
+  './data/cards/dragon-quetzalcoatl.webp',
+  './data/cards/dragon-ryu.webp',
+  './data/cards/dragon-serpent-cornu.webp',
+  './data/cards/dragon-shenlong.webp',
+  './data/cards/dragon-tarasque.webp',
+  './data/cards/dragon-tiamat.webp',
+  './data/cards/dragon-vritra.webp',
+  './data/cards/dragon-wyverne.webp',
   './data/cards/e-1.webp',
   './data/cards/e-2.webp',
   './data/cards/e-3.webp',

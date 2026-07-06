@@ -152,6 +152,7 @@ const UI = {
         if (!el) return;
         if (!appearance || !appearance.avatar) {
             el.classList.add('is-hidden');
+            el.classList.remove('has-card-avatar');
             el.innerHTML = '';
             return;
         }
@@ -159,7 +160,18 @@ const UI = {
         el.classList.toggle('avatar-prestige-gold', appearance.prestigeTier?.id === 'gold');
         el.classList.toggle('avatar-prestige-stars', appearance.prestigeTier?.id === 'stars');
         el.classList.toggle('avatar-prestige-crown', appearance.prestigeTier?.id === 'crown');
-        el.textContent = appearance.avatar;
+        el.classList.toggle('has-card-avatar', !!appearance.cardImage);
+        if (appearance.cardImage) {
+            // Avatar-carte du Grimoire : l'illustration remplace l'emoji
+            el.textContent = '';
+            const img = document.createElement('img');
+            img.className = 'header-avatar-img';
+            img.src = appearance.cardImage;
+            img.alt = '';
+            el.appendChild(img);
+        } else {
+            el.textContent = appearance.avatar;
+        }
         if (appearance.accessoryEmoji) {
             const badge = document.createElement('span');
             badge.className = 'header-avatar-accessory';
@@ -288,7 +300,9 @@ const UI = {
             card.setAttribute('aria-label', `Jouer avec le profil ${profileName}${streak.current > 0 ? `, ${streak.current} jours de suite` : ''}`);
             card.innerHTML = `
                 ${streakHtml}
-                <span class="card-icon" aria-hidden="true">${this.safeIcon(p.avatar, '\u{1F464}')}</span>
+                <span class="card-icon${p.cardImage ? ' card-icon--card-avatar' : ''}" aria-hidden="true">${p.cardImage
+                    ? `<img class="profile-card-avatar-img" src="${this._escapeText(p.cardImage)}" alt="">`
+                    : this.safeIcon(p.avatar, '\u{1F464}')}</span>
                 ${this.buildCardContent(profileName)}
                 ${statsHtml}
                 <span class="profile-card-helper">Entrer</span>
@@ -325,8 +339,8 @@ const UI = {
         });
     },
 
-    renderProfileCustomize({ profileName, totalStars, hasStarter, starters, evolution, accents, accessories, current }, handlers, onDone) {
-        const { onChooseStarter, onEvolve, onChangeAccent, onChangeAccessory } = handlers;
+    renderProfileCustomize({ profileName, totalStars, hasStarter, starters, evolution, accents, accessories, cardChoices, current }, handlers, onDone) {
+        const { onChooseStarter, onEvolve, onChangeAccent, onChangeAccessory, onChangeCardAvatar } = handlers;
         const lead = document.getElementById('profile-customize-lead');
         if (lead) {
             lead.textContent = Number.isFinite(totalStars)
@@ -466,6 +480,54 @@ const UI = {
                 });
             };
             renderAccessories();
+        }
+
+        // Avatar-carte : une carte du Grimoire remplace le compagnon comme
+        // avatar. Seules les cartes possédées sont proposées.
+        const cardAvatarContainer = document.getElementById('profile-customize-card-avatar');
+        if (cardAvatarContainer) {
+            let selectedCard = current.cardAvatar || null;
+            const choices = Array.isArray(cardChoices) ? cardChoices : [];
+            const renderCardChoices = () => {
+                cardAvatarContainer.innerHTML = '';
+                if (!choices.length) {
+                    const hint = document.createElement('p');
+                    hint.className = 'profile-customize-card-hint';
+                    hint.textContent = 'Ouvre des boosters dans le Grimoire pour débloquer des cartes à utiliser en avatar !';
+                    cardAvatarContainer.appendChild(hint);
+                    return;
+                }
+                const noneBtn = document.createElement('button');
+                noneBtn.type = 'button';
+                noneBtn.className = `profile-customize-card-choice profile-customize-card-choice--none${selectedCard === null ? ' is-selected' : ''}`;
+                noneBtn.innerHTML = `<span class="profile-customize-card-none-emoji">${evolution?.emoji || '🐣'}</span>`;
+                noneBtn.setAttribute('aria-label', 'Mon compagnon comme avatar');
+                noneBtn.setAttribute('aria-pressed', selectedCard === null ? 'true' : 'false');
+                noneBtn.title = 'Mon compagnon';
+                noneBtn.onclick = () => {
+                    selectedCard = null;
+                    if (typeof onChangeCardAvatar === 'function') onChangeCardAvatar(null);
+                    renderCardChoices();
+                };
+                cardAvatarContainer.appendChild(noneBtn);
+
+                choices.forEach((card) => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = `profile-customize-card-choice rarity-${this._escapeText(card.rarity || 'commune')}${card.id === selectedCard ? ' is-selected' : ''}`;
+                    btn.innerHTML = `<img class="profile-customize-card-img" src="${this._escapeText(card.image)}" alt="" loading="lazy">`;
+                    btn.setAttribute('aria-label', `${card.name} comme avatar`);
+                    btn.setAttribute('aria-pressed', card.id === selectedCard ? 'true' : 'false');
+                    btn.title = card.name;
+                    btn.onclick = () => {
+                        selectedCard = card.id;
+                        if (typeof onChangeCardAvatar === 'function') onChangeCardAvatar(card.id);
+                        renderCardChoices();
+                    };
+                    cardAvatarContainer.appendChild(btn);
+                });
+            };
+            renderCardChoices();
         }
 
         const doneBtn = document.getElementById('btn-profile-customize-done');
@@ -1515,6 +1577,123 @@ const UI = {
         if (bestEl) bestEl.textContent = isNewBest ? '🏆 Tu bats ton record !' : '';
     },
 
+    // --- Le Grand Quiz (culture générale) ---
+
+    // Tableau des records de l'appareil : une ligne par niveau, top 3 avec
+    // le prénom du joueur (classement partagé entre tous les profils).
+    renderQuizScores(levels) {
+        const container = document.getElementById('quiz-scores-list');
+        if (!container) return;
+        const medals = ['🥇', '🥈', '🥉'];
+        container.innerHTML = (levels || []).map((level) => {
+            const top3 = (level.scores || []).slice(0, 3);
+            const scoresHtml = top3.length
+                ? top3.map((s, i) => `
+                    <span class="quiz-score-medal">${medals[i]} ${this._escapeText(s.name)} — ${s.score}/${s.total}</span>
+                `).join('')
+                : '<span class="quiz-score-empty">Pas encore joué</span>';
+            return `
+                <div class="quiz-score-row">
+                    <span class="quiz-score-level">${this.safeIcon(level.icon, '🧠')} ${this._escapeText(level.label)}</span>
+                    <span class="quiz-score-value">${scoresHtml}</span>
+                </div>`;
+        }).join('');
+    },
+
+    renderQuizQuestion({ index, total, score, theme, question, choices }, onAnswer) {
+        const progressLabel = document.getElementById('quiz-progress-label');
+        const scoreLabel = document.getElementById('quiz-score-label');
+        const bar = document.getElementById('quiz-progress-bar');
+        const themeEl = document.getElementById('quiz-theme');
+        const questionEl = document.getElementById('quiz-question');
+        const choicesEl = document.getElementById('quiz-choices');
+        const feedback = document.getElementById('quiz-feedback');
+        const nextBtn = document.getElementById('btn-quiz-next');
+        if (!questionEl || !choicesEl) return;
+
+        if (progressLabel) progressLabel.textContent = `Question ${index + 1} / ${total}`;
+        if (scoreLabel) scoreLabel.textContent = `⭐ ${score}`;
+        if (bar) bar.style.width = `${Math.round((index / total) * 100)}%`;
+        if (themeEl) themeEl.textContent = theme || '';
+        questionEl.textContent = question;
+        if (feedback) {
+            feedback.classList.add('is-hidden');
+            feedback.innerHTML = '';
+        }
+        if (nextBtn) nextBtn.classList.add('is-hidden');
+
+        choicesEl.innerHTML = '';
+        (choices || []).forEach((choice, i) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'quiz-choice';
+            btn.textContent = choice;
+            btn.dataset.choiceIndex = String(i);
+            btn.onclick = () => onAnswer(i);
+            choicesEl.appendChild(btn);
+        });
+    },
+
+    // Après réponse : fige les choix, colore la bonne (et la mauvaise si
+    // l'enfant s'est trompé), montre l'anecdote et le bouton suivant.
+    showQuizFeedback({ selectedIndex, correctIndex, info, isLast }, onNext) {
+        const choicesEl = document.getElementById('quiz-choices');
+        const feedback = document.getElementById('quiz-feedback');
+        const nextBtn = document.getElementById('btn-quiz-next');
+        const nextLabel = document.getElementById('btn-quiz-next-label');
+        const correct = selectedIndex === correctIndex;
+
+        if (choicesEl) {
+            choicesEl.querySelectorAll('.quiz-choice').forEach((btn) => {
+                const i = Number(btn.dataset.choiceIndex);
+                btn.disabled = true;
+                if (i === correctIndex) btn.classList.add('is-correct');
+                else if (i === selectedIndex) btn.classList.add('is-wrong');
+                else btn.classList.add('is-faded');
+            });
+        }
+        if (feedback) {
+            feedback.classList.remove('is-hidden');
+            feedback.classList.toggle('is-good', correct);
+            feedback.classList.toggle('is-bad', !correct);
+            feedback.innerHTML = `
+                <div class="quiz-feedback-verdict">${correct ? '✅ Bien joué !' : '❌ Pas cette fois…'}</div>
+                ${info ? `<div class="quiz-feedback-info">💡 ${this._escapeText(info)}</div>` : ''}
+            `;
+        }
+        if (nextBtn) {
+            nextBtn.classList.remove('is-hidden');
+            if (nextLabel) nextLabel.textContent = isLast ? 'VOIR MON SCORE' : 'QUESTION SUIVANTE';
+            nextBtn.onclick = () => onNext();
+        }
+    },
+
+    renderQuizResults({ score, total, coins, levelLabel, rank, podium }, onRetry, onMenu) {
+        const title = document.getElementById('quiz-result-title');
+        const lead = document.getElementById('quiz-result-lead');
+        const scoreEl = document.getElementById('quiz-result-score');
+        const bestEl = document.getElementById('quiz-result-best');
+        const retryBtn = document.getElementById('btn-quiz-retry');
+        const menuBtn = document.getElementById('btn-quiz-menu');
+
+        const perfect = score === total;
+        if (title) title.textContent = perfect ? 'Incollable !' : (rank === 1 ? 'Record de la maison !' : 'Quiz terminé !');
+        if (lead) lead.textContent = `Grand Quiz ${levelLabel || ''}`.trim();
+        if (scoreEl) scoreEl.textContent = `${score} / ${total}${coins > 0 ? `  ·  +${coins} 🪙` : ''}`;
+        if (bestEl) {
+            const medals = ['🥇', '🥈', '🥉'];
+            const podiumHtml = (podium || []).slice(0, 3).map((s, i) => `
+                <span class="quiz-score-medal">${medals[i]} ${this._escapeText(s.name)} — ${s.score}/${s.total}</span>
+            `).join('');
+            const rankHtml = rank && rank <= 3
+                ? `<div class="quiz-result-rank">${medals[rank - 1]} Tu entres dans le top 3 de l'appareil !</div>`
+                : '';
+            bestEl.innerHTML = `${rankHtml}${podiumHtml ? `<div class="quiz-result-podium">${podiumHtml}</div>` : ''}`;
+        }
+        if (retryBtn) retryBtn.onclick = () => onRetry();
+        if (menuBtn) menuBtn.onclick = () => onMenu();
+    },
+
     renderCollectionBadges(badges) {
         const container = document.getElementById('collection-badges-list');
         if (!container) return;
@@ -1677,6 +1856,16 @@ const UI = {
         const cardHtml = (card) => {
             const count = ownedIds[card.id] || 0;
             if (!count) {
+                // Les emplacements prismatiques non découverts sont marqués ✨ :
+                // ce sont des variantes bonus, pas des cartes manquantes de la
+                // série de base.
+                if (card.rarity === 'brillante') {
+                    return `
+                        <div class="grimoire-card grimoire-card--locked grimoire-card--locked-prisme" aria-label="Variante prismatique non découverte">
+                            <div class="grimoire-card-back grimoire-card-back--prisme">✨</div>
+                            <div class="grimoire-card-name grimoire-card-name--muted">Prismatique</div>
+                        </div>`;
+                }
                 return `
                     <div class="grimoire-card grimoire-card--locked" aria-label="Créature mystérieuse non découverte">
                         <div class="grimoire-card-back">?</div>
@@ -1703,6 +1892,13 @@ const UI = {
             }
             byFamily[card.family].push(card);
         });
+        // Tri dans chaque famille : rareté croissante puis stade d'évolution —
+        // la progression se lit de gauche à droite, prismatiques en dernier.
+        Object.values(byFamily).forEach((familyCards) => {
+            familyCards.sort((a, b) =>
+                (this._rarityRank[a.rarity] || 0) - (this._rarityRank[b.rarity] || 0)
+                || (a.stage || 0) - (b.stage || 0));
+        });
         const seriesStatus = (typeof Storage !== 'undefined' && Storage.getSeriesStatus)
             ? Storage.getSeriesStatus(catalog)
             : {};
@@ -1710,16 +1906,23 @@ const UI = {
         grid.innerHTML = familyOrder.map((familyId) => {
             const familyCards = byFamily[familyId];
             const meta = catalog?.families?.[familyId] || { label: familyId, icon: '🃏' };
-            const status = seriesStatus[familyId] || { baseOwned: 0, base: familyCards.length, complete: false, perfect: false };
+            const status = seriesStatus[familyId] || { baseOwned: 0, base: familyCards.length, total: familyCards.length, totalOwned: 0, complete: false, perfect: false };
             let badge = '';
             if (status.perfect) badge = '<span class="grimoire-serie-state grimoire-serie-state--perfect">✨ Parfaite !</span>';
             else if (status.complete) badge = '<span class="grimoire-serie-state grimoire-serie-state--complete">🏆 Complète !</span>';
+            // Compteur séparé pour les variantes prismatiques (hors série de base)
+            const prismeTotal = status.total - status.base;
+            const prismeOwned = status.totalOwned - status.baseOwned;
+            const prismeHtml = prismeTotal > 0
+                ? `<span class="grimoire-serie-prismes" title="Variantes prismatiques">✨ ${prismeOwned}/${prismeTotal}</span>`
+                : '';
             return `
                 <div class="grimoire-serie${status.complete ? ' is-complete' : ''}${status.perfect ? ' is-perfect' : ''}">
                     <div class="grimoire-serie-head">
                         <span class="grimoire-serie-icon" aria-hidden="true">${meta.icon}</span>
                         <span class="grimoire-serie-title">${this._escapeText(meta.label)}</span>
                         <span class="grimoire-serie-progress">${status.baseOwned}/${status.base}</span>
+                        ${prismeHtml}
                         ${badge}
                     </div>
                     <div class="grimoire-serie-cards">

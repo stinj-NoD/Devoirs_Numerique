@@ -930,7 +930,8 @@ button,
     font-size: var(--font-size-xs);
 }
 
-#screen-grades .grimoire-entry-btn {
+#screen-grades .grimoire-entry-btn,
+#screen-grades .quiz-entry-btn {
     margin-top: var(--space-2);
     min-height: 64px;
     flex-direction: row;
@@ -939,7 +940,8 @@ button,
     padding: var(--space-3) var(--space-4);
 }
 
-#screen-grades .grimoire-entry-btn .card-icon {
+#screen-grades .grimoire-entry-btn .card-icon,
+#screen-grades .quiz-entry-btn .card-icon {
     font-size: 1.6rem;
 }
 
@@ -1306,6 +1308,105 @@ button,
 .profile-customize-accessory.is-locked {
     cursor: not-allowed;
     opacity: 0.55;
+}
+
+/* --- Avatar-carte : une carte du Grimoire comme avatar de profil --- */
+.profile-customize-card-avatar {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
+
+.profile-customize-card-hint {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-soft, #64748b);
+    text-align: center;
+}
+
+.profile-customize-card-choice {
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    border-radius: 50%;
+    border: 3px solid var(--color-border);
+    background: var(--color-surface-soft, #f1f5f9);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.profile-customize-card-choice.is-selected {
+    transform: scale(1.12);
+    box-shadow: 0 0 0 3px var(--color-text);
+}
+
+.profile-customize-card-img {
+    width: 100%;
+    height: 100%;
+    /* contain + padding : la créature est toujours visible en entier,
+       quelle que soit la proportion de l'illustration (jamais recadrée) */
+    object-fit: contain;
+    padding: 4px;
+}
+
+.profile-customize-card-none-emoji {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+/* Liseré selon la rareté, mêmes couleurs que le Grimoire */
+.profile-customize-card-choice.rarity-rare { border-color: #4a90e2; }
+.profile-customize-card-choice.rarity-epique { border-color: #9c6bd6; box-shadow: 0 0 8px rgba(156, 107, 214, 0.45); }
+.profile-customize-card-choice.rarity-legendaire { border-color: #f3b13c; box-shadow: 0 0 10px rgba(243, 177, 60, 0.55); }
+.profile-customize-card-choice.rarity-brillante { border-color: #e05ce0; box-shadow: 0 0 12px rgba(224, 92, 224, 0.55); }
+.profile-customize-card-choice.rarity-legendaire.is-selected { box-shadow: 0 0 0 3px #f3b13c, 0 0 14px rgba(243, 177, 60, 0.6); }
+.profile-customize-card-choice.rarity-brillante.is-selected { box-shadow: 0 0 0 3px #e05ce0, 0 0 16px rgba(224, 92, 224, 0.6); }
+
+/* L'illustration de carte dans l'avatar d'en-tête et les tuiles de profil.
+   Toujours object-fit: contain (+ marge interne) : les illustrations ne sont
+   pas carrées, cover en couperait une partie dans le cercle. */
+/* 44px = la taille des boutons de l'en-tête (--touch-target-min) : l'avatar
+   s'aligne sur eux, la hauteur du bandeau ne bouge sur aucun écran. */
+.header-avatar.has-card-avatar {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.header-avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+    padding: 4px;
+}
+
+.card-icon--card-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-card-avatar-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: contain;
+    padding: 7px;
+    background: var(--color-surface-soft, #f1f5f9);
+    border: 2px solid var(--color-border);
+}
+
+/* Le cercle d'accent (64px pour l'emoji compagnon) doit suivre la taille
+   de l'avatar-carte, sinon l'illustration déborderait du disque coloré. */
+.profile-card.has-accent .card-icon--card-avatar {
+    width: 80px;
+    height: 80px;
 }
 
 .header-avatar-accessory {
@@ -4683,6 +4784,35 @@ button.collection-map--fact {
     color: #8a1c8a;
 }
 
+.grimoire-serie-prismes {
+    font-weight: 700;
+    font-size: var(--font-size-xs);
+    color: #a83ea8;
+    background: rgba(224, 92, 224, 0.12);
+    padding: 2px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+/* Emplacement de variante prismatique non découverte : dos teinté + ✨,
+   pour le distinguer d'une carte de base manquante. */
+.grimoire-card-back--prisme {
+    background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,0.16) 0%, transparent 40%),
+        linear-gradient(135deg, #5a3a6b 0%, #34233f 100%);
+    font-size: 1.5rem;
+}
+
+.grimoire-card--locked-prisme {
+    border-style: dashed;
+    border-color: rgba(224, 92, 224, 0.45);
+}
+
+.grimoire-card-name--muted {
+    color: var(--color-text-muted, #6b7280);
+    font-weight: 700;
+}
+
 .grimoire-serie-cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
@@ -5306,6 +5436,200 @@ button.collection-map--fact {
 .grimoire-entry-coins {
     font-weight: 800;
     color: #fcd34d;
+}
+
+/* --- Le Grand Quiz (culture générale) --- */
+.quiz-entry-btn {
+    background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%);
+    color: white;
+}
+
+.quiz-entry-btn .card-title {
+    color: white;
+}
+
+.quiz-entry-subtitle {
+    color: #ddd6fe;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.quiz-scores {
+    width: 100%;
+    max-width: 560px;
+    margin: var(--space-5) auto 0;
+}
+
+.quiz-scores-title {
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+    text-align: center;
+}
+
+.quiz-scores-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.quiz-score-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+}
+
+.quiz-score-level {
+    font-weight: 700;
+    color: var(--color-text);
+    white-space: nowrap;
+}
+
+.quiz-score-value {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
+    justify-content: flex-end;
+}
+
+.quiz-score-medal {
+    font-weight: 700;
+    color: var(--color-text);
+    white-space: nowrap;
+}
+
+.quiz-score-empty {
+    color: var(--color-text-muted, #6b7280);
+    font-weight: 600;
+}
+
+.quiz-hud {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+}
+
+.quiz-theme {
+    display: inline-block;
+    margin: var(--space-3) auto var(--space-1);
+    padding: 2px 12px;
+    border-radius: 999px;
+    background: rgba(124, 58, 237, 0.12);
+    color: #6d28d9;
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+}
+
+#app.theme-dark .quiz-theme {
+    background: rgba(167, 139, 250, 0.18);
+    color: #c4b5fd;
+}
+
+.quiz-question {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--color-text);
+    text-align: center;
+    margin: var(--space-3) auto var(--space-4);
+    max-width: 640px;
+    line-height: 1.35;
+}
+
+.quiz-choices {
+    display: grid;
+    gap: var(--space-3);
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+@media (min-width: 720px) {
+    .quiz-choices {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.quiz-choice {
+    min-height: var(--touch-target-min);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    border: 2px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.quiz-choice:hover:not(:disabled) {
+    transform: translateY(-2px);
+    border-color: #7c3aed;
+}
+
+.quiz-choice.is-correct {
+    border-color: var(--color-success, #16a34a);
+    background: rgba(22, 163, 74, 0.12);
+}
+
+.quiz-choice.is-wrong {
+    border-color: #dc2626;
+    background: rgba(220, 38, 38, 0.10);
+}
+
+.quiz-choice.is-faded {
+    opacity: 0.55;
+}
+
+.quiz-feedback {
+    max-width: 560px;
+    margin: var(--space-4) auto;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    text-align: left;
+}
+
+.quiz-feedback.is-good { border-color: rgba(22, 163, 74, 0.5); }
+.quiz-feedback.is-bad { border-color: rgba(220, 38, 38, 0.45); }
+
+.quiz-feedback-verdict {
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+}
+
+.quiz-feedback-info {
+    color: var(--color-text);
+    line-height: 1.45;
+}
+
+.quiz-result-best {
+    display: grid;
+    gap: var(--space-2);
+    justify-items: center;
+    margin-bottom: var(--space-3);
+}
+
+.quiz-result-rank {
+    font-weight: 800;
+    color: var(--color-text);
+}
+
+.quiz-result-podium {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
+    justify-content: center;
 }
 #app.theme-dark .grimoire-card--legendaire { background: linear-gradient(180deg, #3a2f14 0%, var(--color-surface) 100%); }
 

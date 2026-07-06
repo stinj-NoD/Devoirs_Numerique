@@ -187,6 +187,8 @@ const App = {
         if (btnOpenGuide) btnOpenGuide.onclick = () => this.showGuide('screen-profiles');
         const btnOpenGrimoire = get('btn-open-grimoire');
         if (btnOpenGrimoire) btnOpenGrimoire.onclick = () => this.showGrimoire();
+        const btnOpenQuiz = get('btn-open-quiz');
+        if (btnOpenQuiz) btnOpenQuiz.onclick = () => this.showQuizHome();
         const btnParentsGuideBack = get('btn-parents-guide-back');
         if (btnParentsGuideBack) btnParentsGuideBack.onclick = () => this.leaveGuide();
     },
@@ -598,12 +600,28 @@ const App = {
             const evolution = Storage.getAvatarEvolutionState(currentUser);
             UI.renderHeaderAvatar({
                 avatar: evolution.emoji,
+                cardImage: this._cardAvatarImage(appearance.cardAvatar, () => this.applyVisualContext()),
                 prestigeTier: evolution.prestigeTier,
                 accessoryEmoji: Storage.getAccessoryEmoji(currentUser)
             });
         } else {
             UI.renderHeaderAvatar(null);
         }
+    },
+
+    // Image d'une carte choisie comme avatar. Synchrone via le cache du
+    // catalogue ; si le catalogue n'est pas encore chargé, déclenche son
+    // chargement puis rappelle onReady pour re-rendre l'écran concerné.
+    _cardAvatarImage(cardId, onReady) {
+        if (!cardId) return null;
+        const catalog = this._cardsCatalogCache;
+        if (!catalog) {
+            if (typeof onReady === 'function') {
+                this.getCardsCatalog().then(() => onReady());
+            }
+            return null;
+        }
+        return (catalog.cards || []).find((c) => c.id === cardId)?.image || null;
     },
 
     applyPreferences() {
@@ -867,6 +885,15 @@ const App = {
             },
             'screen-champion-setup': () => UI.showScreen('screen-mode'),
             'screen-champion-results': () => UI.showScreen('screen-mode'),
+            'screen-quiz-home': () => {
+                this.state.quiz = null;
+                UI.showScreen('screen-grades');
+            },
+            'screen-quiz-play': () => {
+                this.state.quiz = null;
+                this.showQuizHome();
+            },
+            'screen-quiz-results': () => this.showQuizHome(),
             'screen-profile-customize': () => {
                 this.state.customizingProfile = null;
                 this.renderProfilesScreen();
@@ -957,11 +984,19 @@ const App = {
         UI.showScreen('screen-profiles');
         const names = Storage.getProfiles();
         const accentChoices = Storage.getAccentChoices();
+        let needsCatalog = false;
         const profiles = (names || []).map(n => {
             const appearance = Storage.getProfileAppearance(n);
             const accentColor = accentChoices.find((entry) => entry.id === appearance.accent)?.color || null;
-            return { id: n, name: n, avatar: appearance.avatar, accent: appearance.accent, accentColor, onEdit: (p) => this.showProfileCustomize(p) };
+            if (appearance.cardAvatar && !this._cardsCatalogCache) needsCatalog = true;
+            const cardImage = this._cardAvatarImage(appearance.cardAvatar);
+            return { id: n, name: n, avatar: appearance.avatar, cardImage, accent: appearance.accent, accentColor, onEdit: (p) => this.showProfileCustomize(p) };
         });
+        // Un profil au moins a un avatar-carte et le catalogue n'est pas
+        // encore en cache : on le charge puis on re-rend l'écran (une fois).
+        if (needsCatalog) {
+            this.getCardsCatalog().then(() => this.renderProfilesScreen());
+        }
         if (UI && typeof UI.renderProfiles === 'function') {
             UI.renderProfiles(
                 profiles,
@@ -977,8 +1012,17 @@ const App = {
         }
     },
 
-    renderProfileCustomizeScreen(profile) {
+    async renderProfileCustomizeScreen(profile) {
         const current = Storage.getProfileAppearance(profile.name);
+        // Cartes possédées = choix d'avatar possibles (triées par rareté
+        // décroissante : les plus belles d'abord)
+        const catalog = await this.getCardsCatalog();
+        const owned = Storage.getOwnedCards(profile.name);
+        const rarityRank = { brillante: 0, legendaire: 1, epique: 2, rare: 3, commune: 4 };
+        const cardChoices = (catalog.cards || [])
+            .filter((c) => owned[c.id])
+            .sort((a, b) => (rarityRank[a.rarity] ?? 9) - (rarityRank[b.rarity] ?? 9) || (a.stage || 0) - (b.stage || 0))
+            .map((c) => ({ id: c.id, name: c.name, image: c.image, rarity: c.rarity }));
         UI.renderProfileCustomize({
             profileName: profile.name,
             totalStars: Storage.getTotalStars(profile.name),
@@ -987,6 +1031,7 @@ const App = {
             evolution: Storage.getAvatarEvolutionState(profile.name),
             accents: Storage.getAccentChoicesWithUnlock(profile.name),
             accessories: Storage.getAccessoryChoicesWithUnlock(profile.name),
+            cardChoices,
             current
         }, {
             onChooseStarter: (starterId) => {
@@ -1002,6 +1047,9 @@ const App = {
             },
             onChangeAccessory: (accessory) => {
                 Storage.setProfileAppearance(profile.name, { accessory });
+            },
+            onChangeCardAvatar: (cardAvatar) => {
+                Storage.setProfileAppearance(profile.name, { cardAvatar });
             }
         }, () => {
             this.state.customizingProfile = null;
@@ -1426,15 +1474,21 @@ const App = {
     // ---------- GRIMOIRE ----------
 
     async getCardsCatalog() {
-        if (!this._cardsCatalogCache) {
-            try {
-                this._cardsCatalogCache = await this.fetchJson(['data/cards.json', './data/cards.json']);
-            } catch (e) {
-                console.error('Catalogue de cartes indisponible', e);
-                this._cardsCatalogCache = { cards: [], rarities: {} };
-            }
+        if (this._cardsCatalogCache) return this._cardsCatalogCache;
+        // Une seule requête même en cas d'appels concurrents (en-tête +
+        // écran des profils peuvent demander le catalogue en même temps)
+        if (!this._cardsCatalogPromise) {
+            this._cardsCatalogPromise = this.fetchJson(['data/cards.json', './data/cards.json'])
+                .catch((e) => {
+                    console.error('Catalogue de cartes indisponible', e);
+                    return { cards: [], rarities: {} };
+                })
+                .then((catalog) => {
+                    this._cardsCatalogCache = catalog;
+                    return catalog;
+                });
         }
-        return this._cardsCatalogCache;
+        return this._cardsCatalogPromise;
     },
 
     // Met à jour tous les compteurs de pièces affichés (bouton d'entrée sur
@@ -1639,6 +1693,149 @@ const App = {
         alert("Code parent mis à jour.");
     },
 
+    // --- LE GRAND QUIZ (culture générale, sans chrono) ---
+
+    quizQuestionsPerGame: 10,
+
+    async getQuizCatalog() {
+        if (!this._quizCatalogCache) {
+            try {
+                this._quizCatalogCache = await this.fetchJson(['data/quiz_culture.json', './data/quiz_culture.json']);
+            } catch (e) {
+                console.error('Questions du Grand Quiz indisponibles', e);
+                this._quizCatalogCache = { levels: [] };
+            }
+        }
+        return this._quizCatalogCache;
+    },
+
+    _shuffleArray(list) {
+        const copy = [...list];
+        for (let i = copy.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy;
+    },
+
+    async showQuizHome() {
+        const catalog = await this.getQuizCatalog();
+        const levels = (catalog.levels || []).map((level) => ({
+            id: level.id,
+            label: level.label,
+            icon: level.icon,
+            scores: Storage.getQuizScores(level.id)
+        }));
+        UI.renderBrowseModes(levels.map((level) => ({
+            id: `quiz-level-${level.id}`,
+            mode: 'quiz',
+            icon: level.icon,
+            title: level.label,
+            subtitle: `${this.quizQuestionsPerGame} questions surprises`,
+            helper: 'Lancer le quiz.',
+            levelId: level.id
+        })), (entry) => this.startQuiz(entry.levelId), 'quiz-level-list');
+        UI.renderQuizScores(levels);
+        UI.showScreen('screen-quiz-home');
+    },
+
+    async startQuiz(levelId) {
+        const catalog = await this.getQuizCatalog();
+        const level = (catalog.levels || []).find((l) => l.id === levelId);
+        if (!level || !Array.isArray(level.questions) || !level.questions.length) return;
+
+        // 10 questions au hasard, choix mélangés (on suit l'index de la bonne
+        // réponse à travers le mélange)
+        const questions = this._shuffleArray(level.questions)
+            .slice(0, this.quizQuestionsPerGame)
+            .map((q) => {
+                const order = this._shuffleArray(q.choices.map((_, i) => i));
+                return {
+                    q: q.q,
+                    theme: q.theme || '',
+                    info: q.info || '',
+                    choices: order.map((i) => q.choices[i]),
+                    correctIndex: order.indexOf(q.answer)
+                };
+            });
+
+        this.state.quiz = {
+            levelId: level.id,
+            levelLabel: level.label,
+            questions,
+            index: 0,
+            score: 0,
+            answered: false
+        };
+        UI.showScreen('screen-quiz-play');
+        this.renderQuizQuestion();
+    },
+
+    renderQuizQuestion() {
+        const quiz = this.state.quiz;
+        if (!quiz) return;
+        const question = quiz.questions[quiz.index];
+        quiz.answered = false;
+        UI.renderQuizQuestion({
+            index: quiz.index,
+            total: quiz.questions.length,
+            score: quiz.score,
+            theme: question.theme,
+            question: question.q,
+            choices: question.choices
+        }, (selectedIndex) => this.answerQuizQuestion(selectedIndex));
+    },
+
+    answerQuizQuestion(selectedIndex) {
+        const quiz = this.state.quiz;
+        if (!quiz || quiz.answered) return;
+        quiz.answered = true;
+        const question = quiz.questions[quiz.index];
+        const correct = selectedIndex === question.correctIndex;
+        if (correct) quiz.score++;
+        const scoreLabel = document.getElementById('quiz-score-label');
+        if (scoreLabel) scoreLabel.textContent = `⭐ ${quiz.score}`;
+        UI.showQuizFeedback({
+            selectedIndex,
+            correctIndex: question.correctIndex,
+            info: question.info,
+            isLast: quiz.index === quiz.questions.length - 1
+        }, () => {
+            if (quiz.index < quiz.questions.length - 1) {
+                quiz.index++;
+                this.renderQuizQuestion();
+            } else {
+                this.finishQuiz();
+            }
+        });
+    },
+
+    finishQuiz() {
+        const quiz = this.state.quiz;
+        if (!quiz) return;
+        const total = quiz.questions.length;
+        // Petit gain de pièces (Grimoire) : la moitié du score, +3 si sans
+        // faute. Volontairement modeste : le quiz est rejouable à volonté.
+        const coins = Math.floor(quiz.score / 2) + (quiz.score === total ? 3 : 0);
+        if (coins > 0) {
+            Storage.addCoins(coins);
+            this.refreshCoinsDisplays();
+        }
+        const podium = Storage.saveQuizScore(quiz.levelId, quiz.score, total) || [];
+        const currentUser = Storage.getCurrentUser();
+        const rankIndex = podium.findIndex((e) => e.name === currentUser && e.score === quiz.score);
+        UI.renderQuizResults({
+            score: quiz.score,
+            total,
+            coins,
+            levelLabel: quiz.levelLabel,
+            rank: rankIndex >= 0 ? rankIndex + 1 : null,
+            podium
+        }, () => this.startQuiz(quiz.levelId), () => this.showQuizHome());
+        this.state.quiz = null;
+        UI.showScreen('screen-quiz-results');
+    },
+
     championDurations: [60, 90, 120],
 
     showChampionSetup() {
@@ -1665,7 +1862,11 @@ const App = {
     },
 
     async startChampionMode(duration) {
-        const pool = this.getAllNormalExercises();
+        // Les cartes interactives (map-locate) sont exclues : leur SVG n'est
+        // pas préchargé par ce mode ("Carte indisponible") et une carte à
+        // explorer ne colle pas au rythme d'un sprint chronométré.
+        const pool = this.getAllNormalExercises()
+            .filter((exercise) => exercise.params?.type !== 'map-locate');
         if (pool.length < 5) {
             alert("Pas assez d'exercices disponibles pour le Mode Champions dans ce niveau.");
             return;
