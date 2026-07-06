@@ -25,7 +25,7 @@
                 // est absente : sinon un exercice mélangeant plusieurs temps (ex.
                 // category: "future_1", tenses: ["présent", "futur"]) afficherait
                 // un temps différent de celui réellement conjugué.
-                const prefixMap = { "présent": "present", "futur": "future", "imparfait": "imparfait", "passé composé": "pc" };
+                const prefixMap = { "présent": "present", "futur": "future", "imparfait": "imparfait", "passé composé": "pc", "passé simple": "passe_simple" };
                 const prefix = prefixMap[selectedTense] || "present";
                 const groupMatch = p.category.match(/_(\d|3_freq)/);
                 const derivedCategory = groupMatch ? prefix + groupMatch[0] : null;

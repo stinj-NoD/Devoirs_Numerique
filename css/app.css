@@ -5631,6 +5631,119 @@ button.collection-map--fact {
     gap: var(--space-1) var(--space-3);
     justify-content: center;
 }
+
+/* --- Pastille et panneau "Nouveautés" --- */
+.news-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 auto var(--space-3);
+    padding: 6px 16px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+    color: white;
+    font-weight: 800;
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(239, 68, 68, 0.35);
+    animation: news-pill-pulse 2s ease-in-out infinite;
+}
+
+#screen-grades .news-pill {
+    display: block;
+    width: fit-content;
+}
+
+#screen-grades .news-pill.is-hidden {
+    display: none;
+}
+
+.news-pill-spark {
+    display: inline-block;
+    animation: news-spark-wiggle 1.6s ease-in-out infinite;
+}
+
+@keyframes news-pill-pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 2px 10px rgba(239, 68, 68, 0.35); }
+    50% { transform: scale(1.06); box-shadow: 0 4px 18px rgba(239, 68, 68, 0.55); }
+}
+
+@keyframes news-spark-wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg) scale(1.15); }
+    75% { transform: rotate(15deg) scale(1.15); }
+}
+
+#app.reduced-motion .news-pill,
+#app.reduced-motion .news-pill-spark {
+    animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .news-pill, .news-pill-spark { animation: none; }
+}
+
+.news-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    background: rgba(15, 23, 42, 0.55);
+}
+
+.news-overlay.is-hidden {
+    display: none;
+}
+
+.news-panel {
+    width: min(440px, 100%);
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: var(--space-4) var(--space-4) var(--space-3);
+    border-radius: var(--radius-lg, 16px);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.35);
+}
+
+.news-title {
+    margin: 0 0 var(--space-3);
+    text-align: center;
+    color: var(--color-text);
+}
+
+.news-list {
+    list-style: none;
+    margin: 0 0 var(--space-3);
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+}
+
+.news-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-soft, #f1f5f9);
+    color: var(--color-text);
+    line-height: 1.4;
+}
+
+.news-item-icon {
+    font-size: 1.3rem;
+    line-height: 1.2;
+    flex-shrink: 0;
+}
+
+#app.theme-dark .news-item {
+    background: rgba(148, 163, 184, 0.12);
+}
 #app.theme-dark .grimoire-card--legendaire { background: linear-gradient(180deg, #3a2f14 0%, var(--color-surface) 100%); }
 
 .home-footer-links {

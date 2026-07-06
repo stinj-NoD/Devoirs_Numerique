@@ -251,6 +251,18 @@
     <section id="screen-grades" class="screen">
         <h2>Ta classe ?</h2>
         <p id="grades-lead" class="screen-lead">Choisis ta classe pour retrouver les bonnes activités.</p>
+        <button id="btn-news" type="button" class="news-pill is-hidden">
+            <span class="news-pill-spark" aria-hidden="true">✨</span> Nouveautés !
+        </button>
+        <div id="news-overlay" class="news-overlay is-hidden" role="dialog" aria-modal="true" aria-label="Les nouveautés">
+            <div class="news-panel">
+                <h3 class="news-title">✨ Quoi de neuf ?</h3>
+                <ul id="news-list" class="news-list"></ul>
+                <button id="btn-news-close" type="button" class="btn card card--action card--action-primary">
+                    <span class="card-title card-title-on-dark">C'EST PARTI !</span>
+                </button>
+            </div>
+        </div>
         <div id="grades-list" class="grid-menu"></div>
         <button id="btn-open-grimoire" type="button" class="btn card card--action grimoire-entry-btn">
             <span class="card-icon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 64 64" focusable="false"><defs><linearGradient id="grimoire-gold-entry" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe9a8"/><stop offset="1" stop-color="#f3b13c"/></linearGradient></defs><path d="M8 46 C16 40 26 40 32 44 C38 40 48 40 56 46 L56 24 C48 18 38 18 32 22 C26 18 16 18 8 24 Z" fill="url(#grimoire-gold-entry)" stroke="#8a5b00" stroke-width="2" stroke-linejoin="round"/><path d="M32 22 L32 44" stroke="#8a5b00" stroke-width="2"/><path d="M13 27 C19 24 25 24 29 26 M13 33 C19 30 25 30 29 32 M35 26 C39 24 45 24 51 27 M35 32 C39 30 45 30 51 33" stroke="#b8862f" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M32 2 L35 10 L43 13 L35 16 L32 24 L29 16 L21 13 L29 10 Z" fill="#fff"/><path d="M32 5 L34.2 10.8 L40 13 L34.2 15.2 L32 21 L29.8 15.2 L24 13 L29.8 10.8 Z" fill="url(#grimoire-gold-entry)"/><path d="M14 8 l1.4 3 3 1.4 -3 1.4 -1.4 3 -1.4 -3 -3 -1.4 3 -1.4 Z" fill="#ffe9a8"/><path d="M50 6 l1.2 2.6 2.6 1.2 -2.6 1.2 -1.2 2.6 -1.2 -2.6 -2.6 -1.2 2.6 -1.2 Z" fill="#ffe9a8"/></svg></span>

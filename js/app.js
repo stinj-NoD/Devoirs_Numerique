@@ -189,6 +189,12 @@ const App = {
         if (btnOpenGrimoire) btnOpenGrimoire.onclick = () => this.showGrimoire();
         const btnOpenQuiz = get('btn-open-quiz');
         if (btnOpenQuiz) btnOpenQuiz.onclick = () => this.showQuizHome();
+        const btnNews = get('btn-news');
+        if (btnNews) btnNews.onclick = () => this.showNews();
+        const btnNewsClose = get('btn-news-close');
+        if (btnNewsClose) btnNewsClose.onclick = () => this.closeNews();
+        const newsOverlay = get('news-overlay');
+        if (newsOverlay) newsOverlay.onclick = (e) => { if (e.target === newsOverlay) this.closeNews(); };
         const btnParentsGuideBack = get('btn-parents-guide-back');
         if (btnParentsGuideBack) btnParentsGuideBack.onclick = () => this.leaveGuide();
     },
@@ -1078,6 +1084,7 @@ const App = {
             UI.renderMenu('grades-list', d.grades, (g) => this.loadGrade(g));
             const coinsEl = document.getElementById('grimoire-entry-coins');
             if (coinsEl) coinsEl.textContent = `🪙 ${Storage.getCoins()}`;
+            this.refreshNewsBadge();
             UI.showScreen('screen-grades');
         } catch (e) { 
             console.error(e);
@@ -1691,6 +1698,48 @@ const App = {
             return;
         }
         alert("Code parent mis à jour.");
+    },
+
+    // --- NOUVEAUTÉS (pastille "quoi de neuf") ---
+    // Incrémenter `version` à chaque nouveauté marquante : la pastille
+    // réapparaît pour tous les profils qui ne l'ont pas encore consultée.
+    newsItems: [
+        { version: 1, icon: '🃏', text: "Le Grimoire : gagne des pièces et collectionne plus de 100 cartes magiques !" },
+        { version: 1, icon: '🖼️', text: "Tes cartes en avatar : choisis ta préférée avec le bouton ✏️ de ton profil." },
+        { version: 1, icon: '🧠', text: "Le Grand Quiz : 900 questions de culture générale — défie toute ta famille !" },
+        { version: 1, icon: '📚', text: "Des centaines de nouvelles questions et leçons dans toutes les matières." },
+        { version: 1, icon: '✍️', text: "En CM : le passé simple et l'atelier d'écriture font leur entrée !" }
+    ],
+
+    get latestNewsVersion() {
+        return Math.max(...this.newsItems.map((n) => n.version));
+    },
+
+    refreshNewsBadge() {
+        const pill = document.getElementById('btn-news');
+        if (!pill) return;
+        const unseen = Storage.getCurrentUser()
+            && Storage.getLastSeenNewsVersion() < this.latestNewsVersion;
+        pill.classList.toggle('is-hidden', !unseen);
+    },
+
+    showNews() {
+        const overlay = document.getElementById('news-overlay');
+        const list = document.getElementById('news-list');
+        if (!overlay || !list) return;
+        const lastSeen = Storage.getLastSeenNewsVersion();
+        const items = this.newsItems.filter((n) => n.version > lastSeen);
+        list.innerHTML = (items.length ? items : this.newsItems).map((n) => `
+            <li class="news-item"><span class="news-item-icon" aria-hidden="true">${n.icon}</span><span>${UI._escapeText(n.text)}</span></li>
+        `).join('');
+        overlay.classList.remove('is-hidden');
+    },
+
+    closeNews() {
+        const overlay = document.getElementById('news-overlay');
+        if (overlay) overlay.classList.add('is-hidden');
+        Storage.setLastSeenNewsVersion(this.latestNewsVersion);
+        this.refreshNewsBadge();
     },
 
     // --- LE GRAND QUIZ (culture générale, sans chrono) ---

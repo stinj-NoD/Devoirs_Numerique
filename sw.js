@@ -3,7 +3,7 @@
  * Robustesse offline/PWA
  */
 
-const CACHE_NAME = 'dn-v4.4.0-grand-quiz';
+const CACHE_NAME = 'dn-v4.5.0-banques-profondes';
 const OFFLINE_URL = './offline.html';
 
 const APP_ASSETS = [

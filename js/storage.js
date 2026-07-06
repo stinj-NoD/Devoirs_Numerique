@@ -594,6 +594,7 @@ const Storage = {
         this._removeItem(`coins_${resolvedName}`);
         this._removeItem(`cards_${resolvedName}`);
         this._removeItem(this._getAppearanceKey(resolvedName));
+        this._removeItem(`news_seen_${resolvedName}`);
         this._removeQuizScoresOf(resolvedName);
 
         if (this._normalizeProfileName(this.getCurrentUser()) === normalized) {
@@ -1469,6 +1470,25 @@ const Storage = {
     getQuizScores(levelId) {
         if (!this._quizLevelIds.includes(levelId)) return [];
         return this._readQuizScores()[levelId];
+    },
+
+    // --- Pastille "Nouveautés" : dernière version des nouveautés vue, par profil ---
+    _getNewsKey(name = this.getCurrentUser()) {
+        const cleanName = this._sanitize(name).slice(0, this._profileNameMaxLength);
+        return cleanName ? `news_seen_${cleanName}` : null;
+    },
+
+    getLastSeenNewsVersion(name = this.getCurrentUser()) {
+        const key = this._getNewsKey(name);
+        if (!key) return 0;
+        const raw = Number(this._getItem(key));
+        return Number.isFinite(raw) && raw > 0 ? raw : 0;
+    },
+
+    setLastSeenNewsVersion(version, name = this.getCurrentUser()) {
+        const key = this._getNewsKey(name);
+        if (!key) return;
+        this._setItem(key, String(Math.max(0, Number(version) || 0)));
     },
 
     _removeQuizScoresOf(name) {
