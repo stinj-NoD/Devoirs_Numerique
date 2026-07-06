@@ -3219,6 +3219,30 @@
                                 "category": "cm2-habiter",
                                 "questions": 7
                             }
+                        },
+                        {
+                            "id": "cm2-geo-villes-france",
+                            "title": "Les grandes villes de France",
+                            "subtitle": "Situer les villes sur la carte",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_geography_cm2.json",
+                                "category": "cm2_villes_france_tap",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm2-geo-reperes-villes",
+                            "title": "Villes sur le quadrillage",
+                            "subtitle": "Placer les villes avec des coordonnées",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "point-on-grid",
+                                "dataFile": "data/board_geography_cm2.json",
+                                "category": "cm2_reperes_france_grille",
+                                "questions": 5
+                            }
                         }
                     ],
                     "lessons": [

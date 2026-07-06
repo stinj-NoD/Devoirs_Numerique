@@ -5,116 +5,882 @@
         "cm1_tap_angle_droit": [
             {
                 "prompt": "Cette figure a 4 angles droits. Touche tous les sommets concernés.",
-                "board": { "width": 10, "height": 6, "grid": false },
+                "board": {
+                    "width": 10,
+                    "height": 6,
+                    "grid": false
+                },
                 "drawing": {
                     "lines": [
-                        { "x1": 2, "y1": 1, "x2": 8, "y2": 1 },
-                        { "x1": 8, "y1": 1, "x2": 8, "y2": 5 },
-                        { "x1": 8, "y1": 5, "x2": 2, "y2": 5 },
-                        { "x1": 2, "y1": 5, "x2": 2, "y2": 1 }
+                        {
+                            "x1": 2,
+                            "y1": 1,
+                            "x2": 8,
+                            "y2": 1
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 1,
+                            "x2": 8,
+                            "y2": 5
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 5,
+                            "x2": 2,
+                            "y2": 5
+                        },
+                        {
+                            "x1": 2,
+                            "y1": 5,
+                            "x2": 2,
+                            "y2": 1
+                        }
                     ],
                     "markers": [
-                        { "type": "right-angle", "x": 2, "y": 1 },
-                        { "type": "right-angle", "x": 8, "y": 1 },
-                        { "type": "right-angle", "x": 8, "y": 5 },
-                        { "type": "right-angle", "x": 2, "y": 5 }
+                        {
+                            "type": "right-angle",
+                            "x": 2,
+                            "y": 1
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 8,
+                            "y": 1
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 8,
+                            "y": 5
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 2,
+                            "y": 5
+                        }
                     ]
                 },
                 "features": [
-                    { "id": "s1", "x": 2, "y": 1, "correct": true },
-                    { "id": "s2", "x": 8, "y": 1, "correct": true },
-                    { "id": "s3", "x": 8, "y": 5, "correct": true },
-                    { "id": "s4", "x": 2, "y": 5, "correct": true }
+                    {
+                        "id": "s1",
+                        "x": 2,
+                        "y": 1,
+                        "correct": true
+                    },
+                    {
+                        "id": "s2",
+                        "x": 8,
+                        "y": 1,
+                        "correct": true
+                    },
+                    {
+                        "id": "s3",
+                        "x": 8,
+                        "y": 5,
+                        "correct": true
+                    },
+                    {
+                        "id": "s4",
+                        "x": 2,
+                        "y": 5,
+                        "correct": true
+                    }
                 ]
             },
             {
                 "prompt": "Ce losange n'a aucun angle droit. Touche le sommet en bas, là où il n'y a PAS d'angle droit.",
-                "board": { "width": 10, "height": 6, "grid": false },
+                "board": {
+                    "width": 10,
+                    "height": 6,
+                    "grid": false
+                },
                 "drawing": {
                     "lines": [
-                        { "x1": 5, "y1": 1, "x2": 8, "y2": 3 },
-                        { "x1": 8, "y1": 3, "x2": 5, "y2": 5 },
-                        { "x1": 5, "y1": 5, "x2": 2, "y2": 3 },
-                        { "x1": 2, "y1": 3, "x2": 5, "y2": 1 }
+                        {
+                            "x1": 5,
+                            "y1": 1,
+                            "x2": 8,
+                            "y2": 3
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 3,
+                            "x2": 5,
+                            "y2": 5
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 5,
+                            "x2": 2,
+                            "y2": 3
+                        },
+                        {
+                            "x1": 2,
+                            "y1": 3,
+                            "x2": 5,
+                            "y2": 1
+                        }
                     ],
                     "markers": []
                 },
                 "features": [
-                    { "id": "s1", "x": 5, "y": 1, "correct": false },
-                    { "id": "s2", "x": 8, "y": 3, "correct": false },
-                    { "id": "s3", "x": 5, "y": 5, "correct": true },
-                    { "id": "s4", "x": 2, "y": 3, "correct": false }
+                    {
+                        "id": "s1",
+                        "x": 5,
+                        "y": 1,
+                        "correct": false
+                    },
+                    {
+                        "id": "s2",
+                        "x": 8,
+                        "y": 3,
+                        "correct": false
+                    },
+                    {
+                        "id": "s3",
+                        "x": 5,
+                        "y": 5,
+                        "correct": true
+                    },
+                    {
+                        "id": "s4",
+                        "x": 2,
+                        "y": 3,
+                        "correct": false
+                    }
                 ]
             },
             {
                 "prompt": "Cette figure en L a plusieurs angles droits. Touche tous les sommets où il y en a un.",
-                "board": { "width": 10, "height": 6, "grid": false },
+                "board": {
+                    "width": 10,
+                    "height": 6,
+                    "grid": false
+                },
                 "drawing": {
                     "lines": [
-                        { "x1": 2, "y1": 1, "x2": 5, "y2": 1 },
-                        { "x1": 5, "y1": 1, "x2": 5, "y2": 3 },
-                        { "x1": 5, "y1": 3, "x2": 8, "y2": 3 },
-                        { "x1": 8, "y1": 3, "x2": 8, "y2": 5 },
-                        { "x1": 8, "y1": 5, "x2": 2, "y2": 5 },
-                        { "x1": 2, "y1": 5, "x2": 2, "y2": 1 }
+                        {
+                            "x1": 2,
+                            "y1": 1,
+                            "x2": 5,
+                            "y2": 1
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 1,
+                            "x2": 5,
+                            "y2": 3
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 3,
+                            "x2": 8,
+                            "y2": 3
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 3,
+                            "x2": 8,
+                            "y2": 5
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 5,
+                            "x2": 2,
+                            "y2": 5
+                        },
+                        {
+                            "x1": 2,
+                            "y1": 5,
+                            "x2": 2,
+                            "y2": 1
+                        }
                     ],
                     "markers": [
-                        { "type": "right-angle", "x": 2, "y": 1 },
-                        { "type": "right-angle", "x": 5, "y": 1 },
-                        { "type": "right-angle", "x": 5, "y": 3 },
-                        { "type": "right-angle", "x": 8, "y": 3 },
-                        { "type": "right-angle", "x": 8, "y": 5 },
-                        { "type": "right-angle", "x": 2, "y": 5 }
+                        {
+                            "type": "right-angle",
+                            "x": 2,
+                            "y": 1
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 5,
+                            "y": 1
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 5,
+                            "y": 3
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 8,
+                            "y": 3
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 8,
+                            "y": 5
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 2,
+                            "y": 5
+                        }
                     ]
                 },
                 "features": [
-                    { "id": "s1", "x": 2, "y": 1, "correct": true },
-                    { "id": "s2", "x": 5, "y": 1, "correct": true },
-                    { "id": "s3", "x": 5, "y": 3, "correct": true },
-                    { "id": "s4", "x": 8, "y": 3, "correct": true },
-                    { "id": "s5", "x": 8, "y": 5, "correct": true },
-                    { "id": "s6", "x": 2, "y": 5, "correct": true }
+                    {
+                        "id": "s1",
+                        "x": 2,
+                        "y": 1,
+                        "correct": true
+                    },
+                    {
+                        "id": "s2",
+                        "x": 5,
+                        "y": 1,
+                        "correct": true
+                    },
+                    {
+                        "id": "s3",
+                        "x": 5,
+                        "y": 3,
+                        "correct": true
+                    },
+                    {
+                        "id": "s4",
+                        "x": 8,
+                        "y": 3,
+                        "correct": true
+                    },
+                    {
+                        "id": "s5",
+                        "x": 8,
+                        "y": 5,
+                        "correct": true
+                    },
+                    {
+                        "id": "s6",
+                        "x": 2,
+                        "y": 5,
+                        "correct": true
+                    }
                 ]
             },
             {
                 "prompt": "Ce triangle a un seul angle droit. Touche le bon sommet.",
-                "board": { "width": 10, "height": 6, "grid": false },
+                "board": {
+                    "width": 10,
+                    "height": 6,
+                    "grid": false
+                },
                 "drawing": {
                     "lines": [
-                        { "x1": 3, "y1": 5, "x2": 3, "y2": 1 },
-                        { "x1": 3, "y1": 1, "x2": 8, "y2": 5 },
-                        { "x1": 8, "y1": 5, "x2": 3, "y2": 5 }
+                        {
+                            "x1": 3,
+                            "y1": 5,
+                            "x2": 3,
+                            "y2": 1
+                        },
+                        {
+                            "x1": 3,
+                            "y1": 1,
+                            "x2": 8,
+                            "y2": 5
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 5,
+                            "x2": 3,
+                            "y2": 5
+                        }
                     ],
                     "markers": [
-                        { "type": "right-angle", "x": 3, "y": 5 }
+                        {
+                            "type": "right-angle",
+                            "x": 3,
+                            "y": 5
+                        }
                     ]
                 },
                 "features": [
-                    { "id": "s1", "x": 3, "y": 1, "correct": false },
-                    { "id": "s2", "x": 8, "y": 5, "correct": false },
-                    { "id": "s3", "x": 3, "y": 5, "correct": true }
+                    {
+                        "id": "s1",
+                        "x": 3,
+                        "y": 1,
+                        "correct": false
+                    },
+                    {
+                        "id": "s2",
+                        "x": 8,
+                        "y": 5,
+                        "correct": false
+                    },
+                    {
+                        "id": "s3",
+                        "x": 3,
+                        "y": 5,
+                        "correct": true
+                    }
                 ]
             },
             {
                 "prompt": "Ce parallélogramme penché n'a aucun angle droit, mais ce petit triangle posé à côté en a un. Touche le sommet de l'angle droit.",
-                "board": { "width": 10, "height": 6, "grid": false },
+                "board": {
+                    "width": 10,
+                    "height": 6,
+                    "grid": false
+                },
                 "drawing": {
                     "lines": [
-                        { "x1": 4, "y1": 1, "x2": 8, "y2": 1 },
-                        { "x1": 8, "y1": 1, "x2": 6, "y2": 5 },
-                        { "x1": 6, "y1": 5, "x2": 2, "y2": 5 },
-                        { "x1": 2, "y1": 5, "x2": 4, "y2": 1 }
+                        {
+                            "x1": 4,
+                            "y1": 1,
+                            "x2": 8,
+                            "y2": 1
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 1,
+                            "x2": 6,
+                            "y2": 5
+                        },
+                        {
+                            "x1": 6,
+                            "y1": 5,
+                            "x2": 2,
+                            "y2": 5
+                        },
+                        {
+                            "x1": 2,
+                            "y1": 5,
+                            "x2": 4,
+                            "y2": 1
+                        }
                     ],
                     "markers": [
-                        { "type": "right-angle", "x": 9, "y": 5 }
+                        {
+                            "type": "right-angle",
+                            "x": 9,
+                            "y": 5
+                        }
                     ]
                 },
                 "features": [
-                    { "id": "s1", "x": 4, "y": 1, "correct": false },
-                    { "id": "s2", "x": 8, "y": 1, "correct": false },
-                    { "id": "s3", "x": 6, "y": 5, "correct": false },
-                    { "id": "s4", "x": 2, "y": 5, "correct": false },
-                    { "id": "s5", "x": 9, "y": 5, "correct": true }
+                    {
+                        "id": "s1",
+                        "x": 4,
+                        "y": 1,
+                        "correct": false
+                    },
+                    {
+                        "id": "s2",
+                        "x": 8,
+                        "y": 1,
+                        "correct": false
+                    },
+                    {
+                        "id": "s3",
+                        "x": 6,
+                        "y": 5,
+                        "correct": false
+                    },
+                    {
+                        "id": "s4",
+                        "x": 2,
+                        "y": 5,
+                        "correct": false
+                    },
+                    {
+                        "id": "s5",
+                        "x": 9,
+                        "y": 5,
+                        "correct": true
+                    }
+                ]
+            },
+            {
+                "prompt": "Touche tous les angles droits de la figure.",
+                "board": {
+                    "width": 10,
+                    "height": 6,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 2,
+                            "y1": 1,
+                            "x2": 8,
+                            "y2": 1
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 1,
+                            "x2": 8,
+                            "y2": 5
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 5,
+                            "x2": 2,
+                            "y2": 5
+                        },
+                        {
+                            "x1": 2,
+                            "y1": 5,
+                            "x2": 2,
+                            "y2": 1
+                        }
+                    ],
+                    "markers": [
+                        {
+                            "type": "right-angle",
+                            "x": 2,
+                            "y": 1
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 8,
+                            "y": 1
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 8,
+                            "y": 5
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 2,
+                            "y": 5
+                        }
+                    ]
+                },
+                "features": [
+                    {
+                        "id": "s1",
+                        "x": 2,
+                        "y": 1,
+                        "correct": true
+                    },
+                    {
+                        "id": "s2",
+                        "x": 8,
+                        "y": 1,
+                        "correct": true
+                    },
+                    {
+                        "id": "s3",
+                        "x": 8,
+                        "y": 5,
+                        "correct": true
+                    },
+                    {
+                        "id": "s4",
+                        "x": 2,
+                        "y": 5,
+                        "correct": true
+                    }
+                ]
+            },
+            {
+                "prompt": "Touche tous les angles droits de la figure.",
+                "board": {
+                    "width": 10,
+                    "height": 6,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 2,
+                            "y1": 5,
+                            "x2": 8,
+                            "y2": 5
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 5,
+                            "x2": 2,
+                            "y2": 1
+                        },
+                        {
+                            "x1": 2,
+                            "y1": 1,
+                            "x2": 2,
+                            "y2": 5
+                        }
+                    ],
+                    "markers": [
+                        {
+                            "type": "right-angle",
+                            "x": 2,
+                            "y": 5
+                        }
+                    ]
+                },
+                "features": [
+                    {
+                        "id": "s1",
+                        "x": 2,
+                        "y": 5,
+                        "correct": true
+                    },
+                    {
+                        "id": "s2",
+                        "x": 8,
+                        "y": 5,
+                        "correct": false
+                    },
+                    {
+                        "id": "s3",
+                        "x": 2,
+                        "y": 1,
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "prompt": "Touche tous les angles droits « en coin » de la figure (pas l'angle rentrant).",
+                "board": {
+                    "width": 10,
+                    "height": 6,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 2,
+                            "y1": 1,
+                            "x2": 6,
+                            "y2": 1
+                        },
+                        {
+                            "x1": 6,
+                            "y1": 1,
+                            "x2": 6,
+                            "y2": 3
+                        },
+                        {
+                            "x1": 6,
+                            "y1": 3,
+                            "x2": 9,
+                            "y2": 3
+                        },
+                        {
+                            "x1": 9,
+                            "y1": 3,
+                            "x2": 9,
+                            "y2": 5
+                        },
+                        {
+                            "x1": 9,
+                            "y1": 5,
+                            "x2": 2,
+                            "y2": 5
+                        },
+                        {
+                            "x1": 2,
+                            "y1": 5,
+                            "x2": 2,
+                            "y2": 1
+                        }
+                    ],
+                    "markers": [
+                        {
+                            "type": "right-angle",
+                            "x": 2,
+                            "y": 1
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 6,
+                            "y": 1
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 9,
+                            "y": 3
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 9,
+                            "y": 5
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 2,
+                            "y": 5
+                        }
+                    ]
+                },
+                "features": [
+                    {
+                        "id": "s1",
+                        "x": 2,
+                        "y": 1,
+                        "correct": true
+                    },
+                    {
+                        "id": "s2",
+                        "x": 6,
+                        "y": 1,
+                        "correct": true
+                    },
+                    {
+                        "id": "s3",
+                        "x": 6,
+                        "y": 3,
+                        "correct": false
+                    },
+                    {
+                        "id": "s4",
+                        "x": 9,
+                        "y": 3,
+                        "correct": true
+                    },
+                    {
+                        "id": "s5",
+                        "x": 9,
+                        "y": 5,
+                        "correct": true
+                    },
+                    {
+                        "id": "s6",
+                        "x": 2,
+                        "y": 5,
+                        "correct": true
+                    }
+                ]
+            },
+            {
+                "prompt": "Touche tous les angles droits de la figure.",
+                "board": {
+                    "width": 10,
+                    "height": 6,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 1.5,
+                            "y1": 5,
+                            "x2": 6.5,
+                            "y2": 5
+                        },
+                        {
+                            "x1": 6.5,
+                            "y1": 5,
+                            "x2": 4.5,
+                            "y2": 1
+                        },
+                        {
+                            "x1": 4.5,
+                            "y1": 1,
+                            "x2": 1.5,
+                            "y2": 1
+                        },
+                        {
+                            "x1": 1.5,
+                            "y1": 1,
+                            "x2": 1.5,
+                            "y2": 5
+                        }
+                    ],
+                    "markers": [
+                        {
+                            "type": "right-angle",
+                            "x": 1.5,
+                            "y": 5
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 1.5,
+                            "y": 1
+                        }
+                    ]
+                },
+                "features": [
+                    {
+                        "id": "s1",
+                        "x": 1.5,
+                        "y": 5,
+                        "correct": true
+                    },
+                    {
+                        "id": "s2",
+                        "x": 6.5,
+                        "y": 5,
+                        "correct": false
+                    },
+                    {
+                        "id": "s3",
+                        "x": 4.5,
+                        "y": 1,
+                        "correct": false
+                    },
+                    {
+                        "id": "s4",
+                        "x": 1.5,
+                        "y": 1,
+                        "correct": true
+                    }
+                ]
+            },
+            {
+                "prompt": "Touche tous les angles droits de la figure.",
+                "board": {
+                    "width": 10,
+                    "height": 6,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 2,
+                            "y1": 1,
+                            "x2": 7,
+                            "y2": 1
+                        },
+                        {
+                            "x1": 7,
+                            "y1": 1,
+                            "x2": 9,
+                            "y2": 5
+                        },
+                        {
+                            "x1": 9,
+                            "y1": 5,
+                            "x2": 4,
+                            "y2": 5
+                        },
+                        {
+                            "x1": 4,
+                            "y1": 5,
+                            "x2": 2,
+                            "y2": 1
+                        }
+                    ]
+                },
+                "features": [
+                    {
+                        "id": "s1",
+                        "x": 2,
+                        "y": 1,
+                        "correct": false
+                    },
+                    {
+                        "id": "s2",
+                        "x": 7,
+                        "y": 1,
+                        "correct": false
+                    },
+                    {
+                        "id": "s3",
+                        "x": 9,
+                        "y": 5,
+                        "correct": false
+                    },
+                    {
+                        "id": "s4",
+                        "x": 4,
+                        "y": 5,
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "prompt": "Touche tous les angles droits de la figure.",
+                "board": {
+                    "width": 10,
+                    "height": 6,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 1.5,
+                            "y1": 4.5,
+                            "x2": 4.5,
+                            "y2": 4.5
+                        },
+                        {
+                            "x1": 4.5,
+                            "y1": 4.5,
+                            "x2": 4.5,
+                            "y2": 1.5
+                        },
+                        {
+                            "x1": 4.5,
+                            "y1": 1.5,
+                            "x2": 1.5,
+                            "y2": 4.5
+                        },
+                        {
+                            "x1": 6,
+                            "y1": 4.5,
+                            "x2": 9.5,
+                            "y2": 4.5
+                        },
+                        {
+                            "x1": 9.5,
+                            "y1": 4.5,
+                            "x2": 8,
+                            "y2": 1.5
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 1.5,
+                            "x2": 6,
+                            "y2": 4.5
+                        }
+                    ],
+                    "markers": [
+                        {
+                            "type": "right-angle",
+                            "x": 4.5,
+                            "y": 4.5
+                        }
+                    ]
+                },
+                "features": [
+                    {
+                        "id": "s1",
+                        "x": 1.5,
+                        "y": 4.5,
+                        "correct": false
+                    },
+                    {
+                        "id": "s2",
+                        "x": 4.5,
+                        "y": 4.5,
+                        "correct": true
+                    },
+                    {
+                        "id": "s3",
+                        "x": 4.5,
+                        "y": 1.5,
+                        "correct": false
+                    },
+                    {
+                        "id": "s4",
+                        "x": 6,
+                        "y": 4.5,
+                        "correct": false
+                    },
+                    {
+                        "id": "s5",
+                        "x": 9.5,
+                        "y": 4.5,
+                        "correct": false
+                    },
+                    {
+                        "id": "s6",
+                        "x": 8,
+                        "y": 1.5,
+                        "correct": false
+                    }
                 ]
             }
         ]

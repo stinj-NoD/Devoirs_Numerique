@@ -1052,6 +1052,261 @@
       "lore": "Version prismatique : on raconte qu'elle n'apparaît qu'aux collectionneurs qui n'abandonnent jamais.",
       "evolvesFrom": null,
       "variantOf": "hibou-nuit"
+    },
+    {
+      "id": "dragon-long",
+      "name": "Long",
+      "family": "dragons",
+      "stage": 1,
+      "rarity": "commune",
+      "element": "eau",
+      "image": "data/cards/dragon-long.webp",
+      "lore": "Le grand dragon de Chine, ami des nuages et des rivières. On dit qu'il apporte la pluie qui fait pousser le riz.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-shenlong",
+      "name": "Shenlong",
+      "family": "dragons",
+      "stage": 2,
+      "rarity": "epique",
+      "element": "foudre",
+      "image": "data/cards/dragon-shenlong.webp",
+      "lore": "Maître du climat dans les légendes chinoises, il jongle avec le soleil, la pluie et l'orage pour équilibrer les saisons.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-ryu",
+      "name": "Ryū",
+      "family": "dragons",
+      "stage": 3,
+      "rarity": "commune",
+      "element": "eau",
+      "image": "data/cards/dragon-ryu.webp",
+      "lore": "Le dragon des légendes du Japon. Il vit dans les lacs et les cascades, et protège ceux qui respectent l'eau.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-orochi",
+      "name": "Yamata no Orochi",
+      "family": "dragons",
+      "stage": 4,
+      "rarity": "epique",
+      "element": "nuit",
+      "image": "data/cards/dragon-orochi.webp",
+      "lore": "Le serpent à huit têtes des contes japonais. Chaque tête regarde une vallée différente, alors rien ne lui échappe.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-naga",
+      "name": "Nāga",
+      "family": "dragons",
+      "stage": 5,
+      "rarity": "commune",
+      "element": "eau",
+      "image": "data/cards/dragon-naga.webp",
+      "lore": "Esprit-serpent des rivières d'Inde, mi-humain mi-dragon. Gardien bienveillant des sources et des trésors cachés.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-vritra",
+      "name": "Vritra",
+      "family": "dragons",
+      "stage": 6,
+      "rarity": "rare",
+      "element": "foudre",
+      "image": "data/cards/dragon-vritra.webp",
+      "lore": "Dragon des orages dans les récits de l'Inde ancienne. Quand il s'étire, le tonnerre gronde dans les montagnes.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-tiamat",
+      "name": "Tiamat",
+      "family": "dragons",
+      "stage": 7,
+      "rarity": "legendaire",
+      "element": "mystere",
+      "image": "data/cards/dragon-tiamat.webp",
+      "lore": "Dragonne primordiale de Babylone, née de la mer salée. Les plus vieilles histoires du monde parlent déjà d'elle.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-leviathan",
+      "name": "Léviathan",
+      "family": "dragons",
+      "stage": 8,
+      "rarity": "rare",
+      "element": "eau",
+      "image": "data/cards/dragon-leviathan.webp",
+      "lore": "Serpent marin géant des récits anciens. Ses vagues bercent les océans jusqu'au bout de l'horizon.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-bahamut",
+      "name": "Bahamut",
+      "family": "dragons",
+      "stage": 9,
+      "rarity": "epique",
+      "element": "lune",
+      "image": "data/cards/dragon-bahamut.webp",
+      "lore": "Dragon cosmique des légendes d'Arabie : le monde entier reposerait sur son dos, entre les étoiles.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-hydre",
+      "name": "Hydre de Lerne",
+      "family": "dragons",
+      "stage": 10,
+      "rarity": "commune",
+      "element": "plante",
+      "image": "data/cards/dragon-hydre.webp",
+      "lore": "La fameuse hydre des mythes grecs. Quand elle a une idée, il lui en pousse deux nouvelles aussitôt.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-ladon",
+      "name": "Ladon",
+      "family": "dragons",
+      "stage": 11,
+      "rarity": "rare",
+      "element": "plante",
+      "image": "data/cards/dragon-ladon.webp",
+      "lore": "Dans les jardins grecs des Hespérides, il veille sur les pommes d'or sans jamais fermer un seul de ses yeux.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-jormungandr",
+      "name": "Jörmungandr",
+      "family": "dragons",
+      "stage": 12,
+      "rarity": "epique",
+      "element": "glace",
+      "image": "data/cards/dragon-jormungandr.webp",
+      "lore": "Le serpent-monde des légendes nordiques, si long qu'il fait le tour de la Terre et attrape sa propre queue.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-nidhoggr",
+      "name": "Níðhöggr",
+      "family": "dragons",
+      "stage": 13,
+      "rarity": "rare",
+      "element": "terre",
+      "image": "data/cards/dragon-nidhoggr.webp",
+      "lore": "Il habite les racines d'Yggdrasil, l'arbre-monde des Vikings, et connaît tous les secrets du sous-sol.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-fafnir",
+      "name": "Fafnir",
+      "family": "dragons",
+      "stage": 14,
+      "rarity": "rare",
+      "element": "feu",
+      "image": "data/cards/dragon-fafnir.webp",
+      "lore": "Dragon des sagas nordiques qui dort sur une montagne d'or. Il compte ses pièces au lieu de compter les moutons.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-wyverne",
+      "name": "Wyverne",
+      "family": "dragons",
+      "stage": 15,
+      "rarity": "commune",
+      "element": "vol",
+      "image": "data/cards/dragon-wyverne.webp",
+      "lore": "Le dragon à deux pattes des châteaux d'Europe. On la dessinait sur les blasons des chevaliers courageux.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-tarasque",
+      "name": "Tarasque",
+      "family": "dragons",
+      "stage": 16,
+      "rarity": "commune",
+      "element": "terre",
+      "image": "data/cards/dragon-tarasque.webp",
+      "lore": "Dragonne à carapace des légendes de Provence. Aujourd'hui, la ville de Tarascon fait la fête en son honneur.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-quetzalcoatl",
+      "name": "Quetzalcóatl",
+      "family": "dragons",
+      "stage": 17,
+      "rarity": "epique",
+      "element": "vol",
+      "image": "data/cards/dragon-quetzalcoatl.webp",
+      "lore": "Le serpent à plumes des Aztèques, dieu du vent et du savoir. On raconte qu'il a offert le maïs aux humains.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-kukulkan",
+      "name": "Kukulkan",
+      "family": "dragons",
+      "stage": 18,
+      "rarity": "rare",
+      "element": "vol",
+      "image": "data/cards/dragon-kukulkan.webp",
+      "lore": "Serpent à plumes des Mayas. Deux fois par an, son ombre descend l'escalier de la grande pyramide de Chichén Itzá.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-serpent-cornu",
+      "name": "Serpent Cornu",
+      "family": "dragons",
+      "stage": 19,
+      "rarity": "commune",
+      "element": "eau",
+      "image": "data/cards/dragon-serpent-cornu.webp",
+      "lore": "Grand serpent des lacs dans les légendes amérindiennes. Ses cornes brillent pour guider les pagayeurs perdus.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-aido-hwedo",
+      "name": "Aido-Hwedo",
+      "family": "dragons",
+      "stage": 20,
+      "rarity": "rare",
+      "element": "lumiere",
+      "image": "data/cards/dragon-aido-hwedo.webp",
+      "lore": "Serpent arc-en-ciel des contes d'Afrique de l'Ouest. En se lovant, il aurait sculpté les montagnes et les vallées.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-astral",
+      "name": "Dragon Astral",
+      "family": "dragons",
+      "stage": 21,
+      "rarity": "brillante",
+      "element": "lumiere",
+      "image": "data/cards/dragon-astral.webp",
+      "lore": "La carte la plus rare du Grimoire. Né de toutes les légendes à la fois, le Dragon Astral n'appartient à aucun peuple : il veille sur tous les conteurs du monde.",
+      "evolvesFrom": null
+    },
+    {
+      "id": "dragon-tiamat-prisme",
+      "name": "Tiamat ✨",
+      "family": "dragons",
+      "stage": 7,
+      "rarity": "brillante",
+      "element": "mystere",
+      "image": "data/cards/dragon-tiamat.webp",
+      "lore": "Version prismatique : on raconte qu'elle n'apparaît qu'aux collectionneurs qui n'abandonnent jamais.",
+      "evolvesFrom": null,
+      "variantOf": "dragon-tiamat"
+    },
+    {
+      "id": "dragon-bahamut-prisme",
+      "name": "Bahamut ✨",
+      "family": "dragons",
+      "stage": 9,
+      "rarity": "brillante",
+      "element": "lune",
+      "image": "data/cards/dragon-bahamut.webp",
+      "lore": "Version prismatique : on raconte qu'elle n'apparaît qu'aux collectionneurs qui n'abandonnent jamais.",
+      "evolvesFrom": null,
+      "variantOf": "dragon-bahamut"
     }
   ],
   "families": {
@@ -1098,6 +1353,10 @@
     "capybara": {
       "label": "Famille des Capybaras",
       "icon": "🌿"
+    },
+    "dragons": {
+      "label": "Dragons Légendaires",
+      "icon": "🐲"
     }
   }
 }
