@@ -134,6 +134,38 @@
                                     "content": "Multiplier, c'est ajouter plusieurs fois le même nombre."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-tables-astuces",
+                            "title": "Apprendre ses tables malin",
+                            "subtitle": "Des astuces pour retenir les multiplications",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une multiplication, c'est une addition répétée : 3 × 4, c'est 4 + 4 + 4. Connaître les tables par cœur rend les calculs très rapides."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "3 × 4 = 12, et 4 × 3 = 12 aussi : quand on connaît un résultat, on en connaît deux !"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "La table de 2, ce sont les doubles : 2 × 6 = le double de 6.",
+                                        "La table de 5 finit toujours par 5 ou 0.",
+                                        "La table de 10 ajoute un zéro : 10 × 7 = 70.",
+                                        "On peut inverser : si je connais 5 × 3, je connais 3 × 5."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Réciter un peu chaque jour vaut mieux qu'une longue séance : cinq minutes par jour et les tables restent !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -387,7 +419,27 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Pour compléter, on cherche le nombre qui manque pour arriver au total."
+                                    "text": "Compléter, c'est chercher le nombre qui manque pour atteindre un total. C'est très utile pour rendre la monnaie ou atteindre la dizaine."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "13 + ? = 20 : je pars de 13 et je compte jusqu'à 20 → 14, 15, 16, 17, 18, 19, 20 : il manque 7."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Le complément à 10 est la base : 7 + 3, 6 + 4, 8 + 2… à connaître par cœur !",
+                                        "Pour compléter à 20, je passe par 10 : de 13 à 20, c'est 13 → 20, soit 7.",
+                                        "Compléter, c'est aussi une soustraction cachée : 20 − 13 = 7.",
+                                        "Je vérifie en additionnant : 13 + 7 = 20 ✓"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Les paires qui font 10 (1+9, 2+8, 3+7, 4+6, 5+5) sont les meilleures amies du calcul mental : apprends-les comme une comptine !"
                                 }
                             ]
                         },
@@ -421,6 +473,68 @@
                                     "content": "Connaître les doubles par cœur aide à calculer plus vite : 6 + 7, c'est le double de 6, plus 1 !"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-additionner-100",
+                            "title": "Additionner jusqu'à 100",
+                            "subtitle": "Calculer de grandes sommes sans se perdre",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour additionner deux nombres, on peut ajouter d'abord les dizaines, puis les unités. On découpe le calcul en petits morceaux faciles."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "34 + 25 : je fais 34 + 20 = 54, puis 54 + 5 = 59."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "J'ajoute d'abord les dizaines, ensuite les unités.",
+                                        "Passer par la dizaine aide : 38 + 5, c'est 38 + 2 = 40, puis + 3 = 43.",
+                                        "Je peux changer l'ordre : 7 + 25, c'est pareil que 25 + 7."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Vérifie ton résultat : une addition rend toujours un nombre PLUS GRAND que chacun des deux nombres de départ."
+                                }
+                            ],
+                            "format": "lesson-card"
+                        },
+                        {
+                            "id": "ce1-lesson-soustraire",
+                            "title": "Soustraire sans se tromper",
+                            "subtitle": "Enlever, reculer, chercher l'écart",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Soustraire, c'est enlever une quantité, ou chercher l'écart entre deux nombres. On peut reculer sur la file des nombres, ou avancer depuis le plus petit."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "52 − 48 : plutôt que reculer de 48, j'avance de 48 à 52, il y a 4. Donc 52 − 48 = 4."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Enlever d'abord les dizaines, puis les unités : 46 − 23, c'est 46 − 20 = 26, puis 26 − 3 = 23.",
+                                        "Quand les nombres sont proches, chercher l'écart est plus rapide.",
+                                        "Le résultat d'une soustraction est plus petit que le nombre de départ."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour vérifier une soustraction, additionne : si 52 − 48 = 4, alors 48 + 4 doit bien redonner 52 !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -994,9 +1108,93 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "En dictée, il faut écouter le mot, penser aux sons, puis vérifier les lettres une dernière fois."
+                                    "text": "Pour bien écrire un mot entendu, on le découpe en syllabes, puis chaque syllabe en sons. À chaque son correspond une ou plusieurs lettres."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« chapeau » : cha-peau. J'entends [ch] → ch, [a] → a, [p] → p, [o] → eau (le son o s'écrit ici e-a-u !)."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Je découpe le mot en syllabes en frappant dans mes mains.",
+                                        "Un même son peut s'écrire de plusieurs façons : o, au, eau.",
+                                        "Certaines lettres ne s'entendent pas : le e muet, le s du pluriel.",
+                                        "Après avoir écrit, je relis lettre par lettre en prononçant dans ma tête."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le son [o] a trois costumes : o (vélo), au (jaune), eau (bateau). En cas de doute, pense à un mot de la même famille que tu connais !"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-m-devant-mbp",
+                            "title": "La règle du m devant m, b, p",
+                            "subtitle": "Pourquoi on écrit « chambre » et pas « chanbre »",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Devant les lettres m, b et p, le n des sons « an », « on », « in » se transforme en m. C'est une règle presque sans exception !"
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "une chambre (m devant b), emporter (m devant p), emmener (m devant m) — mais un bonbon fait exception !"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "an → am : une lampe, une jambe.",
+                                        "on → om : un pompier, sombre.",
+                                        "in → im : impossible, un timbre.",
+                                        "Exceptions célèbres : bonbon, bonbonnière, néanmoins."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Avant d'écrire un mot avec le son « an » ou « on », regarde la lettre suivante : si c'est m, b ou p… mets un m !"
+                                }
+                            ],
+                            "format": "lesson-card"
+                        },
+                        {
+                            "id": "ce1-lesson-lettres-finales",
+                            "title": "Les lettres muettes",
+                            "subtitle": "Ces lettres qu'on écrit sans les entendre",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Beaucoup de mots français se terminent par une lettre qu'on n'entend pas : le « t » de chat, le « d » de grand. Pour la trouver, on peut chercher un mot de la même famille."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« grand » prend un d car on dit « grande » ; « chat » prend un t car on dit « chaton »."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Chercher le féminin : petit → petite, on entend le t !",
+                                        "Chercher la famille : dent → dentiste.",
+                                        "Le e muet à la fin : une pomme, une école.",
+                                        "Certaines lettres muettes s'apprennent par cœur."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "La lettre muette est souvent un indice caché : elle réapparaît dans les mots de la même famille."
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -1083,7 +1281,27 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Dans une dictée audio, on écoute bien le mot, on repère les sons et on écrit sans se précipiter. On peut aussi relire pour vérifier les lettres."
+                                    "text": "Notre oreille est le premier outil de l'orthographe : elle repère les sons du mot, dans l'ordre. À l'écrit, chaque son devient une ou plusieurs lettres."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "J'entends « moulin » : [m]-[ou]-[l]-[in]. J'écris m, puis ou (deux lettres pour un son !), puis l, puis in."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "J'écoute le mot en entier avant d'écrire.",
+                                        "Je repère les sons un par un, du début à la fin.",
+                                        "Certains sons s'écrivent avec deux lettres : ou, on, an, in, ch.",
+                                        "Les sons proches se distinguent à l'oreille : [b]/[p], [t]/[d], [f]/[v]."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Articule le mot en silence en l'écrivant : ta bouche t'aide à ne pas oublier de son en route !"
                                 }
                             ]
                         }
@@ -1172,17 +1390,27 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Les mots fréquents reviennent dans presque toutes les phrases. Les mémoriser aide à lire plus vite et à écrire avec moins d'erreurs."
+                                    "text": "Une centaine de petits mots — le, est, dans, avec, mais… — composent la moitié de tout ce qu on lit ! Les connaître par coeur rend la lecture fluide et la dictée plus sûre."
                                 },
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "Dans la phrase Le chat est dans la cour, les mots le, est et dans sont des mots fréquents."
+                                    "content": "Dans « Le chat est dans la cour, mais il pleut », six mots sur neuf sont des mots fréquents : le, est, dans, la, mais, il."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Les champions à connaître : le, la, les, un, une, des, et, est, dans, avec, pour, mais, chez, sous, sur.",
+                                        "On les photographie des yeux : à force de les voir, on les écrit sans réfléchir.",
+                                        "Certains se ressemblent à l oreille (et/est, a/à) : le sens de la phrase les départage.",
+                                        "Un mot fréquent bien connu, c est une erreur de dictée en moins à chaque phrase !"
+                                    ]
                                 },
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "Les homophones comme a/à et et/est se travaillent dans les exercices d'homophones."
+                                    "content": "Fabrique-toi une boîte à mots : chaque mot fréquent sur une petite carte, et trois cartes piochées chaque soir. En deux semaines, ils sont tous à toi !"
                                 }
                             ]
                         }
@@ -1493,9 +1721,92 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Le déterminant accompagne le nom. Il aide à savoir de quel objet ou de quelle personne on parle. Exemples : un chat, une fille, le livre, la table, l'école."
+                                    "text": "Le déterminant est le petit mot placé devant le nom. Il indique si l'on parle d'une chose précise ou non, et si elle est au singulier ou au pluriel."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "UN chat (n'importe lequel) / LE chat (celui qu'on connaît) / LES chats (plusieurs)."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "un, une, des : les articles indéfinis (on ne précise pas lequel).",
+                                        "le, la, l', les : les articles définis (on sait de qui on parle).",
+                                        "Le déterminant s'accorde avec le nom : la fille, les filles.",
+                                        "Devant une voyelle, le et la deviennent l' : l'école, l'arbre."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le déterminant est un espion du genre et du nombre : « les » t'avertit que le nom prendra un s !"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-nom-verbe",
+                            "title": "Le nom et le verbe",
+                            "subtitle": "Les deux grands rôles de la phrase",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans une phrase, le nom désigne une personne, un animal ou une chose. Le verbe dit ce qui se passe : l'action ou l'état."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« Le chat dort. » : « chat » est le nom, « dort » est le verbe."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Le nom peut avoir un déterminant devant lui : le, la, un, une…",
+                                        "Le verbe change quand on change le temps : le chat dort → le chat dormira.",
+                                        "Pour trouver le verbe, je change le moment : ce qui change, c'est lui !"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Astuce : mets « hier » ou « demain » devant la phrase. Le mot qui se transforme est le verbe."
+                                }
+                            ],
+                            "format": "lesson-card"
+                        },
+                        {
+                            "id": "ce1-lesson-phrase",
+                            "title": "Une phrase bien construite",
+                            "subtitle": "Majuscule, ordre des mots, point",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une phrase commence par une majuscule et se termine par un point. Elle doit vouloir dire quelque chose : les mots sont dans le bon ordre."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« joue Léa ballon au » n'est pas une phrase. « Léa joue au ballon. » en est une !"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Majuscule au début, point à la fin.",
+                                        "La phrase doit avoir du sens.",
+                                        "Le point peut être simple (.), d'interrogation (?) ou d'exclamation (!).",
+                                        "À l'oral, la voix descend à la fin d'une phrase."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Relis toujours ta phrase à voix basse : si elle « sonne » bizarre, l'ordre des mots est sans doute à revoir."
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ],
                     "exercises": [
@@ -1773,9 +2084,62 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Les verbes être et avoir servent très souvent. Voici leurs formes au présent : je suis, tu es, il est, nous sommes, vous êtes, ils sont ; j'ai, tu as, il a, nous avons, vous avez, ils ont."
+                                    "text": "Être et avoir sont les deux verbes les plus utilisés du français. Ils se conjuguent de façon irrégulière : il faut les apprendre par cœur, comme une chanson."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Je suis content. Tu as un vélo. Nous sommes en classe. Ils ont un chien."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "ÊTRE : je suis, tu es, il est, nous sommes, vous êtes, ils sont.",
+                                        "AVOIR : j'ai, tu as, il a, nous avons, vous avez, ils ont.",
+                                        "Être dit comment on est ; avoir dit ce qu'on possède.",
+                                        "Attention aux pièges : « il est » (être) et « il a » (avoir) ne se confondent pas !"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Récite-les dans l'ordre puis dans le désordre : « nous sommes ? vous avez ? » Quand tu réponds sans réfléchir, c'est gagné !"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-verbes-er-present",
+                            "title": "Les verbes en -er au présent",
+                            "subtitle": "Chanter, jouer, danser… même famille, mêmes terminaisons",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Au présent, tous les verbes en -er se conjuguent de la même façon. Il suffit d'apprendre une seule chanson de terminaisons : e, es, e, ons, ez, ent."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "jouer : je joue, tu joues, il joue, nous jouons, vous jouez, ils jouent."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "je → e : je chante.",
+                                        "tu → es : tu chantes.",
+                                        "il/elle → e : elle danse.",
+                                        "nous → ons, vous → ez, ils/elles → ent.",
+                                        "« ent » à la fin ne s'entend pas : ils jouent se prononce comme il joue !"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le piège du présent : « tu » prend toujours un s (tu joues), et « ils » se termine par -ent qu'on n'entend pas."
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 }
@@ -1858,6 +2222,38 @@
                                     "content": "Ces mots aident à raconter ce qui s'est passé, ce qui se passe et ce qui va arriver."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-frise-temps",
+                            "title": "La frise du temps",
+                            "subtitle": "Ranger les événements dans l'ordre",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une frise chronologique est une ligne sur laquelle on place les événements dans l'ordre : les plus anciens à gauche, les plus récents à droite."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Sur la frise de ta vie : naissance → premiers pas → entrée à l'école → aujourd'hui."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Le temps avance toujours de gauche à droite sur la frise.",
+                                        "Avant = à gauche, après = à droite.",
+                                        "Une date précise se place à un point exact de la frise.",
+                                        "Une période (comme « quand papi était petit ») occupe une zone."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour ranger des événements, cherche d'abord le plus ancien : les autres se placent après lui, un par un."
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -1914,9 +2310,61 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Autrefois, certaines habitudes, certains objets et certains lieux étaient différents. À l'école, on utilisait parfois l'ardoise, la plume ou le tableau noir."
+                                    "text": "Il y a cent ans, l'école ressemblait à la nôtre par son but — apprendre à lire, écrire, compter — mais les objets et les habitudes étaient bien différents."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "L'élève écrivait à la plume trempée dans l'encrier, portait une blouse grise et s'asseyait à un pupitre en bois incliné."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "On écrivait sur l'ardoise pour s'entraîner, au porte-plume pour le cahier.",
+                                        "Filles et garçons étaient souvent dans des écoles séparées.",
+                                        "Le poêle à bois chauffait la classe ; chacun apportait parfois sa bûche !",
+                                        "Les leçons s'apprenaient beaucoup par cœur et se récitaient debout."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Blouse, plume, encrier, ardoise, pupitre : cinq objets qui disent « école d'autrefois » au premier coup d'œil dans un musée !"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-vie-quotidienne-autrefois",
+                            "title": "La vie quotidienne d'autrefois",
+                            "subtitle": "Se chauffer, s'éclairer, se laver… avant",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Au temps des arrière-grands-parents, la vie de tous les jours était très différente : pas d'électricité partout, pas d'eau au robinet, pas de voiture pour tous."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le soir, on s'éclairait à la bougie ou à la lampe à pétrole, et on se chauffait autour de la cheminée."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "L'eau venait du puits ou de la fontaine.",
+                                        "Le linge se lavait à la main, au lavoir.",
+                                        "On se déplaçait à pied, à cheval ou en charrette.",
+                                        "Les enfants aidaient beaucoup aux travaux de la maison et des champs."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Interroge tes grands-parents : leurs souvenirs sont des témoignages précieux sur la vie d'autrefois !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -2028,7 +2476,27 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Le passé laisse des traces que l'on peut encore voir aujourd'hui : photos, monuments, objets ou souvenirs."
+                                    "text": "Le passé ne s'est pas envolé : il a laissé des traces autour de nous. Les observer permet de raconter la vie d'avant, comme un détective raconte une histoire avec des indices."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une photo en noir et blanc, l'église du village, la vieille horloge de mamie : trois traces, trois morceaux d'histoire."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Traces construites : monuments, maisons anciennes, ponts.",
+                                        "Traces écrites : lettres, journaux, registres, cartes postales.",
+                                        "Traces d'objets : outils, jouets, vêtements d'autrefois.",
+                                        "Traces racontées : les souvenirs des grands-parents sont des témoignages !"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Dans ta commune, cherche la trace la plus ancienne : souvent l'église, un lavoir, ou une date gravée au-dessus d'une porte."
                                 }
                             ]
                         }
@@ -2122,9 +2590,61 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Les objets anciens montrent comment on vivait autrefois. Ils servent de traces pour comparer le passé et le présent."
+                                    "text": "Les objets anciens sont des témoins : leur forme et leur matière racontent comment on vivait, travaillait et jouait autrefois."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le fer à repasser en fonte se chauffait sur la cuisinière : lourd et sans fil ! Celui d'aujourd'hui est électrique et léger."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "J'observe : en quelle matière ? bois, fer, tissu ?",
+                                        "Je devine : à quoi servait-il ? qui l'utilisait ?",
+                                        "Je compare : quel objet d'aujourd'hui fait le même travail ?",
+                                        "Le même besoin traverse le temps, la solution change !"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Trois questions de détective devant un objet ancien : c'est en quoi ? ça servait à quoi ? qu'est-ce qui l'a remplacé ?"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-inventions-quotidien",
+                            "title": "Du lavoir au lave-linge",
+                            "subtitle": "Comment les inventions ont changé la vie",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Les objets évoluent avec le temps : les inventions rendent les tâches plus faciles et plus rapides. Comparer un objet ancien et un objet moderne raconte cette histoire."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Pour laver le linge : le lavoir à la main → la lessiveuse → la machine à laver d'aujourd'hui."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Bougie → lampe à pétrole → ampoule électrique.",
+                                        "Cheminée → poêle → chauffage central.",
+                                        "Lettre → téléphone à cadran → téléphone portable.",
+                                        "Chaque invention garde le même but, mais change la manière."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Devant un objet ancien, demande-toi : à quoi servait-il ? Quel objet le remplace aujourd'hui ?"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 }
@@ -2380,7 +2900,27 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Un paysage est ce que l'on voit autour de soi. Il peut être une ville, une campagne, un littoral ou une montagne. On observe les bâtiments, la nature et les activités des habitants."
+                                    "text": "Un paysage, c'est tout ce que l'on voit d'un endroit : le relief, la végétation, les constructions et les activités des habitants. Pour le décrire, on observe plan par plan."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Depuis la fenêtre du train : au premier plan des champs, plus loin un village et son clocher, au fond la ligne bleue des montagnes."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Ce qui est proche : le premier plan ; ce qui est loin : l'arrière-plan.",
+                                        "J'observe la nature : arbres, champs, eau, relief.",
+                                        "J'observe les traces humaines : routes, maisons, usines, cultures.",
+                                        "Chaque paysage raconte les activités de ses habitants."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Décris un paysage comme une photo : « devant, je vois… ; au milieu… ; au fond… » — tes yeux balayent du plus proche au plus lointain."
                                 }
                             ]
                         },
@@ -2500,9 +3040,61 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "On peut se déplacer en France de plusieurs façons : à pied, en voiture, en bus, en train ou en avion. Les transports relient les villes, les villages et les régions."
+                                    "text": "Routes, voies ferrées, aéroports et ports forment de grands réseaux qui relient les villes et les villages de France. Chaque réseau a ses véhicules et ses lieux."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Pour aller de Lyon à Paris : l'autoroute en voiture, la ligne TGV en train — le train est ici le plus rapide !"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Le réseau routier : des petites rues aux autoroutes.",
+                                        "Le réseau ferré : les trains relient les gares, le TGV file à 300 km/h.",
+                                        "Ports pour les bateaux, aéroports pour les avions.",
+                                        "Sur une carte, chaque réseau a son symbole : trait rouge, trait noir à barreaux…"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Regarde une carte routière : les grandes villes sont comme des étoiles d'où partent routes et voies ferrées dans toutes les directions !"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-choisir-transport",
+                            "title": "À chaque trajet son transport",
+                            "subtitle": "À pied, à vélo, en bus, en train…",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "On ne choisit pas le même moyen de transport pour aller à l'école, chez mamie ou en vacances : cela dépend de la distance et de ce qu'on transporte."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Pour l'école du quartier : à pied ou à vélo. Pour une autre ville : le train ou la voiture. Pour un autre pays lointain : l'avion."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Trajet court : la marche et le vélo sont parfaits.",
+                                        "En ville : bus, tramway et métro évitent les embouteillages.",
+                                        "Longue distance : train, voiture, avion.",
+                                        "Marcher et pédaler ne polluent pas du tout !"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Avant un trajet, on peut se demander : quelle distance ? combien de personnes ? quel transport pollue le moins ?"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 }
@@ -2601,9 +3193,61 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Les êtres vivants ont besoin de nourriture, d'eau, d'air et d'un milieu favorable. Ils grandissent, se nourrissent et se protègent."
+                                    "text": "Tous les êtres vivants — animaux, plantes, humains — ont des besoins vitaux : sans eau, sans nourriture ou sans air, la vie s'arrête."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "La plante verte du salon a besoin d'eau, de lumière et d'air ; le hamster a besoin d'eau, de graines et d'un abri."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Besoins de tous les vivants : eau, air, nourriture.",
+                                        "Les plantes fabriquent leur nourriture grâce à la lumière.",
+                                        "Les animaux trouvent leur nourriture dans leur milieu.",
+                                        "Un milieu favorable offre aussi un abri et une bonne température."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Avant d'adopter un animal ou une plante, liste ses besoins : c'est s'engager à y répondre tous les jours !"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-vivant-non-vivant",
+                            "title": "Vivant ou non vivant ?",
+                            "subtitle": "Les indices pour les reconnaître",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un être vivant naît, grandit, se nourrit, se reproduit et meurt. Un objet, même s'il bouge, ne fait rien de tout cela."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le chat est vivant : il naît, grandit, mange. Le robot bouge, mais il ne grandit pas et ne se reproduit pas : il n'est pas vivant."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Vivants : les animaux, les plantes, les champignons.",
+                                        "Non vivants : les cailloux, l'eau, les machines.",
+                                        "Une plante est vivante même si elle ne se déplace pas !",
+                                        "Un être vivant a des besoins : eau, nourriture, air."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le test des questions : est-ce que ça naît ? ça grandit ? ça se nourrit ? Trois oui = c'est vivant !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -2672,9 +3316,61 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "La matière peut être solide, liquide ou gazeuse. Elle change parfois d'état quand on la chauffe ou quand on la refroidit. L'eau est un exemple facile à observer."
+                                    "text": "La matière existe sous trois états : solide (elle garde sa forme), liquide (elle coule et prend la forme du récipient) et gazeux (invisible, il se répand partout)."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "L'eau les connaît tous les trois : glaçon solide, eau liquide du robinet, vapeur invisible au-dessus de la casserole."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Solide : forme fixe (caillou, glaçon, bois).",
+                                        "Liquide : coule et s'étale (eau, lait, jus).",
+                                        "Gazeux : invisible et léger (vapeur d'eau, air).",
+                                        "Chauffer ou refroidir fait changer d'état : glace → eau → vapeur, et retour !"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le test du récipient : verse-le, s'il prend la forme du verre, c'est un liquide ; s'il garde sa forme, c'est un solide !"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-melanger-separer",
+                            "title": "Mélanger et séparer",
+                            "subtitle": "Que devient ce qu'on mélange à l'eau ?",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Quand on mélange quelque chose à l'eau, deux choses peuvent arriver : soit il se dissout et devient invisible (comme le sel), soit il reste visible (comme le sable)."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le sucre dans l'eau disparaît… mais l'eau devient sucrée : il est toujours là ! Le sable, lui, retombe au fond."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Se dissoudre = devenir invisible dans l'eau, sans disparaître vraiment.",
+                                        "Le sel et le sucre se dissolvent ; le sable et l'huile non.",
+                                        "Un filtre retient ce qui ne s'est pas dissous.",
+                                        "Pour retrouver le sel, on laisse l'eau s'évaporer."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Dissous ne veut pas dire disparu : goûte l'eau salée, le sel est toujours là, juste invisible !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -3404,7 +4100,27 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Être citoyen, c'est respecter les autres, dire la vérité, écouter et participer à la vie du groupe. La confiance et le respect rendent la classe plus juste."
+                                    "text": "Être citoyen, même à sept ans, c'est participer à la vie du groupe en respectant les autres : dire la vérité, tenir ses promesses, prendre sa part du travail commun."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Rendre l'objet trouvé dans la cour, avouer sa bêtise plutôt qu'accuser un autre, jeter son papier à la poubelle : trois gestes de petit citoyen."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "L'honnêteté construit la confiance : on peut compter sur moi.",
+                                        "Le respect vaut pour tous : camarades, adultes, matériel, lieux.",
+                                        "Participer, c'est donner son avis ET écouter celui des autres.",
+                                        "Les règles communes protègent tout le monde, moi compris."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le citoyen se reconnaît quand personne ne regarde : ce qu'on fait sans témoin dit qui on est vraiment !"
                                 }
                             ]
                         },
@@ -3530,7 +4246,27 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "L'entraide aide la classe à mieux travailler. Elle consiste à aider sans faire le travail à la place de l'autre. On explique, on montre et on encourage."
+                                    "text": "S'entraider, c'est mettre ses forces au service du groupe : expliquer, encourager, prêter. Aider ne veut jamais dire faire à la place — sinon l'autre n'apprend pas."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Lina ne comprend pas la consigne : Tom la lui explique avec ses mots, mais c'est Lina qui écrit sa réponse."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Expliquer avec ses propres mots aide l'autre ET fait réviser.",
+                                        "Encourager : « tu y es presque ! » donne du courage.",
+                                        "Demander de l'aide n'est pas tricher, c'est apprendre.",
+                                        "Chacun est fort quelque part : l'entraide échange les talents."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "La règle d'or de l'entraide : je guide la main, je ne tiens pas le crayon !"
                                 }
                             ]
                         },

@@ -1,721 +1,921 @@
 ﻿{
-    "subjectId":  "geography",
-    "gradeId":  "cp",
-    "title":  "Géographie CP",
-    "categories":  {
-                       "cp-plan-quartier":  [
-                                              {
-                                                  "question":  "Un plan montre un lieu...",
-                                                  "choices":  [
-                                                                  "vu d'en haut",
-                                                                  "vu de très loin dans le ciel",
-                                                                  "vu seulement la nuit"
-                                                              ],
-                                                  "answer":  "vu d'en haut",
-                                                  "explanation":  "Un plan, c'est comme si on regardait un lieu depuis le ciel, juste au-dessus. On voit les contours et les salles."
-                                              },
-                                              {
-                                                  "question":  "Sur le plan de l'école, je peux retrouver...",
-                                                  "choices":  [
-                                                                  "la classe, la cour et la cantine",
-                                                                  "des montagnes et des fleuves",
-                                                                  "des planètes et des étoiles"
-                                                              ],
-                                                  "answer":  "la classe, la cour et la cantine",
-                                                  "explanation":  "Le plan de l'école montre les endroits qui s'y trouvent : la classe, la cour, la cantine et les couloirs."
-                                              },
-                                              {
-                                                  "question":  "Sur un plan, les repères servent à...",
-                                                  "choices":  [
-                                                                  "se situer",
-                                                                  "deviner la météo",
-                                                                  "compter les nuages"
-                                                              ],
-                                                  "answer":  "se situer",
-                                                  "explanation":  "Les repères sur un plan aident à savoir où on est et à trouver les lieux importants."
-                                              },
-                                              {
-                                                  "question":  "Avec un plan, je peux aussi...",
-                                                  "choices":  [
-                                                                  "suivre un trajet",
-                                                                  "changer la couleur du ciel",
-                                                                  "écouter de la musique"
-                                                              ],
-                                                  "answer":  "suivre un trajet",
-                                                  "explanation":  "Un plan permet de tracer un chemin entre deux endroits et de le suivre pour se déplacer."
-                                              },
-                                              {
-                                                  "question":  "Un quartier est une partie...",
-                                                  "choices":  [
-                                                                  "de la ville",
-                                                                  "de l'océan",
-                                                                  "de l'espace"
-                                                              ],
-                                                  "answer":  "de la ville",
-                                                  "explanation":  "Une ville est découpée en quartiers. Chaque quartier a ses rues, ses maisons et ses lieux particuliers."
-                                              },
-                                              {
-                                                  "question":  "Dans un quartier, on trouve par exemple...",
-                                                  "choices":  [
-                                                                  "des rues et des maisons",
-                                                                  "des volcans",
-                                                                  "des icebergs"
-                                                              ],
-                                                  "answer":  "des rues et des maisons",
-                                                  "explanation":  "Un quartier est un espace où vivent des gens. On y trouve des rues, des maisons et des commerces."
-                                              },
-                                              {
-                                                  "question":  "Dans le quartier, on peut trouver des lieux utiles comme...",
-                                                  "choices":  [
-                                                                  "l'école et la boulangerie",
-                                                                  "un désert",
-                                                                  "une grotte sous-marine"
-                                                              ],
-                                                  "answer":  "l'école et la boulangerie",
-                                                  "explanation":  "Dans un quartier, on trouve des endroits dont on a besoin chaque jour, comme l'école, la boulangerie ou le parc."
-                                              },
-                                              {
-                                                  "question":  "Le quartier fait partie de...",
-                                                  "choices":  [
-                                                                  "l'espace proche",
-                                                                  "l'espace lointain",
-                                                                  "le passé"
-                                                              ],
-                                                  "answer":  "l'espace proche",
-                                                  "explanation":  "L'espace proche, c'est ce qui est autour de nous : notre rue, notre quartier, notre école."
-                                              },
-                                              {
-                                                  "question":  "Une légende sur un plan sert à...",
-                                                  "choices":  [
-                                                                  "expliquer les symboles",
-                                                                  "raconter une histoire",
-                                                                  "mesurer la pluie"
-                                                              ],
-                                                  "answer":  "expliquer les symboles",
-                                                  "explanation":  "La légende d'un plan explique ce que signifient les couleurs et les symboles utilisés sur le dessin."
-                                              },
-                                              {
-                                                  "question":  "Sur un plan simple, la classe peut être représentée par...",
-                                                  "choices":  [
-                                                                  "un carré ou un rectangle",
-                                                                  "une étoile brillante",
-                                                                  "un nuage"
-                                                              ],
-                                                  "answer":  "un carré ou un rectangle",
-                                                  "explanation":  "Sur un plan, on représente les pièces par des formes simples : souvent des carrés ou des rectangles."
-                                              }
-                                          ],
-                       "cp-se-reperer":  [
-                                             {
-                                                 "question":  "Pour aller en haut d'un escalier, on monte ou on descend ?",
-                                                 "choices":  [
-                                                                 "On monte",
-                                                                 "On descend",
-                                                                 "On dort"
-                                                             ],
-                                                 "answer":  "On monte",
-                                                 "explanation":  "Pour aller en haut, il faut monter les marches. Descendre, c'est aller vers le bas."
-                                             },
-                                             {
-                                                 "question":  "La cour de récréation se trouve...",
-                                                 "choices":  [
-                                                                 "dans l'école",
-                                                                 "dans la mer",
-                                                                 "dans la lune"
-                                                             ],
-                                                 "answer":  "dans l'école",
-                                                 "explanation":  "La cour de récréation est un espace situé à l'intérieur de l'école, en plein air."
-                                             },
-                                             {
-                                                 "question":  "Pour retrouver un lieu sur un dessin, on peut utiliser...",
-                                                 "choices":  [
-                                                                 "un plan",
-                                                                 "une casserole",
-                                                                 "un ballon"
-                                                             ],
-                                                 "answer":  "un plan",
-                                                 "explanation":  "Le plan montre où se trouvent les lieux. Il aide à se repérer dans un espace comme l'école."
-                                             },
-                                             {
-                                                 "question":  "La classe est souvent à l'intérieur ou à l'extérieur ?",
-                                                 "choices":  [
-                                                                 "À l'intérieur",
-                                                                 "À l'extérieur",
-                                                                 "Dans le ciel"
-                                                             ],
-                                                 "answer":  "À l'intérieur",
-                                                 "explanation":  "La salle de classe se trouve à l'intérieur du bâtiment de l'école, à l'abri des intempéries."
-                                             },
-                                             {
-                                                 "question":  "Devant toi, c'est...",
-                                                 "choices":  [
-                                                                 "en face",
-                                                                 "derrière",
-                                                                 "sous terre"
-                                                             ],
-                                                 "answer":  "en face",
-                                                 "explanation":  "Devant, c'est la direction où tu regardes. Derrière, c'est dans le dos."
-                                             },
-                                             {
-                                                 "question":  "Pour retrouver la bibliothèque de l'école, un plan peut aider à...",
-                                                 "choices":  [
-                                                                 "se repérer",
-                                                                 "chanter",
-                                                                 "mesurer le temps"
-                                                             ],
-                                                 "answer":  "se repérer",
-                                                 "explanation":  "Le plan de l'école indique où se trouvent tous les espaces, comme la bibliothèque ou la salle de sport."
-                                             },
-                                             {
-                                                 "question":  "À côté de la porte, cela veut dire...",
-                                                 "choices":  [
-                                                                 "tout près",
-                                                                 "très loin",
-                                                                 "au plafond"
-                                                             ],
-                                                 "answer":  "tout près",
-                                                 "explanation":  "À côté veut dire juste à côté, à proximité. C'est proche mais pas exactement au même endroit."
-                                             },
-                                             {
-                                                 "question":  "Un trajet sur un plan montre...",
-                                                 "choices":  [
-                                                                 "le chemin à suivre",
-                                                                 "une poésie",
-                                                                 "une chanson"
-                                                             ],
-                                                 "answer":  "le chemin à suivre",
-                                                 "explanation":  "Un trajet dessiné sur un plan montre comment aller d'un point à un autre, pas à pas."
-                                             },
-                                             {
-                                                 "question":  "Pour se repérer sur un plan, on peut utiliser...",
-                                                 "choices":  [
-                                                                 "des symboles et une légende",
-                                                                 "une frise du temps",
-                                                                 "un thermomètre"
-                                                             ],
-                                                 "answer":  "des symboles et une légende",
-                                                 "explanation":  "Sur un plan, les symboles représentent les lieux. La légende explique ce que chaque symbole signifie."
-                                             },
-                                             {
-                                                 "question":  "Une carte sert surtout à...",
-                                                 "choices":  [
-                                                                 "localiser des lieux",
-                                                                 "raconter une histoire ancienne",
-                                                                 "faire une division"
-                                                             ],
-                                                 "answer":  "localiser des lieux",
-                                                 "explanation":  "Une carte géographique permet de voir où se trouvent les villes, les rivières et les pays."
-                                             }
-                                         ],
-                       "cp-paysages":  [
-                                           {
-                                               "question":  "À la montagne, on voit souvent...",
-                                               "choices":  [
-                                                               "des sommets",
-                                                               "des vagues",
-                                                               "des gratte-ciel"
-                                                           ],
-                                               "answer":  "des sommets",
-                                               "explanation":  "Le paysage de montagne se reconnaît à ses hauts sommets, parfois couverts de neige."
-                                           },
-                                           {
-                                               "question":  "À la mer, on trouve...",
-                                               "choices":  [
-                                                               "une plage",
-                                                               "un glacier",
-                                                               "un volcan"
-                                                           ],
-                                               "answer":  "une plage",
-                                               "explanation":  "Le bord de la mer s'appelle le littoral. On y trouve souvent une plage de sable ou de galets."
-                                           },
-                                           {
-                                               "question":  "En ville, il y a souvent...",
-                                               "choices":  [
-                                                               "beaucoup de rues",
-                                                               "des champs partout",
-                                                               "des igloos"
-                                                           ],
-                                               "answer":  "beaucoup de rues",
-                                               "explanation":  "Le paysage de ville est caractérisé par ses immeubles, ses rues, ses voitures et ses commerces."
-                                           },
-                                           {
-                                               "question":  "À la campagne, on peut voir...",
-                                               "choices":  [
-                                                               "des champs",
-                                                               "des métros partout",
-                                                               "des fusées"
-                                                           ],
-                                               "answer":  "des champs",
-                                               "explanation":  "La campagne est un espace naturel avec des champs, des prairies, des fermes et des forêts."
-                                           },
-                                           {
-                                               "question":  "Une rivière est...",
-                                               "choices":  [
-                                                               "de l'eau qui coule",
-                                                               "une route",
-                                                               "une maison"
-                                                           ],
-                                               "answer":  "de l'eau qui coule",
-                                               "explanation":  "Une rivière est un cours d'eau naturel. L'eau coule et va vers une autre rivière ou la mer."
-                                           },
-                                           {
-                                               "question":  "Un lac contient surtout...",
-                                               "choices":  [
-                                                               "de l'eau",
-                                                               "du bitume",
-                                                               "des escaliers"
-                                                           ],
-                                               "answer":  "de l'eau",
-                                               "explanation":  "Un lac est une grande étendue d'eau douce entourée par la terre. L'eau n'y coule pas."
-                                           },
-                                           {
-                                               "question":  "Le bord de la mer s'appelle souvent...",
-                                               "choices":  [
-                                                               "le littoral",
-                                                               "le tunnel",
-                                                               "le grenier"
-                                                           ],
-                                               "answer":  "le littoral",
-                                               "explanation":  "Le littoral, c'est la bande de terre qui borde la mer. On y trouve des plages et des falaises."
-                                           },
-                                           {
-                                               "question":  "Dans un paysage de ville, on voit souvent...",
-                                               "choices":  [
-                                                               "des bâtiments",
-                                                               "des sommets enneigés",
-                                                               "des dunes partout"
-                                                           ],
-                                               "answer":  "des bâtiments",
-                                               "explanation":  "Les villes sont remplies de bâtiments : immeubles, maisons, bureaux, écoles et magasins."
-                                           },
-                                           {
-                                               "question":  "Un paysage change selon...",
-                                               "choices":  [
-                                                               "les activités humaines et la nature",
-                                                               "les tables de multiplication",
-                                                               "l'ordre alphabétique"
-                                                           ],
-                                               "answer":  "les activités humaines et la nature",
-                                               "explanation":  "Les paysages sont transformés par la nature (saisons, rivières) et par les humains (routes, maisons, champs)."
-                                           },
-                                           {
-                                               "question":  "Habiter un espace, c'est aussi...",
-                                               "choices":  [
-                                                               "y vivre et l'utiliser",
-                                                               "le déplacer",
-                                                               "le transformer en planète"
-                                                           ],
-                                               "answer":  "y vivre et l'utiliser",
-                                               "explanation":  "Habiter un espace, c'est y vivre, se déplacer, utiliser ses lieux et en prendre soin."
-                                           }
-                                       ],
-                       "cp-transports-lieux":  [
-                                                   {
-                                                       "question":  "Le bus sert à...",
-                                                       "choices":  [
-                                                                       "se déplacer",
-                                                                       "arroser les plantes",
-                                                                       "cuisiner"
-                                                                   ],
-                                                       "answer":  "se déplacer",
-                                                       "explanation":  "Le bus est un moyen de transport qui permet de se déplacer en ville ou entre les villages."
-                                                   },
-                                                   {
-                                                       "question":  "Le train roule surtout...",
-                                                       "choices":  [
-                                                                       "sur des rails",
-                                                                       "dans la mer",
-                                                                       "dans le ciel"
-                                                                   ],
-                                                       "answer":  "sur des rails",
-                                                       "explanation":  "Le train se déplace sur des rails en métal posés sur le sol. Il transporte beaucoup de personnes."
-                                                   },
-                                                   {
-                                                       "question":  "Le trottoir est fait pour...",
-                                                       "choices":  [
-                                                                       "marcher",
-                                                                       "nager",
-                                                                       "dormir"
-                                                                   ],
-                                                       "answer":  "marcher",
-                                                       "explanation":  "Le trottoir est la partie de la rue réservée aux piétons. C'est là qu'on marche en sécurité."
-                                                   },
-                                                   {
-                                                       "question":  "Un pont permet souvent de passer...",
-                                                       "choices":  [
-                                                                       "au-dessus de l'eau",
-                                                                       "sous la classe",
-                                                                       "dans les nuages"
-                                                                   ],
-                                                       "answer":  "au-dessus de l'eau",
-                                                       "explanation":  "Un pont enjambe une rivière ou un bras de mer pour permettre de traverser sans se mouiller."
-                                                   },
-                                                   {
-                                                       "question":  "La gare est un lieu où l'on prend souvent...",
-                                                       "choices":  [
-                                                                       "le train",
-                                                                       "un bateau de pêche",
-                                                                       "un ascenseur"
-                                                                   ],
-                                                       "answer":  "le train",
-                                                       "explanation":  "La gare est l'endroit où les trains s'arrêtent pour prendre et déposer les voyageurs."
-                                                   },
-                                                   {
-                                                       "question":  "Pour traverser la rue, on utilise...",
-                                                       "choices":  [
-                                                                       "un passage piéton",
-                                                                       "une barque",
-                                                                       "une échelle"
-                                                                   ],
-                                                       "answer":  "un passage piéton",
-                                                       "explanation":  "Le passage piéton est un endroit sécurisé pour traverser la rue. Les voitures doivent s'arrêter."
-                                                   },
-                                                   {
-                                                       "question":  "Une route sert surtout à...",
-                                                       "choices":  [
-                                                                       "aller d'un lieu à un autre",
-                                                                       "faire pousser des arbres",
-                                                                       "conserver des livres"
-                                                                   ],
-                                                       "answer":  "aller d'un lieu à un autre",
-                                                       "explanation":  "La route relie les villes, les villages et les lieux entre eux. Elle permet de se déplacer en voiture."
-                                                   },
-                                                   {
-                                                       "question":  "L'arrêt de bus est un lieu où...",
-                                                       "choices":  [
-                                                                       "on attend le bus",
-                                                                       "on prend le bateau",
-                                                                       "on achète du pain"
-                                                                   ],
-                                                       "answer":  "on attend le bus",
-                                                       "explanation":  "L'arrêt de bus est un endroit marqué où le bus s'arrête pour faire monter et descendre les passagers."
-                                                   },
-                                                   {
-                                                       "question":  "Les transports servent à...",
-                                                       "choices":  [
-                                                                       "relier des lieux",
-                                                                       "faire pousser les arbres",
-                                                                       "mesurer la température"
-                                                                   ],
-                                                       "answer":  "relier des lieux",
-                                                       "explanation":  "Les transports (voiture, bus, train, vélo) permettent de relier des lieux et de se déplacer plus vite."
-                                                   },
-                                                   {
-                                                       "question":  "Choisir un déplacement adapté dépend souvent...",
-                                                       "choices":  [
-                                                                       "de la distance à parcourir",
-                                                                       "du nom de la rue seulement",
-                                                                       "du hasard"
-                                                                   ],
-                                                       "answer":  "de la distance à parcourir",
-                                                       "explanation":  "Pour un petit trajet, on marche. Pour aller loin, on prend le train ou la voiture. La distance guide le choix."
-                                                   }
-                                               ],
-                       "cp-lieux-ecole":  [
-                                              {
-                                                  "question":  "La bibliothèque, la cour et la classe sont...",
-                                                  "choices":  [
-                                                                  "des lieux de l'école",
-                                                                  "des saisons",
-                                                                  "des animaux"
-                                                              ],
-                                                  "answer":  "des lieux de l'école",
-                                                  "explanation":  "L'école est formée de plusieurs espaces : la classe pour apprendre, la cour pour jouer, la cantine pour manger."
-                                              },
-                                              {
-                                                  "question":  "Pour aller de la classe à la cour, on suit...",
-                                                  "choices":  [
-                                                                  "un trajet",
-                                                                  "une poésie",
-                                                                  "une addition"
-                                                              ],
-                                                  "answer":  "un trajet",
-                                                  "explanation":  "Pour se déplacer dans l'école, on suit un chemin ou un trajet, en passant par les couloirs et les portes."
-                                              },
-                                              {
-                                                  "question":  "Un plan de l'école aide à...",
-                                                  "choices":  [
-                                                                  "retrouver un lieu",
-                                                                  "manger plus vite",
-                                                                  "dessiner un vélo"
-                                                              ],
-                                                  "answer":  "retrouver un lieu",
-                                                  "explanation":  "Le plan de l'école montre tous les espaces. On peut s'en servir pour trouver la bibliothèque ou les toilettes."
-                                              },
-                                              {
-                                                  "question":  "Les toilettes sont souvent...",
-                                                  "choices":  [
-                                                                  "dans un lieu précis de l'école",
-                                                                  "sur un nuage",
-                                                                  "dans la mer"
-                                                              ],
-                                                  "answer":  "dans un lieu précis de l'école",
-                                                  "explanation":  "Les toilettes se trouvent à un endroit fixe dans l'école. On apprend vite où elles sont."
-                                              },
-                                              {
-                                                  "question":  "Pour rejoindre la sortie, on peut suivre...",
-                                                  "choices":  [
-                                                                  "des repères simples",
-                                                                  "les saisons",
-                                                                  "une recette"
-                                                              ],
-                                                  "answer":  "des repères simples",
-                                                  "explanation":  "Pour trouver la sortie, on utilise des repères : une flèche, un signe ou un trajet qu'on a mémorisé."
-                                              },
-                                              {
-                                                  "question":  "La cantine est un lieu où l'on...",
-                                                  "choices":  [
-                                                                  "mange",
-                                                                  "dort toujours",
-                                                                  "nage"
-                                                              ],
-                                                  "answer":  "mange",
-                                                  "explanation":  "La cantine est la salle de l'école où les élèves mangent leur repas de midi."
-                                              },
-                                              {
-                                                  "question":  "La cour de récréation se trouve...",
-                                                  "choices":  [
-                                                                  "dans l'école",
-                                                                  "dans une montagne",
-                                                                  "dans un train"
-                                                              ],
-                                                  "answer":  "dans l'école",
-                                                  "explanation":  "La cour est un espace à l'air libre situé à l'intérieur de l'école, entouré de murs ou de grilles."
-                                              },
-                                              {
-                                                  "question":  "Se repérer dans l'école, c'est savoir...",
-                                                  "choices":  [
-                                                                  "où sont les lieux importants",
-                                                                  "quelle heure il fera demain",
-                                                                  "combien font 9 + 9"
-                                                              ],
-                                                  "answer":  "où sont les lieux importants",
-                                                  "explanation":  "Se repérer dans l'école, c'est savoir où se trouvent la classe, les toilettes, la cantine et la sortie."
-                                              },
-                                              {
-                                                  "question":  "La direction de l'école se trouve souvent...",
-                                                  "choices":  [
-                                                                  "dans un bureau",
-                                                                  "sur le toit",
-                                                                  "dans la cour"
-                                                              ],
-                                                  "answer":  "dans un bureau",
-                                                  "explanation":  "La directrice ou le directeur de l'école travaille dans un bureau qu'on peut trouver sur le plan."
-                                              },
-                                              {
-                                                  "question":  "Le couloir de l'école sert à...",
-                                                  "choices":  [
-                                                                  "se déplacer d'une salle à l'autre",
-                                                                  "dormir",
-                                                                  "faire du vélo"
-                                                              ],
-                                                  "answer":  "se déplacer d'une salle à l'autre",
-                                                  "explanation":  "Le couloir est un espace de passage entre les salles de l'école. On le traverse pour aller d'un endroit à un autre."
-                                              }
-                                          ],
-                       "cp-trajets-quotidiens":  [
-                                                     {
-                                                         "question":  "Pour aller à l'école, on peut suivre...",
-                                                         "choices":  [
-                                                                         "un trajet habituel",
-                                                                         "une saison",
-                                                                         "une multiplication"
-                                                                     ],
-                                                         "answer":  "un trajet habituel",
-                                                         "explanation":  "Chaque jour, on fait le même chemin pour aller à l'école. C'est un trajet habituel qu'on connaît bien."
-                                                     },
-                                                     {
-                                                         "question":  "Un trajet quotidien relie souvent...",
-                                                         "choices":  [
-                                                                         "deux lieux connus",
-                                                                         "deux nuages",
-                                                                         "deux océans"
-                                                                     ],
-                                                         "answer":  "deux lieux connus",
-                                                         "explanation":  "Un trajet quotidien relie deux endroits qu'on visite chaque jour, comme la maison et l'école."
-                                                     },
-                                                     {
-                                                         "question":  "Pour traverser en sécurité, on regarde...",
-                                                         "choices":  [
-                                                                         "avant de s'engager",
-                                                                         "seulement le ciel",
-                                                                         "ses chaussures"
-                                                                     ],
-                                                         "answer":  "avant de s'engager",
-                                                         "explanation":  "Avant de traverser, on regarde des deux côtés pour vérifier qu'aucune voiture n'arrive."
-                                                     },
-                                                     {
-                                                         "question":  "Aller à pied convient souvent pour...",
-                                                         "choices":  [
-                                                                         "un petit trajet",
-                                                                         "un voyage sur la mer",
-                                                                         "un vol en avion"
-                                                                     ],
-                                                         "answer":  "un petit trajet",
-                                                         "explanation":  "On marche facilement pour aller chez un voisin ou à l'école proche. Pour de longs trajets, on utilise d'autres transports."
-                                                     },
-                                                     {
-                                                         "question":  "Le bus sert à...",
-                                                         "choices":  [
-                                                                         "transporter plusieurs personnes",
-                                                                         "couper du bois",
-                                                                         "arroser un jardin"
-                                                                     ],
-                                                         "answer":  "transporter plusieurs personnes",
-                                                         "explanation":  "Le bus peut transporter beaucoup de personnes en même temps. C'est un transport en commun."
-                                                     },
-                                                     {
-                                                         "question":  "Un trajet peut changer si...",
-                                                         "choices":  [
-                                                                         "une route est fermée",
-                                                                         "le cahier est neuf",
-                                                                         "la classe chante"
-                                                                     ],
-                                                         "answer":  "une route est fermée",
-                                                         "explanation":  "Quand une route est fermée (travaux, accident), on doit prendre un autre chemin pour arriver."
-                                                     },
-                                                     {
-                                                         "question":  "Repérer un arrêt de bus aide à...",
-                                                         "choices":  [
-                                                                         "mieux se déplacer",
-                                                                         "faire une dictée",
-                                                                         "compter les étoiles"
-                                                                     ],
-                                                         "answer":  "mieux se déplacer",
-                                                         "explanation":  "Savoir où se trouve l'arrêt de bus permet de prendre le bon bus et d'arriver à destination."
-                                                     },
-                                                     {
-                                                         "question":  "Connaître son trajet aide à...",
-                                                         "choices":  [
-                                                                         "se déplacer plus sereinement",
-                                                                         "faire pousser des arbres",
-                                                                         "mesurer la température"
-                                                                     ],
-                                                         "answer":  "se déplacer plus sereinement",
-                                                         "explanation":  "Quand on connaît bien son chemin, on se sent plus à l'aise et en sécurité lors du trajet."
-                                                     },
-                                                     {
-                                                         "question":  "Sur le trottoir, on marche pour...",
-                                                         "choices":  [
-                                                                         "être en sécurité",
-                                                                         "aller plus vite que les voitures",
-                                                                         "se cacher"
-                                                                     ],
-                                                         "answer":  "être en sécurité",
-                                                         "explanation":  "Le trottoir est réservé aux piétons. Marcher sur le trottoir protège des voitures qui passent sur la route."
-                                                     },
-                                                     {
-                                                         "question":  "Si on ne connaît pas son chemin, on peut demander...",
-                                                         "choices":  [
-                                                                         "à un adulte de confiance",
-                                                                         "aux nuages",
-                                                                         "à un caillou"
-                                                                     ],
-                                                         "answer":  "à un adulte de confiance",
-                                                         "explanation":  "Quand on est perdu, on demande son chemin à un adulte de confiance, comme un policier ou un commerçant."
-                                                     }
-                                                 ],
-                       "cp-lieux-publics":  [
-                                                {
-                                                    "question":  "La bibliothèque est un lieu où l'on peut...",
-                                                    "choices":  [
-                                                                    "lire des livres",
-                                                                    "prendre l'avion",
-                                                                    "réparer un vélo"
-                                                                ],
-                                                    "answer":  "lire des livres",
-                                                    "explanation":  "La bibliothèque est un lieu public où l'on peut lire, emprunter des livres et apprendre."
-                                                },
-                                                {
-                                                    "question":  "La poste sert à...",
-                                                    "choices":  [
-                                                                    "envoyer du courrier",
-                                                                    "mesurer la pluie",
-                                                                    "faire des divisions"
-                                                                ],
-                                                    "answer":  "envoyer du courrier",
-                                                    "explanation":  "La poste est un lieu public où on envoie et reçoit des lettres et des colis."
-                                                },
-                                                {
-                                                    "question":  "La mairie est un lieu de...",
-                                                    "choices":  [
-                                                                    "la commune",
-                                                                    "la montagne",
-                                                                    "la forêt"
-                                                                ],
-                                                    "answer":  "la commune",
-                                                    "explanation":  "La mairie est le bâtiment principal de la commune ou du village. C'est là qu'on déclare les naissances et les mariages."
-                                                },
-                                                {
-                                                    "question":  "Le parc est un lieu où l'on peut...",
-                                                    "choices":  [
-                                                                    "se promener",
-                                                                    "prendre le train",
-                                                                    "nager en mer"
-                                                                ],
-                                                    "answer":  "se promener",
-                                                    "explanation":  "Le parc est un espace vert public où l'on peut se balader, jouer et profiter de la nature en ville."
-                                                },
-                                                {
-                                                    "question":  "L'école est un lieu pour...",
-                                                    "choices":  [
-                                                                    "apprendre",
-                                                                    "garer des bateaux",
-                                                                    "cultiver un champ"
-                                                                ],
-                                                    "answer":  "apprendre",
-                                                    "explanation":  "L'école est un lieu public où les enfants viennent apprendre à lire, écrire, compter et bien plus encore."
-                                                },
-                                                {
-                                                    "question":  "Des lieux publics différents servent à...",
-                                                    "choices":  [
-                                                                    "des besoins différents",
-                                                                    "la même seule chose",
-                                                                    "rien du tout"
-                                                                ],
-                                                    "answer":  "des besoins différents",
-                                                    "explanation":  "Chaque lieu public a une fonction particulière : la bibliothèque pour les livres, la poste pour le courrier, l'école pour apprendre."
-                                                },
-                                                {
-                                                    "question":  "Pour retrouver un lieu public, on peut utiliser...",
-                                                    "choices":  [
-                                                                    "un plan simple",
-                                                                    "une poésie",
-                                                                    "une table de calcul"
-                                                                ],
-                                                    "answer":  "un plan simple",
-                                                    "explanation":  "Un plan du quartier ou de la ville montre où se trouvent les lieux publics importants."
-                                                },
-                                                {
-                                                    "question":  "Les lieux publics aident la vie...",
-                                                    "choices":  [
-                                                                    "du quartier ou de la commune",
-                                                                    "des nuages",
-                                                                    "des océans"
-                                                                ],
-                                                    "answer":  "du quartier ou de la commune",
-                                                    "explanation":  "Les lieux publics (école, parc, mairie, bibliothèque) sont là pour aider tous les habitants de la commune."
-                                                },
-                                                {
-                                                    "question":  "Le médecin travaille souvent dans...",
-                                                    "choices":  [
-                                                                    "un cabinet médical",
-                                                                    "une forêt",
-                                                                    "une piscine"
-                                                                ],
-                                                    "answer":  "un cabinet médical",
-                                                    "explanation":  "On va voir le médecin dans son cabinet ou à l'hôpital quand on est malade. C'est un lieu de soin."
-                                                },
-                                                {
-                                                    "question":  "La boulangerie est un lieu où on peut acheter...",
-                                                    "choices":  [
-                                                                    "du pain et des gâteaux",
-                                                                    "des crayons",
-                                                                    "des livres"
-                                                                ],
-                                                    "answer":  "du pain et des gâteaux",
-                                                    "explanation":  "La boulangerie est une boutique du quartier où le boulanger fabrique et vend du pain, des croissants et des gâteaux."
-                                                }
-                                            ]
-                   }
+    "subjectId": "geography",
+    "gradeId": "cp",
+    "title": "Géographie CP",
+    "categories": {
+        "cp-plan-quartier": [
+            {
+                "question": "Un plan montre un lieu...",
+                "choices": [
+                    "vu d'en haut",
+                    "vu de très loin dans le ciel",
+                    "vu seulement la nuit"
+                ],
+                "answer": "vu d'en haut",
+                "explanation": "Un plan, c'est comme si on regardait un lieu depuis le ciel, juste au-dessus. On voit les contours et les salles."
+            },
+            {
+                "question": "Sur le plan de l'école, je peux retrouver...",
+                "choices": [
+                    "la classe, la cour et la cantine",
+                    "des montagnes et des fleuves",
+                    "des planètes et des étoiles"
+                ],
+                "answer": "la classe, la cour et la cantine",
+                "explanation": "Le plan de l'école montre les endroits qui s'y trouvent : la classe, la cour, la cantine et les couloirs."
+            },
+            {
+                "question": "Sur un plan, les repères servent à...",
+                "choices": [
+                    "se situer",
+                    "deviner la météo",
+                    "compter les nuages"
+                ],
+                "answer": "se situer",
+                "explanation": "Les repères sur un plan aident à savoir où on est et à trouver les lieux importants."
+            },
+            {
+                "question": "Avec un plan, je peux aussi...",
+                "choices": [
+                    "suivre un trajet",
+                    "changer la couleur du ciel",
+                    "écouter de la musique"
+                ],
+                "answer": "suivre un trajet",
+                "explanation": "Un plan permet de tracer un chemin entre deux endroits et de le suivre pour se déplacer."
+            },
+            {
+                "question": "Un quartier est une partie...",
+                "choices": [
+                    "de la ville",
+                    "de l'océan",
+                    "de l'espace"
+                ],
+                "answer": "de la ville",
+                "explanation": "Une ville est découpée en quartiers. Chaque quartier a ses rues, ses maisons et ses lieux particuliers."
+            },
+            {
+                "question": "Dans un quartier, on trouve par exemple...",
+                "choices": [
+                    "des rues et des maisons",
+                    "des volcans",
+                    "des icebergs"
+                ],
+                "answer": "des rues et des maisons",
+                "explanation": "Un quartier est un espace où vivent des gens. On y trouve des rues, des maisons et des commerces."
+            },
+            {
+                "question": "Dans le quartier, on peut trouver des lieux utiles comme...",
+                "choices": [
+                    "l'école et la boulangerie",
+                    "un désert",
+                    "une grotte sous-marine"
+                ],
+                "answer": "l'école et la boulangerie",
+                "explanation": "Dans un quartier, on trouve des endroits dont on a besoin chaque jour, comme l'école, la boulangerie ou le parc."
+            },
+            {
+                "question": "Le quartier fait partie de...",
+                "choices": [
+                    "l'espace proche",
+                    "l'espace lointain",
+                    "le passé"
+                ],
+                "answer": "l'espace proche",
+                "explanation": "L'espace proche, c'est ce qui est autour de nous : notre rue, notre quartier, notre école."
+            },
+            {
+                "question": "Une légende sur un plan sert à...",
+                "choices": [
+                    "expliquer les symboles",
+                    "raconter une histoire",
+                    "mesurer la pluie"
+                ],
+                "answer": "expliquer les symboles",
+                "explanation": "La légende d'un plan explique ce que signifient les couleurs et les symboles utilisés sur le dessin."
+            },
+            {
+                "question": "Sur un plan simple, la classe peut être représentée par...",
+                "choices": [
+                    "un carré ou un rectangle",
+                    "une étoile brillante",
+                    "un nuage"
+                ],
+                "answer": "un carré ou un rectangle",
+                "explanation": "Sur un plan, on représente les pièces par des formes simples : souvent des carrés ou des rectangles."
+            }
+        ],
+        "cp-se-reperer": [
+            {
+                "question": "Pour aller en haut d'un escalier, on monte ou on descend ?",
+                "choices": [
+                    "On monte",
+                    "On descend",
+                    "On dort"
+                ],
+                "answer": "On monte",
+                "explanation": "Pour aller en haut, il faut monter les marches. Descendre, c'est aller vers le bas."
+            },
+            {
+                "question": "La cour de récréation se trouve...",
+                "choices": [
+                    "dans l'école",
+                    "dans la mer",
+                    "dans la lune"
+                ],
+                "answer": "dans l'école",
+                "explanation": "La cour de récréation est un espace situé à l'intérieur de l'école, en plein air."
+            },
+            {
+                "question": "Pour retrouver un lieu sur un dessin, on peut utiliser...",
+                "choices": [
+                    "un plan",
+                    "une casserole",
+                    "un ballon"
+                ],
+                "answer": "un plan",
+                "explanation": "Le plan montre où se trouvent les lieux. Il aide à se repérer dans un espace comme l'école."
+            },
+            {
+                "question": "La classe est souvent à l'intérieur ou à l'extérieur ?",
+                "choices": [
+                    "À l'intérieur",
+                    "À l'extérieur",
+                    "Dans le ciel"
+                ],
+                "answer": "À l'intérieur",
+                "explanation": "La salle de classe se trouve à l'intérieur du bâtiment de l'école, à l'abri des intempéries."
+            },
+            {
+                "question": "Devant toi, c'est...",
+                "choices": [
+                    "en face",
+                    "derrière",
+                    "sous terre"
+                ],
+                "answer": "en face",
+                "explanation": "Devant, c'est la direction où tu regardes. Derrière, c'est dans le dos."
+            },
+            {
+                "question": "Pour retrouver la bibliothèque de l'école, un plan peut aider à...",
+                "choices": [
+                    "se repérer",
+                    "chanter",
+                    "mesurer le temps"
+                ],
+                "answer": "se repérer",
+                "explanation": "Le plan de l'école indique où se trouvent tous les espaces, comme la bibliothèque ou la salle de sport."
+            },
+            {
+                "question": "À côté de la porte, cela veut dire...",
+                "choices": [
+                    "tout près",
+                    "très loin",
+                    "au plafond"
+                ],
+                "answer": "tout près",
+                "explanation": "À côté veut dire juste à côté, à proximité. C'est proche mais pas exactement au même endroit."
+            },
+            {
+                "question": "Un trajet sur un plan montre...",
+                "choices": [
+                    "le chemin à suivre",
+                    "une poésie",
+                    "une chanson"
+                ],
+                "answer": "le chemin à suivre",
+                "explanation": "Un trajet dessiné sur un plan montre comment aller d'un point à un autre, pas à pas."
+            },
+            {
+                "question": "Pour se repérer sur un plan, on peut utiliser...",
+                "choices": [
+                    "des symboles et une légende",
+                    "une frise du temps",
+                    "un thermomètre"
+                ],
+                "answer": "des symboles et une légende",
+                "explanation": "Sur un plan, les symboles représentent les lieux. La légende explique ce que chaque symbole signifie."
+            },
+            {
+                "question": "Une carte sert surtout à...",
+                "choices": [
+                    "localiser des lieux",
+                    "raconter une histoire ancienne",
+                    "faire une division"
+                ],
+                "answer": "localiser des lieux",
+                "explanation": "Une carte géographique permet de voir où se trouvent les villes, les rivières et les pays."
+            }
+        ],
+        "cp-paysages": [
+            {
+                "question": "À la montagne, on voit souvent...",
+                "choices": [
+                    "des sommets",
+                    "des vagues",
+                    "des gratte-ciel"
+                ],
+                "answer": "des sommets",
+                "explanation": "Le paysage de montagne se reconnaît à ses hauts sommets, parfois couverts de neige."
+            },
+            {
+                "question": "À la mer, on trouve...",
+                "choices": [
+                    "une plage",
+                    "un glacier",
+                    "un volcan"
+                ],
+                "answer": "une plage",
+                "explanation": "Le bord de la mer s'appelle le littoral. On y trouve souvent une plage de sable ou de galets."
+            },
+            {
+                "question": "En ville, il y a souvent...",
+                "choices": [
+                    "beaucoup de rues",
+                    "des champs partout",
+                    "des igloos"
+                ],
+                "answer": "beaucoup de rues",
+                "explanation": "Le paysage de ville est caractérisé par ses immeubles, ses rues, ses voitures et ses commerces."
+            },
+            {
+                "question": "À la campagne, on peut voir...",
+                "choices": [
+                    "des champs",
+                    "des métros partout",
+                    "des fusées"
+                ],
+                "answer": "des champs",
+                "explanation": "La campagne est un espace naturel avec des champs, des prairies, des fermes et des forêts."
+            },
+            {
+                "question": "Une rivière est...",
+                "choices": [
+                    "de l'eau qui coule",
+                    "une route",
+                    "une maison"
+                ],
+                "answer": "de l'eau qui coule",
+                "explanation": "Une rivière est un cours d'eau naturel. L'eau coule et va vers une autre rivière ou la mer."
+            },
+            {
+                "question": "Un lac contient surtout...",
+                "choices": [
+                    "de l'eau",
+                    "du bitume",
+                    "des escaliers"
+                ],
+                "answer": "de l'eau",
+                "explanation": "Un lac est une grande étendue d'eau douce entourée par la terre. L'eau n'y coule pas."
+            },
+            {
+                "question": "Le bord de la mer s'appelle souvent...",
+                "choices": [
+                    "le littoral",
+                    "le tunnel",
+                    "le grenier"
+                ],
+                "answer": "le littoral",
+                "explanation": "Le littoral, c'est la bande de terre qui borde la mer. On y trouve des plages et des falaises."
+            },
+            {
+                "question": "Dans un paysage de ville, on voit souvent...",
+                "choices": [
+                    "des bâtiments",
+                    "des sommets enneigés",
+                    "des dunes partout"
+                ],
+                "answer": "des bâtiments",
+                "explanation": "Les villes sont remplies de bâtiments : immeubles, maisons, bureaux, écoles et magasins."
+            },
+            {
+                "question": "Un paysage change selon...",
+                "choices": [
+                    "les activités humaines et la nature",
+                    "les tables de multiplication",
+                    "l'ordre alphabétique"
+                ],
+                "answer": "les activités humaines et la nature",
+                "explanation": "Les paysages sont transformés par la nature (saisons, rivières) et par les humains (routes, maisons, champs)."
+            },
+            {
+                "question": "Habiter un espace, c'est aussi...",
+                "choices": [
+                    "y vivre et l'utiliser",
+                    "le déplacer",
+                    "le transformer en planète"
+                ],
+                "answer": "y vivre et l'utiliser",
+                "explanation": "Habiter un espace, c'est y vivre, se déplacer, utiliser ses lieux et en prendre soin."
+            }
+        ],
+        "cp-transports-lieux": [
+            {
+                "question": "Le bus sert à...",
+                "choices": [
+                    "se déplacer",
+                    "arroser les plantes",
+                    "cuisiner"
+                ],
+                "answer": "se déplacer",
+                "explanation": "Le bus est un moyen de transport qui permet de se déplacer en ville ou entre les villages."
+            },
+            {
+                "question": "Le train roule surtout...",
+                "choices": [
+                    "sur des rails",
+                    "dans la mer",
+                    "dans le ciel"
+                ],
+                "answer": "sur des rails",
+                "explanation": "Le train se déplace sur des rails en métal posés sur le sol. Il transporte beaucoup de personnes."
+            },
+            {
+                "question": "Le trottoir est fait pour...",
+                "choices": [
+                    "marcher",
+                    "nager",
+                    "dormir"
+                ],
+                "answer": "marcher",
+                "explanation": "Le trottoir est la partie de la rue réservée aux piétons. C'est là qu'on marche en sécurité."
+            },
+            {
+                "question": "Un pont permet souvent de passer...",
+                "choices": [
+                    "au-dessus de l'eau",
+                    "sous la classe",
+                    "dans les nuages"
+                ],
+                "answer": "au-dessus de l'eau",
+                "explanation": "Un pont enjambe une rivière ou un bras de mer pour permettre de traverser sans se mouiller."
+            },
+            {
+                "question": "La gare est un lieu où l'on prend souvent...",
+                "choices": [
+                    "le train",
+                    "un bateau de pêche",
+                    "un ascenseur"
+                ],
+                "answer": "le train",
+                "explanation": "La gare est l'endroit où les trains s'arrêtent pour prendre et déposer les voyageurs."
+            },
+            {
+                "question": "Pour traverser la rue, on utilise...",
+                "choices": [
+                    "un passage piéton",
+                    "une barque",
+                    "une échelle"
+                ],
+                "answer": "un passage piéton",
+                "explanation": "Le passage piéton est un endroit sécurisé pour traverser la rue. Les voitures doivent s'arrêter."
+            },
+            {
+                "question": "Une route sert surtout à...",
+                "choices": [
+                    "aller d'un lieu à un autre",
+                    "faire pousser des arbres",
+                    "conserver des livres"
+                ],
+                "answer": "aller d'un lieu à un autre",
+                "explanation": "La route relie les villes, les villages et les lieux entre eux. Elle permet de se déplacer en voiture."
+            },
+            {
+                "question": "L'arrêt de bus est un lieu où...",
+                "choices": [
+                    "on attend le bus",
+                    "on prend le bateau",
+                    "on achète du pain"
+                ],
+                "answer": "on attend le bus",
+                "explanation": "L'arrêt de bus est un endroit marqué où le bus s'arrête pour faire monter et descendre les passagers."
+            },
+            {
+                "question": "Les transports servent à...",
+                "choices": [
+                    "relier des lieux",
+                    "faire pousser les arbres",
+                    "mesurer la température"
+                ],
+                "answer": "relier des lieux",
+                "explanation": "Les transports (voiture, bus, train, vélo) permettent de relier des lieux et de se déplacer plus vite."
+            },
+            {
+                "question": "Choisir un déplacement adapté dépend souvent...",
+                "choices": [
+                    "de la distance à parcourir",
+                    "du nom de la rue seulement",
+                    "du hasard"
+                ],
+                "answer": "de la distance à parcourir",
+                "explanation": "Pour un petit trajet, on marche. Pour aller loin, on prend le train ou la voiture. La distance guide le choix."
+            },
+            {
+                "question": "Le tramway circule...",
+                "choices": [
+                    "sur des rails dans la ville",
+                    "sur l'eau",
+                    "dans les airs"
+                ],
+                "answer": "sur des rails dans la ville",
+                "explanation": "Le tramway est un train de ville : il glisse sur ses rails au milieu des rues."
+            },
+            {
+                "question": "Le bateau sert à se déplacer...",
+                "choices": [
+                    "sur l'eau",
+                    "sur la route",
+                    "sur les rails"
+                ],
+                "answer": "sur l'eau",
+                "explanation": "Mer, fleuve ou lac : le bateau transporte des personnes et des marchandises sur l'eau."
+            },
+            {
+                "question": "L'avion décolle et atterrit...",
+                "choices": [
+                    "à l'aéroport",
+                    "à la gare",
+                    "au port"
+                ],
+                "answer": "à l'aéroport",
+                "explanation": "Chaque transport a son lieu : l'avion à l'aéroport, le train à la gare, le bateau au port."
+            },
+            {
+                "question": "Le feu piéton vert signifie que...",
+                "choices": [
+                    "je peux traverser en regardant",
+                    "je dois courir",
+                    "je dois attendre"
+                ],
+                "answer": "je peux traverser en regardant",
+                "explanation": "Même au vert, on regarde à gauche et à droite avant de traverser !"
+            },
+            {
+                "question": "Le casque à vélo protège...",
+                "choices": [
+                    "la tête",
+                    "les pieds",
+                    "le sac"
+                ],
+                "answer": "la tête",
+                "explanation": "En cas de chute, le casque protège la tête : on le met à chaque sortie à vélo."
+            },
+            {
+                "question": "Dans le bus, quand il roule, je dois...",
+                "choices": [
+                    "rester assis ou bien me tenir",
+                    "courir dans l'allée",
+                    "ouvrir la fenêtre"
+                ],
+                "answer": "rester assis ou bien me tenir",
+                "explanation": "Un coup de frein peut surprendre : assis ou bien accroché, on ne tombe pas."
+            },
+            {
+                "question": "Le métro circule surtout...",
+                "choices": [
+                    "sous la terre",
+                    "sur les toits",
+                    "sur l'eau"
+                ],
+                "answer": "sous la terre",
+                "explanation": "Le métro passe dans des tunnels sous la ville : pratique pour éviter les embouteillages !"
+            },
+            {
+                "question": "Une piste cyclable est réservée...",
+                "choices": [
+                    "aux vélos",
+                    "aux voitures",
+                    "aux camions"
+                ],
+                "answer": "aux vélos",
+                "explanation": "La piste cyclable protège les cyclistes en les séparant des voitures."
+            },
+            {
+                "question": "Pour un très long voyage dans un autre pays, on prend souvent...",
+                "choices": [
+                    "l'avion",
+                    "la trottinette",
+                    "le toboggan"
+                ],
+                "answer": "l'avion",
+                "explanation": "L'avion est le plus rapide pour les très longues distances, au-dessus des mers et des montagnes."
+            },
+            {
+                "question": "La ceinture de sécurité en voiture, c'est...",
+                "choices": [
+                    "pour tout le monde à chaque trajet",
+                    "pour les longs trajets seulement",
+                    "pour les adultes seulement"
+                ],
+                "answer": "pour tout le monde à chaque trajet",
+                "explanation": "Même pour un petit trajet, la ceinture protège tous les passagers, devant comme derrière."
+            }
+        ],
+        "cp-lieux-ecole": [
+            {
+                "question": "La bibliothèque, la cour et la classe sont...",
+                "choices": [
+                    "des lieux de l'école",
+                    "des saisons",
+                    "des animaux"
+                ],
+                "answer": "des lieux de l'école",
+                "explanation": "L'école est formée de plusieurs espaces : la classe pour apprendre, la cour pour jouer, la cantine pour manger."
+            },
+            {
+                "question": "Pour aller de la classe à la cour, on suit...",
+                "choices": [
+                    "un trajet",
+                    "une poésie",
+                    "une addition"
+                ],
+                "answer": "un trajet",
+                "explanation": "Pour se déplacer dans l'école, on suit un chemin ou un trajet, en passant par les couloirs et les portes."
+            },
+            {
+                "question": "Un plan de l'école aide à...",
+                "choices": [
+                    "retrouver un lieu",
+                    "manger plus vite",
+                    "dessiner un vélo"
+                ],
+                "answer": "retrouver un lieu",
+                "explanation": "Le plan de l'école montre tous les espaces. On peut s'en servir pour trouver la bibliothèque ou les toilettes."
+            },
+            {
+                "question": "Les toilettes sont souvent...",
+                "choices": [
+                    "dans un lieu précis de l'école",
+                    "sur un nuage",
+                    "dans la mer"
+                ],
+                "answer": "dans un lieu précis de l'école",
+                "explanation": "Les toilettes se trouvent à un endroit fixe dans l'école. On apprend vite où elles sont."
+            },
+            {
+                "question": "Pour rejoindre la sortie, on peut suivre...",
+                "choices": [
+                    "des repères simples",
+                    "les saisons",
+                    "une recette"
+                ],
+                "answer": "des repères simples",
+                "explanation": "Pour trouver la sortie, on utilise des repères : une flèche, un signe ou un trajet qu'on a mémorisé."
+            },
+            {
+                "question": "La cantine est un lieu où l'on...",
+                "choices": [
+                    "mange",
+                    "dort toujours",
+                    "nage"
+                ],
+                "answer": "mange",
+                "explanation": "La cantine est la salle de l'école où les élèves mangent leur repas de midi."
+            },
+            {
+                "question": "La cour de récréation se trouve...",
+                "choices": [
+                    "dans l'école",
+                    "dans une montagne",
+                    "dans un train"
+                ],
+                "answer": "dans l'école",
+                "explanation": "La cour est un espace à l'air libre situé à l'intérieur de l'école, entouré de murs ou de grilles."
+            },
+            {
+                "question": "Se repérer dans l'école, c'est savoir...",
+                "choices": [
+                    "où sont les lieux importants",
+                    "quelle heure il fera demain",
+                    "combien font 9 + 9"
+                ],
+                "answer": "où sont les lieux importants",
+                "explanation": "Se repérer dans l'école, c'est savoir où se trouvent la classe, les toilettes, la cantine et la sortie."
+            },
+            {
+                "question": "La direction de l'école se trouve souvent...",
+                "choices": [
+                    "dans un bureau",
+                    "sur le toit",
+                    "dans la cour"
+                ],
+                "answer": "dans un bureau",
+                "explanation": "La directrice ou le directeur de l'école travaille dans un bureau qu'on peut trouver sur le plan."
+            },
+            {
+                "question": "Le couloir de l'école sert à...",
+                "choices": [
+                    "se déplacer d'une salle à l'autre",
+                    "dormir",
+                    "faire du vélo"
+                ],
+                "answer": "se déplacer d'une salle à l'autre",
+                "explanation": "Le couloir est un espace de passage entre les salles de l'école. On le traverse pour aller d'un endroit à un autre."
+            },
+            {
+                "question": "Le préau sert à s'abriter...",
+                "choices": [
+                    "quand il pleut",
+                    "pour dormir",
+                    "pour manger"
+                ],
+                "answer": "quand il pleut",
+                "explanation": "Le préau est le toit de la cour : on peut y jouer même les jours de pluie."
+            },
+            {
+                "question": "Dans la classe, le tableau se trouve...",
+                "choices": [
+                    "face aux élèves",
+                    "dans le couloir",
+                    "au plafond"
+                ],
+                "answer": "face aux élèves",
+                "explanation": "Le tableau est placé pour que tous les élèves puissent le voir depuis leur place."
+            },
+            {
+                "question": "Le gymnase de l'école est le lieu où l'on fait...",
+                "choices": [
+                    "du sport",
+                    "la sieste",
+                    "les courses"
+                ],
+                "answer": "du sport",
+                "explanation": "Le gymnase est une grande salle pour bouger, courir et jouer au ballon même en hiver."
+            },
+            {
+                "question": "Pour entrer dans l'école, on passe par...",
+                "choices": [
+                    "le portail",
+                    "la fenêtre",
+                    "le toit"
+                ],
+                "answer": "le portail",
+                "explanation": "Le portail est l'entrée de l'école : un adulte surveille qui entre et qui sort."
+            },
+            {
+                "question": "Le bureau du directeur ou de la directrice est un lieu où l'on...",
+                "choices": [
+                    "peut parler avec lui ou elle",
+                    "joue au ballon",
+                    "fait la cuisine"
+                ],
+                "answer": "peut parler avec lui ou elle",
+                "explanation": "C'est là que le directeur ou la directrice travaille et reçoit les élèves et les parents."
+            },
+            {
+                "question": "Le porte-manteau sert à...",
+                "choices": [
+                    "accrocher son manteau",
+                    "poser ses chaussures",
+                    "ranger les cahiers"
+                ],
+                "answer": "accrocher son manteau",
+                "explanation": "Chaque élève a souvent son crochet : les manteaux ne traînent pas par terre !"
+            },
+            {
+                "question": "Dans la bibliothèque de l'école, on doit parler...",
+                "choices": [
+                    "doucement",
+                    "très fort",
+                    "en chantant"
+                ],
+                "answer": "doucement",
+                "explanation": "On chuchote à la bibliothèque pour ne pas déranger ceux qui lisent."
+            },
+            {
+                "question": "L'infirmerie de l'école est le lieu où l'on va quand...",
+                "choices": [
+                    "on s'est fait mal",
+                    "on a fini son travail",
+                    "on veut jouer"
+                ],
+                "answer": "on s'est fait mal",
+                "explanation": "À l'infirmerie, on soigne les petits bobos et on se repose si on est malade."
+            },
+            {
+                "question": "Sur le plan de la classe, ma place est montrée par...",
+                "choices": [
+                    "un petit dessin ou une case",
+                    "une photo géante",
+                    "rien du tout"
+                ],
+                "answer": "un petit dessin ou une case",
+                "explanation": "Sur un plan, chaque table devient une petite case vue d'en haut, comme si on volait au-dessus."
+            },
+            {
+                "question": "Un plan montre les lieux vus...",
+                "choices": [
+                    "d'en haut",
+                    "de côté",
+                    "de dessous"
+                ],
+                "answer": "d'en haut",
+                "explanation": "Le plan, c'est la vue d'oiseau : on voit les toits et la forme des salles comme depuis le ciel."
+            }
+        ],
+        "cp-trajets-quotidiens": [
+            {
+                "question": "Pour aller à l'école, on peut suivre...",
+                "choices": [
+                    "un trajet habituel",
+                    "une saison",
+                    "une multiplication"
+                ],
+                "answer": "un trajet habituel",
+                "explanation": "Chaque jour, on fait le même chemin pour aller à l'école. C'est un trajet habituel qu'on connaît bien."
+            },
+            {
+                "question": "Un trajet quotidien relie souvent...",
+                "choices": [
+                    "deux lieux connus",
+                    "deux nuages",
+                    "deux océans"
+                ],
+                "answer": "deux lieux connus",
+                "explanation": "Un trajet quotidien relie deux endroits qu'on visite chaque jour, comme la maison et l'école."
+            },
+            {
+                "question": "Pour traverser en sécurité, on regarde...",
+                "choices": [
+                    "avant de s'engager",
+                    "seulement le ciel",
+                    "ses chaussures"
+                ],
+                "answer": "avant de s'engager",
+                "explanation": "Avant de traverser, on regarde des deux côtés pour vérifier qu'aucune voiture n'arrive."
+            },
+            {
+                "question": "Aller à pied convient souvent pour...",
+                "choices": [
+                    "un petit trajet",
+                    "un voyage sur la mer",
+                    "un vol en avion"
+                ],
+                "answer": "un petit trajet",
+                "explanation": "On marche facilement pour aller chez un voisin ou à l'école proche. Pour de longs trajets, on utilise d'autres transports."
+            },
+            {
+                "question": "Le bus sert à...",
+                "choices": [
+                    "transporter plusieurs personnes",
+                    "couper du bois",
+                    "arroser un jardin"
+                ],
+                "answer": "transporter plusieurs personnes",
+                "explanation": "Le bus peut transporter beaucoup de personnes en même temps. C'est un transport en commun."
+            },
+            {
+                "question": "Un trajet peut changer si...",
+                "choices": [
+                    "une route est fermée",
+                    "le cahier est neuf",
+                    "la classe chante"
+                ],
+                "answer": "une route est fermée",
+                "explanation": "Quand une route est fermée (travaux, accident), on doit prendre un autre chemin pour arriver."
+            },
+            {
+                "question": "Repérer un arrêt de bus aide à...",
+                "choices": [
+                    "mieux se déplacer",
+                    "faire une dictée",
+                    "compter les étoiles"
+                ],
+                "answer": "mieux se déplacer",
+                "explanation": "Savoir où se trouve l'arrêt de bus permet de prendre le bon bus et d'arriver à destination."
+            },
+            {
+                "question": "Connaître son trajet aide à...",
+                "choices": [
+                    "se déplacer plus sereinement",
+                    "faire pousser des arbres",
+                    "mesurer la température"
+                ],
+                "answer": "se déplacer plus sereinement",
+                "explanation": "Quand on connaît bien son chemin, on se sent plus à l'aise et en sécurité lors du trajet."
+            },
+            {
+                "question": "Sur le trottoir, on marche pour...",
+                "choices": [
+                    "être en sécurité",
+                    "aller plus vite que les voitures",
+                    "se cacher"
+                ],
+                "answer": "être en sécurité",
+                "explanation": "Le trottoir est réservé aux piétons. Marcher sur le trottoir protège des voitures qui passent sur la route."
+            },
+            {
+                "question": "Si on ne connaît pas son chemin, on peut demander...",
+                "choices": [
+                    "à un adulte de confiance",
+                    "aux nuages",
+                    "à un caillou"
+                ],
+                "answer": "à un adulte de confiance",
+                "explanation": "Quand on est perdu, on demande son chemin à un adulte de confiance, comme un policier ou un commerçant."
+            }
+        ],
+        "cp-lieux-publics": [
+            {
+                "question": "La bibliothèque est un lieu où l'on peut...",
+                "choices": [
+                    "lire des livres",
+                    "prendre l'avion",
+                    "réparer un vélo"
+                ],
+                "answer": "lire des livres",
+                "explanation": "La bibliothèque est un lieu public où l'on peut lire, emprunter des livres et apprendre."
+            },
+            {
+                "question": "La poste sert à...",
+                "choices": [
+                    "envoyer du courrier",
+                    "mesurer la pluie",
+                    "faire des divisions"
+                ],
+                "answer": "envoyer du courrier",
+                "explanation": "La poste est un lieu public où on envoie et reçoit des lettres et des colis."
+            },
+            {
+                "question": "La mairie est un lieu de...",
+                "choices": [
+                    "la commune",
+                    "la montagne",
+                    "la forêt"
+                ],
+                "answer": "la commune",
+                "explanation": "La mairie est le bâtiment principal de la commune ou du village. C'est là qu'on déclare les naissances et les mariages."
+            },
+            {
+                "question": "Le parc est un lieu où l'on peut...",
+                "choices": [
+                    "se promener",
+                    "prendre le train",
+                    "nager en mer"
+                ],
+                "answer": "se promener",
+                "explanation": "Le parc est un espace vert public où l'on peut se balader, jouer et profiter de la nature en ville."
+            },
+            {
+                "question": "L'école est un lieu pour...",
+                "choices": [
+                    "apprendre",
+                    "garer des bateaux",
+                    "cultiver un champ"
+                ],
+                "answer": "apprendre",
+                "explanation": "L'école est un lieu public où les enfants viennent apprendre à lire, écrire, compter et bien plus encore."
+            },
+            {
+                "question": "Des lieux publics différents servent à...",
+                "choices": [
+                    "des besoins différents",
+                    "la même seule chose",
+                    "rien du tout"
+                ],
+                "answer": "des besoins différents",
+                "explanation": "Chaque lieu public a une fonction particulière : la bibliothèque pour les livres, la poste pour le courrier, l'école pour apprendre."
+            },
+            {
+                "question": "Pour retrouver un lieu public, on peut utiliser...",
+                "choices": [
+                    "un plan simple",
+                    "une poésie",
+                    "une table de calcul"
+                ],
+                "answer": "un plan simple",
+                "explanation": "Un plan du quartier ou de la ville montre où se trouvent les lieux publics importants."
+            },
+            {
+                "question": "Les lieux publics aident la vie...",
+                "choices": [
+                    "du quartier ou de la commune",
+                    "des nuages",
+                    "des océans"
+                ],
+                "answer": "du quartier ou de la commune",
+                "explanation": "Les lieux publics (école, parc, mairie, bibliothèque) sont là pour aider tous les habitants de la commune."
+            },
+            {
+                "question": "Le médecin travaille souvent dans...",
+                "choices": [
+                    "un cabinet médical",
+                    "une forêt",
+                    "une piscine"
+                ],
+                "answer": "un cabinet médical",
+                "explanation": "On va voir le médecin dans son cabinet ou à l'hôpital quand on est malade. C'est un lieu de soin."
+            },
+            {
+                "question": "La boulangerie est un lieu où on peut acheter...",
+                "choices": [
+                    "du pain et des gâteaux",
+                    "des crayons",
+                    "des livres"
+                ],
+                "answer": "du pain et des gâteaux",
+                "explanation": "La boulangerie est une boutique du quartier où le boulanger fabrique et vend du pain, des croissants et des gâteaux."
+            }
+        ]
+    }
 }

@@ -1401,6 +1401,28 @@
                                 "category": "passe_simple_recognition_cm2",
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "cm2-conj-passe-simple-er",
+                            "title": "Le passé simple des verbes en -er",
+                            "subtitle": "Il chanta, ils dansèrent…",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "passe_simple_1",
+                                "tenses": "passé simple",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-conj-passe-simple-3g",
+                            "title": "Le passé simple des verbes fréquents",
+                            "subtitle": "Il fut, elle eut, ils firent…",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "passe_simple_3_freq",
+                                "tenses": "passé simple",
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
@@ -1537,6 +1559,39 @@
                             "format": "lesson-card",
                             "id": "cm2-lesson-passe-simple",
                             "subtitle": "Le temps des récits écrits"
+                        },
+                        {
+                            "id": "cm2-lesson-passe-simple-conjuguer",
+                            "title": "Conjuguer au passé simple",
+                            "subtitle": "Les terminaisons du temps des récits",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le passé simple s'emploie surtout à l'écrit, dans les récits. Les verbes en -er suivent un modèle régulier ; les verbes fréquents (être, avoir, faire…) ont des formes courtes à connaître."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "CHANTER : je chantai, tu chantas, il chanta, nous chantâmes, vous chantâtes, ils chantèrent."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Verbes en -er : -ai, -as, -a, -âmes, -âtes, -èrent.",
+                                        "Beaucoup de verbes fréquents prennent -is/-it : il fit, il prit, il dit, il vit.",
+                                        "D'autres prennent -us/-ut : il fut, il eut, il put, il voulut.",
+                                        "Venir et tenir sont à part : il vint, ils vinrent.",
+                                        "L'accent circonflexe signe les personnes nous et vous : nous chantâmes, vous fûtes."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "À l'écrit, les formes les plus utiles sont « il » et « ils » : il chanta / ils chantèrent, il fut / ils furent — commence par bien les connaître !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -1899,6 +1954,28 @@
                                 "category": "grammar_agreement_cm2",
                                 "questions": 14
                             }
+                        },
+                        {
+                            "id": "cm2-redaction-connecteurs",
+                            "title": "Les connecteurs experts",
+                            "subtitle": "Cause, conséquence, opposition…",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "redaction_connecteurs_cm2",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-redaction-meilleure-phrase",
+                            "title": "L'atelier d'écriture",
+                            "subtitle": "Choisis la version la mieux rédigée",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "redaction_phrase_cm2",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -2007,6 +2084,38 @@
                                     "label": "À retenir"
                                 }
                             ]
+                        },
+                        {
+                            "id": "cm2-lesson-ecrire-phrases-riches",
+                            "title": "Écrire des phrases riches et claires",
+                            "subtitle": "Les secrets d'un texte agréable à lire",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Bien écrire, c'est faire des choix : remplacer les mots passe-partout, éviter les répétitions, garder le même temps et ponctuer le dialogue. Chaque relecture améliore le texte."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« Il fait une cabane » devient « Il construit une cabane » ; « la sorcière… la sorcière… la sorcière » devient « la sorcière… elle… la vieille femme »."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Remplacer faire, dire, mettre, avoir par des verbes précis : construire, murmurer, déposer, posséder.",
+                                        "Éviter les répétitions avec des pronoms (il, elle) ou des synonymes.",
+                                        "Garder la concordance : « le dragon dormait quand le chevalier entra ».",
+                                        "Dialogue : deux-points, guillemets, et un tiret à chaque changement de personnage."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "La règle des trois relectures : 1) le sens, 2) les accords, 3) les répétitions. Les écrivains eux-mêmes réécrivent plusieurs fois !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },

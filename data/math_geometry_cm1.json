@@ -1,305 +1,703 @@
 ﻿{
-    "title":  "Géométrie CM1",
-    "gradeId":  "cm1",
-    "categories":  {
-                       "cm1-perimetre-angles":  [
-                                                    {
-                                                        "choices":  [
-                                                                        "le tour de la figure",
-                                                                        "l intérieur de la figure",
-                                                                        "la couleur de la figure"
-                                                                    ],
-                                                        "question":  "Le périmètre mesure...",
-                                                        "answer":  "le tour de la figure"
-                                                    },
-                                                    {
-                                                        "choices":  [
-                                                                        "additionne les côtés",
-                                                                        "multiplie les angles",
-                                                                        "compte les sommets"
-                                                                    ],
-                                                        "question":  "Pour calculer un périmètre, on...",
-                                                        "answer":  "additionne les côtés"
-                                                    },
-                                                    {
-                                                        "choices":  [
-                                                                        "une équerre",
-                                                                        "une règle graduée",
-                                                                        "un compas seulement"
-                                                                    ],
-                                                        "question":  "Un angle droit se reconnaît souvent avec...",
-                                                        "answer":  "une équerre"
-                                                    },
-                                                    {
-                                                        "choices":  [
-                                                                        "20 cm",
-                                                                        "10 cm",
-                                                                        "25 cm"
-                                                                    ],
-                                                        "question":  "Le périmètre d un carré de 5 cm de côté est...",
-                                                        "answer":  "20 cm"
-                                                    },
-                                                    {
-                                                        "choices":  [
-                                                                        "un angle droit",
-                                                                        "un angle plat",
-                                                                        "un cercle"
-                                                                    ],
-                                                        "question":  "Le coin d une feuille montre souvent...",
-                                                        "answer":  "un angle droit"
-                                                    },
-                                                    {
-                                                        "choices":  [
-                                                                        "14 cm",
-                                                                        "12 cm",
-                                                                        "7 cm"
-                                                                    ],
-                                                        "question":  "Un rectangle de 4 cm sur 3 cm a pour périmètre...",
-                                                        "answer":  "14 cm"
-                                                    },
-                                                    {
-                                                        "choices":  [
-                                                                        "le carré et le rectangle",
-                                                                        "le cercle seulement",
-                                                                        "les fractions"
-                                                                    ],
-                                                        "question":  "L angle droit sert à reconnaître...",
-                                                        "answer":  "le carré et le rectangle"
-                                                    },
-                                                    {
-                                                        "choices":  [
-                                                                        "cm ou m",
-                                                                        "litres",
-                                                                        "euros"
-                                                                    ],
-                                                        "question":  "Le périmètre s exprime souvent en...",
-                                                        "answer":  "cm ou m"
-                                                    }
-                                                ],
-                       "cm1-polygones":  [
-                                             {
-                                                 "choices":  [
-                                                                 "3 côtés",
-                                                                 "4 côtés",
-                                                                 "aucun côté"
-                                                             ],
-                                                 "question":  "Un triangle a...",
-                                                 "answer":  "3 côtés"
-                                             },
-                                             {
-                                                 "choices":  [
-                                                                 "4 côtés",
-                                                                 "3 côtés",
-                                                                 "5 côtés"
-                                                             ],
-                                                 "question":  "Un quadrilatère a...",
-                                                 "answer":  "4 côtés"
-                                             },
-                                             {
-                                                 "choices":  [
-                                                                 "un quadrilatère",
-                                                                 "un triangle",
-                                                                 "un cercle"
-                                                             ],
-                                                 "question":  "Le carré est...",
-                                                 "answer":  "un quadrilatère"
-                                             },
-                                             {
-                                                 "choices":  [
-                                                                 "fermée",
-                                                                 "toujours ronde",
-                                                                 "sans côté"
-                                                             ],
-                                                 "question":  "Un polygone est une figure...",
-                                                 "answer":  "fermée"
-                                             },
-                                             {
-                                                 "choices":  [
-                                                                 "4 angles droits",
-                                                                 "1 angle droit",
-                                                                 "aucun angle"
-                                                             ],
-                                                 "question":  "Le rectangle a...",
-                                                 "answer":  "4 angles droits"
-                                             },
-                                             {
-                                                 "choices":  [
-                                                                 "un contour arrondi",
-                                                                 "4 côtés égaux",
-                                                                 "3 sommets"
-                                                             ],
-                                                 "question":  "Le cercle a...",
-                                                 "answer":  "un contour arrondi"
-                                             },
-                                             {
-                                                 "choices":  [
-                                                                 "un quadrilatère",
-                                                                 "un triangle",
-                                                                 "un solide"
-                                                             ],
-                                                 "question":  "Le losange est...",
-                                                 "answer":  "un quadrilatère"
-                                             },
-                                             {
-                                                 "choices":  [
-                                                                 "ses côtés et ses sommets",
-                                                                 "sa couleur",
-                                                                 "son poids"
-                                                             ],
-                                                 "question":  "Pour reconnaître une figure, on observe surtout...",
-                                                 "answer":  "ses côtés et ses sommets"
-                                             }
-                                         ],
-                       "cm1-symetrie-reperage":  [
-                                                     {
-                                                         "question":  "Une figure symétrique a...",
-                                                         "choices":  [
-                                                                         "deux parties qui se correspondent",
-                                                                         "toujours cinq côtés",
-                                                                         "forcément une couleur unique"
-                                                                     ],
-                                                         "answer":  "deux parties qui se correspondent"
-                                                     },
-                                                     {
-                                                         "question":  "L'axe de symétrie sert à...",
-                                                         "choices":  [
-                                                                         "partager la figure en deux parties en miroir",
-                                                                         "mesurer le périmètre",
-                                                                         "calculer une division"
-                                                                     ],
-                                                         "answer":  "partager la figure en deux parties en miroir"
-                                                     },
-                                                     {
-                                                         "question":  "Pour vérifier une symétrie, on peut...",
-                                                         "choices":  [
-                                                                         "plier sur l'axe",
-                                                                         "changer la couleur",
-                                                                         "compter les syllabes"
-                                                                     ],
-                                                         "answer":  "plier sur l'axe"
-                                                     },
-                                                     {
-                                                         "question":  "Le cercle possède...",
-                                                         "choices":  [
-                                                                         "plusieurs axes de symétrie",
-                                                                         "un seul axe de symétrie",
-                                                                         "aucun axe de symétrie"
-                                                                     ],
-                                                         "answer":  "plusieurs axes de symétrie"
-                                                     },
-                                                     {
-                                                         "question":  "Une lettre souvent symétrique verticalement est...",
-                                                         "choices":  [
-                                                                         "A",
-                                                                         "R",
-                                                                         "F"
-                                                                     ],
-                                                         "answer":  "A"
-                                                     },
-                                                     {
-                                                         "question":  "Deux points symétriques sont...",
-                                                         "choices":  [
-                                                                         "à la même distance de l'axe",
-                                                                         "sur la même couleur",
-                                                                         "forcément alignés horizontalement"
-                                                                     ],
-                                                         "answer":  "à la même distance de l'axe"
-                                                     },
-                                                     {
-                                                         "question":  "Dans un miroir, l'image d'une figure montre...",
-                                                         "choices":  [
-                                                                         "une symétrie axiale",
-                                                                         "une rotation complète",
-                                                                         "une réduction de longueur"
-                                                                     ],
-                                                         "answer":  "une symétrie axiale"
-                                                     },
-                                                     {
-                                                         "question":  "Une figure non symétrique est une figure qui...",
-                                                         "choices":  [
-                                                                         "ne se superpose pas par pliage",
-                                                                         "a toujours quatre côtés",
-                                                                         "est forcément un cercle"
-                                                                     ],
-                                                         "answer":  "ne se superpose pas par pliage"
-                                                     }
-                                                 ],
-                       "cm1-vocabulaire-geometrique":  [
-                                                           {
-                                                               "question":  "Le point est souvent noté par...",
-                                                               "choices":  [
-                                                                               "une lettre majuscule",
-                                                                               "un nombre décimal",
-                                                                               "un signe +"
-                                                                           ],
-                                                               "answer":  "une lettre majuscule"
-                                                           },
-                                                           {
-                                                               "question":  "Un segment est...",
-                                                               "choices":  [
-                                                                               "une portion de droite limitée par deux points",
-                                                                               "une droite infinie",
-                                                                               "un angle uniquement"
-                                                                           ],
-                                                               "answer":  "une portion de droite limitée par deux points"
-                                                           },
-                                                           {
-                                                               "question":  "La notation [AB] désigne...",
-                                                               "choices":  [
-                                                                               "le segment AB",
-                                                                               "la droite AB",
-                                                                               "l'angle AB"
-                                                                           ],
-                                                               "answer":  "le segment AB"
-                                                           },
-                                                           {
-                                                               "question":  "Deux droites perpendiculaires forment...",
-                                                               "choices":  [
-                                                                               "un angle droit",
-                                                                               "un cercle",
-                                                                               "un angle plat"
-                                                                           ],
-                                                               "answer":  "un angle droit"
-                                                           },
-                                                           {
-                                                               "question":  "Deux droites parallèles...",
-                                                               "choices":  [
-                                                                               "ne se croisent jamais",
-                                                                               "se coupent toujours",
-                                                                               "ont la même longueur"
-                                                                           ],
-                                                               "answer":  "ne se croisent jamais"
-                                                           },
-                                                           {
-                                                               "question":  "Un sommet d'un polygone est...",
-                                                               "choices":  [
-                                                                               "un coin de la figure",
-                                                                               "la longueur d'un côté",
-                                                                               "la couleur de la figure"
-                                                                           ],
-                                                               "answer":  "un coin de la figure"
-                                                           },
-                                                           {
-                                                               "question":  "L'unité la plus fréquente pour une petite longueur est...",
-                                                               "choices":  [
-                                                                               "le centimètre",
-                                                                               "le litre",
-                                                                               "le kilogramme"
-                                                                           ],
-                                                               "answer":  "le centimètre"
-                                                           },
-                                                           {
-                                                               "question":  "Le périmètre d'une figure est...",
-                                                               "choices":  [
-                                                                               "la longueur de son contour",
-                                                                               "sa surface colorée",
-                                                                               "son nombre d'angles"
-                                                                           ],
-                                                               "answer":  "la longueur de son contour"
-                                                           }
-                                                       ]
-                   },
-    "subjectId":  "math"
+    "title": "Géométrie CM1",
+    "gradeId": "cm1",
+    "categories": {
+        "cm1-perimetre-angles": [
+            {
+                "choices": [
+                    "le tour de la figure",
+                    "l intérieur de la figure",
+                    "la couleur de la figure"
+                ],
+                "question": "Le périmètre mesure...",
+                "answer": "le tour de la figure"
+            },
+            {
+                "choices": [
+                    "additionne les côtés",
+                    "multiplie les angles",
+                    "compte les sommets"
+                ],
+                "question": "Pour calculer un périmètre, on...",
+                "answer": "additionne les côtés"
+            },
+            {
+                "choices": [
+                    "une équerre",
+                    "une règle graduée",
+                    "un compas seulement"
+                ],
+                "question": "Un angle droit se reconnaît souvent avec...",
+                "answer": "une équerre"
+            },
+            {
+                "choices": [
+                    "20 cm",
+                    "10 cm",
+                    "25 cm"
+                ],
+                "question": "Le périmètre d un carré de 5 cm de côté est...",
+                "answer": "20 cm"
+            },
+            {
+                "choices": [
+                    "un angle droit",
+                    "un angle plat",
+                    "un cercle"
+                ],
+                "question": "Le coin d une feuille montre souvent...",
+                "answer": "un angle droit"
+            },
+            {
+                "choices": [
+                    "14 cm",
+                    "12 cm",
+                    "7 cm"
+                ],
+                "question": "Un rectangle de 4 cm sur 3 cm a pour périmètre...",
+                "answer": "14 cm"
+            },
+            {
+                "choices": [
+                    "le carré et le rectangle",
+                    "le cercle seulement",
+                    "les fractions"
+                ],
+                "question": "L angle droit sert à reconnaître...",
+                "answer": "le carré et le rectangle"
+            },
+            {
+                "choices": [
+                    "cm ou m",
+                    "litres",
+                    "euros"
+                ],
+                "question": "Le périmètre s exprime souvent en...",
+                "answer": "cm ou m"
+            },
+            {
+                "question": "Le périmètre d'un carré de 8 cm de côté est...",
+                "choices": [
+                    "32 cm",
+                    "16 cm",
+                    "64 cm"
+                ],
+                "answer": "32 cm",
+                "explanation": "4 côtés de 8 cm : 8 × 4 = 32 cm de tour complet."
+            },
+            {
+                "question": "Le périmètre d'un rectangle de 7 cm sur 5 cm est...",
+                "choices": [
+                    "24 cm",
+                    "12 cm",
+                    "35 cm"
+                ],
+                "answer": "24 cm",
+                "explanation": "(7 + 5) × 2 = 24 cm. Attention au piège : 35 est l'aire, pas le périmètre !"
+            },
+            {
+                "question": "Le périmètre d'un triangle équilatéral de 6 cm de côté est...",
+                "choices": [
+                    "18 cm",
+                    "12 cm",
+                    "36 cm"
+                ],
+                "answer": "18 cm",
+                "explanation": "3 côtés égaux : 6 × 3 = 18 cm."
+            },
+            {
+                "question": "Un carré a un périmètre de 20 cm. Son côté mesure...",
+                "choices": [
+                    "5 cm",
+                    "4 cm",
+                    "10 cm"
+                ],
+                "answer": "5 cm",
+                "explanation": "On partage le tour en 4 côtés égaux : 20 ÷ 4 = 5 cm."
+            },
+            {
+                "question": "La formule du périmètre d'un rectangle est...",
+                "choices": [
+                    "(longueur + largeur) × 2",
+                    "longueur × largeur",
+                    "longueur + largeur"
+                ],
+                "answer": "(longueur + largeur) × 2",
+                "explanation": "On additionne les deux dimensions puis on double : il y a deux longueurs et deux largeurs !"
+            },
+            {
+                "question": "Le périmètre d'un rectangle de 10 cm sur 3 cm est...",
+                "choices": [
+                    "26 cm",
+                    "13 cm",
+                    "30 cm"
+                ],
+                "answer": "26 cm",
+                "explanation": "(10 + 3) × 2 = 26 cm. 30 serait l'aire (10 × 3) !"
+            },
+            {
+                "question": "Pour clôturer un jardin carré de 25 m de côté, il faut...",
+                "choices": [
+                    "100 m de clôture",
+                    "50 m de clôture",
+                    "625 m de clôture"
+                ],
+                "answer": "100 m de clôture",
+                "explanation": "25 × 4 = 100 m : le périmètre sert à ça dans la vraie vie !"
+            },
+            {
+                "question": "Un angle droit mesure...",
+                "choices": [
+                    "90°",
+                    "180°",
+                    "45°"
+                ],
+                "answer": "90°",
+                "explanation": "90 degrés, le quart d'un tour complet : l'angle de l'équerre."
+            },
+            {
+                "question": "Un angle plat mesure...",
+                "choices": [
+                    "180°",
+                    "90°",
+                    "360°"
+                ],
+                "answer": "180°",
+                "explanation": "180°, c'est un demi-tour : les deux côtés de l'angle forment une ligne droite."
+            },
+            {
+                "question": "Le périmètre d'un losange de 9 cm de côté est...",
+                "choices": [
+                    "36 cm",
+                    "18 cm",
+                    "81 cm"
+                ],
+                "answer": "36 cm",
+                "explanation": "Le losange a 4 côtés égaux : 9 × 4 = 36 cm."
+            },
+            {
+                "question": "Le périmètre d'un cercle s'appelle aussi...",
+                "choices": [
+                    "la circonférence",
+                    "le diamètre",
+                    "le rayon"
+                ],
+                "answer": "la circonférence",
+                "explanation": "La circonférence est la longueur du tour complet du cercle."
+            },
+            {
+                "question": "Un rectangle a un périmètre de 18 cm et une longueur de 6 cm. Sa largeur est...",
+                "choices": [
+                    "3 cm",
+                    "12 cm",
+                    "9 cm"
+                ],
+                "answer": "3 cm",
+                "explanation": "Demi-périmètre : 18 ÷ 2 = 9 ; largeur : 9 − 6 = 3 cm."
+            },
+            {
+                "question": "Si on double le côté d'un carré, son périmètre...",
+                "choices": [
+                    "double aussi",
+                    "reste pareil",
+                    "est divisé par 2"
+                ],
+                "answer": "double aussi",
+                "explanation": "Côté 5 → périmètre 20 ; côté 10 → périmètre 40 : tout double ensemble !"
+            },
+            {
+                "question": "Un carré de 1 m de côté a un périmètre de...",
+                "choices": [
+                    "400 cm",
+                    "100 cm",
+                    "40 cm"
+                ],
+                "answer": "400 cm",
+                "explanation": "1 m = 100 cm, donc 100 × 4 = 400 cm, soit 4 m."
+            },
+            {
+                "question": "L'unité de mesure des angles est...",
+                "choices": [
+                    "le degré",
+                    "le centimètre",
+                    "le gramme"
+                ],
+                "answer": "le degré",
+                "explanation": "Les angles se mesurent en degrés (°), de 0° à 360° pour un tour complet."
+            },
+            {
+                "question": "Le périmètre d'un triangle de côtés 4 cm, 5 cm et 6 cm est...",
+                "choices": [
+                    "15 cm",
+                    "12 cm",
+                    "20 cm"
+                ],
+                "answer": "15 cm",
+                "explanation": "On additionne tous les côtés : 4 + 5 + 6 = 15 cm."
+            }
+        ],
+        "cm1-polygones": [
+            {
+                "choices": [
+                    "3 côtés",
+                    "4 côtés",
+                    "aucun côté"
+                ],
+                "question": "Un triangle a...",
+                "answer": "3 côtés"
+            },
+            {
+                "choices": [
+                    "4 côtés",
+                    "3 côtés",
+                    "5 côtés"
+                ],
+                "question": "Un quadrilatère a...",
+                "answer": "4 côtés"
+            },
+            {
+                "choices": [
+                    "un quadrilatère",
+                    "un triangle",
+                    "un cercle"
+                ],
+                "question": "Le carré est...",
+                "answer": "un quadrilatère"
+            },
+            {
+                "choices": [
+                    "fermée",
+                    "toujours ronde",
+                    "sans côté"
+                ],
+                "question": "Un polygone est une figure...",
+                "answer": "fermée"
+            },
+            {
+                "choices": [
+                    "4 angles droits",
+                    "1 angle droit",
+                    "aucun angle"
+                ],
+                "question": "Le rectangle a...",
+                "answer": "4 angles droits"
+            },
+            {
+                "choices": [
+                    "un contour arrondi",
+                    "4 côtés égaux",
+                    "3 sommets"
+                ],
+                "question": "Le cercle a...",
+                "answer": "un contour arrondi"
+            },
+            {
+                "choices": [
+                    "un quadrilatère",
+                    "un triangle",
+                    "un solide"
+                ],
+                "question": "Le losange est...",
+                "answer": "un quadrilatère"
+            },
+            {
+                "choices": [
+                    "ses côtés et ses sommets",
+                    "sa couleur",
+                    "son poids"
+                ],
+                "question": "Pour reconnaître une figure, on observe surtout...",
+                "answer": "ses côtés et ses sommets"
+            },
+            {
+                "question": "Un octogone a...",
+                "choices": [
+                    "8 côtés",
+                    "6 côtés",
+                    "10 côtés"
+                ],
+                "answer": "8 côtés",
+                "explanation": "« Octo » = huit ! Le panneau STOP est un octogone parfait."
+            },
+            {
+                "question": "Un polygone régulier a...",
+                "choices": [
+                    "des côtés et des angles tous égaux",
+                    "au moins un angle droit",
+                    "toujours 4 côtés"
+                ],
+                "answer": "des côtés et des angles tous égaux",
+                "explanation": "Carré, triangle équilatéral, hexagone régulier : tout y est parfaitement égal."
+            },
+            {
+                "question": "Le carré est un rectangle particulier car il a...",
+                "choices": [
+                    "4 angles droits ET 4 côtés égaux",
+                    "des côtés courbes",
+                    "5 sommets"
+                ],
+                "answer": "4 angles droits ET 4 côtés égaux",
+                "explanation": "Tout carré est un rectangle (4 angles droits), mais en plus ses côtés sont tous égaux !"
+            },
+            {
+                "question": "Un triangle équilatéral a...",
+                "choices": [
+                    "3 côtés de même longueur",
+                    "2 côtés égaux seulement",
+                    "un angle droit"
+                ],
+                "answer": "3 côtés de même longueur",
+                "explanation": "« Équi-latéral » = côtés égaux : ses 3 angles sont aussi égaux, 60° chacun."
+            },
+            {
+                "question": "Un triangle isocèle a...",
+                "choices": [
+                    "2 côtés de même longueur",
+                    "3 côtés différents",
+                    "4 côtés"
+                ],
+                "answer": "2 côtés de même longueur",
+                "explanation": "Deux côtés égaux comme les deux pans d'un toit : c'est le triangle isocèle."
+            },
+            {
+                "question": "Le cercle est-il un polygone ?",
+                "choices": [
+                    "Non, il n'a pas de côtés droits",
+                    "Oui, avec un côté",
+                    "Oui, avec mille côtés"
+                ],
+                "answer": "Non, il n'a pas de côtés droits",
+                "explanation": "Un polygone est fait de segments droits ; le cercle, tout en courbe, n'en fait pas partie !"
+            },
+            {
+                "question": "Une diagonale d'un quadrilatère relie...",
+                "choices": [
+                    "deux sommets opposés",
+                    "deux côtés voisins",
+                    "le centre et un côté"
+                ],
+                "answer": "deux sommets opposés",
+                "explanation": "Dans un carré ABCD, les diagonales sont [AC] et [BD] : elles se croisent au centre."
+            },
+            {
+                "question": "Un polygone à 7 côtés s'appelle...",
+                "choices": [
+                    "un heptagone",
+                    "un hexagone",
+                    "un pentagone"
+                ],
+                "answer": "un heptagone",
+                "explanation": "Penta 5, hexa 6, hepta 7, octo 8 : le grec donne leur nom aux polygones !"
+            }
+        ],
+        "cm1-symetrie-reperage": [
+            {
+                "question": "Une figure symétrique a...",
+                "choices": [
+                    "deux parties qui se correspondent",
+                    "toujours cinq côtés",
+                    "forcément une couleur unique"
+                ],
+                "answer": "deux parties qui se correspondent"
+            },
+            {
+                "question": "L'axe de symétrie sert à...",
+                "choices": [
+                    "partager la figure en deux parties en miroir",
+                    "mesurer le périmètre",
+                    "calculer une division"
+                ],
+                "answer": "partager la figure en deux parties en miroir"
+            },
+            {
+                "question": "Pour vérifier une symétrie, on peut...",
+                "choices": [
+                    "plier sur l'axe",
+                    "changer la couleur",
+                    "compter les syllabes"
+                ],
+                "answer": "plier sur l'axe"
+            },
+            {
+                "question": "Le cercle possède...",
+                "choices": [
+                    "plusieurs axes de symétrie",
+                    "un seul axe de symétrie",
+                    "aucun axe de symétrie"
+                ],
+                "answer": "plusieurs axes de symétrie"
+            },
+            {
+                "question": "Une lettre souvent symétrique verticalement est...",
+                "choices": [
+                    "A",
+                    "R",
+                    "F"
+                ],
+                "answer": "A"
+            },
+            {
+                "question": "Deux points symétriques sont...",
+                "choices": [
+                    "à la même distance de l'axe",
+                    "sur la même couleur",
+                    "forcément alignés horizontalement"
+                ],
+                "answer": "à la même distance de l'axe"
+            },
+            {
+                "question": "Dans un miroir, l'image d'une figure montre...",
+                "choices": [
+                    "une symétrie axiale",
+                    "une rotation complète",
+                    "une réduction de longueur"
+                ],
+                "answer": "une symétrie axiale"
+            },
+            {
+                "question": "Une figure non symétrique est une figure qui...",
+                "choices": [
+                    "ne se superpose pas par pliage",
+                    "a toujours quatre côtés",
+                    "est forcément un cercle"
+                ],
+                "answer": "ne se superpose pas par pliage"
+            },
+            {
+                "question": "Le symétrique d'un point est situé...",
+                "choices": [
+                    "à la même distance de l'axe, de l'autre côté",
+                    "n'importe où",
+                    "sur l'axe"
+                ],
+                "answer": "à la même distance de l'axe, de l'autre côté",
+                "explanation": "L'axe agit comme un miroir : même distance de chaque côté, perpendiculairement."
+            },
+            {
+                "question": "Un triangle équilatéral possède...",
+                "choices": [
+                    "3 axes de symétrie",
+                    "1 axe de symétrie",
+                    "aucun axe"
+                ],
+                "answer": "3 axes de symétrie",
+                "explanation": "Un axe passe par chaque sommet et le milieu du côté opposé : 3 axes en tout !"
+            },
+            {
+                "question": "La lettre H possède...",
+                "choices": [
+                    "2 axes de symétrie",
+                    "aucun axe",
+                    "un seul axe"
+                ],
+                "answer": "2 axes de symétrie",
+                "explanation": "Le H se plie verticalement ET horizontalement : deux axes de symétrie !"
+            },
+            {
+                "question": "Sur un quadrillage, on construit un symétrique en comptant...",
+                "choices": [
+                    "les carreaux de part et d'autre de l'axe",
+                    "les couleurs",
+                    "les diagonales seulement"
+                ],
+                "answer": "les carreaux de part et d'autre de l'axe",
+                "explanation": "3 carreaux avant l'axe = 3 carreaux après : le quadrillage rend la symétrie facile !"
+            },
+            {
+                "question": "Un axe de symétrie peut être...",
+                "choices": [
+                    "vertical, horizontal ou oblique",
+                    "seulement vertical",
+                    "seulement horizontal"
+                ],
+                "answer": "vertical, horizontal ou oblique",
+                "explanation": "L'axe penche parfois : les diagonales du carré sont des axes obliques !"
+            },
+            {
+                "question": "Pour donner la position d'une case, on indique par convention...",
+                "choices": [
+                    "la colonne puis la ligne",
+                    "la ligne puis la couleur",
+                    "seulement la ligne"
+                ],
+                "answer": "la colonne puis la ligne",
+                "explanation": "Comme à la bataille navale : B3 = colonne B, ligne 3. L'ordre compte !"
+            },
+            {
+                "question": "Une figure et son symétrique sont...",
+                "choices": [
+                    "superposables après pliage sur l'axe",
+                    "toujours différentes",
+                    "de tailles différentes"
+                ],
+                "answer": "superposables après pliage sur l'axe",
+                "explanation": "C'est le test du pliage : les deux figures coïncident exactement."
+            },
+            {
+                "question": "Le symétrique d'un cercle par rapport à un axe est...",
+                "choices": [
+                    "un cercle identique",
+                    "un ovale",
+                    "un carré"
+                ],
+                "answer": "un cercle identique",
+                "explanation": "La symétrie conserve les formes et les tailles : un cercle reste un cercle !"
+            }
+        ],
+        "cm1-vocabulaire-geometrique": [
+            {
+                "question": "Le point est souvent noté par...",
+                "choices": [
+                    "une lettre majuscule",
+                    "un nombre décimal",
+                    "un signe +"
+                ],
+                "answer": "une lettre majuscule"
+            },
+            {
+                "question": "Un segment est...",
+                "choices": [
+                    "une portion de droite limitée par deux points",
+                    "une droite infinie",
+                    "un angle uniquement"
+                ],
+                "answer": "une portion de droite limitée par deux points"
+            },
+            {
+                "question": "La notation [AB] désigne...",
+                "choices": [
+                    "le segment AB",
+                    "la droite AB",
+                    "l'angle AB"
+                ],
+                "answer": "le segment AB"
+            },
+            {
+                "question": "Deux droites perpendiculaires forment...",
+                "choices": [
+                    "un angle droit",
+                    "un cercle",
+                    "un angle plat"
+                ],
+                "answer": "un angle droit"
+            },
+            {
+                "question": "Deux droites parallèles...",
+                "choices": [
+                    "ne se croisent jamais",
+                    "se coupent toujours",
+                    "ont la même longueur"
+                ],
+                "answer": "ne se croisent jamais"
+            },
+            {
+                "question": "Un sommet d'un polygone est...",
+                "choices": [
+                    "un coin de la figure",
+                    "la longueur d'un côté",
+                    "la couleur de la figure"
+                ],
+                "answer": "un coin de la figure"
+            },
+            {
+                "question": "L'unité la plus fréquente pour une petite longueur est...",
+                "choices": [
+                    "le centimètre",
+                    "le litre",
+                    "le kilogramme"
+                ],
+                "answer": "le centimètre"
+            },
+            {
+                "question": "Le périmètre d'une figure est...",
+                "choices": [
+                    "la longueur de son contour",
+                    "sa surface colorée",
+                    "son nombre d'angles"
+                ],
+                "answer": "la longueur de son contour"
+            },
+            {
+                "question": "Une droite est...",
+                "choices": [
+                    "illimitée des deux côtés",
+                    "limitée par deux points",
+                    "toujours verticale"
+                ],
+                "answer": "illimitée des deux côtés",
+                "explanation": "La droite continue à l'infini : on n'en dessine qu'un morceau sur la feuille !"
+            },
+            {
+                "question": "Une demi-droite a...",
+                "choices": [
+                    "une origine et se prolonge d'un seul côté",
+                    "deux extrémités",
+                    "aucun point"
+                ],
+                "answer": "une origine et se prolonge d'un seul côté",
+                "explanation": "Comme un rayon de soleil : elle part d'un point et file à l'infini d'un côté."
+            },
+            {
+                "question": "La notation (AB) désigne...",
+                "choices": [
+                    "la droite passant par A et B",
+                    "le segment de A à B",
+                    "la longueur AB"
+                ],
+                "answer": "la droite passant par A et B",
+                "explanation": "Parenthèses = droite, crochets [AB] = segment : chaque notation a son sens !"
+            },
+            {
+                "question": "Le milieu d'un segment le partage en...",
+                "choices": [
+                    "deux parties de même longueur",
+                    "trois parties",
+                    "deux parties inégales"
+                ],
+                "answer": "deux parties de même longueur",
+                "explanation": "Le milieu M de [AB] vérifie AM = MB : à égale distance des deux extrémités."
+            },
+            {
+                "question": "Les petits traits identiques codés sur deux segments indiquent...",
+                "choices": [
+                    "qu'ils ont la même longueur",
+                    "qu'ils sont parallèles",
+                    "qu'ils sont à effacer"
+                ],
+                "answer": "qu'ils ont la même longueur",
+                "explanation": "Le codage évite de mesurer : mêmes traits = mêmes longueurs, à lire sur la figure !"
+            },
+            {
+                "question": "Des droites sécantes sont des droites qui...",
+                "choices": [
+                    "se coupent en un point",
+                    "ne se touchent jamais",
+                    "sont confondues"
+                ],
+                "answer": "se coupent en un point",
+                "explanation": "Sécantes = qui se coupent. Les perpendiculaires sont des sécantes très spéciales !"
+            },
+            {
+                "question": "Pour reporter une longueur sans la mesurer, on utilise...",
+                "choices": [
+                    "le compas",
+                    "la gomme",
+                    "le rapporteur"
+                ],
+                "answer": "le compas",
+                "explanation": "On pique, on écarte à la bonne longueur, et on reporte : précision garantie !"
+            },
+            {
+                "question": "Un quadrilatère possède...",
+                "choices": [
+                    "4 sommets",
+                    "3 sommets",
+                    "5 sommets"
+                ],
+                "answer": "4 sommets",
+                "explanation": "4 côtés, 4 sommets : carré, rectangle, losange sont tous des quadrilatères."
+            }
+        ]
+    },
+    "subjectId": "math"
 }
-
-

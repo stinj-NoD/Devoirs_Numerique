@@ -1663,6 +1663,17 @@
                                 "tenses": "passé composé",
                                 "questions": 14
                             }
+                        },
+                        {
+                            "id": "cm1-conj-passe-simple-reco",
+                            "title": "Reconnaître le passé simple",
+                            "subtitle": "Le temps des contes et des récits",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "passe_simple_recognition_cm1",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -1739,6 +1750,38 @@
                             "format": "lesson-card",
                             "id": "cm1-lesson-passe-compose-auxiliaires",
                             "subtitle": "Le bon auxiliaire au passé composé"
+                        },
+                        {
+                            "id": "cm1-lesson-passe-simple-recit",
+                            "title": "Le passé simple, le temps du récit",
+                            "subtitle": "Il ouvrit, elle chanta, ils partirent…",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans les contes et les romans, les actions du récit sont souvent au passé simple : « le loup surgit », « la fée disparut ». C'est un temps qu'on lit beaucoup, surtout à la 3e personne."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« Le roi vivait heureux (imparfait : le décor). Un matin, un dragon attaqua le château (passé simple : l'action soudaine !) »"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Le passé simple raconte une action passée, soudaine et terminée.",
+                                        "L'imparfait plante le décor ; le passé simple fait avancer l'action.",
+                                        "Terminaisons fréquentes à repérer : -a (il chanta), -it (il prit), -ut (il fut), -irent, -èrent.",
+                                        "On le rencontre surtout en lisant : c'est le temps des histoires écrites."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le duo magique des récits : imparfait pour « pendant ce temps-là », passé simple pour « soudain ! »"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -1928,6 +1971,28 @@
                                 "category": "grammar_agreement_cm1",
                                 "questions": 14
                             }
+                        },
+                        {
+                            "id": "cm1-redaction-connecteurs",
+                            "title": "Les connecteurs",
+                            "subtitle": "Relier ses idées pour bien écrire",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "redaction_connecteurs_cm1",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-redaction-meilleure-phrase",
+                            "title": "La meilleure phrase",
+                            "subtitle": "Choisis la phrase la mieux écrite",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "redaction_phrase_cm1",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -2006,6 +2071,38 @@
                                     "content": "Chercher une famille de mots aide à mieux comprendre et mieux écrire."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cm1-lesson-connecteurs",
+                            "title": "Les connecteurs pour bien écrire",
+                            "subtitle": "D'abord, ensuite, mais, car, donc…",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Les connecteurs sont les panneaux indicateurs d'un texte : ils relient les phrases et guident le lecteur dans le temps ou dans les idées."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« D'abord, je bats les œufs. Ensuite, j'ajoute la farine. Enfin, je fais cuire. » Sans connecteurs, la recette serait un désordre !"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Pour ordonner dans le temps : d'abord, ensuite, puis, enfin.",
+                                        "Pour expliquer la cause : car, parce que, en effet.",
+                                        "Pour donner la conséquence : donc, c'est pourquoi, alors.",
+                                        "Pour opposer : mais, pourtant, cependant."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Relis ton texte : si toutes tes phrases commencent par « et après », remplace-les par de vrais connecteurs — ton texte gagnera en clarté !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },

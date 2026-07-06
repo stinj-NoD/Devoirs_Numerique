@@ -1,303 +1,615 @@
 ﻿{
-    "title":  "Géométrie CP",
-    "gradeId":  "cp",
-    "subjectId":  "math",
-    "categories":  {
-                       "cp-formes-reconnaissance":  [
-                                                        {
-                                                            "question":  "Quelle forme a 3 côtés ?",
-                                                            "choices":  [
-                                                                            "Le triangle",
-                                                                            "Le cercle",
-                                                                            "Le rectangle"
-                                                                        ],
-                                                            "answer":  "Le triangle",
-                                                            "explanation":  "Le triangle a exactement 3 côtés. Pense au toit d'une maison !"
-                                                        },
-                                                        {
-                                                            "question":  "Quelle forme est ronde ?",
-                                                            "choices":  [
-                                                                            "Le cercle",
-                                                                            "Le carré",
-                                                                            "Le triangle"
-                                                                        ],
-                                                            "answer":  "Le cercle",
-                                                            "explanation":  "Le cercle est tout rond, comme une roue ou une pièce de monnaie. Il n'a pas de côté droit."
-                                                        },
-                                                        {
-                                                            "question":  "Le carré a...",
-                                                            "choices":  [
-                                                                            "4 côtés égaux",
-                                                                            "3 côtés",
-                                                                            "un côté courbe"
-                                                                        ],
-                                                            "answer":  "4 côtés égaux",
-                                                            "explanation":  "Le carré a 4 côtés et ils sont tous pareils : ils mesurent tous la même longueur."
-                                                        },
-                                                        {
-                                                            "question":  "Le rectangle a...",
-                                                            "choices":  [
-                                                                            "4 côtés",
-                                                                            "2 côtés",
-                                                                            "5 côtés"
-                                                                        ],
-                                                            "answer":  "4 côtés",
-                                                            "explanation":  "Le rectangle a 4 côtés, comme le carré. Mais ses côtés ne sont pas tous égaux : 2 sont longs et 2 sont courts."
-                                                        },
-                                                        {
-                                                            "question":  "Un panneau rond ressemble à...",
-                                                            "choices":  [
-                                                                            "un cercle",
-                                                                            "un triangle",
-                                                                            "un rectangle"
-                                                                        ],
-                                                            "answer":  "un cercle",
-                                                            "explanation":  "Un panneau rond est en forme de cercle. On trouve des cercles dans la vie de tous les jours : les horloges, les assiettes, les roues..."
-                                                        },
-                                                        {
-                                                            "question":  "Un toit de maison peut ressembler à...",
-                                                            "choices":  [
-                                                                            "un triangle",
-                                                                            "un cercle",
-                                                                            "un ovale"
-                                                                        ],
-                                                            "answer":  "un triangle",
-                                                            "explanation":  "Le toit pointu d'une maison a la forme d'un triangle avec ses 3 côtés et son sommet en haut."
-                                                        },
-                                                        {
-                                                            "question":  "Un livre ressemble souvent à...",
-                                                            "choices":  [
-                                                                            "un rectangle",
-                                                                            "un cercle",
-                                                                            "un triangle"
-                                                                        ],
-                                                            "answer":  "un rectangle",
-                                                            "explanation":  "Un livre a la forme d'un rectangle : il est plus haut que large et a 4 angles droits."
-                                                        },
-                                                        {
-                                                            "question":  "Pour reconnaître une forme, on regarde surtout...",
-                                                            "choices":  [
-                                                                            "son contour",
-                                                                            "sa couleur",
-                                                                            "son prix"
-                                                                        ],
-                                                            "answer":  "son contour",
-                                                            "explanation":  "Pour savoir si une forme est un triangle, un carré ou un cercle, on regarde son contour (ses côtés), pas sa couleur !"
-                                                        }
-                                                    ],
-                       "cp-longueurs-comparaison":  [
-                                                        {
-                                                            "question":  "Quel mot dit qu'un objet est plus grand en longueur ?",
-                                                            "choices":  [
-                                                                            "Plus long",
-                                                                            "Plus rond",
-                                                                            "Plus léger"
-                                                                        ],
-                                                            "answer":  "Plus long",
-                                                            "explanation":  "Quand un objet mesure plus que l'autre, on dit qu'il est plus long. Le contraire, c'est plus court."
-                                                        },
-                                                        {
-                                                            "question":  "Une craie de 5 cm est ... qu'une règle de 20 cm.",
-                                                            "choices":  [
-                                                                            "plus courte",
-                                                                            "plus longue",
-                                                                            "aussi longue"
-                                                                        ],
-                                                            "answer":  "plus courte",
-                                                            "explanation":  "5 cm, c'est moins que 20 cm. Donc la craie est plus courte que la règle."
-                                                        },
-                                                        {
-                                                            "question":  "Pour comparer deux bandes, il faut d'abord...",
-                                                            "choices":  [
-                                                                            "les aligner",
-                                                                            "les colorier",
-                                                                            "les découper"
-                                                                        ],
-                                                            "answer":  "les aligner",
-                                                            "explanation":  "Pour bien comparer, on place les deux bandes l'une à côté de l'autre, côte à côte, en partant du même bord."
-                                                        },
-                                                        {
-                                                            "question":  "Deux crayons de même taille sont...",
-                                                            "choices":  [
-                                                                            "de même longueur",
-                                                                            "de couleurs différentes",
-                                                                            "toujours cassés"
-                                                                        ],
-                                                            "answer":  "de même longueur",
-                                                            "explanation":  "Quand deux objets mesurent pareil, on dit qu'ils ont la même longueur. Ni l'un ni l'autre n'est plus long."
-                                                        },
-                                                        {
-                                                            "question":  "Le ruban A mesure 12 cm, le ruban B 9 cm. Le plus long est...",
-                                                            "choices":  [
-                                                                            "le ruban A",
-                                                                            "le ruban B",
-                                                                            "aucun des deux"
-                                                                        ],
-                                                            "answer":  "le ruban A",
-                                                            "explanation":  "12 cm, c'est plus que 9 cm. Donc le ruban A est plus long que le ruban B."
-                                                        },
-                                                        {
-                                                            "question":  "Le mot contraire de plus long est...",
-                                                            "choices":  [
-                                                                            "plus court",
-                                                                            "plus haut",
-                                                                            "plus lourd"
-                                                                        ],
-                                                            "answer":  "plus court",
-                                                            "explanation":  "Plus long et plus court sont des contraires. Si quelque chose n'est pas plus long, c'est qu'il est plus court !"
-                                                        },
-                                                        {
-                                                            "question":  "Pour mesurer, on peut utiliser...",
-                                                            "choices":  [
-                                                                            "une règle",
-                                                                            "une gomme",
-                                                                            "une trousse"
-                                                                        ],
-                                                            "answer":  "une règle",
-                                                            "explanation":  "La règle est l'outil qu'on utilise pour mesurer des longueurs. Elle a des petits traits qui s'appellent des centimètres."
-                                                        },
-                                                        {
-                                                            "question":  "Si deux bâtons se terminent au même endroit, ils sont...",
-                                                            "choices":  [
-                                                                            "de même longueur",
-                                                                            "de couleurs différentes",
-                                                                            "forcément courbés"
-                                                                        ],
-                                                            "answer":  "de même longueur",
-                                                            "explanation":  "Si on les aligne du même côté et qu'ils finissent au même endroit, ils mesurent pareil : ils ont la même longueur."
-                                                        }
-                                                    ],
-                       "cp-moments-journee":  [
-                                                  {
-                                                      "question":  "On se lève souvent...",
-                                                      "choices":  [
-                                                                      "le matin",
-                                                                      "la nuit complète",
-                                                                      "jamais"
-                                                                  ],
-                                                      "answer":  "le matin",
-                                                      "explanation":  "Le matin, c'est le début de la journée, quand le soleil se lève. On se lève, on prend le petit-déjeuner et on va à l'école !"
-                                                  },
-                                                  {
-                                                      "question":  "Le repas du milieu de la journée se prend...",
-                                                      "choices":  [
-                                                                      "à midi",
-                                                                      "à minuit",
-                                                                      "à l'aube"
-                                                                  ],
-                                                      "answer":  "à midi",
-                                                      "explanation":  "Midi, c'est le milieu de la journée. On mange le déjeuner à midi, quand les aiguilles de l'horloge indiquent 12 h."
-                                                  },
-                                                  {
-                                                      "question":  "Après la classe, on est souvent...",
-                                                      "choices":  [
-                                                                      "l'après-midi",
-                                                                      "au matin",
-                                                                      "au lever du jour"
-                                                                  ],
-                                                      "answer":  "l'après-midi",
-                                                      "explanation":  "L'après-midi vient après midi. C'est le moment de jouer, de goûter et de faire ses devoirs."
-                                                  },
-                                                  {
-                                                      "question":  "On se couche plutôt...",
-                                                      "choices":  [
-                                                                      "le soir",
-                                                                      "à midi",
-                                                                      "en fin de matinée"
-                                                                  ],
-                                                      "answer":  "le soir",
-                                                      "explanation":  "Le soir, c'est la fin de la journée, quand il fait nuit. On mange le dîner et on va se coucher."
-                                                  },
-                                                  {
-                                                      "question":  "Quel ordre est correct ?",
-                                                      "choices":  [
-                                                                      "matin, midi, après-midi, soir",
-                                                                      "soir, matin, midi, après-midi",
-                                                                      "midi, soir, matin, après-midi"
-                                                                  ],
-                                                      "answer":  "matin, midi, après-midi, soir",
-                                                      "explanation":  "La journée se passe toujours dans le même ordre : matin → midi → après-midi → soir. Puis vient la nuit."
-                                                  },
-                                                  {
-                                                      "question":  "Le petit-déjeuner se prend souvent...",
-                                                      "choices":  [
-                                                                      "le matin",
-                                                                      "le soir",
-                                                                      "la nuit"
-                                                                  ],
-                                                      "answer":  "le matin",
-                                                      "explanation":  "Le petit-déjeuner, c'est le premier repas de la journée. On le mange le matin, au réveil."
-                                                  },
-                                                  {
-                                                      "question":  "Quand le soleil se couche, c'est souvent...",
-                                                      "choices":  [
-                                                                      "le soir",
-                                                                      "le matin",
-                                                                      "à midi"
-                                                                  ],
-                                                      "answer":  "le soir",
-                                                      "explanation":  "Le soir, le soleil disparaît à l'horizon. C'est le signe que la journée se termine."
-                                                  },
-                                                  {
-                                                      "question":  "Le mot qui vient juste après midi est...",
-                                                      "choices":  [
-                                                                      "après-midi",
-                                                                      "matin",
-                                                                      "nuit"
-                                                                  ],
-                                                      "answer":  "après-midi",
-                                                      "explanation":  "Après-midi veut dire « après midi ». C'est le moment de la journée qui suit le repas de midi."
-                                                  }
-                                              ],
-                       "cp-masses-contenances":  [
-                                                      {
-                                                          "question":  "Pour peser un objet, on utilise...",
-                                                          "choices":  ["une balance", "une règle", "une horloge"],
-                                                          "answer":  "une balance",
-                                                          "explanation":  "La balance sert à peser. Elle nous dit si un objet est lourd ou léger en le comparant à un autre."
-                                                      },
-                                                      {
-                                                          "question":  "Pour mesurer un liquide, on utilise...",
-                                                          "choices":  ["un verre mesureur", "une balance", "un mètre"],
-                                                          "answer":  "un verre mesureur",
-                                                          "explanation":  "Un verre mesureur a des traits sur le côté pour voir combien de liquide il y a dedans. On s'en sert pour les recettes de cuisine !"
-                                                      },
-                                                      {
-                                                          "question":  "Un éléphant est...",
-                                                          "choices":  ["plus lourd qu'une souris", "plus léger qu'une souris", "aussi lourd qu'une souris"],
-                                                          "answer":  "plus lourd qu'une souris",
-                                                          "explanation":  "Un éléphant pèse des tonnes ! Une souris pèse quelques grammes. L'éléphant est donc beaucoup plus lourd."
-                                                      },
-                                                      {
-                                                          "question":  "Une bouteille pleine contient...",
-                                                          "choices":  ["plus de liquide qu'une bouteille vide", "moins de liquide qu'une bouteille vide", "autant qu'une bouteille vide"],
-                                                          "answer":  "plus de liquide qu'une bouteille vide",
-                                                          "explanation":  "Plein et vide sont des contraires. Une bouteille pleine a du liquide dedans, une bouteille vide n'en a pas du tout."
-                                                      },
-                                                      {
-                                                          "question":  "Le mot qui dit qu'un objet pèse beaucoup est...",
-                                                          "choices":  ["lourd", "léger", "court"],
-                                                          "answer":  "lourd",
-                                                          "explanation":  "Lourd veut dire que l'objet pèse beaucoup. Le contraire de lourd, c'est léger."
-                                                      },
-                                                      {
-                                                          "question":  "Le mot qui dit qu'un objet pèse peu est...",
-                                                          "choices":  ["léger", "lourd", "long"],
-                                                          "answer":  "léger",
-                                                          "explanation":  "Léger veut dire que l'objet ne pèse pas beaucoup. Une plume est légère, une pierre est lourde."
-                                                      },
-                                                      {
-                                                          "question":  "Pour comparer le poids de deux objets, je peux utiliser...",
-                                                          "choices":  ["une balance à deux plateaux", "un crayon", "un calendrier"],
-                                                          "answer":  "une balance à deux plateaux",
-                                                          "explanation":  "Avec une balance à deux plateaux, on pose un objet de chaque côté. Le plateau qui descend contient l'objet le plus lourd."
-                                                      },
-                                                      {
-                                                          "question":  "Un verre rempli à moitié contient...",
-                                                          "choices":  ["moins qu'un verre plein", "plus qu'un verre plein", "autant qu'un verre plein"],
-                                                          "answer":  "moins qu'un verre plein",
-                                                          "explanation":  "À moitié plein, c'est moins que plein. Il y a de la place pour encore plus de liquide !"
-                                                      }
-                                                  ]
-                   }
+    "title": "Géométrie CP",
+    "gradeId": "cp",
+    "subjectId": "math",
+    "categories": {
+        "cp-formes-reconnaissance": [
+            {
+                "question": "Quelle forme a 3 côtés ?",
+                "choices": [
+                    "Le triangle",
+                    "Le cercle",
+                    "Le rectangle"
+                ],
+                "answer": "Le triangle",
+                "explanation": "Le triangle a exactement 3 côtés. Pense au toit d'une maison !"
+            },
+            {
+                "question": "Quelle forme est ronde ?",
+                "choices": [
+                    "Le cercle",
+                    "Le carré",
+                    "Le triangle"
+                ],
+                "answer": "Le cercle",
+                "explanation": "Le cercle est tout rond, comme une roue ou une pièce de monnaie. Il n'a pas de côté droit."
+            },
+            {
+                "question": "Le carré a...",
+                "choices": [
+                    "4 côtés égaux",
+                    "3 côtés",
+                    "un côté courbe"
+                ],
+                "answer": "4 côtés égaux",
+                "explanation": "Le carré a 4 côtés et ils sont tous pareils : ils mesurent tous la même longueur."
+            },
+            {
+                "question": "Le rectangle a...",
+                "choices": [
+                    "4 côtés",
+                    "2 côtés",
+                    "5 côtés"
+                ],
+                "answer": "4 côtés",
+                "explanation": "Le rectangle a 4 côtés, comme le carré. Mais ses côtés ne sont pas tous égaux : 2 sont longs et 2 sont courts."
+            },
+            {
+                "question": "Un panneau rond ressemble à...",
+                "choices": [
+                    "un cercle",
+                    "un triangle",
+                    "un rectangle"
+                ],
+                "answer": "un cercle",
+                "explanation": "Un panneau rond est en forme de cercle. On trouve des cercles dans la vie de tous les jours : les horloges, les assiettes, les roues..."
+            },
+            {
+                "question": "Un toit de maison peut ressembler à...",
+                "choices": [
+                    "un triangle",
+                    "un cercle",
+                    "un ovale"
+                ],
+                "answer": "un triangle",
+                "explanation": "Le toit pointu d'une maison a la forme d'un triangle avec ses 3 côtés et son sommet en haut."
+            },
+            {
+                "question": "Un livre ressemble souvent à...",
+                "choices": [
+                    "un rectangle",
+                    "un cercle",
+                    "un triangle"
+                ],
+                "answer": "un rectangle",
+                "explanation": "Un livre a la forme d'un rectangle : il est plus haut que large et a 4 angles droits."
+            },
+            {
+                "question": "Pour reconnaître une forme, on regarde surtout...",
+                "choices": [
+                    "son contour",
+                    "sa couleur",
+                    "son prix"
+                ],
+                "answer": "son contour",
+                "explanation": "Pour savoir si une forme est un triangle, un carré ou un cercle, on regarde son contour (ses côtés), pas sa couleur !"
+            },
+            {
+                "question": "Combien de coins a un carré ?",
+                "choices": [
+                    "4",
+                    "3",
+                    "6"
+                ],
+                "answer": "4",
+                "explanation": "Le carré a 4 coins et 4 côtés de la même longueur."
+            },
+            {
+                "question": "Combien de côtés a un rectangle ?",
+                "choices": [
+                    "4",
+                    "2",
+                    "5"
+                ],
+                "answer": "4",
+                "explanation": "Le rectangle a 4 côtés : 2 grands et 2 petits, face à face."
+            },
+            {
+                "question": "Une pièce de monnaie a la forme...",
+                "choices": [
+                    "d'un rond",
+                    "d'un triangle",
+                    "d'un carré"
+                ],
+                "answer": "d'un rond",
+                "explanation": "Les pièces sont rondes : elles roulent quand elles tombent !"
+            },
+            {
+                "question": "Une part de pizza ressemble souvent à...",
+                "choices": [
+                    "un triangle",
+                    "un rond entier",
+                    "un rectangle"
+                ],
+                "answer": "un triangle",
+                "explanation": "En coupant un rond en parts, on obtient des triangles à pointe !"
+            },
+            {
+                "question": "Combien de coins a un rond ?",
+                "choices": [
+                    "Aucun",
+                    "4",
+                    "1"
+                ],
+                "answer": "Aucun",
+                "explanation": "Le rond n'a ni coin ni côté droit : son bord tourne sans s'arrêter."
+            },
+            {
+                "question": "Une fenêtre ressemble souvent à...",
+                "choices": [
+                    "un rectangle",
+                    "un triangle",
+                    "une étoile"
+                ],
+                "answer": "un rectangle",
+                "explanation": "Portes, fenêtres, écrans : le rectangle est partout dans la maison !"
+            },
+            {
+                "question": "Quelle forme a 4 côtés tous de la même longueur ?",
+                "choices": [
+                    "Le carré",
+                    "Le rectangle",
+                    "Le triangle"
+                ],
+                "answer": "Le carré",
+                "explanation": "C'est la spécialité du carré : 4 côtés exactement pareils !"
+            },
+            {
+                "question": "Une assiette plate a la forme...",
+                "choices": [
+                    "d'un rond",
+                    "d'un carré",
+                    "d'un triangle"
+                ],
+                "answer": "d'un rond",
+                "explanation": "La plupart des assiettes sont rondes, comme les verres vus de dessus."
+            },
+            {
+                "question": "Un dé à jouer ressemble à...",
+                "choices": [
+                    "un cube",
+                    "une boule",
+                    "un rond plat"
+                ],
+                "answer": "un cube",
+                "explanation": "Le dé est un cube : 6 faces carrées, une par nombre de 1 à 6 !"
+            },
+            {
+                "question": "Un ballon a la forme...",
+                "choices": [
+                    "d'une boule",
+                    "d'un cube",
+                    "d'un triangle"
+                ],
+                "answer": "d'une boule",
+                "explanation": "La boule roule dans tous les sens : parfaite pour jouer au ballon !"
+            },
+            {
+                "question": "Quelle forme a 6 côtés, comme les alvéoles des abeilles ?",
+                "choices": [
+                    "L'hexagone",
+                    "Le triangle",
+                    "Le carré"
+                ],
+                "answer": "L'hexagone",
+                "explanation": "Les abeilles construisent des hexagones parfaits, et la France en a aussi la forme !"
+            },
+            {
+                "question": "Une tablette de chocolat ressemble à...",
+                "choices": [
+                    "un rectangle",
+                    "un rond",
+                    "une étoile"
+                ],
+                "answer": "un rectangle",
+                "explanation": "La tablette est un rectangle découpé en petits carrés… de chocolat !"
+            }
+        ],
+        "cp-longueurs-comparaison": [
+            {
+                "question": "Quel mot dit qu'un objet est plus grand en longueur ?",
+                "choices": [
+                    "Plus long",
+                    "Plus rond",
+                    "Plus léger"
+                ],
+                "answer": "Plus long",
+                "explanation": "Quand un objet mesure plus que l'autre, on dit qu'il est plus long. Le contraire, c'est plus court."
+            },
+            {
+                "question": "Une craie de 5 cm est ... qu'une règle de 20 cm.",
+                "choices": [
+                    "plus courte",
+                    "plus longue",
+                    "aussi longue"
+                ],
+                "answer": "plus courte",
+                "explanation": "5 cm, c'est moins que 20 cm. Donc la craie est plus courte que la règle."
+            },
+            {
+                "question": "Pour comparer deux bandes, il faut d'abord...",
+                "choices": [
+                    "les aligner",
+                    "les colorier",
+                    "les découper"
+                ],
+                "answer": "les aligner",
+                "explanation": "Pour bien comparer, on place les deux bandes l'une à côté de l'autre, côte à côte, en partant du même bord."
+            },
+            {
+                "question": "Deux crayons de même taille sont...",
+                "choices": [
+                    "de même longueur",
+                    "de couleurs différentes",
+                    "toujours cassés"
+                ],
+                "answer": "de même longueur",
+                "explanation": "Quand deux objets mesurent pareil, on dit qu'ils ont la même longueur. Ni l'un ni l'autre n'est plus long."
+            },
+            {
+                "question": "Le ruban A mesure 12 cm, le ruban B 9 cm. Le plus long est...",
+                "choices": [
+                    "le ruban A",
+                    "le ruban B",
+                    "aucun des deux"
+                ],
+                "answer": "le ruban A",
+                "explanation": "12 cm, c'est plus que 9 cm. Donc le ruban A est plus long que le ruban B."
+            },
+            {
+                "question": "Le mot contraire de plus long est...",
+                "choices": [
+                    "plus court",
+                    "plus haut",
+                    "plus lourd"
+                ],
+                "answer": "plus court",
+                "explanation": "Plus long et plus court sont des contraires. Si quelque chose n'est pas plus long, c'est qu'il est plus court !"
+            },
+            {
+                "question": "Pour mesurer, on peut utiliser...",
+                "choices": [
+                    "une règle",
+                    "une gomme",
+                    "une trousse"
+                ],
+                "answer": "une règle",
+                "explanation": "La règle est l'outil qu'on utilise pour mesurer des longueurs. Elle a des petits traits qui s'appellent des centimètres."
+            },
+            {
+                "question": "Si deux bâtons se terminent au même endroit, ils sont...",
+                "choices": [
+                    "de même longueur",
+                    "de couleurs différentes",
+                    "forcément courbés"
+                ],
+                "answer": "de même longueur",
+                "explanation": "Si on les aligne du même côté et qu'ils finissent au même endroit, ils mesurent pareil : ils ont la même longueur."
+            },
+            {
+                "question": "Pour savoir qui est le plus grand, deux enfants peuvent...",
+                "choices": [
+                    "se mettre dos à dos",
+                    "crier plus fort",
+                    "fermer les yeux"
+                ],
+                "answer": "se mettre dos à dos",
+                "explanation": "Dos à dos, on compare directement les tailles : le plus grand dépasse !"
+            },
+            {
+                "question": "Un serpent est souvent ... qu'une souris.",
+                "choices": [
+                    "plus long",
+                    "plus court",
+                    "aussi long"
+                ],
+                "answer": "plus long",
+                "explanation": "Certains serpents mesurent plusieurs mètres, la souris à peine quelques centimètres !"
+            },
+            {
+                "question": "Pour comparer deux crayons, on place leurs bouts...",
+                "choices": [
+                    "au même point de départ",
+                    "n'importe où",
+                    "l'un sur l'autre en croix"
+                ],
+                "answer": "au même point de départ",
+                "explanation": "Alignés au départ, on voit tout de suite lequel dépasse l'autre !"
+            },
+            {
+                "question": "Quel objet est le plus long ?",
+                "choices": [
+                    "Un balai",
+                    "Une gomme",
+                    "Une cuillère"
+                ],
+                "answer": "Un balai",
+                "explanation": "Le balai dépasse largement la cuillère et la toute petite gomme !"
+            },
+            {
+                "question": "Un pas de géant est ... qu'un pas de fourmi.",
+                "choices": [
+                    "plus grand",
+                    "plus petit",
+                    "aussi grand"
+                ],
+                "answer": "plus grand",
+                "explanation": "Comparer, c'est aussi imaginer : le géant traverse la pièce en trois pas !"
+            },
+            {
+                "question": "Ma taille se mesure en...",
+                "choices": [
+                    "centimètres",
+                    "litres",
+                    "kilogrammes"
+                ],
+                "answer": "centimètres",
+                "explanation": "La toise du docteur mesure ta taille en centimètres : tu grandis chaque année !"
+            },
+            {
+                "question": "Quelle longueur est la plus courte ?",
+                "choices": [
+                    "3 cm",
+                    "30 cm",
+                    "13 cm"
+                ],
+                "answer": "3 cm",
+                "explanation": "3 est plus petit que 13 et que 30 : c'est donc la longueur la plus courte."
+            },
+            {
+                "question": "Sur une règle, les nombres indiquent...",
+                "choices": [
+                    "des centimètres",
+                    "des heures",
+                    "des euros"
+                ],
+                "answer": "des centimètres",
+                "explanation": "Chaque graduation de la règle marque un centimètre de plus."
+            }
+        ],
+        "cp-moments-journee": [
+            {
+                "question": "On se lève souvent...",
+                "choices": [
+                    "le matin",
+                    "la nuit complète",
+                    "jamais"
+                ],
+                "answer": "le matin",
+                "explanation": "Le matin, c'est le début de la journée, quand le soleil se lève. On se lève, on prend le petit-déjeuner et on va à l'école !"
+            },
+            {
+                "question": "Le repas du milieu de la journée se prend...",
+                "choices": [
+                    "à midi",
+                    "à minuit",
+                    "à l'aube"
+                ],
+                "answer": "à midi",
+                "explanation": "Midi, c'est le milieu de la journée. On mange le déjeuner à midi, quand les aiguilles de l'horloge indiquent 12 h."
+            },
+            {
+                "question": "Après la classe, on est souvent...",
+                "choices": [
+                    "l'après-midi",
+                    "au matin",
+                    "au lever du jour"
+                ],
+                "answer": "l'après-midi",
+                "explanation": "L'après-midi vient après midi. C'est le moment de jouer, de goûter et de faire ses devoirs."
+            },
+            {
+                "question": "On se couche plutôt...",
+                "choices": [
+                    "le soir",
+                    "à midi",
+                    "en fin de matinée"
+                ],
+                "answer": "le soir",
+                "explanation": "Le soir, c'est la fin de la journée, quand il fait nuit. On mange le dîner et on va se coucher."
+            },
+            {
+                "question": "Quel ordre est correct ?",
+                "choices": [
+                    "matin, midi, après-midi, soir",
+                    "soir, matin, midi, après-midi",
+                    "midi, soir, matin, après-midi"
+                ],
+                "answer": "matin, midi, après-midi, soir",
+                "explanation": "La journée se passe toujours dans le même ordre : matin → midi → après-midi → soir. Puis vient la nuit."
+            },
+            {
+                "question": "Le petit-déjeuner se prend souvent...",
+                "choices": [
+                    "le matin",
+                    "le soir",
+                    "la nuit"
+                ],
+                "answer": "le matin",
+                "explanation": "Le petit-déjeuner, c'est le premier repas de la journée. On le mange le matin, au réveil."
+            },
+            {
+                "question": "Quand le soleil se couche, c'est souvent...",
+                "choices": [
+                    "le soir",
+                    "le matin",
+                    "à midi"
+                ],
+                "answer": "le soir",
+                "explanation": "Le soir, le soleil disparaît à l'horizon. C'est le signe que la journée se termine."
+            },
+            {
+                "question": "Le mot qui vient juste après midi est...",
+                "choices": [
+                    "après-midi",
+                    "matin",
+                    "nuit"
+                ],
+                "answer": "après-midi",
+                "explanation": "Après-midi veut dire « après midi ». C'est le moment de la journée qui suit le repas de midi."
+            },
+            {
+                "question": "La nuit, on...",
+                "choices": [
+                    "dort",
+                    "va à l'école",
+                    "prend le goûter"
+                ],
+                "answer": "dort",
+                "explanation": "La nuit est faite pour dormir : le corps et le cerveau se reposent."
+            },
+            {
+                "question": "Le goûter se prend...",
+                "choices": [
+                    "l'après-midi",
+                    "le matin très tôt",
+                    "au milieu de la nuit"
+                ],
+                "answer": "l'après-midi",
+                "explanation": "Vers 16 h 30, après l'école : le petit repas de l'après-midi !"
+            },
+            {
+                "question": "Avant de partir à l'école, on prend...",
+                "choices": [
+                    "le petit-déjeuner",
+                    "le dîner",
+                    "le goûter"
+                ],
+                "answer": "le petit-déjeuner",
+                "explanation": "Le petit-déjeuner donne l'énergie pour toute la matinée de classe."
+            },
+            {
+                "question": "Le soleil se lève...",
+                "choices": [
+                    "le matin",
+                    "le soir",
+                    "à minuit"
+                ],
+                "answer": "le matin",
+                "explanation": "Le lever du soleil marque le début du jour ; son coucher annonce le soir."
+            },
+            {
+                "question": "Quand les étoiles brillent dans le ciel, c'est...",
+                "choices": [
+                    "la nuit",
+                    "midi",
+                    "le matin"
+                ],
+                "answer": "la nuit",
+                "explanation": "On ne voit les étoiles que la nuit : le jour, la lumière du soleil les cache !"
+            },
+            {
+                "question": "Après la nuit vient...",
+                "choices": [
+                    "le matin",
+                    "le soir",
+                    "l'après-midi"
+                ],
+                "answer": "le matin",
+                "explanation": "La journée tourne en boucle : nuit, matin, midi, après-midi, soir… et ça recommence !"
+            },
+            {
+                "question": "On dit « bonne nuit »...",
+                "choices": [
+                    "avant de dormir",
+                    "en arrivant à l'école",
+                    "à midi"
+                ],
+                "answer": "avant de dormir",
+                "explanation": "Chaque moment a ses mots : bonjour le matin, bonne nuit avant de dormir !"
+            },
+            {
+                "question": "La récréation du matin a lieu...",
+                "choices": [
+                    "pendant l'école",
+                    "pendant la nuit",
+                    "avant le lever du soleil"
+                ],
+                "answer": "pendant l'école",
+                "explanation": "La récréation coupe la matinée de classe : un moment pour jouer et souffler."
+            }
+        ],
+        "cp-masses-contenances": [
+            {
+                "question": "Pour peser un objet, on utilise...",
+                "choices": [
+                    "une balance",
+                    "une règle",
+                    "une horloge"
+                ],
+                "answer": "une balance",
+                "explanation": "La balance sert à peser. Elle nous dit si un objet est lourd ou léger en le comparant à un autre."
+            },
+            {
+                "question": "Pour mesurer un liquide, on utilise...",
+                "choices": [
+                    "un verre mesureur",
+                    "une balance",
+                    "un mètre"
+                ],
+                "answer": "un verre mesureur",
+                "explanation": "Un verre mesureur a des traits sur le côté pour voir combien de liquide il y a dedans. On s'en sert pour les recettes de cuisine !"
+            },
+            {
+                "question": "Un éléphant est...",
+                "choices": [
+                    "plus lourd qu'une souris",
+                    "plus léger qu'une souris",
+                    "aussi lourd qu'une souris"
+                ],
+                "answer": "plus lourd qu'une souris",
+                "explanation": "Un éléphant pèse des tonnes ! Une souris pèse quelques grammes. L'éléphant est donc beaucoup plus lourd."
+            },
+            {
+                "question": "Une bouteille pleine contient...",
+                "choices": [
+                    "plus de liquide qu'une bouteille vide",
+                    "moins de liquide qu'une bouteille vide",
+                    "autant qu'une bouteille vide"
+                ],
+                "answer": "plus de liquide qu'une bouteille vide",
+                "explanation": "Plein et vide sont des contraires. Une bouteille pleine a du liquide dedans, une bouteille vide n'en a pas du tout."
+            },
+            {
+                "question": "Le mot qui dit qu'un objet pèse beaucoup est...",
+                "choices": [
+                    "lourd",
+                    "léger",
+                    "court"
+                ],
+                "answer": "lourd",
+                "explanation": "Lourd veut dire que l'objet pèse beaucoup. Le contraire de lourd, c'est léger."
+            },
+            {
+                "question": "Le mot qui dit qu'un objet pèse peu est...",
+                "choices": [
+                    "léger",
+                    "lourd",
+                    "long"
+                ],
+                "answer": "léger",
+                "explanation": "Léger veut dire que l'objet ne pèse pas beaucoup. Une plume est légère, une pierre est lourde."
+            },
+            {
+                "question": "Pour comparer le poids de deux objets, je peux utiliser...",
+                "choices": [
+                    "une balance à deux plateaux",
+                    "un crayon",
+                    "un calendrier"
+                ],
+                "answer": "une balance à deux plateaux",
+                "explanation": "Avec une balance à deux plateaux, on pose un objet de chaque côté. Le plateau qui descend contient l'objet le plus lourd."
+            },
+            {
+                "question": "Un verre rempli à moitié contient...",
+                "choices": [
+                    "moins qu'un verre plein",
+                    "plus qu'un verre plein",
+                    "autant qu'un verre plein"
+                ],
+                "answer": "moins qu'un verre plein",
+                "explanation": "À moitié plein, c'est moins que plein. Il y a de la place pour encore plus de liquide !"
+            }
+        ]
+    }
 }
