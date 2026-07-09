@@ -1871,9 +1871,10 @@ const UI = {
                         <div class="grimoire-card-back">?</div>
                     </div>`;
             }
+            const mythique = card.family === 'mythologie' ? ' grimoire-card--mythique' : '';
             return `
-                <button type="button" class="grimoire-card ${this._cardRarityClass(card.rarity)}" data-card-id="${this._escapeText(card.id)}"
-                    aria-label="${this._escapeText(card.name)}, carte ${this._escapeText(rarities[card.rarity]?.label || card.rarity)}">
+                <button type="button" class="grimoire-card ${this._cardRarityClass(card.rarity)}${mythique}" data-card-id="${this._escapeText(card.id)}"
+                    aria-label="${this._escapeText(card.name)}, carte ${this._escapeText(rarities[card.rarity]?.label || card.rarity)}${card.family === 'mythologie' ? ', Mythique' : ''}">
                     <img class="grimoire-card-img" src="${this._escapeText(card.image)}" alt="" loading="lazy">
                     <div class="grimoire-card-name">${this._escapeText(card.name)}</div>
                     ${count > 1 ? `<div class="grimoire-card-count">×${count}</div>` : ''}
@@ -1954,9 +1955,10 @@ const UI = {
             if (original) chainParts.push(`Version prismatique de <strong>${this._escapeText(original.name)}</strong>`);
         }
 
-        box.className = `card-detail ${this._cardRarityClass(card.rarity)}`;
+        const mythique = card.family === 'mythologie';
+        box.className = `card-detail ${this._cardRarityClass(card.rarity)}${mythique ? ' grimoire-card--mythique' : ''}`;
         box.innerHTML = `
-            <div class="card-detail-rarity" style="color: ${this._escapeText(rarity.color)}">${this._escapeText(rarity.label)}</div>
+            <div class="card-detail-rarity" style="color: ${this._escapeText(rarity.color)}">${this._escapeText(rarity.label)}${mythique ? ' <span class="card-detail-mythique-tag">✦ Mythique</span>' : ''}</div>
             <img class="card-detail-img" src="${this._escapeText(card.image)}" alt="${this._escapeText(card.name)}">
             <div class="card-detail-name">${this._escapeText(card.name)}</div>
             <p class="card-detail-lore">${this._escapeText(card.lore || '')}</p>
@@ -2101,6 +2103,7 @@ const UI = {
                     // d'être retournées — le suspense monte d'un cran.
                     const aura = ['epique', 'legendaire', 'brillante'].includes(card.rarity)
                         ? ` booster-flip--aura-${card.rarity}` : '';
+                    const mythique = card.family === 'mythologie' ? ' grimoire-card--mythique' : '';
                     return `
                     <button type="button" class="booster-flip${aura}" style="animation-delay: ${i * 0.15}s"
                         data-index="${i}" aria-label="Carte ${i + 1}, toucher pour retourner">
@@ -2108,7 +2111,7 @@ const UI = {
                             <div class="booster-flip-back">
                                 <span class="booster-flip-back-logo">${this.grimoireLogoSvg(44)}</span>
                             </div>
-                            <div class="booster-flip-front booster-card ${this._cardRarityClass(card.rarity)}">
+                            <div class="booster-flip-front booster-card ${this._cardRarityClass(card.rarity)}${mythique}">
                                 <img class="grimoire-card-img" src="${this._escapeText(card.image)}" alt="">
                                 <div class="grimoire-card-name">${this._escapeText(card.name)}</div>
                                 <div class="booster-card-tag">${isNew

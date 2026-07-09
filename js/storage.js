@@ -317,16 +317,22 @@ const Storage = {
         return this._readCardState(name).ownedIds;
     },
 
-    boosterCost: 25,
-    // Remboursement des doublons, par rareté
-    _duplicateRefund: { commune: 2, rare: 4, epique: 8, legendaire: 15, brillante: 25 },
+    boosterCost: 20,
+    // Remboursement des doublons, par rareté (x1.5 vs version d'origine :
+    // un doublon reste toujours moins bon qu'une nouvelle carte, mais pique
+    // moins la frustration — n'accélère pas la collection, voir sim_economy.js)
+    _duplicateRefund: { commune: 3, rare: 6, epique: 12, legendaire: 22, brillante: 38 },
     // Probabilités de tirage par carte (2 premiers emplacements du booster).
-    // Le légendaire est volontairement très rare et la Prismatique encore
-    // plus : les trouver doit être un événement.
-    _rarityWeights: { commune: 70, rare: 24.5, epique: 5, legendaire: 0.35, brillante: 0.15 },
+    // Réajustées en juillet 2026 (141 cartes, 5 raretés) : le catalogue a
+    // grossi (24 cartes Loup/Fennec) sans que les taux suivent, ce qui aurait
+    // fait grimper la complétion à ~14 mois pour un enfant moyen. Le
+    // légendaire et la Prismatique restent volontairement rares (repérés
+    // typiquement entre le 10e et le 15e booster), mais plus assez pour
+    // que la collection dépasse l'année scolaire. Voir sim_economy.js.
+    _rarityWeights: { commune: 50, rare: 33, epique: 14, legendaire: 1, brillante: 2 },
     // 3e emplacement : « slot rare garanti », comme dans tous les grands jeux
     // de cartes — un booster ne peut jamais sortir 3 communes.
-    _rareSlotWeights: { rare: 86, epique: 12.5, legendaire: 1, brillante: 0.5 },
+    _rareSlotWeights: { rare: 72, epique: 22, legendaire: 3.5, brillante: 2.5 },
 
     /**
      * Ouvre un booster de 3 cartes parmi `catalog` (data/cards.json).

@@ -4885,6 +4885,43 @@ button.collection-map--fact {
     .grimoire-card--brillante::after { animation: none; }
 }
 
+/* Badge « Mythique » : cosmétique uniquement (branche mythologie), n'a
+   aucun effet sur le tirage ni l'économie — se superpose à la classe de
+   rareté normale (legendaire/brillante) plutôt que de créer un nouveau
+   palier de rareté. */
+.grimoire-card--mythique {
+    position: relative;
+}
+
+.grimoire-card--mythique::before {
+    content: '✦';
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    z-index: 1;
+    font-size: 0.85rem;
+    color: #b98bf5;
+    text-shadow: 0 0 6px rgba(185, 139, 245, 0.9);
+}
+
+.grimoire-card.grimoire-card--mythique,
+.booster-card.grimoire-card--mythique {
+    outline: 2px solid rgba(185, 139, 245, 0.55);
+    outline-offset: 2px;
+}
+
+.card-detail-mythique-tag {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: var(--font-size-xs);
+    font-weight: 800;
+    color: #b98bf5;
+    background: rgba(185, 139, 245, 0.14);
+    border: 1px solid rgba(185, 139, 245, 0.4);
+}
+
 .grimoire-card--locked {
     cursor: default;
     opacity: 0.85;

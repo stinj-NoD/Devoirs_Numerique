@@ -13,6 +13,30 @@ Le backlog initial est largement couvert ; les prochaines vagues doivent mainten
 
 ## Etat actuel
 
+- **Vague « profondeur » (juillet 2026) soldée** : les 89 banques dont le pool
+  etait < 1,2x le tirage ont ete portees a >= 2x (~860 entrees ajoutees : EMC,
+  geographie, histoire, sciences, maths QCM, problemes, carte monde, grilles).
+  Pire ratio restant : 1,2. Prochain palier eventuel : les ~190 banques entre
+  1,2x et 2x (confort, non critique).
+- **Vague « lecons cycle 2 » (juillet 2026) soldee** : +13 lecons CE1 et
+  +15 lecons CE2 (28 au total, format lesson-card) dans les 25 sous-themes
+  qui n'avaient qu'une lecon pour beaucoup d'exercices : tables et calcul,
+  orthographe (m devant m/b/p, lettres muettes, pluriels, homophones),
+  grammaire/conjugaison, frise du temps, ecole pour tous (Jules Ferry),
+  relief de la France, demarche d'experience, vote, solidarite,
+  responsabilite. CE1 : 60 lecons, CE2 : 69 lecons.
+- **Re-ecriture des lecons squelettiques (juillet 2026) soldee** : les
+  15 lecons CE1 reduites a un bloc unique (dont les anciennes lecons
+  methodologiques type « ecouter et ecrire ») ont ete reecrites en lecons
+  notionnelles completes (4 blocs : notion, exemple, je retiens, astuce),
+  sans renvoi a la mecanique de l'application. Plus aucune lecon < 3 blocs
+  sur les 5 niveaux (323 lecons).
+- **Passe simple + production d'ecrit (juillet 2026) soldes** : moteur
+  conjugation etendu au passe simple (prefixMap), 2 categories de verbes
+  (8 en -er + 10 frequents irreguliers, formes verifiees), reconnaissance
+  CM1 (10) et CM2 (16), banques redaction (connecteurs 2x12, meilleure
+  phrase 2x10), 7 exercices et 4 lecons CM1/CM2. Le backlog lecons
+  historique est entierement solde.
 - Lots historiques `L01` a `L69` soldes
 - Lecons et exercices coexistent desormais sur tous les niveaux
 - Audit complet du programme scolaire mene sur les 5 niveaux et 6 matieres (L62) : combler les manques reels plutot qu'ajouter du contenu au hasard
