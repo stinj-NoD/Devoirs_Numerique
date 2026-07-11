@@ -13,9 +13,34 @@ Le backlog initial est largement couvert ; les prochaines vagues doivent mainten
 
 ## Etat actuel
 
-- Lots historiques `L01` a `L60` soldes
+- **Vague « profondeur » (juillet 2026) soldée** : les 89 banques dont le pool
+  etait < 1,2x le tirage ont ete portees a >= 2x (~860 entrees ajoutees : EMC,
+  geographie, histoire, sciences, maths QCM, problemes, carte monde, grilles).
+  Pire ratio restant : 1,2. Prochain palier eventuel : les ~190 banques entre
+  1,2x et 2x (confort, non critique).
+- **Vague « lecons cycle 2 » (juillet 2026) soldee** : +13 lecons CE1 et
+  +15 lecons CE2 (28 au total, format lesson-card) dans les 25 sous-themes
+  qui n'avaient qu'une lecon pour beaucoup d'exercices : tables et calcul,
+  orthographe (m devant m/b/p, lettres muettes, pluriels, homophones),
+  grammaire/conjugaison, frise du temps, ecole pour tous (Jules Ferry),
+  relief de la France, demarche d'experience, vote, solidarite,
+  responsabilite. CE1 : 60 lecons, CE2 : 69 lecons.
+- **Re-ecriture des lecons squelettiques (juillet 2026) soldee** : les
+  15 lecons CE1 reduites a un bloc unique (dont les anciennes lecons
+  methodologiques type « ecouter et ecrire ») ont ete reecrites en lecons
+  notionnelles completes (4 blocs : notion, exemple, je retiens, astuce),
+  sans renvoi a la mecanique de l'application. Plus aucune lecon < 3 blocs
+  sur les 5 niveaux (323 lecons).
+- **Passe simple + production d'ecrit (juillet 2026) soldes** : moteur
+  conjugation etendu au passe simple (prefixMap), 2 categories de verbes
+  (8 en -er + 10 frequents irreguliers, formes verifiees), reconnaissance
+  CM1 (10) et CM2 (16), banques redaction (connecteurs 2x12, meilleure
+  phrase 2x10), 7 exercices et 4 lecons CM1/CM2. Le backlog lecons
+  historique est entierement solde.
+- Lots historiques `L01` a `L69` soldes
 - Lecons et exercices coexistent desormais sur tous les niveaux
-- Les prochaines priorites sont la QA langue, la re-ecriture des lecons trop methodologiques et la densification des notions encore legeres
+- Audit complet du programme scolaire mene sur les 5 niveaux et 6 matieres (L62) : combler les manques reels plutot qu'ajouter du contenu au hasard
+- Les prochaines priorites sont la QA langue, la re-ecriture des lecons trop methodologiques, le passe simple/production d'ecrit en francais, et la densification des notions encore legeres
 
 ## Vagues
 
@@ -44,7 +69,7 @@ Le backlog initial est largement couvert ; les prochaines vagues doivent mainten
 | L03 | done | 1 | CE1 | Géographie | Densifier le repérage | `data/geography_ce1.json`, `data/ce1.json` | 2 catégories, 14 à 16 items | 2 catégories et 2 exercices ajoutés |
 | L04 | done | 1 | CE2 | Geographie | Renforcer France et espaces | `data/geography_ce2.json`, `data/ce2.json` | 2 categories, 14 a 16 items | 2 categories et 2 exercices ajoutes |
 | L05 | done | 1 | CP | Sciences | Renforcer Questionner le monde | `data/science_cp.json`, `data/cp.json` | 2 categories, 12 a 14 items | 2 categories et 2 exercices ajoutes |
-| L06 | done | 1 | CE1 | Sciences | �?tendre vivant et matière | `data/science_ce1.json`, `data/ce1.json` | 2 catégories, 12 à 14 items | 2 catégories et 2 exercices ajoutés |
+| L06 | done | 1 | CE1 | Sciences | Étendre vivant et matière | `data/science_ce1.json`, `data/ce1.json` | 2 catégories, 12 à 14 items | 2 catégories et 2 exercices ajoutés |
 | L07 | done | 1 | CE2 | Sciences | Introduire observation et objets | `data/science_ce2.json`, `data/ce2.json` | 2 categories, 12 a 16 items | 2 categories et 2 exercices ajoutes |
 | L08 | done | 1 | CE1 | EMC | Structurer règles et respect | `data/emc_ce1.json`, `data/ce1.json` | 2 catégories, 12 à 14 items | 2 catégories et 2 exercices ajoutés |
 | L09 | done | 1 | CE2 | EMC | Structurer responsabilité et coopération | `data/emc_ce2.json`, `data/ce2.json` | 2 catégories, 12 à 14 items | 2 catégories et 2 exercices ajoutés |
@@ -151,3 +176,12 @@ Le backlog initial est largement couvert ; les prochaines vagues doivent mainten
 | L58 | terminé | 2026-03-24 | Vague massive de leçons CM1-CM2 | 8 leçons supplémentaires ajoutées en maths et français, bundle régénéré et validation OK |
 | L59 | terminé | 2026-03-24 | Navigation structurée des leçons | sections Leçons/Exercices ajoutées dans le sous-thème avec bundle régénéré et validation OK |
 | L60 | terminé | 2026-03-24 | Première vague de leçons documentaires CP-CE2 | 6 leçons ajoutées en histoire, géographie et sciences avec bundle régénéré et validation OK |
+| L61 | terminé | 2026-06-24 | Nouveaux moteurs interactifs | `fraction-build` (construction de fraction par clics), `tap-features` étendu aux sciences, `map-locate` étendu à CP/CE1, accessibilité clavier vérifiée sur tous les `board-interactive` |
+| L62 | terminé | 2026-06-24 | Audit complet du programme scolaire (5 niveaux x 6 matières) | proportionnalité/pourcentage/échelle/vitesse renforcés (maths CM1-CM2), bug du moteur `echelle` corrigé, analyse fonctionnelle de phrase ajoutée (français CM1-CM2), institutions de la République (EMC CM2), bonus manqués comblés sur géo/sciences/EMC CP-CM1 |
+| L63 | terminé | 2026-06-24 | Corrections orthographiques | fautes de frappe et artefacts d'encodage corrigés dans `science_cm1.json` et `emc_cm1.json` (étre, Oé, gréce é, é??, etc.) |
+| L64 | terminé | 2026-06-24 | Carré magique : progression par niveau | paramètre `solutionCount` (2 valeurs en CP, 3 dès CE2), correction d'un bug de doublons et de raccourcis de réponse dans le moteur `carre-somme` |
+| L65 | terminé | 2026-06-24 | Refonte visuelle pièces/billets et oiseau | rendu simili-euros (pièces bicolores, billets aux couleurs BCE), animation de vol en vague avec nuages pour le moteur `oiseau-math` |
+| L66 | terminé | 2026-06-24 | Nouveau moteur de lecture de graphique | `bar-chart-read` (diagramme en barres, QCM/numérique) ajouté en CM1/CM2, comble une notion du programme jusque-là absente |
+| L67 | terminé | 2026-06-24 | Gamification : nouveaux badges | 6 badges ajoutés (200 étoiles, 25 sans-faute, palier "exercices essayés" à 10/25/50/100) sans nouveau tracking |
+| L68 | terminé | 2026-06-25 | Bouton de mise à jour de l'application | `App.forceAppUpdate()` dans le menu, force `registration.update()` du service worker ; liste `DATA_ASSETS` de `sw.js` complétée (45 fichiers manquants) et `CACHE_NAME` incrémenté |
+| L69 | terminé | 2026-06-25 | Mise à jour de la documentation | `CONTENT_ARCHITECTURE.md` régénéré automatiquement depuis `data/`, corrections de mojibake et de moteurs manquants dans README/technicalaspect/SECURITY/new_project_documentation/docs |

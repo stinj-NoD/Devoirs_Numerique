@@ -84,7 +84,11 @@ Les seules entrées réellement libres côté utilisateur sont limitées :
 - nom du profil
 - réponses aux exercices
 
-Les contenus pédagogiques ne doivent jamais injecter de HTML arbitraire. Les leçons restent rendues comme données structurées, pas comme markup libre.
+Les contenus pédagogiques ne doivent jamais injecter de HTML arbitraire. Les leçons restent rendues comme données structurées, pas comme markup libre. [security.js](js/security.js) (`SecurityUtils.escapeHtml`/`escapeAttr`) échappe systématiquement le texte dynamique inséré dans le DOM (questions générées, libellés de cartes, contenus de moteurs procéduraux).
+
+### 6. Mise à jour forcée du service worker
+
+Le bouton « Mettre à jour l'application » (`App.forceAppUpdate()` dans [app.js](js/app.js)) appelle `registration.update()` puis active le nouveau worker via `SKIP_WAITING`. Il n'expose aucune nouvelle surface d'entrée : c'est un appel à l'API standard `ServiceWorkerRegistration`, sans paramètre fourni par l'utilisateur.
 
 ## Risques connus
 

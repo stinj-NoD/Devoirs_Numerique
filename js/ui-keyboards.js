@@ -91,8 +91,8 @@ const UIKeyboards = {
 
         html += `<button class="btn key key-comma" data-val=",">,</button>`;
         html += `<button class="btn key" data-val="0">0</button>`;
-        html += `<button class="btn btn--danger key del key-delete" data-val="backspace">&#9003;</button>`;
-        html += `<button class="btn btn--success key action ok key-ok key-ok-wide" data-val="ok">OK</button>`;
+        html += `<button class="btn btn--danger key del key-delete" data-val="backspace" aria-label="Effacer">&#9003;</button>`;
+        html += `<button class="btn btn--success key action ok key-ok key-ok-wide" data-val="ok" aria-label="Valider la réponse">OK</button>`;
 
         kb.innerHTML = html;
     },
@@ -106,7 +106,7 @@ const UIKeyboards = {
 
         let html = '<div class="alpha-keyboard">';
 
-        html += `<div class="kb-row accent-row">` + "\u00e9\u00e8\u00e0\u00e7\u00ea\u00ee\u00f4\u00fb-,".split('').map(a =>
+        html += `<div class="kb-row accent-row">` + "\u00e9\u00e8\u00ea\u00eb\u00e0\u00e2\u00e7\u00ee\u00ef\u00f4\u00fb\u00f9-,".split('').map(a =>
             `<button class="btn key letter-key" data-val="${a}">${a}</button>`
         ).join('') + `</div>`;
 
@@ -119,9 +119,9 @@ const UIKeyboards = {
         });
 
         html += `<div class="kb-row kb-row-actions">
-            <button class="btn btn--danger key action del key-delete key-flex-2" data-val="backspace">&#9003;</button>
+            <button class="btn btn--danger key action del key-delete key-flex-2" data-val="backspace" aria-label="Effacer">&#9003;</button>
             <button class="btn key space-key key-flex-5" data-val=" ">ESPACE</button>
-            <button class="btn btn--success key action ok key-ok key-flex-3" data-val="ok">OK</button>
+            <button class="btn btn--success key action ok key-ok key-flex-3" data-val="ok" aria-label="Valider la réponse">OK</button>
         </div></div>`;
 
         kb.innerHTML = html;
@@ -150,8 +150,8 @@ const UIKeyboards = {
         </div>
 
         <div class="roman-keyboard-row roman-keyboard-actions">
-            <button class="btn btn--danger key action del key-delete roman-action-key roman-action-key-delete" data-val="backspace">&#9003;</button>
-            <button class="btn btn--success key action ok key-ok roman-action-key roman-action-key-ok" data-val="ok">VALIDER</button>
+            <button class="btn btn--danger key action del key-delete roman-action-key roman-action-key-delete" data-val="backspace" aria-label="Effacer">&#9003;</button>
+            <button class="btn btn--success key action ok key-ok roman-action-key roman-action-key-ok" data-val="ok" aria-label="Valider la réponse">VALIDER</button>
         </div>
     </div>`;
 
@@ -160,13 +160,20 @@ const UIKeyboards = {
 
 	    renderQCM(choices) {
         const kb = document.getElementById('keyboard-num');
-        if (!kb) return;
+        if (!kb || !Array.isArray(choices) || choices.length === 0) return;
 
-        const cols = Math.min(choices.length, 3);
-        kb.style.gridTemplateColumns = `repeat(${choices.length > 4 ? 2 : cols}, 1fr)`;
+        // Use 2 columns when any label is long (> 18 chars) or there are more than 3 choices,
+        // to prevent text overflow on narrow screens.
+        const hasLongLabel = choices.some(v => String(v).length > 18);
+        const cols = (choices.length > 3 || hasLongLabel) ? 2 : Math.min(choices.length, 3);
+        kb.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
         kb.style.gap = "10px";
 
-	        kb.innerHTML = choices.map(v => {
+        // With an odd count in a 2-column grid, the last button would sit alone
+        // at half width; make it span the full row instead.
+        const lastSpansRow = cols === 2 && choices.length % 2 === 1;
+
+	        kb.innerHTML = choices.map((v, index) => {
                 const safeLabel = this._escape(v);
                 const safeValue = this._safeAttr(v);
 	            let cssClass = "btn key";
@@ -175,7 +182,8 @@ const UIKeyboards = {
 	            else cssClass += " btn-neutral";
 
 	            if (['<', '>', '='].includes(v)) cssClass += " qcm-symbol";
-	            return `<button class="${cssClass}" data-val="${safeValue}">${safeLabel}</button>`;
+	            const spanStyle = (lastSpansRow && index === choices.length - 1) ? ' style="grid-column: 1 / -1;"' : '';
+	            return `<button class="${cssClass}" data-val="${safeValue}"${spanStyle}>${safeLabel}</button>`;
 	        }).join("");
 	    }
 };

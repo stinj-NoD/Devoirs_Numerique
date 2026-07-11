@@ -1,4 +1,4 @@
-# Delta programme scolaire CP�?'CM2
+# Delta programme scolaire CP-CM2
 
 Sources officielles principales :
 - `education.gouv.fr` : programmes et horaires de l'école élémentaire
@@ -12,8 +12,8 @@ Statuts utilisés :
 - `Couvert`
 - `Partiel`
 - `Manquant`
-- `�? corriger`
-- `�? enrichir`
+- `À corriger`
+- `À enrichir`
 
 Lecture spécifique pour les leçons :
 - `Leçon conforme`
@@ -33,11 +33,15 @@ Lecture spécifique pour les leçons :
 
 ## Ce qui est déjà solide
 
-- structure CP�?'CM2 cohérente
+- structure CP-CM2 cohérente
 - bibliothèque de leçons en place
-- corpus d'exercices large et exploitable
+- corpus de 775+ exercices large et exploitable
 - forte couverture en français et mathématiques
 - socle documentaire désormais présent sur tous les niveaux
+- proportionnalité, pourcentages, échelle et vitesse renforcés en CM1/CM2
+- analyse fonctionnelle de phrase (sujet/verbe/complément) introduite en CM1/CM2
+- lecture de graphiques en barres (organisation et gestion de données) ajoutée en CM1/CM2
+- activités interactives non-QCM (cartes, classement, mémoire, fractions) disponibles à plusieurs niveaux
 
 ## Delta majeur restant
 
@@ -50,19 +54,16 @@ Le plus gros delta n'est plus technique, mais pédagogique :
 
 ### 2. Mathématiques
 
-Priorités transverses :
-- géométrie
-- problèmes
-- grandeurs et mesures
-- représentation et organisation de données
+Priorités transverses restantes :
+- statistiques/graphiques plus avancés (au-delà du diagramme en barres déjà introduit)
+- problèmes à étapes multiples sur les grandeurs et mesures
 
 ### 3. Français
 
-Priorités transverses :
-- lecture-compréhension
-- vocabulaire structuré
-- syntaxe et phrase
-- production écrite
+Priorités transverses restantes :
+- passé simple (reconnaissance en lecture, CM2)
+- production d'écrit guidée (récit, lettre, argumentation courte)
+- registres de langue, étymologie simple
 
 ### 4. Documentaires
 

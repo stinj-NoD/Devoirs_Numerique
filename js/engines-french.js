@@ -12,18 +12,26 @@
         const pronouns = ["Je", "Tu", "Il", "Elle", "On", "Nous", "Vous", "Ils", "Elles"];
         const tenses = Array.isArray(p.tenses) ? p.tenses : [p.tenses || "présent"];
         const selectedTense = ((Engines.utils.pick(tenses)) || "présent").toString().toLowerCase();
-        const isCompound = selectedTense === "passé\ composé";
+        const isCompound = selectedTense === "passé composé";
         let category = p.category || "present_1";
 
         try {
             if (category.startsWith("etre_avoir")) {
                 const suffix = selectedTense === "futur" ? "_f" : (selectedTense === "imparfait" ? "_imp" : "_p");
                 category = "etre_avoir" + suffix;
-            } else if (!Array.isArray(lib.conjugation[category]) || !lib.conjugation[category].length) {
-                const prefixMap = { "présent": "present", "futur": "future", "imparfait": "imparfait", "passé\ composé": "pc" };
+            } else {
+                // Le temps tiré au hasard parmi p.tenses doit toujours déterminer
+                // le préfixe de catégorie, pas seulement quand la catégorie fournie
+                // est absente : sinon un exercice mélangeant plusieurs temps (ex.
+                // category: "future_1", tenses: ["présent", "futur"]) afficherait
+                // un temps différent de celui réellement conjugué.
+                const prefixMap = { "présent": "present", "futur": "future", "imparfait": "imparfait", "passé composé": "pc", "passé simple": "passe_simple" };
                 const prefix = prefixMap[selectedTense] || "present";
                 const groupMatch = p.category.match(/_(\d|3_freq)/);
-                if (groupMatch) category = prefix + groupMatch[0];
+                const derivedCategory = groupMatch ? prefix + groupMatch[0] : null;
+                if (derivedCategory && Array.isArray(lib.conjugation[derivedCategory]) && lib.conjugation[derivedCategory].length) {
+                    category = derivedCategory;
+                }
             }
         } catch (e) {
             category = "present_1";
@@ -39,7 +47,7 @@
             ? pool.filter((v) => requestedVerbs.includes(normalizeToken(v.infinitive)))
             : pool;
         if (requestedVerbs.length && !filteredPool.length) {
-            return Engines.fallback("Verbes\ demandés introuvables");
+            return Engines.fallback("Verbes demandés introuvables");
         }
 
         const verb = Engines.utils.pick(filteredPool.length ? filteredPool : pool);
@@ -61,7 +69,7 @@
             answer = verb.full ? verb.full[cIdx] : (verb.base + verb.endings[cIdx]);
             if (selectedTense === "présent" && pIdx === 5) {
                 if (verb.infinitive?.endsWith("ger")) answer = verb.base + "e" + verb.endings[cIdx];
-                if (verb.infinitive?.endsWith("cer")) answer = verb.base.replace(/c$/, "?") + verb.endings[cIdx];
+                if (verb.infinitive?.endsWith("cer")) answer = verb.base.replace(/c$/, "ç") + verb.endings[cIdx];
             }
         }
 
@@ -83,7 +91,7 @@
         const cat = p.category || "animals";
         const pool = lib?.spelling?.[cat];
         if (!pool || !pool.length) return Engines.fallback("Mots indisponibles");
-        const picked = Engines.utils.pick(pool);
+        const picked = Engines.utils.pickUnused(pool, p.usedSet);
         return { isVisual: true, visualType: "spelling", inputType: "alpha", answer: picked.word.toLowerCase().trim(), data: { word: picked.word.toUpperCase(), img: picked.img, icon: picked.icon } };
     },
 
@@ -91,14 +99,14 @@
         const cat = p.category || "animals";
         const pool = lib?.spelling?.[cat];
         if (!pool || !pool.length) return Engines.fallback("Dictée audio indisponible");
-        const picked = Engines.utils.pick(pool);
+        const picked = Engines.utils.pickUnused(pool, p.usedSet);
         const answer = (picked.word || "").toString().trim();
         if (!answer) return Engines.fallback("Mot audio indisponible");
         return {
             isVisual: true,
             visualType: "audioSpelling",
             inputType: "alpha",
-            question: `<span class="small-question">Écoute\ le\ mot\ puis\ écris-le\.</span>`,
+            question: `<span class="small-question">Écoute le mot puis écris-le.</span>`,
             answer: answer.toLowerCase(),
             data: {
                 audioText: (picked.audio || answer).toString().trim(),
@@ -121,7 +129,7 @@
         }
         const pool = lib.homophones[cat];
         if (!pool || !pool.length) return Engines.fallback("Catégorie vide");
-        const picked = Engines.utils.pick(pool);
+        const picked = Engines.utils.pickUnused(pool, p.usedSet);
         const rawQ = SecurityUtils.escapeHtml(picked.sentence || picked.q || "");
         return { isVisual: true, visualType: "homophones", inputType: "qcm", question: `<span class="small-question">${rawQ.replace(/(\.\.\.|___)/g, '<span style="color:var(--primary)">_____</span>')}</span>`, answer: picked.answer || picked.a, data: { choices: picked.choices || cat.split("_") } };
     },
@@ -129,7 +137,7 @@
     reading(params, lib) {
         const pool = lib?.reading?.[params.category];
         if (!pool || !pool.length) return Engines.fallback("Lecture indisponible");
-        const picked = Engines.utils.pick(pool);
+        const picked = Engines.utils.pickUnused(pool, params.usedSet);
         const text = (picked.text || "").toString().trim();
         const syllables = Array.isArray(picked.syllables) ? picked.syllables.filter(Boolean) : [];
         const answer = (picked.answer || picked.a || text).toString().trim();
@@ -162,7 +170,7 @@
     grammarChoice(params, lib) {
         const pool = lib?.grammar?.[params.category];
         if (!pool || !pool.length) return Engines.fallback("Grammaire indisponible");
-        const picked = Engines.utils.pick(pool);
+        const picked = Engines.utils.pickUnused(pool, params.usedSet);
         const rawQuestion = (picked.question || picked.sentence || "").toString().trim();
         const answer = (picked.answer || picked.a || "").toString().trim();
         const choices = Array.isArray(picked.choices) ? picked.choices : [];
@@ -180,13 +188,13 @@
 
     grammarCloze(params, lib) {
         const pool = lib?.grammar?.[params.category];
-        if (!pool || !pool.length) return Engines.fallback("Phrase à\ trou indisponible");
-        const picked = Engines.utils.pick(pool);
+        if (!pool || !pool.length) return Engines.fallback("Phrase à trou indisponible");
+        const picked = Engines.utils.pickUnused(pool, params.usedSet);
         const rawSentence = (picked.sentence || picked.question || "").toString().trim();
         const answer = (picked.answer || picked.a || "").toString().trim();
         const choices = Array.isArray(picked.choices) ? picked.choices : [];
         if (!rawSentence || !answer || choices.length < 2) {
-            return Engines.fallback("Phrase à\ trou incomplète");
+            return Engines.fallback("Phrase à trou incomplète");
         }
         const escapedSentence = SecurityUtils.escapeHtml(rawSentence);
         const prompt = escapedSentence.includes("___")
@@ -202,13 +210,42 @@
         };
     },
 
+    /**
+     * Variante saisie libre de grammarCloze : la même phrase à trou, mais
+     * l'enfant tape la réponse au clavier au lieu de choisir parmi des
+     * propositions — réutilise les mêmes données grammar_cloze_* déjà
+     * présentes dans la bibliothèque française, juste un autre inputType.
+     */
+    clozeFillIn(params, lib) {
+        const pool = lib?.grammar?.[params.category];
+        if (!pool || !pool.length) return Engines.fallback("Phrase à trou indisponible");
+        const picked = Engines.utils.pickUnused(pool, params.usedSet);
+        const rawSentence = (picked.sentence || picked.question || "").toString().trim();
+        const answer = (picked.answer || picked.a || "").toString().trim();
+        if (!rawSentence || !answer) {
+            return Engines.fallback("Phrase à trou incomplète");
+        }
+        const escapedSentence = SecurityUtils.escapeHtml(rawSentence);
+        const prompt = escapedSentence.includes("___")
+            ? escapedSentence.replace(/___/g, '<span style="color:var(--primary); font-weight:800;">_____</span>')
+            : `${escapedSentence} <span style="color:var(--primary); font-weight:800;">_____</span>`;
+        return {
+            question: `<span class="small-question">${prompt}</span>`,
+            answer,
+            inputType: "alpha",
+            isVisual: false,
+            explanation: (picked.explanation || "").toString().trim(),
+            data: { allowNoHyphen: true }
+        };
+    },
+
     genderArticles(params, lib) {
         const cat = lib.grammar?.[params.category] || [];
-        const item = Engines.utils.pick(cat);
-        if (!item) return { question: "Erreur Lib", answer: "ok" };
+        const item = Engines.utils.pickUnused(cat, params.usedSet);
+        if (!item || !item.word) return { question: "Erreur Lib", answer: "ok" };
         let expected;
         const choices = [...(params.options || ["un", "une"])];
-        const voyelles = ["a", "e", "i", "o", "u", "y", "h"];
+        const voyelles = ["a", "e", "i", "o", "u", "y", "h", "à", "â", "é", "è", "ê", "ë", "î", "ï", "ô", "ù", "û", "ü"];
         const needsElision = voyelles.includes(item.word[0].toLowerCase());
         if (choices.includes("un") || choices.includes("une")) {
             expected = item.article;
@@ -218,6 +255,13 @@
         } else {
             expected = item.gender === "masculin" ? "le" : "la";
         }
-        return { question: "Choisis le bon petit mot :", answer: expected, inputType: "qcm", isVisual: true, visualType: "spelling", data: { word: item.word.toUpperCase(), icon: item.icon, img: item.img || `assets/img/${item.word.toLowerCase()}.png`, choices } };
+        // Tout-majuscule réservé au CP (apprentissage du tracé des lettres) :
+        // au-delà, les mots gardent une casse normale, plus proche de ce que
+        // l'enfant lit réellement dans un livre.
+        const isCp = (params.category || "").includes("_cp");
+        const displayWord = isCp
+            ? item.word.toUpperCase()
+            : item.word.charAt(0).toUpperCase() + item.word.slice(1).toLowerCase();
+        return { question: "Choisis le bon petit mot :", answer: expected, inputType: "qcm", isVisual: true, visualType: "spelling", data: { word: displayWord, icon: item.icon, img: item.img || `assets/img/${item.word.toLowerCase()}.png`, choices } };
     }
 };

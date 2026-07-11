@@ -1,6 +1,11 @@
 # Local dev tooling settings (machine-specific paths, never publish)
 .claude/settings.local.json
 
+# Illustrations sources (83 Mo de PNG) — seules les versions compressées
+# dans data/cards/ sont publiées
+DesignApp/
+scratchpad/
+
 # Logs
 logs
 *.log

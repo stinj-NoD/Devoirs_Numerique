@@ -1,11 +1,13 @@
 # Storage Gap
 
-## �?tat actuel
+## État actuel
 
 Le stockage local conserve aujourd'hui :
 - profils
 - utilisateur courant
 - records par exercice
+- badges débloqués (calculés dynamiquement depuis les records, pas stockés séparément)
+- série de jours consécutifs (streak)
 
 Le modèle reste volontairement léger pour garantir simplicité et résilience locale.
 
@@ -25,7 +27,7 @@ Le modèle reste volontairement léger pour garantir simplicité et résilience 
 - impossible de construire des indicateurs fiables de progression
 - impossible d'alimenter une future vue enseignant sans nouvelle couche de données
 
-## �?volution compatible recommandée
+## Évolution compatible recommandée
 
 - ajouter `attempts[]` sans casser `records`
 - ajouter `lessonViews[]` pour les leçons

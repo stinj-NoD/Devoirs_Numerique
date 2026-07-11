@@ -4,12 +4,13 @@
 
 Définir la cible technique minimale pour faire évoluer `Devoir Numérique` d'une application locale de révision vers une plateforme pédagogique plus suivie, sans casser l'existant.
 
-## �?tat actuel
+## État actuel
 
 Le projet gère déjà :
 - profils locaux
 - utilisateur courant
 - records par exercice
+- badges et série de jours consécutifs
 - leçons et exercices par sous-thème
 - parcours `J'apprends` / `Je m'entraîne`
 
@@ -52,7 +53,7 @@ Il ne gère pas encore :
   - `mastery`
   - `lastActivityAt`
 
-## �?cart avec l'application actuelle
+## Écart avec l'application actuelle
 
 - pas d'historique détaillé
 - progression encore centrée sur le record d'exercice

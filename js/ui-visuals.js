@@ -64,9 +64,11 @@ const UIVisuals = {
         const nums = d.numbers || [];
         const gridSize = Math.sqrt(nums.length || 9);
         const selected = d.selectedIndices || [];
+        const solutionCount = d.solutionCount || 3;
 
         return `<div class="square-container">
             <div class="target-badge">CIBLE : ${d.target || "?"}</div>
+            <div class="square-hint">Touche ${solutionCount} nombres dont la somme fait ${d.target || "?"}</div>
             <div class="square-grid" style="--square-cols:${gridSize}">
                 ${nums.map((n, idx) => {
                     const isSelected = selected.includes(idx);
@@ -78,10 +80,27 @@ const UIVisuals = {
 
     drawBird(p) {
         const d = p.data || {};
+        const duration = d.duration || 8;
+        // Plus la traversée est rapide (vitesse/duration faible), plus le
+        // ciel est chargé en nuages : le décor reflète visuellement la
+        // difficulté plutôt que de rester identique à tous les niveaux.
+        const cloudCount = duration <= 4 ? 5 : (duration <= 6 ? 4 : 3);
+        const cloudsHtml = Array.from({ length: cloudCount }, (_, i) => {
+            const layer = (i % 3) + 1;
+            const topPercent = 8 + ((i * 37) % 70);
+            const delay = (i * (duration / cloudCount)).toFixed(1);
+            return `<div class="sky-cloud sky-cloud--layer${layer}" style="--cloud-top:${topPercent}%; --cloud-delay:-${delay}s; --cloud-duration:${duration * (1.4 + layer * 0.3)}s;"></div>`;
+        }).join('');
+
         return `<div class="sky-container visual-card visual-card--bird">
-            <div class="bird-container" style="--bird-duration:${d.duration || 8}s;">
+            ${cloudsHtml}
+            <div class="bird-container" style="--bird-duration:${duration}s;">
                 <div class="bird-bubble">${d.question || "?"}</div>
-                <div class="bird-sprite">\u{1F426}</div>
+                <div class="bird-sprite">
+                    <span class="bird-sprite-wing bird-sprite-wing--back"></span>
+                    <span class="bird-sprite-body"></span>
+                    <span class="bird-sprite-wing bird-sprite-wing--front"></span>
+                </div>
             </div>
         </div>`;
     },
@@ -163,8 +182,13 @@ const UIVisuals = {
         const items = hits.map((item) => {
             const val = (typeof item === 'object') ? item.val : item;
             const spec = specs[val] || specs[1];
+            const isBill = spec.kind === 'bill';
+            const billExtras = isBill
+                ? '<span class="money-token-stars">★ ★ ★</span><span class="money-token-window"></span><span class="money-token-serial">EU' + val + '00000</span>'
+                : '';
             return `
                 <div class="money-token money-token--${spec.kind} money-token--${spec.tone}">
+                    ${billExtras}
                     <span class="money-token-value">${val}</span>
                     <span class="money-token-currency">EUR</span>
                 </div>`;
@@ -174,6 +198,32 @@ const UIVisuals = {
             <div class="money-card visual-card visual-card--money">
                 <div class="money-stage">
                     ${items || '<div class="money-empty-state">Aucune piece a afficher</div>'}
+                </div>
+            </div>`;
+    },
+
+    drawBarChart(p) {
+        const d = p.data || {};
+        const bars = Array.isArray(d.bars) ? d.bars : [];
+        const tones = ['blue', 'red', 'green', 'gold', 'silver'];
+        const maxVal = Math.max(1, ...bars.map((b) => Number(b.value) || 0));
+
+        const barsHtml = bars.map((bar, i) => {
+            const heightPercent = Math.max(6, Math.round((Number(bar.value) / maxVal) * 100));
+            const tone = tones[i % tones.length];
+            return `
+                <div class="bar-chart-col">
+                    <div class="bar-chart-value">${SecurityUtils.escapeHtml(String(bar.value))}</div>
+                    <div class="bar-chart-bar bar-chart-bar--${tone}" style="--bar-height:${heightPercent}%"></div>
+                    <div class="bar-chart-label">${SecurityUtils.escapeHtml(String(bar.label))}</div>
+                </div>`;
+        }).join('');
+
+        return `
+            <div class="bar-chart-card visual-card visual-card--barchart">
+                ${d.unit ? `<div class="bar-chart-unit">${SecurityUtils.escapeHtml(String(d.unit))}</div>` : ''}
+                <div class="bar-chart-grid">
+                    ${barsHtml}
                 </div>
             </div>`;
     },

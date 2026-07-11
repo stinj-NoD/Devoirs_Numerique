@@ -1,4 +1,4 @@
-﻿{
+{
     "gradeId": "ce2",
     "title": "CE2",
     "subjects": [
@@ -135,13 +135,26 @@
                         },
                         {
                             "id": "ce2-maths-tables-appariement",
-                            "title": "Tables de multiplication",
-                            "subtitle": "Relie chaque multiplication à son résultat",
+                            "title": "Nombres et opérations",
+                            "subtitle": "Relie chaque notion à sa réponse",
                             "engine": "matching",
                             "params": {
                                 "category": "matching_math_ce2",
                                 "dataFile": "data/math_matching.json",
                                 "questions": 3
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-tables-melangees",
+                            "title": "Défi : toutes les tables",
+                            "subtitle": "Multiplications mélangées de 2 à 12",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "mult",
+                                "table": 12,
+                                "questions": 15
                             }
                         }
                     ],
@@ -177,6 +190,70 @@
                                     "content": "Multiplier, c'est compter des groupes égaux plus vite."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce2-lesson-memoriser-tables",
+                            "title": "Mémoriser toutes les tables",
+                            "subtitle": "Il en reste moins à apprendre qu'on ne croit !",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Grâce à l'inversion (3 × 7 = 7 × 3), chaque résultat appris en donne deux. En enlevant les tables faciles de 1, 2, 5 et 10, il reste très peu de produits à mémoriser."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Si je connais 7 × 8 = 56, je connais aussi 8 × 7. Astuce : 56 = 7 × 8, et 5, 6, 7, 8 se suivent !"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Table de 9 : les chiffres du résultat font toujours 9 (9 × 4 = 36, et 3 + 6 = 9).",
+                                        "Table de 4 : le double du double (4 × 6 = double de 12 = 24).",
+                                        "Table de 6 : la table de 3, doublée.",
+                                        "Les carrés (3 × 3, 7 × 7…) sont des points d'appui à connaître par cœur."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Cible tes ennemis personnels : la plupart des élèves ne butent que sur 6 × 7, 7 × 8 et 6 × 8. Apprends ces trois-là en premier !"
+                                }
+                            ],
+                            "format": "lesson-card"
+                        },
+                        {
+                            "id": "ce2-lesson-multiplier-10-100",
+                            "title": "Multiplier par 10, 100, 1 000",
+                            "subtitle": "Le calcul le plus rapide du monde",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Multiplier par 10, 100 ou 1 000 ne demande aucun calcul : chaque chiffre devient 10, 100 ou 1 000 fois plus grand, et on l'écrit avec des zéros."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "23 × 10 = 230 ; 23 × 100 = 2 300 ; 23 × 1 000 = 23 000."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "× 10 : on écrit un zéro à la fin du nombre.",
+                                        "× 100 : deux zéros ; × 1 000 : trois zéros.",
+                                        "Ça marche aussi en combinant : 30 × 40 = 3 × 4 puis deux zéros = 1 200.",
+                                        "Attention, cette règle simple vaut pour les nombres entiers."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Repère les zéros avant de calculer : 60 × 8, c'est 6 × 8 = 48, puis je rends le zéro : 480."
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -199,6 +276,36 @@
                                 ],
                                 "nbFleches": 5,
                                 "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce2-carre-magique-1",
+                            "title": "Carré Magique",
+                            "subtitle": "Trouve 3 nombres",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "carre-somme",
+                                "solutionCount": 3,
+                                "targetMin": 15,
+                                "targetMax": 25,
+                                "gridSize": 9,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-carre-magique-defi",
+                            "title": "Défi : Carré Magique Expert",
+                            "subtitle": "Cibles plus grandes, sans aide",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "carre-somme",
+                                "solutionCount": 3,
+                                "targetMin": 25,
+                                "targetMax": 35,
+                                "gridSize": 9,
+                                "questions": 6
                             }
                         },
                         {
@@ -298,6 +405,32 @@
                             }
                         },
                         {
+                            "id": "ce2-maths-monnaie",
+                            "title": "Monnaie et rendu de monnaie",
+                            "subtitle": "Calculer un prix et une monnaie",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle2.json",
+                                "category": "ce2-monnaie",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-problemes-expert",
+                            "title": "Défi : problèmes en rafale",
+                            "subtitle": "Additifs et multiplicatifs, sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle3.json",
+                                "category": "ce2-problemes-multiplicatifs",
+                                "questions": 10
+                            }
+                        },
+                        {
                             "id": "ce2-conversions-masses",
                             "title": "Convertir des masses",
                             "subtitle": "Kilogrammes et grammes",
@@ -326,9 +459,104 @@
                                 ],
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "ce2-division-posee",
+                            "title": "Division posée",
+                            "subtitle": "Trouver le quotient",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "division-posed",
+                                "level": 1,
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce2-division-posee-reste",
+                            "title": "Division posée avec reste",
+                            "subtitle": "Trouver ce qu'il reste",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "division-posed",
+                                "level": 1,
+                                "ask": "reste",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce2-fractions-simples",
+                            "title": "Lire des fractions simples",
+                            "subtitle": "Demi, tiers, quart",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "fraction-view",
+                                "maxDenom": 4,
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-comp-5000",
+                            "title": "Défi : compléments à 5000",
+                            "subtitle": "Calcul mental chez les grands nombres",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "complement",
+                                "target": 5000,
+                                "questions": 12
+                            }
                         }
                     ],
                     "lessons": [
+                        {
+                            "id": "ce2-lesson-division-posee",
+                            "title": "Poser une division",
+                            "subtitle": "Trouver le quotient et le reste",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Diviser, c'est partager un nombre en parts égales. Le quotient est le nombre de parts, et le reste est ce qu'il manque pour faire une part complète de plus."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "23 : 4 : on cherche combien de fois 4 tient dans 23. 4 × 5 = 20, donc le quotient est 5. Il reste 23 - 20 = 3."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le reste doit toujours être plus petit que le diviseur, sinon on peut encore faire une part de plus."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-fractions-simples",
+                            "title": "Les fractions simples",
+                            "subtitle": "Demi, tiers et quart",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une fraction permet de représenter une partie d'un tout partagé en parts égales."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les fractions à connaître",
+                                    "items": [
+                                        "un demi (1/2) : on partage en 2 parts égales",
+                                        "un tiers (1/3) : on partage en 3 parts égales",
+                                        "un quart (1/4) : on partage en 4 parts égales"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le nombre du bas (dénominateur) indique en combien de parts on partage le tout."
+                                }
+                            ]
+                        },
                         {
                             "id": "ce2-lesson-complements-1000",
                             "title": "Chercher le complément",
@@ -699,6 +927,18 @@
                             }
                         },
                         {
+                            "id": "ce2-geo-angle-droit-pratique",
+                            "title": "Touche les angles droits",
+                            "subtitle": "Repère-les sur la figure",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_tap_features_ce2.json",
+                                "category": "ce2_tap_angle_droit",
+                                "questions": 4
+                            }
+                        },
+                        {
                             "id": "ce2-geo-symetrie-quadrillage",
                             "title": "Symétrie et quadrillage",
                             "subtitle": "Axe de symétrie, repérage sur quadrillage",
@@ -711,14 +951,64 @@
                             }
                         },
                         {
+                            "id": "ce2-geo-symetrie-pratique",
+                            "title": "Complète la figure symétrique",
+                            "subtitle": "Place les points sur le quadrillage",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "symmetry-complete",
+                                "dataFile": "data/board_symmetry_complete_ce2.json",
+                                "category": "ce2_symmetry_complete",
+                                "questions": 4
+                            }
+                        },
+                        {
+                            "id": "ce2-geo-reperage-pratique",
+                            "title": "Place le point sur le quadrillage",
+                            "subtitle": "Repérage par coordonnées",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "point-on-grid",
+                                "dataFile": "data/board_point_on_grid_ce2.json",
+                                "category": "ce2_point_on_grid",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "ce2-maths-geo-appariement",
-                            "title": "Figures et propriétés",
-                            "subtitle": "Relie chaque figure à sa propriété",
+                            "title": "Mesures et grandeurs",
+                            "subtitle": "Relie chaque notion à sa réponse",
                             "engine": "matching",
                             "params": {
                                 "category": "matching_math_ce2",
                                 "dataFile": "data/math_matching.json",
                                 "questions": 3
+                            }
+                        },
+                        {
+                            "id": "ce2-maths-memoire",
+                            "title": "Jeu de mémoire",
+                            "subtitle": "Retrouve toutes les paires",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "memory-match",
+                                "dataFile": "data/board_memory_match_ce2.json",
+                                "category": "ce2_memory_match",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-geo-symetrie",
+                            "title": "Défi : symétrie et quadrillage",
+                            "subtitle": "Super série sur l'axe de symétrie",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_geometry_ce2.json",
+                                "category": "ce2-symetrie-quadrillage",
+                                "questions": 12
                             }
                         }
                     ]
@@ -932,6 +1222,16 @@
                             }
                         },
                         {
+                            "id": "ce2-g-cloze-ecrit",
+                            "title": "Écris le bon mot",
+                            "subtitle": "Complète la phrase sans aide",
+                            "engine": "cloze-fill-in",
+                            "params": {
+                                "category": "grammar_cloze_ce2",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "ce2-g-cloze-accord",
                             "title": "Accorder dans la phrase",
                             "subtitle": "Nom et adjectif simples",
@@ -993,6 +1293,41 @@
                                 "category": "word_order_ce2",
                                 "dataFile": "data/french_word_order.json",
                                 "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce2-g-types-phrases",
+                            "title": "Types et formes de phrases",
+                            "subtitle": "Déclarative, interrogative, négative...",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "grammar_phrase_types_ce2",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-ordre-mots-expert",
+                            "title": "Défi : phrases mélangées",
+                            "subtitle": "Super série sur l'ordre des mots",
+                            "engine": "word-order",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "category": "word_order_ce2",
+                                "dataFile": "data/french_word_order.json",
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "ce2-francais-raconte-histoire",
+                            "title": "Raconte une histoire",
+                            "subtitle": "Remets les phrases dans l'ordre",
+                            "engine": "word-order",
+                            "params": {
+                                "category": "story_order_ce2",
+                                "dataFile": "data/french_word_order.json",
+                                "questions": 4
                             }
                         }
                     ],
@@ -1090,6 +1425,70 @@
                                     "content": "Une phrase bien écrite aide à mieux comprendre le message."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce2-lesson-pluriel-noms",
+                            "title": "Le pluriel des noms",
+                            "subtitle": "s, x… et les fameuses exceptions",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Au pluriel, la plupart des noms prennent un s. Mais certains prennent un x, et quelques célèbres exceptions s'apprennent par cœur."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "un chat → des chats ; un gâteau → des gâteaux ; un cheval → des chevaux."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Règle générale : + s (des livres).",
+                                        "Les noms en -eau, -au, -eu → x : des bateaux, des jeux.",
+                                        "Les noms en -al → -aux : un journal, des journaux.",
+                                        "Les 7 noms en -ou qui prennent x : bijoux, cailloux, choux, genoux, hiboux, joujoux, poux !"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Récite la liste magique des -oux comme une comptine : bijou, caillou, chou, genou, hibou, joujou, pou… tous avec un x !"
+                                }
+                            ],
+                            "format": "lesson-card"
+                        },
+                        {
+                            "id": "ce2-lesson-a-accent-ou-pas",
+                            "title": "a ou à ? et ou est ?",
+                            "subtitle": "Les petits mots qui se ressemblent",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Certains petits mots se prononcent pareil mais s'écrivent différemment. Pour choisir, on remplace par un autre mot : si la phrase garde son sens, on a trouvé !"
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« Il a faim » → « il avait faim » : ça marche, donc « a » sans accent. « Il va à Paris » → « il va avait Paris » : impossible, donc « à » avec accent."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "a = avait (le verbe avoir) ; à = petit mot invariable.",
+                                        "est = était (le verbe être) ; et = et puis.",
+                                        "on = il ; ont = avaient.",
+                                        "Le remplacement est le test infaillible."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Un doute ? Remplace ! C'est le réflexe des champions d'orthographe : avait, était, et puis…"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -1214,6 +1613,69 @@
                                     "content": "Être et avoir servent très souvent dans les phrases du quotidien."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce2-lesson-passe-compose",
+                            "title": "Le passé composé",
+                            "subtitle": "Raconter ce qui s'est déjà passé",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le passé composé sert à raconter une action déjà terminée. Il se forme avec avoir ou être suivi du participe passé du verbe."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "J'ai mangé une pomme. Elle est tombée dans la cour."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "la plupart des verbes utilisent avoir (j'ai joué, tu as chanté)",
+                                        "quelques verbes de déplacement utilisent être (je suis tombé, elle est arrivée)",
+                                        "le participe passé des verbes en -ER se termine par -É"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Avoir ou être + participe passé = passé composé."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-trouver-infinitif",
+                            "title": "Trouver l'infinitif d'un verbe",
+                            "subtitle": "Le nom de famille du verbe",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "L'infinitif est la forme du verbe qu'on trouve dans le dictionnaire : chanter, finir, prendre. Savoir le retrouver aide à bien conjuguer."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans « nous prenons le bus », le verbe conjugué est « prenons » ; son infinitif est « prendre »."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Astuce : « il faut… » — il faut prendre, il faut chanter : ce qui suit est l'infinitif !",
+                                        "Les verbes en -er (1er groupe) sont les plus nombreux.",
+                                        "L'infinitif ne change jamais : il n'a ni personne ni temps.",
+                                        "Le dictionnaire ne connaît que les infinitifs."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Devant un verbe conjugué mystérieux, dis « il faut… » : l'infinitif apparaît tout seul !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ],
                     "exercises": [
@@ -1336,6 +1798,59 @@
                                 "category": "present_2",
                                 "tenses": "présent",
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-conj-pc-avoir",
+                            "title": "Passé composé : avoir",
+                            "subtitle": "J'ai mangé, tu as joué...",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "pc_1",
+                                "verbs": [
+                                    "manger",
+                                    "chanter",
+                                    "jouer",
+                                    "chercher",
+                                    "trouver"
+                                ],
+                                "tenses": "passé composé",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-conj-pc-etre",
+                            "title": "Passé composé : être",
+                            "subtitle": "Je suis tombé, elle est arrivée...",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "pc_1",
+                                "verbs": [
+                                    "tomber",
+                                    "monter",
+                                    "arriver",
+                                    "entrer",
+                                    "rester"
+                                ],
+                                "tenses": "passé composé",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-conj-trois-temps",
+                            "title": "Défi : présent, futur, imparfait",
+                            "subtitle": "Super révision des trois temps",
+                            "engine": "conjugation",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "category": "future_1",
+                                "tenses": [
+                                    "présent",
+                                    "futur",
+                                    "imparfait"
+                                ],
+                                "questions": 12
                             }
                         }
                     ]
@@ -1505,6 +2020,111 @@
                                 "dataFile": "data/french/matching.json",
                                 "questions": 2
                             }
+                        },
+                        {
+                            "id": "ce2-vocab-ordre-alpha",
+                            "title": "Ordre alphabétique",
+                            "subtitle": "Classe les mots comme dans un dictionnaire",
+                            "engine": "word-order",
+                            "params": {
+                                "category": "alpha_order_ce2",
+                                "dataFile": "data/french_word_order.json",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce2-lecture-inferences",
+                            "title": "Lire entre les lignes",
+                            "subtitle": "Deviner ce que le texte ne dit pas",
+                            "engine": "reading",
+                            "params": {
+                                "category": "ce2_lecture_inferences",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-lecture-comprehension-courte",
+                            "title": "Comprendre un texte court",
+                            "subtitle": "Réponds aux questions sur un court texte",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/french_ce2_reading.json",
+                                "category": "ce2_lecture_comprehension_courte",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-lecture-sens-contexte",
+                            "title": "Sens d'un mot en contexte",
+                            "subtitle": "Quel sens a ce mot dans la phrase ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/french_ce2_reading.json",
+                                "category": "ce2_lecture_sens_contexte",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-vocabulaire-themes",
+                            "title": "Vocabulaire par thèmes",
+                            "subtitle": "Quel mot appartient à ce thème ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/french_ce2_reading.json",
+                                "category": "ce2_vocabulaire_themes",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-lecture-reperage-infos",
+                            "title": "Repérer les informations",
+                            "subtitle": "Trouve les informations dans le texte",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/french_ce2_reading.json",
+                                "category": "ce2_lecture_reperage_infos",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-vocabulaire-synonymes",
+                            "title": "Les synonymes",
+                            "subtitle": "Trouve le mot qui veut dire la même chose",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/french_ce2_reading.json",
+                                "category": "ce2_vocabulaire_synonymes",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-vocabulaire-familles-mots",
+                            "title": "Familles de mots",
+                            "subtitle": "Trouve le mot de la même famille",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/french_ce2_reading.json",
+                                "category": "ce2_vocabulaire_familles_mots",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-lecture-idee-principale",
+                            "title": "Défi : super lecteur",
+                            "subtitle": "Trouver l'idée principale, série longue",
+                            "engine": "reading",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "category": "ce2_lecture_idee_principale",
+                                "questions": 8
+                            }
                         }
                     ]
                 },
@@ -1579,6 +2199,38 @@
                                     "content": "Une bonne écoute évite beaucoup d'erreurs : on prend le temps avant d'écrire."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce2-lesson-relire-dictee",
+                            "title": "Se relire comme un détective",
+                            "subtitle": "La chasse aux erreurs après la dictée",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Écrire n'est que la moitié du travail : la relecture attrape les erreurs. Les bons élèves relisent plusieurs fois, en cherchant à chaque fois UN type d'erreur."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Relecture 1 : les majuscules et les points. Relecture 2 : les accords (les chats mangent). Relecture 3 : les mots que je connais par cœur."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Relire une seule chose à la fois est plus efficace que tout relire d'un coup.",
+                                        "Pointer chaque mot avec le doigt ou le crayon ralentit l'œil et attrape plus d'erreurs.",
+                                        "Les pluriels : un déterminant au pluriel réclame un nom au pluriel !",
+                                        "Le verbe s'accorde toujours avec son sujet."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Question magique à chaque nom : « il y en a un ou plusieurs ? » et à chaque verbe : « qui fait l'action ? »"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 }
@@ -1617,6 +2269,32 @@
                             "engine": "choice-engine",
                             "id": "ce2-histoire-situer-temps",
                             "subtitle": "Avant, après, repères"
+                        },
+                        {
+                            "id": "ce2-histoire-frise-chrono",
+                            "title": "La frise chronologique",
+                            "subtitle": "Placer les evenements dans le temps",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce2.json",
+                                "category": "ce2-frise-vie-famille",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-histoire-reperes-defi",
+                            "title": "Defi : reperes dans le temps",
+                            "subtitle": "Situer des evenements sur une frise",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce2.json",
+                                "category": "ce2-reperes",
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
@@ -1653,6 +2331,38 @@
                                     "content": "Situer dans le temps aide à comprendre l'ordre des événements."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce2-lesson-siecle-frise",
+                            "title": "Jours, années, siècles",
+                            "subtitle": "Les unités pour mesurer le temps",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour mesurer le temps, on emboîte des unités de plus en plus grandes : le jour, la semaine, le mois, l'année, le siècle (100 ans) et le millénaire (1 000 ans)."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Ta naissance et celle de tes grands-parents tiennent dans le même siècle ou presque ; les châteaux forts, eux, datent d'il y a environ 8 siècles !"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "1 semaine = 7 jours ; 1 année = 12 mois = 365 jours.",
+                                        "1 siècle = 100 ans ; 1 millénaire = 1 000 ans.",
+                                        "Sur une frise, plus on va à gauche, plus c'est ancien.",
+                                        "Les événements très anciens se comptent en siècles, pas en années."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Repère facile : un grand-parent ≈ un demi-siècle de souvenirs ; un château fort ≈ 8 à 10 siècles d'histoire !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -1684,6 +2394,32 @@
                             "engine": "choice-engine",
                             "id": "ce2-histoire-comparer-autrefois",
                             "subtitle": "Maison, école et objets"
+                        },
+                        {
+                            "id": "ce2-histoire-personnages-vie-autrefois",
+                            "title": "Personnages celebres de notre histoire",
+                            "subtitle": "Des gens qui ont marque leur epoque",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce2.json",
+                                "category": "ce2-personnages-celebres",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-histoire-vie-defi",
+                            "title": "Defi : vie autrefois et personnages",
+                            "subtitle": "Comparer le passe et le present",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce2.json",
+                                "category": "ce2-vie-autrefois",
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
@@ -1804,6 +2540,20 @@
                                 "dataFile": "data/history_matching.json",
                                 "questions": 2
                             }
+                        },
+                        {
+                            "id": "ce2-bonus-histoire-personnages",
+                            "title": "Défi : grands personnages",
+                            "subtitle": "Super quiz sur les personnages célèbres",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce2.json",
+                                "category": "ce2-personnages-celebres",
+                                "questions": 10
+                            }
                         }
                     ],
                     "lessons": [
@@ -1839,6 +2589,38 @@
                                     "content": "Les traces du passé aident à raconter l'histoire."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce2-lesson-monuments-indices",
+                            "title": "Les monuments, témoins du passé",
+                            "subtitle": "Ce que racontent les vieilles pierres",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Chaque monument raconte l'époque qui l'a construit : un château fort parle du Moyen Âge et de ses guerres, une église ancienne de la vie religieuse, un lavoir de la vie quotidienne."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Les remparts de Carcassonne racontent comment on se protégeait au Moyen Âge ; la tour Eiffel raconte la fierté des ingénieurs de 1889."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Un monument se lit comme un document : matériaux, forme, usure donnent des indices.",
+                                        "Sa fonction d'origine n'est pas toujours celle d'aujourd'hui (un château devenu musée).",
+                                        "Les monuments sont protégés et restaurés pour les générations futures.",
+                                        "Ma commune aussi a ses traces du passé : église, halle, fontaine, monument aux morts."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Devant un monument, pose les questions de l'historien : quand ? pourquoi ? par qui ? pour quoi faire ?"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -1893,6 +2675,20 @@
                                 "dataFile": "data/history_matching.json",
                                 "questions": 2
                             }
+                        },
+                        {
+                            "id": "ce2-bonus-histoire-ecole",
+                            "title": "Défi : l'école autrefois",
+                            "subtitle": "Super série sur la classe d'antan",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce2.json",
+                                "category": "ce2-ecole-autrefois",
+                                "questions": 10
+                            }
                         }
                     ],
                     "lessons": [
@@ -1928,6 +2724,38 @@
                                     "content": "Comparer l'école d'avant et d'aujourd'hui montre ce qui a changé dans la vie des élèves."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce2-lesson-jules-ferry",
+                            "title": "L'école pour tous",
+                            "subtitle": "Comment l'école est devenue gratuite et obligatoire",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Autrefois, beaucoup d'enfants n'allaient pas à l'école : ils travaillaient aux champs ou à l'atelier. Vers 1880, les lois de Jules Ferry ont rendu l'école gratuite, puis l'instruction obligatoire."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Après ces lois, tous les enfants, riches ou pauvres, filles et garçons, ont appris à lire, écrire et compter."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Gratuite : les familles ne paient pas l'école publique.",
+                                        "Obligatoire : tous les enfants doivent être instruits.",
+                                        "Laïque : l'école accueille tous les élèves, quelles que soient les croyances.",
+                                        "L'école est une chance : dans le monde, des millions d'enfants en sont encore privés."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Trois mots résument l'école de la République : gratuite, obligatoire, laïque."
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 }
@@ -2001,6 +2829,20 @@
                                 "dataFile": "data/geography_matching.json",
                                 "questions": 2
                             }
+                        },
+                        {
+                            "id": "ce2-bonus-geo-espaces",
+                            "title": "Défi : ville, campagne et services",
+                            "subtitle": "Super série sur les espaces et la commune",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_ce2.json",
+                                "category": "ce2-espaces",
+                                "questions": 12
+                            }
                         }
                     ],
                     "lessons": [
@@ -2068,6 +2910,38 @@
                                     "content": "Les services de la commune aident les habitants à vivre, se déplacer et apprendre."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce2-lesson-ville-campagne",
+                            "title": "Ville et campagne",
+                            "subtitle": "Deux façons d'habiter la France",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "En France, environ 8 habitants sur 10 vivent en ville ou autour. Ville et campagne offrent des vies différentes : chacune a ses avantages."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "En ville : immeubles, transports, commerces et cinémas à proximité. À la campagne : maisons espacées, nature, mais des trajets plus longs pour les services."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "La ville concentre habitants, emplois et services sur peu d'espace.",
+                                        "La campagne offre de l'espace : champs, forêts, fermes.",
+                                        "Entre les deux, le périurbain : des lotissements à la lisière des villes.",
+                                        "Beaucoup d'habitants de la campagne travaillent en ville : ce sont les trajets quotidiens."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Ni mieux ni moins bien : ville et campagne se complètent — la ville a besoin des récoltes, la campagne des services de la ville."
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -2097,6 +2971,20 @@
                                 "type": "factual-qcm",
                                 "dataFile": "data/geography_ce2.json",
                                 "category": "ce2-reliefs-simples",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-geo-carte-regions",
+                            "title": "Carte des régions",
+                            "subtitle": "Touche la région demandée",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "map-locate",
+                                "dataFile": "data/board_map_locate_ce2.json",
+                                "mapFile": "data/maps/france-regions.svg",
+                                "mapId": "france-regions",
+                                "category": "ce2_map_regions_france",
                                 "questions": 6
                             }
                         }
@@ -2134,6 +3022,38 @@
                                     "content": "Je lis d'abord le titre, puis la légende, puis les repères de la carte."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce2-lesson-france-releifs-fleuves",
+                            "title": "La France en relief",
+                            "subtitle": "Montagnes, fleuves et mers du pays",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La carte de France montre de grands repères : des chaînes de montagnes, cinq grands fleuves et des mers qui bordent les côtes."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "La Loire, le plus long fleuve français, traverse le pays d'est en ouest jusqu'à l'océan Atlantique."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Montagnes : les Alpes (mont Blanc !), les Pyrénées, le Massif central, le Jura, les Vosges.",
+                                        "Fleuves : Loire, Seine, Rhône, Garonne, Rhin.",
+                                        "Mers : la Manche au nord, l'Atlantique à l'ouest, la Méditerranée au sud.",
+                                        "Sur la carte : marron = montagnes, bleu = eau, vert = plaines."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour retenir les fleuves, suis-les sur la carte du doigt, de la source à la mer : chacun a son chemin !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -2187,6 +3107,20 @@
                                 "category": "matching_geo_ce2",
                                 "dataFile": "data/geography_matching.json",
                                 "questions": 2
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-geo-reperage",
+                            "title": "Défi : super cartographe",
+                            "subtitle": "Série longue sur les plans et légendes",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_ce2.json",
+                                "category": "ce2-se-reperer",
+                                "questions": 12
                             }
                         }
                     ],
@@ -2294,6 +3228,38 @@
                                     "content": "Le bon transport dépend du trajet à faire et des besoins du voyageur."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce2-lesson-transports-comparer",
+                            "title": "Comparer les transports",
+                            "subtitle": "Vitesse, distance, pollution : que choisir ?",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Chaque moyen de transport a ses forces : le vélo est propre, le train transporte beaucoup de monde, l'avion va loin et vite. Bien choisir, c'est comparer."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Paris-Marseille : environ 3 h en TGV, 7 h en voiture. Et le train pollue beaucoup moins par voyageur !"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Courte distance : marche et vélo gagnent (zéro pollution, bon pour la santé).",
+                                        "Moyenne distance : le train est souvent le plus rapide ET le plus propre.",
+                                        "Les transports en commun remplacent des dizaines de voitures.",
+                                        "L'avion est réservé aux très longues distances : c'est le plus polluant."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Trois questions avant de partir : c'est loin ? on est combien ? quel transport pollue le moins pour ce trajet ?"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ],
                     "exercises": [
@@ -2320,6 +3286,32 @@
                             "engine": "choice-engine",
                             "id": "ce2-geo-voyager-deplacer",
                             "subtitle": "Train, bus, port, gare"
+                        },
+                        {
+                            "id": "ce2-geo-transports-cartes",
+                            "title": "Lire une carte de transports",
+                            "subtitle": "Symboles et réseaux",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_ce2.json",
+                                "category": "ce2-cartes-symboles",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-geo-transports-defi",
+                            "title": "Défi : trajets et transports",
+                            "subtitle": "Choisir le bon moyen de transport",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_ce2.json",
+                                "category": "ce2-transports",
+                                "questions": 8
+                            }
                         }
                     ]
                 }
@@ -2369,6 +3361,32 @@
                                 "dataFile": "data/science_ce2.json",
                                 "category": "ce2-chaines-alimentaires-simples",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-sciences-chaines-alimentaires-defi",
+                            "title": "Défi : chaînes alimentaires",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-chaines-alimentaires-simples",
+                                "questions": 9
+                            }
+                        },
+                        {
+                            "id": "ce2-sciences-tap-corps",
+                            "title": "Les parties du corps",
+                            "subtitle": "Touche la tête, le tronc, les bras, les jambes",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_tap_features_science.json",
+                                "category": "ce2_tap_corps_humain",
+                                "questions": 4
                             }
                         }
                     ],
@@ -2489,6 +3507,20 @@
                                 "category": "matching_sciences_ce2",
                                 "dataFile": "data/science_matching.json",
                                 "questions": 2
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-sciences-matiere",
+                            "title": "Défi : eau et matière",
+                            "subtitle": "Super série sur les états de l'eau",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-eau-transformations",
+                                "questions": 10
                             }
                         }
                     ],
@@ -2621,6 +3653,20 @@
                                 "dataFile": "data/science_matching.json",
                                 "questions": 2
                             }
+                        },
+                        {
+                            "id": "ce2-bonus-sciences-observer",
+                            "title": "Défi : super observateur",
+                            "subtitle": "Série longue sur les expériences simples",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-experiences-simples",
+                                "questions": 10
+                            }
                         }
                     ],
                     "lessons": [
@@ -2653,6 +3699,306 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Observer, c'est chercher des indices pour comprendre."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-demarche-experience",
+                            "title": "Mener une expérience",
+                            "subtitle": "Comme un vrai scientifique, étape par étape",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Les scientifiques suivent toujours la même démarche : une question, une hypothèse (ce que je pense), une expérience pour tester, une observation, une conclusion."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Question : les plantes ont-elles besoin de lumière ? Hypothèse : oui. Expérience : une plante au soleil, une dans le placard. Résultat : celle du placard pâlit. Conclusion : hypothèse confirmée !"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "On ne change qu'UNE seule chose à la fois entre les deux montages.",
+                                        "On note ses observations chaque jour, avec des dessins et des mesures.",
+                                        "Un résultat surprenant n'est pas un échec : c'est une découverte.",
+                                        "On refait l'expérience pour être sûr du résultat."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "La phrase du scientifique : « Je me demande… je pense que… je teste… j'observe… je conclus. »"
+                                }
+                            ],
+                            "format": "lesson-card"
+                        }
+                    ]
+                },
+                {
+                    "id": "ce2-sciences-saisons-subtheme",
+                    "title": "Saisons et météo",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "ce2-sciences-cycle-saisons",
+                            "title": "Le cycle des saisons",
+                            "subtitle": "Printemps, été, automne, hiver",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-saisons-meteo",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-sciences-mesurer-meteo",
+                            "title": "Mesurer la météo",
+                            "subtitle": "Thermomètre, girouette, pluviomètre",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-saisons-meteo",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-sciences-climat-environnement",
+                            "title": "Climat et environnement",
+                            "subtitle": "Les saisons et les êtres vivants",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-saisons-meteo",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-sciences-saisons",
+                            "title": "Défi : saisons et météo",
+                            "subtitle": "Super série sur le cycle des saisons",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-saisons-meteo",
+                                "questions": 10
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "ce2-lesson-cycle-saisons",
+                            "title": "Le cycle des saisons",
+                            "subtitle": "Printemps, été, automne, hiver",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La Terre tourne autour du Soleil en une année, ce qui crée les quatre saisons : printemps, été, automne et hiver. La durée du jour change aussi selon la saison : les jours sont longs en été et courts en hiver."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "En été, le jour dure longtemps et il fait chaud. En hiver, la nuit tombe plus tôt et il fait plus froid."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "printemps : les plantes repoussent",
+                                        "été : jours longs et chaleur",
+                                        "automne : les feuilles tombent",
+                                        "hiver : jours courts et froid"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Ce n'est pas la distance au Soleil qui change avec les saisons : c'est la façon dont la Terre est inclinée qui fait varier la lumière et la chaleur reçues au fil de l'année."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-instruments-meteo",
+                            "title": "Les instruments de la météo",
+                            "subtitle": "Thermomètre, girouette, pluviomètre",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour étudier le temps qu'il fait, on utilise des instruments qui mesurent la température, le vent et la pluie."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le thermomètre indique qu'il fait 5 degrés ce matin : on sait alors qu'il fait froid."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "headers": [
+                                        "Instrument",
+                                        "Ce qu'il mesure"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "thermomètre",
+                                            "la température"
+                                        ],
+                                        [
+                                            "girouette",
+                                            "la direction du vent"
+                                        ],
+                                        [
+                                            "pluviomètre",
+                                            "la quantité de pluie"
+                                        ],
+                                        [
+                                            "anémomètre",
+                                            "la force du vent"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Chaque instrument météo mesure une seule chose précise, ce qui permet de décrire le temps avec des chiffres."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "ce2-sciences-milieux-subtheme",
+                    "title": "Les milieux de vie",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "ce2-sciences-ecosystemes-simples",
+                            "title": "Les écosystèmes simples",
+                            "subtitle": "Un milieu où vivent ensemble des êtres vivants",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-milieux-vie",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-sciences-biodiversite",
+                            "title": "La biodiversité autour de nous",
+                            "subtitle": "Plusieurs espèces dans un même milieu",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-milieux-vie",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-sciences-proteger-milieux",
+                            "title": "Protéger les milieux",
+                            "subtitle": "Préserver la nature autour de nous",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-milieux-vie",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-sciences-milieux",
+                            "title": "Défi : les milieux de vie",
+                            "subtitle": "Super série sur les écosystèmes et la biodiversité",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-milieux-vie",
+                                "questions": 10
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "ce2-lesson-ecosysteme-simple",
+                            "title": "Qu'est-ce qu'un milieu de vie ?",
+                            "subtitle": "Des êtres vivants qui dépendent les uns des autres",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un milieu de vie regroupe plusieurs êtres vivants qui dépendent les uns des autres et de leur environnement : l'eau, le sol et le climat du lieu."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans une forêt, les arbres donnent de l'ombre et des abris, le sol nourrit les racines, et les animaux trouvent là de quoi manger et se cacher."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "milieu de vie",
+                                        "êtres vivants",
+                                        "eau, sol, climat",
+                                        "les êtres vivants dépendent les uns des autres"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Dans un milieu, rien ne vit tout seul : chaque être vivant a besoin des autres et de son environnement."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-biodiversite-milieux",
+                            "title": "La biodiversité d'un milieu",
+                            "subtitle": "Plusieurs espèces vivent ensemble",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un même milieu abrite souvent plusieurs espèces différentes. On appelle cela la biodiversité : c'est la diversité des êtres vivants dans un lieu."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans une mare, on trouve des grenouilles, des insectes et des plantes aquatiques. Dans une forêt, on trouve des arbres, des oiseaux, des champignons et des insectes."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "headers": [
+                                        "Milieu",
+                                        "Exemples d'êtres vivants"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "la mare",
+                                            "grenouilles, insectes, plantes aquatiques"
+                                        ],
+                                        [
+                                            "la forêt",
+                                            "arbres, oiseaux, champignons, insectes"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Plus un milieu compte d'espèces différentes, plus sa biodiversité est riche : il faut donc le protéger."
                                 }
                             ]
                         }
@@ -2695,9 +4041,34 @@
                             }
                         },
                         {
+                            "id": "ce2-bonus-emc-regles-defi",
+                            "title": "Défi : règles communes",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce2.json",
+                                "category": "ce2-lieux-objets-communs",
+                                "questions": 9
+                            }
+                        },
+                        {
                             "id": "ce2-emc-appariement",
                             "title": "Droits et devoirs",
                             "subtitle": "Relie chaque droit à son devoir",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_emc_ce2",
+                                "dataFile": "data/emc_matching.json",
+                                "questions": 3
+                            }
+                        },
+                        {
+                            "id": "ce2-emc-appariement-2",
+                            "title": "Symboles et valeurs de la République",
+                            "subtitle": "Relie chaque symbole à sa signification",
                             "engine": "matching",
                             "params": {
                                 "category": "matching_emc_ce2",
@@ -2857,6 +4228,20 @@
                                 "category": "ce2-parole-ecoute",
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "ce2-bonus-emc-citoyen",
+                            "title": "Défi : super citoyen",
+                            "subtitle": "Série longue sur la solidarité et l'honnêteté",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce2.json",
+                                "category": "ce2-citoyen",
+                                "questions": 10
+                            }
                         }
                     ],
                     "lessons": [
@@ -2891,6 +4276,38 @@
                                     "content": "Un citoyen agit avec respect et responsabilité."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce2-lesson-vote-elections",
+                            "title": "Le vote et les élections",
+                            "subtitle": "Comment on choisit ensemble, en classe et dans le pays",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Voter, c'est choisir ensemble en donnant chacun sa voix. En France, les citoyens élisent leurs représentants : le maire, les députés, le président de la République."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "L'élection des délégués de classe suit les mêmes règles que les grandes élections : candidats, bulletin secret, dépouillement, résultat respecté par tous."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Une personne = une voix : toutes les voix se valent.",
+                                        "Le bulletin secret protège la liberté de chacun.",
+                                        "On vote à 18 ans, mais on apprend à voter dès l'école.",
+                                        "Après le vote, la décision de la majorité s'applique à tous."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Isoloir, urne, dépouillement : trois mots du vote à connaître — tu les retrouveras dans le bureau de vote de ta commune !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -2922,6 +4339,32 @@
                             "engine": "choice-engine",
                             "id": "ce2-emc-aider-cooperer",
                             "subtitle": "Soutenir et agir ensemble"
+                        },
+                        {
+                            "id": "ce2-emc-cooperation-classe",
+                            "title": "Cooperer en classe",
+                            "subtitle": "Travailler ensemble vers un but commun",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce2.json",
+                                "category": "ce2-cooperation",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-emc-entraide-defi",
+                            "title": "Defi : entraide et cooperation",
+                            "subtitle": "Solidarite et travail d'equipe",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce2.json",
+                                "category": "ce2-entraide",
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
@@ -2956,6 +4399,38 @@
                                     "content": "Aider, c'est rendre la classe plus agréable pour tous."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce2-lesson-solidarite-quotidien",
+                            "title": "La solidarité au quotidien",
+                            "subtitle": "Des petits gestes qui changent tout",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La solidarité, c'est aider ceux qui en ont besoin, sans rien attendre en retour. Elle commence par de petits gestes de tous les jours, à l'école comme à la maison."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Inviter à sa table un camarade seul à la cantine, expliquer la leçon à un absent, porter le sac d'une personne âgée : la solidarité est partout."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Aider ne veut pas dire faire à la place : on accompagne.",
+                                        "La solidarité s'organise aussi en grand : associations, collectes, bénévoles.",
+                                        "Chacun peut avoir besoin d'aide un jour : donner et recevoir, ça va dans les deux sens.",
+                                        "Un groupe solidaire est plus fort qu'une addition de champions."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Chaque jour, une occasion d'être solidaire se présente : entraîne-toi à la repérer !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -2987,6 +4462,32 @@
                             "engine": "choice-engine",
                             "id": "ce2-emc-etre-responsable",
                             "subtitle": "Choix, autonomie, sécurité"
+                        },
+                        {
+                            "id": "ce2-emc-parole-ecoute-responsable",
+                            "title": "Parole et ecoute",
+                            "subtitle": "S'exprimer et ecouter les autres",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce2.json",
+                                "category": "ce2-parole-ecoute",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-emc-responsabilite-defi",
+                            "title": "Defi : responsabilite et engagement",
+                            "subtitle": "Agir de facon responsable",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce2.json",
+                                "category": "ce2-responsabilite",
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
@@ -3020,6 +4521,38 @@
                                     "content": "La responsabilité aide à grandir et à vivre ensemble."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce2-lesson-responsable-partout",
+                            "title": "Responsable à l'école et à la maison",
+                            "subtitle": "On peut compter sur moi !",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Être responsable, c'est faire ce qu'on doit faire sans qu'on ait besoin de nous le rappeler, et assumer ses actes, même ses erreurs."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Préparer son cartable la veille, nourrir son animal, reconnaître « c'est moi qui ai cassé le verre » : trois visages de la responsabilité."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Responsable de ses affaires : je m'en occupe moi-même.",
+                                        "Responsable de ses actes : je répare mes erreurs au lieu de les cacher.",
+                                        "Responsable des autres : je préviens un adulte en cas de danger.",
+                                        "La confiance se gagne : plus je suis fiable, plus on me confie de choses."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Grandir, c'est gagner des responsabilités : chaque promesse tenue est une preuve qu'on peut compter sur toi."
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -3030,7 +4563,7 @@
                     "lessons": [
                         {
                             "id": "ce2-lesson-esprit-critique",
-                            "title": "Vrai ou faux ?",
+                            "title": "Vérifier une information",
                             "subtitle": "Développer son esprit critique",
                             "format": "lesson-card",
                             "blocks": [
@@ -3094,7 +4627,7 @@
                     "exercises": [
                         {
                             "id": "ce2-emc-esprit-critique",
-                            "title": "Vrai ou faux ?",
+                            "title": "Info fiable ou pas ?",
                             "subtitle": "Reconnaître une information fiable",
                             "engine": "choice-engine",
                             "params": {
@@ -3102,6 +4635,20 @@
                                 "dataFile": "data/emc_ce2.json",
                                 "category": "ce2-esprit-critique",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-emc-esprit-critique-defi",
+                            "title": "Défi : esprit critique",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce2.json",
+                                "category": "ce2-esprit-critique",
+                                "questions": 9
                             }
                         },
                         {

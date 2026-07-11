@@ -11,7 +11,8 @@
         'reading',
         'timeline',
         'matching',
-        'word-order'
+        'word-order',
+        'cloze-fill-in'
     ]),
 
     isPlainObject(value) {
@@ -30,6 +31,38 @@
         return this.isNonEmptyString(value) && this.hasNoHtmlMarkup(value);
     },
 
+    isSafeSvgMarkup(value) {
+        if (!this.isNonEmptyString(value)) return false;
+        const text = value.trim();
+
+        // Reject anything that isn't a single <svg>...</svg> root, and reject
+        // any disallowed tag (script, foreignObject, image, style, iframe, etc.)
+        // or any event handler / external reference, before ever parsing it.
+        if (!/^<svg[\s>]/i.test(text) || !/<\/svg>\s*$/i.test(text)) return false;
+        if (/<\s*(script|foreignObject|image|style|iframe|object|embed|use)\b/i.test(text)) return false;
+        if (/\son[a-z]+\s*=/i.test(text)) return false;
+        if (/javascript:/i.test(text)) return false;
+        if (/<!--/.test(text)) return false;
+
+        const allowedTags = new Set(['svg', 'path', 'g']);
+        const allowedAttrs = new Set(['xmlns', 'viewbox', 'role', 'aria-label', 'id', 'data-name', 'd', 'class']);
+        const tagPattern = /<\/?([a-zA-Z][a-zA-Z0-9-]*)\b([^>]*)>/g;
+        let match;
+        while ((match = tagPattern.exec(text)) !== null) {
+            const tagName = match[1].toLowerCase();
+            if (!allowedTags.has(tagName)) return false;
+
+            const attrText = match[2] || '';
+            const attrPattern = /([a-zA-Z_:][a-zA-Z0-9_:.-]*)\s*=/g;
+            let attrMatch;
+            while ((attrMatch = attrPattern.exec(attrText)) !== null) {
+                if (!allowedAttrs.has(attrMatch[1].toLowerCase())) return false;
+            }
+        }
+
+        return true;
+    },
+
     isPositiveInteger(value) {
         return Number.isInteger(Number(value)) && Number(value) > 0;
     },
@@ -44,6 +77,10 @@
 
     isDataFilePath(value) {
         return this.isNonEmptyString(value) && /^\.?\/?data\/.+\.json$/i.test(value.trim().replace(/\\/g, '/'));
+    },
+
+    isMapFilePath(value) {
+        return this.isNonEmptyString(value) && /^\.?\/?data\/.+\.svg$/i.test(value.trim().replace(/\\/g, '/'));
     },
 
     validateFrenchLibrarySection(sectionName, data) {
@@ -413,12 +450,31 @@
         if (exercise.engine === 'word-order' && !this.isNonEmptyString(exercise.params.category)) {
             return { valid: false, reason: 'category manquante pour word-order.' };
         }
+        if (exercise.engine === 'cloze-fill-in' && !this.isNonEmptyString(exercise.params.category)) {
+            return { valid: false, reason: 'category manquante pour cloze-fill-in.' };
+        }
         if (exercise.engine === 'board-interactive') {
-            if (!this.isNonEmptyString(exercise.params.type) || !['tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete'].includes(exercise.params.type)) {
+            if (!this.isNonEmptyString(exercise.params.type) || !['tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete', 'map-locate', 'memory-match', 'fraction-build', 'angle-classify'].includes(exercise.params.type)) {
                 return { valid: false, reason: 'type board-interactive invalide.' };
             }
-            if (!this.isNonEmptyString(exercise.params.category)) {
+            if (exercise.params.type !== 'fraction-build' && !this.isNonEmptyString(exercise.params.category)) {
                 return { valid: false, reason: 'category manquante pour board-interactive.' };
+            }
+            if (exercise.params.type === 'fraction-build') {
+                if (exercise.params.minDenom !== undefined && (!Number.isFinite(Number(exercise.params.minDenom)) || Number(exercise.params.minDenom) < 2)) {
+                    return { valid: false, reason: 'minDenom invalide pour fraction-build.' };
+                }
+                if (exercise.params.maxDenom !== undefined && (!Number.isFinite(Number(exercise.params.maxDenom)) || Number(exercise.params.maxDenom) < 2)) {
+                    return { valid: false, reason: 'maxDenom invalide pour fraction-build.' };
+                }
+            }
+            if (exercise.params.type === 'map-locate') {
+                if (!this.isMapFilePath(exercise.params.mapFile)) {
+                    return { valid: false, reason: 'mapFile manquant ou invalide pour map-locate.' };
+                }
+                if (!this.isNonEmptyString(exercise.params.mapId)) {
+                    return { valid: false, reason: 'mapId manquant pour map-locate.' };
+                }
             }
         }
         if (exercise.engine === 'timeline') {
@@ -508,6 +564,32 @@
         }
 
         for (const item of pool) {
+            if (exercise.params.type === 'map-locate') {
+                if (!this.isPlainObject(item)
+                    || !this.isSafeLessonText(item.targetZoneId)
+                    || !/^[a-z0-9-]+$/i.test(item.targetZoneId)
+                    || !this.isSafeLessonText(item.targetLabel)
+                    || (item.prompt !== undefined && !this.isSafeLessonText(item.prompt))) {
+                    return { valid: false, reason: `map-locate invalide dans ${exercise.params.category}.` };
+                }
+                continue;
+            }
+
+            if (exercise.params.type === 'memory-match') {
+                const pairs = Array.isArray(item.pairs) ? item.pairs : [];
+                const validPairs = pairs.length >= 3 && pairs.every((pair) =>
+                    Array.isArray(pair) && pair.length === 2
+                    && this.isSafeLessonText(pair[0]) && this.isSafeLessonText(pair[1])
+                );
+                if (!this.isPlainObject(item)
+                    || (item.title !== undefined && !this.isSafeLessonText(item.title))
+                    || (item.explanation !== undefined && !this.isSafeLessonText(item.explanation))
+                    || !validPairs) {
+                    return { valid: false, reason: `memory-match invalide dans ${exercise.params.category}.` };
+                }
+                continue;
+            }
+
             if (!this.isPlainObject(item) || !this.isSafeLessonText(item.prompt) || !this.isPlainObject(item.board)) {
                 return { valid: false, reason: `Entrée interactive invalide dans ${exercise.params.category}.` };
             }

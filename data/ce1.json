@@ -1,4 +1,4 @@
-﻿{
+{
     "gradeId": "ce1",
     "title": "CE1",
     "subjects": [
@@ -88,6 +88,19 @@
                                 "table": 7,
                                 "questions": 10
                             }
+                        },
+                        {
+                            "id": "ce1-bonus-mult-melange",
+                            "title": "Défi : tables mélangées",
+                            "subtitle": "Toutes les tables, en rafale",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "mult",
+                                "table": 10,
+                                "questions": 15
+                            }
                         }
                     ],
                     "lessons": [
@@ -123,35 +136,36 @@
                             ]
                         },
                         {
-                            "id": "ce1-lesson-monuments-personnages",
-                            "title": "Les monuments et les personnages",
-                            "subtitle": "Des traces pour raconter l'histoire",
-                            "format": "lesson-card",
+                            "id": "ce1-lesson-tables-astuces",
+                            "title": "Apprendre ses tables malin",
+                            "subtitle": "Des astuces pour retenir les multiplications",
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Les monuments et les personnages historiques aident à comprendre ce qui s'est passé autrefois."
+                                    "text": "Une multiplication, c'est une addition répétée : 3 × 4, c'est 4 + 4 + 4. Connaître les tables par cœur rend les calculs très rapides."
                                 },
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "Une statue, une plaque ou une fresque peuvent rappeler une personne importante ou un événement."
+                                    "content": "3 × 4 = 12, et 4 × 3 = 12 aussi : quand on connaît un résultat, on en connaît deux !"
                                 },
                                 {
                                     "type": "bullets",
-                                    "label": "Je cherche",
+                                    "label": "Je retiens",
                                     "items": [
-                                        "le nom du monument",
-                                        "la personne représentée",
-                                        "ce que l'on veut rappeler"
+                                        "La table de 2, ce sont les doubles : 2 × 6 = le double de 6.",
+                                        "La table de 5 finit toujours par 5 ou 0.",
+                                        "La table de 10 ajoute un zéro : 10 × 7 = 70.",
+                                        "On peut inverser : si je connais 5 × 3, je connais 3 × 5."
                                     ]
                                 },
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "Un monument raconte une histoire et garde la mémoire du passé."
+                                    "content": "Réciter un peu chaque jour vaut mieux qu'une longue séance : cinq minutes par jour et les tables restent !"
                                 }
-                            ]
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -284,6 +298,116 @@
                                 "dataFile": "data/math_matching.json",
                                 "questions": 3
                             }
+                        },
+                        {
+                            "id": "ce1-maths-memoire",
+                            "title": "Jeu de mémoire",
+                            "subtitle": "Retrouve toutes les paires",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "memory-match",
+                                "dataFile": "data/board_memory_match_ce1.json",
+                                "category": "ce1_memory_match",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-additions-100",
+                            "title": "Défi : additions jusqu'à 100",
+                            "subtitle": "Calcul mental grand format",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "add-simple",
+                                "min": 10,
+                                "maxSum": 100,
+                                "questions": 12
+                            }
+                        },
+                        {
+                            "id": "ce1-doubles",
+                            "title": "Les doubles",
+                            "subtitle": "Le double d'un nombre jusqu'à 30",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "double",
+                                "min": 3,
+                                "max": 30,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-moities",
+                            "title": "Les moitiés",
+                            "subtitle": "La moitié d'un nombre pair",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "half",
+                                "min": 3,
+                                "max": 25,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-complements-20",
+                            "title": "Compléments à 20",
+                            "subtitle": "Trouver ce qui manque pour faire 20",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "complement",
+                                "target": 20,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-additions-100",
+                            "title": "Additions jusqu'à 100",
+                            "subtitle": "Calculer des sommes plus grandes",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "add-simple",
+                                "min": 20,
+                                "maxSum": 100,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-soustractions-60",
+                            "title": "Soustractions jusqu'à 60",
+                            "subtitle": "Enlever sans se tromper",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "sub-simple",
+                                "min": 20,
+                                "max": 60,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-nombre-cache-50",
+                            "title": "Le nombre caché",
+                            "subtitle": "Compléter une addition à trou",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "add-trou",
+                                "min": 20,
+                                "max": 50,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-complements-100",
+                            "title": "Défi : compléments à 100",
+                            "subtitle": "Pour les champions du calcul",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "complement",
+                                "target": 100,
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
@@ -295,9 +419,122 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Pour compléter, on cherche le nombre qui manque pour arriver au total."
+                                    "text": "Compléter, c'est chercher le nombre qui manque pour atteindre un total. C'est très utile pour rendre la monnaie ou atteindre la dizaine."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "13 + ? = 20 : je pars de 13 et je compte jusqu'à 20 → 14, 15, 16, 17, 18, 19, 20 : il manque 7."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Le complément à 10 est la base : 7 + 3, 6 + 4, 8 + 2… à connaître par cœur !",
+                                        "Pour compléter à 20, je passe par 10 : de 13 à 20, c'est 13 → 20, soit 7.",
+                                        "Compléter, c'est aussi une soustraction cachée : 20 − 13 = 7.",
+                                        "Je vérifie en additionnant : 13 + 7 = 20 ✓"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Les paires qui font 10 (1+9, 2+8, 3+7, 4+6, 5+5) sont les meilleures amies du calcul mental : apprends-les comme une comptine !"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-doubles-moities",
+                            "title": "Doubles et moitiés",
+                            "subtitle": "Deux fois plus, deux fois moins",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le double d'un nombre, c'est ce nombre ajouté à lui-même. La moitié, c'est le partage en deux parts égales."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le double de 6, c'est 6 + 6 = 12. La moitié de 12, c'est 6."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Double : j'ajoute le nombre à lui-même.",
+                                        "Moitié : je cherche le nombre qui, ajouté à lui-même, donne mon nombre.",
+                                        "Doubles et moitiés marchent ensemble : si 7 + 7 = 14, alors la moitié de 14 est 7."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Connaître les doubles par cœur aide à calculer plus vite : 6 + 7, c'est le double de 6, plus 1 !"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-additionner-100",
+                            "title": "Additionner jusqu'à 100",
+                            "subtitle": "Calculer de grandes sommes sans se perdre",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour additionner deux nombres, on peut ajouter d'abord les dizaines, puis les unités. On découpe le calcul en petits morceaux faciles."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "34 + 25 : je fais 34 + 20 = 54, puis 54 + 5 = 59."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "J'ajoute d'abord les dizaines, ensuite les unités.",
+                                        "Passer par la dizaine aide : 38 + 5, c'est 38 + 2 = 40, puis + 3 = 43.",
+                                        "Je peux changer l'ordre : 7 + 25, c'est pareil que 25 + 7."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Vérifie ton résultat : une addition rend toujours un nombre PLUS GRAND que chacun des deux nombres de départ."
+                                }
+                            ],
+                            "format": "lesson-card"
+                        },
+                        {
+                            "id": "ce1-lesson-soustraire",
+                            "title": "Soustraire sans se tromper",
+                            "subtitle": "Enlever, reculer, chercher l'écart",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Soustraire, c'est enlever une quantité, ou chercher l'écart entre deux nombres. On peut reculer sur la file des nombres, ou avancer depuis le plus petit."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "52 − 48 : plutôt que reculer de 48, j'avance de 48 à 52, il y a 4. Donc 52 − 48 = 4."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Enlever d'abord les dizaines, puis les unités : 46 − 23, c'est 46 − 20 = 26, puis 26 − 3 = 23.",
+                                        "Quand les nombres sont proches, chercher l'écart est plus rapide.",
+                                        "Le résultat d'une soustraction est plus petit que le nombre de départ."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour vérifier une soustraction, additionne : si 52 − 48 = 4, alors 48 + 4 doit bien redonner 52 !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -530,6 +767,18 @@
                                 "dataFile": "data/math_matching.json",
                                 "questions": 3
                             }
+                        },
+                        {
+                            "id": "ce1-bonus-geo-lire-heure",
+                            "title": "Défi : lire l'heure",
+                            "subtitle": "Heures, demies et quarts en rafale",
+                            "engine": "clock",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "level": 2,
+                                "questions": 10
+                            }
                         }
                     ]
                 },
@@ -560,6 +809,49 @@
                                 "dataFile": "data/math_word_problems_cycle2.json",
                                 "category": "ce1-problemes-mixtes",
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-problemes-expert",
+                            "title": "Défi : problèmes en rafale",
+                            "subtitle": "Additifs et à étapes, sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle2.json",
+                                "category": "ce1-problemes-mixtes",
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "ce1-oiseau-calcul",
+                            "title": "L'oiseau matheux",
+                            "subtitle": "Réponds avant qu'il s'envole !",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "oiseau-math",
+                                "min": 5,
+                                "max": 20,
+                                "vitesse": 8,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-cibles-adresse",
+                            "title": "Le jeu de cibles",
+                            "subtitle": "Additionne les points des flèchettes",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "cibles",
+                                "zones": [
+                                    5,
+                                    10,
+                                    25
+                                ],
+                                "nbFleches": 3,
+                                "questions": 5
                             }
                         }
                     ],
@@ -592,6 +884,38 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Un problème peut demander plusieurs étapes : je calcule dans l'ordre et je vérifie chaque résultat."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-resoudre-probleme",
+                            "title": "Résoudre un petit problème",
+                            "subtitle": "Lire, réfléchir, calculer, vérifier",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un problème raconte une petite histoire avec des nombres. Pour le résoudre, on suit toujours les mêmes étapes."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« Léa a 12 billes, elle en donne 4. » Je cherche : combien lui en reste-t-il ? C'est une soustraction : 12 − 4 = 8."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Ma méthode",
+                                    "items": [
+                                        "1. Je lis l'histoire en entier, calmement.",
+                                        "2. Je cherche la question : que me demande-t-on ?",
+                                        "3. Je choisis l'opération : ajouter (+) ou enlever (−) ?",
+                                        "4. Je calcule, puis je vérifie que ma réponse a du sens."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Les mots « en tout » font souvent penser à une addition ; « il reste » à une soustraction."
                                 }
                             ]
                         }
@@ -730,6 +1054,49 @@
                                 ],
                                 "questions": 10
                             }
+                        },
+                        {
+                            "id": "ce1-homo-onont",
+                            "title": "On ou Ont?",
+                            "subtitle": "Homophones fréquents",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "homophone-duel",
+                                "category": "on_ont",
+                                "choices": [
+                                    "on",
+                                    "ont"
+                                ],
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "ce1-homo-ouou",
+                            "title": "Ou ou Où?",
+                            "subtitle": "Homophones fréquents",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "homophone-duel",
+                                "category": "ou_où",
+                                "choices": [
+                                    "ou",
+                                    "où"
+                                ],
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-dictee-vetements",
+                            "title": "Défi : dictée des vêtements",
+                            "subtitle": "Mots plus nombreux à retenir",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "spelling",
+                                "category": "vêtements",
+                                "questions": 12
+                            }
                         }
                     ],
                     "lessons": [
@@ -741,9 +1108,93 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "En dictée, il faut écouter le mot, penser aux sons, puis vérifier les lettres une dernière fois."
+                                    "text": "Pour bien écrire un mot entendu, on le découpe en syllabes, puis chaque syllabe en sons. À chaque son correspond une ou plusieurs lettres."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« chapeau » : cha-peau. J'entends [ch] → ch, [a] → a, [p] → p, [o] → eau (le son o s'écrit ici e-a-u !)."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Je découpe le mot en syllabes en frappant dans mes mains.",
+                                        "Un même son peut s'écrire de plusieurs façons : o, au, eau.",
+                                        "Certaines lettres ne s'entendent pas : le e muet, le s du pluriel.",
+                                        "Après avoir écrit, je relis lettre par lettre en prononçant dans ma tête."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le son [o] a trois costumes : o (vélo), au (jaune), eau (bateau). En cas de doute, pense à un mot de la même famille que tu connais !"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-m-devant-mbp",
+                            "title": "La règle du m devant m, b, p",
+                            "subtitle": "Pourquoi on écrit « chambre » et pas « chanbre »",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Devant les lettres m, b et p, le n des sons « an », « on », « in » se transforme en m. C'est une règle presque sans exception !"
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "une chambre (m devant b), emporter (m devant p), emmener (m devant m) — mais un bonbon fait exception !"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "an → am : une lampe, une jambe.",
+                                        "on → om : un pompier, sombre.",
+                                        "in → im : impossible, un timbre.",
+                                        "Exceptions célèbres : bonbon, bonbonnière, néanmoins."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Avant d'écrire un mot avec le son « an » ou « on », regarde la lettre suivante : si c'est m, b ou p… mets un m !"
+                                }
+                            ],
+                            "format": "lesson-card"
+                        },
+                        {
+                            "id": "ce1-lesson-lettres-finales",
+                            "title": "Les lettres muettes",
+                            "subtitle": "Ces lettres qu'on écrit sans les entendre",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Beaucoup de mots français se terminent par une lettre qu'on n'entend pas : le « t » de chat, le « d » de grand. Pour la trouver, on peut chercher un mot de la même famille."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« grand » prend un d car on dit « grande » ; « chat » prend un t car on dit « chaton »."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Chercher le féminin : petit → petite, on entend le t !",
+                                        "Chercher la famille : dent → dentiste.",
+                                        "Le e muet à la fin : une pomme, une école.",
+                                        "Certaines lettres muettes s'apprennent par cœur."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "La lettre muette est souvent un indice caché : elle réapparaît dans les mots de la même famille."
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -806,6 +1257,19 @@
                                 "speechRate": 0.74,
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "ce1-bonus-audio-animaux-expert",
+                            "title": "Défi : super dictée des animaux",
+                            "subtitle": "Écoute attentive, plus de mots",
+                            "engine": "audio-spelling",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "category": "animals",
+                                "speechRate": 0.74,
+                                "questions": 10
+                            }
                         }
                     ],
                     "lessons": [
@@ -817,7 +1281,27 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Dans une dictée audio, on écoute bien le mot, on repère les sons et on écrit sans se précipiter. On peut aussi relire pour vérifier les lettres."
+                                    "text": "Notre oreille est le premier outil de l'orthographe : elle repère les sons du mot, dans l'ordre. À l'écrit, chaque son devient une ou plusieurs lettres."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "J'entends « moulin » : [m]-[ou]-[l]-[in]. J'écris m, puis ou (deux lettres pour un son !), puis l, puis in."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "J'écoute le mot en entier avant d'écrire.",
+                                        "Je repère les sons un par un, du début à la fin.",
+                                        "Certains sons s'écrivent avec deux lettres : ou, on, an, in, ch.",
+                                        "Les sons proches se distinguent à l'oreille : [b]/[p], [t]/[d], [f]/[v]."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Articule le mot en silence en l'écrivant : ta bouche t'aide à ne pas oublier de son en route !"
                                 }
                             ]
                         }
@@ -882,6 +1366,19 @@
                                 "speechRate": 0.73,
                                 "questions": 8
                             }
+                        },
+                        {
+                            "id": "ce1-bonus-mots-frequents-revision",
+                            "title": "Défi : révision des mots fréquents",
+                            "subtitle": "Toute l'année en une seule dictée",
+                            "engine": "audio-spelling",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "category": "ce1_mots_frequents_p5",
+                                "speechRate": 0.73,
+                                "questions": 12
+                            }
                         }
                     ],
                     "lessons": [
@@ -893,17 +1390,27 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Les mots fréquents reviennent dans presque toutes les phrases. Les mémoriser aide à lire plus vite et à écrire avec moins d'erreurs."
+                                    "text": "Une centaine de petits mots — le, est, dans, avec, mais… — composent la moitié de tout ce qu on lit ! Les connaître par coeur rend la lecture fluide et la dictée plus sûre."
                                 },
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "Dans la phrase Le chat est dans la cour, les mots le, est et dans sont des mots fréquents."
+                                    "content": "Dans « Le chat est dans la cour, mais il pleut », six mots sur neuf sont des mots fréquents : le, est, dans, la, mais, il."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Les champions à connaître : le, la, les, un, une, des, et, est, dans, avec, pour, mais, chez, sous, sur.",
+                                        "On les photographie des yeux : à force de les voir, on les écrit sans réfléchir.",
+                                        "Certains se ressemblent à l oreille (et/est, a/à) : le sens de la phrase les départage.",
+                                        "Un mot fréquent bien connu, c est une erreur de dictée en moins à chaque phrase !"
+                                    ]
                                 },
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "Les homophones comme a/à et et/est se travaillent dans les exercices d'homophones."
+                                    "content": "Fabrique-toi une boîte à mots : chaque mot fréquent sur une petite carte, et trois cartes piochées chaque soir. En deux semaines, ils sont tous à toi !"
                                 }
                             ]
                         }
@@ -931,6 +1438,46 @@
                             "engine": "reading",
                             "params": {
                                 "category": "ce1_comprendre_phrase_courte",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce1-lecture-comprehension-courte",
+                            "title": "Comprendre un texte court",
+                            "subtitle": "3 à 4 phrases et une question",
+                            "engine": "reading",
+                            "params": {
+                                "category": "ce1_comprehension_courte",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-lecture-inference-simple",
+                            "title": "Deviner la suite",
+                            "subtitle": "Ce que le texte laisse comprendre",
+                            "engine": "reading",
+                            "params": {
+                                "category": "ce1_lecture_inference_simple",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce1-lecture-mot-contexte",
+                            "title": "Quel sens a ce mot ?",
+                            "subtitle": "Comprendre un mot grâce au contexte",
+                            "engine": "reading",
+                            "params": {
+                                "category": "ce1_lecture_mot_contexte",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce1-lecture-ordre-evenements",
+                            "title": "Dans quel ordre ?",
+                            "subtitle": "Retrouver l'ordre des événements",
+                            "engine": "reading",
+                            "params": {
+                                "category": "ce1_lecture_ordre_evenements",
                                 "questions": 5
                             }
                         }
@@ -1135,6 +1682,29 @@
                                 "dataFile": "data/french/matching.json",
                                 "questions": 2
                             }
+                        },
+                        {
+                            "id": "ce1-vocab-ordre-alpha",
+                            "title": "Ordre alphabétique",
+                            "subtitle": "Remets les mots dans l'ordre",
+                            "engine": "word-order",
+                            "params": {
+                                "category": "alpha_order_ce1",
+                                "dataFile": "data/french_word_order.json",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-vocab-antonymes-expert",
+                            "title": "Défi : super contraires",
+                            "subtitle": "Encore plus de mots opposés",
+                            "engine": "reading",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "category": "ce1_vocabulaire_antonymes",
+                                "questions": 10
+                            }
                         }
                     ]
                 },
@@ -1151,9 +1721,92 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Le déterminant accompagne le nom. Il aide à savoir de quel objet ou de quelle personne on parle. Exemples : un chat, une fille, le livre, la table, l'école."
+                                    "text": "Le déterminant est le petit mot placé devant le nom. Il indique si l'on parle d'une chose précise ou non, et si elle est au singulier ou au pluriel."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "UN chat (n'importe lequel) / LE chat (celui qu'on connaît) / LES chats (plusieurs)."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "un, une, des : les articles indéfinis (on ne précise pas lequel).",
+                                        "le, la, l', les : les articles définis (on sait de qui on parle).",
+                                        "Le déterminant s'accorde avec le nom : la fille, les filles.",
+                                        "Devant une voyelle, le et la deviennent l' : l'école, l'arbre."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le déterminant est un espion du genre et du nombre : « les » t'avertit que le nom prendra un s !"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-nom-verbe",
+                            "title": "Le nom et le verbe",
+                            "subtitle": "Les deux grands rôles de la phrase",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans une phrase, le nom désigne une personne, un animal ou une chose. Le verbe dit ce qui se passe : l'action ou l'état."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« Le chat dort. » : « chat » est le nom, « dort » est le verbe."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Le nom peut avoir un déterminant devant lui : le, la, un, une…",
+                                        "Le verbe change quand on change le temps : le chat dort → le chat dormira.",
+                                        "Pour trouver le verbe, je change le moment : ce qui change, c'est lui !"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Astuce : mets « hier » ou « demain » devant la phrase. Le mot qui se transforme est le verbe."
+                                }
+                            ],
+                            "format": "lesson-card"
+                        },
+                        {
+                            "id": "ce1-lesson-phrase",
+                            "title": "Une phrase bien construite",
+                            "subtitle": "Majuscule, ordre des mots, point",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une phrase commence par une majuscule et se termine par un point. Elle doit vouloir dire quelque chose : les mots sont dans le bon ordre."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« joue Léa ballon au » n'est pas une phrase. « Léa joue au ballon. » en est une !"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Majuscule au début, point à la fin.",
+                                        "La phrase doit avoir du sens.",
+                                        "Le point peut être simple (.), d'interrogation (?) ou d'exclamation (!).",
+                                        "À l'oral, la voix descend à la fin d'une phrase."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Relis toujours ta phrase à voix basse : si elle « sonne » bizarre, l'ordre des mots est sans doute à revoir."
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ],
                     "exercises": [
@@ -1216,6 +1869,16 @@
                             }
                         },
                         {
+                            "id": "ce1-gram-cloze-ecrit",
+                            "title": "Écris le bon mot",
+                            "subtitle": "Complète la phrase sans aide",
+                            "engine": "cloze-fill-in",
+                            "params": {
+                                "category": "grammar_cloze_ce1",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "ce1-gram-pluriel",
                             "title": "Singulier ou pluriel",
                             "subtitle": "Former le bon nom",
@@ -1228,13 +1891,13 @@
                         },
                         {
                             "id": "ce1-gram-det-phrase",
-                            "title": "Compléter avec le bon mot",
-                            "subtitle": "Petit mot ou nom au pluriel",
+                            "title": "Accord dans le groupe nominal",
+                            "subtitle": "Déterminant, nom et adjectif",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "grammar-cloze",
                                 "category": "grammar_agreement_ce1",
-                                "questions": 8
+                                "questions": 10
                             }
                         },
                         {
@@ -1246,6 +1909,41 @@
                                 "category": "word_order_ce1",
                                 "dataFile": "data/french_word_order.json",
                                 "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce1-francais-raconte-histoire",
+                            "title": "Raconte une histoire",
+                            "subtitle": "Remets les phrases dans l'ordre",
+                            "engine": "word-order",
+                            "params": {
+                                "category": "story_order_ce1",
+                                "dataFile": "data/french_word_order.json",
+                                "questions": 4
+                            }
+                        },
+                        {
+                            "id": "ce1-gram-types-phrases",
+                            "title": "Types de phrases",
+                            "subtitle": "Déclarative, interrogative ou exclamative ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "grammar_phrase_types_ce1",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-grammaire-cloze-expert",
+                            "title": "Défi : phrases à compléter",
+                            "subtitle": "Encore plus de déterminants à choisir",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "grammar_cloze_ce1",
+                                "questions": 12
                             }
                         }
                     ]
@@ -1363,6 +2061,18 @@
                                 "tenses": "présent",
                                 "questions": 8
                             }
+                        },
+                        {
+                            "id": "ce1-bonus-conj-verbe-o-tron-expert",
+                            "title": "Défi : Verbe-o-tron expert",
+                            "subtitle": "Tous les verbes mélangés, version longue",
+                            "engine": "conjugation",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "category": "present_1",
+                                "questions": 15
+                            }
                         }
                     ],
                     "lessons": [
@@ -1374,9 +2084,62 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Les verbes être et avoir servent très souvent. Voici leurs formes au présent : je suis, tu es, il est, nous sommes, vous êtes, ils sont ; j'ai, tu as, il a, nous avons, vous avez, ils ont."
+                                    "text": "Être et avoir sont les deux verbes les plus utilisés du français. Ils se conjuguent de façon irrégulière : il faut les apprendre par cœur, comme une chanson."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Je suis content. Tu as un vélo. Nous sommes en classe. Ils ont un chien."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "ÊTRE : je suis, tu es, il est, nous sommes, vous êtes, ils sont.",
+                                        "AVOIR : j'ai, tu as, il a, nous avons, vous avez, ils ont.",
+                                        "Être dit comment on est ; avoir dit ce qu'on possède.",
+                                        "Attention aux pièges : « il est » (être) et « il a » (avoir) ne se confondent pas !"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Récite-les dans l'ordre puis dans le désordre : « nous sommes ? vous avez ? » Quand tu réponds sans réfléchir, c'est gagné !"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-verbes-er-present",
+                            "title": "Les verbes en -er au présent",
+                            "subtitle": "Chanter, jouer, danser… même famille, mêmes terminaisons",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Au présent, tous les verbes en -er se conjuguent de la même façon. Il suffit d'apprendre une seule chanson de terminaisons : e, es, e, ons, ez, ent."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "jouer : je joue, tu joues, il joue, nous jouons, vous jouez, ils jouent."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "je → e : je chante.",
+                                        "tu → es : tu chantes.",
+                                        "il/elle → e : elle danse.",
+                                        "nous → ons, vous → ez, ils/elles → ent.",
+                                        "« ent » à la fin ne s'entend pas : ils jouent se prononce comme il joue !"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le piège du présent : « tu » prend toujours un s (tu joues), et « ils » se termine par -ent qu'on n'entend pas."
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 }
@@ -1459,6 +2222,38 @@
                                     "content": "Ces mots aident à raconter ce qui s'est passé, ce qui se passe et ce qui va arriver."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-frise-temps",
+                            "title": "La frise du temps",
+                            "subtitle": "Ranger les événements dans l'ordre",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une frise chronologique est une ligne sur laquelle on place les événements dans l'ordre : les plus anciens à gauche, les plus récents à droite."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Sur la frise de ta vie : naissance → premiers pas → entrée à l'école → aujourd'hui."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Le temps avance toujours de gauche à droite sur la frise.",
+                                        "Avant = à gauche, après = à droite.",
+                                        "Une date précise se place à un point exact de la frise.",
+                                        "Une période (comme « quand papi était petit ») occupe une zone."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour ranger des événements, cherche d'abord le plus ancien : les autres se placent après lui, un par un."
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -1477,6 +2272,20 @@
                                 "dataFile": "data/history_ce1.json",
                                 "category": "ce1-vie-autrefois",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-histoire-vie-autrefois-defi",
+                            "title": "Défi : vivre autrefois",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce1.json",
+                                "category": "ce1-vie-autrefois",
+                                "questions": 9
                             }
                         },
                         {
@@ -1501,9 +2310,61 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Autrefois, certaines habitudes, certains objets et certains lieux étaient différents. À l'école, on utilisait parfois l'ardoise, la plume ou le tableau noir."
+                                    "text": "Il y a cent ans, l'école ressemblait à la nôtre par son but — apprendre à lire, écrire, compter — mais les objets et les habitudes étaient bien différents."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "L'élève écrivait à la plume trempée dans l'encrier, portait une blouse grise et s'asseyait à un pupitre en bois incliné."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "On écrivait sur l'ardoise pour s'entraîner, au porte-plume pour le cahier.",
+                                        "Filles et garçons étaient souvent dans des écoles séparées.",
+                                        "Le poêle à bois chauffait la classe ; chacun apportait parfois sa bûche !",
+                                        "Les leçons s'apprenaient beaucoup par cœur et se récitaient debout."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Blouse, plume, encrier, ardoise, pupitre : cinq objets qui disent « école d'autrefois » au premier coup d'œil dans un musée !"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-vie-quotidienne-autrefois",
+                            "title": "La vie quotidienne d'autrefois",
+                            "subtitle": "Se chauffer, s'éclairer, se laver… avant",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Au temps des arrière-grands-parents, la vie de tous les jours était très différente : pas d'électricité partout, pas d'eau au robinet, pas de voiture pour tous."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le soir, on s'éclairait à la bougie ou à la lampe à pétrole, et on se chauffait autour de la cheminée."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "L'eau venait du puits ou de la fontaine.",
+                                        "Le linge se lavait à la main, au lavoir.",
+                                        "On se déplaçait à pied, à cheval ou en charrette.",
+                                        "Les enfants aidaient beaucoup aux travaux de la maison et des champs."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Interroge tes grands-parents : leurs souvenirs sont des témoignages précieux sur la vie d'autrefois !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -1535,9 +2396,78 @@
                             "engine": "choice-engine",
                             "id": "ce1-histoire-monuments-passe",
                             "subtitle": "Observer des traces historiques"
+                        },
+                        {
+                            "id": "ce1-histoire-monuments-ecole",
+                            "title": "L'ecole autrefois",
+                            "subtitle": "La classe d'il y a 100 ans",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce1.json",
+                                "category": "ce1-ecole-autrefois",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-histoire-monuments-objets",
+                            "title": "Objets d'autrefois",
+                            "subtitle": "Reconnaitre et dater un objet ancien",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce1.json",
+                                "category": "ce1-objets-passe",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-histoire-monuments-defi",
+                            "title": "Defi : monuments et personnages",
+                            "subtitle": "Grands noms et lieux de memoire",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce1.json",
+                                "category": "ce1-monuments-personnages",
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
+                        {
+                            "id": "ce1-lesson-monuments-personnages",
+                            "title": "Les monuments et les personnages",
+                            "subtitle": "Des traces pour raconter l'histoire",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Les monuments et les personnages historiques aident à comprendre ce qui s'est passé autrefois."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une statue, une plaque ou une fresque peuvent rappeler une personne importante ou un événement."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je cherche",
+                                    "items": [
+                                        "le nom du monument",
+                                        "la personne représentée",
+                                        "ce que l'on veut rappeler"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Un monument raconte une histoire et garde la mémoire du passé."
+                                }
+                            ]
+                        },
                         {
                             "id": "ce1-lesson-traces-passe",
                             "title": "Les traces du passé",
@@ -1546,7 +2476,27 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Le passé laisse des traces que l'on peut encore voir aujourd'hui : photos, monuments, objets ou souvenirs."
+                                    "text": "Le passé ne s'est pas envolé : il a laissé des traces autour de nous. Les observer permet de raconter la vie d'avant, comme un détective raconte une histoire avec des indices."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une photo en noir et blanc, l'église du village, la vieille horloge de mamie : trois traces, trois morceaux d'histoire."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Traces construites : monuments, maisons anciennes, ponts.",
+                                        "Traces écrites : lettres, journaux, registres, cartes postales.",
+                                        "Traces d'objets : outils, jouets, vêtements d'autrefois.",
+                                        "Traces racontées : les souvenirs des grands-parents sont des témoignages !"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Dans ta commune, cherche la trace la plus ancienne : souvent l'église, un lavoir, ou une date gravée au-dessus d'une porte."
                                 }
                             ]
                         }
@@ -1615,6 +2565,20 @@
                                 "dataFile": "data/history_matching.json",
                                 "questions": 2
                             }
+                        },
+                        {
+                            "id": "ce1-bonus-histoire-objets-passe-expert",
+                            "title": "Défi : objets du passé en détail",
+                            "subtitle": "Encore plus d'objets à observer",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce1.json",
+                                "category": "ce1-objets-passe",
+                                "questions": 10
+                            }
                         }
                     ],
                     "lessons": [
@@ -1626,9 +2590,61 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Les objets anciens montrent comment on vivait autrefois. Ils servent de traces pour comparer le passé et le présent."
+                                    "text": "Les objets anciens sont des témoins : leur forme et leur matière racontent comment on vivait, travaillait et jouait autrefois."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le fer à repasser en fonte se chauffait sur la cuisinière : lourd et sans fil ! Celui d'aujourd'hui est électrique et léger."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "J'observe : en quelle matière ? bois, fer, tissu ?",
+                                        "Je devine : à quoi servait-il ? qui l'utilisait ?",
+                                        "Je compare : quel objet d'aujourd'hui fait le même travail ?",
+                                        "Le même besoin traverse le temps, la solution change !"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Trois questions de détective devant un objet ancien : c'est en quoi ? ça servait à quoi ? qu'est-ce qui l'a remplacé ?"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-inventions-quotidien",
+                            "title": "Du lavoir au lave-linge",
+                            "subtitle": "Comment les inventions ont changé la vie",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Les objets évoluent avec le temps : les inventions rendent les tâches plus faciles et plus rapides. Comparer un objet ancien et un objet moderne raconte cette histoire."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Pour laver le linge : le lavoir à la main → la lessiveuse → la machine à laver d'aujourd'hui."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Bougie → lampe à pétrole → ampoule électrique.",
+                                        "Cheminée → poêle → chauffage central.",
+                                        "Lettre → téléphone à cadran → téléphone portable.",
+                                        "Chaque invention garde le même but, mais change la manière."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Devant un objet ancien, demande-toi : à quoi servait-il ? Quel objet le remplace aujourd'hui ?"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 }
@@ -1702,6 +2718,34 @@
                                 "dataFile": "data/geography_ce1.json",
                                 "category": "ce1-services-quartier",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-geo-carte-regions",
+                            "title": "Carte de France",
+                            "subtitle": "Touche la région demandée",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "map-locate",
+                                "dataFile": "data/board_map_locate_ce1.json",
+                                "mapFile": "data/maps/france-regions.svg",
+                                "mapId": "france-regions",
+                                "category": "ce1_map_regions_france",
+                                "questions": 4
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-geo-reperage-expert",
+                            "title": "Défi : super repérage",
+                            "subtitle": "Plan, symboles et lieux en rafale",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_ce1.json",
+                                "category": "ce1-reperage",
+                                "questions": 10
                             }
                         }
                     ],
@@ -1807,6 +2851,44 @@
                                 "dataFile": "data/geography_matching.json",
                                 "questions": 2
                             }
+                        },
+                        {
+                            "id": "ce1-geo-mer-montagne",
+                            "title": "Mer, montagne, campagne",
+                            "subtitle": "Reconnaître les grands paysages",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_ce1.json",
+                                "category": "ce1-mer-montagne",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-geo-village-ville",
+                            "title": "Village ou ville ?",
+                            "subtitle": "Comparer deux façons de vivre",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_ce1.json",
+                                "category": "ce1-village-ville",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-paysages-france",
+                            "title": "Défi : paysages de France",
+                            "subtitle": "Mer, montagne, ville et village",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_ce1.json",
+                                "category": "ce1-mer-montagne",
+                                "questions": 8
+                            },
+                            "isBonus": true,
+                            "bonusThreshold": 2
                         }
                     ],
                     "lessons": [
@@ -1818,7 +2900,90 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Un paysage est ce que l'on voit autour de soi. Il peut être une ville, une campagne, un littoral ou une montagne. On observe les bâtiments, la nature et les activités des habitants."
+                                    "text": "Un paysage, c'est tout ce que l'on voit d'un endroit : le relief, la végétation, les constructions et les activités des habitants. Pour le décrire, on observe plan par plan."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Depuis la fenêtre du train : au premier plan des champs, plus loin un village et son clocher, au fond la ligne bleue des montagnes."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Ce qui est proche : le premier plan ; ce qui est loin : l'arrière-plan.",
+                                        "J'observe la nature : arbres, champs, eau, relief.",
+                                        "J'observe les traces humaines : routes, maisons, usines, cultures.",
+                                        "Chaque paysage raconte les activités de ses habitants."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Décris un paysage comme une photo : « devant, je vois… ; au milieu… ; au fond… » — tes yeux balayent du plus proche au plus lointain."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-paysages-france",
+                            "title": "Mer, montagne, campagne, ville",
+                            "subtitle": "Les grands paysages de France",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "En France, on trouve des paysages très différents : le bord de mer, la montagne, la campagne et la ville."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Au bord de la mer : plages et ports. En montagne : sommets et neige. À la campagne : champs et fermes. En ville : immeubles et rues animées."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Le littoral, c'est le paysage du bord de mer.",
+                                        "En montagne, il fait plus froid en altitude : la neige tient sur les sommets.",
+                                        "À la campagne, on cultive la terre.",
+                                        "En ville, beaucoup de gens vivent et travaillent au même endroit."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Chaque paysage a ses métiers : le pêcheur au bord de mer, le berger en montagne, l'agriculteur à la campagne."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-village-ville",
+                            "title": "Vivre au village ou en ville",
+                            "subtitle": "Deux façons d'habiter",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un village est petit : quelques rues, une place, une école. Une ville est grande : beaucoup d'habitants, d'immeubles et de transports."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Au village : la mairie et l'église sur la place centrale. En ville : le tramway, les grands magasins et les immeubles."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Le maire ou la maire dirige la commune, qu'elle soit petite ou grande.",
+                                        "Plus il y a d'habitants, plus il faut d'écoles, de magasins et de transports.",
+                                        "Les champs et les prés entourent les villages ; en ville, la place manque."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Village ou ville, on trouve presque toujours une école : c'est un service pour tous les enfants."
                                 }
                             ]
                         }
@@ -1875,9 +3040,61 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "On peut se déplacer en France de plusieurs façons : à pied, en voiture, en bus, en train ou en avion. Les transports relient les villes, les villages et les régions."
+                                    "text": "Routes, voies ferrées, aéroports et ports forment de grands réseaux qui relient les villes et les villages de France. Chaque réseau a ses véhicules et ses lieux."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Pour aller de Lyon à Paris : l'autoroute en voiture, la ligne TGV en train — le train est ici le plus rapide !"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Le réseau routier : des petites rues aux autoroutes.",
+                                        "Le réseau ferré : les trains relient les gares, le TGV file à 300 km/h.",
+                                        "Ports pour les bateaux, aéroports pour les avions.",
+                                        "Sur une carte, chaque réseau a son symbole : trait rouge, trait noir à barreaux…"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Regarde une carte routière : les grandes villes sont comme des étoiles d'où partent routes et voies ferrées dans toutes les directions !"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-choisir-transport",
+                            "title": "À chaque trajet son transport",
+                            "subtitle": "À pied, à vélo, en bus, en train…",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "On ne choisit pas le même moyen de transport pour aller à l'école, chez mamie ou en vacances : cela dépend de la distance et de ce qu'on transporte."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Pour l'école du quartier : à pied ou à vélo. Pour une autre ville : le train ou la voiture. Pour un autre pays lointain : l'avion."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Trajet court : la marche et le vélo sont parfaits.",
+                                        "En ville : bus, tramway et métro évitent les embouteillages.",
+                                        "Longue distance : train, voiture, avion.",
+                                        "Marcher et pédaler ne polluent pas du tout !"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Avant un trajet, on peut se demander : quelle distance ? combien de personnes ? quel transport pollue le moins ?"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 }
@@ -1930,6 +3147,18 @@
                             }
                         },
                         {
+                            "id": "ce1-sciences-tap-plante",
+                            "title": "Les parties de la plante",
+                            "subtitle": "Touche la fleur, la tige, la racine",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_tap_features_science.json",
+                                "category": "ce1_tap_plante",
+                                "questions": 4
+                            }
+                        },
+                        {
                             "id": "ce1-sciences-appariement",
                             "title": "Êtres vivants et besoins",
                             "subtitle": "Relie chaque être vivant à son besoin",
@@ -1938,6 +3167,20 @@
                                 "category": "matching_sciences_ce1",
                                 "dataFile": "data/science_matching.json",
                                 "questions": 2
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-sciences-vivant-expert",
+                            "title": "Défi : le vivant en détail",
+                            "subtitle": "Encore plus de questions sur le vivant",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-vivant",
+                                "questions": 10
                             }
                         }
                     ],
@@ -1950,9 +3193,61 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Les êtres vivants ont besoin de nourriture, d'eau, d'air et d'un milieu favorable. Ils grandissent, se nourrissent et se protègent."
+                                    "text": "Tous les êtres vivants — animaux, plantes, humains — ont des besoins vitaux : sans eau, sans nourriture ou sans air, la vie s'arrête."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "La plante verte du salon a besoin d'eau, de lumière et d'air ; le hamster a besoin d'eau, de graines et d'un abri."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Besoins de tous les vivants : eau, air, nourriture.",
+                                        "Les plantes fabriquent leur nourriture grâce à la lumière.",
+                                        "Les animaux trouvent leur nourriture dans leur milieu.",
+                                        "Un milieu favorable offre aussi un abri et une bonne température."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Avant d'adopter un animal ou une plante, liste ses besoins : c'est s'engager à y répondre tous les jours !"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-vivant-non-vivant",
+                            "title": "Vivant ou non vivant ?",
+                            "subtitle": "Les indices pour les reconnaître",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un être vivant naît, grandit, se nourrit, se reproduit et meurt. Un objet, même s'il bouge, ne fait rien de tout cela."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le chat est vivant : il naît, grandit, mange. Le robot bouge, mais il ne grandit pas et ne se reproduit pas : il n'est pas vivant."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Vivants : les animaux, les plantes, les champignons.",
+                                        "Non vivants : les cailloux, l'eau, les machines.",
+                                        "Une plante est vivante même si elle ne se déplace pas !",
+                                        "Un être vivant a des besoins : eau, nourriture, air."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le test des questions : est-ce que ça naît ? ça grandit ? ça se nourrit ? Trois oui = c'est vivant !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -1996,6 +3291,20 @@
                                 "category": "ce1-melanges-simples",
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "ce1-bonus-sciences-melanges-defi",
+                            "title": "Défi : mélanges simples",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-melanges-simples",
+                                "questions": 10
+                            }
                         }
                     ],
                     "lessons": [
@@ -2007,9 +3316,61 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "La matière peut être solide, liquide ou gazeuse. Elle change parfois d'état quand on la chauffe ou quand on la refroidit. L'eau est un exemple facile à observer."
+                                    "text": "La matière existe sous trois états : solide (elle garde sa forme), liquide (elle coule et prend la forme du récipient) et gazeux (invisible, il se répand partout)."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "L'eau les connaît tous les trois : glaçon solide, eau liquide du robinet, vapeur invisible au-dessus de la casserole."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Solide : forme fixe (caillou, glaçon, bois).",
+                                        "Liquide : coule et s'étale (eau, lait, jus).",
+                                        "Gazeux : invisible et léger (vapeur d'eau, air).",
+                                        "Chauffer ou refroidir fait changer d'état : glace → eau → vapeur, et retour !"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le test du récipient : verse-le, s'il prend la forme du verre, c'est un liquide ; s'il garde sa forme, c'est un solide !"
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-melanger-separer",
+                            "title": "Mélanger et séparer",
+                            "subtitle": "Que devient ce qu'on mélange à l'eau ?",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Quand on mélange quelque chose à l'eau, deux choses peuvent arriver : soit il se dissout et devient invisible (comme le sel), soit il reste visible (comme le sable)."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le sucre dans l'eau disparaît… mais l'eau devient sucrée : il est toujours là ! Le sable, lui, retombe au fond."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Se dissoudre = devenir invisible dans l'eau, sans disparaître vraiment.",
+                                        "Le sel et le sucre se dissolvent ; le sable et l'huile non.",
+                                        "Un filtre retient ce qui ne s'est pas dissous.",
+                                        "Pour retrouver le sel, on laisse l'eau s'évaporer."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Dissous ne veut pas dire disparu : goûte l'eau salée, le sel est toujours là, juste invisible !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -2077,6 +3438,20 @@
                             "engine": "choice-engine",
                             "id": "ce1-sciences-objets-maison",
                             "subtitle": "Usages et objets techniques"
+                        },
+                        {
+                            "id": "ce1-bonus-sciences-corps-expert",
+                            "title": "Défi : super hygiène",
+                            "subtitle": "Corps, santé et habitudes en rafale",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-corps-hygiene",
+                                "questions": 10
+                            }
                         }
                     ],
                     "lessons": [
@@ -2144,6 +3519,361 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "id": "ce1-sciences-saisons-subtheme",
+                    "title": "Saisons et météo",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "ce1-sciences-saisons-annee",
+                            "title": "Les saisons de l'année",
+                            "subtitle": "Hiver, printemps, été, automne",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-saisons-meteo",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-sciences-observer-meteo",
+                            "title": "Observer la météo",
+                            "subtitle": "Pluie, vent, neige, orage",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-saisons-meteo",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce1-sciences-climat-activites",
+                            "title": "Climat et activités",
+                            "subtitle": "S'adapter aux saisons",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-saisons-meteo",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-sciences-saisons-expert",
+                            "title": "Défi : super saisons et météo",
+                            "subtitle": "Encore plus de questions sur le temps qu'il fait",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-saisons-meteo",
+                                "questions": 10
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "ce1-lesson-quatre-saisons",
+                            "title": "Le cycle des quatre saisons",
+                            "subtitle": "Hiver, printemps, été, automne",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Au cours d'une année, quatre saisons se suivent toujours dans le même ordre : l'hiver, le printemps, l'été et l'automne. Chaque saison dure environ trois mois et apporte des changements de température, de lumière et de végétation."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "En hiver, les jours sont courts et il fait froid. En été, les jours sont longs et il fait chaud. Les arbres perdent leurs feuilles en automne et les bourgeons repoussent au printemps."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "hiver : jours courts, froid, arbres souvent nus",
+                                        "printemps : températures plus douces, bourgeons et fleurs",
+                                        "été : jours longs, forte chaleur, feuillage abondant",
+                                        "automne : jours plus courts, feuilles qui tombent et changent de couleur"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Les saisons reviennent toujours dans le même ordre, comme un cycle qui recommence chaque année."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-phenomenes-meteo",
+                            "title": "Les phénomènes météo",
+                            "subtitle": "Pluie, vent, neige, orage, brouillard",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La météo, c'est le temps qu'il fait dehors à un moment donné. Elle peut changer plusieurs fois dans la même journée et dépend surtout de la saison."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Quand le ciel se couvre de gros nuages noirs, on entend parfois le tonnerre et on voit des éclairs : c'est un orage. Quand il fait très froid en hiver, la pluie peut se transformer en neige."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "la pluie : des gouttes d'eau tombent des nuages",
+                                        "le vent : de l'air qui se déplace, parfois fort",
+                                        "la neige : de l'eau gelée qui tombe en flocons quand il fait très froid",
+                                        "l'orage : tonnerre, éclairs et pluie forte ensemble",
+                                        "le brouillard : un nuage très bas qui réduit la visibilité"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le thermomètre et l'observation du ciel aident à décrire et prévoir la météo du jour."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "ce1-sciences-milieux-subtheme",
+                    "title": "Les milieux de vie",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "ce1-sciences-milieux-vie",
+                            "title": "Les milieux de vie",
+                            "subtitle": "Forêt, mare, jardin, bord de mer",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-milieux-vie",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-sciences-qui-vit-ou",
+                            "title": "Qui vit où ?",
+                            "subtitle": "Associer un animal à son milieu",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-milieux-vie",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce1-sciences-sadapter-milieu",
+                            "title": "S'adapter à son milieu",
+                            "subtitle": "Vivre dans l'eau, sur terre, dans les airs",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-milieux-vie",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-sciences-milieux-expert",
+                            "title": "Défi : super milieux de vie",
+                            "subtitle": "Encore plus de questions sur les milieux de vie",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-milieux-vie",
+                                "questions": 10
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "ce1-lesson-milieu-de-vie",
+                            "title": "Qu'est-ce qu'un milieu de vie ?",
+                            "subtitle": "Un endroit où vivre",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un milieu de vie est un endroit où un être vivant trouve tout ce dont il a besoin pour vivre : de la nourriture, un abri et de l'eau."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le poisson trouve dans la mare l'eau, la nourriture et l'abri dont il a besoin pour vivre."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "un milieu de vie apporte de la nourriture",
+                                        "un milieu de vie apporte un abri",
+                                        "un milieu de vie apporte de l'eau"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Chaque être vivant a besoin d'un milieu adapté pour trouver ce qui lui est nécessaire."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-milieux-france",
+                            "title": "Des milieux de vie en France",
+                            "subtitle": "Forêt, mare, jardin, bord de mer",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "En France, il existe plusieurs milieux de vie où l'on peut observer des plantes et des animaux différents."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans la forêt vivent le renard, l'écureuil et le chêne. Dans la mare vivent la grenouille, le poisson et le nénuphar."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "la forêt : renard, écureuil, chêne",
+                                        "la mare ou l'étang : grenouille, poisson, nénuphar",
+                                        "le jardin ou le potager : abeille, escargot, salade",
+                                        "le bord de mer : mouette, crabe, algue"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Chaque milieu de vie accueille des êtres vivants différents, adaptés à ce lieu."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "ce1-sciences-objets-subtheme",
+                    "title": "Objets et matériaux",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "ce1-sciences-objets-techniques",
+                            "title": "Les objets techniques",
+                            "subtitle": "Un objet pour répondre à un besoin",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-objets-materiaux",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-sciences-proprietes-materiaux",
+                            "title": "Propriétés des matériaux",
+                            "subtitle": "Dur, mou, transparent, opaque, flotte ou coule",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-objets-materiaux",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce1-sciences-choisir-materiau",
+                            "title": "Bien choisir son matériau",
+                            "subtitle": "Choisir selon l'usage de l'objet",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-objets-materiaux",
+                                "questions": 6
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "ce1-lesson-objets-techniques",
+                            "title": "Les objets techniques simples",
+                            "subtitle": "Un objet fabriqué pour un besoin précis",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un objet technique est un objet fabriqué par les humains pour répondre à un besoin précis."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "La lampe répond au besoin d'éclairer. Le vélo répond au besoin de se déplacer."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "un objet technique répond à un besoin",
+                                        "lampe : éclairer",
+                                        "vélo : se déplacer",
+                                        "deux objets différents peuvent répondre au même besoin"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour comprendre un objet technique, je cherche à quel besoin il répond."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-proprietes-materiaux",
+                            "title": "Les propriétés des matériaux",
+                            "subtitle": "Dur ou mou, transparent ou opaque",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un matériau a des propriétés qu'on peut observer : il peut être dur ou mou, transparent ou opaque, il peut flotter ou couler dans l'eau."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le verre est transparent et dur. L'éponge est molle. Le bois flotte sur l'eau, le caillou coule."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "dur / mou",
+                                        "transparent / opaque",
+                                        "flotte / coule",
+                                        "isolant : protège de la chaleur ou du froid"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Observer un matériau aide à comprendre pourquoi il est utilisé pour un objet précis."
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -2202,6 +3932,31 @@
                                 "category": "matching_emc_ce1",
                                 "dataFile": "data/emc_matching.json",
                                 "questions": 3
+                            }
+                        },
+                        {
+                            "id": "ce1-emc-appariement-2",
+                            "title": "Émotions et attitudes",
+                            "subtitle": "Relie chaque situation à la bonne réaction",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_emc_ce1",
+                                "dataFile": "data/emc_matching.json",
+                                "questions": 3
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-emc-regles-expert",
+                            "title": "Défi : super règles de classe",
+                            "subtitle": "Encore plus de situations à analyser",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce1.json",
+                                "category": "ce1-regles",
+                                "questions": 10
                             }
                         }
                     ],
@@ -2286,6 +4041,20 @@
                             }
                         },
                         {
+                            "id": "ce1-bonus-emc-citoyen-defi",
+                            "title": "Défi : être citoyen",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce1.json",
+                                "category": "ce1-citoyen",
+                                "questions": 9
+                            }
+                        },
+                        {
                             "id": "ce1-emc-emotions-respect",
                             "title": "Émotions et respect",
                             "subtitle": "Écouter, rassurer, répondre calmement",
@@ -2308,6 +4077,18 @@
                                 "category": "ce1-dialogue-politesse",
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "ce1-emc-securite-urgence",
+                            "title": "Les bons réflexes",
+                            "subtitle": "Numéros d'urgence et sécurité",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce1.json",
+                                "category": "ce1-securite-urgence",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -2319,7 +4100,58 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Être citoyen, c'est respecter les autres, dire la vérité, écouter et participer à la vie du groupe. La confiance et le respect rendent la classe plus juste."
+                                    "text": "Être citoyen, même à sept ans, c'est participer à la vie du groupe en respectant les autres : dire la vérité, tenir ses promesses, prendre sa part du travail commun."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Rendre l'objet trouvé dans la cour, avouer sa bêtise plutôt qu'accuser un autre, jeter son papier à la poubelle : trois gestes de petit citoyen."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "L'honnêteté construit la confiance : on peut compter sur moi.",
+                                        "Le respect vaut pour tous : camarades, adultes, matériel, lieux.",
+                                        "Participer, c'est donner son avis ET écouter celui des autres.",
+                                        "Les règles communes protègent tout le monde, moi compris."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le citoyen se reconnaît quand personne ne regarde : ce qu'on fait sans témoin dit qui on est vraiment !"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-numeros-urgence",
+                            "title": "Les numéros qui sauvent",
+                            "subtitle": "Savoir alerter en cas d'urgence",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Même un enfant peut sauver quelqu'un : le premier geste qui sauve, c'est alerter les secours."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Les numéros",
+                                    "content": "18 : les pompiers. 15 : le SAMU (urgences médicales). 17 : la police. 112 : le numéro d'urgence qui marche dans toute l'Europe."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Au téléphone avec les secours",
+                                    "items": [
+                                        "Je dis où je suis (adresse, étage…).",
+                                        "Je dis ce qui s'est passé.",
+                                        "Je ne raccroche pas le premier : les secours peuvent avoir des questions."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le 112 fonctionne partout en Europe, même sans crédit sur le téléphone."
                                 }
                             ]
                         }
@@ -2353,6 +4185,56 @@
                             "engine": "choice-engine",
                             "id": "ce1-emc-sentraider-quotidien",
                             "subtitle": "Aider, rassurer, partager"
+                        },
+                        {
+                            "id": "ce1-emc-entraide-emotions",
+                            "title": "Emotions et respect",
+                            "subtitle": "Comprendre les emotions pour mieux s'entendre",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce1.json",
+                                "category": "ce1-emotions-respect",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-emc-entraide-dialogue",
+                            "title": "Dialogue et politesse",
+                            "subtitle": "S'exprimer avec respect",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce1.json",
+                                "category": "ce1-dialogue-politesse",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-emc-respect-differences",
+                            "title": "Tous différents, tous ensemble",
+                            "subtitle": "Respecter les différences",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce1.json",
+                                "category": "ce1-respect-differences",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-differences-defi",
+                            "title": "Défi : vivre ensemble",
+                            "subtitle": "Différences, entraide et respect",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce1.json",
+                                "category": "ce1-respect-differences",
+                                "questions": 8
+                            },
+                            "isBonus": true,
+                            "bonusThreshold": 2
                         }
                     ],
                     "lessons": [
@@ -2364,7 +4246,59 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "L'entraide aide la classe à mieux travailler. Elle consiste à aider sans faire le travail à la place de l'autre. On explique, on montre et on encourage."
+                                    "text": "S'entraider, c'est mettre ses forces au service du groupe : expliquer, encourager, prêter. Aider ne veut jamais dire faire à la place — sinon l'autre n'apprend pas."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Lina ne comprend pas la consigne : Tom la lui explique avec ses mots, mais c'est Lina qui écrit sa réponse."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Expliquer avec ses propres mots aide l'autre ET fait réviser.",
+                                        "Encourager : « tu y es presque ! » donne du courage.",
+                                        "Demander de l'aide n'est pas tricher, c'est apprendre.",
+                                        "Chacun est fort quelque part : l'entraide échange les talents."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "La règle d'or de l'entraide : je guide la main, je ne tiens pas le crayon !"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-differences",
+                            "title": "Tous différents, tous ensemble",
+                            "subtitle": "Respecter les différences",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans une classe, personne n'est pareil : on n'a pas la même taille, les mêmes goûts, la même famille ou la même langue à la maison. C'est ça qui rend une classe intéressante !"
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un camarade parle une autre langue chez lui ? On peut lui demander comment on dit « bonjour » — on apprend quelque chose de nouveau."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Être différent, c'est normal : chacun est unique.",
+                                        "Se moquer fait mal, même « pour rire ».",
+                                        "Si un camarade est rejeté, je vais vers lui et j'en parle à un adulte.",
+                                        "Filles et garçons peuvent jouer aux mêmes jeux et rêver des mêmes métiers."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "On peut être amis sans aimer les mêmes choses : les différences sont une richesse."
                                 }
                             ]
                         }

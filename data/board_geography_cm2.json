@@ -1,147 +1,668 @@
-﻿{
-    "title":  "Géographie interactive CM2",
-    "gradeId":  "cm2",
-    "categories":  {
-                       "cm2_villes_france_tap":  {
-                                                     "prompt":  "Touche les villes du sud de la France.",
-                                                     "board":  {
-                                                                   "width":  10,
-                                                                   "height":  8,
-                                                                   "grid":  false
-                                                               },
-                                                     "drawing":  {
-                                                                     "lines":  [
-                                                                                   {
-                                                                                       "x1":  2,
-                                                                                       "y1":  1,
-                                                                                       "x2":  8,
-                                                                                       "y2":  1.2
-                                                                                   },
-                                                                                   {
-                                                                                       "x1":  8,
-                                                                                       "y1":  1.2,
-                                                                                       "x2":  9,
-                                                                                       "y2":  4.2
-                                                                                   },
-                                                                                   {
-                                                                                       "x1":  9,
-                                                                                       "y1":  4.2,
-                                                                                       "x2":  7.6,
-                                                                                       "y2":  7
-                                                                                   },
-                                                                                   {
-                                                                                       "x1":  7.6,
-                                                                                       "y1":  7,
-                                                                                       "x2":  3,
-                                                                                       "y2":  7.2
-                                                                                   },
-                                                                                   {
-                                                                                       "x1":  3,
-                                                                                       "y1":  7.2,
-                                                                                       "x2":  1.2,
-                                                                                       "y2":  4.8
-                                                                                   },
-                                                                                   {
-                                                                                       "x1":  1.2,
-                                                                                       "y1":  4.8,
-                                                                                       "x2":  2,
-                                                                                       "y2":  1
-                                                                                   }
-                                                                               ],
-                                                                     "markers":  null
-                                                                 },
-                                                     "features":  [
-                                                                      {
-                                                                          "id":  "lyon",
-                                                                          "x":  5.9,
-                                                                          "y":  3.8,
-                                                                          "correct":  false
-                                                                      },
-                                                                      {
-                                                                          "id":  "paris",
-                                                                          "x":  5.4,
-                                                                          "y":  2.2,
-                                                                          "correct":  false
-                                                                      },
-                                                                      {
-                                                                          "id":  "lille",
-                                                                          "x":  6.1,
-                                                                          "y":  1.4,
-                                                                          "correct":  false
-                                                                      },
-                                                                      {
-                                                                          "id":  "bordeaux",
-                                                                          "x":  3.4,
-                                                                          "y":  5.3,
-                                                                          "correct":  true
-                                                                      },
-                                                                      {
-                                                                          "id":  "toulouse",
-                                                                          "x":  4.8,
-                                                                          "y":  6.2,
-                                                                          "correct":  true
-                                                                      },
-                                                                      {
-                                                                          "id":  "marseille",
-                                                                          "x":  6.8,
-                                                                          "y":  6.3,
-                                                                          "correct":  true
-                                                                      }
-                                                                  ]
-                                                 },
-                       "cm2_reperes_france_grille":  [
-                                                         {
-                                                             "prompt":  "Place Paris sur le quadrillage.",
-                                                             "board":  {
-                                                                           "width":  10,
-                                                                           "height":  8,
-                                                                           "grid":  true
-                                                                       },
-                                                             "task":  {
-                                                                          "type":  "place-point",
-                                                                          "label":  "Paris",
-                                                                          "target":  [
-                                                                                         6,
-                                                                                         2
-                                                                                     ]
-                                                                      },
-                                                             "tolerance":  0
-                                                         },
-                                                         {
-                                                             "prompt":  "Place Lyon sur le quadrillage.",
-                                                             "board":  {
-                                                                           "width":  10,
-                                                                           "height":  8,
-                                                                           "grid":  true
-                                                                       },
-                                                             "task":  {
-                                                                          "type":  "place-point",
-                                                                          "label":  "Lyon",
-                                                                          "target":  [
-                                                                                         6,
-                                                                                         4
-                                                                                     ]
-                                                                      },
-                                                             "tolerance":  0
-                                                         },
-                                                         {
-                                                             "prompt":  "Place Marseille sur le quadrillage.",
-                                                             "board":  {
-                                                                           "width":  10,
-                                                                           "height":  8,
-                                                                           "grid":  true
-                                                                       },
-                                                             "task":  {
-                                                                          "type":  "place-point",
-                                                                          "label":  "Marseille",
-                                                                          "target":  [
-                                                                                         7,
-                                                                                         6
-                                                                                     ]
-                                                                      },
-                                                             "tolerance":  0
-                                                         }
-                                                     ]
-                   }
+{
+    "title": "Géographie interactive CM2",
+    "gradeId": "cm2",
+    "categories": {
+        "cm2_villes_france_tap": [
+            {
+                "prompt": "Touche les villes du sud de la France.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 2,
+                            "y1": 1,
+                            "x2": 8,
+                            "y2": 1.2
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 1.2,
+                            "x2": 9,
+                            "y2": 4.2
+                        },
+                        {
+                            "x1": 9,
+                            "y1": 4.2,
+                            "x2": 7.6,
+                            "y2": 7
+                        },
+                        {
+                            "x1": 7.6,
+                            "y1": 7,
+                            "x2": 3,
+                            "y2": 7.2
+                        },
+                        {
+                            "x1": 3,
+                            "y1": 7.2,
+                            "x2": 1.2,
+                            "y2": 4.8
+                        },
+                        {
+                            "x1": 1.2,
+                            "y1": 4.8,
+                            "x2": 2,
+                            "y2": 1
+                        }
+                    ],
+                    "markers": null
+                },
+                "features": [
+                    {
+                        "id": "lyon",
+                        "x": 5.9,
+                        "y": 3.8,
+                        "correct": false
+                    },
+                    {
+                        "id": "paris",
+                        "x": 5.4,
+                        "y": 2.2,
+                        "correct": false
+                    },
+                    {
+                        "id": "lille",
+                        "x": 6.1,
+                        "y": 1.4,
+                        "correct": false
+                    },
+                    {
+                        "id": "bordeaux",
+                        "x": 3.4,
+                        "y": 5.3,
+                        "correct": true
+                    },
+                    {
+                        "id": "toulouse",
+                        "x": 4.8,
+                        "y": 6.2,
+                        "correct": true
+                    },
+                    {
+                        "id": "marseille",
+                        "x": 6.8,
+                        "y": 6.3,
+                        "correct": true
+                    }
+                ]
+            },
+            {
+                "prompt": "Touche les villes du nord de la France.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 2,
+                            "y1": 1,
+                            "x2": 8,
+                            "y2": 1.2
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 1.2,
+                            "x2": 9,
+                            "y2": 4.2
+                        },
+                        {
+                            "x1": 9,
+                            "y1": 4.2,
+                            "x2": 7.6,
+                            "y2": 7
+                        },
+                        {
+                            "x1": 7.6,
+                            "y1": 7,
+                            "x2": 3,
+                            "y2": 7.2
+                        },
+                        {
+                            "x1": 3,
+                            "y1": 7.2,
+                            "x2": 1.2,
+                            "y2": 4.8
+                        },
+                        {
+                            "x1": 1.2,
+                            "y1": 4.8,
+                            "x2": 2,
+                            "y2": 1
+                        }
+                    ],
+                    "markers": null
+                },
+                "features": [
+                    {
+                        "id": "lille",
+                        "x": 6.1,
+                        "y": 1.4,
+                        "correct": true
+                    },
+                    {
+                        "id": "paris",
+                        "x": 5.4,
+                        "y": 2.2,
+                        "correct": true
+                    },
+                    {
+                        "id": "lyon",
+                        "x": 5.9,
+                        "y": 3.8,
+                        "correct": false
+                    },
+                    {
+                        "id": "bordeaux",
+                        "x": 3.4,
+                        "y": 5.3,
+                        "correct": false
+                    },
+                    {
+                        "id": "toulouse",
+                        "x": 4.8,
+                        "y": 6.2,
+                        "correct": false
+                    },
+                    {
+                        "id": "marseille",
+                        "x": 6.8,
+                        "y": 6.3,
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "prompt": "Touche la capitale de la France.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 2,
+                            "y1": 1,
+                            "x2": 8,
+                            "y2": 1.2
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 1.2,
+                            "x2": 9,
+                            "y2": 4.2
+                        },
+                        {
+                            "x1": 9,
+                            "y1": 4.2,
+                            "x2": 7.6,
+                            "y2": 7
+                        },
+                        {
+                            "x1": 7.6,
+                            "y1": 7,
+                            "x2": 3,
+                            "y2": 7.2
+                        },
+                        {
+                            "x1": 3,
+                            "y1": 7.2,
+                            "x2": 1.2,
+                            "y2": 4.8
+                        },
+                        {
+                            "x1": 1.2,
+                            "y1": 4.8,
+                            "x2": 2,
+                            "y2": 1
+                        }
+                    ],
+                    "markers": null
+                },
+                "features": [
+                    {
+                        "id": "paris",
+                        "x": 5.4,
+                        "y": 2.2,
+                        "correct": true
+                    },
+                    {
+                        "id": "lille",
+                        "x": 6.1,
+                        "y": 1.4,
+                        "correct": false
+                    },
+                    {
+                        "id": "lyon",
+                        "x": 5.9,
+                        "y": 3.8,
+                        "correct": false
+                    },
+                    {
+                        "id": "bordeaux",
+                        "x": 3.4,
+                        "y": 5.3,
+                        "correct": false
+                    },
+                    {
+                        "id": "toulouse",
+                        "x": 4.8,
+                        "y": 6.2,
+                        "correct": false
+                    },
+                    {
+                        "id": "marseille",
+                        "x": 6.8,
+                        "y": 6.3,
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "prompt": "Touche les villes au bord de la mer Méditerranée.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 2,
+                            "y1": 1,
+                            "x2": 8,
+                            "y2": 1.2
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 1.2,
+                            "x2": 9,
+                            "y2": 4.2
+                        },
+                        {
+                            "x1": 9,
+                            "y1": 4.2,
+                            "x2": 7.6,
+                            "y2": 7
+                        },
+                        {
+                            "x1": 7.6,
+                            "y1": 7,
+                            "x2": 3,
+                            "y2": 7.2
+                        },
+                        {
+                            "x1": 3,
+                            "y1": 7.2,
+                            "x2": 1.2,
+                            "y2": 4.8
+                        },
+                        {
+                            "x1": 1.2,
+                            "y1": 4.8,
+                            "x2": 2,
+                            "y2": 1
+                        }
+                    ],
+                    "markers": null
+                },
+                "features": [
+                    {
+                        "id": "marseille",
+                        "x": 6.8,
+                        "y": 6.3,
+                        "correct": true
+                    },
+                    {
+                        "id": "nice",
+                        "x": 7.4,
+                        "y": 5.9,
+                        "correct": true
+                    },
+                    {
+                        "id": "paris",
+                        "x": 5.4,
+                        "y": 2.2,
+                        "correct": false
+                    },
+                    {
+                        "id": "lyon",
+                        "x": 5.9,
+                        "y": 3.8,
+                        "correct": false
+                    },
+                    {
+                        "id": "lille",
+                        "x": 6.1,
+                        "y": 1.4,
+                        "correct": false
+                    },
+                    {
+                        "id": "toulouse",
+                        "x": 4.8,
+                        "y": 6.2,
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "prompt": "Touche les villes de l'ouest de la France.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 2,
+                            "y1": 1,
+                            "x2": 8,
+                            "y2": 1.2
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 1.2,
+                            "x2": 9,
+                            "y2": 4.2
+                        },
+                        {
+                            "x1": 9,
+                            "y1": 4.2,
+                            "x2": 7.6,
+                            "y2": 7
+                        },
+                        {
+                            "x1": 7.6,
+                            "y1": 7,
+                            "x2": 3,
+                            "y2": 7.2
+                        },
+                        {
+                            "x1": 3,
+                            "y1": 7.2,
+                            "x2": 1.2,
+                            "y2": 4.8
+                        },
+                        {
+                            "x1": 1.2,
+                            "y1": 4.8,
+                            "x2": 2,
+                            "y2": 1
+                        }
+                    ],
+                    "markers": null
+                },
+                "features": [
+                    {
+                        "id": "rennes",
+                        "x": 2.4,
+                        "y": 3.0,
+                        "correct": true
+                    },
+                    {
+                        "id": "nantes",
+                        "x": 2.8,
+                        "y": 3.9,
+                        "correct": true
+                    },
+                    {
+                        "id": "bordeaux",
+                        "x": 3.4,
+                        "y": 5.3,
+                        "correct": true
+                    },
+                    {
+                        "id": "strasbourg",
+                        "x": 7.9,
+                        "y": 2.6,
+                        "correct": false
+                    },
+                    {
+                        "id": "lyon",
+                        "x": 5.9,
+                        "y": 3.8,
+                        "correct": false
+                    },
+                    {
+                        "id": "marseille",
+                        "x": 6.8,
+                        "y": 6.3,
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "prompt": "Touche la ville la plus proche de l'Allemagne.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 2,
+                            "y1": 1,
+                            "x2": 8,
+                            "y2": 1.2
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 1.2,
+                            "x2": 9,
+                            "y2": 4.2
+                        },
+                        {
+                            "x1": 9,
+                            "y1": 4.2,
+                            "x2": 7.6,
+                            "y2": 7
+                        },
+                        {
+                            "x1": 7.6,
+                            "y1": 7,
+                            "x2": 3,
+                            "y2": 7.2
+                        },
+                        {
+                            "x1": 3,
+                            "y1": 7.2,
+                            "x2": 1.2,
+                            "y2": 4.8
+                        },
+                        {
+                            "x1": 1.2,
+                            "y1": 4.8,
+                            "x2": 2,
+                            "y2": 1
+                        }
+                    ],
+                    "markers": null
+                },
+                "features": [
+                    {
+                        "id": "strasbourg",
+                        "x": 7.9,
+                        "y": 2.6,
+                        "correct": true
+                    },
+                    {
+                        "id": "rennes",
+                        "x": 2.4,
+                        "y": 3.0,
+                        "correct": false
+                    },
+                    {
+                        "id": "nantes",
+                        "x": 2.8,
+                        "y": 3.9,
+                        "correct": false
+                    },
+                    {
+                        "id": "bordeaux",
+                        "x": 3.4,
+                        "y": 5.3,
+                        "correct": false
+                    },
+                    {
+                        "id": "toulouse",
+                        "x": 4.8,
+                        "y": 6.2,
+                        "correct": false
+                    },
+                    {
+                        "id": "paris",
+                        "x": 5.4,
+                        "y": 2.2,
+                        "correct": false
+                    }
+                ]
+            }
+        ],
+        "cm2_reperes_france_grille": [
+            {
+                "prompt": "Place Paris sur le quadrillage.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": true
+                },
+                "task": {
+                    "type": "place-point",
+                    "label": "Paris",
+                    "target": [
+                        6,
+                        2
+                    ]
+                },
+                "tolerance": 0
+            },
+            {
+                "prompt": "Place Lyon sur le quadrillage.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": true
+                },
+                "task": {
+                    "type": "place-point",
+                    "label": "Lyon",
+                    "target": [
+                        6,
+                        4
+                    ]
+                },
+                "tolerance": 0
+            },
+            {
+                "prompt": "Place Marseille sur le quadrillage.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": true
+                },
+                "task": {
+                    "type": "place-point",
+                    "label": "Marseille",
+                    "target": [
+                        7,
+                        6
+                    ]
+                },
+                "tolerance": 0
+            },
+            {
+                "prompt": "Place Bordeaux sur le quadrillage.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": true
+                },
+                "task": {
+                    "type": "place-point",
+                    "label": "Bordeaux",
+                    "target": [
+                        3,
+                        5
+                    ]
+                },
+                "tolerance": 0
+            },
+            {
+                "prompt": "Place Lille sur le quadrillage.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": true
+                },
+                "task": {
+                    "type": "place-point",
+                    "label": "Lille",
+                    "target": [
+                        6,
+                        1
+                    ]
+                },
+                "tolerance": 0
+            },
+            {
+                "prompt": "Place Toulouse sur le quadrillage.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": true
+                },
+                "task": {
+                    "type": "place-point",
+                    "label": "Toulouse",
+                    "target": [
+                        5,
+                        6
+                    ]
+                },
+                "tolerance": 0
+            },
+            {
+                "prompt": "Place Nantes sur le quadrillage.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": true
+                },
+                "task": {
+                    "type": "place-point",
+                    "label": "Nantes",
+                    "target": [
+                        3,
+                        4
+                    ]
+                },
+                "tolerance": 0
+            },
+            {
+                "prompt": "Place Strasbourg sur le quadrillage.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": true
+                },
+                "task": {
+                    "type": "place-point",
+                    "label": "Strasbourg",
+                    "target": [
+                        8,
+                        2
+                    ]
+                },
+                "tolerance": 0
+            }
+        ]
+    }
 }
-

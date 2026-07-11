@@ -1,4 +1,4 @@
-﻿{
+{
     "gradeId": "cm1",
     "title": "CM1",
     "subjects": [
@@ -32,6 +32,18 @@
                                 "type": "fraction-view",
                                 "maxDenom": 8,
                                 "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-frac-build",
+                            "title": "Construis la fraction",
+                            "subtitle": "Touche les bonnes parts",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "fraction-build",
+                                "minDenom": 2,
+                                "maxDenom": 8,
+                                "questions": 8
                             }
                         },
                         {
@@ -132,7 +144,7 @@
                         },
                         {
                             "id": "cm1-m-big-2",
-                            "title": "Trés grands nombres",
+                            "title": "Très grands nombres",
                             "subtitle": "Dictée jusqu'à 10 millions",
                             "engine": "math-input",
                             "params": {
@@ -208,6 +220,65 @@
                                 "type": "proportionnalite",
                                 "maxCoef": 5,
                                 "maxBase": 6,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-echelle-1",
+                            "title": "Lire une échelle de plan",
+                            "subtitle": "Du plan à la réalité",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "echelle",
+                                "echelles": [
+                                    50,
+                                    100,
+                                    200
+                                ],
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-pourcentage-1",
+                            "title": "Calculer un pourcentage simple",
+                            "subtitle": "10 %, 20 %, 25 %, 50 %",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "pourcentage",
+                                "values": [
+                                    10,
+                                    20,
+                                    25,
+                                    50
+                                ],
+                                "maxMultiple": 8,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-proportionnalite-expert",
+                            "title": "Défi : proportionnalité experte",
+                            "subtitle": "Coefficients plus grands, sans erreur",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "proportionnalite",
+                                "maxCoef": 9,
+                                "maxBase": 9,
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-grands-calculs",
+                            "title": "Défi : grands calculs",
+                            "subtitle": "Divisions posées niveau expert",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "division-posed",
+                                "level": 2,
                                 "questions": 6
                             }
                         }
@@ -566,6 +637,25 @@
                                 "dataFile": "data/math_matching.json",
                                 "questions": 3
                             }
+                        },
+                        {
+                            "id": "cm1-bonus-conversions-expert",
+                            "title": "Défi : conversions express",
+                            "subtitle": "Durées et chiffres romains sans aide",
+                            "engine": "conversion",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "subtype": "time",
+                                "modes": [
+                                    "h_to_min",
+                                    "hmin_to_min",
+                                    "min_to_sec"
+                                ],
+                                "memo": false,
+                                "randomMinutes": true,
+                                "questions": 12
+                            }
                         }
                     ],
                     "lessons": [
@@ -837,6 +927,36 @@
                             ]
                         },
                         {
+                            "id": "cm1-lesson-familles-angles",
+                            "title": "Les familles d'angles",
+                            "subtitle": "Aigu, droit, obtus",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un angle peut être plus petit, égal, ou plus grand qu'un angle droit. On le classe alors dans une famille."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Les pointes d'une étoile forment souvent des angles aigus, bien plus fermés qu'un angle droit."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "angle aigu : plus petit qu'un angle droit",
+                                        "angle droit : exactement comme le coin d'une feuille",
+                                        "angle obtus : plus grand qu'un angle droit, mais pas complètement ouvert"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour comparer, imagine toujours le coin d'une feuille : plus fermé = aigu, plus ouvert = obtus."
+                                }
+                            ]
+                        },
+                        {
                             "id": "cm1-lesson-perimetre",
                             "title": "Le périmètre",
                             "subtitle": "Mesurer le tour d'une figure",
@@ -953,6 +1073,42 @@
                             }
                         },
                         {
+                            "id": "cm1-geo-angle-droit-pratique",
+                            "title": "Touche les angles droits",
+                            "subtitle": "Repère-les sur la figure",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_tap_features_cm1.json",
+                                "category": "cm1_tap_angle_droit",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-angle-classify",
+                            "title": "Aigu, droit ou obtus ?",
+                            "subtitle": "Classe chaque angle observé",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "angle-classify",
+                                "dataFile": "data/board_angle_classify_cm1.json",
+                                "category": "cm1_angle_classify",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-perpendiculaires-pratique",
+                            "title": "Droites perpendiculaires",
+                            "subtitle": "Touche les droites perpendiculaires",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_geometry_cm1.json",
+                                "category": "cm1_perpendiculaires_tap",
+                                "questions": 3
+                            }
+                        },
+                        {
                             "id": "cm1-geo-symetrie-reperage",
                             "title": "Symétrie et repérage",
                             "subtitle": "Axe et miroir",
@@ -962,6 +1118,30 @@
                                 "dataFile": "data/math_geometry_cm1.json",
                                 "category": "cm1-symetrie-reperage",
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-reperage-pratique",
+                            "title": "Place le point sur le quadrillage",
+                            "subtitle": "Repérage par coordonnées",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "point-on-grid",
+                                "dataFile": "data/board_point_on_grid_cm1.json",
+                                "category": "cm1_point_on_grid",
+                                "questions": 7
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-symetrie-pratique",
+                            "title": "Complète la figure symétrique",
+                            "subtitle": "Place les points sur le quadrillage",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "symmetry-complete",
+                                "dataFile": "data/board_symmetry_complete_cm1.json",
+                                "category": "cm1_symmetry_complete",
+                                "questions": 5
                             }
                         },
                         {
@@ -1020,6 +1200,129 @@
                                 "category": "cm1_shape_classify",
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "cm1-bonus-geo-figures-expert",
+                            "title": "Défi : figures et formules",
+                            "subtitle": "Aires, volumes et vocabulaire en mode expert",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_geometry_cm1.json",
+                                "category": "cm1-perimetre-angles",
+                                "questions": 12
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-graphiques-subtheme",
+                    "title": "Lire un graphique",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "cm1-graphique-lecture",
+                            "title": "Lire un diagramme en barres",
+                            "subtitle": "Trouver le maximum, le minimum, le total",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "bar-chart-read",
+                                "maxBars": 4,
+                                "maxValue": 20,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-donnees-tableaux",
+                            "title": "Lire un tableau de données",
+                            "subtitle": "Trouver le total, le minimum, la moyenne",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle3.json",
+                                "category": "cm1-donnees-tableaux",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-graphique-expert",
+                            "title": "Défi : graphiques en rafale",
+                            "subtitle": "Toutes les questions, sans erreur",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "bar-chart-read",
+                                "maxBars": 5,
+                                "maxValue": 25,
+                                "questions": 8
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-lire-graphique",
+                            "title": "Lire un diagramme en barres",
+                            "subtitle": "Comparer des quantités d'un coup d'œil",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un diagramme en barres représente des quantités par des barres : plus la barre est haute, plus la quantité est grande."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Si la barre « Lundi » est plus haute que la barre « Mardi », alors il y a eu plus d'élèves présents le lundi."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "la barre la plus haute donne le maximum",
+                                        "la barre la plus basse donne le minimum",
+                                        "on peut additionner toutes les valeurs pour avoir le total",
+                                        "la différence entre deux barres se calcule par soustraction"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour lire un graphique, je compare d'abord les hauteurs des barres avant de calculer."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-moyenne",
+                            "title": "Calculer une moyenne",
+                            "subtitle": "Additionner puis diviser",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La moyenne d'une série de valeurs s'obtient en additionnant toutes les valeurs, puis en divisant par le nombre de valeurs."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Notes : 12, 14, 16. Moyenne = (12 + 14 + 16) ÷ 3 = 42 ÷ 3 = 14."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Étapes",
+                                    "items": [
+                                        "1. J'additionne toutes les valeurs",
+                                        "2. Je compte combien il y a de valeurs",
+                                        "3. Je divise le total par ce nombre"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Moyenne = total ÷ nombre de valeurs."
+                                }
+                            ]
                         }
                     ]
                 }
@@ -1108,6 +1411,23 @@
                                     "ont"
                                 ],
                                 "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-homophones-mix",
+                            "title": "Défi : tous les homophones",
+                            "subtitle": "On/ont, a/à, ce/se... sans filet",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "homophone-duel",
+                                "category": "on_ont",
+                                "choices": [
+                                    "on",
+                                    "ont"
+                                ],
+                                "questions": 16
                             }
                         }
                     ],
@@ -1262,12 +1582,45 @@
                             }
                         },
                         {
+                            "id": "cm1-conj-present-3g",
+                            "title": "Présent : 3e groupe",
+                            "subtitle": "Aller, faire, dire, pouvoir...",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "present_3_freq",
+                                "tenses": "présent",
+                                "questions": 10
+                            }
+                        },
+                        {
                             "id": "cm1-c-futur",
                             "title": "Le futur simple",
                             "subtitle": "Verbes du 1er groupe",
                             "engine": "conjugation",
                             "params": {
                                 "category": "future_1",
+                                "tenses": "futur",
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-c-futur-2g",
+                            "title": "Futur : 2e groupe",
+                            "subtitle": "Finir, choisir, grandir...",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "future_2",
+                                "tenses": "futur",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-c-futur-3g",
+                            "title": "Futur : 3e groupe",
+                            "subtitle": "Aller, faire, pouvoir, vouloir...",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "future_3_freq",
                                 "tenses": "futur",
                                 "questions": 10
                             }
@@ -1285,6 +1638,41 @@
                                 ],
                                 "tenses": "imparfait",
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-c-pc-3-etre",
+                            "title": "Passé Composé avec être",
+                            "subtitle": "Aller, venir, partir, sortir...",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "pc_3_freq",
+                                "tenses": "passé composé",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-conjugaison-passe-compose",
+                            "title": "Défi : passé composé expert",
+                            "subtitle": "3ème groupe sans aide",
+                            "engine": "conjugation",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "category": "pc_3_cm1",
+                                "tenses": "passé composé",
+                                "questions": 14
+                            }
+                        },
+                        {
+                            "id": "cm1-conj-passe-simple-reco",
+                            "title": "Reconnaître le passé simple",
+                            "subtitle": "Le temps des contes et des récits",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "passe_simple_recognition_cm1",
+                                "questions": 6
                             }
                         }
                     ],
@@ -1362,6 +1750,38 @@
                             "format": "lesson-card",
                             "id": "cm1-lesson-passe-compose-auxiliaires",
                             "subtitle": "Le bon auxiliaire au passé composé"
+                        },
+                        {
+                            "id": "cm1-lesson-passe-simple-recit",
+                            "title": "Le passé simple, le temps du récit",
+                            "subtitle": "Il ouvrit, elle chanta, ils partirent…",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans les contes et les romans, les actions du récit sont souvent au passé simple : « le loup surgit », « la fée disparut ». C'est un temps qu'on lit beaucoup, surtout à la 3e personne."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« Le roi vivait heureux (imparfait : le décor). Un matin, un dragon attaqua le château (passé simple : l'action soudaine !) »"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Le passé simple raconte une action passée, soudaine et terminée.",
+                                        "L'imparfait plante le décor ; le passé simple fait avancer l'action.",
+                                        "Terminaisons fréquentes à repérer : -a (il chanta), -it (il prit), -ut (il fut), -irent, -èrent.",
+                                        "On le rencontre surtout en lisant : c'est le temps des histoires écrites."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le duo magique des récits : imparfait pour « pendant ce temps-là », passé simple pour « soudain ! »"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -1475,6 +1895,17 @@
                             }
                         },
                         {
+                            "id": "cm1-g-fonction-qcm",
+                            "title": "Sujet, verbe ou complément",
+                            "subtitle": "Trouver le rôle du mot dans la phrase",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "sentence_function_choice_cm1",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "cm1-g-cloze-det",
                             "title": "Déterminant dans la phrase",
                             "subtitle": "Choisir le bon petit mot",
@@ -1483,6 +1914,16 @@
                                 "type": "grammar-cloze",
                                 "category": "grammar_cloze_cm1",
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-g-cloze-ecrit",
+                            "title": "Écris le bon mot",
+                            "subtitle": "Complète la phrase sans aide",
+                            "engine": "cloze-fill-in",
+                            "params": {
+                                "category": "grammar_cloze_cm1",
+                                "questions": 6
                             }
                         },
                         {
@@ -1505,6 +1946,52 @@
                                 "category": "word_order_cm1",
                                 "dataFile": "data/french_word_order.json",
                                 "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-francais-structure-recit",
+                            "title": "Structurer un récit ou une lettre",
+                            "subtitle": "D'abord, ensuite, enfin...",
+                            "engine": "word-order",
+                            "params": {
+                                "category": "story_order_cm1",
+                                "dataFile": "data/french_word_order.json",
+                                "questions": 4
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-grammaire-accords",
+                            "title": "Défi : accords sans filet",
+                            "subtitle": "Nom, adjectif et déterminants en rafale",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "grammar_agreement_cm1",
+                                "questions": 14
+                            }
+                        },
+                        {
+                            "id": "cm1-redaction-connecteurs",
+                            "title": "Les connecteurs",
+                            "subtitle": "Relier ses idées pour bien écrire",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "redaction_connecteurs_cm1",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-redaction-meilleure-phrase",
+                            "title": "La meilleure phrase",
+                            "subtitle": "Choisis la phrase la mieux écrite",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "redaction_phrase_cm1",
+                                "questions": 6
                             }
                         }
                     ],
@@ -1584,6 +2071,38 @@
                                     "content": "Chercher une famille de mots aide à mieux comprendre et mieux écrire."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cm1-lesson-connecteurs",
+                            "title": "Les connecteurs pour bien écrire",
+                            "subtitle": "D'abord, ensuite, mais, car, donc…",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Les connecteurs sont les panneaux indicateurs d'un texte : ils relient les phrases et guident le lecteur dans le temps ou dans les idées."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« D'abord, je bats les œufs. Ensuite, j'ajoute la farine. Enfin, je fais cuire. » Sans connecteurs, la recette serait un désordre !"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Pour ordonner dans le temps : d'abord, ensuite, puis, enfin.",
+                                        "Pour expliquer la cause : car, parce que, en effet.",
+                                        "Pour donner la conséquence : donc, c'est pourquoi, alors.",
+                                        "Pour opposer : mais, pourtant, cependant."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Relis ton texte : si toutes tes phrases commencent par « et après », remplace-les par de vrais connecteurs — ton texte gagnera en clarté !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -1773,6 +2292,48 @@
                                 "dataFile": "data/french/matching.json",
                                 "questions": 2
                             }
+                        },
+                        {
+                            "id": "cm1-lecture-inferences",
+                            "title": "Lire entre les lignes",
+                            "subtitle": "Déduire ce que le texte suggère",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm1_lecture_inferences",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-lecture-expression-imagee",
+                            "title": "Expressions imagées",
+                            "subtitle": "Comprendre le sens des expressions",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm1_lecture_expression_imagee",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-lecture-fait-opinion",
+                            "title": "Fait ou opinion ?",
+                            "subtitle": "Distinguer ce qui est vrai de ce qu'on pense",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm1_lecture_fait_opinion",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-vocabulaire-polysemie",
+                            "title": "Défi : sens et contexte",
+                            "subtitle": "Polysémie en série longue",
+                            "engine": "reading",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "category": "cm1_vocabulaire_polysemie",
+                                "questions": 10
+                            }
                         }
                     ]
                 },
@@ -1824,6 +2385,19 @@
                                 "speechRate": 0.85,
                                 "questions": 8
                             }
+                        },
+                        {
+                            "id": "cm1-bonus-dictee-vitesse-reelle",
+                            "title": "Défi : dictée à vitesse réelle",
+                            "subtitle": "Mots pièges, sans ralenti",
+                            "engine": "audio-spelling",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "category": "cm1_orthographe_homophones",
+                                "speechRate": 1,
+                                "questions": 10
+                            }
                         }
                     ],
                     "lessons": [
@@ -1874,6 +2448,39 @@
                     "icon": "📘",
                     "lessons": [
                         {
+                            "id": "cm1-lesson-prehistoire",
+                            "title": "La Préhistoire",
+                            "subtitle": "Avant l'écriture",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La Préhistoire est la très longue période qui précède l'invention de l'écriture. C'est la première grande période de l'histoire de l'humanité."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Les hommes préhistoriques ont appris à tailler la pierre, à maîtriser le feu, puis à cultiver la terre et à élever des animaux."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "chasse et cueillette au début",
+                                        "maîtrise du feu",
+                                        "outils en pierre taillée",
+                                        "agriculture et élevage à la fin",
+                                        "sédentarisation dans des villages"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "La Préhistoire se termine avec l'invention de l'écriture, qui marque le début de l'Antiquité."
+                                }
+                            ]
+                        },
+                        {
                             "id": "cm1-lesson-periodes",
                             "title": "Antiquité, Moyen Âge, Temps modernes",
                             "subtitle": "Les grandes périodes de l'histoire",
@@ -1887,6 +2494,7 @@
                                     "type": "bullets",
                                     "label": "Les grandes périodes",
                                     "items": [
+                                        "la Préhistoire",
                                         "l'Antiquité",
                                         "le Moyen Âge",
                                         "les Temps modernes"
@@ -1999,6 +2607,18 @@
                     ],
                     "exercises": [
                         {
+                            "id": "cm1-histoire-prehistoire",
+                            "title": "Préhistoire",
+                            "subtitle": "Outils, feu et premiers villages",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm1.json",
+                                "category": "cm1-prehistoire",
+                                "questions": 8
+                            }
+                        },
+                        {
                             "id": "cm1-histoire-antiquite",
                             "title": "Antiquité",
                             "subtitle": "Rome et la Gaule",
@@ -2067,6 +2687,20 @@
                                 "category": "matching_histoire_cm1",
                                 "dataFile": "data/history_matching.json",
                                 "questions": 2
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-histoire-toutes-periodes",
+                            "title": "Défi : toutes les périodes",
+                            "subtitle": "De la Préhistoire aux Temps modernes",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm1.json",
+                                "category": "cm1-moyen-age",
+                                "questions": 12
                             }
                         }
                     ]
@@ -2242,6 +2876,22 @@
                                 "timelineId": "cm1-place-modernes",
                                 "questions": 5
                             }
+                        },
+                        {
+                            "id": "cm1-bonus-frise-moyen-age-expert",
+                            "title": "Défi : frise du Moyen Âge",
+                            "subtitle": "Niveau expert, sans indice",
+                            "engine": "timeline",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "mode": "place",
+                                "grade": "cm1",
+                                "dataFile": "data/history_chrono.json",
+                                "timelineId": "cm1-place-moyen-age",
+                                "difficulty": 3,
+                                "questions": 8
+                            }
                         }
                     ]
                 }
@@ -2310,9 +2960,7 @@
                                     "items": [
                                         "montagne",
                                         "plaine",
-                                        "vall",
-                                        "é",
-                                        "e",
+                                        "vallée",
                                         "littoral"
                                     ]
                                 },
@@ -2370,6 +3018,20 @@
                                 "category": "matching_geo_cm1",
                                 "dataFile": "data/geography_matching.json",
                                 "questions": 2
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-geo-relief-expert",
+                            "title": "Défi : reliefs et fleuves",
+                            "subtitle": "Question longue, sans répit",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-eaux-paysages",
+                                "questions": 12
                             }
                         }
                     ]
@@ -2431,9 +3093,7 @@
                                     "label": "Je regarde",
                                     "items": [
                                         "le titre",
-                                        "la l",
-                                        "é",
-                                        "gende",
+                                        "la légende",
                                         "les couleurs",
                                         "les symboles"
                                     ]
@@ -2500,6 +3160,20 @@
                                 "dataFile": "data/geography_cm1.json",
                                 "category": "cm1-types-territoires",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-geo-territoires-defi",
+                            "title": "Défi : types de territoires",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-types-territoires",
+                                "questions": 10
                             }
                         },
                         {
@@ -2598,6 +3272,20 @@
                             }
                         },
                         {
+                            "id": "cm1-bonus-geo-deplacements-defi",
+                            "title": "Défi : se déplacer",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-se-deplacer",
+                                "questions": 10
+                            }
+                        },
+                        {
                             "id": "cm1-geo-mobilites-france",
                             "title": "Mobilités en France",
                             "subtitle": "Trajets, gares et transports du quotidien",
@@ -2624,7 +3312,7 @@
                 },
                 {
                     "id": "cm1-geo-europe-subtheme",
-                    "title": "Se situer en Europe",
+                    "title": "Se situer dans le monde",
                     "icon": "📘",
                     "lessons": [
                         {
@@ -2686,6 +3374,48 @@
                             }
                         },
                         {
+                            "id": "cm1-geo-carte-continents",
+                            "title": "Carte du monde",
+                            "subtitle": "Touche le continent demandé",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "map-locate",
+                                "dataFile": "data/board_map_locate_world.json",
+                                "mapFile": "data/maps/world-continents.svg",
+                                "mapId": "world-continents",
+                                "category": "cm1_map_continents_monde",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-carte-europe-pays",
+                            "title": "Carte de l'Europe",
+                            "subtitle": "Touche le pays demandé",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "map-locate",
+                                "dataFile": "data/board_map_locate_europe.json",
+                                "mapFile": "data/maps/europe-countries.svg",
+                                "mapId": "europe-countries",
+                                "category": "cm1_map_pays_europe",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-carte-asie-pays",
+                            "title": "Carte de l'Asie",
+                            "subtitle": "Touche le pays demandé",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "map-locate",
+                                "dataFile": "data/board_map_locate_asia.json",
+                                "mapFile": "data/maps/asia-countries.svg",
+                                "mapId": "asia-countries",
+                                "category": "cm1_map_pays_asie",
+                                "questions": 8
+                            }
+                        },
+                        {
                             "id": "cm1-geo-europe-appariement",
                             "title": "Reliefs, territoires et transports",
                             "subtitle": "Relie chaque relief, territoire ou moyen de transport à sa caractéristique",
@@ -2694,6 +3424,124 @@
                                 "category": "matching_geo_cm1",
                                 "dataFile": "data/geography_matching.json",
                                 "questions": 2
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-carte-afrique-pays",
+                            "title": "Carte de l'Afrique",
+                            "subtitle": "Touche le pays demandé",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "map-locate",
+                                "dataFile": "data/board_map_locate_africa.json",
+                                "mapFile": "data/maps/africa-countries.svg",
+                                "mapId": "africa-countries",
+                                "category": "cm1_map_pays_afrique",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-carte-amerique-nord-pays",
+                            "title": "Carte de l'Amérique du Nord",
+                            "subtitle": "Touche le pays demandé",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "map-locate",
+                                "dataFile": "data/board_map_locate_north_america.json",
+                                "mapFile": "data/maps/north-america-countries.svg",
+                                "mapId": "north-america-countries",
+                                "category": "cm1_map_pays_amerique_nord",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-carte-amerique-sud-pays",
+                            "title": "Carte de l'Amérique du Sud",
+                            "subtitle": "Touche le pays demandé",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "map-locate",
+                                "dataFile": "data/board_map_locate_south_america.json",
+                                "mapFile": "data/maps/south-america-countries.svg",
+                                "mapId": "south-america-countries",
+                                "category": "cm1_map_pays_amerique_sud",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-capitales-europe",
+                            "title": "Capitales d'Europe",
+                            "subtitle": "Quelle est la capitale ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_capitals_cm1.json",
+                                "category": "cm1-capitales-europe",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-capitales-afrique",
+                            "title": "Capitales d'Afrique",
+                            "subtitle": "Quelle est la capitale ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_capitals_cm1.json",
+                                "category": "cm1-capitales-afrique",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-capitales-asie",
+                            "title": "Capitales d'Asie",
+                            "subtitle": "Quelle est la capitale ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_capitals_cm1.json",
+                                "category": "cm1-capitales-asie",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-capitales-amerique-nord",
+                            "title": "Capitales d'Amérique du Nord",
+                            "subtitle": "Quelle est la capitale ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_capitals_cm1.json",
+                                "category": "cm1-capitales-amerique-nord",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-capitales-amerique-sud",
+                            "title": "Capitales d'Amérique du Sud",
+                            "subtitle": "Quelle est la capitale ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_capitals_cm1.json",
+                                "category": "cm1-capitales-amerique-sud",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-geo-carte-monde-expert",
+                            "title": "Défi : carte du monde",
+                            "subtitle": "Continents en mode marathon",
+                            "engine": "board-interactive",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "map-locate",
+                                "dataFile": "data/board_map_locate_world.json",
+                                "mapFile": "data/maps/world-continents.svg",
+                                "mapId": "world-continents",
+                                "category": "cm1_map_continents_monde",
+                                "questions": 12
                             }
                         }
                     ]
@@ -2763,12 +3611,8 @@
                                     "items": [
                                         "les besoins",
                                         "le milieu de vie",
-                                        "les caract",
-                                        "è",
-                                        "res communs",
-                                        "les ressemblances et diff",
-                                        "é",
-                                        "rences"
+                                        "les caractères communs",
+                                        "les ressemblances et différences"
                                     ]
                                 },
                                 {
@@ -2834,6 +3678,32 @@
                             "engine": "choice-engine",
                             "id": "cm1-sciences-classer-vivant",
                             "subtitle": "Animaux, plantes et milieux"
+                        },
+                        {
+                            "id": "cm1-sciences-ecosystemes",
+                            "title": "Écosystèmes et adaptation",
+                            "subtitle": "Chaînes alimentaires et biodiversité",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-vivant",
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-sciences-vivant-defi",
+                            "title": "Défi : le vivant",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-vivant",
+                                "questions": 12
+                            }
                         }
                     ]
                 },
@@ -2901,6 +3771,18 @@
                             }
                         },
                         {
+                            "id": "cm1-sciences-tap-etats-matiere",
+                            "title": "Solide, liquide ou gaz ?",
+                            "subtitle": "Touche le bon état de la matière",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_tap_features_science.json",
+                                "category": "cm1_tap_etats_matiere",
+                                "questions": 3
+                            }
+                        },
+                        {
                             "id": "cm1-sciences-transformations",
                             "title": "Transformations simples",
                             "subtitle": "Fondre, chauffer, refroidir",
@@ -2957,6 +3839,20 @@
                                 "category": "matching_sciences_cm1",
                                 "dataFile": "data/science_matching.json",
                                 "questions": 2
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-sciences-matiere-energie",
+                            "title": "Défi : matière et énergie",
+                            "subtitle": "Transformations et sources en série longue",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-transformations-simples",
+                                "questions": 12
                             }
                         }
                     ]
@@ -3018,13 +3914,9 @@
                                     "label": "Sens et organes",
                                     "items": [
                                         "la vue : les yeux",
-                                        "l'ou",
-                                        "ï",
-                                        "e : les oreilles",
+                                        "l'ouïe : les oreilles",
                                         "le toucher : la peau",
-                                        "le go",
-                                        "û",
-                                        "t : la langue",
+                                        "le goût : la langue",
                                         "l'odorat : le nez"
                                     ]
                                 },
@@ -3083,6 +3975,335 @@
                                 "dataFile": "data/science_matching.json",
                                 "questions": 2
                             }
+                        },
+                        {
+                            "id": "cm1-bonus-sciences-corps-hygiene",
+                            "title": "Défi : corps et hygiène",
+                            "subtitle": "Habitudes de santé en série longue",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-alimentation-corps",
+                                "questions": 12
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-sciences-electricite-subtheme",
+                    "title": "Électricité",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-circuit-simple",
+                            "title": "Le circuit électrique simple",
+                            "subtitle": "Pile, fil et ampoule",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour qu'une ampoule s'allume, il faut relier une pile à l'ampoule avec des fils, sans laisser de trou dans le circuit."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Si les fils relient bien la pile et l'ampoule, le circuit est fermé et la lampe s'allume."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "un circuit fermé permet à la lampe de s'allumer",
+                                        "un circuit ouvert ne permet rien d'allumer",
+                                        "la pile, les fils et l'ampoule doivent être bien reliés",
+                                        "un interrupteur ouvre ou ferme le circuit"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Une lampe s'allume seulement si le circuit est complet, sans coupure."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-securite-electrique-base",
+                            "title": "La sécurité électrique de base",
+                            "subtitle": "Prises, mains mouillées et prudence",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "L'électricité est utile mais peut être dangereuse. Il faut respecter quelques règles simples pour rester en sécurité."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "On ne touche jamais une prise avec les mains mouillées, car l'eau laisse passer le courant électrique."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "ne jamais toucher une prise avec les mains mouillées",
+                                        "ne jamais mettre d'objet métallique dans une prise",
+                                        "demander à un adulte pour utiliser un appareil électrique",
+                                        "prévenir un adulte si un appareil semble abîmé"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Face à l'électricité à la maison, je reste prudent et je demande de l'aide à un adulte."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-sciences-circuit-electrique",
+                            "title": "Le circuit électrique",
+                            "subtitle": "Pile, fil et ampoule",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-electricite-base",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-piles-appareils",
+                            "title": "Piles et appareils",
+                            "subtitle": "Utiliser l'électricité au quotidien",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-electricite-base",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-securite-electrique",
+                            "title": "Sécurité électrique",
+                            "subtitle": "Prises, prudence et bons réflexes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-electricite-base",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-sciences-electricite-base",
+                            "title": "Défi : électricité et sécurité",
+                            "subtitle": "Circuits et prudence en série longue",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-electricite-base",
+                                "questions": 10
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-sciences-environnement-subtheme",
+                    "title": "Environnement",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-tri-dechets-simple",
+                            "title": "Les déchets et le tri simple",
+                            "subtitle": "Poubelle jaune, verte et ordures",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Tous les déchets ne se jettent pas dans la même poubelle. Bien trier permet de recycler une partie de nos déchets."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une bouteille en plastique ou un emballage en carton se mettent souvent dans la poubelle jaune."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je trie",
+                                    "items": [
+                                        "le papier et le carton",
+                                        "le verre",
+                                        "le plastique",
+                                        "les déchets qui ne se recyclent pas"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Bien trier ses déchets aide à les recycler au lieu de les jeter tous ensemble."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-gestes-environnement-simples",
+                            "title": "Des gestes simples pour la nature",
+                            "subtitle": "Économiser et respecter",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Chacun peut agir au quotidien avec des gestes simples pour protéger la nature autour de soi."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Éteindre la lumière en sortant d'une pièce ou fermer le robinet pendant le brossage des dents économise des ressources."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je peux agir",
+                                    "items": [
+                                        "économiser l'eau",
+                                        "éteindre la lumière en sortant",
+                                        "ne pas jeter de déchets dans la nature",
+                                        "respecter les animaux et les plantes"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "De petits gestes simples, répétés chaque jour, aident à protéger la nature."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-sciences-trier-dechets",
+                            "title": "Trier ses déchets",
+                            "subtitle": "Poubelle jaune, verte et ordures",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-environnement-gestes",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-economiser-ressources",
+                            "title": "Économiser les ressources",
+                            "subtitle": "Eau et électricité au quotidien",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-environnement-gestes",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-proteger-nature",
+                            "title": "Protéger la nature",
+                            "subtitle": "Respecter les animaux et les plantes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-environnement-gestes",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-sciences-environnement-gestes",
+                            "title": "Défi : gestes pour l'environnement",
+                            "subtitle": "Tri et écologie en série longue",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-environnement-gestes",
+                                "questions": 10
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-sciences-techno-subtheme",
+                    "title": "Objets techniques",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "cm1-sciences-techno-objets",
+                            "title": "Machines simples",
+                            "subtitle": "Levier, plan incliné, engrenage",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-techno-objets",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-techno-energie",
+                            "title": "Sources d'energie",
+                            "subtitle": "Electrique, solaire, mecanique...",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-techno-objets",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-sciences-techno-defi",
+                            "title": "Defi : machines et energie",
+                            "subtitle": "Machines simples et sources d'energie",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-techno-objets",
+                                "questions": 8
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-objets-techniques",
+                            "title": "Les machines simples",
+                            "subtitle": "Levier, plan incliné, poulie, engrenage",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Les machines simples permettent de déplacer ou soulever des objets en faisant moins d'effort. Les principales sont le levier, le plan incliné, la poulie et l'engrenage."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemples",
+                                    "content": "Un ciseaux = deux leviers. Une rampe = un plan incliné. Un vélo = des engrenages. Une grue = des poulies."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Un levier tourne autour d'un point d'appui. Un engrenage transmet le mouvement grâce à des roues dentées."
+                                }
+                            ]
                         }
                     ]
                 }
@@ -3155,6 +4376,58 @@
                             "engine": "choice-engine",
                             "id": "cm1-emc-respecter-chacun",
                             "subtitle": "Dialogue, entraide, calme"
+                        },
+                        {
+                            "id": "cm1-bonus-emc-vivre-ensemble-defi",
+                            "title": "Défi : vivre ensemble",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-vivre-ensemble",
+                                "questions": 12
+                            }
+                        },
+                        {
+                            "id": "cm1-emc-egalite-respect",
+                            "title": "Égalité et respect",
+                            "subtitle": "Filles-garçons, préjugés, harcèlement",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-egalite-respect",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-emc-alerte-secours",
+                            "title": "Alerter et secourir",
+                            "subtitle": "Les gestes qui sauvent",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-alerte-secours",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-egalite-defi",
+                            "title": "Défi : citoyens solidaires",
+                            "subtitle": "Égalité, respect et premiers secours",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-egalite-respect",
+                                "questions": 8
+                            },
+                            "isBonus": true,
+                            "bonusThreshold": 2
                         }
                     ]
                 },
@@ -3254,9 +4527,34 @@
                             "subtitle": "Droits, devoirs, responsabilités"
                         },
                         {
+                            "id": "cm1-bonus-emc-droits-devoirs-defi",
+                            "title": "Défi : droits et devoirs",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-droits-devoirs",
+                                "questions": 12
+                            }
+                        },
+                        {
                             "id": "cm1-emc-appariement",
                             "title": "Droits, institutions et valeurs",
                             "subtitle": "Relie chaque concept à sa définition",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_emc_cm1",
+                                "dataFile": "data/emc_matching.json",
+                                "questions": 3
+                            }
+                        },
+                        {
+                            "id": "cm1-emc-appariement-2",
+                            "title": "Citoyenneté au quotidien",
+                            "subtitle": "Relie chaque comportement à sa valeur",
                             "engine": "matching",
                             "params": {
                                 "category": "matching_emc_cm1",
@@ -3427,6 +4725,20 @@
                             "engine": "choice-engine",
                             "id": "cm1-emc-engagement-classe",
                             "subtitle": "Rôles, projets et responsabilités"
+                        },
+                        {
+                            "id": "cm1-bonus-emc-citoyennete-expert",
+                            "title": "Défi : citoyen engagé",
+                            "subtitle": "Vote, débat et engagement sans filet",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-debat-cooperation",
+                                "questions": 12
+                            }
                         }
                     ]
                 }

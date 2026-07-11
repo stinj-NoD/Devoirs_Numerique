@@ -27,10 +27,14 @@ if (-not (Test-Path $resolvedDataDir)) {
     throw "Data directory not found: $resolvedDataDir"
 }
 
-$files = Get-ChildItem -Path $resolvedDataDir -Filter *.json -Recurse | Sort-Object FullName
+$files = Get-ChildItem -Path $resolvedDataDir -Include *.json,*.svg -Recurse | Sort-Object FullName
 if (-not $IncludeLegacy) {
     $files = $files | Where-Object { $_.Name -ne "cpold.json" }
 }
+# data/maps/*.json = métadonnées de zones jamais lues par le code à l'exécution
+# (référence pour de futurs contenus type capitales). Seuls les SVG des cartes
+# sont chargés — on exclut ces JSON du bundle pour ne pas le gonfler.
+$files = $files | Where-Object { -not ($_.DirectoryName -match '\\maps$' -and $_.Extension -eq '.json') }
 
 $lines = New-Object System.Collections.Generic.List[string]
 $lines.Add("window.DataBundle = window.DataBundle || {};")

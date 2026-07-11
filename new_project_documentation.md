@@ -10,9 +10,12 @@ Le projet est aujourd’hui stabilisé sur trois axes :
 - robustesse locale/offline renforcée
 
 État actuel :
-- mathématiques, français, histoire, géographie, sciences et EMC présents sur tous les niveaux
+- mathématiques, français, histoire, géographie, sciences et EMC présents sur tous les niveaux (775+ exercices)
 - bibliothèque française modulaire dans `data/french/`
 - moteurs de grammaire en contexte et dictée audio en service
+- activités interactives non-QCM (`board-interactive`) : cartes à toucher, classement de figures, mémoire, point sur quadrillage, symétrie, fraction à construire, carte à localiser
+- lecture de graphiques en barres (`bar-chart-read`), gamification par badges, série de jours
+- bouton de mise à jour forcée de l'application (menu ☰), utile sur iOS où le service worker peut rester bloqué sur une ancienne version
 - service worker et bundle local alignés avec la structure actuelle
 
 ## Vue d’ensemble
@@ -59,7 +62,9 @@ L’application gère :
 - `js/engines-math.js` : générateurs maths / logique
 - `js/engines-french.js` : générateurs français
 - `js/engines-documentary.js` : générateurs documentaires et frises
-- `js/storage.js` : profils, utilisateur courant, records
+- `js/engines-board.js` : générateurs des activités interactives non-QCM
+- `js/ui-board.js` : rendu des activités interactives
+- `js/storage.js` : profils, utilisateur courant, records, badges
 - `js/validators.js` : validation runtime des JSON
 - `js/data-bundle.js` : bundle embarqué pour mode local/offline
 - `sw.js` : cache offline/PWA
@@ -106,12 +111,14 @@ L’application gère :
     - `engines-math.js`
     - `engines-french.js`
     - `engines-documentary.js`
+    - `engines-board.js`
 
 - **`storage.js`**
   Responsable de :
   - profils
   - utilisateur courant
   - records
+  - badges (étoiles, sans-faute, séries, exercices essayés)
   - sanitation et durcissement du stockage local
 
 - **`validators.js`**
@@ -181,23 +188,41 @@ Les fichiers de niveau (`cm1.json`, `cm2.json`, etc.) peuvent inclure des blocs 
 
 ## Moteurs en service
 
-Moteurs principaux :
+Moteurs principaux (`engine` dans les exercices) :
+- `choice-engine` (le plus utilisé)
 - `math-input`
-- `choice-engine`
-- `conjugation`
-- `conversion`
-- `clock`
-- `reading`
+- `matching`
 - `audio-spelling`
+- `conjugation`
+- `board-interactive`
+- `reading`
+- `conversion`
 - `timeline`
+- `clock`
+- `word-order`
+- `cloze-fill-in`
 - `counting`
+
+Types `board-interactive` (`params.type`, gérés par `engines-board.js` / `ui-board.js`) :
+- `map-locate` : toucher une zone sur une carte SVG
+- `tap-features` : toucher les bons éléments d'un schéma
+- `memory-match` : jeu de mémoire par paires
+- `symmetry-complete` : compléter une figure symétrique sur quadrillage
+- `point-on-grid` : placer un point sur un quadrillage
+- `fraction-build` : construire une fraction en touchant des parts de disque
+- `shape-classify` : classer des figures par glisser/cliquer
+
+Sous-types maths notables (`params.type` pour `math-input`) :
+- `proportionnalite`, `pourcentage`, `echelle`, `vitesse` (proportionnalité et grandeurs)
+- `bar-chart-read` : lecture de diagramme en barres (max/min/valeur/total/différence)
+- `carre-somme` : carré magique, avec `solutionCount` (2 valeurs en CP, 3 dès CE2)
 
 Sous-types français et documentaires notables :
 - `factual-qcm`
 - `gender-articles`
 - `article-choice`
 - `plural-choice`
-- `word-class-choice`
+- `word-class-choice` (inclut la fonction des mots : sujet/verbe/complément en CM1-CM2)
 - `grammar-cloze`
 - `homophone-duel`
 
@@ -273,8 +298,10 @@ Le projet peut être ouvert :
 
 Le service worker pré-cache :
 - les assets applicatifs
-- les JSON critiques
+- les JSON critiques (l'ensemble de `data/`, y compris les datasets `board_*`, `math_word_problems_*`, `french_*_reading`)
 - la bibliothèque française modulaire
+
+`CACHE_NAME` (dans `sw.js`) doit être incrémenté à chaque déploiement de contenu ou de code, sinon le navigateur ne détecte jamais la nouvelle version (particulièrement sensible sur iOS/Safari). Le bouton « Mettre à jour l'application » (menu ☰, `App.forceAppUpdate()`) force la vérification immédiate sans attendre le cycle automatique du navigateur.
 
 ## Stockage local
 
@@ -368,11 +395,12 @@ La sécurité vise donc surtout :
 
 5.  **Durcissement offline/PWA**
     - `sw.js` pré-cache les assets applicatifs critiques
-    - `sw.js` pré-cache les datasets utiles au fonctionnement offline
+    - `sw.js` pré-cache l'ensemble des datasets utiles au fonctionnement offline
     - les anciens caches sont purgés au changement de version
     - le fallback `offline.html` est renvoyé pour les navigations hors ligne
     - seules les origines internes et les fonts whitelistees sont prises en compte
     - le service worker ne référence plus de bibliothèque française legacy
+    - un bouton de mise à jour manuelle (`App.forceAppUpdate()`) permet de forcer la détection d'une nouvelle version sans attendre le cycle automatique du navigateur
 
 6.  **Audio côté navigateur**
     - la dictée audio repose sur `speechSynthesis`

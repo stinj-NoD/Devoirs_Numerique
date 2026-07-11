@@ -1,4 +1,4 @@
-﻿{
+{
     "gradeId": "cm2",
     "title": "CM2",
     "subjects": [
@@ -173,6 +173,23 @@
                                 "category": "cm2-problemes-multi-etapes",
                                 "questions": 8
                             }
+                        },
+                        {
+                            "id": "cm2-bonus-tables-x-21-25",
+                            "title": "Défi : tables x21 à x25",
+                            "subtitle": "Calcul mental ultra avancé",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "calc-mental",
+                                "operator": "x",
+                                "range": [
+                                    21,
+                                    25
+                                ],
+                                "questions": 10
+                            }
                         }
                     ]
                 },
@@ -200,6 +217,18 @@
                                 "type": "fraction-view",
                                 "maxDenom": 12,
                                 "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm2-frac-build",
+                            "title": "Construis la fraction",
+                            "subtitle": "Touche les bonnes parts",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "fraction-build",
+                                "minDenom": 2,
+                                "maxDenom": 12,
+                                "questions": 8
                             }
                         },
                         {
@@ -244,6 +273,19 @@
                                 "category": "matching_math_cm2",
                                 "dataFile": "data/math_matching.json",
                                 "questions": 3
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-fractions-expert",
+                            "title": "Défi : fractions expertes",
+                            "subtitle": "Parts jusqu'à 24, sans erreur",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "fraction-view",
+                                "maxDenom": 24,
+                                "questions": 12
                             }
                         }
                     ],
@@ -449,6 +491,19 @@
                                 "type": "division-reste",
                                 "questions": 10
                             }
+                        },
+                        {
+                            "id": "cm2-bonus-division-posee-experte",
+                            "title": "Défi : division posée experte",
+                            "subtitle": "Quotients à plusieurs chiffres",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "division-posed",
+                                "level": 3,
+                                "questions": 8
+                            }
                         }
                     ]
                 },
@@ -605,6 +660,36 @@
                             }
                         },
                         {
+                            "id": "cm2-vitesse-1",
+                            "title": "Vitesse, distance, durée",
+                            "subtitle": "Calculer une distance ou une durée",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "vitesse",
+                                "maxHeures": 5,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-proportionnalite-expert",
+                            "title": "Défi : proportionnalité experte",
+                            "subtitle": "Pourcentages, échelles et vitesses en rafale",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "pourcentage",
+                                "values": [
+                                    10,
+                                    20,
+                                    25,
+                                    50
+                                ],
+                                "maxMultiple": 12,
+                                "questions": 8
+                            }
+                        },
+                        {
                             "id": "cm2-conversions-masses",
                             "title": "Convertir des masses",
                             "subtitle": "kg, g, mg...",
@@ -632,6 +717,19 @@
                                     6
                                 ],
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-romains-1000",
+                            "title": "Défi : chiffres romains jusqu'à M",
+                            "subtitle": "Jusqu'à 1000 sans erreur",
+                            "engine": "conversion",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "subtype": "roman",
+                                "max": 1000,
+                                "questions": 8
                             }
                         }
                     ],
@@ -954,6 +1052,18 @@
                             }
                         },
                         {
+                            "id": "cm2-geo-symetrie-pratique",
+                            "title": "Complète la figure symétrique",
+                            "subtitle": "Place les points sur le quadrillage",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "symmetry-complete",
+                                "dataFile": "data/board_symmetry_complete_cm2.json",
+                                "category": "cm2_symmetry_complete",
+                                "questions": 5
+                            }
+                        },
+                        {
                             "id": "cm2-geo-vocabulaire-construction",
                             "title": "Construction géométrique",
                             "subtitle": "Compas, rayon, diamètre",
@@ -1021,6 +1131,157 @@
                                 "category": "cm2_shape_classify",
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "cm2-geo-reperage-pratique",
+                            "title": "Place le point",
+                            "subtitle": "Repérage sur quadrillage",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "point-on-grid",
+                                "dataFile": "data/board_geometry_cm2.json",
+                                "category": "cm2_point_quadrillage",
+                                "questions": 4
+                            }
+                        },
+                        {
+                            "id": "cm2-geo-droites-paralleles-pratique",
+                            "title": "Droites parallèles",
+                            "subtitle": "Touche les droites parallèles",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_geometry_cm2.json",
+                                "category": "cm2_droites_paralleles_tap",
+                                "questions": 3
+                            }
+                        },
+                        {
+                            "id": "cm2-geo-angles-droits-pratique",
+                            "title": "Angles droits",
+                            "subtitle": "Touche les angles droits",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_geometry_cm2.json",
+                                "category": "cm2_angles_droits_tap",
+                                "questions": 3
+                            }
+                        },
+                        {
+                            "id": "cm2-geo-perpendiculaires-pratique",
+                            "title": "Droites perpendiculaires",
+                            "subtitle": "Touche les droites perpendiculaires",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_geometry_cm2.json",
+                                "category": "cm2_perpendiculaires_tap",
+                                "questions": 3
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-volume-pave-expert",
+                            "title": "Défi : volumes experts",
+                            "subtitle": "Pavés droits jusqu'à 15",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "volume-pave",
+                                "max": 15,
+                                "questions": 6
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm2-graphiques-subtheme",
+                    "title": "Lire un graphique",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "cm2-graphique-lecture",
+                            "title": "Lire un diagramme en barres",
+                            "subtitle": "Trouver le maximum, le minimum, le total",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "bar-chart-read",
+                                "maxBars": 5,
+                                "maxValue": 30,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-donnees-tableaux",
+                            "title": "Lire un tableau de données",
+                            "subtitle": "Totaux, minimums, moyennes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle3.json",
+                                "category": "cm2-donnees-tableaux",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-graphique-camembert",
+                            "title": "Lire un diagramme circulaire",
+                            "subtitle": "Interpréter des pourcentages",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle3.json",
+                                "category": "cm2-problemes-pourcentages",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-graphique-expert",
+                            "title": "Défi : graphiques en rafale",
+                            "subtitle": "Toutes les questions, sans erreur",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "bar-chart-read",
+                                "maxBars": 5,
+                                "maxValue": 40,
+                                "questions": 8
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "cm2-lesson-lire-graphique",
+                            "title": "Lire un diagramme en barres",
+                            "subtitle": "Comparer des quantités d'un coup d'œil",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un diagramme en barres représente des quantités par des barres : plus la barre est haute, plus la quantité est grande."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Pour comparer les ventes de plusieurs magasins, on lit la hauteur de chaque barre plutôt que de longues phrases."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "la barre la plus haute donne le maximum",
+                                        "la barre la plus basse donne le minimum",
+                                        "la somme de toutes les valeurs donne le total",
+                                        "la différence entre deux barres se calcule par soustraction"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Un graphique permet de comparer des données rapidement, sans tout recalculer."
+                                }
+                            ]
                         }
                     ]
                 }
@@ -1114,6 +1375,52 @@
                                     "avoir"
                                 ],
                                 "tenses": "imparfait",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-conj-pc-3-expert",
+                            "title": "Défi : passé composé expert",
+                            "subtitle": "3e groupe, verbes piégeux",
+                            "engine": "conjugation",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "category": "pc_3_cm2",
+                                "tenses": "passé composé",
+                                "questions": 14
+                            }
+                        },
+                        {
+                            "id": "cm2-conj-passe-simple-reco",
+                            "title": "Reconnaître le passé simple",
+                            "subtitle": "Dans un texte, à quel temps est ce verbe ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "passe_simple_recognition_cm2",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-conj-passe-simple-er",
+                            "title": "Le passé simple des verbes en -er",
+                            "subtitle": "Il chanta, ils dansèrent…",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "passe_simple_1",
+                                "tenses": "passé simple",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-conj-passe-simple-3g",
+                            "title": "Le passé simple des verbes fréquents",
+                            "subtitle": "Il fut, elle eut, ils firent…",
+                            "engine": "conjugation",
+                            "params": {
+                                "category": "passe_simple_3_freq",
+                                "tenses": "passé simple",
                                 "questions": 8
                             }
                         }
@@ -1221,6 +1528,70 @@
                             "format": "lesson-card",
                             "id": "cm2-lesson-etre-avoir-imparfait",
                             "subtitle": "Des formes fréquentes à maîtriser"
+                        },
+                        {
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le passé simple est surtout utilisé dans les récits écrits (contes, romans) pour raconter des actions au passé. On l'apprend d'abord à le reconnaître à la lecture."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Il alla au marché. Elle prit son cahier. Ils arrivèrent à la gare."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Repères utiles",
+                                    "items": [
+                                        "Le passé simple ne s'utilise presque jamais à l'oral.",
+                                        "On le rencontre surtout dans les contes et les récits.",
+                                        "Au 3e groupe, les terminaisons sont souvent surprenantes : il vit, il prit, il fut."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Si une phrase raconte une action ponctuelle dans un récit écrit, c'est souvent du passé simple."
+                                }
+                            ],
+                            "title": "Reconnaître le passé simple",
+                            "format": "lesson-card",
+                            "id": "cm2-lesson-passe-simple",
+                            "subtitle": "Le temps des récits écrits"
+                        },
+                        {
+                            "id": "cm2-lesson-passe-simple-conjuguer",
+                            "title": "Conjuguer au passé simple",
+                            "subtitle": "Les terminaisons du temps des récits",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le passé simple s'emploie surtout à l'écrit, dans les récits. Les verbes en -er suivent un modèle régulier ; les verbes fréquents (être, avoir, faire…) ont des formes courtes à connaître."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "CHANTER : je chantai, tu chantas, il chanta, nous chantâmes, vous chantâtes, ils chantèrent."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Verbes en -er : -ai, -as, -a, -âmes, -âtes, -èrent.",
+                                        "Beaucoup de verbes fréquents prennent -is/-it : il fit, il prit, il dit, il vit.",
+                                        "D'autres prennent -us/-ut : il fut, il eut, il put, il voulut.",
+                                        "Venir et tenir sont à part : il vint, ils vinrent.",
+                                        "L'accent circonflexe signe les personnes nous et vous : nous chantâmes, vous fûtes."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "À l'écrit, les formes les plus utiles sont « il » et « ils » : il chanta / ils chantèrent, il fut / ils furent — commence par bien les connaître !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -1328,6 +1699,19 @@
                                     "ont"
                                 ],
                                 "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-homophones-mix-expert",
+                            "title": "Défi : grand mix expert",
+                            "subtitle": "Tous les homophones, série longue",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "homophone-duel",
+                                "category": "mix_all",
+                                "questions": 20
                             }
                         }
                     ],
@@ -1483,6 +1867,17 @@
                             }
                         },
                         {
+                            "id": "cm2_g_fonction_qcm",
+                            "title": "Sujet, verbe ou complément",
+                            "subtitle": "Trouver le rôle du mot dans la phrase",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "sentence_function_choice_cm2",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "cm2_g_cloze_det",
                             "title": "Déterminant dans la phrase",
                             "subtitle": "Choisir le bon mot outil",
@@ -1491,6 +1886,16 @@
                                 "type": "grammar-cloze",
                                 "category": "grammar_cloze_cm2",
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2_g_cloze_ecrit",
+                            "title": "Écris le bon mot",
+                            "subtitle": "Complète la phrase sans aide",
+                            "engine": "cloze-fill-in",
+                            "params": {
+                                "category": "grammar_cloze_cm2",
+                                "questions": 6
                             }
                         },
                         {
@@ -1513,6 +1918,63 @@
                                 "category": "word_order_cm2",
                                 "dataFile": "data/french_word_order.json",
                                 "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm2-francais-structure-recit",
+                            "title": "Structurer un récit ou une lettre",
+                            "subtitle": "Connecteurs et formules de politesse",
+                            "engine": "word-order",
+                            "params": {
+                                "category": "story_order_cm2",
+                                "dataFile": "data/french_word_order.json",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm2-g-pp-accord",
+                            "title": "Accord du participe passé",
+                            "subtitle": "Avec être ou avoir ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "grammar_pp_accord_cm2",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-grammaire-cloze-accord",
+                            "title": "Défi : accorder sans filet",
+                            "subtitle": "Série longue d'accords en contexte",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "grammar_agreement_cm2",
+                                "questions": 14
+                            }
+                        },
+                        {
+                            "id": "cm2-redaction-connecteurs",
+                            "title": "Les connecteurs experts",
+                            "subtitle": "Cause, conséquence, opposition…",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "redaction_connecteurs_cm2",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-redaction-meilleure-phrase",
+                            "title": "L'atelier d'écriture",
+                            "subtitle": "Choisis la version la mieux rédigée",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "redaction_phrase_cm2",
+                                "questions": 6
                             }
                         }
                     ],
@@ -1622,6 +2084,38 @@
                                     "label": "À retenir"
                                 }
                             ]
+                        },
+                        {
+                            "id": "cm2-lesson-ecrire-phrases-riches",
+                            "title": "Écrire des phrases riches et claires",
+                            "subtitle": "Les secrets d'un texte agréable à lire",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Bien écrire, c'est faire des choix : remplacer les mots passe-partout, éviter les répétitions, garder le même temps et ponctuer le dialogue. Chaque relecture améliore le texte."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« Il fait une cabane » devient « Il construit une cabane » ; « la sorcière… la sorcière… la sorcière » devient « la sorcière… elle… la vieille femme »."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Remplacer faire, dire, mettre, avoir par des verbes précis : construire, murmurer, déposer, posséder.",
+                                        "Éviter les répétitions avec des pronoms (il, elle) ou des synonymes.",
+                                        "Garder la concordance : « le dragon dormait quand le chevalier entra ».",
+                                        "Dialogue : deux-points, guillemets, et un tiret à chaque changement de personnage."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "La règle des trois relectures : 1) le sens, 2) les accords, 3) les répétitions. Les écrivains eux-mêmes réécrivent plusieurs fois !"
+                                }
+                            ],
+                            "format": "lesson-card"
                         }
                     ]
                 },
@@ -1815,6 +2309,38 @@
                                 "dataFile": "data/french/matching.json",
                                 "questions": 2
                             }
+                        },
+                        {
+                            "id": "cm2-lecture-inference-personnage",
+                            "title": "Comprendre un personnage",
+                            "subtitle": "Déduire ses sentiments et intentions",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm2_lecture_inference_personnage",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-lecture-connecteurs-logiques",
+                            "title": "Connecteurs logiques",
+                            "subtitle": "Donc, mais, car, pourtant...",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm2_lecture_connecteurs_logiques",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-vocabulaire-polysemie-expert",
+                            "title": "Défi : polysémie experte",
+                            "subtitle": "Mots à sens multiples, série longue",
+                            "engine": "reading",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "category": "cm2_vocabulaire_polysemie",
+                                "questions": 10
+                            }
                         }
                     ]
                 },
@@ -1865,6 +2391,19 @@
                                 "category": "cm2_vocabulaire_citoyennete",
                                 "speechRate": 0.9,
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-audio-orthographe-rapide",
+                            "title": "Défi : dictée sans ralenti",
+                            "subtitle": "Orthographe avancée, vitesse normale",
+                            "engine": "audio-spelling",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "category": "cm2_orthographe_avancee",
+                                "speechRate": 1,
+                                "questions": 10
                             }
                         }
                     ],
@@ -1976,18 +2515,6 @@
                             }
                         },
                         {
-                            "id": "cm2-sciences-consommation-responsable",
-                            "title": "Consommation responsable",
-                            "subtitle": "Réparer, réutiliser, moins jeter",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/science_cm2.json",
-                                "category": "cm2-consommation-responsable",
-                                "questions": 6
-                            }
-                        },
-                        {
                             "id": "cm2-histoire-appariement",
                             "title": "Dates et symboles",
                             "subtitle": "Relie chaque date, symbole ou événement à sa correspondance",
@@ -1996,6 +2523,44 @@
                                 "category": "matching_histoire_cm2",
                                 "dataFile": "data/history_matching.json",
                                 "questions": 2
+                            }
+                        },
+                        {
+                            "id": "cm2-histoire-guerres-narratif",
+                            "title": "Guerres mondiales : causes et enjeux",
+                            "subtitle": "Au-delà des dates : résistance, Shoah, paix",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm2.json",
+                                "category": "cm2-guerres-narratif",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-histoire-decolonisation",
+                            "title": "La décolonisation",
+                            "subtitle": "Indépendances et droits humains",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm2.json",
+                                "category": "cm2-decolonisation",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-histoire-xxe-expert",
+                            "title": "Défi : XXe siècle expert",
+                            "subtitle": "Série longue sur les grandes guerres",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm2.json",
+                                "category": "cm2-xxe-siecle",
+                                "questions": 12
                             }
                         }
                     ],
@@ -2164,6 +2729,38 @@
                                     "content": "Les repères du XXe siècle servent à situer les grands changements de l'histoire contemporaine."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cm2-lesson-progres-techniques",
+                            "title": "Les progrès techniques",
+                            "subtitle": "Inventions du XIXe et du XXe siècle",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Au XIXe et au XXe siècle, de nombreuses inventions transforment la vie quotidienne, les transports et les communications."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Quelques grandes inventions",
+                                    "items": [
+                                        "le chemin de fer",
+                                        "le téléphone",
+                                        "le cinéma",
+                                        "le premier homme sur la Lune"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Avant le téléphone, il fallait écrire une lettre pour donner des nouvelles à quelqu'un loin de chez soi ; avec le téléphone, on peut lui parler tout de suite."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Les progrès techniques changent profondément les modes de vie d'une génération à l'autre."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -2299,6 +2896,21 @@
                                 "timelineId": "cm2-place-europe",
                                 "questions": 5
                             }
+                        },
+                        {
+                            "id": "cm2-bonus-histoire-frise-guerres-paix",
+                            "title": "Défi : Guerres et paix",
+                            "subtitle": "Ordonne les grands repères du XXe siècle",
+                            "engine": "timeline",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "mode": "order",
+                                "grade": "cm2",
+                                "dataFile": "data/history_chrono.json",
+                                "timelineId": "cm2-guerres-paix-ordre",
+                                "questions": 7
+                            }
                         }
                     ]
                 },
@@ -2415,6 +3027,58 @@
                                 "dataFile": "data/history_cm2.json",
                                 "questions": 8
                             }
+                        },
+                        {
+                            "id": "cm2-bonus-histoire-recits-expert",
+                            "title": "Défi : récits historiques",
+                            "subtitle": "Révolution et République, sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "category": "cm2-recits-historiques",
+                                "dataFile": "data/history_cm2.json",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-histoire-recits-revolution",
+                            "title": "La Revolution francaise",
+                            "subtitle": "1789 : un tournant historique",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm2.json",
+                                "category": "cm2-revolution",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-histoire-xxe-siecle",
+                            "title": "Le XXe siecle",
+                            "subtitle": "Guerres, paix et grandes transformations",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm2.json",
+                                "category": "cm2-xxe-siecle",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-histoire-recits-defi",
+                            "title": "Defi : grands recits de l'histoire",
+                            "subtitle": "Revolution, guerres, republique",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm2.json",
+                                "category": "cm2-recits-historiques",
+                                "questions": 10
+                            }
                         }
                     ]
                 }
@@ -2487,6 +3151,48 @@
                                 "category": "matching_geo_cm2",
                                 "dataFile": "data/geography_matching.json",
                                 "questions": 2
+                            }
+                        },
+                        {
+                            "id": "cm2-geo-carte-europe-pays",
+                            "title": "Carte de l'Europe",
+                            "subtitle": "Touche le pays demandé",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "map-locate",
+                                "dataFile": "data/board_map_locate_europe.json",
+                                "mapFile": "data/maps/europe-countries.svg",
+                                "mapId": "europe-countries",
+                                "category": "cm1_map_pays_europe",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-geo-capitales-europe",
+                            "title": "Capitales d'Europe",
+                            "subtitle": "Quelle est la capitale ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_capitals_cm1.json",
+                                "category": "cm1-capitales-europe",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-geo-carte-monde-continents",
+                            "title": "Défi : situer l'Europe dans le monde",
+                            "subtitle": "Repère les continents sur la carte mondiale",
+                            "engine": "board-interactive",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "map-locate",
+                                "dataFile": "data/board_map_locate_world.json",
+                                "mapFile": "data/maps/world-continents.svg",
+                                "mapId": "world-continents",
+                                "category": "cm1_map_continents_monde",
+                                "questions": 8
                             }
                         }
                     ],
@@ -2584,6 +3290,68 @@
                             "engine": "choice-engine",
                             "id": "cm2-geo-habiter-espaces",
                             "subtitle": "Métropoles, littoraux, campagnes"
+                        },
+                        {
+                            "id": "cm2-geo-espaces-littoraux",
+                            "title": "Espaces littoraux",
+                            "subtitle": "Vivre et travailler au bord de la mer",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm2.json",
+                                "category": "cm2-espaces-littoraux",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-geo-espaces-montagnards",
+                            "title": "Espaces montagnards",
+                            "subtitle": "Vivre et travailler en montagne",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm2.json",
+                                "category": "cm2-espaces-montagnards",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-geo-habiter-defi",
+                            "title": "Défi : habiter",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm2.json",
+                                "category": "cm2-habiter",
+                                "questions": 7
+                            }
+                        },
+                        {
+                            "id": "cm2-geo-villes-france",
+                            "title": "Les grandes villes de France",
+                            "subtitle": "Situer les villes sur la carte",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_geography_cm2.json",
+                                "category": "cm2_villes_france_tap",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm2-geo-reperes-villes",
+                            "title": "Villes sur le quadrillage",
+                            "subtitle": "Placer les villes avec des coordonnées",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "point-on-grid",
+                                "dataFile": "data/board_geography_cm2.json",
+                                "category": "cm2_reperes_france_grille",
+                                "questions": 5
+                            }
                         }
                     ],
                     "lessons": [
@@ -2701,6 +3469,20 @@
                                 "category": "matching_geo_cm2",
                                 "dataFile": "data/geography_matching.json",
                                 "questions": 2
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-geo-acteurs-mondialisation-expert",
+                            "title": "Défi : acteurs de la mondialisation",
+                            "subtitle": "Série longue sur les flux et réseaux",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm2.json",
+                                "category": "cm2-acteurs-mondialisation",
+                                "questions": 10
                             }
                         }
                     ],
@@ -2904,6 +3686,18 @@
                             "subtitle": "Se déplacer en limitant l'impact"
                         },
                         {
+                            "id": "cm2-geo-consommation-responsable",
+                            "title": "Consommation responsable",
+                            "subtitle": "Réparer, réutiliser, moins jeter",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-consommation-responsable",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "params": {
                                 "questions": 6,
                                 "dataFile": "data/geography_cm2.json",
@@ -2925,6 +3719,20 @@
                                 "dataFile": "data/geography_matching.json",
                                 "questions": 2
                             }
+                        },
+                        {
+                            "id": "cm2-bonus-geo-agir-pour-durer-expert",
+                            "title": "Défi : agir pour durer",
+                            "subtitle": "Série longue sur le développement durable",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm2.json",
+                                "category": "cm2-developpement-durable",
+                                "questions": 12
+                            }
                         }
                     ]
                 }
@@ -2935,6 +3743,181 @@
             "title": "Sciences",
             "icon": "📘",
             "subthemes": [
+                {
+                    "id": "cm2-sciences-vivant-subtheme",
+                    "title": "Le vivant",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm2-lesson-classification-vivant",
+                            "title": "Classer les êtres vivants",
+                            "subtitle": "Vertébrés, invertébrés et végétaux",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le monde du vivant regroupe les animaux, les végétaux, les champignons et de nombreux organismes invisibles à l'œil nu. Pour mieux les comprendre, les scientifiques les classent selon leurs ressemblances et leurs différences."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les vertébrés (squelette interne)",
+                                    "items": [
+                                        "les mammifères : allaitent leurs petits",
+                                        "les oiseaux : pondent des œufs, ont des plumes",
+                                        "les poissons : respirent avec des branchies",
+                                        "les reptiles : peau écailleuse",
+                                        "les amphibiens : vivent dans l'eau puis sur terre"
+                                    ]
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les invertébrés (sans squelette interne)",
+                                    "items": [
+                                        "les insectes (papillon, fourmi)",
+                                        "les mollusques (escargot, pieuvre)",
+                                        "les arachnides (araignée)"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Les végétaux se distinguent des animaux car ils produisent leur propre nourriture grâce à la lumière (photosynthèse)."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-reproduction-vivant",
+                            "title": "La reproduction des êtres vivants",
+                            "subtitle": "Ovipares, vivipares et reproduction des plantes",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Tous les êtres vivants se reproduisent, mais pas toujours de la même façon."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Chez les animaux",
+                                    "items": [
+                                        "vivipares : le petit se développe dans le ventre de la mère (la plupart des mammifères)",
+                                        "ovipares : le petit se développe dans un œuf pondu (oiseaux, reptiles, poissons)",
+                                        "métamorphose : changement complet de forme au cours de la vie (chenille → papillon, têtard → grenouille)"
+                                    ]
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Chez les plantes",
+                                    "items": [
+                                        "la pollinisation transporte le pollen d'une fleur à l'autre",
+                                        "la fleur pollinisée produit des graines",
+                                        "certaines plantes se reproduisent aussi par bouturage, sans graine"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "La chenille devient une chrysalide, puis se transforme en papillon : c'est une métamorphose complète."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-chaines-alimentaires",
+                            "title": "Chaînes alimentaires et écosystèmes",
+                            "subtitle": "Producteurs, consommateurs et décomposeurs",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans la nature, les êtres vivants dépendent les uns des autres pour se nourrir. C'est ce qu'on appelle une chaîne alimentaire."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les rôles dans une chaîne alimentaire",
+                                    "items": [
+                                        "producteurs : les plantes vertes, qui fabriquent leur nourriture grâce à la lumière",
+                                        "herbivores : se nourrissent uniquement de végétaux",
+                                        "carnivores : se nourrissent d'autres animaux",
+                                        "omnivores : se nourrissent de végétaux et d'animaux",
+                                        "décomposeurs : champignons et bactéries qui recyclent la matière morte"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple de chaîne",
+                                    "content": "herbe → lapin → renard : l'herbe nourrit le lapin, qui est mangé par le renard."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Un écosystème est en équilibre : si un maillon disparaît, toute la chaîne peut être perturbée."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm2-sciences-vivant-classification",
+                            "title": "Classer les êtres vivants",
+                            "subtitle": "Vertébrés, invertébrés, végétaux",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-vivant-classification",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-sciences-vivant-reproduction",
+                            "title": "La reproduction des êtres vivants",
+                            "subtitle": "Ovipares, vivipares, métamorphose",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-vivant-reproduction",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-sciences-vivant-chaines",
+                            "title": "Chaînes alimentaires",
+                            "subtitle": "Producteurs, consommateurs, décomposeurs",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-vivant-chaines-alimentaires",
+                                "questions": 7
+                            }
+                        },
+                        {
+                            "id": "cm2-sciences-vivant-appariement",
+                            "title": "Le vivant : groupes et rôles",
+                            "subtitle": "Relie chaque être vivant à son groupe ou à son rôle",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_sciences_cm2",
+                                "dataFile": "data/science_matching.json",
+                                "questions": 2
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-sciences-vivant-expert",
+                            "title": "Défi : le vivant",
+                            "subtitle": "Série longue, toutes les notions du vivant",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-vivant-classification",
+                                "questions": 10
+                            }
+                        }
+                    ]
+                },
                 {
                     "id": "cm2-sciences-corps-subtheme",
                     "title": "Corps et santé",
@@ -3050,6 +4033,32 @@
                             "engine": "choice-engine",
                             "id": "cm2-sciences-preserver-sante",
                             "subtitle": "Sommeil, alimentation, hygiène"
+                        },
+                        {
+                            "id": "cm2-sciences-corps-prevention",
+                            "title": "Hygiene et prevention",
+                            "subtitle": "Prendre soin de son corps au quotidien",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-prevention-dechets",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-sciences-corps-defi",
+                            "title": "Defi : corps et sante",
+                            "subtitle": "Corps, hygiene et bien-etre",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-corps-sante",
+                                "questions": 10
+                            }
                         }
                     ]
                 },
@@ -3132,6 +4141,20 @@
                                 "category": "matching_sciences_cm2",
                                 "dataFile": "data/science_matching.json",
                                 "questions": 2
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-sciences-energie-expert",
+                            "title": "Défi : énergie et économies",
+                            "subtitle": "Série longue sur les ressources",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-techno-energie",
+                                "questions": 12
                             }
                         }
                     ]
@@ -3264,6 +4287,20 @@
                                 "dataFile": "data/science_matching.json",
                                 "questions": 2
                             }
+                        },
+                        {
+                            "id": "cm2-bonus-sciences-eco-gestes-expert",
+                            "title": "Défi : éco-gestes au quotidien",
+                            "subtitle": "Série longue sur le recyclage",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-eco-gestes",
+                                "questions": 12
+                            }
                         }
                     ]
                 },
@@ -3319,6 +4356,32 @@
                             "engine": "choice-engine",
                             "id": "cm2-sciences-respirer-recuperer",
                             "subtitle": "Effort, muscles et repos"
+                        },
+                        {
+                            "id": "cm2-sciences-effort-lumiere-son",
+                            "title": "Lumiere et son",
+                            "subtitle": "Propagation, reflexion et vitesse",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-lumiere-son",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-sciences-effort-defi",
+                            "title": "Defi : mouvement et energie",
+                            "subtitle": "Corps, effort et physique",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-corps-effort",
+                                "questions": 10
+                            }
                         }
                     ]
                 },
@@ -3392,6 +4455,18 @@
                             }
                         },
                         {
+                            "id": "cm2-sciences-tap-circuit",
+                            "title": "Le circuit électrique",
+                            "subtitle": "Touche la pile, le fil ou l'ampoule",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_tap_features_science.json",
+                                "category": "cm2_tap_circuit_electrique",
+                                "questions": 3
+                            }
+                        },
+                        {
                             "id": "cm2-sciences-electricite-appariement",
                             "title": "Sécurité électrique et appareils",
                             "subtitle": "Relie chaque appareil électrique à une règle de sécurité",
@@ -3400,6 +4475,20 @@
                                 "category": "matching_sciences_cm2",
                                 "dataFile": "data/science_matching.json",
                                 "questions": 2
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-sciences-securite-electrique-expert",
+                            "title": "Défi : sécurité électrique experte",
+                            "subtitle": "Série longue sur les circuits et la prudence",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-securite-electrique",
+                                "questions": 12
                             }
                         }
                     ]
@@ -3472,6 +4561,20 @@
                                 "dataFile": "data/science_cm2.json",
                                 "category": "cm2-risques-climatiques",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-sciences-climat-defi",
+                            "title": "Défi : risques climatiques",
+                            "subtitle": "Sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-risques-climatiques",
+                                "questions": 5
                             }
                         }
                     ]
@@ -3586,6 +4689,18 @@
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm2.json",
                                 "category": "cm2-matiere-transformations",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-sciences-lumiere-son",
+                            "title": "Lumière et son",
+                            "subtitle": "Propagation, ombre, vibration",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-lumiere-son",
                                 "questions": 8
                             }
                         },
@@ -3773,6 +4888,17 @@
                                 "dataFile": "data/emc_matching.json",
                                 "questions": 3
                             }
+                        },
+                        {
+                            "id": "cm2-emc-appariement-2",
+                            "title": "Valeurs et engagement citoyen",
+                            "subtitle": "Relie chaque engagement à sa valeur",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_emc_cm2",
+                                "dataFile": "data/emc_matching.json",
+                                "questions": 3
+                            }
                         }
                     ]
                 },
@@ -3852,6 +4978,20 @@
                             "engine": "choice-engine",
                             "id": "cm2-emc-projet-collectif",
                             "subtitle": "Coopérer et tenir son rôle"
+                        },
+                        {
+                            "id": "cm2-bonus-emc-solidarite-quotidienne-expert",
+                            "title": "Défi : solidarité au quotidien",
+                            "subtitle": "Série longue sur l'entraide",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm2.json",
+                                "category": "cm2-solidarite-quotidienne",
+                                "questions": 10
+                            }
                         }
                     ]
                 },
@@ -3916,6 +5056,44 @@
                             "engine": "choice-engine",
                             "id": "cm2-emc-sengager-classe",
                             "subtitle": "Participer et proposer"
+                        },
+                        {
+                            "id": "cm2-emc-engagement-solidarite",
+                            "title": "Solidarite au quotidien",
+                            "subtitle": "Agir pour les autres dans la vie de tous les jours",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm2.json",
+                                "category": "cm2-solidarite-quotidienne",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-emc-engagement-projet",
+                            "title": "Le projet collectif",
+                            "subtitle": "Construire ensemble un projet de classe",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm2.json",
+                                "category": "cm2-projet-collectif",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-emc-engagement-defi",
+                            "title": "Defi : engagement citoyen",
+                            "subtitle": "Solidarite, projet et action collective",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm2.json",
+                                "category": "cm2-engagement",
+                                "questions": 8
+                            }
                         }
                     ]
                 },
@@ -4132,6 +5310,32 @@
                                 "category": "cm2-institutions-debat",
                                 "dataFile": "data/emc_cm2.json",
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-emc-institutions-republique",
+                            "title": "Les institutions de la République",
+                            "subtitle": "Président, Parlement, Constitution",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "category": "cm2-citoyennete",
+                                "dataFile": "data/emc_cm2.json",
+                                "questions": 7
+                            }
+                        },
+                        {
+                            "id": "cm2-bonus-institutions-debat-expert",
+                            "title": "Défi : institutions et débat",
+                            "subtitle": "Égalité, justice et institutions en rafale",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "category": "cm2-institutions-debat",
+                                "dataFile": "data/emc_cm2.json",
+                                "questions": 9
                             }
                         }
                     ]

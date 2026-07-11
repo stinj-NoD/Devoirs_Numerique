@@ -6,15 +6,20 @@ Le projet est une SPA en JavaScript vanilla, sans backend, pilotée par des fich
 - `J'apprends` : bibliothèque de leçons courtes par niveau, matière et sous-thème
 - `Je m'entraîne` : exercices interactifs générés par moteurs
 
-## �?tat actuel
+## État actuel
 
 Le socle est aujourd'hui stable sur quatre axes :
 - navigation locale profils -> classe -> parcours -> matière -> sous-thème
 - bibliothèque globale de leçons par niveau
-- corpus d'exercices CP à CM2 sur maths, français, histoire, géographie, sciences et EMC
+- corpus de 775+ exercices CP à CM2 sur maths, français, histoire, géographie, sciences et EMC
 - validation forte des données avant runtime et bundle offline régénéré
 
-Le projet vise maintenant moins l'ajout brut de contenu que l'alignement pédagogique :
+Le projet propose aussi :
+- des activités interactives non-QCM (`board-interactive` : cartes à toucher, classement de figures, mémoire, fractions à construire, lecture de graphiques...)
+- un système de badges et de collection pour suivre la progression
+- une mise à jour forcée de l'application depuis le menu (utile sur iOS, où le service worker peut rester bloqué sur une ancienne version)
+
+Le projet continue par ailleurs son alignement pédagogique :
 - leçons conformes au programme scolaire français
 - qualité de langue et encodage UTF-8 strict
 - meilleure couverture des notions encore partielles
@@ -54,10 +59,13 @@ Fichiers principaux :
 - [ui-visuals.js](js/ui-visuals.js) : rendu visuel maths
 - [ui-documentary.js](js/ui-documentary.js) : rendu documentaire et frises
 - [engines.js](js/engines.js) : point d'entrée des moteurs
+- [engines-core.js](js/engines-core.js) : utilitaires partagés (random, mélange, sélection)
 - [engines-math.js](js/engines-math.js)
 - [engines-french.js](js/engines-french.js)
 - [engines-documentary.js](js/engines-documentary.js)
-- [storage.js](js/storage.js) : profils et records
+- [engines-board.js](js/engines-board.js) : activités interactives (cartes, classement, mémoire, fractions...)
+- [ui-board.js](js/ui-board.js) : rendu des activités interactives
+- [storage.js](js/storage.js) : profils, records et badges
 - [validators.js](js/validators.js) : validation runtime
 - [validate-data.ps1](scripts/validate-data.ps1) : validation hors runtime
 - [sw.js](sw.js) : cache offline/PWA
@@ -82,7 +90,7 @@ Format minimal d'une leçon :
   "blocks": [
     { "type": "paragraph", "text": "..." },
     { "type": "example", "label": "Exemple", "content": "..." },
-    { "type": "tip", "label": "�? retenir", "content": "..." }
+    { "type": "tip", "label": "À retenir", "content": "..." }
   ]
 }
 ```
@@ -112,6 +120,7 @@ Le flux de résultats permet aussi un retour vers la ou les leçons du sous-thè
 - [technicalaspect.md](technicalaspect.md) : référence technique
 - [SECURITY.md](SECURITY.md) : sécurité et robustesse
 - [CONTRIBUTING.md](CONTRIBUTING.md) : règles de contribution
+- [CONTENT_ARCHITECTURE.md](CONTENT_ARCHITECTURE.md) : détail des leçons/exercices par niveau et matière (généré depuis `data/`)
 - [lesson-guidelines.md](docs/lesson-guidelines.md) : règles éditoriales des leçons
 - [curriculum-delta-cp-cm2.md](docs/curriculum-delta-cp-cm2.md) : delta programme vs application
 - [content-production-backlog.md](docs/content-production-backlog.md) : historique et backlog de production

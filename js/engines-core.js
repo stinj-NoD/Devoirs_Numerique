@@ -9,6 +9,31 @@ const EnginesCore = {
             return (Array.isArray(arr) && arr.length > 0) ? arr[Math.floor(Math.random() * arr.length)] : null;
         },
 
+        /**
+         * Pioche un élément du tableau en excluant les index déjà présents
+         * dans usedSet (un Set d'index, muté en place pour mémoriser le
+         * tirage). Évite qu'une même question revienne plusieurs fois dans
+         * une même session tant que le pool n'est pas épuisé ; une fois tous
+         * les index utilisés, le Set est vidé et le tirage redevient libre
+         * (avec remise) plutôt que de bloquer si plus de questions sont
+         * demandées que le pool n'en contient.
+         */
+        pickUnused(arr, usedSet) {
+            if (!Array.isArray(arr) || arr.length === 0) return null;
+            if (!(usedSet instanceof Set)) {
+                return arr[Math.floor(Math.random() * arr.length)];
+            }
+            if (usedSet.size >= arr.length) usedSet.clear();
+
+            const availableIndices = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (!usedSet.has(i)) availableIndices.push(i);
+            }
+            const chosenIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+            usedSet.add(chosenIndex);
+            return arr[chosenIndex];
+        },
+
         shuffle(arr) {
             const newArr = [...arr];
             for (let i = newArr.length - 1; i > 0; i--) {

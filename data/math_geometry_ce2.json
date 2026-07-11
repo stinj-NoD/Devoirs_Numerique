@@ -1,4 +1,4 @@
-{
+﻿{
     "title": "Géométrie CE2",
     "gradeId": "ce2",
     "subjectId": "math",
@@ -6,151 +6,567 @@
         "ce2-figures-proprietes": [
             {
                 "question": "Le carré a...",
-                "choices": ["4 côtés égaux et 4 angles droits", "3 côtés égaux", "un seul côté droit"],
+                "choices": [
+                    "4 côtés égaux et 4 angles droits",
+                    "3 côtés égaux",
+                    "un seul côté droit"
+                ],
                 "answer": "4 côtés égaux et 4 angles droits",
                 "explanation": "Un carré a ses 4 côtés de même longueur et ses 4 angles sont des angles droits."
             },
             {
                 "question": "Le rectangle a...",
-                "choices": ["4 angles droits et des côtés égaux deux à deux", "5 côtés", "aucun angle droit"],
+                "choices": [
+                    "4 angles droits et des côtés égaux deux à deux",
+                    "5 côtés",
+                    "aucun angle droit"
+                ],
                 "answer": "4 angles droits et des côtés égaux deux à deux",
                 "explanation": "Le rectangle a 4 angles droits, et ses côtés sont égaux deux à deux (longueur et largeur)."
             },
             {
                 "question": "Le triangle a...",
-                "choices": ["3 côtés et 3 sommets", "4 côtés et 4 sommets", "0 sommet"],
+                "choices": [
+                    "3 côtés et 3 sommets",
+                    "4 côtés et 4 sommets",
+                    "0 sommet"
+                ],
                 "answer": "3 côtés et 3 sommets",
                 "explanation": "Un triangle est une figure à 3 côtés, donc il a aussi 3 sommets."
             },
             {
                 "question": "Le cercle est une figure...",
-                "choices": ["sans côté ni angle", "avec 4 côtés", "avec 3 angles"],
+                "choices": [
+                    "sans côté ni angle",
+                    "avec 4 côtés",
+                    "avec 3 angles"
+                ],
                 "answer": "sans côté ni angle",
                 "explanation": "Le cercle est une courbe fermée : il n'a ni côté droit ni angle."
             },
             {
                 "question": "Le losange a...",
-                "choices": ["4 côtés de même longueur", "4 angles droits obligatoirement", "3 côtés"],
+                "choices": [
+                    "4 côtés de même longueur",
+                    "4 angles droits obligatoirement",
+                    "3 côtés"
+                ],
                 "answer": "4 côtés de même longueur",
                 "explanation": "Le losange a ses 4 côtés de même longueur, mais ses angles ne sont pas toujours droits."
             },
             {
                 "question": "Le cube est un solide qui a...",
-                "choices": ["6 faces carrées", "4 faces triangulaires", "1 seule face"],
+                "choices": [
+                    "6 faces carrées",
+                    "4 faces triangulaires",
+                    "1 seule face"
+                ],
                 "answer": "6 faces carrées",
                 "explanation": "Le cube possède 6 faces, et toutes ces faces sont des carrés identiques."
             },
             {
                 "question": "Le pavé droit a...",
-                "choices": ["6 faces rectangulaires", "5 faces", "0 sommet"],
+                "choices": [
+                    "6 faces rectangulaires",
+                    "5 faces",
+                    "0 sommet"
+                ],
                 "answer": "6 faces rectangulaires",
                 "explanation": "Le pavé droit a 6 faces, qui sont des rectangles."
             },
             {
                 "question": "Un prisme est un solide qui a...",
-                "choices": ["deux faces identiques reliées par des rectangles", "une seule face", "que des faces rondes"],
+                "choices": [
+                    "deux faces identiques reliées par des rectangles",
+                    "une seule face",
+                    "que des faces rondes"
+                ],
                 "answer": "deux faces identiques reliées par des rectangles",
                 "explanation": "Un prisme a deux faces identiques (les bases) reliées entre elles par des faces rectangulaires."
+            },
+            {
+                "question": "Un pentagone a...",
+                "choices": [
+                    "5 côtés",
+                    "4 côtés",
+                    "6 côtés"
+                ],
+                "answer": "5 côtés",
+                "explanation": "« Penta » veut dire cinq en grec : le pentagone a 5 côtés et 5 sommets."
+            },
+            {
+                "question": "Un hexagone a...",
+                "choices": [
+                    "6 côtés",
+                    "5 côtés",
+                    "8 côtés"
+                ],
+                "answer": "6 côtés",
+                "explanation": "« Hexa » = six ! La France est surnommée l'Hexagone à cause de sa forme."
+            },
+            {
+                "question": "Les côtés opposés d'un rectangle sont...",
+                "choices": [
+                    "de même longueur",
+                    "toujours différents",
+                    "courbés"
+                ],
+                "answer": "de même longueur",
+                "explanation": "Les deux longueurs sont égales entre elles, les deux largeurs aussi."
+            },
+            {
+                "question": "Quelle figure a 4 côtés égaux, sans forcément d'angles droits ?",
+                "choices": [
+                    "4 côtés de même longueur",
+                    "des côtés tous différents",
+                    "5 côtés"
+                ],
+                "answer": "4 côtés de même longueur",
+                "explanation": "Comme le carré, mais ses angles ne sont pas forcément droits : il « penche » !"
+            },
+            {
+                "question": "Combien de sommets a un cube ?",
+                "choices": [
+                    "8",
+                    "6",
+                    "12"
+                ],
+                "answer": "8",
+                "explanation": "Compte les coins d'un dé : 4 en haut, 4 en bas, ça fait 8 sommets !"
+            },
+            {
+                "question": "Combien d'arêtes a un cube ?",
+                "choices": [
+                    "12",
+                    "6",
+                    "8"
+                ],
+                "answer": "12",
+                "explanation": "Les arêtes sont les segments entre les faces : 4 en haut, 4 en bas, 4 verticales."
+            },
+            {
+                "question": "La sphère est un solide...",
+                "choices": [
+                    "sans aucune face plate",
+                    "avec 6 faces",
+                    "avec une pointe"
+                ],
+                "answer": "sans aucune face plate",
+                "explanation": "Toute ronde, la sphère n'a ni face plate, ni arête, ni sommet !"
+            },
+            {
+                "question": "Les deux faces plates d'un cylindre sont des...",
+                "choices": [
+                    "cercles",
+                    "carrés",
+                    "triangles"
+                ],
+                "answer": "cercles",
+                "explanation": "Deux disques identiques en haut et en bas, reliés par une surface courbe."
             }
         ],
         "ce2-angle-droit-equerre": [
             {
                 "question": "Un angle droit ressemble à...",
-                "choices": ["le coin d'une feuille de papier", "une pointe très fine", "une ligne courbe"],
+                "choices": [
+                    "le coin d'une feuille de papier",
+                    "une pointe très fine",
+                    "une ligne courbe"
+                ],
                 "answer": "le coin d'une feuille de papier",
                 "explanation": "Le coin d'une feuille de papier forme exactement un angle droit (90°)."
             },
             {
                 "question": "L'équerre sert à...",
-                "choices": ["vérifier ou tracer un angle droit", "mesurer une masse", "colorier une figure"],
+                "choices": [
+                    "vérifier ou tracer un angle droit",
+                    "mesurer une masse",
+                    "colorier une figure"
+                ],
                 "answer": "vérifier ou tracer un angle droit",
                 "explanation": "L'équerre est l'outil utilisé pour vérifier ou tracer un angle droit."
             },
             {
                 "question": "Le carré a...",
-                "choices": ["4 angles droits", "2 angles droits", "aucun angle droit"],
+                "choices": [
+                    "4 angles droits",
+                    "2 angles droits",
+                    "aucun angle droit"
+                ],
                 "answer": "4 angles droits",
                 "explanation": "Tous les angles d'un carré sont des angles droits, il y en a donc 4."
             },
             {
                 "question": "Pour tracer une droite, j'utilise...",
-                "choices": ["une règle", "une gomme", "un compas uniquement"],
+                "choices": [
+                    "une règle",
+                    "une gomme",
+                    "un compas uniquement"
+                ],
                 "answer": "une règle",
                 "explanation": "La règle permet de tracer une ligne bien droite."
             },
             {
                 "question": "Un angle plus petit qu'un angle droit est...",
-                "choices": ["un angle aigu", "un angle obtus", "un angle plat"],
+                "choices": [
+                    "un angle aigu",
+                    "un angle obtus",
+                    "un angle plat"
+                ],
                 "answer": "un angle aigu",
                 "explanation": "Un angle aigu est plus fermé (plus petit) qu'un angle droit."
             },
             {
                 "question": "Un angle plus grand qu'un angle droit est...",
-                "choices": ["un angle obtus", "un angle aigu", "un angle droit"],
+                "choices": [
+                    "un angle obtus",
+                    "un angle aigu",
+                    "un angle droit"
+                ],
                 "answer": "un angle obtus",
                 "explanation": "Un angle obtus est plus ouvert (plus grand) qu'un angle droit."
             },
             {
                 "question": "Le triangle rectangle a...",
-                "choices": ["un angle droit", "trois angles droits", "aucun angle"],
+                "choices": [
+                    "un angle droit",
+                    "trois angles droits",
+                    "aucun angle"
+                ],
                 "answer": "un angle droit",
                 "explanation": "Le triangle rectangle doit son nom au fait qu'il possède un angle droit."
             },
             {
                 "question": "Pour vérifier qu'un angle est droit, on place...",
-                "choices": ["le coin de l'équerre sur l'angle", "une règle sur la table", "un crayon dans l'angle"],
+                "choices": [
+                    "le coin de l'équerre sur l'angle",
+                    "une règle sur la table",
+                    "un crayon dans l'angle"
+                ],
                 "answer": "le coin de l'équerre sur l'angle",
                 "explanation": "On pose le coin de l'équerre exactement sur l'angle pour voir s'il est droit."
+            },
+            {
+                "question": "Les coins d'une feuille de cahier sont...",
+                "choices": [
+                    "des angles droits",
+                    "des angles aigus",
+                    "des ronds"
+                ],
+                "answer": "des angles droits",
+                "explanation": "La feuille est un rectangle : ses 4 coins sont des angles droits parfaits."
+            },
+            {
+                "question": "Combien d'angles droits a un rectangle ?",
+                "choices": [
+                    "4",
+                    "2",
+                    "0"
+                ],
+                "answer": "4",
+                "explanation": "Les 4 coins du rectangle sont tous des angles droits : c'est sa définition !"
+            },
+            {
+                "question": "Un triangle rectangle possède...",
+                "choices": [
+                    "exactement un angle droit",
+                    "trois angles droits",
+                    "aucun angle"
+                ],
+                "answer": "exactement un angle droit",
+                "explanation": "Son nom vient de là : UN angle droit, dans lequel on peut poser l'équerre."
+            },
+            {
+                "question": "Le mur et le sol de la classe forment généralement...",
+                "choices": [
+                    "un angle droit",
+                    "un angle aigu",
+                    "un cercle"
+                ],
+                "answer": "un angle droit",
+                "explanation": "Les angles droits sont partout dans les constructions : murs, portes, fenêtres !"
+            },
+            {
+                "question": "Pour tracer un angle droit précis, on utilise...",
+                "choices": [
+                    "une équerre",
+                    "un compas",
+                    "une gomme"
+                ],
+                "answer": "une équerre",
+                "explanation": "L'équerre porte un angle droit tout prêt : on le décalque en traçant !"
+            },
+            {
+                "question": "Sur l'équerre, l'angle droit se trouve...",
+                "choices": [
+                    "dans le coin en forme de L",
+                    "sur le côté le plus long",
+                    "au milieu"
+                ],
+                "answer": "dans le coin en forme de L",
+                "explanation": "C'est le coin carré de l'équerre qu'on pose dans les angles à vérifier."
+            },
+            {
+                "question": "À 3 h pile, les aiguilles d'une horloge forment...",
+                "choices": [
+                    "un angle droit",
+                    "un angle plat",
+                    "un angle nul"
+                ],
+                "answer": "un angle droit",
+                "explanation": "La petite aiguille sur le 3, la grande sur le 12 : un quart de tour, angle droit !"
+            },
+            {
+                "question": "Un carreau de carrelage carré possède...",
+                "choices": [
+                    "4 angles droits",
+                    "3 angles droits",
+                    "aucun angle droit"
+                ],
+                "answer": "4 angles droits",
+                "explanation": "C'est grâce à leurs angles droits que les carreaux s'assemblent sans trou !"
             }
         ],
         "ce2-symetrie-quadrillage": [
             {
                 "question": "Une figure symétrique a...",
-                "choices": ["deux parties qui se correspondent par rapport à un axe", "toujours 4 côtés", "une seule couleur"],
+                "choices": [
+                    "deux parties qui se correspondent par rapport à un axe",
+                    "toujours 4 côtés",
+                    "une seule couleur"
+                ],
                 "answer": "deux parties qui se correspondent par rapport à un axe",
                 "explanation": "Une figure symétrique se compose de deux parties identiques qui se correspondent de chaque côté d'un axe."
             },
             {
                 "question": "L'axe de symétrie...",
-                "choices": ["partage la figure en deux parties identiques en miroir", "mesure le périmètre", "compte les sommets"],
+                "choices": [
+                    "partage la figure en deux parties identiques en miroir",
+                    "mesure le périmètre",
+                    "compte les sommets"
+                ],
                 "answer": "partage la figure en deux parties identiques en miroir",
                 "explanation": "L'axe de symétrie agit comme un miroir : il sépare la figure en deux parties identiques."
             },
             {
                 "question": "Sur un quadrillage, une case se repère avec...",
-                "choices": ["une colonne et une ligne", "une seule lettre", "une couleur"],
+                "choices": [
+                    "une colonne et une ligne",
+                    "une seule lettre",
+                    "une couleur"
+                ],
                 "answer": "une colonne et une ligne",
                 "explanation": "Pour repérer une case, on indique sa colonne (verticale) et sa ligne (horizontale)."
             },
             {
                 "question": "Pour compléter une figure par symétrie, je...",
-                "choices": ["reproduis chaque carreau à la même distance de l'axe", "j'efface l'axe", "je dessine n'importe où"],
+                "choices": [
+                    "reproduis chaque carreau à la même distance de l'axe",
+                    "j'efface l'axe",
+                    "je dessine n'importe où"
+                ],
                 "answer": "reproduis chaque carreau à la même distance de l'axe",
                 "explanation": "Chaque carreau de la figure doit avoir son symétrique à la même distance de l'axe, de l'autre côté."
             },
             {
                 "question": "Un papillon dessiné est souvent...",
-                "choices": ["symétrique par rapport à son corps", "sans aucune symétrie", "composé que de cercles"],
+                "choices": [
+                    "symétrique par rapport à son corps",
+                    "sans aucune symétrie",
+                    "composé que de cercles"
+                ],
                 "answer": "symétrique par rapport à son corps",
                 "explanation": "Les deux ailes d'un papillon sont symétriques par rapport à l'axe formé par son corps."
             },
             {
                 "question": "Pour se déplacer sur un quadrillage, on compte...",
-                "choices": ["les cases vers la droite et vers le haut", "uniquement les couleurs", "les sommets du carré"],
+                "choices": [
+                    "les cases vers la droite et vers le haut",
+                    "uniquement les couleurs",
+                    "les sommets du carré"
+                ],
                 "answer": "les cases vers la droite et vers le haut",
                 "explanation": "On se repère sur un quadrillage en comptant les déplacements vers la droite et vers le haut."
             },
             {
                 "question": "Le symétrique d'un point est à...",
-                "choices": ["la même distance de l'axe, de l'autre côté", "n'importe quelle distance", "toujours sur l'axe"],
+                "choices": [
+                    "la même distance de l'axe, de l'autre côté",
+                    "n'importe quelle distance",
+                    "toujours sur l'axe"
+                ],
                 "answer": "la même distance de l'axe, de l'autre côté",
                 "explanation": "Le point symétrique se trouve à la même distance de l'axe, mais de l'autre côté."
             },
             {
                 "question": "Une lettre comme le M peut être...",
-                "choices": ["symétrique selon un axe vertical", "jamais symétrique", "symétrique uniquement en couleur"],
+                "choices": [
+                    "symétrique selon un axe vertical",
+                    "jamais symétrique",
+                    "symétrique uniquement en couleur"
+                ],
                 "answer": "symétrique selon un axe vertical",
                 "explanation": "La lettre M a une moitié gauche identique à sa moitié droite : elle est symétrique par un axe vertical."
+            },
+            {
+                "question": "Combien d'axes de symétrie possède un carré ?",
+                "choices": [
+                    "4",
+                    "1",
+                    "0"
+                ],
+                "answer": "4",
+                "explanation": "Deux axes par les milieux des côtés et deux par les diagonales : 4 en tout !"
+            },
+            {
+                "question": "Combien d'axes de symétrie a un rectangle (non carré) ?",
+                "choices": [
+                    "2",
+                    "4",
+                    "0"
+                ],
+                "answer": "2",
+                "explanation": "Un axe horizontal et un vertical. Ses diagonales ne sont PAS des axes : piège classique !"
+            },
+            {
+                "question": "La lettre A possède un axe de symétrie...",
+                "choices": [
+                    "vertical",
+                    "horizontal",
+                    "aucun"
+                ],
+                "answer": "vertical",
+                "explanation": "Plie un A en deux verticalement : les deux moitiés se superposent parfaitement !"
+            },
+            {
+                "question": "La lettre B possède un axe de symétrie...",
+                "choices": [
+                    "horizontal",
+                    "vertical",
+                    "oblique"
+                ],
+                "answer": "horizontal",
+                "explanation": "Le haut et le bas du B sont identiques : son axe est couché, horizontal !"
+            },
+            {
+                "question": "Un cœur dessiné possède un axe de symétrie...",
+                "choices": [
+                    "vertical",
+                    "horizontal",
+                    "aucun"
+                ],
+                "answer": "vertical",
+                "explanation": "La moitié gauche du cœur est le miroir de la droite : axe vertical au milieu."
+            },
+            {
+                "question": "Sur un quadrillage, la case (C, 4) se trouve...",
+                "choices": [
+                    "colonne C, ligne 4",
+                    "colonne 4, ligne C",
+                    "au hasard"
+                ],
+                "answer": "colonne C, ligne 4",
+                "explanation": "Comme à la bataille navale : une lettre pour la colonne, un nombre pour la ligne !"
+            },
+            {
+                "question": "Si un point est à 3 carreaux à gauche de l'axe, son symétrique est à...",
+                "choices": [
+                    "3 carreaux à droite",
+                    "3 carreaux à gauche",
+                    "6 carreaux à droite"
+                ],
+                "answer": "3 carreaux à droite",
+                "explanation": "Même distance de l'axe, mais de l'autre côté : c'est la règle de la symétrie !"
+            },
+            {
+                "question": "Quand on plie une figure sur son axe de symétrie, les deux moitiés...",
+                "choices": [
+                    "se superposent exactement",
+                    "se déchirent",
+                    "changent de couleur"
+                ],
+                "answer": "se superposent exactement",
+                "explanation": "Le pliage est le test parfait : si tout coïncide, la figure est symétrique !"
+            },
+            {
+                "question": "Le symétrique d'une figure est toujours...",
+                "choices": [
+                    "de la même taille qu'elle",
+                    "plus petit",
+                    "plus grand"
+                ],
+                "answer": "de la même taille qu'elle",
+                "explanation": "La symétrie retourne la figure comme un miroir, sans jamais changer ses mesures."
+            },
+            {
+                "question": "Combien d'axes de symétrie possède un cercle ?",
+                "choices": [
+                    "Une infinité",
+                    "Un seul",
+                    "Quatre"
+                ],
+                "answer": "Une infinité",
+                "explanation": "Tous les diamètres sont des axes : on peut plier le cercle dans tous les sens !"
+            },
+            {
+                "question": "« 2 vers la droite puis 3 vers le haut » est...",
+                "choices": [
+                    "un déplacement codé sur quadrillage",
+                    "une figure",
+                    "une addition"
+                ],
+                "answer": "un déplacement codé sur quadrillage",
+                "explanation": "Coder un déplacement permet de guider quelqu'un case par case, comme un robot !"
+            },
+            {
+                "question": "La lettre F possède...",
+                "choices": [
+                    "aucun axe de symétrie",
+                    "un axe vertical",
+                    "quatre axes"
+                ],
+                "answer": "aucun axe de symétrie",
+                "explanation": "Impossible de plier un F pour superposer ses moitiés : il n'est pas symétrique !"
+            },
+            {
+                "question": "L'image d'une figure dans un miroir montre...",
+                "choices": [
+                    "son symétrique",
+                    "la même figure sans changement",
+                    "une figure plus grande"
+                ],
+                "answer": "son symétrique",
+                "explanation": "Le miroir inverse gauche et droite : c'est une symétrie en direct !"
+            },
+            {
+                "question": "Le visage humain est presque...",
+                "choices": [
+                    "symétrique",
+                    "carré",
+                    "sans forme"
+                ],
+                "answer": "symétrique",
+                "explanation": "Un axe vertical partage le visage en deux moitiés très ressemblantes — mais jamais parfaites !"
+            },
+            {
+                "question": "Sur un échiquier, les cases se repèrent par...",
+                "choices": [
+                    "une lettre et un nombre",
+                    "des couleurs seulement",
+                    "des prénoms"
+                ],
+                "answer": "une lettre et un nombre",
+                "explanation": "De a1 à h8 : chaque case a son adresse, comme sur tous les quadrillages !"
+            },
+            {
+                "question": "Un papillon aux ailes ouvertes est un bel exemple de...",
+                "choices": [
+                    "figure symétrique",
+                    "figure sans axe",
+                    "quadrillage"
+                ],
+                "answer": "figure symétrique",
+                "explanation": "La nature adore la symétrie : ailes de papillon, feuilles, flocons de neige…"
             }
         ]
     }
