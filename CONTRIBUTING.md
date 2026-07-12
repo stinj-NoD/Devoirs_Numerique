@@ -37,8 +37,9 @@ Référence éditoriale :
 Après tout changement dans `data/` ou `js/validators.js` :
 
 1. lancer [validate-data.ps1](scripts/validate-data.ps1)
-2. régénérer [data-bundle.js](js/data-bundle.js)
-3. vérifier au minimum :
+2. régénérer [data-bundle.js](js/data-bundle.js) via [regenerate-data-bundle.ps1](scripts/regenerate-data-bundle.ps1)
+3. lancer les validateurs complémentaires si pertinent : `node scripts/validate-subjects.js`, `node scripts/validate-maps.js` (après ajout d'une carte `map-locate`)
+4. vérifier au minimum :
    - une leçon
    - un exercice maths
    - un exercice français
@@ -90,6 +91,8 @@ Toute évolution importante doit être répercutée dans la doc concernée :
 - [technicalaspect.md](technicalaspect.md)
 - [SECURITY.md](SECURITY.md)
 - [curriculum-delta-cp-cm2.md](docs/curriculum-delta-cp-cm2.md)
+- [maps-architecture.md](docs/maps-architecture.md) pour toute évolution du sous-système `map-locate`
+- [grimoire-economy.md](docs/grimoire-economy.md) pour toute évolution de l'économie du Grimoire
 
 ## Priorités qualité actuelles
 

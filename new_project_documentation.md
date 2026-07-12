@@ -10,11 +10,13 @@ Le projet est aujourd’hui stabilisé sur trois axes :
 - robustesse locale/offline renforcée
 
 État actuel :
-- mathématiques, français, histoire, géographie, sciences et EMC présents sur tous les niveaux (775+ exercices)
+- mathématiques, français, histoire, géographie, sciences et EMC présents sur tous les niveaux (775 exercices et 275 leçons, voir [CONTENT_ARCHITECTURE.md](CONTENT_ARCHITECTURE.md))
 - bibliothèque française modulaire dans `data/french/`
 - moteurs de grammaire en contexte et dictée audio en service
-- activités interactives non-QCM (`board-interactive`) : cartes à toucher, classement de figures, mémoire, point sur quadrillage, symétrie, fraction à construire, carte à localiser
+- activités interactives non-QCM (`board-interactive`) : cartes à toucher, classement de figures, mémoire, point sur quadrillage, symétrie, fraction à construire, carte à localiser (`map-locate`)
 - lecture de graphiques en barres (`bar-chart-read`), gamification par badges, série de jours
+- système Grimoire complet : pièces, boosters, collection de cartes, évolution d'avatar (voir [grimoire-economy.md](docs/grimoire-economy.md)), Mode Champions chronométré, Grand Quiz cross-profil
+- PIN parental et export/import complet des données d'un profil
 - bouton de mise à jour forcée de l'application (menu ☰), utile sur iOS où le service worker peut rester bloqué sur une ancienne version
 - service worker et bundle local alignés avec la structure actuelle
 
@@ -52,23 +54,27 @@ L’application gère :
 
 - `index.html` : shell SPA
 - `css/app.css` : styles globaux, responsive, surfaces d’exercice
-- `js/app.js` : orchestration, navigation, cycle de jeu, audio, offline local
+- `js/app.js` : orchestration, navigation, cycle de jeu, audio, offline local, Grimoire, Mode Champions, Grand Quiz
+- `js/bootstrap.js` : amorçage, désenregistrement du service worker en dev local
+- `js/security.js` : échappement HTML/attributs, sanitation des IDs (`SecurityUtils`)
 - `js/ui.js` : façade UI et rendu DOM principal
 - `js/ui-keyboards.js` : claviers virtuels
 - `js/ui-visuals.js` : renderers visuels maths
 - `js/ui-documentary.js` : renderers documentaires et frises
+- `js/ui-board.js` : rendu des activités interactives
+- `js/audio-feedback.js` : retours sonores
 - `js/engines.js` : point d’entrée des moteurs
 - `js/engines-core.js` : utilitaires communs
 - `js/engines-math.js` : générateurs maths / logique
 - `js/engines-french.js` : générateurs français
 - `js/engines-documentary.js` : générateurs documentaires et frises
 - `js/engines-board.js` : générateurs des activités interactives non-QCM
-- `js/ui-board.js` : rendu des activités interactives
-- `js/storage.js` : profils, utilisateur courant, records, badges
+- `js/storage.js` : profils, utilisateur courant, records, badges, économie Grimoire, streak, PIN parental, export/import
 - `js/validators.js` : validation runtime des JSON
 - `js/data-bundle.js` : bundle embarqué pour mode local/offline
 - `sw.js` : cache offline/PWA
 - `offline.html` : page de secours hors ligne
+- `preview-local.html` : aperçu autonome des leçons hors flux SPA complet
 
 ### Principe de fonctionnement
 
@@ -119,6 +125,8 @@ L’application gère :
   - utilisateur courant
   - records
   - badges (étoiles, sans-faute, séries, exercices essayés)
+  - économie du Grimoire (pièces, boosters, cartes, évolution d'avatar — voir [grimoire-economy.md](docs/grimoire-economy.md))
+  - PIN parental, export/import complet des données d'un profil
   - sanitation et durcissement du stockage local
 
 - **`validators.js`**
@@ -287,6 +295,13 @@ powershell -ExecutionPolicy Bypass -File .\scripts/regenerate-data-bundle.ps1
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts/refresh-local-data.ps1
+```
+
+5. Lancer les validateurs complémentaires si pertinent :
+
+```bash
+node scripts/validate-subjects.js
+node scripts/validate-maps.js
 ```
 
 ## Offline et mode local

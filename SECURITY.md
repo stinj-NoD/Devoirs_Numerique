@@ -57,6 +57,8 @@ Objectif :
 - profils
 - utilisateur courant
 - records
+- économie du Grimoire (pièces, boosters, cartes possédées)
+- PIN parental et export/import de profil
 
 Mesures en place :
 - sanitation des noms de profils
@@ -64,6 +66,7 @@ Mesures en place :
 - lecture défensive du JSON local
 - nettoyage des records invalides
 - fallback localStorage -> sessionStorage -> mémoire
+- clés préfixées `dn_` pour isoler les données de l'application
 
 Limite importante :
 - ce stockage n'est pas une sécurité forte

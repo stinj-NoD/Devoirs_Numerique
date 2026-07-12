@@ -11,24 +11,27 @@ Principes structurants :
 - séparation entre données, moteurs, rendu UI et stockage
 - exécution 100% locale
 - fonctionnement offline via service worker et bundle embarqué
-- coexistence de deux parcours : `J'apprends` et `Je m'entraîne`
+- coexistence de deux parcours : `J'apprends` et `Je m'entraîne`, plus un système annexe de gamification (Grimoire)
 
 ## 2. Structure du projet
 
 - [index.html](index.html)
 - [css/app.css](css/app.css)
 - [js/app.js](js/app.js)
+- [js/bootstrap.js](js/bootstrap.js)
+- [js/security.js](js/security.js)
 - [js/ui.js](js/ui.js)
 - [js/ui-keyboards.js](js/ui-keyboards.js)
 - [js/ui-visuals.js](js/ui-visuals.js)
 - [js/ui-documentary.js](js/ui-documentary.js)
+- [js/ui-board.js](js/ui-board.js)
+- [js/audio-feedback.js](js/audio-feedback.js)
 - [js/engines.js](js/engines.js)
 - [js/engines-core.js](js/engines-core.js)
 - [js/engines-math.js](js/engines-math.js)
 - [js/engines-french.js](js/engines-french.js)
 - [js/engines-documentary.js](js/engines-documentary.js)
 - [js/engines-board.js](js/engines-board.js)
-- [js/ui-board.js](js/ui-board.js)
 - [js/storage.js](js/storage.js)
 - [js/validators.js](js/validators.js)
 - [js/data-bundle.js](js/data-bundle.js)
@@ -36,7 +39,9 @@ Principes structurants :
 - [data/french/](data/french)
 - [scripts/validate-data.ps1](scripts/validate-data.ps1)
 - [scripts/regenerate-data-bundle.ps1](scripts/regenerate-data-bundle.ps1)
+- `scripts/validate-subjects.js`, `scripts/validate-maps.js` : validateurs complémentaires Node
 - [sw.js](sw.js)
+- [preview-local.html](preview-local.html)
 
 ## 3. Responsabilités des modules
 
@@ -74,7 +79,15 @@ Responsable de :
 - l'utilisateur courant
 - les records par exercice
 - les badges et la série de jours consécutifs
+- l'économie du Grimoire (pièces, boosters, cartes possédées, poids de tirage par rareté — voir [grimoire-economy.md](docs/grimoire-economy.md))
+- l'évolution d'avatar, le PIN parental, l'export/import complet des données d'un profil
 - les fallbacks de stockage
+
+### `security.js`
+
+Responsable de :
+- l'échappement systématique du texte dynamique inséré en HTML (`SecurityUtils.escapeHtml`/`escapeAttr`)
+- la sanitation des IDs (`sanitizeId`) et des chemins d'image (`safeImagePath`)
 
 ### `validators.js`
 
