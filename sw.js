@@ -3,7 +3,7 @@
  * Robustesse offline/PWA
  */
 
-const CACHE_NAME = 'dn-v4.13.0-content-quality-suggestions';
+const CACHE_NAME = 'dn-v4.13.1-fix-map-zoom-cache-refresh';
 const OFFLINE_URL = './offline.html';
 
 const APP_ASSETS = [

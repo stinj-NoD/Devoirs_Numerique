@@ -193,6 +193,13 @@
                         });
                     });
                     console.log('[SW] inscrit', reg.scope);
+
+                    // Sur iOS/Safari (surtout en PWA plein écran), le check de
+                    // mise à jour automatique du navigateur est peu fiable et
+                    // peut ne jamais se déclencher pendant des jours. On force
+                    // ici une vérification à chaque ouverture d'app plutôt que
+                    // de compter uniquement sur ce cycle natif.
+                    reg.update().catch(() => {});
                 })
                 .catch((err) => console.log('[SW] echec', err));
         });
