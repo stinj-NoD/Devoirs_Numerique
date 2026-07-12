@@ -249,6 +249,10 @@
         const needsElision = voyelles.includes(item.word[0].toLowerCase());
         if (choices.includes("un") || choices.includes("une")) {
             expected = item.article;
+        } else if (choices.includes("mon") || choices.includes("ma")) {
+            // "mon" s'utilise devant un nom masculin, mais aussi devant un nom
+            // féminin commençant par une voyelle (élision euphonique : "mon école").
+            expected = (item.gender === "masculin" || needsElision) ? "mon" : "ma";
         } else if (needsElision) {
             expected = "l'";
             if (!choices.includes("l'")) choices.push("l'");

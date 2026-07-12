@@ -70,8 +70,10 @@
                         {
                             "id": "mult-6",
                             "title": "Table de 6",
-                            "subtitle": "Calcul rapide",
+                            "subtitle": "Défi : un peu d'avance",
                             "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
                             "params": {
                                 "type": "mult",
                                 "table": 6,
@@ -81,8 +83,10 @@
                         {
                             "id": "mult-7",
                             "title": "Table de 7",
-                            "subtitle": "Pour aller plus loin",
+                            "subtitle": "Défi : pour aller plus loin",
                             "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
                             "params": {
                                 "type": "mult",
                                 "table": 7,
@@ -98,7 +102,7 @@
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "mult",
-                                "table": 10,
+                                "table": "mix",
                                 "questions": 15
                             }
                         }
@@ -139,15 +143,16 @@
                             "id": "ce1-lesson-tables-astuces",
                             "title": "Apprendre ses tables malin",
                             "subtitle": "Des astuces pour retenir les multiplications",
+                            "format": "lesson-card",
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Une multiplication, c'est une addition répétée : 3 × 4, c'est 4 + 4 + 4. Connaître les tables par cœur rend les calculs très rapides."
+                                    "text": "Pas besoin de tout apprendre par cœur d'un coup : il existe des astuces pour retrouver vite un résultat de multiplication."
                                 },
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "3 × 4 = 12, et 4 × 3 = 12 aussi : quand on connaît un résultat, on en connaît deux !"
+                                    "content": "Pour 9 × 6, je peux d'abord faire 10 × 6 = 60, puis j'enlève un 6 : 60 - 6 = 54."
                                 },
                                 {
                                     "type": "bullets",
@@ -156,7 +161,7 @@
                                         "La table de 2, ce sont les doubles : 2 × 6 = le double de 6.",
                                         "La table de 5 finit toujours par 5 ou 0.",
                                         "La table de 10 ajoute un zéro : 10 × 7 = 70.",
-                                        "On peut inverser : si je connais 5 × 3, je connais 3 × 5."
+                                        "Pour la table de 9, j'utilise la table de 10 et j'enlève une fois le nombre."
                                     ]
                                 },
                                 {
@@ -164,8 +169,7 @@
                                     "label": "À retenir",
                                     "content": "Réciter un peu chaque jour vaut mieux qu'une longue séance : cinq minutes par jour et les tables restent !"
                                 }
-                            ],
-                            "format": "lesson-card"
+                            ]
                         }
                     ]
                 },
@@ -307,13 +311,13 @@
                             "params": {
                                 "type": "memory-match",
                                 "dataFile": "data/board_memory_match_ce1.json",
-                                "category": "ce1_memory_match",
-                                "questions": 5
+                                "category": "ce1_memory_match_maths",
+                                "questions": 4
                             }
                         },
                         {
                             "id": "ce1-bonus-additions-100",
-                            "title": "Défi : additions jusqu'à 100",
+                            "title": "Défi : additions jusqu'à 150",
                             "subtitle": "Calcul mental grand format",
                             "engine": "math-input",
                             "isBonus": true,
@@ -321,7 +325,7 @@
                             "params": {
                                 "type": "add-simple",
                                 "min": 10,
-                                "maxSum": 100,
+                                "maxSum": 150,
                                 "questions": 12
                             }
                         },
@@ -478,6 +482,7 @@
                             "id": "ce1-lesson-additionner-100",
                             "title": "Additionner jusqu'à 100",
                             "subtitle": "Calculer de grandes sommes sans se perdre",
+                            "format": "lesson-card",
                             "blocks": [
                                 {
                                     "type": "paragraph",
@@ -502,13 +507,13 @@
                                     "label": "À retenir",
                                     "content": "Vérifie ton résultat : une addition rend toujours un nombre PLUS GRAND que chacun des deux nombres de départ."
                                 }
-                            ],
-                            "format": "lesson-card"
+                            ]
                         },
                         {
                             "id": "ce1-lesson-soustraire",
                             "title": "Soustraire sans se tromper",
                             "subtitle": "Enlever, reculer, chercher l'écart",
+                            "format": "lesson-card",
                             "blocks": [
                                 {
                                     "type": "paragraph",
@@ -533,8 +538,7 @@
                                     "label": "À retenir",
                                     "content": "Pour vérifier une soustraction, additionne : si 52 − 48 = 4, alors 48 + 4 doit bien redonner 52 !"
                                 }
-                            ],
-                            "format": "lesson-card"
+                            ]
                         }
                     ]
                 },
@@ -565,6 +569,10 @@
                                         "triangle",
                                         "cercle"
                                     ]
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "Il existe aussi des solides simples comme le cube, le pavé, le cylindre, le cône et la sphère : contrairement aux formes planes, on peut les tenir dans la main."
                                 },
                                 {
                                     "type": "tip",
@@ -648,7 +656,7 @@
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "Quand la grande aiguille est sur le 3 et la petite juste après le 9, il est 9 heures et quart."
+                                    "content": "Quand la petite aiguille est juste après le 9 et la grande sur le 3, il est 9 heures et quart."
                                 },
                                 {
                                     "type": "bullets",
@@ -759,8 +767,8 @@
                         },
                         {
                             "id": "ce1-maths-geo-appariement",
-                            "title": "Formes et mesures",
-                            "subtitle": "Relie chaque forme ou unité à sa définition",
+                            "title": "Nombres et notions clés",
+                            "subtitle": "Relie chaque notion à sa définition",
                             "engine": "matching",
                             "params": {
                                 "category": "matching_math_ce1",
@@ -1390,7 +1398,7 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Une centaine de petits mots — le, est, dans, avec, mais… — composent la moitié de tout ce qu on lit ! Les connaître par coeur rend la lecture fluide et la dictée plus sûre."
+                                    "text": "Une centaine de petits mots — le, est, dans, avec, mais… — composent la moitié de tout ce qu'on lit ! Les connaître par cœur rend la lecture fluide et la dictée plus sûre."
                                 },
                                 {
                                     "type": "example",
@@ -1403,8 +1411,8 @@
                                     "items": [
                                         "Les champions à connaître : le, la, les, un, une, des, et, est, dans, avec, pour, mais, chez, sous, sur.",
                                         "On les photographie des yeux : à force de les voir, on les écrit sans réfléchir.",
-                                        "Certains se ressemblent à l oreille (et/est, a/à) : le sens de la phrase les départage.",
-                                        "Un mot fréquent bien connu, c est une erreur de dictée en moins à chaque phrase !"
+                                        "Certains se ressemblent à l'oreille (et/est, a/à) : le sens de la phrase les départage.",
+                                        "Un mot fréquent bien connu, c'est une erreur de dictée en moins à chaque phrase !"
                                     ]
                                 },
                                 {
@@ -2244,7 +2252,7 @@
                                         "Le temps avance toujours de gauche à droite sur la frise.",
                                         "Avant = à gauche, après = à droite.",
                                         "Une date précise se place à un point exact de la frise.",
-                                        "Une période (comme « quand papi était petit ») occupe une zone."
+                                        "Une période, c'est un moment qui dure, comme « quand tu étais bébé », puis « quand tu étais petit », puis « maintenant » : elle occupe une zone, pas un seul point."
                                     ]
                                 },
                                 {
@@ -2399,7 +2407,7 @@
                         },
                         {
                             "id": "ce1-histoire-monuments-ecole",
-                            "title": "L'ecole autrefois",
+                            "title": "L'école autrefois",
                             "subtitle": "La classe d'il y a 100 ans",
                             "engine": "choice-engine",
                             "params": {
@@ -2412,7 +2420,7 @@
                         {
                             "id": "ce1-histoire-monuments-objets",
                             "title": "Objets d'autrefois",
-                            "subtitle": "Reconnaitre et dater un objet ancien",
+                            "subtitle": "Reconnaître et dater un objet ancien",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -2423,8 +2431,8 @@
                         },
                         {
                             "id": "ce1-bonus-histoire-monuments-defi",
-                            "title": "Defi : monuments et personnages",
-                            "subtitle": "Grands noms et lieux de memoire",
+                            "title": "Défi : monuments et personnages",
+                            "subtitle": "Grands noms et lieux de mémoire",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -2718,20 +2726,6 @@
                                 "dataFile": "data/geography_ce1.json",
                                 "category": "ce1-services-quartier",
                                 "questions": 6
-                            }
-                        },
-                        {
-                            "id": "ce1-geo-carte-regions",
-                            "title": "Carte de France",
-                            "subtitle": "Touche la région demandée",
-                            "engine": "board-interactive",
-                            "params": {
-                                "type": "map-locate",
-                                "dataFile": "data/board_map_locate_ce1.json",
-                                "mapFile": "data/maps/france-regions.svg",
-                                "mapId": "france-regions",
-                                "category": "ce1_map_regions_france",
-                                "questions": 4
                             }
                         },
                         {
@@ -3205,7 +3199,7 @@
                                     "label": "Je retiens",
                                     "items": [
                                         "Besoins de tous les vivants : eau, air, nourriture.",
-                                        "Les plantes fabriquent leur nourriture grâce à la lumière.",
+                                        "Les plantes fabriquent leur nourriture grâce à la lumière, l'eau et l'air.",
                                         "Les animaux trouvent leur nourriture dans leur milieu.",
                                         "Un milieu favorable offre aussi un abri et une bonne température."
                                     ]
@@ -3248,6 +3242,38 @@
                                 }
                             ],
                             "format": "lesson-card"
+                        },
+                        {
+                            "id": "ce1-lesson-cycle-vie",
+                            "title": "Le cycle de vie",
+                            "subtitle": "Naître, grandir, vieillir",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Tout être vivant suit les mêmes grandes étapes au cours de sa vie : il naît, il grandit, il devient adulte, puis il vieillit."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le poussin naît de l'œuf, grandit et devient une poule ; toi aussi tu es né bébé, tu grandis, et un jour tu seras adulte."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Naître : le début de la vie.",
+                                        "Grandir : le corps se développe.",
+                                        "Devenir adulte : la croissance s'arrête.",
+                                        "Vieillir : c'est la dernière étape de la vie."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Ces étapes se suivent toujours dans le même ordre, chez les animaux comme chez les plantes et les humains."
+                                }
+                            ]
                         }
                     ]
                 },
@@ -3472,6 +3498,7 @@
                                 },
                                 {
                                     "type": "bullets",
+                                    "label": "Je retiens",
                                     "items": [
                                         "dormir",
                                         "manger varié",
@@ -3503,6 +3530,7 @@
                                 },
                                 {
                                     "type": "bullets",
+                                    "label": "Je retiens",
                                     "items": [
                                         "la vue",
                                         "l'ouïe",
@@ -4278,7 +4306,7 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Dans une classe, personne n'est pareil : on n'a pas la même taille, les mêmes goûts, la même famille ou la même langue à la maison. C'est ça qui rend une classe intéressante !"
+                                    "text": "Dans une classe, personne n'est pareil : on n'a pas la même taille, les mêmes goûts, la même famille, la même religion ou la même langue à la maison. Certains camarades ont aussi un handicap, qui ne les empêche pas d'apprendre et de jouer avec les autres. C'est ça qui rend une classe intéressante !"
                                 },
                                 {
                                     "type": "example",

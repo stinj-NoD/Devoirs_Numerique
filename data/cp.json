@@ -42,7 +42,7 @@
                             "params": {
                                 "type": "add-trou",
                                 "min": 1,
-                                "max": 50,
+                                "max": 20,
                                 "questions": 5
                             }
                         },
@@ -332,6 +332,18 @@
                                 "range": 99,
                                 "questions": 8
                             }
+                        },
+                        {
+                            "id": "cp-doubles-moities",
+                            "title": "Doubles et moitiés",
+                            "subtitle": "Deux fois plus, deux fois moins",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "double",
+                                "min": 1,
+                                "max": 10,
+                                "questions": 5
+                            }
                         }
                     ],
                     "lessons": [
@@ -545,29 +557,29 @@
                         {
                             "id": "cp-lesson-cibles-comprendre",
                             "title": "Comprendre un problème simple",
-                            "subtitle": "Addition ou soustraction",
+                            "subtitle": "Additionner plusieurs valeurs",
                             "format": "lesson-card",
                             "blocks": [
                                 {
-                                    "text": "Dans un petit problème, je cherche si je dois ajouter ou retirer.",
+                                    "text": "Quand je touche plusieurs cibles ou que je pose plusieurs pièces, j'additionne toutes les valeurs pour trouver le total.",
                                     "type": "paragraph"
                                 },
                                 {
                                     "label": "Exemple",
-                                    "content": "Il y a 6 pommes et j'en ajoute 2 : j'utilise l'addition.",
+                                    "content": "Je touche une cible à 2 points et une autre à 5 points : 2 + 5 = 7 points.",
                                     "type": "example"
                                 },
                                 {
                                     "items": [
-                                        "j'ajoute = addition",
-                                        "je retire = soustraction",
+                                        "j'additionne toutes les valeurs",
+                                        "je compte chaque flèche ou chaque pièce",
                                         "je lis bien la consigne"
                                     ],
                                     "type": "bullets"
                                 },
                                 {
                                     "label": "À retenir",
-                                    "content": "Le mot de la consigne aide à choisir l'opération.",
+                                    "content": "Le total, c'est la somme de toutes les valeurs.",
                                     "type": "tip"
                                 }
                             ]
@@ -698,7 +710,7 @@
                                 },
                                 {
                                     "label": "Exemple",
-                                    "content": "Il y a 4 oiseaux et 3 arrivent : j'ajoute.",
+                                    "content": "J'ai 6 images et j'en colle 2 de plus dans mon cahier : 6 + 2 = 8.",
                                     "type": "example"
                                 },
                                 {
@@ -711,7 +723,7 @@
                                 },
                                 {
                                     "label": "À retenir",
-                                    "content": "Un problème simple raconte une petite histoire de nombres.",
+                                    "content": "Un problème simple donne des nombres et une question précise à calculer.",
                                     "type": "tip"
                                 }
                             ]
@@ -765,7 +777,7 @@
                                 },
                                 {
                                     "label": "Exemple",
-                                    "content": "Une fenêtre ressemble à un rectangle. Un ballon ressemble à un cercle.",
+                                    "content": "Une fenêtre ressemble à un rectangle. Le dessin d'un panneau rond ressemble à un cercle.",
                                     "type": "example"
                                 },
                                 {
@@ -779,7 +791,7 @@
                                 },
                                 {
                                     "label": "À retenir",
-                                    "content": "Je nomme la forme en regardant ce que je vois.",
+                                    "content": "Je nomme la forme en regardant ce que je vois. Attention : un dé ou un ballon ne sont pas plats, ce sont des solides (un cube, une boule).",
                                     "type": "tip"
                                 }
                             ]
@@ -984,7 +996,7 @@
                             "params": {
                                 "type": "memory-match",
                                 "dataFile": "data/board_memory_match_cp.json",
-                                "category": "cp_memory_match",
+                                "category": "cp_memory_match_maths",
                                 "questions": 4
                             }
                         },
@@ -1037,14 +1049,14 @@
                         },
                         {
                             "id": "cp-dictee-20-69",
-                            "title": "Nombres de 20 à 69",
+                            "title": "Nombres de 20 à 99",
                             "icon": "📘",
                             "subtitle": "Lire et écrire en lettres",
                             "engine": "math-input",
                             "params": {
                                 "type": "number-spelling",
                                 "min": 20,
-                                "max": 69,
+                                "max": 99,
                                 "questions": 5
                             }
                         },
@@ -1301,12 +1313,12 @@
                         {
                             "blocks": [
                                 {
-                                    "text": "Je regarde l'image, je nomme l'objet puis j'écris le mot.",
+                                    "text": "Je regarde l'image, je nomme l'objet puis j'écris le mot. Pour chaque son que j'entends dans le mot, j'écris la ou les lettres qui font ce son.",
                                     "type": "paragraph"
                                 },
                                 {
                                     "label": "Exemple",
-                                    "content": "Si je vois un chat, je dis le mot chat avant de l'écrire.",
+                                    "content": "Si je vois un chat, je dis le mot chat : j'entends [ch] puis [a], alors j'écris ch puis a.",
                                     "type": "example"
                                 },
                                 {
@@ -1417,7 +1429,7 @@
                                 },
                                 {
                                     "label": "Exemple",
-                                    "content": "Dans école, j'entends les sons é, c, o, l, e.",
+                                    "content": "Dans école, j'entends les sons é, k, o, l : le son [k] s'écrit avec la lettre c.",
                                     "type": "example"
                                 },
                                 {
@@ -1621,6 +1633,38 @@
                                 "speechRate": 0.72,
                                 "questions": 8
                             }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "cp-lesson-mots-outils-niveaux",
+                            "title": "Les mots outils",
+                            "subtitle": "Des petits mots très fréquents",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "text": "Les mots outils sont de petits mots qui reviennent très souvent dans les phrases. Il faut les reconnaître et les écrire vite, sans les découper son par son.",
+                                    "type": "paragraph"
+                                },
+                                {
+                                    "label": "Exemple",
+                                    "content": "le, la, un, une, et, est, dans, avec : ce sont des mots outils.",
+                                    "type": "example"
+                                },
+                                {
+                                    "items": [
+                                        "je les vois souvent",
+                                        "je les reconnais d'un coup d'œil",
+                                        "je les apprends par cœur"
+                                    ],
+                                    "type": "bullets"
+                                },
+                                {
+                                    "label": "À retenir",
+                                    "content": "Connaître les mots outils par cœur aide à lire et à écrire plus vite.",
+                                    "type": "tip"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2391,20 +2435,20 @@
                                         "hier = avant aujourd'hui",
                                         "aujourd'hui = maintenant",
                                         "demain = après aujourd'hui",
-                                        "semaine, mois, année = repères plus longs"
+                                        "les jours forment une semaine"
                                     ],
                                     "type": "bullets"
                                 },
                                 {
                                     "label": "À retenir",
-                                    "content": "Les repères du temps me permettent de raconter dans l'ordre.",
+                                    "content": "Les repères du temps me permettent de raconter dans l'ordre. Plus tard, j'apprendrai aussi à me repérer avec le mois et l'année.",
                                     "type": "tip"
                                 }
                             ],
                             "title": "Repères du temps",
                             "format": "lesson-card",
                             "id": "cp-lesson-temps-qui-passe",
-                            "subtitle": "Hier, aujourd'hui, demain, semaine, mois, année"
+                            "subtitle": "Hier, aujourd'hui, demain, semaine"
                         },
                         {
                             "id": "cp-lesson-jours-semaine",
@@ -2554,15 +2598,15 @@
                                 },
                                 {
                                     "items": [
-                                        "les objets changent",
-                                        "l'école change",
-                                        "la vie quotidienne change"
+                                        "on écrivait à la plume",
+                                        "la classe avait un seul tableau noir",
+                                        "les élèves portaient souvent une blouse"
                                     ],
                                     "type": "bullets"
                                 },
                                 {
                                     "label": "À retenir",
-                                    "content": "Comparer autrefois et aujourd'hui aide à comprendre le passé.",
+                                    "content": "L'école a beaucoup changé, mais on y apprend toujours à lire, écrire et compter.",
                                     "type": "tip"
                                 }
                             ]
@@ -2750,7 +2794,7 @@
                                 },
                                 {
                                     "label": "À retenir",
-                                    "content": "Le plan aide à se repérer dans un lieu proche.",
+                                    "content": "Le plan aide à se repérer dans un lieu proche, comme l'école ou le quartier. Une carte, elle, montre un espace beaucoup plus grand, comme une ville ou un pays.",
                                     "type": "tip"
                                 }
                             ]
@@ -2892,20 +2936,6 @@
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "id": "cp-bonus-reperage-defi"
-                        },
-                        {
-                            "id": "cp-geo-carte-regions",
-                            "title": "Carte de France",
-                            "subtitle": "Touche la région demandée",
-                            "engine": "board-interactive",
-                            "params": {
-                                "type": "map-locate",
-                                "dataFile": "data/board_map_locate_cp.json",
-                                "mapFile": "data/maps/france-regions.svg",
-                                "mapId": "france-regions",
-                                "category": "cp_map_regions_france",
-                                "questions": 3
-                            }
                         }
                     ],
                     "lessons": [
@@ -2936,39 +2966,38 @@
                                     "type": "tip"
                                 }
                             ],
-                            "title": "Le plan de l'école",
+                            "title": "Se repérer à l'école",
                             "format": "lesson-card",
                             "id": "cp-lesson-se-reperer-ecole",
                             "subtitle": "Devant, derrière, gauche, droite"
                         },
                         {
                             "id": "cp-lesson-gauche-droite",
-                            "title": "Les repères de position",
-                            "subtitle": "Gauche, droite, devant, derrière",
+                            "title": "Ma gauche, ma droite",
+                            "subtitle": "Reconnaître son côté gauche et son côté droit",
                             "format": "lesson-card",
                             "blocks": [
                                 {
-                                    "text": "Pour me repérer, j'utilise des mots qui indiquent la position d'un objet ou d'un lieu.",
+                                    "text": "Avant de dire si un objet est à gauche ou à droite, je dois d'abord savoir reconnaître ma propre gauche et ma propre droite.",
                                     "type": "paragraph"
                                 },
                                 {
                                     "label": "Exemple",
-                                    "content": "La chaise est à gauche de la table et la porte est derrière moi.",
+                                    "content": "Je tiens mon crayon avec ma main droite (ou ma main gauche si je suis gaucher). Je lève ma main droite, puis ma main gauche.",
                                     "type": "example"
                                 },
                                 {
                                     "items": [
-                                        "devant",
-                                        "derrière",
-                                        "à côté",
-                                        "à gauche",
-                                        "à droite"
+                                        "ma main droite",
+                                        "ma main gauche",
+                                        "mon pied droit",
+                                        "mon pied gauche"
                                     ],
                                     "type": "bullets"
                                 },
                                 {
                                     "label": "À retenir",
-                                    "content": "Je regarde toujours d'où l'on parle.",
+                                    "content": "Une fois que je connais ma gauche et ma droite, je peux les utiliser pour situer les objets autour de moi.",
                                     "type": "tip"
                                 }
                             ]
@@ -3268,9 +3297,9 @@
                                 },
                                 {
                                     "items": [
-                                        "les plantes grandissent",
-                                        "les animaux se déplacent",
-                                        "tous ont des besoins"
+                                        "les plantes grandissent sur place",
+                                        "la plupart des animaux se déplacent",
+                                        "chaque plante ou animal peut être classé dans son groupe"
                                     ],
                                     "type": "bullets"
                                 },
@@ -3379,7 +3408,7 @@
                                         "solide",
                                         "liquide",
                                         "gaz",
-                                        "un même corps peut changer d'état"
+                                        "une même matière peut changer d'état"
                                     ],
                                     "type": "bullets"
                                 },
@@ -3666,7 +3695,7 @@
                         },
                         {
                             "id": "cp-sciences-corps-sens",
-                            "title": "Les cinq sens",
+                            "title": "Révision : les cinq sens",
                             "subtitle": "Voir, entendre, toucher, goûter, sentir",
                             "engine": "choice-engine",
                             "params": {
@@ -3984,24 +4013,24 @@
                         {
                             "id": "cp-lesson-regles-classe",
                             "title": "Les règles de la classe",
-                            "subtitle": "Respecter et travailler ensemble",
+                            "subtitle": "Des gestes concrets pour bien travailler",
                             "format": "lesson-card",
                             "blocks": [
                                 {
-                                    "text": "Dans la classe, des règles aident tout le monde à apprendre et à vivre ensemble.",
+                                    "text": "Dans la classe, il y a des règles précises pour que le travail se passe bien pour tout le monde.",
                                     "type": "paragraph"
                                 },
                                 {
                                     "label": "Exemple",
-                                    "content": "Je lève le doigt, j'écoute la consigne et je range mon matériel.",
+                                    "content": "Je lève le doigt avant de parler, je range mon matériel après le travail et je prends soin des affaires de la classe.",
                                     "type": "example"
                                 },
                                 {
                                     "items": [
-                                        "écouter",
-                                        "attendre son tour",
-                                        "ranger",
-                                        "respecter"
+                                        "lever le doigt",
+                                        "ranger son matériel",
+                                        "prendre soin des affaires communes",
+                                        "suivre la consigne"
                                     ],
                                     "type": "bullets"
                                 },
@@ -4257,8 +4286,8 @@
                         },
                         {
                             "id": "cp-emc-reconnaitre-emotions",
-                            "title": "Reconnaitre les emotions",
-                            "subtitle": "Joie, tristesse, colere, peur...",
+                            "title": "Reconnaître les émotions",
+                            "subtitle": "Joie, tristesse, colère, peur...",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -4269,8 +4298,8 @@
                         },
                         {
                             "id": "cp-bonus-emc-emotions-defi",
-                            "title": "Defi : emotions et reactions",
-                            "subtitle": "Comment reagir selon ce qu'on ressent",
+                            "title": "Défi : émotions et réactions",
+                            "subtitle": "Comment réagir selon ce qu'on ressent",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -4365,7 +4394,7 @@
                         },
                         {
                             "id": "cp-emc-vote-vivre-ensemble",
-                            "title": "Vivre ensemble",
+                            "title": "Voter ensemble",
                             "subtitle": "Les règles pour bien vivre en groupe",
                             "engine": "choice-engine",
                             "params": {

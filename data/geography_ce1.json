@@ -35,14 +35,14 @@
                 "explanation": "La légende est un petit tableau qui explique ce que signifie chaque dessin ou couleur sur le plan : ces dessins s'appellent des symboles."
             },
             {
-                "question": "Une rue fait partie surtout...",
+                "question": "Une rue permet surtout de...",
                 "choices": [
-                    "de la ville",
-                    "de la mer",
-                    "de la montagne"
+                    "circuler à pied ou en véhicule",
+                    "nager",
+                    "faire du ski"
                 ],
-                "answer": "de la ville",
-                "explanation": "Les rues, les immeubles et les maisons se trouvent en ville ; elles font toutes partie de cet espace urbain."
+                "answer": "circuler à pied ou en véhicule",
+                "explanation": "Une rue est un espace pour se déplacer : on la trouve en ville comme dans les villages."
             },
             {
                 "question": "La cour, la classe et la cantine sont des lieux...",
@@ -301,7 +301,7 @@
                 "choices": [
                     "y vivre et l'utiliser",
                     "le déplacer",
-                    "le transformer en planète"
+                    "l'emporter avec soi"
                 ],
                 "answer": "y vivre et l'utiliser",
                 "explanation": "Habiter un espace, c'est y vivre tous les jours, se déplacer, travailler ou jouer : on l'utilise pour répondre à ses besoins."
@@ -491,24 +491,24 @@
                 "explanation": "Plus deux lieux sont éloignés, plus le chemin pour aller de l'un à l'autre est long."
             },
             {
-                "question": "Pour se repérer sur un plan, on peut utiliser...",
+                "question": "Sur le plan du quartier, pour ne pas se perdre, je peux m'aider...",
                 "choices": [
-                    "des symboles et une légende",
-                    "une frise du temps",
-                    "un thermomètre"
+                    "des symboles et de la légende",
+                    "d'une frise du temps",
+                    "d'un thermomètre"
                 ],
-                "answer": "des symboles et une légende",
+                "answer": "des symboles et de la légende",
                 "explanation": "La légende explique ce que signifient les symboles du plan, ce qui permet de comprendre ce que représente chaque dessin."
             },
             {
-                "question": "Une carte sert surtout à...",
+                "question": "Sur le plan du quartier, on retrouve la boulangerie ou l'école grâce à...",
                 "choices": [
-                    "localiser des lieux",
-                    "raconter une histoire ancienne",
-                    "faire une division"
+                    "leur emplacement sur le plan",
+                    "une histoire ancienne",
+                    "une division"
                 ],
-                "answer": "localiser des lieux",
-                "explanation": "Une carte ou un plan montre les lieux à leur vraie position : cela permet de les localiser, c'est-à-dire de savoir où ils se trouvent."
+                "answer": "leur emplacement sur le plan",
+                "explanation": "Un plan montre les lieux à leur vraie position : cela permet de les localiser, c'est-à-dire de savoir où ils se trouvent."
             }
         ],
         "ce1-legende-simple": [
@@ -593,17 +593,17 @@
                 "explanation": "Sur un plan, un symbole de route ou de ligne indique par où passent les voitures ou les véhicules."
             },
             {
-                "question": "Pour se repérer sur un plan, on peut utiliser...",
+                "question": "Pour bien lire un plan sans se tromper, il faut surtout regarder...",
                 "choices": [
-                    "des symboles et une légende",
+                    "les symboles et la légende",
                     "une frise du temps",
                     "un thermomètre"
                 ],
-                "answer": "des symboles et une légende",
+                "answer": "les symboles et la légende",
                 "explanation": "Les symboles et la légende permettent de lire un plan : les symboles représentent les lieux et la légende explique ce que chacun signifie."
             },
             {
-                "question": "Une carte sert surtout à...",
+                "question": "Grâce à une carte, on peut surtout...",
                 "choices": [
                     "localiser des lieux",
                     "raconter une histoire ancienne",
@@ -780,7 +780,7 @@
                 "question": "La mairie est un lieu de...",
                 "choices": [
                     "la commune",
-                    "la foret",
+                    "la forêt",
                     "la montagne"
                 ],
                 "answer": "la commune",
@@ -831,7 +831,7 @@
                 "choices": [
                     "la vie de tous les jours",
                     "le fond de la mer",
-                    "les calculs de geometrie"
+                    "les calculs de géométrie"
                 ],
                 "answer": "la vie de tous les jours",
                 "explanation": "Les lieux publics comme la mairie, l'école ou la bibliothèque sont utiles chaque jour : ils répondent aux besoins des habitants de la commune."
@@ -841,7 +841,7 @@
                 "choices": [
                     "un plan simple",
                     "une recette",
-                    "un thermometre"
+                    "un thermomètre"
                 ],
                 "answer": "un plan simple",
                 "explanation": "Sur un plan simple, chaque lieu public est représenté par un symbole : en le trouvant, tu peux t'y rendre facilement."
@@ -850,7 +850,7 @@
                 "question": "Des lieux publics différents répondent à...",
                 "choices": [
                     "des besoins différents",
-                    "la meme seule action",
+                    "la même seule action",
                     "aucun besoin"
                 ],
                 "answer": "des besoins différents",
@@ -859,44 +859,44 @@
         ],
         "ce1-services-quartier": [
             {
-                "question": "La mairie est un lieu utile pour...",
+                "question": "Le coiffeur du quartier permet de...",
                 "choices": [
-                    "la vie de la commune",
+                    "se faire couper les cheveux",
                     "faire décoller des avions",
                     "nager dans la mer"
                 ],
-                "answer": "la vie de la commune",
-                "explanation": "La mairie gère les affaires de la commune : elle organise les services pour que la vie de tous les habitants se passe bien."
+                "answer": "se faire couper les cheveux",
+                "explanation": "Le coiffeur est un commerçant du quartier qui coupe et coiffe les cheveux des habitants."
             },
             {
-                "question": "La bibliothèque permet souvent de...",
+                "question": "Chez le boucher, on peut acheter...",
                 "choices": [
-                    "lire et emprunter des livres",
-                    "réparer une route",
-                    "fabriquer des bus"
+                    "de la viande",
+                    "des livres",
+                    "des billets de train"
                 ],
-                "answer": "lire et emprunter des livres",
-                "explanation": "La bibliothèque est un lieu public où l'on peut lire et emprunter des livres gratuitement."
+                "answer": "de la viande",
+                "explanation": "Le boucher prépare et vend de la viande dans sa boutique du quartier."
             },
             {
-                "question": "L'école est un lieu pour...",
+                "question": "Le pharmacien du quartier vend surtout...",
                 "choices": [
-                    "apprendre",
-                    "acheter du pain",
-                    "garer des avions"
+                    "des médicaments",
+                    "du pain",
+                    "des fruits"
                 ],
-                "answer": "apprendre",
-                "explanation": "L'école est le lieu où les enfants apprennent : lire, écrire, calculer et comprendre le monde qui les entoure."
+                "answer": "des médicaments",
+                "explanation": "Le pharmacien conseille et vend des médicaments pour se soigner."
             },
             {
-                "question": "La poste sert à...",
+                "question": "Un service de proximité, c'est un lieu qui...",
                 "choices": [
-                    "envoyer du courrier",
-                    "mesurer le temps",
-                    "fabriquer des trains"
+                    "aide les habitants tout près de chez eux",
+                    "mesure le temps",
+                    "fabrique des trains"
                 ],
-                "answer": "envoyer du courrier",
-                "explanation": "La poste permet d'envoyer des lettres, des cartes et des colis à des personnes qui habitent parfois très loin."
+                "answer": "aide les habitants tout près de chez eux",
+                "explanation": "Un service de proximité (commerce, médecin, poste...) répond aux besoins des habitants sans qu'ils aient à se déplacer loin."
             },
             {
                 "question": "Des lieux publics différents servent à...",

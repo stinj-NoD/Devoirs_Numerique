@@ -16,7 +16,7 @@
                 b = rnd(0, a);
                 return { question: `${a} - ${b} = ?`, answer: a - b, explanation: `${a} - ${b} = ${a - b}` };
             case 'mult':
-                a = p.table === 'mix' ? rnd(2, 9) : (p.table || 2);
+                a = p.table === 'mix' ? rnd(2, 12) : (p.table || 2);
                 b = rnd(0, 10);
                 return { question: `${a} × ${b} = ?`, answer: a * b, explanation: `${a} × ${b} = ${a * b}` };
             case 'complement': {
@@ -167,9 +167,12 @@
                 if (level === 1) {
                     d_divisor = rnd(3, 9);
                     d_dividend = rnd(50, 900);
-                } else {
+                } else if (level === 2) {
                     d_divisor = rnd(12, 25);
                     d_dividend = rnd(200, 2000);
+                } else {
+                    d_divisor = rnd(15, 99);
+                    d_dividend = rnd(500, 9999);
                 }
                 const d_q = Math.floor(d_dividend / d_divisor);
                 const d_r = d_dividend % d_divisor;

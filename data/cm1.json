@@ -144,34 +144,34 @@
                         },
                         {
                             "id": "cm1-m-big-2",
-                            "title": "Très grands nombres",
-                            "subtitle": "Dictée jusqu'à 10 millions",
+                            "title": "Grands nombres",
+                            "subtitle": "Dictée jusqu'à 100 000",
                             "engine": "math-input",
                             "params": {
                                 "type": "dictée-nombres",
-                                "max": 10000000,
+                                "max": 100000,
                                 "questions": 5
                             }
                         },
                         {
                             "id": "cm1-frac-3",
                             "title": "Fractions plus précises",
-                            "subtitle": "Parts jusqu'à 16",
+                            "subtitle": "Parts jusqu'à 12",
                             "engine": "math-input",
                             "params": {
                                 "type": "fraction-view",
-                                "maxDenom": 16,
+                                "maxDenom": 12,
                                 "questions": 10
                             }
                         },
                         {
                             "id": "cm1-m-big-3",
                             "title": "Grands nombres (3)",
-                            "subtitle": "Dictée jusqu'à 100 millions",
+                            "subtitle": "Dictée jusqu'à 999 999",
                             "engine": "math-input",
                             "params": {
                                 "type": "dictée-nombres",
-                                "max": 100000000,
+                                "max": 999999,
                                 "questions": 5
                             }
                         },
@@ -391,7 +391,7 @@
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "Lina a 24 billes. Elle en donne 6. Je cherche combien il lui en reste : 24 - 6."
+                                    "content": "Un panier de fruits coûte 8 €. Théo achète 3 paniers et paie avec un billet de 50 €. Je cherche combien il lui reste : 50 - (8 x 3)."
                                 },
                                 {
                                     "type": "bullets",
@@ -2575,32 +2575,32 @@
                         },
                         {
                             "id": "cm1-lesson-vivre-moyen-age",
-                            "title": "Vivre au Moyen Âge",
-                            "subtitle": "Seigneurs, paysans et châteaux",
+                            "title": "La société féodale",
+                            "subtitle": "Le roi, les seigneurs et les liens de fidélité",
                             "format": "lesson-card",
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Au Moyen Âge, la société s'organise autour des seigneurs, des paysans, des villages et des châteaux forts."
+                                    "text": "Au Moyen Âge, la société est organisée en ordres : ceux qui prient (le clergé), ceux qui combattent (les seigneurs et chevaliers) et ceux qui travaillent (les paysans)."
                                 },
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "Le seigneur protège son territoire depuis le château, tandis que de nombreux paysans travaillent les terres."
+                                    "content": "Un chevalier jure fidélité à un seigneur plus puissant que lui : en échange de sa protection, il doit le servir à la guerre."
                                 },
                                 {
                                     "type": "bullets",
                                     "items": [
-                                        "château fort",
-                                        "seigneur",
-                                        "paysan",
-                                        "village"
+                                        "le roi au sommet",
+                                        "les grands seigneurs et chevaliers",
+                                        "le clergé (prêtres, moines)",
+                                        "les paysans, les plus nombreux"
                                     ]
                                 },
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "Le Moyen Âge correspond à une longue période où les modes de vie sont très différents d'aujourd'hui."
+                                    "content": "Chacun a une place et des devoirs précis dans cette société organisée par ordres."
                                 }
                             ]
                         }
@@ -2691,8 +2691,8 @@
                         },
                         {
                             "id": "cm1-bonus-histoire-toutes-periodes",
-                            "title": "Défi : toutes les périodes",
-                            "subtitle": "De la Préhistoire aux Temps modernes",
+                            "title": "Défi : le Moyen Âge",
+                            "subtitle": "Questions en rafale",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -2718,27 +2718,27 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Le temps des rois correspond à une longue période où le roi dirige le royaume et où les châteaux forts protègent les territoires."
+                                    "text": "Une frise historique range les grandes périodes dans l'ordre : la Préhistoire, l'Antiquité, le Moyen Âge puis les Temps modernes. Le temps des rois correspond surtout au Moyen Âge, où le roi dirige le royaume et où les châteaux forts protègent les territoires."
                                 },
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "Au Moyen Âge, les seigneurs vivent souvent dans des châteaux forts, tandis que la plupart des habitants travaillent dans les campagnes."
+                                    "content": "Sur la frise, la Préhistoire vient en premier, puis l'Antiquité avec les Gaulois et les Romains, puis le Moyen Âge avec ses seigneurs et ses châteaux forts, et enfin les Temps modernes avec les grandes découvertes."
                                 },
                                 {
                                     "type": "bullets",
                                     "label": "Mots à connaître",
                                     "items": [
-                                        "roi",
-                                        "château fort",
-                                        "seigneur",
-                                        "paysan"
+                                        "Préhistoire",
+                                        "Antiquité",
+                                        "roi, château fort, seigneur, paysan (Moyen Âge)",
+                                        "Temps modernes"
                                     ]
                                 },
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "Cette période montre comment le pouvoir du roi et la société ont changé au fil du temps."
+                                    "content": "Placer une période sur la frise, c'est savoir si elle vient avant ou après une autre, de la Préhistoire aux Temps modernes."
                                 }
                             ]
                         }
@@ -2943,30 +2943,46 @@
                         {
                             "id": "cm1-lesson-paysages-france",
                             "title": "Les paysages de France",
-                            "subtitle": "Montagne, plaine, littoral",
+                            "subtitle": "Des exemples dans nos régions",
                             "format": "lesson-card",
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "La France présente des paysages variés : montagnes, plaines, vallées et littoraux."
+                                    "text": "Chaque grand type de paysage existe en France, avec des exemples célèbres que l'on peut situer sur une carte."
                                 },
                                 {
                                     "type": "example",
-                                    "content": "Une vallée peut être traversée par un fleuve.",
+                                    "content": "Les Alpes forment un massif montagneux à l'est, la Beauce est une grande plaine agricole, et la Loire est le plus long fleuve du pays.",
                                     "label": "Exemple"
                                 },
                                 {
-                                    "type": "bullets",
-                                    "items": [
-                                        "montagne",
-                                        "plaine",
-                                        "vallée",
-                                        "littoral"
+                                    "type": "mini-table",
+                                    "headers": [
+                                        "Type de paysage",
+                                        "Exemples en France"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "Montagne",
+                                            "les Alpes, les Pyrénées"
+                                        ],
+                                        [
+                                            "Plaine",
+                                            "la Beauce, l'Alsace"
+                                        ],
+                                        [
+                                            "Fleuve",
+                                            "la Loire, la Seine, le Rhône"
+                                        ],
+                                        [
+                                            "Littoral",
+                                            "la Côte d'Azur, la côte Atlantique"
+                                        ]
                                     ]
                                 },
                                 {
                                     "type": "tip",
-                                    "content": "Un paysage se décrit avec des mots précis pour dire ce que l on voit.",
+                                    "content": "Savoir situer ces exemples aide à mieux lire une carte de France.",
                                     "label": "À retenir"
                                 }
                             ]
@@ -3106,33 +3122,33 @@
                             ]
                         },
                         {
-                            "id": "cm1-lesson-carte-legende-territoire",
-                            "title": "Lire une carte et sa légende",
-                            "subtitle": "Repérer les informations importantes",
+                            "id": "cm1-lesson-regions-france",
+                            "title": "Les régions de France",
+                            "subtitle": "Un territoire découpé en grandes régions",
                             "format": "lesson-card",
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Une carte représente un territoire. La légende explique les couleurs, les lignes et les symboles utilisés."
+                                    "text": "La France métropolitaine est découpée en 13 grandes régions, chacune avec ses paysages, ses villes et son organisation propre."
                                 },
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "Une ligne bleue peut représenter un fleuve et une étoile peut montrer la capitale."
+                                    "content": "La Bretagne est une région à l'ouest, bordée par la mer ; l'Île-de-France est la région où se trouve Paris."
                                 },
                                 {
                                     "type": "bullets",
+                                    "label": "Je retiens",
                                     "items": [
-                                        "le titre",
-                                        "la légende",
-                                        "les symboles",
-                                        "les couleurs"
+                                        "une région regroupe plusieurs départements",
+                                        "chaque région a une histoire et des paysages propres",
+                                        "la France métropolitaine compte 13 régions"
                                     ]
                                 },
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "Je lis d'abord le titre et la légende pour comprendre une carte."
+                                    "content": "Savoir situer sa région aide à comprendre l'organisation du territoire français."
                                 }
                             ]
                         }
@@ -3185,6 +3201,20 @@
                                 "category": "matching_geo_cm1",
                                 "dataFile": "data/geography_matching.json",
                                 "questions": 1
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-carte-regions",
+                            "title": "Carte des régions",
+                            "subtitle": "Touche la région demandée",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "map-locate",
+                                "dataFile": "data/board_map_locate_cm1.json",
+                                "mapFile": "data/maps/france-regions.svg",
+                                "mapId": "france-regions",
+                                "category": "cm1_map_regions_france",
+                                "questions": 6
                             }
                         }
                     ]
@@ -3580,7 +3610,8 @@
                                         "les besoins",
                                         "le milieu de vie",
                                         "les caractères communs",
-                                        "les ressemblances et différences"
+                                        "les ressemblances et différences",
+                                        "chez les animaux, une grande famille : les vertébrés (colonne vertébrale : poissons, oiseaux, mammifères...) et les invertébrés (sans colonne vertébrale : insectes, vers, escargots...)"
                                     ]
                                 },
                                 {
@@ -4257,8 +4288,8 @@
                         },
                         {
                             "id": "cm1-sciences-techno-energie",
-                            "title": "Sources d'energie",
-                            "subtitle": "Electrique, solaire, mecanique...",
+                            "title": "Sources d'énergie",
+                            "subtitle": "Électrique, solaire, mécanique...",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -4269,8 +4300,8 @@
                         },
                         {
                             "id": "cm1-bonus-sciences-techno-defi",
-                            "title": "Defi : machines et energie",
-                            "subtitle": "Machines simples et sources d'energie",
+                            "title": "Défi : machines et énergie",
+                            "subtitle": "Machines simples et sources d'énergie",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -4348,6 +4379,38 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Le respect rend la vie de classe plus simple et protège le bien commun."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-alerte-secours",
+                            "title": "Alerter et secourir",
+                            "subtitle": "Les gestes qui sauvent",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Face à un accident, il faut d'abord se protéger soi-même et protéger la victime, puis alerter les secours sans paniquer."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un camarade tombe et ne répond plus : je reste calme, je demande à un adulte d'appeler le 15 (SAMU), le 18 (pompiers) ou le 112 (numéro d'urgence européen)."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "protéger : écarter le danger avant d'approcher",
+                                        "alerter : donner le lieu précis, ce qui s'est passé, le nombre de blessés",
+                                        "rester calme pour bien réfléchir et bien parler aux secours",
+                                        "si la victime respire mais ne répond pas, un adulte formé peut la mettre en position latérale de sécurité en attendant les secours"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Protéger, alerter, rester calme : ce sont les trois réflexes qui sauvent."
                                 }
                             ]
                         }

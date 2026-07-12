@@ -3,7 +3,7 @@
  * Robustesse offline/PWA
  */
 
-const CACHE_NAME = 'dn-v4.9.0-fix-cartes-cache-offline';
+const CACHE_NAME = 'dn-v4.13.0-content-quality-suggestions';
 const OFFLINE_URL = './offline.html';
 
 const APP_ASSETS = [
@@ -48,6 +48,7 @@ const DATA_ASSETS = [
   './data/board_map_locate_asia.json',
   './data/board_map_locate_ce1.json',
   './data/board_map_locate_ce2.json',
+  './data/board_map_locate_cm1.json',
   './data/board_map_locate_cp.json',
   './data/board_map_locate_europe.json',
   './data/board_map_locate_north_america.json',

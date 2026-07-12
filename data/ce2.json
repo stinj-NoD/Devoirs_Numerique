@@ -116,6 +116,8 @@
                             "title": "Table de 11",
                             "subtitle": "Calcul rapide",
                             "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
                             "params": {
                                 "type": "mult",
                                 "table": 11,
@@ -127,6 +129,8 @@
                             "title": "Table de 12",
                             "subtitle": "Défi multiplication",
                             "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
                             "params": {
                                 "type": "mult",
                                 "table": 12,
@@ -153,7 +157,7 @@
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "mult",
-                                "table": 12,
+                                "table": "mix",
                                 "questions": 15
                             }
                         }
@@ -243,7 +247,6 @@
                                     "items": [
                                         "× 10 : on écrit un zéro à la fin du nombre.",
                                         "× 100 : deux zéros ; × 1 000 : trois zéros.",
-                                        "Ça marche aussi en combinant : 30 × 40 = 3 × 4 puis deux zéros = 1 200.",
                                         "Attention, cette règle simple vaut pour les nombres entiers."
                                     ]
                                 },
@@ -362,12 +365,12 @@
                         },
                         {
                             "id": "ce2-comp-2000",
-                            "title": "Compléments à 2000",
+                            "title": "Compléments à 1000",
                             "subtitle": "Vers les grands nombres",
                             "engine": "math-input",
                             "params": {
                                 "type": "complement",
-                                "target": 2000,
+                                "target": 1000,
                                 "questions": 10
                             }
                         },
@@ -496,8 +499,8 @@
                         },
                         {
                             "id": "ce2-bonus-comp-5000",
-                            "title": "Défi : compléments à 5000",
-                            "subtitle": "Calcul mental chez les grands nombres",
+                            "title": "Défi : anticipation CM1",
+                            "subtitle": "Calcul mental chez les très grands nombres",
                             "engine": "math-input",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -976,7 +979,7 @@
                         },
                         {
                             "id": "ce2-maths-geo-appariement",
-                            "title": "Mesures et grandeurs",
+                            "title": "Notions de maths mélangées",
                             "subtitle": "Relie chaque notion à sa réponse",
                             "engine": "matching",
                             "params": {
@@ -1260,7 +1263,7 @@
                             "engine": "choice-engine",
                             "params": {
                                 "type": "gender-articles",
-                                "category": "gender_ce2_objets",
+                                "category": "gender_ce2_objets_2",
                                 "options": [
                                     "un",
                                     "une"
@@ -1275,7 +1278,7 @@
                             "engine": "choice-engine",
                             "params": {
                                 "type": "gender-articles",
-                                "category": "gender_ce2_elision",
+                                "category": "gender_ce2_elision_2",
                                 "options": [
                                     "le",
                                     "la",
@@ -1635,6 +1638,7 @@
                                     "items": [
                                         "la plupart des verbes utilisent avoir (j'ai joué, tu as chanté)",
                                         "quelques verbes de déplacement utilisent être (je suis tombé, elle est arrivée)",
+                                        "avec être, le participe passé s'accorde avec le sujet : il est tombé, elle est tombée",
                                         "le participe passé des verbes en -ER se termine par -É"
                                     ]
                                 },
@@ -2273,7 +2277,7 @@
                         {
                             "id": "ce2-histoire-frise-chrono",
                             "title": "La frise chronologique",
-                            "subtitle": "Placer les evenements dans le temps",
+                            "subtitle": "Placer les événements dans le temps",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -2284,8 +2288,8 @@
                         },
                         {
                             "id": "ce2-bonus-histoire-reperes-defi",
-                            "title": "Defi : reperes dans le temps",
-                            "subtitle": "Situer des evenements sur une frise",
+                            "title": "Défi : repères dans le temps",
+                            "subtitle": "Situer des événements sur une frise",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -2344,7 +2348,7 @@
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "Ta naissance et celle de tes grands-parents tiennent dans le même siècle ou presque ; les châteaux forts, eux, datent d'il y a environ 8 siècles !"
+                                    "content": "Ta naissance et celle de tes grands-parents tiennent dans le même siècle ou presque ; un très vieux monument, lui, peut avoir plusieurs siècles !"
                                 },
                                 {
                                     "type": "bullets",
@@ -2359,7 +2363,7 @@
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "Repère facile : un grand-parent ≈ un demi-siècle de souvenirs ; un château fort ≈ 8 à 10 siècles d'histoire !"
+                                    "content": "Repère facile : un grand-parent ≈ un demi-siècle de souvenirs ; un très vieux monument peut traverser plusieurs siècles !"
                                 }
                             ],
                             "format": "lesson-card"
@@ -2397,8 +2401,8 @@
                         },
                         {
                             "id": "ce2-histoire-personnages-vie-autrefois",
-                            "title": "Personnages celebres de notre histoire",
-                            "subtitle": "Des gens qui ont marque leur epoque",
+                            "title": "Personnages célèbres de notre histoire",
+                            "subtitle": "Des gens qui ont marqué leur époque",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -2409,8 +2413,8 @@
                         },
                         {
                             "id": "ce2-bonus-histoire-vie-defi",
-                            "title": "Defi : vie autrefois et personnages",
-                            "subtitle": "Comparer le passe et le present",
+                            "title": "Défi : vie autrefois et personnages",
+                            "subtitle": "Comparer le passé et le présent",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -2520,7 +2524,7 @@
                         },
                         {
                             "id": "ce2-histoire-souvenirs-monuments",
-                            "title": "Souvenirs et monuments",
+                            "title": "Traces et souvenirs du passé",
                             "subtitle": "Photos, musée, mémoire du passé",
                             "engine": "choice-engine",
                             "params": {
@@ -2597,12 +2601,12 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Chaque monument raconte l'époque qui l'a construit : un château fort parle du Moyen Âge et de ses guerres, une église ancienne de la vie religieuse, un lavoir de la vie quotidienne."
+                                    "text": "Chaque monument raconte l'époque qui l'a construit : un château fort parle d'une époque où l'on devait se protéger des attaques, une église ancienne de la vie religieuse, un lavoir de la vie quotidienne."
                                 },
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "Les remparts de Carcassonne racontent comment on se protégeait au Moyen Âge ; la tour Eiffel raconte la fierté des ingénieurs de 1889."
+                                    "content": "Les remparts de Carcassonne racontent comment on se protégeait autrefois ; la tour Eiffel raconte la fierté des ingénieurs de 1889."
                                 },
                                 {
                                     "type": "bullets",
@@ -2667,8 +2671,8 @@
                         },
                         {
                             "id": "ce2-histoire-ecole-appariement",
-                            "title": "Objets de l'école d'autrefois",
-                            "subtitle": "Relie chaque objet ancien à son usage",
+                            "title": "Repères d'histoire mélangés",
+                            "subtitle": "Relie chaque repère à sa correspondance",
                             "engine": "matching",
                             "params": {
                                 "category": "matching_histoire_ce2",
@@ -2745,7 +2749,7 @@
                                     "items": [
                                         "Gratuite : les familles ne paient pas l'école publique.",
                                         "Obligatoire : tous les enfants doivent être instruits.",
-                                        "Laïque : l'école accueille tous les élèves, quelles que soient les croyances.",
+                                        "Laïque : l'école accueille tous les élèves, quelles que soient les croyances (à l'école, on n'enseigne pas une religion en particulier).",
                                         "L'école est une chance : dans le monde, des millions d'enfants en sont encore privés."
                                     ]
                                 },
@@ -2973,20 +2977,6 @@
                                 "category": "ce2-reliefs-simples",
                                 "questions": 6
                             }
-                        },
-                        {
-                            "id": "ce2-geo-carte-regions",
-                            "title": "Carte des régions",
-                            "subtitle": "Touche la région demandée",
-                            "engine": "board-interactive",
-                            "params": {
-                                "type": "map-locate",
-                                "dataFile": "data/board_map_locate_ce2.json",
-                                "mapFile": "data/maps/france-regions.svg",
-                                "mapId": "france-regions",
-                                "category": "ce2_map_regions_france",
-                                "questions": 6
-                            }
                         }
                     ],
                     "lessons": [
@@ -3030,7 +3020,7 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "La carte de France montre de grands repères : des chaînes de montagnes, cinq grands fleuves et des mers qui bordent les côtes."
+                                    "text": "La carte de France montre de grands repères : des chaînes de montagnes, de grands fleuves français et des mers qui bordent les côtes."
                                 },
                                 {
                                     "type": "example",
@@ -3042,8 +3032,10 @@
                                     "label": "Je retiens",
                                     "items": [
                                         "Montagnes : les Alpes (mont Blanc !), les Pyrénées, le Massif central, le Jura, les Vosges.",
-                                        "Fleuves : Loire, Seine, Rhône, Garonne, Rhin.",
+                                        "Grands fleuves français : Loire, Seine, Rhône, Garonne.",
+                                        "Le Rhin borde l'est de la France mais n'est pas un fleuve français : il se jette dans la mer du Nord, aux Pays-Bas.",
                                         "Mers : la Manche au nord, l'Atlantique à l'ouest, la Méditerranée au sud.",
+                                        "La France est découpée en régions (par exemple la Bretagne ou la Nouvelle-Aquitaine) : chacune regroupe plusieurs départements.",
                                         "Sur la carte : marron = montagnes, bleu = eau, vert = plaines."
                                     ]
                                 },
@@ -3289,8 +3281,8 @@
                         },
                         {
                             "id": "ce2-geo-transports-cartes",
-                            "title": "Lire une carte de transports",
-                            "subtitle": "Symboles et réseaux",
+                            "title": "Lire une carte",
+                            "subtitle": "Légende et symboles",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -4342,7 +4334,7 @@
                         },
                         {
                             "id": "ce2-emc-cooperation-classe",
-                            "title": "Cooperer en classe",
+                            "title": "Coopérer en classe",
                             "subtitle": "Travailler ensemble vers un but commun",
                             "engine": "choice-engine",
                             "params": {
@@ -4354,8 +4346,8 @@
                         },
                         {
                             "id": "ce2-bonus-emc-entraide-defi",
-                            "title": "Defi : entraide et cooperation",
-                            "subtitle": "Solidarite et travail d'equipe",
+                            "title": "Défi : entraide et coopération",
+                            "subtitle": "Solidarité et travail d'équipe",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -4465,8 +4457,8 @@
                         },
                         {
                             "id": "ce2-emc-parole-ecoute-responsable",
-                            "title": "Parole et ecoute",
-                            "subtitle": "S'exprimer et ecouter les autres",
+                            "title": "Parole et écoute",
+                            "subtitle": "S'exprimer et écouter les autres",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -4477,8 +4469,8 @@
                         },
                         {
                             "id": "ce2-bonus-emc-responsabilite-defi",
-                            "title": "Defi : responsabilite et engagement",
-                            "subtitle": "Agir de facon responsable",
+                            "title": "Défi : responsabilité et engagement",
+                            "subtitle": "Agir de façon responsable",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -4574,14 +4566,15 @@
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "Si une information semble incroyable, je me demande d'où elle vient avant de la croire."
+                                    "content": "Si une information semble incroyable, je me demande d'où elle vient avant de la croire. « Il pleut aujourd'hui » est un fait vérifiable : je peux regarder par la fenêtre. « Cette chanson est la meilleure » est une opinion : c'est un avis personnel, pas un fait."
                                 },
                                 {
                                     "type": "bullets",
                                     "items": [
                                         "une rumeur n'est pas vérifiée",
                                         "je vérifie la source d'une information",
-                                        "je compare avec d'autres sources fiables"
+                                        "je compare avec d'autres sources fiables",
+                                        "un fait peut se vérifier ; une opinion est un avis personnel, ni vrai ni faux"
                                     ]
                                 },
                                 {

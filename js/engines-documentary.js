@@ -130,13 +130,14 @@ const EnginesDocumentary = {
         if (timelineDef.mode === 'order') {
             let orderItems = items;
             const periodIds = [...new Set(items.map((item) => item.period).filter(Boolean))];
+            const byYearThenOrder = (a, b) => (a.year - b.year) || ((a.order || 0) - (b.order || 0));
             const filteredItems = items.filter(matchesDifficulty);
             if (filteredItems.length >= 4) {
-                orderItems = shuffle(filteredItems).slice(0, 4).sort((a, b) => a.year - b.year);
+                orderItems = shuffle(filteredItems).slice(0, 4).sort(byYearThenOrder);
             } else if (difficultyFilter.length > 0 && periodIds.length === 1) {
                 const periodItems = events.filter((event) => event.period === periodIds[0] && matchesDifficulty(event));
                 if (periodItems.length >= 4) {
-                    orderItems = shuffle(periodItems).slice(0, 4).sort((a, b) => a.year - b.year);
+                    orderItems = shuffle(periodItems).slice(0, 4).sort(byYearThenOrder);
                 }
             }
 
