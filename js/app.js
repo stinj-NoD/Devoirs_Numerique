@@ -2880,6 +2880,8 @@ const App = {
                 else if (d.boardKind === 'symmetry-complete') d.userState = { placedPoints: [] };
                 else if (d.boardKind === 'fraction-build') d.userState = { selectedSlices: [] };
                 else if (d.boardKind === 'angle-classify') d.userState = { selectedId: null };
+                else if (d.boardKind === 'angle-measure') d.userState = { selectedDegrees: null };
+                else if (d.boardKind === 'construction-report') d.userState = { selectedIndex: null };
                 d.revealed = false;
                 this.state.userInput = "";
                 this.refreshUI();
@@ -2902,6 +2904,10 @@ const App = {
                 } else if (d.boardKind === 'fraction-build') {
                     const slices = Array.isArray(d.userState?.selectedSlices) ? d.userState.selectedSlices : [];
                     this.state.userInput = String(slices.length);
+                } else if (d.boardKind === 'construction-report') {
+                    const index = d.userState?.selectedIndex;
+                    const point = Number.isInteger(index) && Array.isArray(d.candidates) ? d.candidates[index] : null;
+                    this.state.userInput = EnginesBoard.canonicalizePoint(point);
                 }
                 d.revealed = true;
                 this.refreshUI();
@@ -2916,6 +2922,28 @@ const App = {
                 d.revealed = true;
                 this.refreshUI();
                 return this.validateAnswer();
+            }
+
+            if (val.startsWith('board-pick-angle-degrees:') && d.boardKind === 'angle-measure') {
+                const degrees = Number(val.replace('board-pick-angle-degrees:', ''));
+                if (!Number.isFinite(degrees)) return;
+                if (!d.userState) d.userState = { selectedDegrees: null };
+                d.userState.selectedDegrees = degrees;
+                this.state.userInput = String(degrees);
+                d.revealed = true;
+                this.refreshUI();
+                return this.validateAnswer();
+            }
+
+            if (val.startsWith('board-pick-candidate:') && d.boardKind === 'construction-report') {
+                if (d.revealed) return;
+                const index = parseInt(val.replace('board-pick-candidate:', ''), 10);
+                if (!Number.isInteger(index) || !Array.isArray(d.candidates) || !d.candidates[index]) return;
+                if (!d.userState) d.userState = { selectedIndex: null };
+                d.userState.selectedIndex = index;
+                this.state.userInput = EnginesBoard.canonicalizePoint(d.candidates[index]);
+                this.refreshUI();
+                return;
             }
 
             if (val.startsWith('board-toggle-feature:') && d.boardKind === 'tap-features') {
