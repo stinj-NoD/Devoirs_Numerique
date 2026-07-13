@@ -1,0 +1,178 @@
+{
+    "title": "Report de longueur au compas CM1",
+    "gradeId": "cm1",
+    "categories": {
+        "cm1_construction_report": [
+            {
+                "prompt": "Le compas est piqué au point rouge, avec un écartement de 3 carreaux. Touche le point où la pointe du crayon peut arriver.",
+                "board": {
+                    "width": 10,
+                    "height": 10,
+                    "grid": true
+                },
+                "center": [4, 5],
+                "radius": 3,
+                "candidates": [
+                    [7, 5],
+                    [6, 7],
+                    [4, 1],
+                    [2, 3]
+                ],
+                "explanation": "En comptant les carreaux depuis le point rouge, seul le point A est à exactement 3 carreaux : le crayon du compas passe par lui."
+            },
+            {
+                "prompt": "Le compas est piqué au point rouge, avec un écartement de 4 carreaux. Touche le point où la pointe du crayon peut arriver.",
+                "board": {
+                    "width": 10,
+                    "height": 10,
+                    "grid": true
+                },
+                "center": [5, 4],
+                "radius": 4,
+                "candidates": [
+                    [8, 4],
+                    [5, 8],
+                    [2, 2],
+                    [9, 7]
+                ],
+                "explanation": "Le point B est à exactement 4 carreaux sous le point rouge : c'est le seul endroit où la pointe du crayon peut arriver."
+            },
+            {
+                "prompt": "Le compas est piqué au point rouge, avec un écartement de 2 carreaux. Touche le point où la pointe du crayon peut arriver.",
+                "board": {
+                    "width": 10,
+                    "height": 10,
+                    "grid": true
+                },
+                "center": [5, 5],
+                "radius": 2,
+                "candidates": [
+                    [5, 2],
+                    [8, 5],
+                    [3, 5],
+                    [6, 6]
+                ],
+                "explanation": "Seul le point C est à exactement 2 carreaux du point rouge : les autres sont trop loin ou trop près."
+            },
+            {
+                "prompt": "Le compas est piqué au point rouge, avec un écartement de 2 carreaux. Touche le point où la pointe du crayon peut arriver.",
+                "board": {
+                    "width": 10,
+                    "height": 10,
+                    "grid": true
+                },
+                "center": [3, 3],
+                "radius": 2,
+                "candidates": [
+                    [5, 4],
+                    [1, 2],
+                    [3, 5],
+                    [6, 3]
+                ],
+                "explanation": "Seul le point C est à exactement 2 carreaux du point rouge : le compas garde le même écartement quand on le fait tourner."
+            },
+            {
+                "prompt": "Le compas est piqué au point rouge, avec un écartement de 3 carreaux. Touche le point où la pointe du crayon peut arriver.",
+                "board": {
+                    "width": 10,
+                    "height": 10,
+                    "grid": true
+                },
+                "center": [5, 5],
+                "radius": 3,
+                "candidates": [
+                    [5, 9],
+                    [2, 5],
+                    [7, 7],
+                    [9, 5]
+                ],
+                "explanation": "Le point B est à exactement 3 carreaux à gauche du point rouge : c'est le seul point du cercle tracé par le compas."
+            },
+            {
+                "prompt": "Le compas est piqué au point rouge, avec un écartement de 4 carreaux. Touche le point où la pointe du crayon peut arriver.",
+                "board": {
+                    "width": 10,
+                    "height": 10,
+                    "grid": true
+                },
+                "center": [6, 4],
+                "radius": 4,
+                "candidates": [
+                    [3, 4],
+                    [9, 7],
+                    [1, 4],
+                    [6, 8]
+                ],
+                "explanation": "Le point D est à exactement 4 carreaux du point rouge. Les autres points sont à 3 carreaux, trop près, ou à 5 carreaux, trop loin."
+            },
+            {
+                "prompt": "Défi : le compas est piqué au point rouge, avec un écartement de 5 carreaux. Touche le point où la pointe du crayon peut arriver, même en diagonale !",
+                "board": {
+                    "width": 10,
+                    "height": 10,
+                    "grid": true
+                },
+                "center": [4, 6],
+                "radius": 5,
+                "candidates": [
+                    [7, 2],
+                    [8, 8],
+                    [4, 2],
+                    [1, 3]
+                ],
+                "explanation": "Le point A est en diagonale, mais il est bien à 5 carreaux du point rouge : 3 carreaux dans un sens, 4 dans l'autre, la distance vaut exactement 5. Le compas ne ment jamais !"
+            },
+            {
+                "prompt": "Le compas est piqué au point rouge, avec un écartement de 3 carreaux. Touche le point où la pointe du crayon peut arriver.",
+                "board": {
+                    "width": 10,
+                    "height": 10,
+                    "grid": true
+                },
+                "center": [2, 7],
+                "radius": 3,
+                "candidates": [
+                    [5, 5],
+                    [6, 7],
+                    [2, 4],
+                    [4, 9]
+                ],
+                "explanation": "Seul le point C est à exactement 3 carreaux au-dessus du point rouge : l'écartement du compas ne change pas."
+            },
+            {
+                "prompt": "Défi : le compas est piqué au point rouge, avec un écartement de 5 carreaux. Touche le point où la pointe du crayon peut arriver, même en diagonale !",
+                "board": {
+                    "width": 10,
+                    "height": 10,
+                    "grid": true
+                },
+                "center": [7, 7],
+                "radius": 5,
+                "candidates": [
+                    [7, 3],
+                    [3, 4],
+                    [2, 8],
+                    [9, 2]
+                ],
+                "explanation": "Le point B est en diagonale : 4 carreaux dans un sens et 3 dans l'autre, soit une distance d'exactement 5 carreaux. C'est le seul point du cercle."
+            },
+            {
+                "prompt": "Le compas est piqué au point rouge, avec un écartement de 4 carreaux. Touche le point où la pointe du crayon peut arriver.",
+                "board": {
+                    "width": 10,
+                    "height": 10,
+                    "grid": true
+                },
+                "center": [5, 2],
+                "radius": 4,
+                "candidates": [
+                    [5, 7],
+                    [1, 3],
+                    [8, 5],
+                    [9, 2]
+                ],
+                "explanation": "Le point D est à exactement 4 carreaux à droite du point rouge : la pointe du crayon peut arriver là en tournant le compas."
+            }
+        ]
+    }
+}

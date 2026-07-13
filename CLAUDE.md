@@ -30,7 +30,7 @@ node scripts/validate-maps.js       # à lancer après tout ajout de carte map-l
 node --check js/app.js
 ```
 
-**Autres scripts utilitaires (`scripts/`)** : `repair-json-encoding.ps1` / `fix-french-lib-visible.ps1` (répare le mojibake UTF-8 récurrent dans les JSON historiques), `inventory-assets.ps1`, `enrich-documentary-data.ps1`, `refresh-local-data.ps1`, `process-card-images.py` (pipeline images de cartes du Grimoire, voir l'agent `card-image-processor`).
+**Autres scripts utilitaires (`scripts/`)** : `repair-json-encoding.ps1` / `fix-french-lib-visible.ps1` (répare le mojibake UTF-8 récurrent dans les JSON historiques), `generate-content-architecture.js` (régénère `CONTENT_ARCHITECTURE.md` depuis les fichiers de niveau — à relancer après toute vague de contenu), `inventory-assets.ps1`, `enrich-documentary-data.ps1`, `refresh-local-data.ps1`, `process-card-images.py` (pipeline images de cartes du Grimoire, voir l'agent `card-image-processor`).
 
 Il n'y a pas de suite de tests automatisés au sens classique — la vérification passe par les validateurs ci-dessus + un test manuel dans le navigateur.
 
@@ -53,7 +53,7 @@ En dev servi en local (`localhost`/`127.0.0.1`/`192.168.*`), `js/bootstrap.js` *
 Modules `engines-*.js` :
 - `engines-core.js` : utils partagés (`rnd`, `pick`, `pickUnused` — tirage sans répétition dans une session, `shuffle`, romanisation)
 - `engines-math.js`, `engines-french.js`, `engines-documentary.js` : générateurs par domaine
-- `engines-board.js` : activités interactives non-QCM (tap-features, shape-classify, point-on-grid, symmetry-complete, fraction-build, map-locate, memory-match, angle-classify) — rendues par `ui-board.js`
+- `engines-board.js` : activités interactives non-QCM (tap-features, shape-classify, point-on-grid, symmetry-complete, fraction-build, map-locate, memory-match, angle-classify, angle-measure, construction-report) — rendues par `ui-board.js`
 
 ### Structure du contenu (`data/`)
 
@@ -94,7 +94,7 @@ Pas de backend, donc la sécurité porte sur la robustesse des données et l'abs
 - `technicalaspect.md` — référence technique détaillée (modules, modèle de données, navigation)
 - `CONTRIBUTING.md` — règles de contribution complètes
 - `SECURITY.md` — surface de sécurité et contrôles en place
-- `CONTENT_ARCHITECTURE.md` — inventaire généré des leçons/exercices par niveau et matière
+- `CONTENT_ARCHITECTURE.md` — inventaire généré des leçons/exercices par niveau et matière (régénérer via `node scripts/generate-content-architecture.js`)
 - `docs/lesson-guidelines.md` — règle éditoriale des leçons
 - `docs/maps-architecture.md` — sous-système cartes interactives
 - `docs/grimoire-economy.md` — équilibrage économique du système de cartes à collectionner

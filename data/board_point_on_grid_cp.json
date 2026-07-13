@@ -1,0 +1,158 @@
+{
+    "title": "Repérage sur quadrillage CP",
+    "gradeId": "cp",
+    "categories": {
+        "cp_point_on_grid": [
+            {
+                "prompt": "Place le point au croisement de la colonne 2 et de la ligne 1.",
+                "board": {
+                    "width": 5,
+                    "height": 5,
+                    "grid": true
+                },
+                "task": {
+                    "label": "Colonne 2, ligne 1",
+                    "target": [
+                        2,
+                        1
+                    ]
+                }
+            },
+            {
+                "prompt": "Place le point tout en haut à gauche du quadrillage.",
+                "board": {
+                    "width": 5,
+                    "height": 5,
+                    "grid": true
+                },
+                "task": {
+                    "label": "En haut à gauche",
+                    "target": [
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "prompt": "Place le point tout en bas à droite du quadrillage.",
+                "board": {
+                    "width": 5,
+                    "height": 5,
+                    "grid": true
+                },
+                "task": {
+                    "label": "En bas à droite",
+                    "target": [
+                        4,
+                        4
+                    ]
+                }
+            },
+            {
+                "prompt": "Place le point au centre du quadrillage.",
+                "board": {
+                    "width": 5,
+                    "height": 5,
+                    "grid": true
+                },
+                "task": {
+                    "label": "Au centre",
+                    "target": [
+                        2,
+                        2
+                    ]
+                }
+            },
+            {
+                "prompt": "Place le point au croisement de la colonne 4 et de la ligne 0.",
+                "board": {
+                    "width": 5,
+                    "height": 5,
+                    "grid": true
+                },
+                "task": {
+                    "label": "Colonne 4, ligne 0",
+                    "target": [
+                        4,
+                        0
+                    ]
+                }
+            },
+            {
+                "prompt": "Place le point tout en bas à gauche du quadrillage.",
+                "board": {
+                    "width": 5,
+                    "height": 5,
+                    "grid": true
+                },
+                "task": {
+                    "label": "En bas à gauche",
+                    "target": [
+                        0,
+                        4
+                    ]
+                }
+            },
+            {
+                "prompt": "Place le point au croisement de la colonne 1 et de la ligne 3.",
+                "board": {
+                    "width": 5,
+                    "height": 5,
+                    "grid": true
+                },
+                "task": {
+                    "label": "Colonne 1, ligne 3",
+                    "target": [
+                        1,
+                        3
+                    ]
+                }
+            },
+            {
+                "prompt": "Place le point aux coordonnées (colonne 3 ; ligne 1).",
+                "board": {
+                    "width": 5,
+                    "height": 5,
+                    "grid": true
+                },
+                "task": {
+                    "label": "Colonne 3, ligne 1",
+                    "target": [
+                        3,
+                        1
+                    ]
+                }
+            },
+            {
+                "prompt": "Place le point au croisement de la colonne 3 et de la ligne 3.",
+                "board": {
+                    "width": 5,
+                    "height": 5,
+                    "grid": true
+                },
+                "task": {
+                    "label": "Colonne 3, ligne 3",
+                    "target": [
+                        3,
+                        3
+                    ]
+                }
+            },
+            {
+                "prompt": "Place le point au croisement de la colonne 0 et de la ligne 2.",
+                "board": {
+                    "width": 5,
+                    "height": 5,
+                    "grid": true
+                },
+                "task": {
+                    "label": "Colonne 0, ligne 2",
+                    "target": [
+                        0,
+                        2
+                    ]
+                }
+            }
+        ]
+    }
+}

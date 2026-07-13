@@ -444,6 +444,30 @@
         if (exercise.params.type === 'factual-qcm' && !this.isNonEmptyString(exercise.params.category)) {
             return { valid: false, reason: 'category manquante pour factual-qcm.' };
         }
+        if (exercise.params.type === 'data-table-read') {
+            if (exercise.params.maxRows !== undefined && (!Number.isFinite(Number(exercise.params.maxRows)) || Number(exercise.params.maxRows) < 3)) {
+                return { valid: false, reason: 'maxRows invalide pour data-table-read.' };
+            }
+            if (exercise.params.maxCols !== undefined && (!Number.isFinite(Number(exercise.params.maxCols)) || Number(exercise.params.maxCols) < 2)) {
+                return { valid: false, reason: 'maxCols invalide pour data-table-read.' };
+            }
+            if (exercise.params.maxValue !== undefined && (!Number.isFinite(Number(exercise.params.maxValue)) || Number(exercise.params.maxValue) < 1)) {
+                return { valid: false, reason: 'maxValue invalide pour data-table-read.' };
+            }
+        }
+        if (exercise.params.type === 'pie-chart-read') {
+            if (exercise.params.partSets !== undefined && (!Array.isArray(exercise.params.partSets) || exercise.params.partSets.length === 0)) {
+                return { valid: false, reason: 'partSets invalide pour pie-chart-read.' };
+            }
+        }
+        if (exercise.params.type === 'average-compute') {
+            if (exercise.params.length !== undefined && (!Number.isFinite(Number(exercise.params.length)) || Number(exercise.params.length) < 3)) {
+                return { valid: false, reason: 'length invalide pour average-compute.' };
+            }
+            if (exercise.params.maxValue !== undefined && (!Number.isFinite(Number(exercise.params.maxValue)) || Number(exercise.params.maxValue) < 1)) {
+                return { valid: false, reason: 'maxValue invalide pour average-compute.' };
+            }
+        }
         if (exercise.engine === 'matching' && !this.isNonEmptyString(exercise.params.category)) {
             return { valid: false, reason: 'category manquante pour matching.' };
         }
@@ -454,7 +478,7 @@
             return { valid: false, reason: 'category manquante pour cloze-fill-in.' };
         }
         if (exercise.engine === 'board-interactive') {
-            if (!this.isNonEmptyString(exercise.params.type) || !['tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete', 'map-locate', 'memory-match', 'fraction-build', 'angle-classify'].includes(exercise.params.type)) {
+            if (!this.isNonEmptyString(exercise.params.type) || !['tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete', 'map-locate', 'memory-match', 'fraction-build', 'angle-classify', 'angle-measure', 'construction-report'].includes(exercise.params.type)) {
                 return { valid: false, reason: 'type board-interactive invalide.' };
             }
             if (exercise.params.type !== 'fraction-build' && !this.isNonEmptyString(exercise.params.category)) {
@@ -629,6 +653,44 @@
                 const targetPoints = Array.isArray(item.targetPoints) && item.targetPoints.length > 0;
                 if (!givenPoints || !targetPoints) {
                     return { valid: false, reason: `symmetry-complete invalide dans ${exercise.params.category}.` };
+                }
+            }
+
+            if (exercise.params.type === 'angle-measure') {
+                const answerDegrees = Number(item.answerDegrees);
+                const answerValid = Number.isFinite(answerDegrees) && answerDegrees >= 0 && answerDegrees <= 360;
+                const choices = Array.isArray(item.choices) ? item.choices.map((value) => Number(value)) : [];
+                const choicesValid = choices.length >= 3
+                    && choices.every((value) => Number.isFinite(value) && value >= 0 && value <= 360)
+                    && choices.includes(answerDegrees);
+                if (!answerValid || !choicesValid) {
+                    return { valid: false, reason: `angle-measure invalide dans ${exercise.params.category}.` };
+                }
+            }
+
+            if (exercise.params.type === 'construction-report') {
+                const width = Number(item.board?.width);
+                const height = Number(item.board?.height);
+                const boardValid = Number.isInteger(width) && width >= 2 && Number.isInteger(height) && height >= 2;
+                const inGrid = (point) => Array.isArray(point) && point.length === 2
+                    && Number.isInteger(Number(point[0])) && Number.isInteger(Number(point[1]))
+                    && Number(point[0]) >= 0 && Number(point[0]) < width
+                    && Number(point[1]) >= 0 && Number(point[1]) < height;
+                const centerValid = boardValid && inGrid(item.center);
+                const radius = Number(item.radius);
+                const radiusValid = Number.isInteger(radius) && radius >= 1;
+                const candidates = Array.isArray(item.candidates) ? item.candidates : [];
+                let candidatesValid = candidates.length >= 2 && candidates.every(inGrid);
+                let exactCount = 0;
+                if (centerValid && radiusValid && candidatesValid) {
+                    for (const point of candidates) {
+                        const dx = Number(point[0]) - Number(item.center[0]);
+                        const dy = Number(point[1]) - Number(item.center[1]);
+                        if (dx * dx + dy * dy === radius * radius) exactCount++;
+                    }
+                }
+                if (!centerValid || !radiusValid || !candidatesValid || exactCount !== 1) {
+                    return { valid: false, reason: `construction-report invalide dans ${exercise.params.category}.` };
                 }
             }
         }

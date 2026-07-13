@@ -1,0 +1,510 @@
+{
+    "categories": {
+        "cm1_angle_measure": [
+            {
+                "prompt": "Observe cet angle avec le rapporteur. Quelle est sa mesure en degrés ?",
+                "board": {
+                    "width": 10,
+                    "height": 6.4,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 8.2,
+                            "y2": 3.2
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 6.7,
+                            "y2": 1.5
+                        }
+                    ],
+                    "arc": {
+                        "vertex": [
+                            5,
+                            3.2
+                        ],
+                        "start": [
+                            5.8,
+                            3.2
+                        ],
+                        "end": [
+                            5.68,
+                            2.87
+                        ],
+                        "largeArc": 0
+                    }
+                },
+                "answerDegrees": 45,
+                "choices": [30, 45, 60, 90],
+                "explanation": "Le rapporteur indique 45° : l'angle est aigu, entre 0° et 90°."
+            },
+            {
+                "prompt": "Observe cet angle avec le rapporteur. Quelle est sa mesure en degrés ?",
+                "board": {
+                    "width": 10,
+                    "height": 6.4,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 8.2,
+                            "y2": 3.2
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 5,
+                            "y2": 0.4
+                        }
+                    ],
+                    "arc": {
+                        "vertex": [
+                            5,
+                            3.2
+                        ],
+                        "start": [
+                            5.8,
+                            3.2
+                        ],
+                        "end": [
+                            5,
+                            2.4
+                        ],
+                        "largeArc": 0
+                    }
+                },
+                "answerDegrees": 90,
+                "choices": [60, 90, 120, 150],
+                "explanation": "Le rapporteur indique 90° : c'est un angle droit, comme le coin d'une feuille."
+            },
+            {
+                "prompt": "Observe cet angle avec le rapporteur. Quelle est sa mesure en degrés ?",
+                "board": {
+                    "width": 10,
+                    "height": 6.4,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 8.2,
+                            "y2": 3.2
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 3.4,
+                            "y2": 1.2
+                        }
+                    ],
+                    "arc": {
+                        "vertex": [
+                            5,
+                            3.2
+                        ],
+                        "start": [
+                            5.8,
+                            3.2
+                        ],
+                        "end": [
+                            4.34,
+                            2.51
+                        ],
+                        "largeArc": 1
+                    }
+                },
+                "answerDegrees": 135,
+                "choices": [110, 135, 150, 170],
+                "explanation": "Le rapporteur indique 135° : l'angle est obtus, entre 90° et 180°."
+            },
+            {
+                "prompt": "Observe cet angle avec le rapporteur. Quelle est sa mesure en degrés ?",
+                "board": {
+                    "width": 10,
+                    "height": 6.4,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 8.2,
+                            "y2": 3.2
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 7.82,
+                            "y2": 2.54
+                        }
+                    ],
+                    "arc": {
+                        "vertex": [
+                            5,
+                            3.2
+                        ],
+                        "start": [
+                            5.8,
+                            3.2
+                        ],
+                        "end": [
+                            5.75,
+                            3.02
+                        ],
+                        "largeArc": 0
+                    }
+                },
+                "answerDegrees": 20,
+                "choices": [10, 20, 30, 160],
+                "explanation": "L'angle est très aigu : on lit 20°. Attention à la double graduation du rapporteur : ce n'est pas 160°."
+            },
+            {
+                "prompt": "Observe cet angle avec le rapporteur. Quelle est sa mesure en degrés ?",
+                "board": {
+                    "width": 10,
+                    "height": 6.4,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 8.2,
+                            "y2": 3.2
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 7.6,
+                            "y2": 2.24
+                        }
+                    ],
+                    "arc": {
+                        "vertex": [
+                            5,
+                            3.2
+                        ],
+                        "start": [
+                            5.8,
+                            3.2
+                        ],
+                        "end": [
+                            5.69,
+                            2.94
+                        ],
+                        "largeArc": 0
+                    }
+                },
+                "answerDegrees": 30,
+                "choices": [30, 40, 60, 150],
+                "explanation": "Le rapporteur indique 30° : l'angle est aigu, c'est le tiers d'un angle droit."
+            },
+            {
+                "prompt": "Observe cet angle avec le rapporteur. Quelle est sa mesure en degrés ?",
+                "board": {
+                    "width": 10,
+                    "height": 6.4,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 8.2,
+                            "y2": 3.2
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 6.72,
+                            "y2": 1.63
+                        }
+                    ],
+                    "arc": {
+                        "vertex": [
+                            5,
+                            3.2
+                        ],
+                        "start": [
+                            5.8,
+                            3.2
+                        ],
+                        "end": [
+                            5.46,
+                            2.78
+                        ],
+                        "largeArc": 0
+                    }
+                },
+                "answerDegrees": 55,
+                "choices": [35, 45, 55, 125],
+                "explanation": "Le rapporteur indique 55° : l'angle est aigu, un peu plus ouvert que 45°."
+            },
+            {
+                "prompt": "Observe cet angle avec le rapporteur. Quelle est sa mesure en degrés ?",
+                "board": {
+                    "width": 10,
+                    "height": 6.4,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 8.2,
+                            "y2": 3.2
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 6.5,
+                            "y2": 1.54
+                        }
+                    ],
+                    "arc": {
+                        "vertex": [
+                            5,
+                            3.2
+                        ],
+                        "start": [
+                            5.8,
+                            3.2
+                        ],
+                        "end": [
+                            5.4,
+                            2.76
+                        ],
+                        "largeArc": 0
+                    }
+                },
+                "answerDegrees": 60,
+                "choices": [30, 60, 90, 120],
+                "explanation": "Le rapporteur indique 60° : l'angle est aigu, comme chaque angle d'un triangle équilatéral."
+            },
+            {
+                "prompt": "Observe cet angle avec le rapporteur. Quelle est sa mesure en degrés ?",
+                "board": {
+                    "width": 10,
+                    "height": 6.4,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 8.2,
+                            "y2": 3.2
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 6.03,
+                            "y2": 1.4
+                        }
+                    ],
+                    "arc": {
+                        "vertex": [
+                            5,
+                            3.2
+                        ],
+                        "start": [
+                            5.8,
+                            3.2
+                        ],
+                        "end": [
+                            5.27,
+                            2.72
+                        ],
+                        "largeArc": 0
+                    }
+                },
+                "answerDegrees": 70,
+                "choices": [50, 70, 110, 130],
+                "explanation": "Le rapporteur indique 70° : l'angle est aigu, presque droit mais pas tout à fait."
+            },
+            {
+                "prompt": "Observe cet angle avec le rapporteur. Quelle est sa mesure en degrés ?",
+                "board": {
+                    "width": 10,
+                    "height": 6.4,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 8.2,
+                            "y2": 3.2
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 3.97,
+                            "y2": 1.4
+                        }
+                    ],
+                    "arc": {
+                        "vertex": [
+                            5,
+                            3.2
+                        ],
+                        "start": [
+                            5.8,
+                            3.2
+                        ],
+                        "end": [
+                            4.73,
+                            2.72
+                        ],
+                        "largeArc": 0
+                    }
+                },
+                "answerDegrees": 110,
+                "choices": [70, 90, 110, 130],
+                "explanation": "Le rapporteur indique 110° : l'angle dépasse 90°, il est obtus."
+            },
+            {
+                "prompt": "Observe cet angle avec le rapporteur. Quelle est sa mesure en degrés ?",
+                "board": {
+                    "width": 10,
+                    "height": 6.4,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 8.2,
+                            "y2": 3.2
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 3.5,
+                            "y2": 1.54
+                        }
+                    ],
+                    "arc": {
+                        "vertex": [
+                            5,
+                            3.2
+                        ],
+                        "start": [
+                            5.8,
+                            3.2
+                        ],
+                        "end": [
+                            4.6,
+                            2.76
+                        ],
+                        "largeArc": 0
+                    }
+                },
+                "answerDegrees": 120,
+                "choices": [60, 100, 120, 140],
+                "explanation": "Le rapporteur indique 120° : l'angle est obtus, c'est un angle droit plus un tiers d'angle droit."
+            },
+            {
+                "prompt": "Observe cet angle avec le rapporteur. Quelle est sa mesure en degrés ?",
+                "board": {
+                    "width": 10,
+                    "height": 6.4,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 8.2,
+                            "y2": 3.2
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 2.4,
+                            "y2": 2.24
+                        }
+                    ],
+                    "arc": {
+                        "vertex": [
+                            5,
+                            3.2
+                        ],
+                        "start": [
+                            5.8,
+                            3.2
+                        ],
+                        "end": [
+                            4.31,
+                            2.94
+                        ],
+                        "largeArc": 0
+                    }
+                },
+                "answerDegrees": 150,
+                "choices": [30, 120, 150, 165],
+                "explanation": "L'angle est très ouvert : on lit 150°. Sur la double graduation, il ne faut pas confondre avec 30°."
+            },
+            {
+                "prompt": "Observe cet angle avec le rapporteur. Quelle est sa mesure en degrés ?",
+                "board": {
+                    "width": 10,
+                    "height": 6.4,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 8.2,
+                            "y2": 3.2
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 3.2,
+                            "x2": 2.18,
+                            "y2": 2.54
+                        }
+                    ],
+                    "arc": {
+                        "vertex": [
+                            5,
+                            3.2
+                        ],
+                        "start": [
+                            5.8,
+                            3.2
+                        ],
+                        "end": [
+                            4.25,
+                            3.02
+                        ],
+                        "largeArc": 0
+                    }
+                },
+                "answerDegrees": 160,
+                "choices": [20, 140, 160, 180],
+                "explanation": "Le rapporteur indique 160° : l'angle est obtus, presque plat. Attention à ne pas lire 20° sur l'autre graduation."
+            }
+        ]
+    }
+}

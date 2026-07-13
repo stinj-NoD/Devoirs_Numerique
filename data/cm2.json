@@ -1181,6 +1181,18 @@
                             }
                         },
                         {
+                            "id": "cm2-geo-angle-measure",
+                            "title": "Mesurer un angle",
+                            "subtitle": "Lis la mesure au rapporteur, au degré près",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "angle-measure",
+                                "dataFile": "data/board_angle_measure_cm2.json",
+                                "category": "cm2_angle_measure",
+                                "questions": 5
+                            }
+                        },
+                        {
                             "id": "cm2-bonus-volume-pave-expert",
                             "title": "Défi : volumes experts",
                             "subtitle": "Pavés droits jusqu'à 15",
@@ -1249,6 +1261,41 @@
                                 "maxValue": 40,
                                 "questions": 8
                             }
+                        },
+                        {
+                            "id": "cm2-tableau-double-entree",
+                            "title": "Lire un tableau à double entrée",
+                            "subtitle": "Cases, totaux de ligne et de colonne",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "data-table-read",
+                                "maxRows": 4,
+                                "maxCols": 3,
+                                "maxValue": 20,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-diagramme-circulaire",
+                            "title": "Lire un diagramme circulaire",
+                            "subtitle": "Repérer la plus grande et la plus petite part",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "pie-chart-read",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm2-calcul-moyenne",
+                            "title": "Calculer une moyenne",
+                            "subtitle": "Somme d'une série divisée par son nombre de termes",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "average-compute",
+                                "length": 5,
+                                "maxValue": 20,
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -1280,6 +1327,68 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Un graphique permet de comparer des données rapidement, sans tout recalculer."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-lire-tableau-diagramme",
+                            "title": "Lire un tableau et un diagramme circulaire",
+                            "subtitle": "Trouver une information sans tout lire",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un tableau à double entrée croise deux informations : chaque case se lit au croisement d’une ligne et d’une colonne. Un diagramme circulaire partage un disque en parts : plus la part est grande, plus la quantité est importante."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Pour savoir combien de livres la classe de CM2 a empruntés en mars, on repère la ligne « CM2 », la colonne « Mars », puis on lit la case où elles se croisent."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "la ligne se lit horizontalement, la colonne verticalement",
+                                        "le total d’une ligne s’obtient en additionnant toutes ses cases",
+                                        "dans un diagramme circulaire, la moitié du disque représente 50 %",
+                                        "un quart du disque représente 25 %"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Tableaux et diagrammes présentent les mêmes informations qu’un long texte, mais d’un seul coup d’œil."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-moyenne",
+                            "title": "La moyenne",
+                            "subtitle": "Une valeur qui résume toute une série",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La moyenne résume une série de nombres par une seule valeur. On additionne toutes les valeurs, puis on divise la somme par le nombre de valeurs."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Notes de Lina : 12, 15 et 9. Somme : 12 + 15 + 9 = 36. Il y a 3 notes, donc la moyenne est 36 ÷ 3 = 12."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "additionner toutes les valeurs de la série",
+                                        "compter combien il y a de valeurs",
+                                        "diviser la somme par ce nombre",
+                                        "la moyenne se situe toujours entre la plus petite et la plus grande valeur"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Moyenne = somme des valeurs ÷ nombre de valeurs."
                                 }
                             ]
                         }
@@ -1878,6 +1987,17 @@
                             }
                         },
                         {
+                            "id": "cm2-g-nature-fonction",
+                            "title": "Nature et fonction des mots",
+                            "subtitle": "Adverbe, pronom, COD, complément circonstanciel",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "nature_fonction_cm2",
+                                "questions": 8
+                            }
+                        },
+                        {
                             "id": "cm2_g_cloze_det",
                             "title": "Déterminant dans la phrase",
                             "subtitle": "Choisir le bon mot outil",
@@ -1906,6 +2026,17 @@
                             "params": {
                                 "type": "grammar-cloze",
                                 "category": "grammar_agreement_cm2",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-g-accord-sujet-verbe",
+                            "title": "Accorder le verbe avec son sujet",
+                            "subtitle": "Sujet inversé, éloigné ou multiple",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "accord_sujet_verbe_cm2",
                                 "questions": 8
                             }
                         },
@@ -2116,6 +2247,54 @@
                                 }
                             ],
                             "format": "lesson-card"
+                        },
+                        {
+                            "id": "cm2-lesson-nature-fonction",
+                            "title": "Nature et fonction d’un mot",
+                            "subtitle": "Ce qu’est le mot, et le rôle qu’il joue",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La nature d’un mot, c’est sa catégorie : nom, verbe, adjectif, déterminant, pronom ou adverbe. Elle ne change pas. La fonction, c’est le rôle du mot dans la phrase : sujet, COD, COI ou complément circonstanciel. Elle peut changer d’une phrase à l’autre."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans « Le vent pousse le voilier », le groupe nominal « le vent » est sujet. Dans « J’écoute le vent », le même groupe devient COD."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "label": "Trouver la fonction",
+                                    "headers": [
+                                        "Question à se poser",
+                                        "Fonction"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "Qui fait l’action ?",
+                                            "sujet"
+                                        ],
+                                        [
+                                            "Verbe + quoi ? qui ?",
+                                            "COD"
+                                        ],
+                                        [
+                                            "Verbe + à qui ? à quoi ?",
+                                            "COI"
+                                        ],
+                                        [
+                                            "Où ? Quand ? Comment ?",
+                                            "complément circonstanciel"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "La nature est fixe comme la carte d’identité du mot ; la fonction dépend de la phrase."
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2546,7 +2725,31 @@
                                 "type": "factual-qcm",
                                 "dataFile": "data/history_cm2.json",
                                 "category": "cm2-decolonisation",
-                                "questions": 6
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-histoire-premiere-guerre",
+                            "title": "La Première Guerre mondiale",
+                            "subtitle": "1914-1918 : causes, tranchées, armistice",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm2.json",
+                                "category": "cm2-premiere-guerre-mondiale",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-histoire-seconde-guerre",
+                            "title": "La Seconde Guerre mondiale",
+                            "subtitle": "Occupation, Résistance, Libération",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm2.json",
+                                "category": "cm2-seconde-guerre-mondiale",
+                                "questions": 8
                             }
                         },
                         {
@@ -2688,6 +2891,103 @@
                                     "type": "tip",
                                     "content": "Les repères du XXe siècle servent à situer les grandes ruptures de l'histoire contemporaine.",
                                     "label": "À retenir"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-premiere-guerre-mondiale",
+                            "title": "La Première Guerre mondiale (1914-1918)",
+                            "subtitle": "Des tranchées à l’armistice",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "En 1914, les grandes puissances européennes, liées par des alliances rivales, entrent en guerre après l’assassinat de l’archiduc d’Autriche à Sarajevo. La France combat aux côtés du Royaume-Uni et de la Russie contre l’Allemagne et l’Autriche-Hongrie."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "En 1916, la bataille de Verdun dure dix mois : les soldats français, surnommés les poilus, résistent dans les tranchées, des fossés creusés dans le sol pour se protéger."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Vocabulaire et repères",
+                                    "items": [
+                                        "1914 : début de la guerre après l’attentat de Sarajevo",
+                                        "les poilus : surnom des soldats français",
+                                        "les tranchées : une guerre longue qui s’enlise",
+                                        "11 novembre 1918 : l’armistice arrête les combats"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "La Première Guerre mondiale (1914-1918) est une guerre longue et très meurtrière ; l’armistice du 11 novembre 1918, toujours commémoré, met fin aux combats."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-seconde-guerre-mondiale",
+                            "title": "La Seconde Guerre mondiale (1939-1945)",
+                            "subtitle": "Occupation, Résistance, Libération",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "En 1939, l’Allemagne nazie envahit la Pologne : la Seconde Guerre mondiale commence. Vaincue en 1940, la France est en partie occupée par l’armée allemande et la vie quotidienne devient très difficile."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Depuis Londres, le général de Gaulle lance le 18 juin 1940 un appel à poursuivre le combat : des hommes et des femmes, comme Jean Moulin, s’engagent dans la Résistance."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Vocabulaire et repères",
+                                    "items": [
+                                        "l’Occupation : la présence de l’armée allemande en France",
+                                        "la Résistance : ceux qui refusent la défaite et agissent dans l’ombre",
+                                        "6 juin 1944 : débarquement des Alliés en Normandie",
+                                        "8 mai 1945 : victoire des Alliés en Europe"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Occupée à partir de 1940, la France est libérée grâce à l’action des Alliés et de la Résistance ; la guerre s’achève en Europe le 8 mai 1945."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-decolonisation",
+                            "title": "La décolonisation",
+                            "subtitle": "Les colonies deviennent des pays indépendants",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Au milieu du XXe siècle, la France et d’autres pays européens possèdent encore des colonies, des territoires qu’ils dominent en Asie et en Afrique. Après la Seconde Guerre mondiale, les peuples colonisés réclament leur indépendance : c’est la décolonisation."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "L’Inde devient indépendante du Royaume-Uni en 1947. En 1960, quatorze colonies françaises d’Afrique deviennent des États indépendants, comme le Sénégal."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Vocabulaire et repères",
+                                    "items": [
+                                        "colonie : territoire dominé par un pays étranger",
+                                        "indépendance : quand un peuple se gouverne lui-même",
+                                        "1947 : indépendance de l’Inde",
+                                        "1954-1962 : guerre d’Algérie, close par les accords d’Évian",
+                                        "années 1950-1960 : la plupart des indépendances"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "En une vingtaine d’années, la plupart des colonies deviennent des pays indépendants, parfois par la négociation, parfois après une guerre."
                                 }
                             ]
                         }
@@ -3317,6 +3617,18 @@
                             }
                         },
                         {
+                            "id": "cm2-geo-espaces-ruraux",
+                            "title": "Espaces ruraux",
+                            "subtitle": "Vivre et travailler à la campagne",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm2.json",
+                                "category": "cm2-espaces-ruraux",
+                                "questions": 8
+                            }
+                        },
+                        {
                             "id": "cm2-bonus-geo-habiter-defi",
                             "title": "Défi : habiter",
                             "subtitle": "Sans erreur",
@@ -3415,6 +3727,81 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Un territoire se décrit par ses paysages, ses habitants et ses activités."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-vivre-campagne",
+                            "title": "Vivre à la campagne",
+                            "subtitle": "Les espaces ruraux et leurs habitants",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Les espaces ruraux sont les campagnes : des villages, des champs, des prairies et des forêts. La population y est moins nombreuse et plus dispersée qu’en ville, et l’agriculture y occupe une place importante."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans un village, l’école regroupe parfois les enfants de plusieurs communes, et certains habitants font chaque jour la route vers la ville pour travailler."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Mots de la géographie",
+                                    "items": [
+                                        "espace rural : espace de faible densité, dominé par les champs et les villages",
+                                        "agriculture : culture des champs et élevage des animaux",
+                                        "périurbanisation : installation de citadins autour des villes",
+                                        "bourg : centre du village avec commerces et services"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Vivre à la campagne offre espace et nature, mais demande souvent de se déplacer pour accéder aux services."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-littoral-montagne",
+                            "title": "Vivre sur le littoral ou à la montagne",
+                            "subtitle": "Des espaces attractifs avec des contraintes",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le littoral (au bord de la mer) et la montagne attirent habitants et touristes par leurs paysages et leurs activités. Mais la nature y impose aussi des contraintes : tempêtes, pente, neige ou isolement."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "En hiver, une station de ski fait vivre toute une vallée ; l’été, un port de plaisance et ses plages font vivre une commune du littoral."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "label": "Comparer deux espaces",
+                                    "headers": [
+                                        "Espace",
+                                        "Activités",
+                                        "Contraintes"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "Littoral",
+                                            "pêche, ports, tourisme balnéaire",
+                                            "tempêtes, érosion des côtes"
+                                        ],
+                                        [
+                                            "Montagne",
+                                            "élevage, ski, randonnée",
+                                            "pente, neige, accès difficile"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Les habitants aménagent ces espaces (ports, digues, stations, routes) pour profiter des atouts et se protéger des contraintes."
                                 }
                             ]
                         }
@@ -4698,6 +5085,30 @@
                             }
                         },
                         {
+                            "id": "cm2-sciences-etats-eau",
+                            "title": "Les états de l’eau",
+                            "subtitle": "Glace, eau liquide, vapeur",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-etats-eau",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-sciences-melanges-solutions",
+                            "title": "Mélanges et solutions",
+                            "subtitle": "Dissoudre, filtrer, décanter",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-melanges-solutions",
+                                "questions": 8
+                            }
+                        },
+                        {
                             "id": "cm2-sciences-lumiere-son",
                             "title": "Lumière et son",
                             "subtitle": "Propagation, ombre, vibration",
@@ -4706,6 +5117,30 @@
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm2.json",
                                 "category": "cm2-lumiere-son",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-sciences-lumiere-ombres",
+                            "title": "Lumière et ombres",
+                            "subtitle": "Sources de lumière, propagation, ombres",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-sources-lumiere-ombres",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-sciences-son-volume",
+                            "title": "Le son",
+                            "subtitle": "Vibrations, propagation, volume",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-son-propagation",
                                 "questions": 8
                             }
                         },

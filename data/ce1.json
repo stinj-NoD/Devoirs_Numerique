@@ -1488,6 +1488,36 @@
                                 "category": "ce1_lecture_ordre_evenements",
                                 "questions": 5
                             }
+                        },
+                        {
+                            "id": "ce1-lecture-texte-ecole",
+                            "title": "Une histoire à l'école",
+                            "subtitle": "Comprendre un texte de la vie de classe",
+                            "engine": "reading",
+                            "params": {
+                                "category": "ce1_comprehension_texte_ecole",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce1-lecture-texte-nature",
+                            "title": "Une histoire dans la nature",
+                            "subtitle": "Comprendre un texte sur les animaux et les saisons",
+                            "engine": "reading",
+                            "params": {
+                                "category": "ce1_comprehension_texte_nature",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce1-lecture-copie-guidee",
+                            "title": "Copie le mot manquant",
+                            "subtitle": "Recopie le bon mot dans la phrase",
+                            "engine": "cloze-fill-in",
+                            "params": {
+                                "category": "copie_guidee_ce1",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -1647,6 +1677,37 @@
                                     "content": "Connaître les contraires aide à préciser et à varier son vocabulaire."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-ordre-alphabetique",
+                            "title": "L'ordre alphabétique",
+                            "subtitle": "Ranger les mots comme dans le dictionnaire",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Les mots du dictionnaire sont rangés dans l'ordre de l'alphabet : a, b, c, d... Pour comparer deux mots, on regarde leur première lettre différente."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "chat vient avant chien : les deux mots commencent par « ch », mais a vient avant i dans l'alphabet."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "je compare d'abord la première lettre de chaque mot",
+                                        "si elle est identique, je compare la deuxième lettre, puis la troisième",
+                                        "le dictionnaire range tous les mots dans cet ordre"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Connaître l'ordre alphabétique permet de retrouver vite un mot dans un dictionnaire."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -1700,6 +1761,17 @@
                                 "category": "alpha_order_ce1",
                                 "dataFile": "data/french_word_order.json",
                                 "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce1-vocab-dictionnaire",
+                            "title": "Le dictionnaire",
+                            "subtitle": "Relie chaque mot à sa place",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_alphabet_ce1",
+                                "dataFile": "data/french/matching.json",
+                                "questions": 3
                             }
                         },
                         {
@@ -1815,6 +1887,37 @@
                                 }
                             ],
                             "format": "lesson-card"
+                        },
+                        {
+                            "id": "ce1-lesson-accord-det-nom",
+                            "title": "L'accord déterminant-nom",
+                            "subtitle": "Le déterminant change avec le nom",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le déterminant doit toujours s'accorder avec le nom qu'il accompagne : il change selon que le nom est au singulier ou au pluriel, masculin ou féminin."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "le chat (un seul) → les chats (plusieurs) ; une pomme (féminin) → un fruit (masculin)."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "un nom au pluriel prend souvent un s : le déterminant devient les ou des",
+                                        "un nom féminin utilise la ou une, un nom masculin utilise le ou un",
+                                        "je vérifie toujours l'accord en relisant le groupe déterminant + nom"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Si le nom prend un s, pense à accorder aussi son déterminant : les, des."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -1906,6 +2009,17 @@
                                 "type": "grammar-cloze",
                                 "category": "grammar_agreement_ce1",
                                 "questions": 10
+                            }
+                        },
+                        {
+                            "id": "ce1-gram-accord-det-nom",
+                            "title": "Le déterminant et le nom",
+                            "subtitle": "Bien accorder le, la, les, un, une, des",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "grammar_det_nom_ce1",
+                                "questions": 8
                             }
                         },
                         {

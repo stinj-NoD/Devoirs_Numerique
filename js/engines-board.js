@@ -62,6 +62,10 @@ const EnginesBoard = {
                 return this.memoryMatch(entry);
             case 'angle-classify':
                 return this.angleClassify(entry);
+            case 'angle-measure':
+                return this.angleMeasure(entry);
+            case 'construction-report':
+                return this.constructionReport(entry);
             default:
                 return Engines.fallback("Type d'activité interactive inconnu");
         }
@@ -91,6 +95,76 @@ const EnginesBoard = {
                 answerId,
                 userState: {
                     selectedId: null
+                }
+            }
+        };
+    },
+
+    angleMeasure(entry) {
+        // Pas de mécanisme de tolérance numérique disponible ailleurs dans le
+        // projet (aucune marge d'erreur gérée pour une réponse chiffrée libre
+        // en app.js/engines.js) : on reste dans le patron `choice` déjà établi
+        // (comme angle-classify) plutôt que d'introduire un nouveau système.
+        // L'entrée fournit donc answerDegrees + une liste de choix proches en
+        // degrés (dont answerDegrees fait partie).
+        const answerDegrees = Number(entry.answerDegrees);
+        const rawChoices = Array.isArray(entry.choices) && entry.choices.length >= 3
+            ? entry.choices.map((value) => Number(value))
+            : [answerDegrees];
+        const choices = [...new Set(rawChoices)].filter((value) => Number.isFinite(value)).sort((a, b) => a - b);
+        return {
+            question: SecurityUtils.escapeHtml(entry.prompt || "Mesure cet angle avec le rapporteur. Quelle est sa mesure en degrés ?"),
+            answer: String(answerDegrees),
+            inputType: 'board',
+            isVisual: true,
+            visualType: 'geometry-board',
+            explanation: entry.explanation || "",
+            data: {
+                boardKind: 'angle-measure',
+                board: entry.board || { width: 10, height: 6, grid: false },
+                drawing: entry.drawing || {},
+                choices,
+                answerDegrees,
+                userState: {
+                    selectedDegrees: null
+                }
+            }
+        };
+    },
+
+    constructionReport(entry) {
+        // Compréhension du geste de construction au compas (report de
+        // longueur), pas un simulateur de tracé : l'app n'a aucun mécanisme
+        // de tracé libre, on reste sur le patron discret "points cliquables
+        // sur quadrillage" de point-on-grid. L'élève identifie le candidat
+        // situé exactement à `radius` carreaux du centre.
+        const center = Array.isArray(entry.center) && entry.center.length === 2
+            ? [Number(entry.center[0]), Number(entry.center[1])]
+            : [0, 0];
+        const radius = Number(entry.radius) || 1;
+        const candidates = (Array.isArray(entry.candidates) ? entry.candidates : [])
+            .filter((point) => Array.isArray(point) && point.length === 2)
+            .map((point) => [Number(point[0]), Number(point[1])]);
+        const answerPoint = candidates.find((point) => {
+            const dx = point[0] - center[0];
+            const dy = point[1] - center[1];
+            return dx * dx + dy * dy === radius * radius;
+        }) || null;
+        return {
+            question: SecurityUtils.escapeHtml(entry.prompt || `Le compas est piqué au point rouge, avec un écartement de ${radius} carreau${radius > 1 ? 'x' : ''}. Touche le point où la pointe du crayon peut arriver.`),
+            answer: this.canonicalizePoint(answerPoint),
+            inputType: 'board',
+            isVisual: true,
+            visualType: 'geometry-board',
+            explanation: entry.explanation || "",
+            data: {
+                boardKind: 'construction-report',
+                board: entry.board || { width: 10, height: 10, grid: true },
+                center,
+                radius,
+                candidates,
+                userState: {
+                    selectedIndex: null
                 }
             }
         };

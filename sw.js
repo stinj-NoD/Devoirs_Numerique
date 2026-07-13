@@ -3,7 +3,7 @@
  * Robustesse offline/PWA
  */
 
-const CACHE_NAME = 'dn-v4.13.1-fix-map-zoom-cache-refresh';
+const CACHE_NAME = 'dn-v4.14.0-vague-l70-l77-contenu-moteurs';
 const OFFLINE_URL = './offline.html';
 
 const APP_ASSETS = [
@@ -41,6 +41,10 @@ const DATA_ASSETS = [
   './data/french/matching.json',
   './data/french/reading.json',
   './data/french/spelling.json',
+  './data/board_angle_classify_cm1.json',
+  './data/board_angle_measure_cm1.json',
+  './data/board_angle_measure_cm2.json',
+  './data/board_construction_cm1.json',
   './data/board_geography_cm2.json',
   './data/board_geometry_cm1.json',
   './data/board_geometry_cm2.json',
@@ -65,6 +69,7 @@ const DATA_ASSETS = [
   './data/board_memory_match_ce2.json',
   './data/board_memory_match_cp.json',
   './data/board_point_on_grid_ce2.json',
+  './data/board_point_on_grid_cp.json',
   './data/board_point_on_grid_cm1.json',
   './data/board_shape_classify_cm1.json',
   './data/board_shape_classify_cm2.json',
@@ -86,6 +91,7 @@ const DATA_ASSETS = [
   './data/emc_cm2.json',
   './data/emc_matching.json',
   './data/french_cp_grammar.json',
+  './data/french_ce1_comprehension.json',
   './data/french_ce1_reading.json',
   './data/french_ce2_reading.json',
   './data/french_cm1_reading.json',
@@ -113,6 +119,7 @@ const DATA_ASSETS = [
   './data/math_matching.json',
   './data/math_word_problems_cycle2.json',
   './data/math_word_problems_cycle3.json',
+  './data/quiz_culture.json',
   './data/science_cp.json',
   './data/science_ce1.json',
   './data/science_ce2.json',

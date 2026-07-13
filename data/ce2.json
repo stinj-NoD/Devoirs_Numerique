@@ -1983,6 +1983,36 @@
                                     "content": "Repérer le champ lexical aide à comprendre de quoi parle un texte."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce2-lesson-ordre-alphabetique-dictionnaire",
+                            "title": "L'ordre alphabétique et le dictionnaire",
+                            "subtitle": "Trouver un mot rapidement",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans le dictionnaire, tous les mots sont rangés dans l'ordre alphabétique. Quand deux mots commencent par la même lettre, on regarde la 2e lettre, puis la 3e si besoin, jusqu'à trouver une différence."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "table, tambour, tapis, tarte : tous commencent par TA, alors on compare la 3e lettre (B, M, P, R) pour les ranger."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "en haut de chaque page, deux mots-repères indiquent le premier et le dernier mot de la page",
+                                        "un mot se trouve sur la page si son ordre alphabétique tombe entre les deux mots-repères",
+                                        "un article de dictionnaire donne la nature du mot (nom, verbe, adjectif...) puis sa définition"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Plus deux mots se ressemblent au début, plus il faut comparer de lettres pour savoir lequel vient en premier."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -2034,6 +2064,17 @@
                                 "category": "alpha_order_ce2",
                                 "dataFile": "data/french_word_order.json",
                                 "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce2-vocab-dictionnaire-reperes",
+                            "title": "Utiliser le dictionnaire",
+                            "subtitle": "Retrouve la page grâce aux mots-repères",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_dictionnaire_ce2",
+                                "dataFile": "data/french/matching.json",
+                                "questions": 2
                             }
                         },
                         {

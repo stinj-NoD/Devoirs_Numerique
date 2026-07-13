@@ -246,6 +246,183 @@
                     explanation
                 };
             }
+            case 'data-table-read': {
+                const themes = p.themes || [
+                    { unit: 'fruits vendus', rowLabels: ['Pommes', 'Poires', 'Bananes', 'Oranges'], colLabels: ['Lundi', 'Mardi', 'Mercredi'] },
+                    { unit: 'livres empruntés', rowLabels: ['CE2', 'CM1', 'CM2'], colLabels: ['Janvier', 'Février', 'Mars'] },
+                    { unit: 'points marqués', rowLabels: ['Équipe A', 'Équipe B', 'Équipe C'], colLabels: ['Match 1', 'Match 2'] },
+                    { unit: 'entrées au musée', rowLabels: ['Enfants', 'Adultes', 'Seniors', 'Groupes'], colLabels: ['Samedi', 'Dimanche'] }
+                ];
+                const theme = pick(themes);
+                const rowCount = Math.max(3, Math.min(theme.rowLabels.length, p.maxRows || theme.rowLabels.length));
+                const colCount = Math.max(2, Math.min(theme.colLabels.length, p.maxCols || theme.colLabels.length));
+                const rowLabels = shuffle(theme.rowLabels).slice(0, rowCount);
+                const colLabels = shuffle(theme.colLabels).slice(0, colCount);
+                const maxCell = p.maxValue || 20;
+
+                // Grille de valeurs (avec répétitions possibles d'une cellule à
+                // l'autre : contrairement au diagramme en barres, ici on compare
+                // des cellules identifiées par (ligne, colonne), donc deux
+                // cellules égales ne créent pas d'ambiguïté de question).
+                const grid = rowLabels.map(() => colLabels.map(() => rnd(1, maxCell)));
+
+                const rowTotals = grid.map((row) => row.reduce((a, b) => a + b, 0));
+                const colTotals = colLabels.map((_, c) => grid.reduce((sum, row) => sum + row[c], 0));
+
+                const questionKinds = p.questionKinds || ['cell', 'row-total', 'col-total', 'compare'];
+                const kind = pick(questionKinds);
+
+                let question, answer, explanation;
+                if (kind === 'cell') {
+                    const r = rnd(0, rowCount - 1);
+                    const c = rnd(0, colCount - 1);
+                    question = `Dans le tableau, combien de ${theme.unit} pour « ${rowLabels[r]} » à « ${colLabels[c]} » ?`;
+                    answer = grid[r][c];
+                    explanation = `La case « ${rowLabels[r]} » / « ${colLabels[c]} » indique ${grid[r][c]}.`;
+                } else if (kind === 'row-total') {
+                    const r = rnd(0, rowCount - 1);
+                    question = `Quel est le total de la ligne « ${rowLabels[r]} » ?`;
+                    answer = rowTotals[r];
+                    explanation = `${grid[r].join(' + ')} = ${rowTotals[r]}.`;
+                } else if (kind === 'col-total') {
+                    const c = rnd(0, colCount - 1);
+                    question = `Quel est le total de la colonne « ${colLabels[c]} » ?`;
+                    answer = colTotals[c];
+                    explanation = `${grid.map((row) => row[c]).join(' + ')} = ${colTotals[c]}.`;
+                } else {
+                    const r1 = rnd(0, rowCount - 1);
+                    let r2 = rnd(0, rowCount - 1);
+                    if (r2 === r1) r2 = (r1 + 1) % rowCount;
+                    const c = rnd(0, colCount - 1);
+                    const v1 = grid[r1][c];
+                    const v2 = grid[r2][c];
+                    if (v1 === v2) {
+                        // Repli déterministe sur une question de cellule pour
+                        // éviter une comparaison sans réponse unique.
+                        question = `Dans le tableau, combien de ${theme.unit} pour « ${rowLabels[r1]} » à « ${colLabels[c]} » ?`;
+                        answer = v1;
+                        explanation = `La case « ${rowLabels[r1]} » / « ${colLabels[c]} » indique ${v1}.`;
+                    } else {
+                        const winner = v1 > v2 ? rowLabels[r1] : rowLabels[r2];
+                        question = `Pour « ${colLabels[c]} », qui a le plus de ${theme.unit} : « ${rowLabels[r1]} » ou « ${rowLabels[r2]} » ?`;
+                        answer = winner;
+                        explanation = `« ${rowLabels[r1]} » = ${v1}, « ${rowLabels[r2]} » = ${v2}, donc « ${winner} » a le plus.`;
+                    }
+                }
+
+                const isNumeric = typeof answer === 'number';
+                const choices = isNumeric ? undefined : shuffle([answer, ...rowLabels.filter((l) => l !== answer)].slice(0, Math.min(3, rowLabels.length)));
+                return {
+                    question: SecurityUtils.escapeHtml(question),
+                    answer: answer.toString(),
+                    inputType: isNumeric ? 'numeric' : 'qcm',
+                    isVisual: true,
+                    visualType: 'dataTable',
+                    data: { rowLabels, colLabels, grid, unit: theme.unit, choices },
+                    explanation
+                };
+            }
+            case 'pie-chart-read': {
+                const themes = p.themes || [
+                    { unit: 'des dépenses du mois', labels: ['Loisirs', 'Nourriture', 'Transport', 'Épargne'] },
+                    { unit: 'des élèves de la classe', labels: ['Vélo', 'Bus', 'À pied', 'Voiture'] },
+                    { unit: 'des fruits du panier', labels: ['Pommes', 'Bananes', 'Oranges', 'Raisins'] },
+                    { unit: 'du temps libre', labels: ['Sport', 'Lecture', 'Jeux', 'Musique'] }
+                ];
+                const theme = pick(themes);
+                // Proportions rondes et lisibles à l'œil (pas de calcul d'angle
+                // exact attendu) : jeux de parts qui totalisent toujours 100.
+                const partSets = p.partSets || [
+                    [{ frac: 'la moitié', pct: 50 }, { frac: 'un quart', pct: 25 }, { frac: 'un quart', pct: 25 }],
+                    [{ frac: 'trois quarts', pct: 75 }, { frac: 'un quart', pct: 25 }],
+                    [{ frac: 'la moitié', pct: 50 }, { frac: 'un tiers', pct: 33 }, { frac: 'un sixième', pct: 17 }],
+                    [{ frac: 'un quart', pct: 25 }, { frac: 'un quart', pct: 25 }, { frac: 'la moitié', pct: 50 }]
+                ];
+                const parts = pick(partSets);
+                const labelCount = Math.min(theme.labels.length, parts.length);
+                const labels = shuffle(theme.labels).slice(0, labelCount);
+                const slices = parts.slice(0, labelCount).map((part, i) => ({ label: labels[i], pct: part.pct, frac: part.frac }));
+
+                const maxSlice = slices.reduce((best, s) => (s.pct > best.pct ? s : best), slices[0]);
+                const minSlice = slices.reduce((best, s) => (s.pct < best.pct ? s : best), slices[0]);
+                const halfSlice = slices.find((s) => s.pct === 50);
+
+                const questionKinds = p.questionKinds || (halfSlice ? ['max', 'min', 'half'] : ['max', 'min']);
+                const kind = pick(questionKinds);
+
+                let question, answer, explanation;
+                if (kind === 'max') {
+                    question = `Quelle est la plus grande part ${theme.unit} ?`;
+                    answer = maxSlice.label;
+                    explanation = `« ${maxSlice.label} » représente ${maxSlice.frac} (${maxSlice.pct} %), la plus grande part.`;
+                } else if (kind === 'min') {
+                    question = `Quelle est la plus petite part ${theme.unit} ?`;
+                    answer = minSlice.label;
+                    explanation = `« ${minSlice.label} » représente ${minSlice.frac} (${minSlice.pct} %), la plus petite part.`;
+                } else {
+                    question = `Quelle part représente la moitié ${theme.unit} ?`;
+                    answer = halfSlice.label;
+                    explanation = `« ${halfSlice.label} » représente la moitié (50 %) du total.`;
+                }
+
+                const choices = shuffle([answer, ...slices.filter((s) => s.label !== answer).map((s) => s.label)]);
+                return {
+                    question: SecurityUtils.escapeHtml(question),
+                    answer: answer.toString(),
+                    inputType: 'qcm',
+                    isVisual: true,
+                    visualType: 'pieChart',
+                    data: { slices, unit: theme.unit, choices },
+                    explanation
+                };
+            }
+            case 'average-compute': {
+                const seriesLength = p.length || rnd(4, 5);
+                const perValueMax = p.maxValue || 20;
+                // Tire seriesLength-1 valeurs libres puis dérive la dernière
+                // pour que la somme totale soit un multiple exact de
+                // seriesLength (moyenne entière garantie, sans décimaux).
+                const values = [];
+                for (let i = 0; i < seriesLength - 1; i++) values.push(rnd(1, perValueMax));
+                const partialSum = values.reduce((a, b) => a + b, 0);
+                const targetAverage = rnd(1, perValueMax);
+                let lastValue = (targetAverage * seriesLength) - partialSum;
+                // Rejette un tirage qui donnerait une dernière valeur hors bornes
+                // raisonnables (négative ou disproportionnée) en la recalculant
+                // depuis une moyenne cible dérivée directement de la série tirée.
+                if (lastValue < 1 || lastValue > perValueMax * 2) {
+                    const filler = rnd(1, perValueMax);
+                    values.push(filler);
+                    const total = values.reduce((a, b) => a + b, 0);
+                    // Ajuste la dernière valeur ajoutée pour que le total soit un
+                    // multiple de seriesLength, en restant positive.
+                    const remainder = total % seriesLength;
+                    if (remainder !== 0) {
+                        values[values.length - 1] += (seriesLength - remainder);
+                    }
+                } else {
+                    values.push(lastValue);
+                }
+                const sum = values.reduce((a, b) => a + b, 0);
+                const average = sum / seriesLength;
+                const contexts = p.contexts || [
+                    'notes obtenues à des contrôles',
+                    'buts marqués par match',
+                    'kilomètres parcourus par jour',
+                    'livres lus par mois'
+                ];
+                const context = pick(contexts);
+                const question = `Voici une série de ${context} : ${values.join(', ')}.<br>Quelle est la moyenne de cette série ?`;
+                const explanation = `${values.join(' + ')} = ${sum}. ${sum} ÷ ${seriesLength} = ${average}.`;
+                return {
+                    question: `<span class="small-question">${question}</span>`,
+                    answer: average.toString(),
+                    inputType: 'numeric',
+                    isVisual: false,
+                    data: { values, context },
+                    explanation
+                };
+            }
             default:
                 return { question: "Calcul inconnu", answer: 0 };
         }

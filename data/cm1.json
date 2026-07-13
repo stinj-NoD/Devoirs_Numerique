@@ -957,6 +957,66 @@
                             ]
                         },
                         {
+                            "id": "cm1-lesson-mesurer-angles",
+                            "title": "Mesurer un angle en degrés",
+                            "subtitle": "Le rapporteur et le degré",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour mesurer précisément un angle, on utilise une unité : le degré, noté °. Un angle droit mesure 90°, un angle plat mesure 180°. L'instrument qui sert à mesurer les angles est le rapporteur."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "On place le centre du rapporteur sur le sommet de l'angle et le zéro sur un côté : si l'autre côté passe par la graduation 60, l'angle mesure 60°."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "moins de 90° : l'angle est aigu",
+                                        "exactement 90° : l'angle est droit",
+                                        "entre 90° et 180° : l'angle est obtus"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le rapporteur porte deux graduations : avant de lire, demande-toi si l'angle est aigu ou obtus. Un angle aigu ne peut pas mesurer 160° !"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-compas-report",
+                            "title": "Le compas et le cercle",
+                            "subtitle": "Reporter une longueur",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le compas sert à tracer des cercles, mais aussi à reporter une longueur sans la mesurer. Tous les points du cercle sont à la même distance du centre : cette distance est le rayon."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Avec un écartement de 3 cm, le compas piqué en un point O trace un cercle de rayon 3 cm : chaque point du cercle est exactement à 3 cm de O."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "la pointe sèche se pique sur le centre",
+                                        "l'écartement du compas est le rayon",
+                                        "le diamètre traverse le cercle en passant par le centre : il vaut deux rayons"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Si l'écartement ne change pas, la longueur reportée est toujours exactement la même : c'est ce qui rend le compas si précis."
+                                }
+                            ]
+                        },
+                        {
                             "id": "cm1-lesson-perimetre",
                             "title": "Le périmètre",
                             "subtitle": "Mesurer le tour d'une figure",
@@ -1094,6 +1154,44 @@
                                 "dataFile": "data/board_angle_classify_cm1.json",
                                 "category": "cm1_angle_classify",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-angle-measure",
+                            "title": "Mesure l'angle au rapporteur",
+                            "subtitle": "Lis la mesure en degrés",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "angle-measure",
+                                "dataFile": "data/board_angle_measure_cm1.json",
+                                "category": "cm1_angle_measure",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-construction-compas",
+                            "title": "Le geste du compas",
+                            "subtitle": "Reporte une longueur sur le quadrillage",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "construction-report",
+                                "dataFile": "data/board_construction_cm1.json",
+                                "category": "cm1_construction_report",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-geo-angles-expert",
+                            "title": "Défi : le maître des angles",
+                            "subtitle": "Mesures au rapporteur sans filet",
+                            "engine": "board-interactive",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "angle-measure",
+                                "dataFile": "data/board_angle_measure_cm1.json",
+                                "category": "cm1_angle_measure",
+                                "questions": 9
                             }
                         },
                         {
@@ -1782,6 +1880,79 @@
                                 }
                             ],
                             "format": "lesson-card"
+                        },
+                        {
+                            "id": "cm1-lesson-present-3e-groupe",
+                            "title": "Le présent des verbes du 3e groupe",
+                            "subtitle": "Aller, faire, dire, prendre, venir…",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Les verbes du 3e groupe sont des verbes irréguliers très fréquents : aller, faire, dire, prendre, venir, voir, pouvoir, vouloir… Au présent, leur radical change souvent selon la personne, il faut donc les mémoriser."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Aller : je vais, tu vas, il va, nous allons, vous allez, ils vont. Le radical « all- » disparaît presque partout !"
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "label": "Pièges fréquents",
+                                    "headers": [
+                                        "Verbe",
+                                        "Formes à retenir"
+                                    ],
+                                    "rows": [
+                                        ["faire", "vous faites, ils font"],
+                                        ["dire", "vous dites, ils disent"],
+                                        ["prendre", "il prend, ils prennent"],
+                                        ["pouvoir", "je peux, ils peuvent"]
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "« Vous faites » et « vous dites » ne prennent pas de -ez : ce sont les deux grandes exceptions à connaître par cœur."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-futur-simple",
+                            "title": "Le futur simple",
+                            "subtitle": "Une action qui n'a pas encore eu lieu",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le futur simple exprime une action à venir. Ses terminaisons sont toujours les mêmes : -ai, -as, -a, -ons, -ez, -ont. Pour les verbes des 1er et 2e groupes, on les ajoute à l'infinitif entier."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Demain, je finirai mes devoirs, puis nous chanterons à la chorale : finir + ai, chanter + ons."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "label": "Radicaux irréguliers du 3e groupe",
+                                    "headers": [
+                                        "Verbe",
+                                        "Au futur"
+                                    ],
+                                    "rows": [
+                                        ["aller", "j'irai"],
+                                        ["faire", "je ferai"],
+                                        ["venir", "je viendrai"],
+                                        ["voir", "je verrai"],
+                                        ["pouvoir", "je pourrai"]
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Au futur, on entend toujours le son « r » avant la terminaison : je viendRAI, tu verRAS, ils iRONT."
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2321,6 +2492,26 @@
                             "params": {
                                 "category": "cm1_lecture_fait_opinion",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-lecture-recit-long",
+                            "title": "Lire entre les lignes",
+                            "subtitle": "Récits longs : déduire ce qui n'est pas écrit",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm1_lecture_recit_long",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-lecture-documentaire-long",
+                            "title": "Comprendre un documentaire",
+                            "subtitle": "Textes documentaires : trouver les indices",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm1_lecture_documentaire_long",
+                                "questions": 5
                             }
                         },
                         {
@@ -4288,8 +4479,8 @@
                         },
                         {
                             "id": "cm1-sciences-techno-energie",
-                            "title": "Sources d'énergie",
-                            "subtitle": "Électrique, solaire, mécanique...",
+                            "title": "Mécanismes en action",
+                            "subtitle": "Poulies, leviers et engrenages au quotidien",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -4299,9 +4490,21 @@
                             }
                         },
                         {
+                            "id": "cm1-sciences-techno-fonction",
+                            "title": "Les objets techniques",
+                            "subtitle": "Fonction d'usage, matériaux, énergie",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-techno-fonction-usage",
+                                "questions": 8
+                            }
+                        },
+                        {
                             "id": "cm1-bonus-sciences-techno-defi",
-                            "title": "Défi : machines et énergie",
-                            "subtitle": "Machines simples et sources d'énergie",
+                            "title": "Défi : machines et objets",
+                            "subtitle": "Machines simples en série longue",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -4309,7 +4512,7 @@
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
                                 "category": "cm1-techno-objets",
-                                "questions": 8
+                                "questions": 10
                             }
                         }
                     ],
@@ -4327,12 +4530,43 @@
                                 {
                                     "type": "example",
                                     "label": "Exemples",
-                                    "content": "Un ciseaux = deux leviers. Une rampe = un plan incliné. Un vélo = des engrenages. Une grue = des poulies."
+                                    "content": "Des ciseaux = deux leviers. Une rampe = un plan incliné. Un vélo = des engrenages. Une grue = des poulies."
                                 },
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Un levier tourne autour d'un point d'appui. Un engrenage transmet le mouvement grâce à des roues dentées."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-objets-techniques-fonction",
+                            "title": "Les objets techniques",
+                            "subtitle": "Fonction d'usage et matériaux",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un objet technique est fabriqué par l'être humain pour répondre à un besoin. Le service qu'il rend s'appelle sa fonction d'usage. Ses matériaux sont choisis en fonction de ce service."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "La fonction d'usage d'une casserole est de cuire les aliments : son corps est en métal, qui supporte la chaleur, mais son manche est en plastique, qui reste froid."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "fonction d'usage : à quoi sert l'objet ?",
+                                        "matériaux : métal, bois, verre, plastique, tissu…",
+                                        "énergie : musculaire, électrique, solaire…"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Les objets techniques évoluent avec le temps : la bougie puis l'ampoule ont la même fonction d'usage, éclairer."
                                 }
                             ]
                         }

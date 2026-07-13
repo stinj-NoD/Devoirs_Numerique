@@ -128,6 +128,50 @@ function Validate-Exercise($path, $themeId, $exercise) {
     if ($exercise.params.type -eq 'factual-qcm' -and -not (Is-NonEmptyString $exercise.params.category)) {
         Add-Issue("${path}: category manquante pour $($exercise.id)")
     }
+    if ($exercise.params.type -eq 'data-table-read') {
+        if ($null -ne $exercise.params.maxRows) {
+            $maxRowsVal = 0
+            $maxRowsOk = [int]::TryParse([string]$exercise.params.maxRows, [ref]$maxRowsVal)
+            if (-not $maxRowsOk -or $maxRowsVal -lt 3) {
+                Add-Issue("${path}: maxRows invalide pour $($exercise.id)")
+            }
+        }
+        if ($null -ne $exercise.params.maxCols) {
+            $maxColsVal = 0
+            $maxColsOk = [int]::TryParse([string]$exercise.params.maxCols, [ref]$maxColsVal)
+            if (-not $maxColsOk -or $maxColsVal -lt 2) {
+                Add-Issue("${path}: maxCols invalide pour $($exercise.id)")
+            }
+        }
+        if ($null -ne $exercise.params.maxValue) {
+            $maxValueVal = 0
+            $maxValueOk = [int]::TryParse([string]$exercise.params.maxValue, [ref]$maxValueVal)
+            if (-not $maxValueOk -or $maxValueVal -lt 1) {
+                Add-Issue("${path}: maxValue invalide pour $($exercise.id)")
+            }
+        }
+    }
+    if ($exercise.params.type -eq 'pie-chart-read') {
+        if ($null -ne $exercise.params.partSets -and (-not ($exercise.params.partSets -is [System.Collections.IList]) -or $exercise.params.partSets.Count -eq 0)) {
+            Add-Issue("${path}: partSets invalide pour $($exercise.id)")
+        }
+    }
+    if ($exercise.params.type -eq 'average-compute') {
+        if ($null -ne $exercise.params.length) {
+            $lengthVal = 0
+            $lengthOk = [int]::TryParse([string]$exercise.params.length, [ref]$lengthVal)
+            if (-not $lengthOk -or $lengthVal -lt 3) {
+                Add-Issue("${path}: length invalide pour $($exercise.id)")
+            }
+        }
+        if ($null -ne $exercise.params.maxValue) {
+            $maxValueVal2 = 0
+            $maxValueOk2 = [int]::TryParse([string]$exercise.params.maxValue, [ref]$maxValueVal2)
+            if (-not $maxValueOk2 -or $maxValueVal2 -lt 1) {
+                Add-Issue("${path}: maxValue invalide pour $($exercise.id)")
+            }
+        }
+    }
     if ($exercise.engine -eq 'timeline') {
         if (-not (Is-NonEmptyString $exercise.params.grade)) {
             Add-Issue("${path}: grade manquant pour $($exercise.id)")
@@ -575,6 +619,73 @@ function Validate-BoardDataset($ref, $dataSet) {
         if (-not (Is-PlainObject $item) -or -not (Is-SafeLessonText $item.prompt) -or -not (Is-PlainObject $item.board)) {
             Add-Issue("$($ref.DataFile): entree interactive invalide dans $($ref.Category)")
             break
+        }
+
+        if ($ref.Type -eq 'angle-measure') {
+            $answerDegrees = [double]::NaN
+            [double]::TryParse([string]$item.answerDegrees, [ref]$answerDegrees) | Out-Null
+            $answerValid = -not [double]::IsNaN($answerDegrees) -and $answerDegrees -ge 0 -and $answerDegrees -le 360
+            $choicesValid = $false
+            if (($item.choices -is [System.Collections.IList]) -and $item.choices.Count -ge 3) {
+                $choicesValid = $true
+                $matchesAnswer = $false
+                foreach ($choice in $item.choices) {
+                    $choiceVal = [double]::NaN
+                    [double]::TryParse([string]$choice, [ref]$choiceVal) | Out-Null
+                    if ([double]::IsNaN($choiceVal) -or $choiceVal -lt 0 -or $choiceVal -gt 360) {
+                        $choicesValid = $false
+                        break
+                    }
+                    if ($choiceVal -eq $answerDegrees) {
+                        $matchesAnswer = $true
+                    }
+                }
+                if (-not $matchesAnswer) {
+                    $choicesValid = $false
+                }
+            }
+            if (-not $answerValid -or -not $choicesValid) {
+                Add-Issue("$($ref.DataFile): angle-measure invalide dans $($ref.Category)")
+                break
+            }
+        }
+
+        if ($ref.Type -eq 'construction-report') {
+            $widthVal = 0
+            $heightVal = 0
+            $boardValid = [int]::TryParse([string]$item.board.width, [ref]$widthVal) -and [int]::TryParse([string]$item.board.height, [ref]$heightVal) -and $widthVal -ge 2 -and $heightVal -ge 2
+            $inGrid = {
+                param($point)
+                if (-not ($point -is [System.Collections.IList]) -or $point.Count -ne 2) { return $false }
+                $px = 0
+                $py = 0
+                if (-not [int]::TryParse([string]$point[0], [ref]$px)) { return $false }
+                if (-not [int]::TryParse([string]$point[1], [ref]$py)) { return $false }
+                return ($px -ge 0 -and $px -lt $widthVal -and $py -ge 0 -and $py -lt $heightVal)
+            }
+            $centerValid = $boardValid -and (& $inGrid $item.center)
+            $radiusVal = 0
+            $radiusValid = [int]::TryParse([string]$item.radius, [ref]$radiusVal) -and $radiusVal -ge 1
+            $candidates = $item.candidates
+            $candidatesValid = ($candidates -is [System.Collections.IList]) -and $candidates.Count -ge 2
+            $exactCount = 0
+            if ($centerValid -and $radiusValid -and $candidatesValid) {
+                foreach ($point in $candidates) {
+                    if (-not (& $inGrid $point)) {
+                        $candidatesValid = $false
+                        break
+                    }
+                    $dx = [int]$point[0] - [int]$item.center[0]
+                    $dy = [int]$point[1] - [int]$item.center[1]
+                    if (($dx * $dx + $dy * $dy) -eq ($radiusVal * $radiusVal)) {
+                        $exactCount++
+                    }
+                }
+            }
+            if (-not $centerValid -or -not $radiusValid -or -not $candidatesValid -or $exactCount -ne 1) {
+                Add-Issue("$($ref.DataFile): construction-report invalide dans $($ref.Category)")
+                break
+            }
         }
     }
 }

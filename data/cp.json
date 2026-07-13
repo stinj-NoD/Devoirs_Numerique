@@ -916,6 +916,36 @@
                                     "content": "Pour comparer, je peux soupeser avec mes mains ou utiliser une balance."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cp-lesson-quadrillage",
+                            "title": "Se repérer sur un quadrillage",
+                            "subtitle": "Lignes et colonnes",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un quadrillage est fait de cases. On peut repérer un endroit en comptant les colonnes (de gauche à droite) puis les lignes (de haut en bas)."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Pour placer un point à la colonne 2 et à la ligne 1, je compte 2 cases vers la droite, puis 1 case vers le bas."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "je compte les colonnes en partant de la gauche",
+                                        "je compte les lignes en partant du haut",
+                                        "un point se trouve où la colonne et la ligne se croisent"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Sur un quadrillage, je compte toujours les colonnes avant les lignes."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -1012,6 +1042,32 @@
                                 "dataFile": "data/math_geometry_cp.json",
                                 "category": "cp-formes-reconnaissance",
                                 "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cp-geo-quadrillage",
+                            "title": "Le quadrillage",
+                            "subtitle": "Place le point au bon endroit",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "point-on-grid",
+                                "dataFile": "data/board_point_on_grid_cp.json",
+                                "category": "cp_point_on_grid",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cp-bonus-quadrillage-defi",
+                            "title": "Défi : le quadrillage",
+                            "subtitle": "Place le point, sans erreur",
+                            "engine": "board-interactive",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "point-on-grid",
+                                "dataFile": "data/board_point_on_grid_cp.json",
+                                "category": "cp_point_on_grid",
+                                "questions": 8
                             }
                         }
                     ]
@@ -1181,6 +1237,32 @@
                                 "category": "cp-problemes-simples",
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "cp-problemes-deux-etapes",
+                            "title": "Problèmes à deux étapes",
+                            "subtitle": "Deux calculs à la suite",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle2.json",
+                                "category": "cp-problemes-deux-etapes",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cp-bonus-problemes-deux-etapes-defi",
+                            "title": "Défi : problèmes à deux étapes",
+                            "subtitle": "Tous les problèmes, sans erreur",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle2.json",
+                                "category": "cp-problemes-deux-etapes",
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
@@ -1212,6 +1294,37 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Un problème raconte une petite histoire : je dois trouver le bon calcul pour répondre à la question."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-probleme-deux-etapes",
+                            "title": "Un problème avec deux calculs",
+                            "subtitle": "Faire les calculs dans l'ordre",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Certains problèmes racontent deux événements : il faut alors faire deux calculs, l'un après l'autre, dans l'ordre de l'histoire."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Léo a 3 billes, il en gagne 2, puis il en perd 1 : je calcule d'abord 3 + 2 = 5, puis 5 - 1 = 4."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "je fais le premier calcul avec les deux premiers nombres",
+                                        "j'utilise le résultat pour faire le deuxième calcul",
+                                        "je réponds avec le résultat du deuxième calcul"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Dans un problème à deux étapes, je ne dois jamais sauter la première étape."
                                 }
                             ]
                         }
@@ -1895,6 +2008,26 @@
                             "engine": "reading",
                             "params": {
                                 "category": "cp_son_ien",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cp-lecture-oeu",
+                            "title": "Le son œu",
+                            "subtitle": "Entendre le son dans le mot",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cp_son_oeu",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cp-lecture-ph",
+                            "title": "Le son ph",
+                            "subtitle": "Ph se lit comme le son f",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cp_son_ph",
                                 "questions": 5
                             }
                         },
