@@ -228,6 +228,73 @@ const UIVisuals = {
             </div>`;
     },
 
+    drawDataTable(p) {
+        const d = p.data || {};
+        const rowLabels = Array.isArray(d.rowLabels) ? d.rowLabels : [];
+        const colLabels = Array.isArray(d.colLabels) ? d.colLabels : [];
+        const grid = Array.isArray(d.grid) ? d.grid : [];
+
+        const headHtml = colLabels.map((c) => `<th>${SecurityUtils.escapeHtml(String(c))}</th>`).join('');
+        const rowsHtml = rowLabels.map((rowLabel, r) => {
+            const cellsHtml = (grid[r] || []).map((val) => `<td>${SecurityUtils.escapeHtml(String(val))}</td>`).join('');
+            return `<tr><th scope="row">${SecurityUtils.escapeHtml(String(rowLabel))}</th>${cellsHtml}</tr>`;
+        }).join('');
+
+        return `
+            <div class="data-table-card visual-card visual-card--datatable">
+                ${d.unit ? `<div class="bar-chart-unit">${SecurityUtils.escapeHtml(String(d.unit))}</div>` : ''}
+                <div class="data-table-scroll">
+                    <table class="data-table-grid">
+                        <thead><tr><th>&nbsp;</th>${headHtml}</tr></thead>
+                        <tbody>${rowsHtml}</tbody>
+                    </table>
+                </div>
+            </div>`;
+    },
+
+    drawPieChart(p) {
+        const d = p.data || {};
+        const slices = Array.isArray(d.slices) ? d.slices : [];
+        const tones = ['blue', 'red', 'green', 'gold', 'silver'];
+        const size = 160;
+        const radius = size / 2;
+        const cx = radius;
+        const cy = radius;
+
+        let cumulativePct = 0;
+        const paths = slices.map((slice, i) => {
+            const startAngle = (cumulativePct / 100) * 2 * Math.PI - Math.PI / 2;
+            cumulativePct += Number(slice.pct) || 0;
+            const endAngle = (cumulativePct / 100) * 2 * Math.PI - Math.PI / 2;
+            const largeArc = (Number(slice.pct) || 0) > 50 ? 1 : 0;
+            const x1 = cx + radius * Math.cos(startAngle);
+            const y1 = cy + radius * Math.sin(startAngle);
+            const x2 = cx + radius * Math.cos(endAngle);
+            const y2 = cy + radius * Math.sin(endAngle);
+            const tone = tones[i % tones.length];
+            const d_attr = `M ${cx} ${cy} L ${x1.toFixed(2)} ${y1.toFixed(2)} A ${radius} ${radius} 0 ${largeArc} 1 ${x2.toFixed(2)} ${y2.toFixed(2)} Z`;
+            return `<path d="${d_attr}" class="pie-chart-slice pie-chart-slice--${tone}"></path>`;
+        }).join('');
+
+        const legendHtml = slices.map((slice, i) => {
+            const tone = tones[i % tones.length];
+            return `
+                <div class="pie-chart-legend-item">
+                    <span class="pie-chart-legend-swatch pie-chart-legend-swatch--${tone}"></span>
+                    <span class="pie-chart-legend-label">${SecurityUtils.escapeHtml(String(slice.label))}</span>
+                </div>`;
+        }).join('');
+
+        return `
+            <div class="pie-chart-card visual-card visual-card--piechart">
+                ${d.unit ? `<div class="bar-chart-unit">${SecurityUtils.escapeHtml(String(d.unit))}</div>` : ''}
+                <div class="pie-chart-body">
+                    <svg viewBox="0 0 ${size} ${size}" width="150" height="150" class="pie-chart-svg">${paths}</svg>
+                    <div class="pie-chart-legend">${legendHtml}</div>
+                </div>
+            </div>`;
+    },
+
     drawCountingCard(p) {
         const d = p.data || {};
         const tens = d.tens || 0;
@@ -281,10 +348,11 @@ const UIVisuals = {
         const d = p.data || {};
         const dividend = d.dividend || 0;
         const divisor = d.divisor || 1;
+        const resultLabel = d.askRemainder ? 'Reste' : 'Quotient';
         const divStr = dividend.toString();
         const width = divStr.length;
         const steps = this.getDivisionSteps(dividend, divisor);
-        const buildDigits = (value, startIndex, colorLast = false) => {
+        const buildDigits = (value, startIndex, colorLast = false, maskLast = false) => {
             const str = value.toString();
             const cells = Array.from({ length: width }, () => '&nbsp;');
             str.split('').forEach((char, offset) => {
@@ -294,12 +362,16 @@ const UIVisuals = {
 
             return cells.map((char, idx) => {
                 const filledChars = str.length;
-                const isLast = colorLast && idx === (startIndex + filledChars - 1) && char.trim() !== '';
-                const cls = isLast ? 'division-cell division-cell-next' : 'division-cell';
+                const isLast = idx === (startIndex + filledChars - 1) && char.trim() !== '';
+                if (maskLast && isLast) {
+                    const displayValue = (input !== undefined && input !== null && input !== '') ? input : '?';
+                    return `<span class="division-cell division-cell-masked">${displayValue}</span>`;
+                }
+                const cls = (colorLast && isLast) ? 'division-cell division-cell-next' : 'division-cell';
                 return `<span class="${cls}">${char}</span>`;
             }).join('');
         };
-        const buildRow = (sign, value, startIndex, variant = '', underlineLength = 0, colorLast = false) => {
+        const buildRow = (sign, value, startIndex, variant = '', underlineLength = 0, colorLast = false, maskLast = false) => {
             const rowClass = variant ? ` division-row--${variant}` : '';
             const lineStart = underlineLength > 0 ? 2 + startIndex : 0;
             const lineEnd = underlineLength > 0 ? lineStart + underlineLength : 0;
@@ -309,21 +381,36 @@ const UIVisuals = {
             return `
                 <div class="division-row${rowClass}">
                     <span class="division-sign">${sign || '&nbsp;'}</span>
-                    ${buildDigits(value, startIndex, colorLast)}
+                    ${buildDigits(value, startIndex, colorLast, maskLast)}
                     ${lineHtml}
                 </div>`;
         };
 
+        // En mode "Reste", le dernier reste ne doit pas apparaître en clair
+        // dans le calcul : c'est justement la valeur demandée. Le quotient,
+        // lui, n'apparaît déjà jamais dans la grille (il n'est affiché que
+        // dans le panneau latéral) — on applique la même règle au reste.
         let workRows = buildRow('', divStr, 0);
-        steps.forEach((step) => {
+        steps.forEach((step, stepIndex) => {
             const subStr = step.sub.toString();
             const subStart = step.endIndex - subStr.length + 1;
             const fullRemStr = `${step.rem}${step.nextDigit || ''}`;
             const remEnd = step.nextDigit ? step.endIndex + 1 : step.endIndex;
             const remStart = remEnd - fullRemStr.length + 1;
+            const isFinalRemainder = d.askRemainder && stepIndex === steps.length - 1 && !step.nextDigit;
             workRows += buildRow('-', subStr, subStart, 'sub', subStr.length);
-            workRows += buildRow('', fullRemStr, remStart, 'result', 0, !!step.nextDigit);
+            workRows += buildRow('', fullRemStr, remStart, 'result', 0, !!step.nextDigit, isFinalRemainder);
         });
+
+        // En mode "Reste", la saisie se fait directement dans le calcul (case
+        // masquée ci-dessus, à la place géométrique réelle du reste) : le
+        // panneau latéral n'affiche alors que le diviseur, sans dupliquer une
+        // seconde zone de saisie/deuxième "?" pour la même réponse.
+        const quotientPanelHtml = d.askRemainder ? '' : `
+                        <div class="division-quotient-panel">
+                            <div class="division-quotient-value">${input || '?'}</div>
+                            <div class="division-quotient-label">${resultLabel}</div>
+                        </div>`;
 
         return `
             <div class="division-card visual-card visual-card--division">
@@ -333,10 +420,7 @@ const UIVisuals = {
                     </div>
                     <div class="division-side">
                         <div class="division-divisor">${divisor}</div>
-                        <div class="division-quotient-panel">
-                            <div class="division-quotient-value">${input || '?'}</div>
-                            <div class="division-quotient-label">Quotient</div>
-                        </div>
+                        ${quotientPanelHtml}
                     </div>
                 </div>
             </div>`;

@@ -659,7 +659,7 @@ const App = {
 
     goHome() {
         this.stopCurrentExercise();
-        UI.closeNavSheet?.();
+        UI.closeNavSheet?.(false);
         this.state.currentGrade = null;
         this.state.currentBrowseMode = null;
         this.state.currentSubject = null;
@@ -874,7 +874,7 @@ const App = {
 
     goBack() {
         if (!this.confirmLeaveExercise()) return;
-        UI.closeNavSheet?.();
+        UI.closeNavSheet?.(false);
         const wasChampionMode = !!this.state.championMode;
         const currentScreen = document.querySelector('.screen.active')?.id;
         this.stopCurrentExercise();

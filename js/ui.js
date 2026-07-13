@@ -112,7 +112,7 @@ const UI = {
         if (firstButton instanceof HTMLButtonElement) firstButton.focus();
     },
 
-    closeNavSheet() {
+    closeNavSheet(refocus = true) {
         if (!this.navSheet) return;
         this.navSheet.classList.remove('is-open');
         this.navSheet.setAttribute('aria-hidden', 'true');
@@ -122,7 +122,11 @@ const UI = {
             }
             this.navSheetHideTimer = null;
         }, 190);
-        if (this.lastFocusedElement && typeof this.lastFocusedElement.focus === 'function') {
+        // refocus=false quand un changement d'écran suit immédiatement (goHome/goBack) :
+        // refocaliser un <button> d'un écran qui va disparaître casse la chaîne
+        // d'activation utilisateur attendue par iOS Safari pour le clavier virtuel
+        // du prochain input tapé (aucun souci sur Android).
+        if (refocus && this.lastFocusedElement && typeof this.lastFocusedElement.focus === 'function') {
             this.lastFocusedElement.focus();
         }
         this.lastFocusedElement = null;
@@ -1052,7 +1056,8 @@ const UI = {
                     square:'drawSquare', reading: 'drawReading', counting: 'drawCountingCard', fraction: 'drawFraction',
                     conversionTable: 'drawConversionCard', timeMemo: 'drawTimeMemoCard', factualCard: 'drawFactualCard',
                     timelineOrder: 'drawTimelineOrder', timelinePlace: 'drawTimelinePlace', matching: 'drawMatching',
-                    wordOrder: 'drawWordOrder', 'geometry-board': 'drawGeometryBoard', barChart: 'drawBarChart'
+                    wordOrder: 'drawWordOrder', 'geometry-board': 'drawGeometryBoard', barChart: 'drawBarChart',
+                    dataTable: 'drawDataTable', pieChart: 'drawPieChart'
                 };
                 const method = drawMethods[p.visualType];
                 
@@ -1126,7 +1131,7 @@ const UI = {
 
 	    // 3. ZONE DE RÉPONSE (Barre du bas)
 	    // On masque la barre si c'est visuel ET textuel (Spelling/Conjugaison) OU si c'est un QCM
-	    const hideBottomBar = (['spelling', 'audioSpelling', 'conjugation', 'matching', 'wordOrder', 'geometry-board'].includes(p.visualType)) || isQCM;
+	    const hideBottomBar = (['spelling', 'audioSpelling', 'conjugation', 'matching', 'wordOrder', 'geometry-board', 'division'].includes(p.visualType)) || isQCM;
 	    
 	    answerZone.style.display = hideBottomBar ? 'none' : 'flex';
 	    answerZone.className = `answer-display ${hideBottomBar ? 'is-hidden' : 'is-idle'}`;
@@ -1416,6 +1421,14 @@ const UI = {
 
     drawBarChart(...args) {
         return UIVisuals.drawBarChart(...args);
+    },
+
+    drawDataTable(...args) {
+        return UIVisuals.drawDataTable(...args);
+    },
+
+    drawPieChart(...args) {
+        return UIVisuals.drawPieChart(...args);
     },
 
     drawClockCard(...args) {
