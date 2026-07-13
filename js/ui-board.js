@@ -1,3 +1,52 @@
+function collectVertexDirections(marker, lines, eps = 0.01) {
+    const mx = Number(marker.x);
+    const my = Number(marker.y);
+    const isSamePoint = (px, py) => Math.abs(px - mx) <= eps && Math.abs(py - my) <= eps;
+    const directions = [];
+    (Array.isArray(lines) ? lines : []).forEach((line) => {
+        const x1 = Number(line.x1), y1 = Number(line.y1);
+        const x2 = Number(line.x2), y2 = Number(line.y2);
+        if (x1 === x2 && y1 === y2) return;
+        if (isSamePoint(x1, y1)) directions.push({ dx: x2 - x1, dy: y2 - y1 });
+        else if (isSamePoint(x2, y2)) directions.push({ dx: x1 - x2, dy: y1 - y2 });
+    });
+    return directions;
+}
+
+function pickTwoDistinctDirections(directions) {
+    for (let i = 0; i < directions.length; i += 1) {
+        for (let j = i + 1; j < directions.length; j += 1) {
+            const a = directions[i], b = directions[j];
+            const cross = a.dx * b.dy - a.dy * b.dx;
+            if (Math.abs(cross) > 1e-6) return [a, b];
+        }
+    }
+    return [directions[0], directions[1]];
+}
+
+// Convention pour les futurs contributeurs de contenu : un marker
+// {type:'right-angle', x, y} doit correspondre à un point qui est
+// l'extrémité d'au moins deux lignes de drawing.lines (les deux côtés de
+// l'angle à marquer). Si le marker ne touche aucune ligne, le chevron
+// retombe sur l'orientation historique bas-droite (45°) — non bloquant,
+// mais préférez toujours dessiner les deux côtés dans drawing.lines.
+function resolveChevronLegs(directions) {
+    const norm = (d) => {
+        const len = Math.hypot(d.dx, d.dy) || 1;
+        return { dx: d.dx / len, dy: d.dy / len };
+    };
+    if (directions.length === 0) {
+        return [{ dx: 1, dy: 0 }, { dx: 0, dy: 1 }]; // repli : chevron bas-droite historique
+    }
+    if (directions.length === 1) {
+        const u = norm(directions[0]);
+        // deuxième jambe perpendiculaire à l'unique côté connu
+        return [u, { dx: -u.dy, dy: u.dx }];
+    }
+    const [d1, d2] = pickTwoDistinctDirections(directions);
+    return [norm(d1), norm(d2)];
+}
+
 const UIBoard = {
     _escape(value) {
         return SecurityUtils.escapeHtml(value);
@@ -125,6 +174,10 @@ const UIBoard = {
                 return this.renderFractionBuild(problem);
             case 'angle-classify':
                 return this.renderAngleClassify(problem);
+            case 'angle-measure':
+                return this.renderAngleMeasure(problem);
+            case 'construction-report':
+                return this.renderConstructionReport(problem);
             default:
                 return `<div class="board-card"><p>Moteur interactif prêt, activité non reconnue.</p></div>`;
         }
@@ -142,10 +195,15 @@ const UIBoard = {
         const height = Number(board.height) || 6;
         const size = 280;
         const pad = 24;
-        const stepX = (size - pad * 2) / Math.max(width, 1);
-        const stepY = (size - pad * 2) / Math.max(height, 1);
-        const toX = (value) => pad + Number(value) * stepX;
-        const toY = (value) => pad + Number(value) * stepY;
+        // Pas d'échelle unique (isotrope) : un board non carré ne doit pas
+        // déformer les angles dessinés (une droite à 45° dans les données
+        // doit rester à 45° à l'écran), sinon un angle droit peut sembler
+        // aigu/obtus selon le ratio width/height du board.
+        const step = Math.min((size - pad * 2) / Math.max(width, 1), (size - pad * 2) / Math.max(height, 1));
+        const offsetX = (size - width * step) / 2;
+        const offsetY = (size - height * step) / 2;
+        const toX = (value) => offsetX + Number(value) * step;
+        const toY = (value) => offsetY + Number(value) * step;
 
         const lines = (Array.isArray(drawing.lines) ? drawing.lines : []).map((line) => `
             <line
@@ -203,6 +261,110 @@ const UIBoard = {
         `;
     },
 
+    renderAngleMeasure(problem) {
+        const data = problem.data || {};
+        const board = data.board || { width: 10, height: 6 };
+        const drawing = data.drawing || {};
+        const choices = Array.isArray(data.choices) ? data.choices : [];
+        const revealed = !!data.revealed;
+        const selectedDegrees = data.userState?.selectedDegrees;
+        const answerDegrees = Number(data.answerDegrees);
+        const width = Number(board.width) || 10;
+        const height = Number(board.height) || 6;
+        const size = 280;
+        const pad = 24;
+        // Pas d'échelle unique (isotrope), même raison que renderAngleClassify :
+        // un board non carré ne doit jamais déformer l'angle dessiné.
+        const step = Math.min((size - pad * 2) / Math.max(width, 1), (size - pad * 2) / Math.max(height, 1));
+        const offsetX = (size - width * step) / 2;
+        const offsetY = (size - height * step) / 2;
+        const toX = (value) => offsetX + Number(value) * step;
+        const toY = (value) => offsetY + Number(value) * step;
+
+        const lines = (Array.isArray(drawing.lines) ? drawing.lines : []).map((line) => `
+            <line
+                x1="${toX(line.x1)}"
+                y1="${toY(line.y1)}"
+                x2="${toX(line.x2)}"
+                y2="${toY(line.y2)}"
+                class="board-shape-line"
+            />
+        `).join('');
+
+        let arc = '';
+        if (drawing.arc && Array.isArray(drawing.arc.vertex) && Array.isArray(drawing.arc.start) && Array.isArray(drawing.arc.end)) {
+            const a = drawing.arc;
+            const vx = toX(a.vertex[0]), vy = toY(a.vertex[1]);
+            const sx = toX(a.start[0]), sy = toY(a.start[1]);
+            const ex = toX(a.end[0]), ey = toY(a.end[1]);
+            const radius = Math.hypot(sx - vx, sy - vy);
+            const largeArc = a.largeArc ? 1 : 0;
+            const path = `M ${vx} ${vy} L ${sx} ${sy} A ${radius} ${radius} 0 ${largeArc} 0 ${ex} ${ey} Z`;
+            arc = `<path d="${this._escape(path)}" class="board-angle-arc" />`;
+        }
+
+        // Rapporteur semi-circulaire décoratif centré sur le sommet de
+        // l'angle : renforce la lecture "mesure au rapporteur" sans prétendre
+        // à un alignement pixel-perfect avec le tracé (l'enfant lit l'arc
+        // gradué comme repère visuel, la réponse se fait via les choix).
+        let protractor = '';
+        if (drawing.arc && Array.isArray(drawing.arc.vertex)) {
+            const vx = toX(drawing.arc.vertex[0]), vy = toY(drawing.arc.vertex[1]);
+            const protractorRadius = Math.min(size, size) * 0.32;
+            const ticks = [];
+            for (let deg = 0; deg <= 180; deg += 10) {
+                const rad = (Math.PI * deg) / 180;
+                const isMajor = deg % 30 === 0;
+                const innerR = isMajor ? protractorRadius - 10 : protractorRadius - 5;
+                const x1 = vx + innerR * Math.cos(rad);
+                const y1 = vy - innerR * Math.sin(rad);
+                const x2 = vx + protractorRadius * Math.cos(rad);
+                const y2 = vy - protractorRadius * Math.sin(rad);
+                ticks.push(`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="board-protractor-tick${isMajor ? ' board-protractor-tick--major' : ''}" />`);
+            }
+            protractor = `
+                <g class="board-protractor" aria-hidden="true">
+                    <path d="M ${vx - protractorRadius} ${vy} A ${protractorRadius} ${protractorRadius} 0 0 1 ${vx + protractorRadius} ${vy}" class="board-protractor-arc" />
+                    ${ticks.join('')}
+                </g>
+            `;
+        }
+
+        const choiceButtons = choices.map((deg) => {
+            let stateCls = selectedDegrees === deg ? 'is-selected' : '';
+            if (revealed && selectedDegrees === deg) {
+                stateCls = deg === answerDegrees ? 'is-correct' : 'is-incorrect';
+            } else if (revealed && deg === answerDegrees) {
+                stateCls = 'is-correct';
+            }
+            return `
+                <button
+                    type="button"
+                    class="board-bucket board-angle-choice ${stateCls}"
+                    data-val="board-pick-angle-degrees:${SecurityUtils.sanitizeId(String(deg))}"
+                    ${revealed ? 'disabled' : ''}
+                >
+                    <span class="board-bucket-title">${deg}°</span>
+                </button>
+            `;
+        }).join('');
+
+        return `
+            <div class="board-card">
+                <div class="board-panel">
+                    <svg class="board-svg" viewBox="0 0 ${size} ${size}" role="img" aria-label="Angle à mesurer avec un rapporteur">
+                        ${protractor}
+                        ${lines}
+                        ${arc}
+                    </svg>
+                </div>
+                <div class="board-panel">
+                    <div class="board-bucket-list board-angle-list">${choiceButtons}</div>
+                </div>
+            </div>
+        `;
+    },
+
     renderTapFeatures(problem) {
         const data = problem.data || {};
         const board = data.board || { width: 10, height: 6 };
@@ -214,10 +376,15 @@ const UIBoard = {
         const height = Number(board.height) || 6;
         const size = 320;
         const pad = 24;
-        const stepX = (size - pad * 2) / Math.max(width, 1);
-        const stepY = (size - pad * 2) / Math.max(height, 1);
-        const toX = (value) => pad + Number(value) * stepX;
-        const toY = (value) => pad + Number(value) * stepY;
+        // Pas d'échelle unique (isotrope) : un board non carré (ex. 10x6) ne
+        // doit pas déformer les angles — une droite à 45° dans les données
+        // doit rester visuellement à 45°, donc stepX === stepY. On centre le
+        // dessin dans le viewBox carré plutôt que d'étirer un axe.
+        const step = Math.min((size - pad * 2) / Math.max(width, 1), (size - pad * 2) / Math.max(height, 1));
+        const offsetX = (size - width * step) / 2;
+        const offsetY = (size - height * step) / 2;
+        const toX = (value) => offsetX + Number(value) * step;
+        const toY = (value) => offsetY + Number(value) * step;
 
         const lines = (Array.isArray(drawing.lines) ? drawing.lines : []).map((line) => `
             <line
@@ -233,20 +400,22 @@ const UIBoard = {
             <circle
                 cx="${toX(circle.x)}"
                 cy="${toY(circle.y)}"
-                r="${Number(circle.r || 1) * stepX}"
+                r="${Number(circle.r || 1) * step}"
                 class="board-shape-line"
                 fill="none"
             />
         `).join('');
 
         const markers = (Array.isArray(drawing.markers) ? drawing.markers : []).map((marker) => {
-            if (marker.type === 'right-angle') {
-                const x = toX(marker.x);
-                const y = toY(marker.y);
-                const sizeMark = 16;
-                return `<path d="M ${x} ${y} l ${sizeMark} 0 l 0 ${sizeMark}" class="board-right-angle-marker" />`;
-            }
-            return '';
+            if (marker.type !== 'right-angle') return '';
+            const x = toX(marker.x);
+            const y = toY(marker.y);
+            const sizeMark = 16;
+            const directions = collectVertexDirections(marker, Array.isArray(drawing.lines) ? drawing.lines : []);
+            const [legA, legB] = resolveChevronLegs(directions);
+            const p1x = x + legA.dx * sizeMark, p1y = y + legA.dy * sizeMark;
+            const p2x = x + legB.dx * sizeMark, p2y = y + legB.dy * sizeMark;
+            return `<path d="M ${p1x} ${p1y} L ${x} ${y} L ${p2x} ${p2y}" class="board-right-angle-marker" />`;
         }).join('');
 
         const hotspots = features.map((feature, index) => {
@@ -402,6 +571,110 @@ const UIBoard = {
                         ${verticals}
                         ${horizontals}
                         ${points.join('')}
+                    </svg>
+                </div>
+            </div>
+        `;
+    },
+
+    renderConstructionReport(problem) {
+        const data = problem.data || {};
+        const board = data.board || { width: 10, height: 10 };
+        const center = Array.isArray(data.center) && data.center.length === 2 ? data.center : [0, 0];
+        const radius = Number(data.radius) || 1;
+        const candidates = Array.isArray(data.candidates) ? data.candidates : [];
+        const revealed = !!data.revealed;
+        const selectedIndex = Number.isInteger(data.userState?.selectedIndex) ? data.userState.selectedIndex : null;
+        const size = 300;
+        const cols = Number(board.width) || 10;
+        const rows = Number(board.height) || 10;
+        const margin = 24;
+        // Pas d'échelle unique (isotrope) : le cercle du compas doit rester
+        // un vrai cercle même si la grille n'est pas carrée (cols !== rows).
+        const step = Math.min((size - margin * 2) / Math.max(cols - 1, 1), (size - margin * 2) / Math.max(rows - 1, 1));
+        const toX = (value) => margin + Number(value) * step;
+        const toY = (value) => margin + Number(value) * step;
+
+        const verticals = Array.from({ length: cols }, (_, index) => {
+            const x = margin + index * step;
+            return `<line x1="${x}" y1="${margin}" x2="${x}" y2="${size - margin}" class="board-grid-line" />`;
+        }).join('');
+
+        const horizontals = Array.from({ length: rows }, (_, index) => {
+            const y = margin + index * step;
+            return `<line x1="${margin}" y1="${y}" x2="${size - margin}" y2="${y}" class="board-grid-line" />`;
+        }).join('');
+
+        const answerIndex = candidates.findIndex((point) => {
+            const dx = Number(point[0]) - Number(center[0]);
+            const dy = Number(point[1]) - Number(center[1]);
+            return dx * dx + dy * dy === radius * radius;
+        });
+
+        // Le cercle du compas n'est dessiné qu'à la révélation : l'afficher
+        // avant donnerait directement la réponse (le cercle passe par le bon
+        // point). Après validation, il sert de correction visuelle ("voilà le
+        // cercle que le compas aurait tracé").
+        const compassCircle = revealed
+            ? `<circle cx="${toX(center[0])}" cy="${toY(center[1])}" r="${radius * step}" class="board-compass-circle" aria-hidden="true" />`
+            : '';
+
+        const centerMarker = `
+            <g class="board-compass-center" aria-hidden="true">
+                <circle cx="${toX(center[0])}" cy="${toY(center[1])}" r="7" class="board-compass-center-dot"></circle>
+            </g>
+        `;
+
+        const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+        const candidateNodes = candidates.map((point, index) => {
+            const cx = toX(point[0]);
+            const cy = toY(point[1]);
+            const label = letters[index] || String(index + 1);
+            const isSelected = selectedIndex === index;
+            let stateCls = isSelected ? 'is-active' : '';
+            if (revealed) {
+                if (index === answerIndex) stateCls = 'is-correct';
+                else if (isSelected) stateCls = 'is-incorrect';
+            }
+            // Étiquette décalée vers l'intérieur du plateau pour ne jamais
+            // sortir du cadre sur les points proches des bords.
+            const labelX = cx + (Number(point[0]) > (cols - 1) / 2 ? -20 : 10);
+            const labelY = cy + (Number(point[1]) < (rows - 1) / 2 ? 22 : -12);
+            const interactiveAttrs = revealed ? '' : `data-val="board-pick-candidate:${index}" role="button" tabindex="0" aria-label="Point ${label}" aria-pressed="${isSelected}"`;
+            return `
+                <g class="board-grid-node board-candidate ${stateCls}" ${interactiveAttrs}>
+                    <circle cx="${cx}" cy="${cy}" r="16" class="board-grid-hit"></circle>
+                    <circle cx="${cx}" cy="${cy}" r="${isSelected || (revealed && index === answerIndex) ? 6.5 : 5}" class="board-grid-dot"></circle>
+                    <text x="${labelX}" y="${labelY}" class="board-candidate-label">${label}</text>
+                </g>
+            `;
+        }).join('');
+
+        const radiusLabel = `${radius} carreau${radius > 1 ? 'x' : ''}`;
+        const statusText = revealed
+            ? (selectedIndex === answerIndex
+                ? `Bravo ! Ce point est bien à ${this._escape(radiusLabel)} du centre.`
+                : `La pointe du crayon arrivait sur le point ${this._escape(letters[answerIndex] || String(answerIndex + 1))}, à ${this._escape(radiusLabel)} du centre.`)
+            : (selectedIndex !== null
+                ? 'Point choisi — vérifie la distance avant de valider !'
+                : `Écartement du compas : ${this._escape(radiusLabel)}. Compte les carreaux depuis le point rouge.`);
+
+        return `
+            <div class="board-card">
+                <div class="board-toolbar">
+                    <div class="board-status">${statusText}</div>
+                    <div class="board-toolbar-actions">
+                        <button type="button" class="btn board-action" data-val="board-reset" ${revealed ? 'disabled' : ''}>Réinitialiser</button>
+                        <button type="button" class="btn btn--success board-action" data-val="board-submit" ${revealed ? 'disabled' : ''}>Valider</button>
+                    </div>
+                </div>
+                <div class="board-panel">
+                    <svg class="board-svg" viewBox="0 0 ${size} ${size}" role="img" aria-label="Quadrillage avec un centre de compas et des points candidats">
+                        ${verticals}
+                        ${horizontals}
+                        ${compassCircle}
+                        ${centerMarker}
+                        ${candidateNodes}
                     </svg>
                 </div>
             </div>
