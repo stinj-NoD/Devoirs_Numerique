@@ -159,18 +159,57 @@
         bindProfileKeyboard(input);
     }
 
-    // Clavier virtuel AZERTY du formulaire profil : le clavier natif est
-    // supprimé (inputmode="none") car il ne monte pas de façon fiable sur
-    // certaines versions d'iPadOS ; la saisie physique reste possible.
+    function isIPad() {
+        const ua = navigator.userAgent || '';
+        if (/iPad/i.test(ua)) return true; // anciens iPadOS
+        // iPadOS 13+ se présente comme un Mac : Mac + multi-touch = iPad
+        // (aucun Mac de bureau n'a d'écran tactile).
+        return /Mac/i.test(ua) && (navigator.maxTouchPoints || 0) > 1;
+    }
+
+    // Clavier virtuel AZERTY optionnel du formulaire profil. Le clavier
+    // natif reste le défaut partout ; sur iPad uniquement (où il ne monte
+    // pas de façon fiable, constaté sur iPadOS 15.8), un bouton propose
+    // d'ouvrir le clavier interne. Jamais imposé aux autres plateformes.
     function bindProfileKeyboard(input) {
         const container = document.getElementById('profile-keyboard');
-        if (!container || !input) return;
+        const toggle = document.getElementById('btn-profile-keyboard');
+        if (!container || !toggle || !input) return;
 
-        // UIKeyboards est un const top-level (binding global lexical) :
-        // accessible en bare, pas via window.
-        if (typeof UIKeyboards !== 'undefined' && typeof UIKeyboards.renderProfileKeyboard === 'function') {
-            UIKeyboards.renderProfileKeyboard(container);
+        const LABEL_SHOW = '⌨️ Afficher le clavier';
+        const LABEL_HIDE = '⌨️ Masquer le clavier';
+        let rendered = false;
+
+        function close() {
+            container.hidden = true;
+            input.removeAttribute('inputmode');
+            toggle.textContent = LABEL_SHOW;
         }
+
+        function open() {
+            // Rendu paresseux : le clavier n'existe dans le DOM que si un
+            // enfant l'a demandé au moins une fois.
+            // UIKeyboards est un const top-level (binding global lexical) :
+            // accessible en bare, pas via window.
+            if (!rendered && typeof UIKeyboards !== 'undefined' && typeof UIKeyboards.renderProfileKeyboard === 'function') {
+                UIKeyboards.renderProfileKeyboard(container);
+                rendered = true;
+            }
+            container.hidden = false;
+            // Tant que le clavier interne est ouvert, on évite que le natif
+            // vienne se superposer si l'enfant retape dans le champ.
+            input.setAttribute('inputmode', 'none');
+            toggle.textContent = LABEL_HIDE;
+        }
+
+        window.dnResetProfileKeyboard = close;
+
+        if (isIPad()) toggle.hidden = false;
+
+        toggle.addEventListener('click', () => {
+            if (container.hidden) open();
+            else close();
+        });
 
         container.addEventListener('click', (event) => {
             const key = event.target.closest('.key');

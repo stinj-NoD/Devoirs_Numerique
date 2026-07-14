@@ -995,6 +995,7 @@ const App = {
         const toggle = document.getElementById('btn-new-profile-toggle');
         if (form) form.classList.toggle('is-collapsed', collapsed);
         if (toggle) toggle.hidden = !collapsed;
+        if (collapsed) window.dnResetProfileKeyboard?.();
     },
 
     renderProfilesScreen() {

@@ -1483,6 +1483,25 @@ button,
     margin-top: var(--space-2);
 }
 
+.profile-keyboard[hidden] {
+    display: none;
+}
+
+.profile-keyboard-toggle {
+    grid-column: 1 / -1;
+    padding: var(--space-2) var(--space-3);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--color-text-muted, #6b7280);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+}
+
+.profile-keyboard-toggle[hidden] {
+    display: none;
+}
+
 .game-zone {
     flex: 1;
     display: flex;

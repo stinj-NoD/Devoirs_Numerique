@@ -92,7 +92,6 @@
                 aria-label="Prénom du nouveau profil"
                 autocomplete="off"
                 maxlength="15"
-                inputmode="none"
                 data-inline-profile="1"
             >
             <button
@@ -102,7 +101,14 @@
                 data-inline-profile="1"
                 aria-label="Ajouter un profil"
             >+</button>
-            <div id="profile-keyboard" class="profile-keyboard" data-inline-profile="1"></div>
+            <button
+                id="btn-profile-keyboard"
+                type="button"
+                class="profile-keyboard-toggle"
+                data-inline-profile="1"
+                hidden
+            >⌨️ Afficher le clavier</button>
+            <div id="profile-keyboard" class="profile-keyboard" data-inline-profile="1" hidden></div>
         </div>
         <div class="home-footer-links">
             <button id="btn-open-parents" type="button" class="parents-link-btn">
