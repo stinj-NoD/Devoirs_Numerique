@@ -3018,6 +3018,30 @@
                                 "category": "ce2-reliefs-simples",
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "ce2-geo-grandes-villes",
+                            "title": "Les grandes villes",
+                            "subtitle": "Où se trouvent les grandes villes de France",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_ce2.json",
+                                "category": "ce2-grandes-villes",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-geo-fleuves-mers-voisins",
+                            "title": "Fleuves, mers et pays voisins",
+                            "subtitle": "Les eaux et les frontières de la France",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_ce2.json",
+                                "category": "ce2-fleuves-mers-voisins",
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
