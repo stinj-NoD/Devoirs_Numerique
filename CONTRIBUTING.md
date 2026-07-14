@@ -37,9 +37,11 @@ Référence éditoriale :
 Après tout changement dans `data/` ou `js/validators.js` :
 
 1. lancer [validate-data.ps1](scripts/validate-data.ps1)
-2. régénérer [data-bundle.js](js/data-bundle.js) via [regenerate-data-bundle.ps1](scripts/regenerate-data-bundle.ps1)
-3. lancer les validateurs complémentaires si pertinent : `node scripts/validate-subjects.js`, `node scripts/validate-maps.js` (après ajout d'une carte `map-locate`)
-4. vérifier au minimum :
+2. lancer `node scripts/build-content-index.js --check` (anti-doublon : ids uniques inter-niveaux + cohérence du registre des moteurs — échoue si un `id` est dupliqué ou si `CONTENT_INDEX.json` est périmé)
+3. régénérer [data-bundle.js](js/data-bundle.js) via [regenerate-data-bundle.ps1](scripts/regenerate-data-bundle.ps1)
+4. régénérer l'index anti-doublon : `node scripts/build-content-index.js --write` (met à jour `CONTENT_INDEX.json`)
+5. lancer les validateurs complémentaires si pertinent : `node scripts/validate-subjects.js`, `node scripts/validate-maps.js` (après ajout d'une carte `map-locate`)
+6. vérifier au minimum :
    - une leçon
    - un exercice maths
    - un exercice français
@@ -50,7 +52,7 @@ Après tout changement dans `data/` ou `js/validators.js` :
 
 - `choices` doivent toujours contenir `answer`
 - les textes visibles doivent être relus
-- éviter les doublons pédagogiques inutiles
+- éviter les doublons pédagogiques inutiles : `CONTENT_INDEX.json` (généré) inventorie tous les exercices/leçons et les viviers `dataFile::category` déjà utilisés ; `build-content-index.js --check` les remonte en avertissement. Avant d'ajouter un exercice, vérifier que son vivier n'est pas déjà couvert sur le même sous-thème.
 - préférer plusieurs petits lots cohérents à une grosse vague instable
 - si une catégorie reste trop faible, l'épaissir avant d'ouvrir de nouvelles surfaces visibles
 

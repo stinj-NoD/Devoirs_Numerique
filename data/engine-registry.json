@@ -1,0 +1,142 @@
+{
+  "_comment": "Source unique de vérité des moteurs d'exercices. Artefact d'OUTILLAGE : NON embarqué dans js/data-bundle.js et NON lu au runtime (exclu par scripts/regenerate-data-bundle.ps1). Sert de référence à l'agent exercise-author et de garde-fou de cohérence dans scripts/build-content-index.js (les engine ci-dessous doivent coïncider avec Validators.knownEngines dans js/validators.js et $knownEngines dans scripts/validate-data.ps1). Champs : sourceKind=pool -> params requiert dataFile+category ; sourceKind=generator -> params autonome ; sourceKind=library -> s'appuie sur data/french/*.json (aucun dataFile). paramsTypes recense les params.type réellement dispatchés (voir js/engines.js + modules engines-*.js). Régénérer docs/engine-registry.md après toute modification.",
+  "generatedFrom": "js/engines.js, js/engines-math.js, js/engines-french.js, js/engines-board.js, js/engines-documentary.js, js/validators.js",
+  "engines": {
+    "math-input": {
+      "label": "Calcul et saisie numérique",
+      "sourceKind": "generator",
+      "commonParams": ["questions"],
+      "paramsTypes": {
+        "add-simple": { "params": ["min", "maxSum"] },
+        "add-trou": { "params": ["min", "max"] },
+        "sub-simple": { "params": ["min", "max"] },
+        "mult": { "params": ["table"] },
+        "complement": { "params": ["target"] },
+        "decimal-place": { "params": ["trap"] },
+        "dictée-nombres": { "params": ["max"] },
+        "calc-mental": { "params": ["operator", "operands", "range"] },
+        "oiseau-math": { "params": ["min", "max", "vitesse"] },
+        "cibles": { "params": ["zones", "nbFleches", "skin"] },
+        "half": { "params": ["max"] },
+        "double": { "params": ["max"] },
+        "division-simple": { "params": ["max"] },
+        "division-reste": { "params": ["max"] },
+        "division-posed": { "params": ["min", "max"] },
+        "proportionnalite": { "params": [] },
+        "pourcentage": { "params": [] },
+        "aire-rectangle": { "params": [] },
+        "volume-pave": { "params": [] },
+        "echelle": { "params": [] },
+        "vitesse": { "params": [] },
+        "bar-chart-read": { "params": [] },
+        "data-table-read": { "params": ["maxRows", "maxCols", "maxValue"], "note": "maxRows>=3, maxCols>=2, maxValue>=1" },
+        "pie-chart-read": { "params": ["partSets"] },
+        "average-compute": { "params": ["length", "maxValue"], "note": "length>=3, maxValue>=1" },
+        "spelling": { "params": ["category"], "note": "branché avant calculate() dans engines.js ; s'appuie sur la lib français" },
+        "clock": { "params": [], "note": "alias : engine 'clock' direct équivalent" },
+        "fraction-view": { "params": ["maxDenom"] },
+        "number-spelling": { "params": ["max"] },
+        "carre-somme": { "params": [] }
+      }
+    },
+    "choice-engine": {
+      "label": "QCM et comparaisons",
+      "sourceKind": "mixed",
+      "aliases": ["compare", "choice"],
+      "commonParams": ["questions"],
+      "paramsTypes": {
+        "factual-qcm": { "sourceKind": "pool", "params": ["dataFile", "category"], "note": "documentaire : questions tirées d'une banque data/*.json" },
+        "gender-articles": { "sourceKind": "library", "params": [] },
+        "article-choice": { "sourceKind": "library", "params": [] },
+        "plural-choice": { "sourceKind": "library", "params": [] },
+        "word-class-choice": { "sourceKind": "library", "params": [] },
+        "grammar-cloze": { "sourceKind": "library", "params": [] },
+        "homophone-duel": { "sourceKind": "library", "params": [] },
+        "compare-decimals": { "sourceKind": "generator", "params": [] },
+        "(défaut)": { "sourceKind": "generator", "params": ["choices", "options"], "note": "compare() si aucun type reconnu ; choices/options >= 2" }
+      }
+    },
+    "board-interactive": {
+      "label": "Activités interactives non-QCM",
+      "sourceKind": "pool",
+      "commonParams": ["questions", "type"],
+      "paramsTypes": {
+        "tap-features": { "sourceKind": "pool", "params": ["dataFile", "category"] },
+        "shape-classify": { "sourceKind": "pool", "params": ["dataFile", "category"] },
+        "point-on-grid": { "sourceKind": "pool", "params": ["dataFile", "category"] },
+        "symmetry-complete": { "sourceKind": "pool", "params": ["dataFile", "category"] },
+        "map-locate": { "sourceKind": "pool", "params": ["dataFile", "category", "mapFile", "mapId"], "note": "voir docs/maps-architecture.md ; targetZoneId doit matcher un id du SVG" },
+        "memory-match": { "sourceKind": "pool", "params": ["dataFile", "category"] },
+        "angle-classify": { "sourceKind": "pool", "params": ["dataFile", "category"] },
+        "angle-measure": { "sourceKind": "pool", "params": ["dataFile", "category"], "note": "answerDegrees 0-360, choices contient la réponse" },
+        "construction-report": { "sourceKind": "pool", "params": ["dataFile", "category"] },
+        "fraction-build": { "sourceKind": "generator", "params": [], "note": "seul type board sans dataFile" }
+      }
+    },
+    "conversion": {
+      "label": "Conversions d'unités",
+      "sourceKind": "generator",
+      "commonParams": ["questions", "modes", "memo"],
+      "paramsTypes": {}
+    },
+    "conjugation": {
+      "label": "Conjugaison",
+      "sourceKind": "library",
+      "commonParams": ["questions"],
+      "note": "s'appuie sur data/french/conjugation.json",
+      "paramsTypes": {}
+    },
+    "reading": {
+      "label": "Lecture et compréhension",
+      "sourceKind": "library",
+      "commonParams": ["questions"],
+      "note": "s'appuie sur data/french/reading.json (et catégories de lecture)",
+      "paramsTypes": {}
+    },
+    "audio-spelling": {
+      "label": "Dictée audio",
+      "sourceKind": "library",
+      "commonParams": ["questions"],
+      "note": "s'appuie sur la bibliothèque français",
+      "paramsTypes": {}
+    },
+    "cloze-fill-in": {
+      "label": "Texte à trous",
+      "sourceKind": "library",
+      "commonParams": ["questions"],
+      "paramsTypes": {}
+    },
+    "matching": {
+      "label": "Appariement (relier deux colonnes)",
+      "sourceKind": "pool",
+      "commonParams": ["questions", "dataFile", "category"],
+      "paramsTypes": {}
+    },
+    "word-order": {
+      "label": "Remise en ordre des mots",
+      "sourceKind": "pool",
+      "commonParams": ["questions", "dataFile", "category"],
+      "paramsTypes": {}
+    },
+    "timeline": {
+      "label": "Frise chronologique",
+      "sourceKind": "pool",
+      "commonParams": ["questions", "dataFile", "grade", "mode", "timelineId"],
+      "note": "mode ∈ {order, place} ; voir data/history_chrono.json",
+      "paramsTypes": {}
+    },
+    "clock": {
+      "label": "Lecture de l'heure",
+      "sourceKind": "generator",
+      "commonParams": ["questions"],
+      "note": "équivalent à math-input + type:clock",
+      "paramsTypes": {}
+    },
+    "counting": {
+      "label": "Dénombrement",
+      "sourceKind": "generator",
+      "commonParams": ["questions"],
+      "paramsTypes": {}
+    }
+  }
+}

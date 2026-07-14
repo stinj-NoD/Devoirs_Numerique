@@ -31,6 +31,10 @@ $files = Get-ChildItem -Path $resolvedDataDir -Include *.json,*.svg -Recurse | S
 if (-not $IncludeLegacy) {
     $files = $files | Where-Object { $_.Name -ne "cpold.json" }
 }
+# engine-registry.json = artefact d'outillage (source du registre des moteurs,
+# lu par scripts/build-content-index.js et l'agent exercise-author). Jamais lu
+# au runtime : on l'exclut du bundle pour ne pas le gonfler.
+$files = $files | Where-Object { $_.Name -ne "engine-registry.json" }
 # data/maps/*.json = métadonnées de zones jamais lues par le code à l'exécution
 # (référence pour de futurs contenus type capitales). Seuls les SVG des cartes
 # sont chargés — on exclut ces JSON du bundle pour ne pas le gonfler.

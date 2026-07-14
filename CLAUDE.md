@@ -15,7 +15,9 @@ Pas de build, pas de `package.json`, pas de gestionnaire de paquets — ne pas e
 **Après toute modification dans `data/` (workflow obligatoire) :**
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/validate-data.ps1
+node scripts/build-content-index.js --check   # anti-doublon : ids uniques (inter-niveaux) + cohérence du registre des moteurs
 powershell -ExecutionPolicy Bypass -File scripts/regenerate-data-bundle.ps1
+node scripts/build-content-index.js --write   # régénère CONTENT_INDEX.json (catalogue plat + inventaire des banques)
 ```
 Puis vérifier manuellement au minimum : une leçon, un exercice maths, un exercice français, un exercice documentaire, un retour vers résultats.
 
@@ -25,12 +27,16 @@ node scripts/validate-subjects.js   # chaque sujet des 5 niveaux doit être reco
 node scripts/validate-maps.js       # à lancer après tout ajout de carte map-locate ou d'exercice board-interactive
 ```
 
+**Anti-doublon et référencement (`scripts/build-content-index.js`)** : `--check` échoue si un `id` d'exercice/leçon est dupliqué (les validateurs historiques ne vérifient l'unicité que *par fichier* ; or un `id` est une clé de record côté utilisateur), si le registre des moteurs (`data/engine-registry.json`) diverge de `Validators.knownEngines`/`$knownEngines`, ou si `CONTENT_INDEX.json` est périmé. Il rapporte en **avertissement** (non bloquant) les doublons « mous » légitimes du contenu historique (variantes bonus, banque étalée sur plusieurs exercices) — leur but est de rendre visibles les viviers `dataFile::category` déjà utilisés pour ne pas **en créer de nouveaux**. `CONTENT_INDEX.json` (racine, généré) et `data/engine-registry.json` sont de l'**outillage** exclu du bundle runtime (voir `regenerate-data-bundle.ps1`) ; le registre est documenté dans `docs/engine-registry.md`.
+
 **Vérification de syntaxe rapide sur un fichier JS modifié :**
 ```bash
 node --check js/app.js
 ```
 
-**Autres scripts utilitaires (`scripts/`)** : `repair-json-encoding.ps1` / `fix-french-lib-visible.ps1` (répare le mojibake UTF-8 récurrent dans les JSON historiques), `generate-content-architecture.js` (régénère `CONTENT_ARCHITECTURE.md` depuis les fichiers de niveau — à relancer après toute vague de contenu), `inventory-assets.ps1`, `enrich-documentary-data.ps1`, `refresh-local-data.ps1`, `process-card-images.py` (pipeline images de cartes du Grimoire, voir l'agent `card-image-processor`).
+**Autres scripts utilitaires (`scripts/`)** : `build-content-index.js` (index anti-doublon + garde-fou du registre des moteurs — voir ci-dessus), `repair-json-encoding.ps1` / `fix-french-lib-visible.ps1` (répare le mojibake UTF-8 récurrent dans les JSON historiques), `generate-content-architecture.js` (régénère `CONTENT_ARCHITECTURE.md` depuis les fichiers de niveau — à relancer après toute vague de contenu), `inventory-assets.ps1`, `enrich-documentary-data.ps1`, `refresh-local-data.ps1`, `process-card-images.py` (pipeline images de cartes du Grimoire, voir l'agent `card-image-processor`).
+
+**Créer des exercices en lot sans doublon** : l'agent `exercise-author` (`.claude/agents/exercise-author.md`) produit des lots d'exercices/leçons sur un niveau + sous-thème donnés, en consultant `CONTENT_INDEX.json` pour ne pas dupliquer un vivier existant, puis déroule tout le workflow de validation ci-dessus. Voir aussi `docs/engine-registry.md`.
 
 Il n'y a pas de suite de tests automatisés au sens classique — la vérification passe par les validateurs ci-dessus + un test manuel dans le navigateur.
 
