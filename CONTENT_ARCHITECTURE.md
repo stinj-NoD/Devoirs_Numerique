@@ -902,9 +902,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Tables de multiplication `(ce2-multiplication)`
 
 - **Leçons** (3) :
-  - Comprendre la multiplication `(ce2-lesson-comprendre-multiplication)` — blocs: paragraph, example, bullets, tip
-  - Mémoriser toutes les tables `(ce2-lesson-memoriser-tables)` — blocs: paragraph, example, bullets, tip
-  - Multiplier par 10, 100, 1 000 `(ce2-lesson-multiplier-10-100)` — blocs: paragraph, example, bullets, tip
+  - Comprendre la multiplication `(ce2-lesson-comprendre-multiplication)` — blocs: paragraph, example, bullets, tip, check, check
+  - Mémoriser toutes les tables `(ce2-lesson-memoriser-tables)` — blocs: paragraph, example, bullets, tip, check, check
+  - Multiplier par 10, 100, 1 000 `(ce2-lesson-multiplier-10-100)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (13) :
   - Table de 2 `(ce2-m2)` — engine: `math-input`, type=mult, table=2, questions=10
   - Table de 3 `(ce2-m3)` — engine: `math-input`, type=mult, table=3, questions=10
@@ -923,15 +923,15 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Calculs & Logique `(ce2-calculs-logique)`
 
 - **Leçons** (9) :
-  - Poser une division `(ce2-lesson-division-posee)` — blocs: paragraph, example, tip
-  - Les fractions simples `(ce2-lesson-fractions-simples)` — blocs: paragraph, bullets, tip
-  - Chercher le complément `(ce2-lesson-complements-1000)` — blocs: paragraph, example, bullets, tip
-  - Lire l'heure `(ce2-lesson-lire-horloge)` — blocs: paragraph, example, mini-table, tip
-  - Partager en parts égales `(ce2-lesson-partages-egaux)` — blocs: paragraph, example, bullets, tip
-  - Doubles et moitiés `(ce2-lesson-doubles-moities)` — blocs: paragraph, example, bullets, tip
-  - Les longueurs `(ce2-lesson-longueurs)` — blocs: paragraph, example, bullets, tip
-  - Les formes planes `(ce2-lesson-formes-planes)` — blocs: paragraph, example, bullets, tip
-  - Masses et contenances `(ce2-lesson-masses-contenances)` — blocs: paragraph, example, mini-table, tip
+  - Poser une division `(ce2-lesson-division-posee)` — blocs: paragraph, example, tip, check, check
+  - Les fractions simples `(ce2-lesson-fractions-simples)` — blocs: paragraph, bullets, tip, check, check
+  - Chercher le complément `(ce2-lesson-complements-1000)` — blocs: paragraph, example, bullets, tip, check, check
+  - Lire l'heure `(ce2-lesson-lire-horloge)` — blocs: paragraph, example, mini-table, tip, check, check
+  - Partager en parts égales `(ce2-lesson-partages-egaux)` — blocs: paragraph, example, bullets, tip, check, check
+  - Doubles et moitiés `(ce2-lesson-doubles-moities)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les longueurs `(ce2-lesson-longueurs)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les formes planes `(ce2-lesson-formes-planes)` — blocs: paragraph, example, bullets, tip, check, check
+  - Masses et contenances `(ce2-lesson-masses-contenances)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (20) :
   - Le Compte est bon `(ce2-cible-1)` — engine: `math-input`, type=cibles, nbFleches=5, questions=5
   - Carré Magique `(ce2-carre-magique-1)` — engine: `math-input`, type=carre-somme, solutionCount=3, targetMin=15, targetMax=25, gridSize=9, questions=6
@@ -957,9 +957,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Géométrie `(ce2-geometrie-subtheme)`
 
 - **Leçons** (3) :
-  - Figures planes et solides `(ce2-lesson-figures-solides)` — blocs: paragraph, example, bullets, tip
-  - L'angle droit et l'équerre `(ce2-lesson-angle-droit-equerre)` — blocs: paragraph, example, bullets, tip
-  - Symétrie et quadrillage `(ce2-lesson-symetrie-quadrillage)` — blocs: paragraph, example, bullets, tip
+  - Figures planes et solides `(ce2-lesson-figures-solides)` — blocs: paragraph, example, bullets, tip, check, check
+  - L'angle droit et l'équerre `(ce2-lesson-angle-droit-equerre)` — blocs: paragraph, example, bullets, tip, check, check
+  - Symétrie et quadrillage `(ce2-lesson-symetrie-quadrillage)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (9) :
   - Figures et solides `(ce2-geo-figures-solides)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_ce2.json, category=ce2-figures-proprietes, questions=8
   - L'angle droit `(ce2-geo-angle-droit)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_ce2.json, category=ce2-angle-droit-equerre, questions=8
@@ -976,11 +976,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Orthographe & Grammaire `(ce2-orthographe-grammaire)`
 
 - **Leçons** (5) :
-  - Choisir le bon homophone `(ce2-lesson-homophones-reperes)` — blocs: paragraph, example, bullets, tip
-  - Accorder le groupe nominal `(ce2-lesson-accord-groupe-nominal)` — blocs: paragraph, example, bullets, tip
-  - La phrase et la ponctuation `(ce2-lesson-phrase-ponctuation)` — blocs: paragraph, example, bullets, tip
-  - Le pluriel des noms `(ce2-lesson-pluriel-noms)` — blocs: paragraph, example, bullets, tip
-  - a ou à ? et ou est ? `(ce2-lesson-a-accent-ou-pas)` — blocs: paragraph, example, bullets, tip
+  - Choisir le bon homophone `(ce2-lesson-homophones-reperes)` — blocs: paragraph, example, bullets, tip, check, check
+  - Accorder le groupe nominal `(ce2-lesson-accord-groupe-nominal)` — blocs: paragraph, example, bullets, tip, check, check
+  - La phrase et la ponctuation `(ce2-lesson-phrase-ponctuation)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le pluriel des noms `(ce2-lesson-pluriel-noms)` — blocs: paragraph, example, bullets, tip, check, check
+  - a ou à ? et ou est ? `(ce2-lesson-a-accent-ou-pas)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (23) :
   - Et ou Est ? `(ce2-h-et)` — engine: `choice-engine`, type=homophone-duel, category=et_est, questions=8
   - A ou à ? `(ce2-h-a)` — engine: `choice-engine`, type=homophone-duel, category=a_à, questions=8
@@ -1009,10 +1009,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Conjugaison `(ce2-conjugaison-subject)`
 
 - **Leçons** (4) :
-  - Le verbe aller au présent `(ce2-lesson-se-deplacer)` — blocs: paragraph, mini-table, example, tip
-  - Être et avoir au présent `(ce2-lesson-etre-avoir-present)` — blocs: paragraph, mini-table, example, tip
-  - Le passé composé `(ce2-lesson-passe-compose)` — blocs: paragraph, example, bullets, tip
-  - Trouver l'infinitif d'un verbe `(ce2-lesson-trouver-infinitif)` — blocs: paragraph, example, bullets, tip
+  - Le verbe aller au présent `(ce2-lesson-se-deplacer)` — blocs: paragraph, mini-table, example, tip, check, check
+  - Être et avoir au présent `(ce2-lesson-etre-avoir-present)` — blocs: paragraph, mini-table, example, tip, check, check
+  - Le passé composé `(ce2-lesson-passe-compose)` — blocs: paragraph, example, bullets, tip, check, check
+  - Trouver l'infinitif d'un verbe `(ce2-lesson-trouver-infinitif)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (13) :
   - Rappel : Le Présent `(ce2-conj-pres-all)` — engine: `conjugation`, category=present_1, tenses=présent, questions=10
   - Futur : Être et Avoir `(ce2-conj-etre-avoir-futur)` — engine: `conjugation`, category=etre_avoir_f, tenses=futur, questions=6
@@ -1031,11 +1031,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Lecture et vocabulaire `(ce2-lecture-vocabulaire-subtheme)`
 
 - **Leçons** (5) :
-  - Comprendre un texte court `(ce2-lesson-comprendre-texte-court)` — blocs: paragraph, example, bullets, tip
-  - Comprendre le sens d'un mot `(ce2-lesson-vocabulaire-sens-mot)` — blocs: paragraph, example, bullets, tip
-  - Ranger les mots par thème `(ce2-lesson-ranger-mots-theme)` — blocs: paragraph, example, bullets, tip
-  - Le champ lexical `(ce2-lesson-champ-lexical)` — blocs: paragraph, example, bullets, tip
-  - L'ordre alphabétique et le dictionnaire `(ce2-lesson-ordre-alphabetique-dictionnaire)` — blocs: paragraph, example, bullets, tip
+  - Comprendre un texte court `(ce2-lesson-comprendre-texte-court)` — blocs: paragraph, example, bullets, tip, check, check
+  - Comprendre le sens d'un mot `(ce2-lesson-vocabulaire-sens-mot)` — blocs: paragraph, example, bullets, tip, check, check
+  - Ranger les mots par thème `(ce2-lesson-ranger-mots-theme)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le champ lexical `(ce2-lesson-champ-lexical)` — blocs: paragraph, example, bullets, tip, check, check
+  - L'ordre alphabétique et le dictionnaire `(ce2-lesson-ordre-alphabetique-dictionnaire)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (14) :
   - Trouver l'idée principale `(ce2-lecture-idee-principale)` — engine: `reading`, category=ce2_lecture_idee_principale, questions=5
   - Comprendre le sens d'un mot `(ce2-vocabulaire-sens-mot)` — engine: `reading`, category=ce2_vocabulaire_sens, questions=5
@@ -1055,8 +1055,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Dictée audio `(ce2-dictee-audio-subtheme)`
 
 - **Leçons** (2) :
-  - Bien écouter pour bien écrire `(ce2-lesson-ecoute-attentive)` — blocs: paragraph, example, bullets, tip
-  - Se relire comme un détective `(ce2-lesson-relire-dictee)` — blocs: paragraph, example, bullets, tip
+  - Bien écouter pour bien écrire `(ce2-lesson-ecoute-attentive)` — blocs: paragraph, example, bullets, tip, check, check
+  - Se relire comme un détective `(ce2-lesson-relire-dictee)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Les animaux `(ce2-audio-animaux)` — engine: `audio-spelling`, category=animals, speechRate=0.8, questions=6
   - L'école `(ce2-audio-ecole)` — engine: `audio-spelling`, category=school, speechRate=0.8, questions=6
