@@ -65,7 +65,7 @@ Niveau → `subjects[]` → `subthemes[]` → `lessons[]` et/ou `exercises[]`. U
 
 `js/data-bundle.js` embarque **tout** `data/**/*.{json,svg}` en base64 (sauf `data/maps/*.json`, jamais lus au runtime, exclus par le script). Il doit être régénéré après **tout** changement dans `data/`, sinon le mode `file://` et le fallback offline servent du contenu périmé.
 
-`sw.js` : `CACHE_NAME` doit être incrémenté à **chaque** déploiement modifiant `data/*.json` ou du code JS/CSS — sans ça le navigateur considère `sw.js` inchangé et ne retélécharge jamais rien (particulièrement bloquant sur iOS/Safari). Un bouton « Mettre à jour l'application » (`App.forceAppUpdate()`) force la vérification côté utilisateur.
+`sw.js` : le `CACHE_NAME` dérive de `APP_VERSION` (`js/version.js`, source unique, aussi affichée dans l'UI) — `APP_VERSION` doit être incrémentée à **chaque** déploiement modifiant `data/*.json` ou du code JS/CSS, sans ça le navigateur considère `sw.js` inchangé et ne retélécharge jamais rien (particulièrement bloquant sur iOS/Safari). Un bouton « Mettre à jour l'application » (`App.forceAppUpdate()`) force la vérification côté utilisateur.
 
 ### Cartes interactives (`map-locate`)
 

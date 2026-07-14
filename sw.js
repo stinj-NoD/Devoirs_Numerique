@@ -3,7 +3,12 @@
  * Robustesse offline/PWA
  */
 
-const CACHE_NAME = 'dn-v4.14.0-vague-l70-l77-contenu-moteurs';
+// La version vient de js/version.js (source unique, aussi affichée dans
+// l'app) : incrémenter APP_VERSION là-bas à chaque déploiement suffit à
+// invalider le cache.
+importScripts('./js/version.js');
+
+const CACHE_NAME = 'dn-v' + self.APP_VERSION;
 const OFFLINE_URL = './offline.html';
 
 const APP_ASSETS = [
@@ -15,6 +20,7 @@ const APP_ASSETS = [
   './icon-192.png',
   './icon-512.png',
   './js/app.js',
+  './js/version.js',
   './js/storage.js',
   './js/security.js',
   './js/validators.js',

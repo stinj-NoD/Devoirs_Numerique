@@ -79,7 +79,12 @@
     <section id="screen-profiles" class="screen">
         <h1>Qui va jouer ?</h1>
         <div id="profiles-list" class="grid-menu"></div>
-        <div id="profile-form" class="card new-profile-card">
+        <button
+            id="btn-new-profile-toggle"
+            type="button"
+            class="btn card new-profile-toggle"
+        >➕ Créer un nouvel utilisateur</button>
+        <div id="profile-form" class="card new-profile-card is-collapsed">
             <input
                 type="text"
                 id="new-profile-name"
@@ -104,6 +109,7 @@
             <button id="btn-open-guide" type="button" class="parents-link-btn">
                 ❓ Mode d'emploi
             </button>
+            <span id="app-version-label" class="app-version-label" aria-label="Version de l'application"></span>
         </div>
     </section>
 
@@ -454,6 +460,7 @@
     </section>
 </div>
 
+<script src="js/version.js"></script>
 <script src="js/storage.js"></script>
 <script src="js/audio-feedback.js"></script>
 <script src="js/security.js"></script>

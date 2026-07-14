@@ -771,7 +771,7 @@ const App = {
 
         actions.push({
             title: 'Mettre à jour l\'application',
-            subtitle: 'Forcer le téléchargement des dernières nouveautés',
+            subtitle: (typeof window.APP_VERSION === 'string' ? `Version actuelle : ${window.APP_VERSION} — ` : '') + 'forcer le téléchargement des dernières nouveautés',
             onSelect: () => this.forceAppUpdate()
         });
 
@@ -970,6 +970,7 @@ const App = {
         if (result?.ok) {
             Storage.setCurrentUser(result.cleanName);
             if (el) el.value = "";
+            this.setProfileFormCollapsed(true);
             await this.loadGradesMenu();
             return;
         }
@@ -984,11 +985,26 @@ const App = {
         alert(messages[result?.code] || "Merci d'entrer un prénom valide.");
     },
 
+    /**
+     * Replie/déplie le formulaire de création de profil. Le dépli au tap
+     * (avec focus clavier) est géré dans bootstrap.js pour rester dans le
+     * geste utilisateur exigé par iOS ; ici on gère les états programmés.
+     */
+    setProfileFormCollapsed(collapsed) {
+        const form = document.getElementById('profile-form');
+        const toggle = document.getElementById('btn-new-profile-toggle');
+        if (form) form.classList.toggle('is-collapsed', collapsed);
+        if (toggle) toggle.hidden = !collapsed;
+    },
+
     renderProfilesScreen() {
         UI.updateHeader("Devoir Numérique");
         UI.renderHeaderAvatar(null);
         UI.showScreen('screen-profiles');
         const names = Storage.getProfiles();
+        // Sans aucun profil, on montre directement le champ prénom : pas de
+        // clavier automatique possible (hors geste), mais rien à découvrir.
+        this.setProfileFormCollapsed((names || []).length > 0);
         const accentChoices = Storage.getAccentChoices();
         let needsCatalog = false;
         const profiles = (names || []).map(n => {

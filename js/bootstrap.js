@@ -130,6 +130,8 @@
     function bindProfileInlineFallback() {
         const input = document.getElementById('new-profile-name');
         const button = document.getElementById('btn-add-profile');
+        const toggle = document.getElementById('btn-new-profile-toggle');
+        const form = document.getElementById('profile-form');
 
         if (button) {
             button.addEventListener('click', (event) => {
@@ -141,6 +143,17 @@
             input.addEventListener('keydown', (event) => {
                 if (event.key === 'Enter') window.dnCreateProfileFallback(event);
             }, true);
+        }
+
+        if (toggle && form && input) {
+            toggle.addEventListener('click', () => {
+                form.classList.remove('is-collapsed');
+                toggle.hidden = true;
+                // focus() SYNCHRONE dans le geste utilisateur : condition
+                // indispensable pour que iOS/iPadOS fasse monter le clavier
+                // virtuel (aucun setTimeout/await avant cet appel).
+                input.focus();
+            });
         }
     }
 
@@ -205,8 +218,16 @@
         });
     }
 
+    function renderAppVersionLabel() {
+        const label = document.getElementById('app-version-label');
+        if (label && typeof window.APP_VERSION === 'string') {
+            label.textContent = 'v' + window.APP_VERSION;
+        }
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
         bindProfileInlineFallback();
+        renderAppVersionLabel();
         registerServiceWorker();
     });
 })();

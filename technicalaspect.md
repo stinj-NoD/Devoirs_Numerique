@@ -193,7 +193,7 @@ Le service worker :
 - purge les anciens caches
 - garantit un minimum de fonctionnement hors ligne
 
-**Important** : `CACHE_NAME` doit être incrémenté à chaque déploiement qui modifie du contenu (`data/*.json`) ou du code. Sans ce changement, le navigateur considère `sw.js` identique et ne télécharge jamais la nouvelle version, même en rechargeant la page — c'est particulièrement sensible sur iOS/Safari.
+**Important** : la version applicative vit dans `APP_VERSION` ([js/version.js](js/version.js)), source unique consommée à la fois par `sw.js` (`CACHE_NAME = 'dn-v' + APP_VERSION` via `importScripts`) et par l'interface (libellé `vX.Y.Z` dans le pied de page de l'écran d'accueil, et sous-titre de « Mettre à jour l'application »). `APP_VERSION` doit être incrémentée à chaque déploiement qui modifie du contenu (`data/*.json`) ou du code. Sans ce changement, le navigateur considère `sw.js` identique et ne télécharge jamais la nouvelle version, même en rechargeant la page — c'est particulièrement sensible sur iOS/Safari.
 
 Un bouton « Mettre à jour l'application » (menu ☰, `App.forceAppUpdate()` dans [app.js](js/app.js)) permet à l'utilisateur de forcer la vérification immédiate : `registration.update()`, puis activation du nouveau worker (`SKIP_WAITING`) et rechargement automatique dès qu'une nouvelle version est détectée.
 
@@ -204,7 +204,7 @@ Les points encore sensibles sont :
 - cohérence pédagogique des leçons
 - hétérogénéité éditoriale entre niveaux
 - besoin d'un suivi plus fin des usages leçon/exercice
-- `CACHE_NAME` (sw.js) à incrémenter manuellement à chaque déploiement de contenu
+- `APP_VERSION` (js/version.js) à incrémenter manuellement à chaque déploiement de contenu
 
 ## 9. Cap suivant
 
