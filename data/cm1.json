@@ -308,6 +308,28 @@
                                     "label": "À retenir",
                                     "content": "Pour lire une fraction, je regarde d'abord en combien de parts on partage.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Deux tartes identiques sont partagées : la première en 5 parts égales, la seconde en 8 parts égales. Dans quelle tarte une part est-elle la plus grosse ?",
+                                    "choices": [
+                                        "Dans celle partagée en 5",
+                                        "Dans celle partagée en 8",
+                                        "Les parts sont identiques"
+                                    ],
+                                    "answer": "Dans celle partagée en 5",
+                                    "explanation": "Une tarte entière partagée en 5 donne des parts plus grosses que la même tarte partagée en 8 : plus on partage, plus chaque part rétrécit. Donc 1/5 est plus grand que 1/8."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève affirme que 2/7 se lit « 7 parts sur 2 ». Où est son erreur ?",
+                                    "choices": [
+                                        "Il a inversé les deux nombres",
+                                        "Il a oublié de simplifier",
+                                        "Il aurait dû additionner 2 et 7"
+                                    ],
+                                    "answer": "Il a inversé les deux nombres",
+                                    "explanation": "Le nombre du bas (7) dit en combien de parts on partage, celui du haut (2) dit combien de parts on prend. 2/7 se lit donc « 2 parts sur 7 »."
                                 }
                             ],
                             "title": "Lire une fraction",
@@ -339,6 +361,28 @@
                                     "label": "À retenir",
                                     "content": "Chaque chiffre a une place précise dans le nombre décimal.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans le nombre 8,06, quel est le chiffre des centièmes ?",
+                                    "choices": [
+                                        "6",
+                                        "0",
+                                        "8"
+                                    ],
+                                    "answer": "6",
+                                    "explanation": "Après la virgule, le premier chiffre est celui des dixièmes (0 ici), le deuxième celui des centièmes (6). Le 8 est la partie entière."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève écrit que 3,5 est plus petit que 3,15 « parce que 5 est plus petit que 15 ». Quelle est son erreur ?",
+                                    "choices": [
+                                        "Il compare la partie décimale comme un entier",
+                                        "Il a oublié de regarder la partie entière",
+                                        "Il a confondu la virgule et le zéro"
+                                    ],
+                                    "answer": "Il compare la partie décimale comme un entier",
+                                    "explanation": "Après la virgule, chaque chiffre a une place : dans 3,5 il y a 5 dixièmes, dans 3,15 seulement 1 dixième. 3,5 c'est 3,50, donc 3,5 est plus grand que 3,15."
                                 }
                             ],
                             "title": "Repérer les décimaux",
@@ -375,6 +419,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Je commence toujours par comprendre la question avant de calculer."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Un car transporte 52 élèves. 19 descendent au musée. Combien restent dans le car ? » Un élève trouve 71. Comment sait-on tout de suite que c'est faux, sans refaire le calcul ?",
+                                    "choices": [
+                                        "Il ne peut pas rester plus d'élèves qu'au départ",
+                                        "52 et 19 ne se soustraient pas",
+                                        "Il fallait multiplier les deux nombres"
+                                    ],
+                                    "answer": "Il ne peut pas rester plus d'élèves qu'au départ",
+                                    "explanation": "Des élèves descendent, donc le résultat doit être plus petit que 52. L'élève a additionné au lieu de soustraire : la bonne réponse est 52 - 19 = 33."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Sami avait 60 images. Il en a maintenant 84. Combien en a-t-il gagné ? » Quel calcul répond à la question ?",
+                                    "choices": [
+                                        "84 - 60",
+                                        "84 + 60",
+                                        "84 ÷ 60"
+                                    ],
+                                    "answer": "84 - 60",
+                                    "explanation": "On connaît le début (60) et la fin (84) : pour retrouver ce qui a été ajouté, on soustrait. Sami a gagné 84 - 60 = 24 images."
                                 }
                             ]
                         },
@@ -406,6 +472,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Un problème se comprend avant de se calculer."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Nina a 9 ans. Elle achète 4 cahiers à 3 € et paie avec un billet de 20 €. Combien lui rend-on ? » Quelle donnée ne sert pas au calcul ?",
+                                    "choices": [
+                                        "Son âge",
+                                        "Le prix d'un cahier",
+                                        "Le nombre de cahiers"
+                                    ],
+                                    "answer": "Son âge",
+                                    "explanation": "L'énoncé donne un nombre qui n'entre dans aucun calcul. On cherche 20 - (4 × 3) = 20 - 12 = 8 € : les 9 ans ne servent à rien."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Une boîte contient 6 œufs. Léo a 5 boîtes. Combien a-t-il d'œufs en tout ? » Faut-il additionner 6 et 5 parce qu'on lit « en tout » ?",
+                                    "choices": [
+                                        "Non, il faut multiplier 6 par 5",
+                                        "Oui, « en tout » veut dire additionner",
+                                        "Non, il faut soustraire 6 et 5"
+                                    ],
+                                    "answer": "Non, il faut multiplier 6 par 5",
+                                    "explanation": "Un mot ne choisit pas l'opération : il faut comprendre la situation. Ici, 5 boîtes de 6 œufs, c'est 6 × 5 = 30 œufs, et non 11."
                                 }
                             ]
                         },
@@ -458,6 +546,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Dans un tableau de proportionnalité, on multiplie ou on divise les deux lignes par le même nombre."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "3 stylos identiques coûtent 6 €. Combien coûtent 12 stylos ?",
+                                    "choices": [
+                                        "24 €",
+                                        "15 €",
+                                        "18 €"
+                                    ],
+                                    "answer": "24 €",
+                                    "explanation": "De 3 à 12 stylos, on multiplie par 4. Le prix se multiplie donc aussi par 4 : 6 × 4 = 24 €. Ajouter 9 au prix (ce qui donnerait 15 €) n'est pas de la proportionnalité."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève dit : « Yanis a 8 ans, son père 32 ans. Quand Yanis aura 16 ans, son père en aura 64. » Pourquoi est-ce faux ?",
+                                    "choices": [
+                                        "Les âges avancent de la même durée, pas dans le même rapport",
+                                        "Il aurait dû diviser 32 par 16 pour trouver l'âge",
+                                        "Le père vieillit deux fois moins vite que son fils"
+                                    ],
+                                    "answer": "Les âges avancent de la même durée, pas dans le même rapport",
+                                    "explanation": "Toutes les situations ne sont pas proportionnelles. Quand Yanis gagne 8 ans, son père gagne 8 ans aussi : il aura 40 ans, pas 64."
                                 }
                             ]
                         }
@@ -687,6 +797,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Une conversion ne modifie pas la quantité, seulement la façon de l'écrire."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un cycliste parcourt 3 km. Combien cela fait-il de mètres ?",
+                                    "choices": [
+                                        "3 000 m",
+                                        "300 m",
+                                        "30 m"
+                                    ],
+                                    "answer": "3 000 m",
+                                    "explanation": "1 km vaut 1 000 m, donc 3 km valent 3 × 1 000 = 3 000 m. La distance parcourue n'a pas changé : seule l'unité change."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève écrit qu'une durée de 1 h 30 vaut 130 minutes. Quelle est son erreur ?",
+                                    "choices": [
+                                        "Une heure vaut 60 minutes, pas 100",
+                                        "Il a oublié d'ajouter les 30 minutes",
+                                        "Il fallait multiplier 1 par 30"
+                                    ],
+                                    "answer": "Une heure vaut 60 minutes, pas 100",
+                                    "explanation": "Les durées ne se convertissent pas de 100 en 100. 1 h = 60 min, donc 1 h 30 = 60 + 30 = 90 minutes."
                                 }
                             ]
                         },
@@ -739,6 +871,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Pour convertir, je compte les rangs entre les deux unités, comme pour les longueurs."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une bouteille contient 1,5 L de jus. Combien cela fait-il de mL ?",
+                                    "choices": [
+                                        "1 500 mL",
+                                        "150 mL",
+                                        "15 000 mL"
+                                    ],
+                                    "answer": "1 500 mL",
+                                    "explanation": "1 L vaut 1 000 mL, donc 1,5 L vaut 1 000 + 500 = 1 500 mL. Le demi-litre correspond à 500 mL."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève écrit : « 2 kg = 200 g, comme 2 m = 200 cm. » Quelle est son erreur ?",
+                                    "choices": [
+                                        "Il y a 1 000 g dans 1 kg, et non 100",
+                                        "Le kilogramme est plus léger que le gramme",
+                                        "Il aurait dû ajouter 200 aux 2 kg"
+                                    ],
+                                    "answer": "Il y a 1 000 g dans 1 kg, et non 100",
+                                    "explanation": "Entre kg et g il y a trois rangs (hg, dag, g), donc 1 kg = 1 000 g et 2 kg = 2 000 g. Entre m et cm il n'y a que deux rangs."
                                 }
                             ]
                         },
@@ -787,6 +941,28 @@
                                     "label": "À retenir",
                                     "content": "Quand une petite valeur est placée avant une plus grande, on la retire souvent.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel nombre s'écrit IX en chiffres romains ?",
+                                    "choices": [
+                                        "9",
+                                        "11",
+                                        "19"
+                                    ],
+                                    "answer": "9",
+                                    "explanation": "Le I (1) est placé avant le X (10) : on le retire. IX vaut donc 10 - 1 = 9. C'est XI qui vaut 11, car le I est alors placé après."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève lit XL et répond 60. Quelle est son erreur ?",
+                                    "choices": [
+                                        "Le X est avant le L, donc il se retire",
+                                        "Il a confondu la valeur du L avec 100",
+                                        "Il a oublié de compter le X"
+                                    ],
+                                    "answer": "Le X est avant le L, donc il se retire",
+                                    "explanation": "L vaut 50 et X vaut 10. Comme le X, plus petit, est écrit avant le L, on soustrait : XL = 50 - 10 = 40. L'élève a additionné."
                                 }
                             ],
                             "title": "Lire les chiffres romains",
@@ -823,6 +999,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Une forme se décrit avec des mots précis, pas seulement avec son nom."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur une porte rectangulaire, qu'est-ce qui empêche de dire que c'est un carré ?",
+                                    "choices": [
+                                        "Ses côtés n'ont pas tous la même longueur",
+                                        "Elle possède quatre angles droits",
+                                        "Elle n'a que trois sommets"
+                                    ],
+                                    "answer": "Ses côtés n'ont pas tous la même longueur",
+                                    "explanation": "Les deux figures ont 4 côtés et 4 angles droits : c'est l'égalité des 4 côtés qui les sépare. Une porte est plus haute que large, donc ses côtés sont inégaux."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève dit qu'une roue de vélo est un polygone parce qu'elle est fermée. Quelle observation le contredit ?",
+                                    "choices": [
+                                        "Son contour est courbe, sans côté droit",
+                                        "Elle possède plus de quatre sommets",
+                                        "Ses côtés ne sont pas tous égaux"
+                                    ],
+                                    "answer": "Son contour est courbe, sans côté droit",
+                                    "explanation": "Être fermé ne suffit pas : il faut des côtés droits et des sommets. Le contour rond de la roue n'en a aucun, ce n'est donc pas un polygone."
                                 }
                             ]
                         },
@@ -854,6 +1052,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Pour décrire une forme, je compte les côtés puis j'observe leurs longueurs et leurs angles."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un losange qui n'est pas un carré a 4 côtés de même longueur. Qu'est-ce qui lui manque pour être un carré ?",
+                                    "choices": [
+                                        "Ses coins ne sont pas comme celui d'une feuille",
+                                        "Il ne possède que trois sommets",
+                                        "Ses côtés ne sont pas de la même longueur"
+                                    ],
+                                    "answer": "Ses coins ne sont pas comme celui d'une feuille",
+                                    "explanation": "Le losange a déjà ses 4 côtés égaux, comme le carré. Il lui manque seulement les 4 angles droits : ses coins sont penchés, deux pointus et deux ouverts."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une figure fermée a 3 sommets et 3 côtés droits, tous de longueurs différentes. Que peut-on affirmer ?",
+                                    "choices": [
+                                        "C'est un triangle",
+                                        "Ce n'est pas un triangle car ses côtés sont inégaux",
+                                        "C'est un quadrilatère"
+                                    ],
+                                    "answer": "C'est un triangle",
+                                    "explanation": "Seul le nombre de côtés compte : 3 côtés droits font un triangle, que ses côtés soient égaux ou non. Un quadrilatère en aurait 4."
                                 }
                             ]
                         }
@@ -892,6 +1112,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Pour décrire un polygone, je compte d'abord ses côtés et ses sommets."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une figure a la forme d'un panneau de signalisation à 5 côtés droits. Combien a-t-elle de sommets ?",
+                                    "choices": [
+                                        "5",
+                                        "4",
+                                        "10"
+                                    ],
+                                    "answer": "5",
+                                    "explanation": "Dans un polygone, chaque sommet est le point où deux côtés se rejoignent : il y a donc toujours autant de sommets que de côtés. 5 côtés, 5 sommets."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève trace 4 segments droits mais laisse un écart entre le dernier et le premier. Pourquoi son tracé n'est-il pas un polygone ?",
+                                    "choices": [
+                                        "La figure n'est pas fermée",
+                                        "Il a tracé trop peu de segments",
+                                        "Ses segments ne sont pas égaux"
+                                    ],
+                                    "answer": "La figure n'est pas fermée",
+                                    "explanation": "Un polygone doit être une ligne fermée : le dernier segment doit rejoindre le point de départ. Avec un écart, on ne peut pas faire le tour de la figure."
                                 }
                             ]
                         },
@@ -923,6 +1165,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "L'équerre permet de vérifier si un angle est droit."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève veut savoir si le coin d'un cadre photo est bien droit. Il pose sa règle graduée dessus. Pourquoi cela ne suffit-il pas ?",
+                                    "choices": [
+                                        "Une règle mesure des longueurs, pas des angles",
+                                        "La règle est trop courte pour le cadre",
+                                        "Il aurait dû mesurer les quatre coins"
+                                    ],
+                                    "answer": "Une règle mesure des longueurs, pas des angles",
+                                    "explanation": "La règle sert à mesurer des côtés. Pour contrôler un coin, il faut un outil qui porte lui-même un angle droit : on applique l'équerre dans le coin et on regarde si les deux côtés la suivent exactement."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans un rectangle, on connaît un seul angle : il est droit. Que peut-on dire des trois autres angles ?",
+                                    "choices": [
+                                        "Ils sont droits eux aussi",
+                                        "Deux sont droits et deux sont ouverts",
+                                        "On ne peut rien affirmer sans les mesurer"
+                                    ],
+                                    "answer": "Ils sont droits eux aussi",
+                                    "explanation": "Le rectangle est justement la figure à 4 côtés dont les 4 angles sont droits. Un seul coin de travers, et ce ne serait plus un rectangle."
                                 }
                             ]
                         },
@@ -953,6 +1217,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Pour comparer, imagine toujours le coin d'une feuille : plus fermé = aigu, plus ouvert = obtus."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "On applique le coin d'une feuille dans l'angle d'un toit : la feuille recouvre l'angle et il reste encore de la place. Que peut-on dire de cet angle ?",
+                                    "choices": [
+                                        "Il est plus ouvert qu'un angle droit",
+                                        "Il est plus fermé qu'un angle droit",
+                                        "Il est exactement égal à un angle droit"
+                                    ],
+                                    "answer": "Il est plus ouvert qu'un angle droit",
+                                    "explanation": "Si le coin de la feuille rentre dans l'angle en laissant de la place, c'est que l'angle du toit est plus grand : il est obtus. S'il avait dépassé, l'angle aurait été aigu."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Deux angles sont dessinés avec la même ouverture, mais l'un a des côtés deux fois plus longs. Un élève dit qu'il est donc plus grand. Où se trompe-t-il ?",
+                                    "choices": [
+                                        "La longueur des côtés ne change pas l'angle",
+                                        "Il aurait dû additionner les deux angles",
+                                        "Un angle plus long devient toujours obtus"
+                                    ],
+                                    "answer": "La longueur des côtés ne change pas l'angle",
+                                    "explanation": "Un angle mesure l'ouverture entre deux demi-droites, pas leur longueur. Rallonger les côtés ne les écarte pas davantage : les deux angles sont égaux."
                                 }
                             ]
                         },
@@ -983,6 +1269,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Le rapporteur porte deux graduations : avant de lire, demande-toi si l'angle est aigu ou obtus. Un angle aigu ne peut pas mesurer 160° !"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un angle est nettement plus fermé qu'un angle droit. L'élève lit 145° sur son rapporteur. Quelle est la bonne mesure ?",
+                                    "choices": [
+                                        "35°",
+                                        "145°",
+                                        "90°"
+                                    ],
+                                    "answer": "35°",
+                                    "explanation": "L'angle est aigu, donc il mesure moins de 90° : 145° est impossible, l'élève a lu la mauvaise graduation. Sur l'autre graduation il lit 180 - 145 = 35°."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "On plie exactement en deux le coin d'une feuille. Combien mesure chacun des deux angles obtenus ?",
+                                    "choices": [
+                                        "45°",
+                                        "90°",
+                                        "180°"
+                                    ],
+                                    "answer": "45°",
+                                    "explanation": "Le coin d'une feuille est un angle droit de 90°. Le partager en deux angles égaux donne 90 ÷ 2 = 45° chacun, deux angles aigus."
                                 }
                             ]
                         },
@@ -1013,6 +1321,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Si l'écartement ne change pas, la longueur reportée est toujours exactement la même : c'est ce qui rend le compas si précis."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "On demande un cercle de 10 cm de diamètre. Quel écartement faut-il donner au compas ?",
+                                    "choices": [
+                                        "5 cm",
+                                        "10 cm",
+                                        "20 cm"
+                                    ],
+                                    "answer": "5 cm",
+                                    "explanation": "L'écartement du compas donne le rayon, et le diamètre vaut deux rayons. Il faut donc 10 ÷ 2 = 5 cm d'écartement pour obtenir un cercle de 10 cm de diamètre."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève veut vérifier si un quadrilatère a bien 4 côtés égaux, sans règle. Comment le compas peut-il l'aider ?",
+                                    "choices": [
+                                        "Il prend l'écartement d'un côté et le compare aux autres",
+                                        "Il trace un cercle autour de la figure entière",
+                                        "Il mesure les angles avec la pointe sèche"
+                                    ],
+                                    "answer": "Il prend l'écartement d'un côté et le compare aux autres",
+                                    "explanation": "Le compas reporte une longueur sans la mesurer : en gardant le même écartement d'un côté, on vérifie si les autres côtés tombent exactement dessus."
                                 }
                             ]
                         },
@@ -1043,6 +1373,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Le périmètre mesure le contour d'une figure, pas son intérieur."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "On veut poser une bordure tout autour d'un potager carré de 6 m de côté. Quelle longueur de bordure faut-il ?",
+                                    "choices": [
+                                        "24 m",
+                                        "12 m",
+                                        "36 m"
+                                    ],
+                                    "answer": "24 m",
+                                    "explanation": "Le carré a 4 côtés égaux, donc on fait 6 + 6 + 6 + 6 = 24 m. 12 m ne compte que deux côtés, et 36 m (6 × 6) serait la surface du potager, pas son tour."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour un rectangle de 8 cm sur 2 cm, un élève annonce un périmètre de 10 cm. Quelle est son erreur ?",
+                                    "choices": [
+                                        "Il n'a additionné que deux côtés sur quatre",
+                                        "Il a multiplié au lieu d'additionner",
+                                        "Il a oublié de convertir en mètres"
+                                    ],
+                                    "answer": "Il n'a additionné que deux côtés sur quatre",
+                                    "explanation": "Un rectangle a deux longueurs et deux largeurs. Le tour complet vaut 8 + 2 + 8 + 2 = 20 cm : l'élève a fait le tour à moitié."
                                 }
                             ]
                         },
@@ -1073,6 +1425,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Ne confonds pas périmètre (autour) et aire (à l'intérieur) !"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "On veut couvrir de moquette une chambre rectangulaire de 7 m sur 5 m. Quelle surface de moquette faut-il ?",
+                                    "choices": [
+                                        "35 m²",
+                                        "24 m²",
+                                        "12 m²"
+                                    ],
+                                    "answer": "35 m²",
+                                    "explanation": "La moquette couvre l'intérieur : on multiplie 7 × 5 = 35 m². 24 m² correspondrait au tour de la pièce (plinthes) et 12 m² à 7 + 5."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Deux affiches ont la même aire de 12 cm². La première mesure 4 cm sur 3 cm. La seconde mesure 6 cm sur 2 cm. Ont-elles aussi le même périmètre ?",
+                                    "choices": [
+                                        "Non : 14 cm pour la première, 16 cm pour la seconde",
+                                        "Oui, une même aire donne un même périmètre",
+                                        "Non : 12 cm pour les deux affiches"
+                                    ],
+                                    "answer": "Non : 14 cm pour la première, 16 cm pour la seconde",
+                                    "explanation": "4 × 3 et 6 × 2 font bien 12 cm² chacun, mais les tours diffèrent : 4+3+4+3 = 14 cm et 6+2+6+2 = 16 cm. Aire et périmètre sont deux mesures indépendantes."
                                 }
                             ]
                         },
@@ -1103,6 +1477,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Le pavé droit a trois dimensions : longueur, largeur et hauteur."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une boîte a la forme d'un cube de 4 cm d'arête. Quel est son volume ?",
+                                    "choices": [
+                                        "64 cm³",
+                                        "16 cm³",
+                                        "12 cm³"
+                                    ],
+                                    "answer": "64 cm³",
+                                    "explanation": "Un cube a ses trois dimensions égales : 4 × 4 × 4 = 64 cm³. 16 cm² serait l'aire d'une seule face et 12 cm la somme 4 + 4 + 4."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour un carton de 5 cm de long, 3 cm de large et 2 cm de haut, un élève annonce 15 cm³. Quelle est son erreur ?",
+                                    "choices": [
+                                        "Il a oublié de multiplier par la hauteur",
+                                        "Il a multiplié au lieu d'additionner",
+                                        "Il a confondu la longueur et la largeur"
+                                    ],
+                                    "answer": "Il a oublié de multiplier par la hauteur",
+                                    "explanation": "5 × 3 = 15 ne donne que l'aire du fond du carton. Il faut empiler ce fond sur 2 cm de hauteur : 5 × 3 × 2 = 30 cm³."
                                 }
                             ]
                         }
@@ -1388,6 +1784,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Pour lire un graphique, je compare d'abord les hauteurs des barres avant de calculer."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un diagramme montre les livres empruntés : 15 en mars, 9 en avril. Combien y en a-t-il eu de plus en mars qu'en avril ?",
+                                    "choices": [
+                                        "6",
+                                        "24",
+                                        "15"
+                                    ],
+                                    "answer": "6",
+                                    "explanation": "« Combien de plus » demande l'écart entre les deux barres, donc une soustraction : 15 - 9 = 6. 24 serait le total des deux mois."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur un graphique, la barre la plus haute atteint 20. Un élève en conclut qu'il y a eu 20 emprunts en tout sur la semaine. Où se trompe-t-il ?",
+                                    "choices": [
+                                        "Une seule barre ne donne pas le total",
+                                        "Il aurait dû lire la barre la plus basse",
+                                        "Les barres ne peuvent pas s'additionner"
+                                    ],
+                                    "answer": "Une seule barre ne donne pas le total",
+                                    "explanation": "La barre la plus haute donne seulement le maximum d'un jour. Pour le total de la semaine, il faut additionner la valeur de toutes les barres."
                                 }
                             ]
                         },
@@ -1419,6 +1837,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Moyenne = total ÷ nombre de valeurs."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un coureur parcourt 8, 10, 6 puis 12 km sur quatre sorties. Quelle est la distance moyenne par sortie ?",
+                                    "choices": [
+                                        "9 km",
+                                        "12 km",
+                                        "36 km"
+                                    ],
+                                    "answer": "9 km",
+                                    "explanation": "J'additionne : 8 + 10 + 6 + 12 = 36 km. Il y a 4 sorties, donc 36 ÷ 4 = 9 km. 36 km est le total, pas la moyenne."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Cinq élèves ont pour notes 10, 10, 10, 10 et 20. Un élève affirme que la moyenne est 15, « car c'est entre 10 et 20 ». Où se trompe-t-il ?",
+                                    "choices": [
+                                        "Il n'a pas tenu compte des cinq notes",
+                                        "Il aurait dû diviser 20 par 10",
+                                        "La moyenne est toujours la plus grande note"
+                                    ],
+                                    "answer": "Il n'a pas tenu compte des cinq notes",
+                                    "explanation": "La moyenne se calcule sur toutes les valeurs : 10 + 10 + 10 + 10 + 20 = 60, puis 60 ÷ 5 = 12. Le 20 est seul, il ne tire la moyenne qu'un peu vers le haut."
                                 }
                             ]
                         }
@@ -1554,6 +1994,30 @@
                                     "label": "À retenir",
                                     "content": "Pour choisir un homophone, il faut comprendre la phrase entière.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Malo écrit : « Ses vacances, c'est bientôt ! » Sa maîtresse souligne « Ses ». Qu'aurait dû faire Malo avant d'écrire ce mot ?",
+                                    "choices": [
+                                        "Chercher si le mot montre ou s'il indique le possesseur",
+                                        "Vérifier si le mot se prononce avec le son [s]",
+                                        "Regarder si le mot est placé en début de phrase"
+                                    ],
+                                    "answer": "Chercher si le mot montre ou s'il indique le possesseur",
+                                    "explanation": "Ici, on montre les vacances qui approchent : il fallait « Ces ». « Ses » indiquerait le possesseur (ses vacances à lui). La prononciation est identique pour ces deux mots et la place dans la phrase ne change rien : seul le rôle du mot départage.",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Le vent souffle et la porte se ferme », pourquoi « et » ne peut-il pas s'écrire « est » ?",
+                                    "choices": [
+                                        "Parce qu'il relie deux idées au lieu de dire ce que le sujet est",
+                                        "Parce qu'il est placé au milieu de la phrase",
+                                        "Parce qu'il ne se prononce pas de la même façon"
+                                    ],
+                                    "answer": "Parce qu'il relie deux idées au lieu de dire ce que le sujet est",
+                                    "explanation": "« et » sert à relier : on peut le remplacer par « et puis ». « est » est le verbe être : on le remplacerait par « était ». Ici « Le vent souffle était la porte » ne veut rien dire. Ce n'est ni la place dans la phrase ni le son qui décident : c'est le rôle du mot.",
+                                    "label": "Vérifie que tu as compris"
                                 }
                             ],
                             "title": "Reconnaître un homophone",
@@ -1589,6 +2053,30 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Le sens de la phrase m'aide à choisir entre a et à."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Nina écrit : « Ma sœur à gagné le tournoi à Lyon. » Un seul des deux mots soulignés est mal écrit. Lequel, et pourquoi ?",
+                                    "choices": [
+                                        "Le premier : on peut dire « avait gagné »",
+                                        "Le second : il est suivi d'un nom de ville",
+                                        "Les deux : ils devraient s'écrire pareil"
+                                    ],
+                                    "answer": "Le premier : on peut dire « avait gagné »",
+                                    "explanation": "« Ma sœur avait gagné » se dit : c'est le verbe avoir, donc « a » sans accent. Le second est correct : « à Lyon » indique le lieu et ne peut pas devenir « avait Lyon ». Deux mots identiques à l'oreille peuvent s'écrire différemment dans la même phrase.",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tu hésites dans « Le train ... destination de Brest ... du retard. » Quel test appliques-tu pour trancher les deux fois ?",
+                                    "choices": [
+                                        "Je remplace par « avait » : là où ça marche, j'écris a",
+                                        "Je mets un accent sur le premier et pas sur le second",
+                                        "Je compte les mots qui suivent chaque trou"
+                                    ],
+                                    "answer": "Je remplace par « avait » : là où ça marche, j'écris a",
+                                    "explanation": "« Le train avait destination de Brest » ne se dit pas, donc c'est « à destination ». « Le train avait du retard » se dit, donc c'est « a du retard ». La phrase correcte est : « Le train à destination de Brest a du retard. » L'ordre des mots ne donne aucune règle fiable : seul le test avec « avait » décide.",
+                                    "label": "Vérifie que tu as compris"
                                 }
                             ]
                         }
@@ -1802,6 +2290,30 @@
                                     "label": "À retenir",
                                     "content": "À l'imparfait, les terminaisons restent les mêmes pour beaucoup de verbes.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tom écrit : « Chaque été, nous nagions dans le lac. » Léa écrit : « Chaque été, nous nagons dans le lac. » Qui a raison ?",
+                                    "choices": [
+                                        "Tom, car l'action se répétait dans le passé",
+                                        "Léa, car le verbe nager garde son radical",
+                                        "Les deux, car les deux formes existent"
+                                    ],
+                                    "answer": "Tom, car l'action se répétait dans le passé",
+                                    "explanation": "« Chaque été » situe une habitude passée : c'est l'imparfait, donc « nous nagions ». La forme de Léa, « nous nageons », est du présent (et elle l'a même mal écrite : il faut le e devant le o). Le radical n'est pas le problème ici, c'est le temps qui change.",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "À l'oral, « vous chantiez » et « vous chantez » se ressemblent beaucoup. Comment savoir qu'il faut écrire « chantiez » dans « Autrefois, vous chantiez très bien » ?",
+                                    "choices": [
+                                        "« Autrefois » place l'action dans le passé, donc imparfait",
+                                        "Le sujet « vous » demande toujours la terminaison -iez",
+                                        "Le verbe chanter prend toujours un i devant -ez"
+                                    ],
+                                    "answer": "« Autrefois » place l'action dans le passé, donc imparfait",
+                                    "explanation": "C'est le sens de la phrase, signalé par « Autrefois », qui impose le passé. Avec « vous », l'imparfait s'écrit -iez et le présent -ez : le sujet seul ne suffit donc pas à choisir, et aucun verbe ne prend un i « par principe ». Compare : « Aujourd'hui, vous chantez » / « Autrefois, vous chantiez ».",
+                                    "label": "Vérifie que tu as compris"
                                 }
                             ],
                             "title": "L'imparfait des verbes en -ER",
@@ -1842,6 +2354,30 @@
                                     "label": "À retenir",
                                     "content": "Quand tu apprends un verbe, apprends aussi l'auxiliaire qu'il utilise.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sarah écrit : « Mes cousines sont parti en Corse. » Que faut-il corriger ?",
+                                    "choices": [
+                                        "Écrire « parties », car avec être le participe s'accorde avec le sujet",
+                                        "Écrire « ont parti », car partir se conjugue avec avoir",
+                                        "Écrire « sont partir », car le verbe suit un autre verbe"
+                                    ],
+                                    "answer": "Écrire « parties », car avec être le participe s'accorde avec le sujet",
+                                    "explanation": "Partir se conjugue bien avec être : « sont » est correct. Mais avec l'auxiliaire être, le participe passé s'accorde avec le sujet : « mes cousines » est féminin pluriel, donc « sont parties ». Après un auxiliaire on écrit un participe passé (parti), jamais l'infinitif (partir).",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pourquoi écrit-on « Elles ont mangé » sans s à « mangé », alors qu'on écrit « Elles sont venues » avec un e et un s ?",
+                                    "choices": [
+                                        "Parce que le participe ne s'accorde pas avec le sujet quand l'auxiliaire est avoir",
+                                        "Parce que manger est un verbe du 1er groupe et venir du 3e groupe",
+                                        "Parce que « mangé » est déjà terminé par un é qui remplace le s"
+                                    ],
+                                    "answer": "Parce que le participe ne s'accorde pas avec le sujet quand l'auxiliaire est avoir",
+                                    "explanation": "C'est l'auxiliaire qui commande l'accord, pas le groupe du verbe : avec être, le participe s'accorde avec le sujet (venues) ; avec avoir, il ne s'accorde pas avec le sujet (mangé reste invariable ici). Le é final n'a rien à voir avec le pluriel : « elles sont arrivées » a bien un é et un s.",
+                                    "label": "Vérifie que tu as compris"
                                 }
                             ],
                             "title": "Choisir avoir ou être",
@@ -1877,6 +2413,30 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Le duo magique des récits : imparfait pour « pendant ce temps-là », passé simple pour « soudain ! »"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « La pluie tombait sans arrêt quand un éclair déchira le ciel », pourquoi les deux verbes ne sont-ils pas au même temps ?",
+                                    "choices": [
+                                        "« tombait » dure, « déchira » surgit d'un coup",
+                                        "« tombait » est plus long à écrire que « déchira »",
+                                        "« déchira » est au présent car il se passe maintenant"
+                                    ],
+                                    "answer": "« tombait » dure, « déchira » surgit d'un coup",
+                                    "explanation": "La pluie tombe pendant un certain temps : c'est l'imparfait. L'éclair, lui, arrive brusquement et l'action est terminée aussitôt : c'est le passé simple. « déchira » n'est pas du présent (ce serait « déchire »), et la longueur du mot n'a jamais indiqué un temps.",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève lit à voix haute : « Le chevalier prit son épée » et affirme que le verbe est au présent. Comment lui montrer qu'il se trompe ?",
+                                    "choices": [
+                                        "Au présent on dirait « prend » : « prit » raconte une action passée et finie",
+                                        "Au présent on dirait « prenait » : « prit » est donc un autre temps",
+                                        "Le verbe prendre ne peut pas être employé au présent dans un récit"
+                                    ],
+                                    "answer": "Au présent on dirait « prend » : « prit » raconte une action passée et finie",
+                                    "explanation": "La forme du présent est « il prend » ; « il prit » se termine par -it, une terminaison typique du passé simple. « prenait » n'est pas le présent mais l'imparfait, il ne prouve donc rien. Et prendre s'emploie évidemment au présent : « il prend son épée » est une phrase correcte.",
+                                    "label": "Vérifie que tu as compris"
                                 }
                             ],
                             "format": "lesson-card"
@@ -1914,6 +2474,30 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "« Vous faites » et « vous dites » ne prennent pas de -ez : ce sont les deux grandes exceptions à connaître par cœur."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève écrit « vous lisez » puis, par analogie, « vous écrivez ». Un camarade lui dit que c'est faux car « ce sont des verbes du 3e groupe ». Qui a raison ?",
+                                    "choices": [
+                                        "L'élève : la plupart des verbes du 3e groupe gardent bien -ez",
+                                        "Le camarade : les verbes du 3e groupe ne prennent jamais -ez",
+                                        "Le camarade : il fallait écrire « vous lites » et « vous écrites »"
+                                    ],
+                                    "answer": "L'élève : la plupart des verbes du 3e groupe gardent bien -ez",
+                                    "explanation": "« vous lisez » et « vous écrivez » sont corrects. Appartenir au 3e groupe ne supprime pas la terminaison -ez avec « vous » : seules trois exceptions y échappent (vous faites, vous dites, vous êtes). Les formes « vous lites » ou « vous écrites » n'existent pas.",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pourquoi doit-on apprendre « je vais / nous allons » par cœur, alors qu'il suffit de savoir « je chante / nous chantons » pour conjuguer chanter ?",
+                                    "choices": [
+                                        "Parce que le radical d'aller change selon la personne",
+                                        "Parce que le verbe aller n'a pas d'infinitif régulier",
+                                        "Parce que les terminaisons d'aller sont différentes des autres verbes"
+                                    ],
+                                    "answer": "Parce que le radical d'aller change selon la personne",
+                                    "explanation": "Chanter garde le radical chant- partout ; aller passe de « v- » (je vais) à « all- » (nous allons) puis à « v- » (ils vont) : c'est le radical qui bouge, d'où la mémorisation. Les terminaisons, elles, restent classiques (-ons, -ez). Et aller a bien un infinitif : c'est justement « aller ».",
+                                    "label": "Vérifie que tu as compris"
                                 }
                             ]
                         },
@@ -1951,6 +2535,30 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Au futur, on entend toujours le son « r » avant la terminaison : je viendRAI, tu verRAS, ils iRONT."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Comment écrit-on le verbe étudier au futur avec « nous » ?",
+                                    "choices": [
+                                        "nous étudierons, en gardant l'infinitif entier",
+                                        "nous étudirons, en enlevant le e de l'infinitif",
+                                        "nous étudions, comme au présent"
+                                    ],
+                                    "answer": "nous étudierons, en gardant l'infinitif entier",
+                                    "explanation": "Au futur, on ajoute la terminaison à l'infinitif complet : étudier + ons donne « nous étudierons ». On ne supprime pas le e final de l'infinitif, même s'il ne s'entend presque pas. « nous étudions » est le présent : il manque le son « r » caractéristique du futur.",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léo hésite entre « je mangerai » et « je mangerais » dans « Demain, je ... une glace. » Quelle forme choisir ?",
+                                    "choices": [
+                                        "« je mangerai », car « demain » annonce une action future",
+                                        "« je mangerais », car la phrase parle d'une envie",
+                                        "Les deux, car elles se prononcent de la même façon"
+                                    ],
+                                    "answer": "« je mangerai », car « demain » annonce une action future",
+                                    "explanation": "« Demain » situe l'action dans l'avenir : c'est le futur simple, qui se termine par -ai avec « je ». La forme en -ais serait du conditionnel, employée sous condition (« je mangerais une glace si j'avais de l'argent »). Deux formes qui se prononcent pareil ne sont pas interchangeables : c'est le sens de la phrase qui décide.",
+                                    "label": "Vérifie que tu as compris"
                                 }
                             ]
                         }
@@ -1989,6 +2597,30 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Le bon article aide à écrire une phrase correcte et naturelle."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "On écrit « l'hôpital » mais « le hibou ». Pourquoi l'article ne se comporte-t-il pas pareil devant ces deux h ?",
+                                    "choices": [
+                                        "Le h d'hôpital est muet, celui de hibou empêche l'élision",
+                                        "Hôpital est masculin et hibou est féminin",
+                                        "Hôpital commence par une voyelle et hibou par une consonne"
+                                    ],
+                                    "answer": "Le h d'hôpital est muet, celui de hibou empêche l'élision",
+                                    "explanation": "Devant un h muet, l'article s'élide comme devant une voyelle : le + hôpital donne « l'hôpital ». Devant un h aspiré, l'élision est bloquée : on garde « le hibou ». Les deux noms sont masculins, le genre n'y est donc pour rien, et tous deux commencent bien par la lettre h.",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Emma écrit : « J'ai vu une belle avion. » Quelle est son erreur ?",
+                                    "choices": [
+                                        "Avion est masculin : il faut « un bel avion »",
+                                        "Avion commence par une voyelle : il faut « l'avion »",
+                                        "Avion est au singulier : il faut « des avions »"
+                                    ],
+                                    "answer": "Avion est masculin : il faut « un bel avion »",
+                                    "explanation": "Le nom « avion » est masculin, donc l'article « une » est impossible : on écrit « un avion ». Devant une voyelle, l'adjectif beau devient bel : « un bel avion ». L'article « l' » ne conviendrait pas ici, car on parle d'un avion parmi d'autres, et rien n'oblige à passer au pluriel.",
+                                    "label": "Vérifie que tu as compris"
                                 }
                             ]
                         }
@@ -2204,6 +2836,30 @@
                                     "label": "À retenir",
                                     "content": "Pour trouver la nature d'un mot, je regarde son rôle dans la phrase.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Le boulanger prépare une pâte moelleuse », quelle est la nature de « moelleuse » ?",
+                                    "choices": [
+                                        "Un adjectif, car il précise comment est la pâte",
+                                        "Un nom, car il désigne une sorte de pâtisserie",
+                                        "Un verbe, car il dit ce que fait le boulanger"
+                                    ],
+                                    "answer": "Un adjectif, car il précise comment est la pâte",
+                                    "explanation": "« moelleuse » ne désigne rien et n'exprime aucune action : il ajoute une précision au nom « pâte ». C'est donc un adjectif. Le nom de la phrase est « pâte » (et « boulanger »), et le verbe est « prépare », le seul mot qui dit ce qui se passe.",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Le mot « cours » est un nom dans « Le cours de musique est fini » et un verbe dans « Tu cours vite ». Qu'est-ce que cela montre ?",
+                                    "choices": [
+                                        "La nature dépend du rôle du mot dans la phrase",
+                                        "Certains mots n'ont aucune nature grammaticale",
+                                        "Un mot change de nature quand il change d'orthographe"
+                                    ],
+                                    "answer": "La nature dépend du rôle du mot dans la phrase",
+                                    "explanation": "Écrit exactement pareil, « cours » désigne une leçon dans la première phrase (nom) et exprime une action dans la seconde (verbe) : c'est bien la place et le rôle qui décident. Tout mot possède une nature, et ici l'orthographe n'a pas changé du tout.",
+                                    "label": "Vérifie que tu as compris"
                                 }
                             ],
                             "title": "Reconnaître la nature d'un mot",
@@ -2240,6 +2896,30 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Chercher une famille de mots aide à mieux comprendre et mieux écrire."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans la liste « dentiste, dentier, dentelle, dentition », quel mot est l'intrus ?",
+                                    "choices": [
+                                        "dentelle, car ce tissu n'a rien à voir avec les dents",
+                                        "dentiste, car il désigne une personne et non un objet",
+                                        "dentition, car il est le plus long de la liste"
+                                    ],
+                                    "answer": "dentelle, car ce tissu n'a rien à voir avec les dents",
+                                    "explanation": "Une famille de mots demande une partie commune ET un sens commun. Dentiste, dentier et dentition parlent tous des dents. « dentelle » commence pourtant par dent-, mais c'est un tissu ajouré : le sens ne suit pas, donc il n'est pas de la famille. Ni le type de mot ni sa longueur ne servent de critère.",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Comment savoir qu'il faut un d muet à la fin du mot « bavard » ?",
+                                    "choices": [
+                                        "En pensant à « bavarde » ou « bavardage », où le d s'entend",
+                                        "En comptant les syllabes du mot bavard",
+                                        "En cherchant si le mot est un nom ou un adjectif"
+                                    ],
+                                    "answer": "En pensant à « bavarde » ou « bavardage », où le d s'entend",
+                                    "explanation": "Les mots de la même famille révèlent les lettres muettes : dans « bavarde » et « bavardage », on entend nettement le d, donc « bavard » s'écrit avec un d final. C'est l'usage le plus utile des familles de mots. Le nombre de syllabes et la nature du mot n'indiquent jamais une lettre muette.",
+                                    "label": "Vérifie que tu as compris"
                                 }
                             ]
                         },
@@ -2271,6 +2951,30 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Relis ton texte : si toutes tes phrases commencent par « et après », remplace-les par de vrais connecteurs — ton texte gagnera en clarté !"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Le match a été annulé ... le terrain était inondé. » Quel lien le connecteur manquant doit-il exprimer ?",
+                                    "choices": [
+                                        "La raison de l'annulation",
+                                        "Une opposition entre les deux faits",
+                                        "L'étape suivante du match"
+                                    ],
+                                    "answer": "La raison de l'annulation",
+                                    "explanation": "Le terrain inondé explique pourquoi le match est annulé : le lien est celui de la cause, et on écrira « parce que » ou « car ». Un connecteur d'opposition (« pourtant ») laisserait entendre qu'on a joué malgré l'inondation. Un connecteur de temps (« enfin ») rangerait des étapes, or il n'y a ici aucune succession.",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Hugo écrit : « Il pleuvait très fort, donc nous sommes sortis sans parapluie. » Pourquoi sa phrase surprend-elle ?",
+                                    "choices": [
+                                        "« donc » annonce une conséquence logique, ce qui n'est pas le cas ici",
+                                        "« donc » ne peut jamais s'employer après une virgule",
+                                        "« donc » doit toujours être placé en début de phrase"
+                                    ],
+                                    "answer": "« donc » annonce une conséquence logique, ce qui n'est pas le cas ici",
+                                    "explanation": "Sortir sans parapluie n'est pas la suite logique d'une forte pluie : Hugo exprime en réalité une opposition et devrait écrire « pourtant » ou « mais ». « donc » s'emploie très bien après une virgule et n'a pas besoin d'ouvrir la phrase : le problème vient du sens, pas de la ponctuation.",
+                                    "label": "Vérifie que tu as compris"
                                 }
                             ],
                             "format": "lesson-card"
@@ -2308,6 +3012,30 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Comprendre un paragraphe, c'est retrouver son idée principale et ce qu'il apporte."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« L'abeille butine les fleurs. En passant, elle transporte du pollen d'une fleur à l'autre. Sans elle, beaucoup de plantes ne donneraient pas de fruits. » Quelle est l'idée principale ?",
+                                    "choices": [
+                                        "L'abeille est indispensable à la reproduction des plantes",
+                                        "L'abeille se déplace de fleur en fleur toute la journée",
+                                        "Le pollen est une poudre que l'on trouve dans les fleurs"
+                                    ],
+                                    "answer": "L'abeille est indispensable à la reproduction des plantes",
+                                    "explanation": "Les trois phrases construisent une même idée : l'abeille transporte le pollen, et sans ce transport, pas de fruits. Le déplacement de fleur en fleur et le pollen sont des détails vrais mais secondaires : ils servent à expliquer l'idée principale, ils ne la remplacent pas. L'idée principale résume tout le paragraphe, pas une seule de ses phrases.",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Zoé doit résumer un paragraphe. Elle recopie la toute première phrase, sans lire la suite. Pourquoi est-ce risqué ?",
+                                    "choices": [
+                                        "L'idée principale peut n'apparaître qu'après, une fois les phrases reliées",
+                                        "La première phrase d'un paragraphe est toujours un détail",
+                                        "Un résumé doit obligatoirement être écrit avec ses propres mots"
+                                    ],
+                                    "answer": "L'idée principale peut n'apparaître qu'après, une fois les phrases reliées",
+                                    "explanation": "Certains paragraphes commencent par un exemple ou une question et n'énoncent leur idée principale qu'à la fin. Il faut donc lire l'ensemble et relier les phrases avant de résumer. La première phrase n'est pas toujours un détail — elle est parfois l'idée principale, justement — et le vrai problème de Zoé n'est pas de recopier, mais de décider avant d'avoir tout lu.",
+                                    "label": "Vérifie que tu as compris"
                                 }
                             ]
                         },
@@ -2338,6 +3066,30 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Connaître les familles de mots aide à mieux comprendre et orthographier le vocabulaire."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « chanteur, chanson, chantonner », quel est le radical commun ?",
+                                    "choices": [
+                                        "chant-",
+                                        "-eur",
+                                        "chanteur"
+                                    ],
+                                    "answer": "chant-",
+                                    "explanation": "Le radical est la partie que tous les mots partagent et qui porte le sens : ici « chant- », que l'on retrouve dans les trois mots. « -eur » n'apparaît que dans chanteur : c'est un suffixe, ajouté après le radical. Et « chanteur » est un mot entier de la famille, pas le radical qui sert à la construire.",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tu connais le mot « jardin ». Lequel de ces mots appartient à sa famille ?",
+                                    "choices": [
+                                        "jardinier",
+                                        "jarre",
+                                        "gardien"
+                                    ],
+                                    "answer": "jardinier",
+                                    "explanation": "« jardinier » contient le radical jardin- et désigne celui qui s'occupe d'un jardin : le sens et la forme concordent. « jarre » commence par les mêmes lettres mais désigne un grand vase : aucun lien de sens. « gardien » ressemble à jardin par le son, mais il vient de « garder » : ni le radical ni le sens ne correspondent.",
+                                    "label": "Vérifie que tu as compris"
                                 }
                             ]
                         },
@@ -2368,6 +3120,30 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Le contexte permet de choisir le bon sens d'un mot."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Que signifie « opération » dans « Le chirurgien a réussi une opération difficile » ?",
+                                    "choices": [
+                                        "Une intervention chirurgicale",
+                                        "Un calcul comme une multiplication",
+                                        "Une action militaire organisée"
+                                    ],
+                                    "answer": "Une intervention chirurgicale",
+                                    "explanation": "Le mot « chirurgien » impose le sens médical : c'est le contexte qui tranche. « opération » signifie bien un calcul en mathématiques et une action organisée dans l'armée — ces sens existent tous —, mais aucun ne s'accorde avec un chirurgien. Un mot polysémique n'a qu'un seul sens à la fois, celui que la phrase autorise.",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève lit « Le pilote a perdu le contrôle de son avion » et comprend « contrôle » comme une évaluation notée. Quelle erreur de méthode a-t-il commise ?",
+                                    "choices": [
+                                        "Il a gardé le sens qu'il connaît sans regarder la phrase",
+                                        "Il a cherché le radical du mot au lieu de son sens",
+                                        "Il a confondu deux mots qui s'écrivent différemment"
+                                    ],
+                                    "answer": "Il a gardé le sens qu'il connaît sans regarder la phrase",
+                                    "explanation": "Il a plaqué le sens de l'école, le plus familier pour lui, sans tenir compte de « pilote » et « avion » qui imposent le sens de « maîtrise ». La bonne méthode est de lire autour du mot avant de choisir. Le radical n'est pas en cause, et il ne s'agit pas de deux mots différents : c'est le même mot, avec deux sens.",
+                                    "label": "Vérifie que tu as compris"
                                 }
                             ]
                         },
@@ -2399,6 +3175,30 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "« terrible » ressemble à « terre » mais n'appartient pas à sa famille de mots."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pourquoi « lavande » n'appartient-il pas à la famille de « laver », alors que « lavabo » et « lavage » en font partie ?",
+                                    "choices": [
+                                        "Parce que la lavande est une plante : le sens n'a aucun lien avec laver",
+                                        "Parce que lavande est un nom alors que laver est un verbe",
+                                        "Parce que lavande ne commence pas par le même radical"
+                                    ],
+                                    "answer": "Parce que la lavande est une plante : le sens n'a aucun lien avec laver",
+                                    "explanation": "Il faut à la fois la forme et le sens. « lavabo » et « lavage » servent tous deux à laver. « lavande » commence bien par lav-, mais désigne une fleur : la ressemblance est trompeuse. Le fait d'être un nom n'exclut rien, puisque lavabo et lavage sont aussi des noms de la famille de laver.",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Le jardinier ramasse les feuilles » et « Tourne la page à la feuille suivante », que peut-on dire du mot « feuille » ?",
+                                    "choices": [
+                                        "C'est un mot polysémique : un même mot, deux sens",
+                                        "Ce sont deux mots d'une même famille de mots",
+                                        "Ce sont deux homophones qui s'écrivent différemment"
+                                    ],
+                                    "answer": "C'est un mot polysémique : un même mot, deux sens",
+                                    "explanation": "C'est exactement le même mot, écrit pareil, qui désigne l'organe d'un arbre puis un morceau de papier : c'est la polysémie. Une famille de mots regrouperait des mots différents bâtis sur un radical commun (feuillage, feuilleter). Et des homophones s'écrivent justement de façons différentes, ce qui n'est pas le cas ici.",
+                                    "label": "Vérifie que tu as compris"
                                 }
                             ]
                         }
@@ -2621,6 +3421,30 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Plus un mot est long, plus il faut le découper mentalement avant de l'écrire."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "On te dicte le mot « respiration ». Tu entends la fin en [sjɔ̃]. Comment décides-tu de l'écrire ?",
+                                    "choices": [
+                                        "J'écris -tion, la fin la plus fréquente de ces noms",
+                                        "J'écris -sion, car j'entends le son [s]",
+                                        "J'écris -cion, car le c fait [s] devant un i"
+                                    ],
+                                    "answer": "J'écris -tion, la fin la plus fréquente de ces noms",
+                                    "explanation": "Dans « respiration », comme dans natation ou addition, la finale s'écrit -tion : le t se prononce [s] devant le i. Se fier au son [s] entendu conduit à l'erreur, car -sion existe mais reste plus rare (télévision). La finale -cion est exceptionnelle en français (suspicion) : ce n'est pas un bon réflexe.",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "On dicte : « Les élèves ont ramassé des feuilles. » Un élève écrit « des feuille » car il n'entend pas de s à la fin. Que devait-il faire ?",
+                                    "choices": [
+                                        "Regarder le déterminant « des », qui annonce le pluriel",
+                                        "Écouter à nouveau la fin du mot pour entendre le s",
+                                        "Découper le mot en syllabes pour trouver le s"
+                                    ],
+                                    "answer": "Regarder le déterminant « des », qui annonce le pluriel",
+                                    "explanation": "Le s du pluriel ne s'entend pas : le réécouter ou découper le mot en syllabes ne le fera jamais apparaître. C'est le déterminant « des » qui prouve le pluriel et impose « feuilles ». En dictée, les accords se décident en analysant la phrase, pas seulement avec l'oreille.",
+                                    "label": "Vérifie que tu as compris"
                                 }
                             ]
                         }

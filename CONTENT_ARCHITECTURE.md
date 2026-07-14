@@ -1289,11 +1289,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Nombres et calculs `(cm1-nombres-calculs)`
 
 - **Leçons** (5) :
-  - Lire une fraction `(cm1-lesson-fractions)` — blocs: paragraph, example, bullets, tip
-  - Repérer les décimaux `(cm1-lesson-decimaux-reperes)` — blocs: paragraph, example, bullets, tip
-  - Résoudre un problème `(cm1-lesson-problemes-calcul)` — blocs: paragraph, example, bullets, tip
-  - Résoudre un problème `(cm1-lesson-resoudre-probleme)` — blocs: paragraph, example, bullets, tip
-  - La proportionnalité `(cm1-lesson-proportionnalite)` — blocs: paragraph, example, mini-table, bullets, tip
+  - Lire une fraction `(cm1-lesson-fractions)` — blocs: paragraph, example, bullets, tip, check, check
+  - Repérer les décimaux `(cm1-lesson-decimaux-reperes)` — blocs: paragraph, example, bullets, tip, check, check
+  - Résoudre un problème `(cm1-lesson-problemes-calcul)` — blocs: paragraph, example, bullets, tip, check, check
+  - Résoudre un problème `(cm1-lesson-resoudre-probleme)` — blocs: paragraph, example, bullets, tip, check, check
+  - La proportionnalité `(cm1-lesson-proportionnalite)` — blocs: paragraph, example, mini-table, bullets, tip, check, check
 - **Exercices** (23) :
   - Grands Nombres `(cm1-m-big)` — engine: `math-input`, type=dictée-nombres, max=1000000, questions=5
   - Fractions `(cm1-frac-1)` — engine: `math-input`, type=fraction-view, maxDenom=8, questions=10
@@ -1322,11 +1322,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Grandeurs et mesures `(cm1-grandeurs-mesures)`
 
 - **Leçons** (5) :
-  - Comprendre une conversion `(cm1-lesson-conversions-mesures)` — blocs: paragraph, example, bullets, tip
-  - Convertir masses et contenances `(cm1-lesson-masses-contenances)` — blocs: paragraph, example, mini-table, bullets, tip
-  - Lire les chiffres romains `(cm1-lesson-lire-romains)` — blocs: paragraph, example, mini-table, tip
-  - Repérer des formes géométriques `(cm1-lesson-formes-geometriques)` — blocs: paragraph, example, bullets, tip
-  - Triangles et quadrilatères `(cm1-lesson-triangles-quadrilateres)` — blocs: paragraph, example, bullets, tip
+  - Comprendre une conversion `(cm1-lesson-conversions-mesures)` — blocs: paragraph, example, bullets, tip, check, check
+  - Convertir masses et contenances `(cm1-lesson-masses-contenances)` — blocs: paragraph, example, mini-table, bullets, tip, check, check
+  - Lire les chiffres romains `(cm1-lesson-lire-romains)` — blocs: paragraph, example, mini-table, tip, check, check
+  - Repérer des formes géométriques `(cm1-lesson-formes-geometriques)` — blocs: paragraph, example, bullets, tip, check, check
+  - Triangles et quadrilatères `(cm1-lesson-triangles-quadrilateres)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (14) :
   - Chiffres romains `(cm1-romains)` — engine: `conversion`, subtype=roman, max=20, questions=5
   - Convertir des longueurs `(cm1-longueurs)` — engine: `conversion`, subtype=metric, questions=10
@@ -1346,14 +1346,14 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Géométrie `(cm1-geometrie-subtheme)`
 
 - **Leçons** (8) :
-  - Reconnaître les polygones `(cm1-lesson-polygones)` — blocs: paragraph, example, bullets, tip
-  - L'angle droit `(cm1-lesson-angles-droits)` — blocs: paragraph, example, bullets, tip
-  - Les familles d'angles `(cm1-lesson-familles-angles)` — blocs: paragraph, example, bullets, tip
-  - Mesurer un angle en degrés `(cm1-lesson-mesurer-angles)` — blocs: paragraph, example, bullets, tip
-  - Le compas et le cercle `(cm1-lesson-compas-report)` — blocs: paragraph, example, bullets, tip
-  - Le périmètre `(cm1-lesson-perimetre)` — blocs: paragraph, example, bullets, tip
-  - L'aire du rectangle `(cm1-lesson-aire-rectangle)` — blocs: paragraph, example, bullets, tip
-  - Découvrir le volume `(cm1-lesson-volume-pave)` — blocs: paragraph, example, bullets, tip
+  - Reconnaître les polygones `(cm1-lesson-polygones)` — blocs: paragraph, example, bullets, tip, check, check
+  - L'angle droit `(cm1-lesson-angles-droits)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les familles d'angles `(cm1-lesson-familles-angles)` — blocs: paragraph, example, bullets, tip, check, check
+  - Mesurer un angle en degrés `(cm1-lesson-mesurer-angles)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le compas et le cercle `(cm1-lesson-compas-report)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le périmètre `(cm1-lesson-perimetre)` — blocs: paragraph, example, bullets, tip, check, check
+  - L'aire du rectangle `(cm1-lesson-aire-rectangle)` — blocs: paragraph, example, bullets, tip, check, check
+  - Découvrir le volume `(cm1-lesson-volume-pave)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (17) :
   - Reconnaître les polygones `(cm1-geo-polygones)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm1.json, category=cm1-polygones, questions=8
   - Périmètre et angle droit `(cm1-geo-perimetre-angles)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm1.json, category=cm1-perimetre-angles, questions=8
@@ -1376,8 +1376,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Lire un graphique `(cm1-graphiques-subtheme)`
 
 - **Leçons** (2) :
-  - Lire un diagramme en barres `(cm1-lesson-lire-graphique)` — blocs: paragraph, example, bullets, tip
-  - Calculer une moyenne `(cm1-lesson-moyenne)` — blocs: paragraph, example, bullets, tip
+  - Lire un diagramme en barres `(cm1-lesson-lire-graphique)` — blocs: paragraph, example, bullets, tip, check, check
+  - Calculer une moyenne `(cm1-lesson-moyenne)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Lire un diagramme en barres `(cm1-graphique-lecture)` — engine: `math-input`, type=bar-chart-read, maxBars=4, maxValue=20, questions=6
   - Lire un tableau de données `(cm1-donnees-tableaux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=cm1-donnees-tableaux, questions=6
@@ -1388,8 +1388,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Homophones `(cm1-francais-homophones)`
 
 - **Leçons** (2) :
-  - Reconnaître un homophone `(cm1-lesson-homophones-strategie)` — blocs: paragraph, example, bullets, tip
-  - A ou à ? `(cm1-lesson-homophones-a-a)` — blocs: paragraph, example, bullets, tip
+  - Reconnaître un homophone `(cm1-lesson-homophones-strategie)` — blocs: paragraph, example, bullets, tip, check, check
+  - A ou à ? `(cm1-lesson-homophones-a-a)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Ce ou Se ? `(cm1-h-ce)` — engine: `choice-engine`, type=homophone-duel, category=ce_se, questions=10
   - Ces ou Ses ? `(cm1-h-ces)` — engine: `choice-engine`, type=homophone-duel, category=ces_ses, questions=10
@@ -1401,11 +1401,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Conjugaison `(cm1-francais-conjugaison)`
 
 - **Leçons** (5) :
-  - L'imparfait des verbes en -ER `(cm1-lesson-imparfait-er)` — blocs: paragraph, example, bullets, tip
-  - Choisir avoir ou être `(cm1-lesson-passe-compose-auxiliaires)` — blocs: paragraph, example, mini-table, tip
-  - Le passé simple, le temps du récit `(cm1-lesson-passe-simple-recit)` — blocs: paragraph, example, bullets, tip
-  - Le présent des verbes du 3e groupe `(cm1-lesson-present-3e-groupe)` — blocs: paragraph, example, mini-table, tip
-  - Le futur simple `(cm1-lesson-futur-simple)` — blocs: paragraph, example, mini-table, tip
+  - L'imparfait des verbes en -ER `(cm1-lesson-imparfait-er)` — blocs: paragraph, example, bullets, tip, check, check
+  - Choisir avoir ou être `(cm1-lesson-passe-compose-auxiliaires)` — blocs: paragraph, example, mini-table, tip, check, check
+  - Le passé simple, le temps du récit `(cm1-lesson-passe-simple-recit)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le présent des verbes du 3e groupe `(cm1-lesson-present-3e-groupe)` — blocs: paragraph, example, mini-table, tip, check, check
+  - Le futur simple `(cm1-lesson-futur-simple)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (14) :
   - L'Imparfait `(cm1-c-imp)` — engine: `conjugation`, category=imparfait_1, tenses=imparfait, questions=10
   - Passé Composé (1) `(cm1-c-pc-avoir)` — engine: `conjugation`, category=pc_1, tenses=passé composé, questions=5
@@ -1425,7 +1425,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Articles et genre `(cm1-francais-articles)`
 
 - **Leçons** (1) :
-  - Choisir le bon article `(cm1-lesson-articles-genre)` — blocs: paragraph, example, bullets, tip
+  - Choisir le bon article `(cm1-lesson-articles-genre)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (2) :
   - Un ou Une ? `(cm1-g-un-une)` — engine: `choice-engine`, type=gender-articles, category=gender_cm1_scolaire, questions=8
   - Le, La ou L' ? `(cm1-g-le-la)` — engine: `choice-engine`, type=gender-articles, category=gender_cm1_elision, questions=8
@@ -1433,9 +1433,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Grammaire `(cm1-francais-grammaire)`
 
 - **Leçons** (3) :
-  - Reconnaître la nature d'un mot `(cm1-lesson-nature-mots)` — blocs: paragraph, example, mini-table, tip
-  - Les familles de mots `(cm1-lesson-familles-mots)` — blocs: paragraph, example, bullets, tip
-  - Les connecteurs pour bien écrire `(cm1-lesson-connecteurs)` — blocs: paragraph, example, bullets, tip
+  - Reconnaître la nature d'un mot `(cm1-lesson-nature-mots)` — blocs: paragraph, example, mini-table, tip, check, check
+  - Les familles de mots `(cm1-lesson-familles-mots)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les connecteurs pour bien écrire `(cm1-lesson-connecteurs)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (12) :
   - Le bon article `(cm1-g-article-qcm)` — engine: `choice-engine`, type=article-choice, category=article_choice_cm1, questions=8
   - Le bon déterminant `(cm1-g-pluriel-qcm)` — engine: `choice-engine`, type=plural-choice, category=plural_choice_cm1, questions=8
@@ -1453,10 +1453,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Lecture et vocabulaire `(cm1-francais-lecture-vocabulaire-subtheme)`
 
 - **Leçons** (4) :
-  - Comprendre un paragraphe `(cm1-lesson-comprendre-paragraphe)` — blocs: paragraph, example, bullets, tip
-  - La famille de mots `(cm1-lesson-vocabulaire-famille-mots)` — blocs: paragraph, example, bullets, tip
-  - Comprendre un mot par le contexte `(cm1-lesson-vocabulaire-sens-contexte)` — blocs: paragraph, example, bullets, tip
-  - Mots polysémiques et familles de mots `(cm1-lesson-polysemie-familles)` — blocs: paragraph, example, bullets, tip
+  - Comprendre un paragraphe `(cm1-lesson-comprendre-paragraphe)` — blocs: paragraph, example, bullets, tip, check, check
+  - La famille de mots `(cm1-lesson-vocabulaire-famille-mots)` — blocs: paragraph, example, bullets, tip, check, check
+  - Comprendre un mot par le contexte `(cm1-lesson-vocabulaire-sens-contexte)` — blocs: paragraph, example, bullets, tip, check, check
+  - Mots polysémiques et familles de mots `(cm1-lesson-polysemie-familles)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (12) :
   - Trouver l'idée principale `(cm1-lecture-idee-principale)` — engine: `reading`, category=cm1_lecture_idee_principale, questions=5
   - Comprendre un mot par le contexte `(cm1-vocabulaire-contexte)` — engine: `reading`, category=cm1_lecture_mot_contexte, questions=5
@@ -1474,7 +1474,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Dictée audio `(cm1-dictee-audio-subtheme)`
 
 - **Leçons** (1) :
-  - La dictée, un exercice de vigilance `(cm1-lesson-dictee-vigilance)` — blocs: paragraph, example, bullets, tip
+  - La dictée, un exercice de vigilance `(cm1-lesson-dictee-vigilance)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Animaux du monde `(cm1-audio-animaux-avances)` — engine: `audio-spelling`, category=animals_advanced, speechRate=0.85, questions=8
   - Transports `(cm1-audio-transports-avances)` — engine: `audio-spelling`, category=transport_advanced, speechRate=0.85, questions=8
