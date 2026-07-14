@@ -171,7 +171,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Dictée d'Images `(cp-orthographe)`
 
 - **Leçons** (1) :
-  - Écrire le mot d'une image `(cp-lesson-ecrire-mot-image)` — blocs: paragraph, example, bullets, tip
+  - Écrire le mot d'une image `(cp-lesson-ecrire-mot-image)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (7) :
   - Les Animaux `(fr-animaux)` — engine: `math-input`, type=spelling, category=animals, questions=5
   - Le Corps `(fr-corps)` — engine: `math-input`, type=spelling, category=corps, questions=5
@@ -184,7 +184,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Dictée audio `(cp-dictee-audio)`
 
 - **Leçons** (1) :
-  - Écouter pour écrire un mot `(cp-lesson-ecouter-ecrire-mot)` — blocs: paragraph, example, bullets, tip
+  - Écouter pour écrire un mot `(cp-lesson-ecouter-ecrire-mot)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - L'École `(cp-audio-ecole)` — engine: `audio-spelling`, category=school, speechRate=0.78, questions=5
   - La Maison `(cp-audio-maison)` — engine: `audio-spelling`, category=house, speechRate=0.78, questions=5
@@ -196,7 +196,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Dictée audio mots outils `(cp-dictee-mots-outils-audio)`
 
 - **Leçons** (1) :
-  - Écrire les mots outils `(cp-lesson-dictee-mots-outils)` — blocs: paragraph, example, tip
+  - Écrire les mots outils `(cp-lesson-dictee-mots-outils)` — blocs: paragraph, example, tip, check, check
 - **Exercices** (6) :
   - Période 1 `(cp-audio-mots-outils-p1)` — engine: `audio-spelling`, category=cp_mots_outils_p1, speechRate=0.72, questions=6
   - Période 2 `(cp-audio-mots-outils-p2)` — engine: `audio-spelling`, category=cp_mots_outils_p2, speechRate=0.72, questions=6
@@ -208,7 +208,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Mots outils par niveaux `(cp-mots-outils-niveaux-subtheme)`
 
 - **Leçons** (1) :
-  - Les mots outils `(cp-lesson-mots-outils-niveaux)` — blocs: paragraph, example, bullets, tip
+  - Les mots outils `(cp-lesson-mots-outils-niveaux)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (7) :
   - Niveau 1 : articles `(cp-audio-mots-outils-niv1)` — engine: `audio-spelling`, category=mots_outils_cp_niveau_1, speechRate=0.72, questions=6
   - Niveau 2 : prépositions `(cp-audio-mots-outils-niv2)` — engine: `audio-spelling`, category=mots_outils_cp_niveau_2, speechRate=0.72, questions=6
@@ -222,7 +222,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 - **Leçons** (2) :
   - La phrase simple `(cp-lesson-phrase-simple)` — blocs: paragraph, example, bullets, tip, check, check
-  - La ponctuation `(cp-lesson-ponctuation)` — blocs: paragraph, example, bullets, tip
+  - La ponctuation `(cp-lesson-ponctuation)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - La phrase et la ponctuation `(cp-phrase-ponctuation-qcm)` — engine: `choice-engine`, type=factual-qcm, category=cp-phrase-ponctuation, dataFile=data/french_cp_grammar.json, questions=6
   - Remettre les mots en ordre `(cp-ordre-mots-phrase)` — engine: `word-order`, category=word_order_cp, dataFile=data/french_word_order.json, questions=4
@@ -231,8 +231,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Lecture syllabique `(cp-lecture)`
 
 - **Leçons** (2) :
-  - Lire des syllabes `(cp-lesson-lire-syllabes)` — blocs: paragraph, example, bullets, tip
-  - Lire des phrases courtes `(cp-lesson-lire-phrases-courtes)` — blocs: paragraph, example, bullets, tip
+  - Lire des syllabes `(cp-lesson-lire-syllabes)` — blocs: paragraph, example, bullets, tip, check, check
+  - Lire des phrases courtes `(cp-lesson-lire-phrases-courtes)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (16) :
   - Repérer une syllabe `(cp-lecture-syllabes)` — engine: `reading`, category=cp_reperer_syllabe, questions=5
   - Compter les syllabes `(cp-lecture-mots)` — engine: `reading`, category=cp_compter_syllabes, questions=5
@@ -254,7 +254,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Masculin ou Féminin `(cp-grammaire-genre)`
 
 - **Leçons** (1) :
-  - Un ou une ? `(cp-lesson-un-une)` — blocs: paragraph, example, bullets, tip
+  - Un ou une ? `(cp-lesson-un-une)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Un ou Une ? `(cp-un-une)` — engine: `choice-engine`, type=gender-articles, category=gender_cp, questions=5
   - Le ou La ? `(cp-le-la)` — engine: `choice-engine`, type=gender-articles, category=gender_cp, questions=5
@@ -264,7 +264,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Lecture et compréhension `(cp-lecture-comprehension)`
 
 - **Leçons** (1) :
-  - Lire des mots `(cp-lesson-lire-mots)` — blocs: paragraph, example, bullets, tip
+  - Lire des mots `(cp-lesson-lire-mots)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Lire des mots simples `(cp-lecture-mots-simples)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/french_cp_grammar.json, category=cp_lire_mots_simples, questions=5
   - Comprendre une phrase `(cp-lecture-comprendre-phrase)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/french_cp_grammar.json, category=cp_comprendre_phrase, questions=5
@@ -273,7 +273,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Grammaire : nom, verbe et déterminants `(cp-gram-avance)`
 
 - **Leçons** (1) :
-  - La phrase `(cp-lesson-la-phrase)` — blocs: paragraph, example, bullets, tip
+  - La phrase `(cp-lesson-la-phrase)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Les déterminants `(cp-gram-determinants)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/french_cp_grammar.json, category=cp-determinants, questions=6
   - Nom ou verbe ? `(cp-gram-nom-verbe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/french_cp_grammar.json, category=cp-nom-verbe, questions=6
@@ -282,7 +282,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Conjugaison `(cp-conjugaison)`
 
 - **Leçons** (1) :
-  - Être et avoir `(cp-lesson-etre-avoir)` — blocs: paragraph, example, example, bullets, tip
+  - Être et avoir `(cp-lesson-etre-avoir)` — blocs: paragraph, example, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Être et avoir au présent `(cp-conj-etre-avoir)` — engine: `conjugation`, category=etre_avoir_p, tenses=présent, questions=5
   - Verbes en -er au présent `(cp-conj-verbes-simples)` — engine: `conjugation`, category=present_1, tenses=présent, questions=5
