@@ -62,7 +62,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 - **Leçons** (2) :
   - Comprendre l'addition `(cp-lesson-addition-comprendre)` — blocs: paragraph, example, bullets, tip, check, check
-  - Compléter jusqu'à 10 `(cp-lesson-complement-10)` — blocs: paragraph, example, bullets, tip
+  - Compléter jusqu'à 10 `(cp-lesson-complement-10)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Petites additions `(add-1)` — engine: `math-input`, type=add-simple, maxSum=10, questions=5
   - Additions jusqu'à 20 `(add-2)` — engine: `math-input`, type=add-simple, maxSum=20, questions=5
@@ -74,8 +74,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Parcours : Soustraction `(cp-parcours-soustraction)`
 
 - **Leçons** (2) :
-  - Comprendre la soustraction `(cp-lesson-soustraction-comprendre)` — blocs: paragraph, example, bullets, tip
-  - Trouver le complément `(cp-lesson-soustraction-complement)` — blocs: paragraph, example, bullets, tip
+  - Comprendre la soustraction `(cp-lesson-soustraction-comprendre)` — blocs: paragraph, example, bullets, tip, check, check
+  - Trouver le complément `(cp-lesson-soustraction-complement)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Retirer jusqu'à 10 `(sub-1)` — engine: `math-input`, type=sub-simple, min=1, max=10, questions=5
   - Retirer jusqu'à 20 `(sub-2)` — engine: `math-input`, type=sub-simple, min=1, max=20, questions=5
@@ -85,9 +85,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Nombres & Comparaison `(cp-nombres-comparaison)`
 
 - **Leçons** (3) :
-  - Compter et comparer `(cp-lesson-compter-comparer)` — blocs: paragraph, example, bullets, tip
-  - Plus, moins, autant `(cp-lesson-plus-moins-autant)` — blocs: paragraph, example, bullets, tip
-  - Doubles et moitiés `(cp-lesson-doubles-moities)` — blocs: paragraph, example, bullets, tip
+  - Compter et comparer `(cp-lesson-compter-comparer)` — blocs: paragraph, example, bullets, tip, check, check
+  - Plus, moins, autant `(cp-lesson-plus-moins-autant)` — blocs: paragraph, example, bullets, tip, check, check
+  - Doubles et moitiés `(cp-lesson-doubles-moities)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (7) :
   - Compter `(math-count-1)` — engine: `counting`, min=1, max=20, questions=5
   - Compter plus loin `(math-count-2)` — engine: `counting`, min=20, max=99, questions=5
@@ -100,8 +100,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Cibles & Monnaie `(cp-cibles-monnaie)`
 
 - **Leçons** (2) :
-  - Comprendre un problème simple `(cp-lesson-cibles-comprendre)` — blocs: paragraph, example, bullets, tip
-  - Utiliser la monnaie `(cp-lesson-cibles-monnaie)` — blocs: paragraph, example, bullets, tip
+  - Comprendre un problème simple `(cp-lesson-cibles-comprendre)` — blocs: paragraph, example, bullets, tip, check, check
+  - Utiliser la monnaie `(cp-lesson-cibles-monnaie)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Cible : Niv 1 `(cible-1)` — engine: `math-input`, type=cibles, nbFleches=2, questions=5
   - Cible : Niv 2 `(cible-2)` — engine: `math-input`, type=cibles, nbFleches=2, questions=5
@@ -113,8 +113,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Défis & Logique `(cp-defis-logique)`
 
 - **Leçons** (2) :
-  - Résoudre un petit problème `(cp-lesson-defi-chercher)` — blocs: paragraph, example, bullets, tip
-  - Vérifier un calcul `(cp-lesson-defi-verifier)` — blocs: paragraph, example, bullets, tip
+  - Résoudre un petit problème `(cp-lesson-defi-chercher)` — blocs: paragraph, example, bullets, tip, check, check
+  - Vérifier un calcul `(cp-lesson-defi-verifier)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - L'Oiseau Rapide `(oiseau-1)` — engine: `math-input`, type=oiseau-math, min=1, max=10, vitesse=8, questions=5
   - Carré Magique 1 `(carre-1)` — engine: `math-input`, type=carre-somme, solutionCount=2, targetMin=10, targetMax=10, gridSize=4, showSum=true, questions=5
@@ -125,12 +125,12 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Formes et mesures `(cp-formes-mesures-subtheme)`
 
 - **Leçons** (6) :
-  - Les formes simples `(cp-lesson-formes-simples)` — blocs: paragraph, example, bullets, tip
-  - Comparer des longueurs `(cp-lesson-comparer-longueurs)` — blocs: paragraph, example, bullets, tip
-  - Les moments de la journée `(cp-lesson-heures-journee)` — blocs: paragraph, example, bullets, tip
-  - Lire l'heure `(cp-lesson-lire-heure)` — blocs: paragraph, example, bullets, tip
-  - Lourd, léger, plein, vide `(cp-lesson-masses-contenances)` — blocs: paragraph, example, bullets, tip
-  - Se repérer sur un quadrillage `(cp-lesson-quadrillage)` — blocs: paragraph, example, bullets, tip
+  - Les formes simples `(cp-lesson-formes-simples)` — blocs: paragraph, example, bullets, tip, check, check
+  - Comparer des longueurs `(cp-lesson-comparer-longueurs)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les moments de la journée `(cp-lesson-heures-journee)` — blocs: paragraph, example, bullets, tip, check, check
+  - Lire l'heure `(cp-lesson-lire-heure)` — blocs: paragraph, example, bullets, tip, check, check
+  - Lourd, léger, plein, vide `(cp-lesson-masses-contenances)` — blocs: paragraph, example, bullets, tip, check, check
+  - Se repérer sur un quadrillage `(cp-lesson-quadrillage)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (10) :
   - Reconnaître les formes `(cp-geo-formes-reconnaitre)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cp.json, category=cp-formes-reconnaissance, questions=8
   - Comparer des longueurs `(cp-geo-comparer-longueurs)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cp.json, category=cp-longueurs-comparaison, questions=8
@@ -146,8 +146,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Écrire les nombres `(cp-ecriture-nombres)`
 
 - **Leçons** (2) :
-  - Lire et écrire les nombres `(cp-lesson-lire-ecrire-nombre)` — blocs: paragraph, example, bullets, tip
-  - Dizaines et unités `(cp-lesson-dizaines-unites)` — blocs: paragraph, example, bullets, tip
+  - Lire et écrire les nombres `(cp-lesson-lire-ecrire-nombre)` — blocs: paragraph, example, bullets, tip, check, check
+  - Dizaines et unités `(cp-lesson-dizaines-unites)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Petits Nombres `(cp-dictee-0-10)` — engine: `math-input`, type=number-spelling, min=0, max=10, questions=5
   - Nombres de 10 à 20 `(cp-dictee-10-20)` — engine: `math-input`, type=number-spelling, min=10, max=20, questions=5
@@ -157,8 +157,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Problèmes `(cp-problemes-subtheme)`
 
 - **Leçons** (2) :
-  - Résoudre un problème `(cp-lesson-resoudre-probleme)` — blocs: paragraph, example, bullets, tip
-  - Un problème avec deux calculs `(cp-lesson-probleme-deux-etapes)` — blocs: paragraph, example, bullets, tip
+  - Résoudre un problème `(cp-lesson-resoudre-probleme)` — blocs: paragraph, example, bullets, tip, check, check
+  - Un problème avec deux calculs `(cp-lesson-probleme-deux-etapes)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Petits problèmes `(cp-problemes-simples)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=cp-problemes-simples, questions=6
   - Défi : petits problèmes `(cp-bonus-problemes-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=cp-problemes-simples, questions=10, bonus (seuil=2)

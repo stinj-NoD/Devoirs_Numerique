@@ -162,6 +162,28 @@
                                     "label": "À retenir",
                                     "content": "Faire 10 rend les calculs plus rapides.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "J'ai 6 jetons. Combien m'en faut-il de plus pour en avoir 10 ?",
+                                    "choices": [
+                                        "4 jetons",
+                                        "6 jetons",
+                                        "16 jetons"
+                                    ],
+                                    "answer": "4 jetons",
+                                    "explanation": "Je compte de 6 jusqu'à 10 : 7, 8, 9, 10. J'ai avancé de 4, donc il manque 4 jetons."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans quel calcul les deux nombres font-ils exactement 10 ?",
+                                    "choices": [
+                                        "8 + 2",
+                                        "8 + 4",
+                                        "5 + 4"
+                                    ],
+                                    "answer": "8 + 2",
+                                    "explanation": "Après 8, je compte 9 puis 10 : j'ajoute 2. 8 + 2 fait bien 10, alors que 8 + 4 fait 12 et 5 + 4 fait 9."
                                 }
                             ]
                         }
@@ -251,6 +273,28 @@
                                     "label": "À retenir",
                                     "content": "La soustraction sert à dire combien il reste.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Il y a 7 oiseaux sur un arbre. 3 oiseaux s'envolent. Combien en reste-t-il ?",
+                                    "choices": [
+                                        "4 oiseaux",
+                                        "10 oiseaux",
+                                        "3 oiseaux"
+                                    ],
+                                    "answer": "4 oiseaux",
+                                    "explanation": "J'enlève 3 à 7 : je compte à rebours 6, 5, 4. Il reste 4 oiseaux."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Maya avait 9 gommettes, elle en a collé quelques-unes. Que doit-elle faire pour savoir combien il lui en reste ?",
+                                    "choices": [
+                                        "Enlever les gommettes collées à 9",
+                                        "Ajouter les gommettes collées à 9",
+                                        "Compter deux fois les 9 gommettes"
+                                    ],
+                                    "answer": "Enlever les gommettes collées à 9",
+                                    "explanation": "Les gommettes collées ne sont plus dans sa boîte : on retire une quantité, donc c'est une soustraction."
                                 }
                             ]
                         },
@@ -281,6 +325,28 @@
                                     "label": "À retenir",
                                     "content": "Le complément aide à compléter une quantité.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une boîte contient 8 œufs quand elle est pleine. Il y en a déjà 5. Combien en manque-t-il ?",
+                                    "choices": [
+                                        "3 œufs",
+                                        "5 œufs",
+                                        "13 œufs"
+                                    ],
+                                    "answer": "3 œufs",
+                                    "explanation": "Je pars de 5 et je compte jusqu'à 8 : 6, 7, 8. J'ai avancé de 3, donc il manque 3 œufs."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel nombre faut-il mettre à la place du point d'interrogation : 4 + ? = 9",
+                                    "choices": [
+                                        "5",
+                                        "13",
+                                        "4"
+                                    ],
+                                    "answer": "5",
+                                    "explanation": "Je cherche ce qui manque à 4 pour atteindre 9 : 5, 6, 7, 8, 9, soit 5 pas. Donc 4 + 5 = 9."
                                 }
                             ]
                         }
@@ -392,6 +458,28 @@
                                     "label": "À retenir",
                                     "content": "Je peux compter pour comparer deux quantités.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans une boîte il y a 9 crayons, dans l'autre il y a 12 crayons. Que peut-on dire ?",
+                                    "choices": [
+                                        "12 est plus grand que 9",
+                                        "9 est plus grand que 12",
+                                        "Les deux boîtes ont autant de crayons"
+                                    ],
+                                    "answer": "12 est plus grand que 9",
+                                    "explanation": "En comptant, 12 vient après 9 : la boîte de 12 crayons en contient davantage."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tom a 7 billes et Lina en a 7 aussi. Que peut-on dire ?",
+                                    "choices": [
+                                        "Ils en ont autant",
+                                        "Tom en a plus",
+                                        "Lina en a moins"
+                                    ],
+                                    "answer": "Ils en ont autant",
+                                    "explanation": "Les deux quantités sont le même nombre, 7 : personne n'en a plus que l'autre."
                                 }
                             ],
                             "title": "Compter et comparer",
@@ -422,6 +510,28 @@
                                     "label": "À retenir",
                                     "content": "Je regarde toujours les deux groupes pour comparer.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur la table il y a 4 verres et 6 assiettes. Que peut-on dire des verres ?",
+                                    "choices": [
+                                        "Il y a moins de verres que d'assiettes",
+                                        "Il y a plus de verres que d'assiettes",
+                                        "Il y a autant de verres que d'assiettes"
+                                    ],
+                                    "answer": "Il y a moins de verres que d'assiettes",
+                                    "explanation": "4 est plus petit que 6 : le groupe des verres est le plus petit des deux."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Chaque enfant reçoit exactement un ballon, et il ne reste aucun ballon. Que peut-on dire ?",
+                                    "choices": [
+                                        "Il y a autant de ballons que d'enfants",
+                                        "Il y a plus de ballons que d'enfants",
+                                        "Il y a moins de ballons que d'enfants"
+                                    ],
+                                    "answer": "Il y a autant de ballons que d'enfants",
+                                    "explanation": "Chaque ballon va avec un enfant et il n'en reste aucun : les deux groupes ont le même nombre."
                                 }
                             ],
                             "title": "Plus, moins, autant",
@@ -456,6 +566,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Si je connais un double, je peux souvent retrouver la moitié."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léa a 5 billes. Tom en a le double. Combien Tom a-t-il de billes ?",
+                                    "choices": [
+                                        "10 billes",
+                                        "7 billes",
+                                        "5 billes"
+                                    ],
+                                    "answer": "10 billes",
+                                    "explanation": "Le double, c'est deux fois la quantité : 5 et encore 5 font 10 billes."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Deux amis se partagent 6 bonbons, chacun en a le même nombre. Combien en a chacun ?",
+                                    "choices": [
+                                        "3 bonbons",
+                                        "12 bonbons",
+                                        "4 bonbons"
+                                    ],
+                                    "answer": "3 bonbons",
+                                    "explanation": "Je cherche la moitié de 6 : deux parts égales de 3, car 3 et 3 font 6."
                                 }
                             ]
                         }
@@ -603,6 +735,28 @@
                                     "label": "À retenir",
                                     "content": "Le total, c'est la somme de toutes les valeurs.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Je touche trois cibles : 3 points, 1 point et 4 points. Combien de points ai-je en tout ?",
+                                    "choices": [
+                                        "8 points",
+                                        "7 points",
+                                        "4 points"
+                                    ],
+                                    "answer": "8 points",
+                                    "explanation": "J'additionne toutes les valeurs : 3 et 1 font 4, puis 4 et 4 font 8 points."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Lina a touché deux cibles à 5 points chacune. Que doit-elle calculer ?",
+                                    "choices": [
+                                        "5 + 5",
+                                        "5 - 5",
+                                        "5 + 2"
+                                    ],
+                                    "answer": "5 + 5",
+                                    "explanation": "Chaque cible rapporte 5 points, et il y en a deux : j'additionne les deux valeurs, 5 + 5 = 10 points."
                                 }
                             ]
                         },
@@ -633,6 +787,28 @@
                                     "label": "À retenir",
                                     "content": "Le bon montant est la somme exacte.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "J'ai une pièce de 2 € et deux pièces de 1 €. Quel montant ai-je en tout ?",
+                                    "choices": [
+                                        "4 €",
+                                        "3 €",
+                                        "2 €"
+                                    ],
+                                    "answer": "4 €",
+                                    "explanation": "J'additionne la valeur des pièces : 2 € plus 1 € plus 1 € font 4 €."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un jouet coûte 6 €. Avec quelles pièces puis-je payer le montant exact ?",
+                                    "choices": [
+                                        "2 € + 2 € + 2 €",
+                                        "2 € + 2 €",
+                                        "5 € + 2 €"
+                                    ],
+                                    "answer": "2 € + 2 € + 2 €",
+                                    "explanation": "Il faut la somme exacte : 2 + 2 + 2 font 6 €, alors que 2 + 2 ne fait que 4 € et 5 + 2 fait 7 €."
                                 }
                             ]
                         }
@@ -747,6 +923,28 @@
                                     "label": "À retenir",
                                     "content": "Un problème simple donne des nombres et une question précise à calculer.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans un panier il y a 9 pommes. Papa en prend 3 pour le goûter. Combien reste-t-il de pommes ?",
+                                    "choices": [
+                                        "6 pommes",
+                                        "12 pommes",
+                                        "3 pommes"
+                                    ],
+                                    "answer": "6 pommes",
+                                    "explanation": "Papa retire des pommes du panier, donc j'enlève : 9 - 3 = 6 pommes."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Zoé a 4 autocollants et sa maîtresse lui en offre 5. Quel calcul répond à la question « Combien en a-t-elle maintenant ? »",
+                                    "choices": [
+                                        "4 + 5",
+                                        "5 - 4",
+                                        "4 + 4"
+                                    ],
+                                    "answer": "4 + 5",
+                                    "explanation": "Zoé reçoit des autocollants en plus : je réunis les deux quantités, 4 + 5 = 9 autocollants."
                                 }
                             ]
                         },
@@ -777,6 +975,28 @@
                                     "label": "À retenir",
                                     "content": "Vérifier évite les erreurs.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève a écrit : 5 + 4 = 8. En recomptant, que découvre-t-on ?",
+                                    "choices": [
+                                        "C'est faux, le résultat est 9",
+                                        "C'est juste, le résultat est bien 8",
+                                        "C'est faux, le résultat est 1"
+                                    ],
+                                    "answer": "C'est faux, le résultat est 9",
+                                    "explanation": "Je recompte à partir de 5 : 6, 7, 8, 9. J'avance de 4 pas et j'arrive à 9, pas à 8."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un problème demande combien il reste de billes, et un élève trouve un résultat plus grand que le nombre de départ. Que faut-il penser ?",
+                                    "choices": [
+                                        "Il s'est trompé, il a sûrement ajouté au lieu d'enlever",
+                                        "C'est normal, il reste toujours plus de billes",
+                                        "Il faut recopier ce résultat sans rien changer"
+                                    ],
+                                    "answer": "Il s'est trompé, il a sûrement ajouté au lieu d'enlever",
+                                    "explanation": "Quand on enlève des billes, il en reste forcément moins qu'au départ : un résultat plus grand montre une erreur d'opération."
                                 }
                             ]
                         }
@@ -815,6 +1035,28 @@
                                     "label": "À retenir",
                                     "content": "Je nomme la forme en regardant ce que je vois. Attention : un dé ou un ballon ne sont pas plats, ce sont des solides (un cube, une boule).",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une forme plate a 3 côtés et 3 coins. Quelle forme est-ce ?",
+                                    "choices": [
+                                        "Un triangle",
+                                        "Un carré",
+                                        "Un cercle"
+                                    ],
+                                    "answer": "Un triangle",
+                                    "explanation": "Le triangle est la seule forme à 3 côtés : le carré en a 4 et le cercle n'a ni côté ni coin."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léo dessine sur sa feuille le contour d'un couvercle rond. Quelle figure obtient-il ?",
+                                    "choices": [
+                                        "Une figure sans côté droit ni coin",
+                                        "Une figure à 4 côtés droits",
+                                        "Une figure à 3 coins"
+                                    ],
+                                    "answer": "Une figure sans côté droit ni coin",
+                                    "explanation": "Le contour d'un couvercle rond fait un cercle : son bord est courbe, il n'a ni côté droit ni coin."
                                 }
                             ]
                         },
@@ -845,6 +1087,28 @@
                                     "label": "À retenir",
                                     "content": "Je peux aligner les objets pour mieux comparer.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un ruban mesure 8 cases sur le quadrillage, une ficelle en mesure 5. Que peut-on dire ?",
+                                    "choices": [
+                                        "Le ruban est plus long que la ficelle",
+                                        "La ficelle est plus longue que le ruban",
+                                        "Ils ont la même longueur"
+                                    ],
+                                    "answer": "Le ruban est plus long que la ficelle",
+                                    "explanation": "8 cases, c'est plus que 5 cases : le ruban occupe plus de place en longueur."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour comparer deux bâtons avec les yeux, que faut-il faire d'abord ?",
+                                    "choices": [
+                                        "Mettre leurs deux bouts de départ au même endroit",
+                                        "Poser les bâtons n'importe où sur la table",
+                                        "Regarder lequel a la plus jolie couleur"
+                                    ],
+                                    "answer": "Mettre leurs deux bouts de départ au même endroit",
+                                    "explanation": "Si les départs ne sont pas alignés, un bâton peut sembler plus long alors qu'il est seulement placé plus loin."
                                 }
                             ]
                         },
@@ -876,6 +1140,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Les moments de la journée aident à se repérer dans le temps."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Range ces trois moments dans l'ordre de la journée.",
+                                    "choices": [
+                                        "Petit-déjeuner, récréation de 15 h, coucher",
+                                        "Coucher, petit-déjeuner, récréation de 15 h",
+                                        "Récréation de 15 h, coucher, petit-déjeuner"
+                                    ],
+                                    "answer": "Petit-déjeuner, récréation de 15 h, coucher",
+                                    "explanation": "On mange au réveil, on joue en récréation l'après-midi, et on se couche en dernier, quand la nuit tombe."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Papi dit : « Je viendrai te chercher après le déjeuner, avant le dîner. » Quand arrive-t-il ?",
+                                    "choices": [
+                                        "Entre le midi et le soir",
+                                        "Avant le petit-déjeuner",
+                                        "Pendant la nuit"
+                                    ],
+                                    "answer": "Entre le midi et le soir",
+                                    "explanation": "Après le déjeuner de midi et avant le dîner du soir, il n'y a qu'un moment possible : l'après-midi."
                                 }
                             ]
                         },
@@ -906,6 +1192,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Je regarde d'abord la petite aiguille pour connaître l'heure."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "La petite aiguille est sur le 5 et la grande aiguille est sur le 12. Quelle heure est-il ?",
+                                    "choices": [
+                                        "5 heures pile",
+                                        "12 heures pile",
+                                        "5 heures et demie"
+                                    ],
+                                    "answer": "5 heures pile",
+                                    "explanation": "La petite aiguille donne l'heure, ici 5. La grande sur le 12 signifie que l'heure est pile."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "La grande aiguille pointe sur le 6 et la petite est entre le 2 et le 3. Quelle heure est-il ?",
+                                    "choices": [
+                                        "2 heures et demie",
+                                        "6 heures et demie",
+                                        "3 heures pile"
+                                    ],
+                                    "answer": "2 heures et demie",
+                                    "explanation": "La petite aiguille a dépassé le 2 sans atteindre le 3 : l'heure est 2. La grande sur le 6 ajoute la demie."
                                 }
                             ]
                         },
@@ -936,6 +1244,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Pour comparer, je peux soupeser avec mes mains ou utiliser une balance."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur une balance, le côté du melon descend et le côté de la pomme monte. Que peut-on dire ?",
+                                    "choices": [
+                                        "Le melon est plus lourd que la pomme",
+                                        "La pomme est plus lourde que le melon",
+                                        "Les deux ont le même poids"
+                                    ],
+                                    "answer": "Le melon est plus lourd que la pomme",
+                                    "explanation": "Sur une balance, le côté le plus lourd descend : ici c'est celui du melon."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Je verse de l'eau dans un verre jusqu'en haut. Comment est le verre ?",
+                                    "choices": [
+                                        "Il est plein",
+                                        "Il est vide",
+                                        "Il est léger"
+                                    ],
+                                    "answer": "Il est plein",
+                                    "explanation": "Un récipient rempli jusqu'en haut est plein ; vide voudrait dire qu'il n'y a rien dedans."
                                 }
                             ]
                         },
@@ -966,6 +1296,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Sur un quadrillage, je compte toujours les colonnes avant les lignes."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour placer un jeton à la colonne 3 et à la ligne 2, que dois-je faire ?",
+                                    "choices": [
+                                        "Compter 3 cases vers la droite, puis 2 cases vers le bas",
+                                        "Compter 2 cases vers la droite, puis 3 cases vers le bas",
+                                        "Compter 3 cases vers le bas, puis 2 cases vers la droite"
+                                    ],
+                                    "answer": "Compter 3 cases vers la droite, puis 2 cases vers le bas",
+                                    "explanation": "La colonne se compte vers la droite et vient en premier : 3 vers la droite, puis la ligne, 2 vers le bas."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Deux enfants placent leur jeton : l'un en colonne 4 ligne 1, l'autre en colonne 1 ligne 4. Sont-ils sur la même case ?",
+                                    "choices": [
+                                        "Non, ce sont deux cases différentes",
+                                        "Oui, c'est la même case",
+                                        "Oui, car ce sont les mêmes nombres"
+                                    ],
+                                    "answer": "Non, ce sont deux cases différentes",
+                                    "explanation": "L'ordre compte : la première case est loin à droite et tout en haut, la seconde est à gauche et plus bas."
                                 }
                             ]
                         }
@@ -1178,6 +1530,28 @@
                                     "label": "À retenir",
                                     "content": "Les nombres jusqu'à 100 s'écrivent avec des dizaines et des unités.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Comment s'écrit en chiffres le nombre « soixante-huit » ?",
+                                    "choices": [
+                                        "68",
+                                        "86",
+                                        "608"
+                                    ],
+                                    "answer": "68",
+                                    "explanation": "J'écris d'abord les dizaines (soixante, donc 6) puis les unités (huit, donc 8) : 68."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Le facteur doit livrer au numéro 15. Devant quelle maison doit-il s'arrêter ?",
+                                    "choices": [
+                                        "Celle où c'est écrit « quinze »",
+                                        "Celle où c'est écrit « cinquante »",
+                                        "Celle où c'est écrit « cinq »"
+                                    ],
+                                    "answer": "Celle où c'est écrit « quinze »",
+                                    "explanation": "15 se lit quinze. Cinquante s'écrirait 50 et cinq s'écrirait 5."
                                 }
                             ],
                             "title": "Lire et écrire les nombres",
@@ -1212,6 +1586,28 @@
                                     "label": "À retenir",
                                     "content": "La décomposition aide à lire et écrire les nombres.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans le nombre 57, combien y a-t-il de dizaines ?",
+                                    "choices": [
+                                        "5 dizaines",
+                                        "7 dizaines",
+                                        "57 dizaines"
+                                    ],
+                                    "answer": "5 dizaines",
+                                    "explanation": "Le chiffre de gauche donne les dizaines : 57, c'est 5 dizaines et 7 unités."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "J'ai 4 paquets de 10 billes et 2 billes toutes seules. Combien de billes ai-je ?",
+                                    "choices": [
+                                        "42 billes",
+                                        "24 billes",
+                                        "6 billes"
+                                    ],
+                                    "answer": "42 billes",
+                                    "explanation": "4 paquets de 10 font 40 billes, et j'ajoute les 2 billes seules : 42 billes."
                                 }
                             ]
                         }
@@ -1316,6 +1712,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Un problème raconte une petite histoire : je dois trouver le bon calcul pour répondre à la question."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sarah avait 8 crayons, elle en a perdu 2. Combien lui en reste-t-il ?",
+                                    "choices": [
+                                        "6 crayons",
+                                        "10 crayons",
+                                        "2 crayons"
+                                    ],
+                                    "answer": "6 crayons",
+                                    "explanation": "Perdre veut dire qu'il y en a moins : j'enlève 2 à 8, il reste 6 crayons."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Dans le bus il y a 7 personnes. À l'arrêt, 4 personnes montent. Combien y a-t-il de personnes ? » Que faut-il faire ?",
+                                    "choices": [
+                                        "Ajouter, car des personnes arrivent en plus",
+                                        "Enlever, car le bus se vide",
+                                        "Partager le nombre de personnes en deux"
+                                    ],
+                                    "answer": "Ajouter, car des personnes arrivent en plus",
+                                    "explanation": "Les personnes montent : la quantité augmente, donc j'additionne, 7 + 4 = 11 personnes."
                                 }
                             ]
                         },
@@ -1347,6 +1765,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Dans un problème à deux étapes, je ne dois jamais sauter la première étape."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Nina a 6 bonbons. Elle en reçoit 3, puis elle en mange 2. Combien lui en reste-t-il ?",
+                                    "choices": [
+                                        "7 bonbons",
+                                        "9 bonbons",
+                                        "11 bonbons"
+                                    ],
+                                    "answer": "7 bonbons",
+                                    "explanation": "Je calcule dans l'ordre : d'abord 6 + 3 = 9, puis 9 - 2 = 7 bonbons."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans un bus il y a 10 personnes. 4 descendent, puis 2 montent. Quel calcul faut-il faire en premier ?",
+                                    "choices": [
+                                        "10 - 4",
+                                        "10 + 2",
+                                        "4 + 2"
+                                    ],
+                                    "answer": "10 - 4",
+                                    "explanation": "Je suis l'ordre de l'histoire : les 4 personnes descendent d'abord, donc 10 - 4 = 6, et seulement ensuite 6 + 2 = 8."
                                 }
                             ]
                         }
