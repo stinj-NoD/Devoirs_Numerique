@@ -801,9 +801,14 @@ const UI = {
         const btnLabel = document.getElementById('btn-lesson-exercises-label');
         if (!container) return;
 
-        const safeBlocks = Array.isArray(lesson?.blocks) ? lesson.blocks : [];
+        const allBlocks = Array.isArray(lesson?.blocks) ? lesson.blocks : [];
+        // Les blocs `check` sont extraits du corps : ils forment le quiz
+        // d'ancrage rendu en fin de leçon, pas un repère de lecture.
+        const safeBlocks = allBlocks.filter((block) => block?.type !== 'check');
+        const checkBlocks = allBlocks.filter((block) => block?.type === 'check');
         const safeLessons = Array.isArray(context?.lessons) ? context.lessons : [];
         const blocksHtml = safeBlocks.map((block) => this.renderLessonBlock(block)).join('');
+        const alreadyCompleted = context?.alreadyCompleted === true;
         const exerciseCount = Number.isFinite(context?.exerciseCount) ? context.exerciseCount : 0;
         const themeTitle = this._escapeText(context?.themeTitle || '');
         const subjectTitle = this._escapeText(context?.subjectTitle || '');
@@ -855,17 +860,27 @@ const UI = {
                     <p class="lesson-summary-text">${summaryText}</p>
                 </section>
                 <div class="lesson-card-body">${blocksHtml}</div>
+                ${this.renderLessonCheck(checkBlocks, alreadyCompleted)}
             </article>
         `;
 
+        this._bindLessonCheck(container, checkBlocks, {
+            alreadyCompleted,
+            onCompleted: context?.onLessonCompleted,
+            onReady: () => this._setLessonCtaState(btn, btnLabel, context, true, checkBlocks.length)
+        });
+
+        // Le CTA est verrouillé tant que le quiz d'ancrage n'est pas réussi.
+        // Sans quiz (ou déjà comprise), il est actif d'emblée : les leçons
+        // historiques ne doivent pas devenir des impasses.
+        const ctaUnlocked = checkBlocks.length === 0 || alreadyCompleted;
+        this._setLessonCtaState(btn, btnLabel, context, ctaUnlocked, checkBlocks.length);
         if (btn) {
-            btn.onclick = () => onContinue?.();
+            btn.onclick = () => {
+                if (btn.disabled) return;
+                onContinue?.();
+            };
             btn.style.display = 'inline-flex';
-        }
-        if (btnLabel) {
-            btnLabel.textContent = exerciseCount > 0
-                ? `VOIR LES ${exerciseCount} EXERCICES`
-                : 'REVENIR AUX EXERCICES';
         }
 
         if (typeof context?.onSelectLesson === 'function') {
@@ -873,6 +888,139 @@ const UI = {
                 node.onclick = () => context.onSelectLesson(node.getAttribute('data-lesson-id'));
             });
         }
+    },
+
+    /**
+     * État du bouton de fin de leçon. Il n'est JAMAIS un no-op : quand le
+     * sous-thème n'a pas d'exercice (ou qu'on vient de la bibliothèque),
+     * l'appelant fournit un repli de navigation et le libellé le dit.
+     */
+    _setLessonCtaState(btn, btnLabel, context, unlocked, checkCount = 0) {
+        if (!btn) return;
+        const exerciseCount = Number.isFinite(context?.exerciseCount) ? context.exerciseCount : 0;
+        btn.disabled = !unlocked;
+        btn.classList.toggle('is-locked', !unlocked);
+        if (!btnLabel) return;
+
+        if (!unlocked) {
+            btnLabel.textContent = checkCount === 1
+                ? 'RÉPONDS À LA QUESTION'
+                : `RÉPONDS AUX ${checkCount} QUESTIONS`;
+            return;
+        }
+        btnLabel.textContent = context?.ctaLabel
+            || (exerciseCount > 0 ? "JE M'ENTRAÎNE" : 'CONTINUER');
+    },
+
+    /**
+     * Quiz d'ancrage : QCM court en fin de leçon. Volontairement hors du
+     * pipeline des moteurs — il ne crée aucun record, donc ne fausse ni les
+     * étoiles ni les badges de maîtrise. Re-tentable sans pénalité : le but
+     * est de comprendre, pas de sanctionner.
+     */
+    renderLessonCheck(checkBlocks, alreadyCompleted) {
+        if (!Array.isArray(checkBlocks) || checkBlocks.length === 0) return '';
+        const esc = (v) => SecurityUtils.escapeHtml(v);
+
+        const questionsHtml = checkBlocks.map((block, index) => {
+            const choices = Array.isArray(block.choices) ? block.choices : [];
+            return `
+                <div class="lesson-check-item" data-check-index="${index}">
+                    <p class="lesson-check-question">
+                        <span class="lesson-check-number">${index + 1}</span>
+                        ${esc(block.question || '')}
+                    </p>
+                    <div class="lesson-check-choices" role="group">
+                        ${choices.map((choice) => `
+                            <button
+                                type="button"
+                                class="lesson-check-choice"
+                                data-check-index="${index}"
+                                data-choice="${SecurityUtils.escapeAttr(choice)}"
+                            >${esc(choice)}</button>
+                        `).join('')}
+                    </div>
+                    <p class="lesson-check-explanation" data-explanation-for="${index}" hidden>${esc(block.explanation || '')}</p>
+                </div>
+            `;
+        }).join('');
+
+        return `
+            <section class="lesson-check${alreadyCompleted ? ' is-completed' : ''}" aria-label="Vérifie ta compréhension">
+                <div class="lesson-check-head">
+                    <div class="lesson-check-icon">${alreadyCompleted ? '🧠' : '✅'}</div>
+                    <div>
+                        <div class="lesson-block-label">${alreadyCompleted ? 'Leçon déjà comprise' : 'As-tu bien compris ?'}</div>
+                        <p class="lesson-check-intro">${alreadyCompleted
+                            ? 'Tu peux refaire le quiz pour réviser, autant de fois que tu veux.'
+                            : `Réponds aux ${checkBlocks.length} questions pour valider la leçon.`}</p>
+                    </div>
+                </div>
+                ${questionsHtml}
+                <p class="lesson-check-feedback" data-check-feedback hidden></p>
+            </section>
+        `;
+    },
+
+    _bindLessonCheck(container, checkBlocks, options = {}) {
+        if (!container || !Array.isArray(checkBlocks) || checkBlocks.length === 0) return;
+
+        const answers = new Array(checkBlocks.length).fill(null);
+        const feedback = container.querySelector('[data-check-feedback]');
+        let settled = options.alreadyCompleted === true;
+
+        const evaluate = () => {
+            if (answers.some((value) => value === null)) return;
+
+            const correctCount = answers.filter((value, index) => value === checkBlocks[index].answer).length;
+            const allCorrect = correctCount === checkBlocks.length;
+
+            if (feedback) {
+                feedback.hidden = false;
+                feedback.classList.toggle('is-success', allCorrect);
+                feedback.classList.toggle('is-retry', !allCorrect);
+                feedback.textContent = allCorrect
+                    ? 'Bravo, tu as tout compris !'
+                    : `${correctCount} bonne${correctCount > 1 ? 's' : ''} réponse${correctCount > 1 ? 's' : ''} sur ${checkBlocks.length}. Relis la leçon et réessaie : tu peux recommencer.`;
+            }
+
+            if (!allCorrect) return;
+            options.onReady?.();
+            // one-shot côté UI : la récompense est de toute façon protégée
+            // côté Storage par completeLessonView (justCompleted).
+            if (settled) return;
+            settled = true;
+            options.onCompleted?.({ score: correctCount, total: checkBlocks.length });
+        };
+
+        container.querySelectorAll('.lesson-check-choice').forEach((node) => {
+            node.onclick = () => {
+                const index = Number(node.getAttribute('data-check-index'));
+                const block = checkBlocks[index];
+                if (!block) return;
+
+                const choice = node.getAttribute('data-choice');
+                const isCorrect = choice === block.answer;
+                answers[index] = choice;
+
+                const group = node.parentElement;
+                group?.querySelectorAll('.lesson-check-choice').forEach((sibling) => {
+                    sibling.classList.remove('is-selected', 'is-correct', 'is-wrong');
+                });
+                node.classList.add('is-selected', isCorrect ? 'is-correct' : 'is-wrong');
+
+                const explanation = container.querySelector(`[data-explanation-for="${index}"]`);
+                if (explanation && explanation.textContent.trim()) explanation.hidden = false;
+
+                // AudioFeedback gère lui-même la préférence 'sound_muted'.
+                if (window.AudioFeedback) {
+                    if (isCorrect) AudioFeedback.playCorrect();
+                    else AudioFeedback.playIncorrect();
+                }
+
+                evaluate();
+            };
+        });
     },
 
     renderLessonBlock(block) {
@@ -1737,6 +1885,45 @@ const UI = {
         this.showSimpleToast('🔥', `${days} jours de suite !`);
     },
 
+    /**
+     * Bandeau de série sur l'écran des classes. La mécanique existait déjà en
+     * storage mais n'était visible que 3,2 s en toast, et jamais le 1er jour :
+     * un enfant à 6 jours de série ne la voyait littéralement jamais.
+     * Masqué en mode sans distraction, comme les autres éléments de jeu.
+     */
+    renderStreakBanner(streak, quietMode = false) {
+        const el = document.getElementById('streak-banner');
+        if (!el) return;
+
+        const current = Math.max(0, Number(streak?.current) || 0);
+        if (quietMode || current < 1) {
+            el.classList.add('is-hidden');
+            el.innerHTML = '';
+            return;
+        }
+
+        const esc = (v) => SecurityUtils.escapeHtml(v);
+        const best = Math.max(0, Number(streak?.best) || 0);
+        const activeToday = streak?.isActiveToday === true;
+
+        // Le message change selon que la série est déjà assurée aujourd'hui ou
+        // en jeu : c'est ce qui donne une raison de revenir.
+        const message = activeToday
+            ? (current > 1 ? 'Série assurée pour aujourd\'hui !' : 'Tu as commencé une série. À demain !')
+            : 'Fais une activité aujourd\'hui pour ne pas la perdre.';
+
+        el.innerHTML = `
+            <span class="streak-banner-flame" aria-hidden="true">🔥</span>
+            <span class="streak-banner-text">
+                <strong class="streak-banner-count">${current} jour${current > 1 ? 's' : ''} de suite</strong>
+                <span class="streak-banner-hint">${esc(message)}</span>
+            </span>
+            ${best > current ? `<span class="streak-banner-best" title="Ton record">Record : ${best}</span>` : ''}
+        `;
+        el.classList.toggle('is-at-risk', !activeToday);
+        el.classList.remove('is-hidden');
+    },
+
     renderDailyChallenge(challenge) {
         const card = document.getElementById('daily-challenge-card');
         if (!card) return;
@@ -2368,7 +2555,6 @@ const UI = {
         let flipped = 0;
         const total = result.cards.length;
         const buttons = Array.from(reveal.querySelectorAll('.booster-flip'));
-
         // Roulement de tambour : quand il ne reste qu'une carte à retourner
         // et qu'elle contient une haute rareté, elle tremble d'impatience.
         const updateDrumroll = () => {

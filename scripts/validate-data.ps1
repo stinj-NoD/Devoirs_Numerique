@@ -270,6 +270,45 @@ function Validate-LessonBlock($path, $subthemeId, $lessonId, $block) {
         return
     }
 
+    # Quiz d'ancrage de fin de leçon (miroir de Validators.validateLessonBlock,
+    # branche 'check' dans js/validators.js). Bloc optionnel.
+    if ($type -eq 'check') {
+        if (-not (Is-SafeLessonText $block.question)) {
+            Add-Issue("${path}: bloc check sans question ou question invalide dans ${subthemeId}/${lessonId}")
+            return
+        }
+        $hasChoices = ($block.choices -is [System.Collections.IList]) -and $block.choices.Count -ge 2 -and $block.choices.Count -le 4
+        if ($hasChoices) {
+            foreach ($choice in $block.choices) {
+                if (-not (Is-SafeLessonText $choice)) {
+                    $hasChoices = $false
+                    break
+                }
+            }
+        }
+        if (-not $hasChoices) {
+            Add-Issue("${path}: bloc check : choices doit contenir 2 à 4 propositions valides dans ${subthemeId}/${lessonId}")
+            return
+        }
+        if (-not (Is-SafeLessonText $block.answer)) {
+            Add-Issue("${path}: bloc check sans answer ou answer invalide dans ${subthemeId}/${lessonId}")
+            return
+        }
+        if ($block.choices -notcontains $block.answer) {
+            Add-Issue("${path}: bloc check : answer doit figurer dans choices dans ${subthemeId}/${lessonId}")
+            return
+        }
+        $uniqueChoices = @($block.choices | Select-Object -Unique)
+        if ($uniqueChoices.Count -ne $block.choices.Count) {
+            Add-Issue("${path}: bloc check : choices contient des doublons dans ${subthemeId}/${lessonId}")
+            return
+        }
+        if ($null -ne $block.explanation -and -not (Is-SafeLessonText $block.explanation)) {
+            Add-Issue("${path}: bloc check : explanation non sûre dans ${subthemeId}/${lessonId}")
+        }
+        return
+    }
+
     Add-Issue("${path}: type de bloc de leçon inconnu (${type}) dans ${subthemeId}/${lessonId}")
 }
 

@@ -167,6 +167,12 @@ const Storage = {
             normalized.subject = entry.subject;
         }
 
+        // Sous-thème d'origine : sert à croiser records et leçons comprises
+        // (badge "leçon puis réussite") et à proposer la bonne leçon après un
+        // échec. Absent des records antérieurs, qui restent valides.
+        const subtheme = this._sanitize(entry.subtheme).slice(0, 60);
+        if (subtheme) normalized.subtheme = subtheme;
+
         return normalized;
     },
 
@@ -527,7 +533,7 @@ const Storage = {
         return `${safeGradeId}::${safeExerciseId}`;
     },
 
-    saveRecord(gradeId, exerciseId, score, total, subject = null) {
+    saveRecord(gradeId, exerciseId, score, total, subject = null, subtheme = null) {
         const currentUser = this.getCurrentUser();
         if (!currentUser) return;
 
@@ -558,6 +564,8 @@ const Storage = {
         if (this._canonicalSubjects.includes(subject)) {
             entry.subject = subject;
         }
+        const safeSubtheme = this._sanitize(subtheme).slice(0, 60);
+        if (safeSubtheme) entry.subtheme = safeSubtheme;
 
         records[recordKey] = entry;
         if (records[exerciseId]) delete records[exerciseId];
@@ -582,6 +590,185 @@ const Storage = {
         }
     },
 
+    _getLessonViewsKey(name = this.getCurrentUser()) {
+        const cleanName = this._sanitize(name).slice(0, this._profileNameMaxLength);
+        return cleanName ? `lesson_views_${cleanName}` : null;
+    },
+
+    /**
+     * Journal de consultation des leçons, pendant de `records` pour le parcours
+     * "J'apprends". Objet indexé par `gradeId::lessonId` (et non tableau) : la
+     * relecture d'une leçon doit être idempotente et la taille bornée par le
+     * catalogue (~350 leçons x ~120 o = ~40 Ko max par profil).
+     *
+     * Volontairement SÉPARÉ de `records` : les étoiles sont dérivées de records
+     * par _sumStars, qui alimente aussi exercisesAttempted / perfectCount /
+     * subjectMastery. Y écrire une leçon rendrait les badges de maîtrise
+     * ("Maître des maths") gagnables sans faire un seul exercice. Une leçon
+     * rapporte des pièces et des badges dédiés, jamais des étoiles.
+     *
+     * Champs courts pour tenir en localStorage :
+     *   g/s/st = grade, subject canonique, subtheme ; o/l = openedAt/lastOpenedAt ;
+     *   n = nombre d'ouvertures ; c/ca = completed/completedAt ; q = score du quiz.
+     */
+    _sanitizeLessonViewEntry(entry) {
+        if (!entry || typeof entry !== 'object') return null;
+
+        const grade = this._sanitize(entry.g).slice(0, 20);
+        if (!grade) return null;
+
+        const subject = this._canonicalSubjects.includes(entry.s) ? entry.s : null;
+        const subtheme = this._sanitize(entry.st).slice(0, 60);
+        const openedAt = Math.max(0, Number(entry.o) || 0);
+        const lastOpenedAt = Math.max(openedAt, Number(entry.l) || 0);
+        const opens = Math.max(1, Math.min(9999, Math.round(Number(entry.n) || 1)));
+        const completed = entry.c === true;
+        const completedAt = completed ? Math.max(0, Number(entry.ca) || 0) : 0;
+        const quizScore = Math.max(0, Math.min(99, Math.round(Number(entry.q) || 0)));
+
+        const safeEntry = { g: grade, o: openedAt, l: lastOpenedAt, n: opens };
+        if (subject) safeEntry.s = subject;
+        if (subtheme) safeEntry.st = subtheme;
+        if (completed) {
+            safeEntry.c = true;
+            safeEntry.ca = completedAt;
+            if (quizScore > 0) safeEntry.q = quizScore;
+        }
+        return safeEntry;
+    },
+
+    _readLessonViews(name = this.getCurrentUser()) {
+        const key = this._getLessonViewsKey(name);
+        if (!key) return { key: null, views: {} };
+
+        const rawViews = this._safeParseObject(this._getItem(key));
+        const safeViews = {};
+
+        Object.entries(rawViews).forEach(([viewKey, entry]) => {
+            if (typeof viewKey !== 'string' || !viewKey.trim()) return;
+            const safeEntry = this._sanitizeLessonViewEntry(entry);
+            if (safeEntry) safeViews[viewKey] = safeEntry;
+        });
+
+        return { key, views: safeViews };
+    },
+
+    _writeLessonViews(key, views) {
+        if (!key) return false;
+        return this._setItem(key, JSON.stringify(views || {}));
+    },
+
+    _getLessonViewKey(gradeId, lessonId) {
+        const safeGradeId = this._sanitize(gradeId || "unknown_grade");
+        const safeLessonId = this._sanitize(lessonId || "unknown_lesson");
+        return `${safeGradeId}::${safeLessonId}`;
+    },
+
+    /**
+     * Enregistre l'ouverture d'une leçon. N'attribue AUCUNE récompense :
+     * ouvrir n'est pas comprendre (voir completeLessonView).
+     */
+    recordLessonView(gradeId, lessonId, meta = {}) {
+        const { key, views } = this._readLessonViews();
+        if (!key || !lessonId) return null;
+
+        const viewKey = this._getLessonViewKey(gradeId, lessonId);
+        const now = Date.now();
+        const existing = views[viewKey];
+
+        const entry = existing
+            ? { ...existing, l: now, n: Math.min(9999, (existing.n || 1) + 1) }
+            : { g: this._sanitize(gradeId), o: now, l: now, n: 1 };
+
+        const subject = this.canonicalizeSubjectId(meta.subjectId);
+        if (subject) entry.s = subject;
+        const subtheme = this._sanitize(meta.subthemeId).slice(0, 60);
+        if (subtheme) entry.st = subtheme;
+
+        const safeEntry = this._sanitizeLessonViewEntry(entry);
+        if (!safeEntry) return null;
+
+        views[viewKey] = safeEntry;
+        this._writeLessonViews(key, views);
+        return safeEntry;
+    },
+
+    /**
+     * Marque une leçon comme comprise (quiz d'ancrage réussi). Retourne
+     * `justCompleted: true` UNIQUEMENT à la première complétion — même garde
+     * one-shot que recordDailyChallengeAttempt. C'est ce qui empêche de farmer
+     * des pièces en relisant la même leçon en boucle : l'appelant ne crédite
+     * que si justCompleted est vrai.
+     */
+    completeLessonView(gradeId, lessonId, meta = {}) {
+        const { key, views } = this._readLessonViews();
+        if (!key || !lessonId) return { justCompleted: false, entry: null };
+
+        const viewKey = this._getLessonViewKey(gradeId, lessonId);
+        const now = Date.now();
+        const existing = views[viewKey] || { g: this._sanitize(gradeId), o: now, l: now, n: 1 };
+        const alreadyCompleted = existing.c === true;
+
+        const entry = { ...existing, l: now };
+        const subject = this.canonicalizeSubjectId(meta.subjectId);
+        if (subject) entry.s = subject;
+        const subtheme = this._sanitize(meta.subthemeId).slice(0, 60);
+        if (subtheme) entry.st = subtheme;
+
+        if (!alreadyCompleted) {
+            entry.c = true;
+            entry.ca = now;
+        }
+        const quizScore = Math.max(0, Number(meta.quizScore) || 0);
+        if (quizScore > 0) entry.q = Math.max(quizScore, Number(existing.q) || 0);
+
+        const safeEntry = this._sanitizeLessonViewEntry(entry);
+        if (!safeEntry) return { justCompleted: false, entry: null };
+
+        views[viewKey] = safeEntry;
+        this._writeLessonViews(key, views);
+
+        return { justCompleted: !alreadyCompleted, entry: safeEntry };
+    },
+
+    getLessonView(gradeId, lessonId, name = this.getCurrentUser()) {
+        if (!lessonId) return null;
+        const { views } = this._readLessonViews(name);
+        return views[this._getLessonViewKey(gradeId, lessonId)] || null;
+    },
+
+    isLessonCompleted(gradeId, lessonId, name = this.getCurrentUser()) {
+        return this.getLessonView(gradeId, lessonId, name)?.c === true;
+    },
+
+    getLessonViews(name = this.getCurrentUser()) {
+        return this._readLessonViews(name).views;
+    },
+
+    /**
+     * Agrégats pour les badges, le dashboard parent et le défi du jour.
+     * `completedBySubject` / `completedByGrade` comptent uniquement les leçons
+     * comprises (quiz réussi), pas les simples ouvertures.
+     */
+    getLessonStats(name = this.getCurrentUser()) {
+        const { views } = this._readLessonViews(name);
+        const entries = Object.values(views);
+        const completedBySubject = {};
+        const completedByGrade = {};
+        let completed = 0;
+        let lastActivityAt = 0;
+
+        entries.forEach((entry) => {
+            if (entry.l > lastActivityAt) lastActivityAt = entry.l;
+            if (entry.c !== true) return;
+            completed += 1;
+            if (entry.s) completedBySubject[entry.s] = (completedBySubject[entry.s] || 0) + 1;
+            if (entry.g) completedByGrade[entry.g] = (completedByGrade[entry.g] || 0) + 1;
+        });
+
+        return { opened: entries.length, completed, completedBySubject, completedByGrade, lastActivityAt };
+    },
+
     removeProfile(name) {
         const cleanName = this._sanitize(name).slice(0, this._profileNameMaxLength);
         if (!cleanName) return false;
@@ -591,6 +778,7 @@ const Storage = {
         this._setItem(this._profilesKey, JSON.stringify(profiles));
         const resolvedName = existingProfile || cleanName;
         this._removeItem(`records_${resolvedName}`);
+        this._removeItem(`lesson_views_${resolvedName}`);
         this._removeItem(`streak_${resolvedName}`);
         this._removeItem(`champion_${resolvedName}`);
         this._removeItem(`avatar_state_${resolvedName}`);
@@ -865,6 +1053,7 @@ const Storage = {
                 return {
                     name: cleanName,
                     records: this._readRecords(cleanName).records,
+                    lessonViews: this._readLessonViews(cleanName).views,
                     streak: { current: streak.current, best: streak.best, lastDay: streak.lastDay },
                     appearance: this.getProfileAppearance(cleanName),
                     avatarState: this._safeParseObject(this._getItem(`avatar_state_${cleanName}`)),
@@ -908,6 +1097,9 @@ const Storage = {
 
             if (profile.records && typeof profile.records === 'object' && !Array.isArray(profile.records)) {
                 this._setItem(`records_${cleanName}`, JSON.stringify(profile.records));
+            }
+            if (profile.lessonViews && typeof profile.lessonViews === 'object' && !Array.isArray(profile.lessonViews)) {
+                this._setItem(`lesson_views_${cleanName}`, JSON.stringify(profile.lessonViews));
             }
             if (profile.streak && typeof profile.streak === 'object') {
                 const current = Math.max(0, Number(profile.streak.current) || 0);
@@ -1108,11 +1300,21 @@ const Storage = {
         return this.getParentPin() === this._defaultParentPin;
     },
 
+    /**
+     * Défis du jour. `kind` dit ce qui fait avancer le défi :
+     *   'exercise' (défaut) → recordDailyChallengeAttempt
+     *   'lesson'            → recordDailyChallengeLesson
+     *   'mixed'             → les deux (comprendre PUIS s'entraîner)
+     * Les défis leçon évitent que "J'apprends" reste hors de l'objectif du jour.
+     */
     _dailyChallengeTemplates: [
-        { id: 'exercises-3', target: 3, label: 'Réussis 3 exercices aujourd\'hui', icon: '🎯' },
-        { id: 'exercises-5', target: 5, label: 'Réussis 5 exercices aujourd\'hui', icon: '🚀' },
-        { id: 'perfect-1', target: 1, label: 'Obtiens un sans-faute aujourd\'hui', icon: '🏆', perfectOnly: true },
-        { id: 'perfect-2', target: 2, label: 'Obtiens 2 sans-faute aujourd\'hui', icon: '🌟', perfectOnly: true }
+        { id: 'exercises-3', target: 3, label: 'Réussis 3 exercices aujourd\'hui', icon: '🎯', kind: 'exercise' },
+        { id: 'exercises-5', target: 5, label: 'Réussis 5 exercices aujourd\'hui', icon: '🚀', kind: 'exercise' },
+        { id: 'perfect-1', target: 1, label: 'Obtiens un sans-faute aujourd\'hui', icon: '🏆', perfectOnly: true, kind: 'exercise' },
+        { id: 'perfect-2', target: 2, label: 'Obtiens 2 sans-faute aujourd\'hui', icon: '🌟', perfectOnly: true, kind: 'exercise' },
+        { id: 'lesson-1', target: 1, label: 'Comprends une leçon aujourd\'hui', icon: '📖', kind: 'lesson' },
+        { id: 'lesson-2', target: 2, label: 'Comprends 2 leçons aujourd\'hui', icon: '🦉', kind: 'lesson' },
+        { id: 'lesson-then-exercise', target: 2, label: 'Comprends une leçon puis fais un exercice', icon: '🎓', kind: 'mixed' }
     ],
 
     _getDailyChallengeKey(name = this.getCurrentUser()) {
@@ -1144,19 +1346,10 @@ const Storage = {
         return { ...template, progress: 0, completed: false };
     },
 
-    /**
-     * Avance le défi du jour après un exercice terminé. isPerfect distingue
-     * les défis "sans-faute" (perfectOnly) des défis "N exercices" génériques :
-     * un exercice raté compte pour les seconds mais pas pour les premiers.
-     */
-    recordDailyChallengeAttempt(isPerfect, name = this.getCurrentUser()) {
+    // Fait avancer d'un cran le défi du jour et persiste le résultat.
+    _advanceDailyChallenge(challenge, name) {
         const key = this._getDailyChallengeKey(name);
-        if (!key) return null;
-
-        const challenge = this.getDailyChallenge(name);
-        if (!challenge || challenge.completed) return challenge;
-
-        if (challenge.perfectOnly && !isPerfect) return challenge;
+        if (!key) return challenge;
 
         const today = this._dayNumber(Date.now());
         const progress = Math.min(challenge.target, challenge.progress + 1);
@@ -1164,6 +1357,42 @@ const Storage = {
         this._setItem(key, JSON.stringify({ day: today, templateId: challenge.id, progress, completed }));
 
         return { ...challenge, progress, completed, justCompleted: completed && !challenge.completed };
+    },
+
+    /**
+     * Avance le défi du jour après un exercice terminé. isPerfect distingue
+     * les défis "sans-faute" (perfectOnly) des défis "N exercices" génériques :
+     * un exercice raté compte pour les seconds mais pas pour les premiers.
+     * Les défis de type 'lesson' ne bougent pas ici.
+     */
+    recordDailyChallengeAttempt(isPerfect, name = this.getCurrentUser()) {
+        const challenge = this.getDailyChallenge(name);
+        if (!challenge || challenge.completed) return challenge;
+
+        const kind = challenge.kind || 'exercise';
+        if (kind === 'lesson') return challenge;
+        if (challenge.perfectOnly && !isPerfect) return challenge;
+        // 'mixed' : l'exercice ne compte qu'une fois la leçon comprise, pour que
+        // le défi garde son sens (comprendre PUIS s'entraîner).
+        if (kind === 'mixed' && challenge.progress < 1) return challenge;
+
+        return this._advanceDailyChallenge(challenge, name);
+    },
+
+    /**
+     * Avance le défi du jour après une leçon comprise (quiz d'ancrage réussi).
+     * Appelé uniquement à la première complétion d'une leçon, donc non farmable.
+     */
+    recordDailyChallengeLesson(name = this.getCurrentUser()) {
+        const challenge = this.getDailyChallenge(name);
+        if (!challenge || challenge.completed) return challenge;
+
+        const kind = challenge.kind || 'exercise';
+        if (kind === 'exercise') return challenge;
+        // 'mixed' : la leçon n'ouvre que le premier cran.
+        if (kind === 'mixed' && challenge.progress >= 1) return challenge;
+
+        return this._advanceDailyChallenge(challenge, name);
     },
 
     setPreference(key, value) {
@@ -1263,7 +1492,19 @@ const Storage = {
         // Persévérance : exercices "rattrapés" (< 50 % transformé en ≥ 75 %)
         { id: 'rattrapage-1', icon: '🎯', label: 'Premier rattrapage', test: (s) => s.redemptions >= 1 },
         { id: 'rattrapage-5', icon: '💪', label: '5 rattrapages', test: (s) => s.redemptions >= 5 },
-        { id: 'rattrapage-15', icon: '🦸', label: '15 rattrapages', test: (s) => s.redemptions >= 15 }
+        { id: 'rattrapage-15', icon: '🦸', label: '15 rattrapages', test: (s) => s.redemptions >= 15 },
+        // Leçons comprises (quiz d'ancrage réussi) — paliers de volume
+        { id: 'lesson-first', icon: '📖', label: 'Première leçon comprise', test: (s) => s.lessonsCompleted >= 1 },
+        { id: 'lesson-10', icon: '📚', label: '10 leçons comprises', test: (s) => s.lessonsCompleted >= 10 },
+        { id: 'lesson-30', icon: '🧠', label: '30 leçons comprises', test: (s) => s.lessonsCompleted >= 30 },
+        { id: 'lesson-75', icon: '🦉', label: '75 leçons comprises', test: (s) => s.lessonsCompleted >= 75 },
+        // Studieux : comprendre ET réussir dans la même matière. Corrige le
+        // paradoxe des badges "Maître de..." qui ne mesurent que la performance.
+        { id: 'studious-maths', icon: '🔢', label: 'Studieux en maths', test: (s) => (s.lessonsBySubject['maths'] || 0) >= 5 && (s.subjectMastery['maths'] || 0) >= 5 },
+        { id: 'studious-francais', icon: '📖', label: 'Studieux en français', test: (s) => (s.lessonsBySubject['francais'] || 0) >= 5 && (s.subjectMastery['francais'] || 0) >= 5 },
+        // Le seul badge qui récompense la boucle complète : comprendre la leçon
+        // d'un sous-thème puis réussir un exercice de ce même sous-thème.
+        { id: 'lesson-then-win', icon: '🎓', label: 'Je comprends, je réussis', test: (s) => s.lessonsThenWin >= 3 }
     ],
 
     // Classification matière d'un id d'exercice, en deux temps :
@@ -1334,6 +1575,36 @@ const Storage = {
         return subjectMastery;
     },
 
+    /**
+     * Nombre de sous-thèmes où l'enfant a compris la leçon PUIS réussi un
+     * exercice (≥ 75 %) du même sous-thème. Seul indicateur du projet qui
+     * croise le journal des leçons et celui des records : il récompense
+     * l'apprentissage complet, pas la seule performance.
+     * L'ordre n'est pas vérifié strictement (la leçon peut être relue après) ;
+     * ce qui compte est que les deux existent sur le même sous-thème.
+     */
+    _countLessonThenWin(name = this.getCurrentUser(), preloadedRecords = null) {
+        const { views } = this._readLessonViews(name);
+        const understoodSubthemes = new Set();
+        Object.values(views).forEach((entry) => {
+            if (entry.c === true && entry.st) understoodSubthemes.add(`${entry.g}::${entry.st}`);
+        });
+        if (understoodSubthemes.size === 0) return 0;
+
+        const rawRecords = preloadedRecords || this._readRecords(name).records || {};
+        const wonSubthemes = new Set();
+        Object.entries(rawRecords).forEach(([key, entry]) => {
+            if ((entry.percent || 0) < 75 || !entry.subtheme) return;
+            const sep = key.indexOf('::');
+            if (sep === -1) return;
+            wonSubthemes.add(`${key.slice(0, sep)}::${entry.subtheme}`);
+        });
+
+        let count = 0;
+        understoodSubthemes.forEach((id) => { if (wonSubthemes.has(id)) count += 1; });
+        return count;
+    },
+
     getBadges(name = this.getCurrentUser()) {
         const { records } = this._readRecords(name);
         const rawRecords = records || {};
@@ -1355,7 +1626,17 @@ const Storage = {
         const subjectMastery = this.getSubjectMasteryCounts(name, rawRecords);
 
         const redemptions = this.getRedemptionCount(name);
-        const stats = { totalStars, perfectCount, bestStreak, exercisesAttempted, gradeExercises, subjectMastery, redemptions };
+        // Leçons : compteurs distincts des records (une leçon ne produit jamais
+        // d'étoile ni de record). lessonsThenWin croise les deux journaux.
+        const lessonStats = this.getLessonStats(name);
+        const lessonsCompleted = lessonStats.completed;
+        const lessonsBySubject = lessonStats.completedBySubject;
+        const lessonsThenWin = this._countLessonThenWin(name, rawRecords);
+
+        const stats = {
+            totalStars, perfectCount, bestStreak, exercisesAttempted, gradeExercises,
+            subjectMastery, redemptions, lessonsCompleted, lessonsBySubject, lessonsThenWin
+        };
 
         return this._badgeDefinitions.map((def) => ({
             id: def.id,

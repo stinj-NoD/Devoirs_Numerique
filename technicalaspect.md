@@ -151,6 +151,35 @@ Responsable de :
 - `tip`
 - `bullets`
 - `mini-table`
+- `check` — quiz d'ancrage de fin de leçon (voir ci-dessous)
+
+### Bloc `check` (quiz d'ancrage)
+
+Bloc **optionnel** : les leçons qui n'en ont pas restent valides et leur bouton de
+fin reste actif. Quand une leçon en contient, ses blocs `check` sont extraits du
+corps par `UI.renderLesson` et rendus en zone de quiz après la leçon ; le bouton
+de fin reste verrouillé tant que le quiz n'est pas réussi en totalité.
+Re-tentable sans pénalité.
+
+```json
+{
+  "type": "check",
+  "question": "Dans le nombre 58, que représente le chiffre 5 ?",
+  "choices": ["5 unités", "5 dizaines", "5 centaines"],
+  "answer": "5 dizaines",
+  "explanation": "Le 5 est en 2e position : ce sont les dizaines."
+}
+```
+
+Contraintes (validées **en miroir** par `js/validators.js` et
+`scripts/validate-data.ps1`) : 2 à 4 `choices`, sans doublon, `answer` doit
+figurer dans `choices`, `explanation` facultative.
+
+> Ce bloc est **hors du pipeline des moteurs** (`engine` + `params`), volontairement :
+> la boucle de jeu d'un moteur crée un record, ce qui fausserait `exercisesAttempted`,
+> `perfectCount` et les badges de maîtrise. Une leçon comprise crédite des **pièces**
+> et des **badges dédiés** (`Storage.completeLessonView` → `App.onLessonCompleted`),
+> alimente la **série du jour**, mais **jamais d'étoile**. Voir `docs/storage-gap.md`.
 
 ## 5. Navigation produit
 

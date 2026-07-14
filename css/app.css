@@ -195,6 +195,45 @@ body:has(#app.theme-dark) {
         linear-gradient(180deg, var(--color-bg-app) 0%, var(--color-bg-page) 100%);
 }
 
+/* ── Dark mode : carte de leçon ──
+   .lesson-card et .lesson-block--tip codent leur fond en dur (crème / bleu
+   clair) : sans cette passe, le texte passe en clair sur fond clair et les
+   leçons deviennent illisibles en thème sombre. */
+#app.theme-dark .lesson-card {
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-soft) 100%);
+    border-color: var(--color-border);
+}
+
+#app.theme-dark .lesson-block--tip {
+    background: var(--color-primary-soft);
+    border-color: var(--color-border-strong);
+}
+
+#app.theme-dark .lesson-mini-table th {
+    background: rgba(74, 144, 226, 0.18);
+    color: #8ab8f0;
+}
+
+/* .lesson-outline peint un blanc semi-opaque : il reste clair en sombre. */
+#app.theme-dark .lesson-outline {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--color-border);
+}
+
+#app.theme-dark .lesson-outline-item.is-active {
+    background: rgba(234, 157, 48, 0.16);
+    border-color: rgba(234, 157, 48, 0.5);
+}
+
+#app.theme-dark .lesson-outline-item.is-active .lesson-outline-title,
+#app.theme-dark .lesson-outline-count {
+    color: var(--color-text);
+}
+
+#app.theme-dark .lesson-eyebrow {
+    color: #f6c96b;
+}
+
 /* ── Dark mode : cartes de menu ── */
 #app.theme-dark .menu-card,
 #app.theme-dark .menu-card--themes,
@@ -1792,6 +1831,149 @@ button,
 
 .lesson-mini-table tbody tr:last-child td {
     border-bottom: none;
+}
+
+/* ── Quiz d'ancrage de fin de leçon ──
+   N'utilise QUE des tokens : #app.theme-dark les redéfinit, donc pas de
+   surcharge dark à maintenir ici (contrairement aux blocs à couleurs codées
+   en dur comme .lesson-block--tip). */
+.lesson-check {
+    margin-top: var(--space-5);
+    padding: var(--space-4);
+    border: 2px solid var(--color-primary-soft);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-soft);
+}
+
+.lesson-check.is-completed {
+    border-color: var(--color-success);
+    background: var(--color-success-soft);
+}
+
+.lesson-check-head {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.lesson-check-icon {
+    font-size: var(--font-size-xl);
+    line-height: 1;
+}
+
+.lesson-check-intro {
+    margin: 2px 0 0;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-base);
+}
+
+.lesson-check-item + .lesson-check-item {
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+}
+
+.lesson-check-question {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    margin: 0 0 var(--space-3);
+    color: var(--color-text);
+    font-weight: 600;
+    line-height: var(--line-height-relaxed);
+}
+
+.lesson-check-number {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: var(--radius-pill);
+    background: var(--color-primary);
+    color: #fff;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+}
+
+.lesson-check-choices {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.lesson-check-choice {
+    min-height: var(--touch-target-min);
+    padding: var(--space-2) var(--space-3);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    text-align: left;
+    cursor: pointer;
+    touch-action: manipulation;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+
+.lesson-check-choice:hover:not(.is-selected) {
+    border-color: var(--color-border-strong);
+}
+
+.lesson-check-choice:active {
+    transform: scale(0.99);
+}
+
+.lesson-check-choice.is-correct {
+    border-color: var(--color-success);
+    background: var(--color-success-soft);
+    font-weight: 600;
+}
+
+.lesson-check-choice.is-wrong {
+    border-color: var(--color-danger);
+    background: var(--color-danger-soft);
+}
+
+.lesson-check-explanation {
+    margin: var(--space-3) 0 0;
+    padding: var(--space-2) var(--space-3);
+    border-left: 3px solid var(--color-primary);
+    background: var(--color-primary-soft);
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+}
+
+.lesson-check-feedback {
+    margin: var(--space-4) 0 0;
+    padding: var(--space-3);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    text-align: center;
+    line-height: var(--line-height-relaxed);
+}
+
+.lesson-check-feedback.is-success {
+    background: var(--color-success-soft);
+    color: var(--color-success-strong, var(--color-text));
+}
+
+.lesson-check-feedback.is-retry {
+    background: var(--color-warning-soft);
+    color: var(--color-text);
+}
+
+/* Le CTA reste visible mais inerte tant que le quiz n'est pas réussi :
+   il indique quoi faire, il ne disparaît pas. */
+#btn-lesson-exercises.is-locked {
+    opacity: 0.55;
+    cursor: not-allowed;
+    filter: grayscale(0.4);
 }
 
 .progress-container {
@@ -4901,6 +5083,71 @@ button.collection-map--fact {
     display: none;
 }
 
+/* ── Bandeau de série (screen-grades) ──
+   Tokens uniquement : suit le thème sombre sans surcharge dédiée. */
+.streak-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    max-width: 560px;
+    margin: 0 auto var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-lg);
+    background: var(--color-warning-soft);
+    border: 1px solid var(--color-border);
+}
+
+.streak-banner.is-hidden {
+    display: none;
+}
+
+/* Série non assurée aujourd'hui : on le signale sans dramatiser. */
+.streak-banner.is-at-risk {
+    border-style: dashed;
+    border-color: var(--color-border-strong);
+}
+
+.streak-banner-flame {
+    font-size: 1.8rem;
+    line-height: 1;
+    flex: 0 0 auto;
+}
+
+.streak-banner.is-at-risk .streak-banner-flame {
+    filter: grayscale(0.6);
+    opacity: 0.7;
+}
+
+.streak-banner-text {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.streak-banner-count {
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+    font-weight: 800;
+}
+
+.streak-banner-hint {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-base);
+}
+
+.streak-banner-best {
+    flex: 0 0 auto;
+    padding: 2px 10px;
+    border-radius: var(--radius-pill);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+}
+
 .today-recap {
     display: flex;
     align-items: center;
@@ -4996,6 +5243,7 @@ button.collection-map--fact {
     color: var(--color-text);
 }
 
+
 .grimoire-booster-btn {
     background: linear-gradient(135deg, #f3b13c 0%, #e8912d 100%);
     color: #4a2c00;
@@ -5006,6 +5254,9 @@ button.collection-map--fact {
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+
+
 
 .grimoire-progress {
     text-align: center;

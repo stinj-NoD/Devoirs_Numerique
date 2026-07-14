@@ -14,10 +14,11 @@ Le projet gère déjà :
 - leçons et exercices par sous-thème
 - parcours `J'apprends` / `Je m'entraîne`
 
+- **suivi des leçons consultées et comprises** (`lessonViews`, v4.18.0 — voir [storage-gap.md](storage-gap.md))
+
 Il ne gère pas encore :
 - historique complet de tentatives
 - temps passé
-- suivi fin des parcours de leçons
 - rôles enseignant/parent/élève
 - assignation pédagogique
 
@@ -63,11 +64,15 @@ Il ne gère pas encore :
 
 ## Migration recommandée
 
-1. conserver [storage.js](js/storage.js) compatible avec les profils existants
+1. ~~conserver [storage.js](js/storage.js) compatible avec les profils existants~~ **fait**
 2. ajouter un journal léger `attempts[]`
-3. ajouter un journal léger `lessonViews[]`
+3. ~~ajouter un journal léger `lessonViews[]`~~ **fait (v4.18.0)** — objet indexé plutôt
+   que tableau, pour l'idempotence de la relecture et une taille bornée
 4. dériver ensuite une couche `progress`
 5. seulement après, introduire rôles et vues étendues
+
+> Les étapes 2 et 3 sont indépendantes : `lessonViews` a été livrée en premier parce que la
+> bibliothèque de leçons faisait déjà partie du parcours principal sans laisser aucune trace.
 
 ## Principes de migration
 

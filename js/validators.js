@@ -407,6 +407,37 @@
                 : { valid: false, reason: 'bloc mini-table invalide.' };
         }
 
+        // Quiz d'ancrage de fin de leçon : QCM court qui vérifie la
+        // compréhension. Reste dans le pipeline leçon (pas un moteur) : il ne
+        // doit jamais créer de record, sous peine de fausser les badges de
+        // maîtrise. Bloc optionnel : les leçons sans check restent valides.
+        if (type === 'check') {
+            if (!this.isSafeLessonText(block.question)) {
+                return { valid: false, reason: 'bloc check sans question ou question invalide.' };
+            }
+            const hasChoices = Array.isArray(block.choices)
+                && block.choices.length >= 2
+                && block.choices.length <= 4
+                && block.choices.every((choice) => this.isSafeLessonText(choice));
+            if (!hasChoices) {
+                return { valid: false, reason: 'bloc check : choices doit contenir 2 à 4 propositions valides.' };
+            }
+            if (!this.isSafeLessonText(block.answer)) {
+                return { valid: false, reason: 'bloc check sans answer ou answer invalide.' };
+            }
+            if (!block.choices.includes(block.answer)) {
+                return { valid: false, reason: 'bloc check : answer doit figurer dans choices.' };
+            }
+            const uniqueChoices = new Set(block.choices);
+            if (uniqueChoices.size !== block.choices.length) {
+                return { valid: false, reason: 'bloc check : choices contient des doublons.' };
+            }
+            if (block.explanation !== undefined && !this.isSafeLessonText(block.explanation)) {
+                return { valid: false, reason: 'bloc check : explanation non sûre.' };
+            }
+            return { valid: true };
+        }
+
         return { valid: false, reason: `type de bloc de leçon inconnu (${type}).` };
     },
 

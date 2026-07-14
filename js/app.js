@@ -865,11 +865,51 @@ const App = {
         this.openGradeContent();
     },
 
+    /**
+     * Leçon à proposer après un exercice raté. On ouvrait toujours lessons[0],
+     * donc sur un sous-thème à plusieurs leçons l'enfant tombait souvent sur
+     * une notion sans rapport avec ce qu'il venait de manquer.
+     * Priorité : leçon pas encore comprise > leçon liée à l'exercice (id ou
+     * titre) > première leçon. Le tout sans jamais renvoyer null si une
+     * leçon existe.
+     */
+    pickLessonToReview(lessons, exercise) {
+        const safeLessons = Array.isArray(lessons) ? lessons.filter(Boolean) : [];
+        if (safeLessons.length <= 1) return safeLessons[0] || null;
+
+        const gradeId = this.state.currentGrade?.gradeId;
+        const notUnderstood = gradeId
+            ? safeLessons.filter((l) => !Storage.isLessonCompleted(gradeId, l.id))
+            : safeLessons;
+        const pool = notUnderstood.length ? notUnderstood : safeLessons;
+
+        // Rapprochement souple par mots-clés du titre de l'exercice : les ids
+        // n'ont pas de convention commune entre leçons et exercices. On compare
+        // des radicaux (pluriels/accords : "soustractions" doit matcher
+        // "soustraction"), d'où la troncature à 5 lettres minimum.
+        const stem = (w) => w.slice(0, Math.max(5, w.length - 2));
+        const words = String(exercise?.title || '')
+            .toLowerCase()
+            .split(/[^a-zà-ÿ0-9]+/)
+            .filter((w) => w.length > 3)
+            .map(stem);
+        if (words.length) {
+            const matched = pool.find((l) => {
+                const hay = `${l.id || ''} ${l.title || ''} ${l.subtitle || ''}`.toLowerCase();
+                return words.some((w) => hay.includes(w));
+            });
+            if (matched) return matched;
+        }
+        return pool[0];
+    },
+
     reviewThemeLessons() {
         const lessons = Array.isArray(this.state.currentTheme?.lessons) ? this.state.currentTheme.lessons : [];
         if (!lessons.length) return;
+        const target = this.pickLessonToReview(lessons, this.state.currentExercise);
+        if (!target) return;
         this.state.currentLessonOrigin = 'theme';
-        this.startLesson(lessons[0]);
+        this.startLesson(target);
     },
 
     goBack() {
@@ -1101,6 +1141,7 @@ const App = {
             UI.renderMenu('grades-list', d.grades, (g) => this.loadGrade(g));
             const coinsEl = document.getElementById('grimoire-entry-coins');
             if (coinsEl) coinsEl.textContent = `🪙 ${Storage.getCoins()}`;
+            UI.renderStreakBanner(Storage.getStreak(), Storage.getPreference('quiet_mode'));
             this.refreshNewsBadge();
             UI.showScreen('screen-grades');
         } catch (e) { 
@@ -2541,6 +2582,93 @@ const App = {
         return Array.isArray(this.state.currentGrade?.subjects) && this.state.currentGrade.subjects.length > 0;
     },
 
+    /**
+     * Exercice à enchaîner après une leçon : on privilégie ce qui n'a jamais
+     * été tenté, sinon le record le plus faible (réviser ce qui coince).
+     * Généralise le choix que faisait déjà le Rituel du soir au hasard.
+     */
+    getFollowUpExerciseFor(theme) {
+        const exercises = Array.isArray(theme?.exercises) ? theme.exercises : [];
+        if (!exercises.length) return null;
+        const gradeId = this.state.currentGrade?.gradeId || null;
+
+        let best = null;
+        for (const exercise of exercises) {
+            const record = Storage.getRecord(exercise.id, gradeId);
+            const percent = record ? (record.percent || 0) : -1; // jamais tenté = priorité
+            if (!best || percent < best.percent) best = { exercise, percent };
+        }
+        return best?.exercise || null;
+    },
+
+    /**
+     * Récompense d'une leçon comprise. Volontairement en pièces et badges,
+     * jamais en étoiles : les étoiles sont dérivées des records d'exercice
+     * (Storage._sumStars), y toucher fausserait les badges de maîtrise.
+     * completeLessonView garantit le one-shot (pas de farm par relecture).
+     */
+    onLessonCompleted(lesson, result = {}) {
+        const gradeId = this.state.currentGrade?.gradeId;
+        if (!gradeId || !lesson?.id) return;
+
+        const badgesBefore = Storage.getBadges();
+        const { justCompleted } = Storage.completeLessonView(gradeId, lesson.id, {
+            subjectId: this.state.currentSubject?.id,
+            subthemeId: this.state.currentTheme?.id,
+            quizScore: result.score
+        });
+        if (!justCompleted) return;
+
+        // Comprendre une leçon est une vraie activité du jour : elle nourrit la
+        // série au même titre qu'un exercice, sinon on dirait à l'enfant que
+        // les leçons comptent tout en les excluant de sa série.
+        // On n'appelle PAS recordDailyActivity : il incrémente `attempts`, le
+        // compteur d'exercices tentés du tableau de bord parent.
+        const streakResult = Storage.recordSessionActivity();
+
+        // Le défi avance avant la relecture des badges : le compléter peut
+        // lui-même débloquer un badge (dont ceux de série), qui doit être
+        // compté dans newBadges.
+        const challengeResult = Storage.recordDailyChallengeLesson();
+        const newBadges = Storage.getNewlyUnlockedBadges(badgesBefore);
+        let coinsEarned = this.lessonCoinReward + newBadges.length * 5;
+        if (challengeResult?.justCompleted) coinsEarned += 3;
+        Storage.addCoins(coinsEarned);
+        this.refreshCoinsDisplays();
+
+        // Même ordonnancement que showFinalResults : showSimpleToast retire le
+        // toast visible, on espace donc de 3500 ms (durée de vie : 3200 ms).
+        if (this._badgeToastTimers) this._badgeToastTimers.forEach((id) => clearTimeout(id));
+        this._badgeToastTimers = [];
+
+        // Le gain est toujours annoncé, y compris quand le défi du jour tombe
+        // en même temps : sinon l'enfant voit "Défi réussi" sans savoir ce que
+        // la leçon lui a rapporté.
+        UI.showSimpleToast('🧠', `Leçon comprise ! +${coinsEarned} pièces`);
+        let delay = 3500;
+        if (challengeResult?.justCompleted) {
+            const t = setTimeout(() => UI.showSimpleToast('🎉', 'Défi du jour réussi !'), delay);
+            this._badgeToastTimers.push(t);
+            delay += 3500;
+        }
+        if (streakResult?.isNewDay && streakResult.current > 1) {
+            const t = setTimeout(() => UI.showStreakToast(streakResult.current), delay);
+            this._badgeToastTimers.push(t);
+            delay += 3500;
+        }
+        newBadges.forEach((badge, i) => {
+            const t = setTimeout(() => {
+                UI.showSimpleToast(badge.icon, `Nouveau badge : ${badge.label} !`);
+            }, delay + i * 3500);
+            this._badgeToastTimers.push(t);
+        });
+    },
+
+    // Pièces d'une leçon comprise (une seule fois). Volontairement modeste
+    // face aux 20 pièces d'un booster : ~7 exercices parfaits restent la
+    // source principale. Voir docs/grimoire-economy.md.
+    lessonCoinReward: 2,
+
     startLesson(lesson) {
         if (!lesson || !Array.isArray(lesson.blocks) || lesson.blocks.length === 0) {
             alert("Leçon indisponible.");
@@ -2556,18 +2684,44 @@ const App = {
         const theme = this.state.currentTheme || {};
         const lessons = Array.isArray(theme?.lessons) ? theme.lessons : [];
         const exerciseCount = Array.isArray(theme?.exercises) ? theme.exercises.length : 0;
+        const gradeId = this.state.currentGrade?.gradeId;
+        const followUp = this.getFollowUpExerciseFor(theme);
+
+        if (gradeId) {
+            Storage.recordLessonView(gradeId, lesson.id, {
+                subjectId: this.state.currentSubject?.id,
+                subthemeId: theme?.id
+            });
+        }
+
         const lessonLead = document.getElementById('lesson-lead');
         if (lessonLead) {
-            lessonLead.textContent = exerciseCount > 0
-                ? `Lis l'essentiel, retiens les idées clés, puis passe aux ${exerciseCount} exercice${exerciseCount > 1 ? 's' : ''} du sous-thème.`
+            lessonLead.textContent = followUp
+                ? "Lis l'essentiel, réponds aux 2 questions, puis enchaîne sur un exercice."
                 : "Lis l'essentiel de la leçon comme un rappel de cours, puis reviens au sous-thème.";
         }
-        UI.renderLesson(lesson, () => {
+
+        // Le bouton de fin ne doit JAMAIS être sans effet : on enchaîne sur un
+        // exercice quand il y en a un, sinon on revient à un écran utile selon
+        // l'origine (bibliothèque vs sous-thème).
+        const onContinue = () => {
+            if (followUp) {
+                this.startExercise(followUp);
+                return;
+            }
+            if (this.state.currentLessonOrigin === 'library') {
+                this.openLessonLibrary();
+                return;
+            }
             if (this.state.currentTheme) {
                 this.renderThemeContent('exercises');
                 UI.showScreen('screen-exercises');
+                return;
             }
-        }, {
+            this.showBrowseModeMenu();
+        };
+
+        UI.renderLesson(lesson, onContinue, {
             themeTitle: theme?.title || '',
             subjectTitle: theme?.subjectTitle || '',
             lessons: lessons.map((item) => ({
@@ -2580,8 +2734,11 @@ const App = {
                 if (target) this.startLesson(target);
             },
             exerciseCount,
-            summaryText: exerciseCount > 0
-                ? `Retiens l'idée essentielle, l'exemple important et les mots-clés, puis passe aux ${exerciseCount} exercice${exerciseCount > 1 ? 's' : ''} du sous-thème.`
+            alreadyCompleted: gradeId ? Storage.isLessonCompleted(gradeId, lesson.id) : false,
+            ctaLabel: followUp ? "JE M'ENTRAÎNE" : (this.state.currentLessonOrigin === 'library' ? 'AUTRE LEÇON' : 'CONTINUER'),
+            onLessonCompleted: (result) => this.onLessonCompleted(lesson, result),
+            summaryText: followUp
+                ? `Retiens l'idée essentielle et les mots-clés, vérifie que tu as compris, puis enchaîne sur un exercice.`
                 : `Retiens l'idée essentielle et les mots-clés, puis reviens au sous-thème pour continuer.`
         });
         UI.showScreen('screen-lesson');
@@ -3420,7 +3577,9 @@ const App = {
             lessonBtn.style.display = lessons.length ? 'inline-flex' : 'none';
         }
         if (lessonLabel) {
-            lessonLabel.textContent = lessons.length > 1 ? 'VOIR LES LEÇONS' : 'REVOIR LA LEÇON';
+            // On ouvre désormais UNE leçon ciblée (pickLessonToReview), pas la
+            // liste : le libellé doit le dire, au singulier dans tous les cas.
+            lessonLabel.textContent = percent < 50 ? 'RELIRE LA LEÇON' : 'REVOIR LA LEÇON';
         }
     }
 };
