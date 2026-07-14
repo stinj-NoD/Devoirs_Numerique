@@ -61,7 +61,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Parcours : Addition `(cp-parcours-addition)`
 
 - **Leçons** (2) :
-  - Comprendre l'addition `(cp-lesson-addition-comprendre)` — blocs: paragraph, example, bullets, tip
+  - Comprendre l'addition `(cp-lesson-addition-comprendre)` — blocs: paragraph, example, bullets, tip, check, check
   - Compléter jusqu'à 10 `(cp-lesson-complement-10)` — blocs: paragraph, example, bullets, tip
 - **Exercices** (6) :
   - Petites additions `(add-1)` — engine: `math-input`, type=add-simple, maxSum=10, questions=5
@@ -221,7 +221,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Phrase et ponctuation `(cp-phrase-ponctuation-subtheme)`
 
 - **Leçons** (2) :
-  - La phrase simple `(cp-lesson-phrase-simple)` — blocs: paragraph, example, bullets, tip
+  - La phrase simple `(cp-lesson-phrase-simple)` — blocs: paragraph, example, bullets, tip, check, check
   - La ponctuation `(cp-lesson-ponctuation)` — blocs: paragraph, example, bullets, tip
 - **Exercices** (3) :
   - La phrase et la ponctuation `(cp-phrase-ponctuation-qcm)` — engine: `choice-engine`, type=factual-qcm, category=cp-phrase-ponctuation, dataFile=data/french_cp_grammar.json, questions=6

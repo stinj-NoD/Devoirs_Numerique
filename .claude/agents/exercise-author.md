@@ -35,6 +35,19 @@ de contenu déjà exploité, et en laissant le dépôt dans un état validé.
   `\uXXXX` inutile, apostrophes typographiques propres. C'est une dette
   récurrente du projet — ne l'aggrave pas.
 - `choices` (ou l'équivalent) doit **toujours** contenir la valeur `answer`.
+- Une leçon = `{ id, title, subtitle, format: "lesson-card", blocks[] }`. Elle
+  se termine par **exactement 2 blocs `check`** (le quiz d'ancrage) qui suivent
+  les 3 à 5 blocs de contenu :
+  `{ type: "check", question, choices[2-4], answer, explanation }`.
+  - `answer` est une **copie caractère pour caractère** d'un élément de
+    `choices`. Le runtime compare en strict (`===`) : un écart de casse
+    produit une leçon **injouable** (aucun choix correct, bouton verrouillé à
+    vie) — et le validateur PowerShell ne l'attrape que depuis peu.
+  - pas d'`id` sur un bloc `check` : il ne crée **jamais** de record, sinon il
+    fausserait les étoiles et les badges de maîtrise.
+  - qualité pédagogique : règles **R1-R5** de `docs/lesson-guidelines.md`. La
+    plus violée : la réponse ne doit **pas** être recopiable depuis la prose de
+    la leçon (sinon le quiz teste la relecture, pas la compréhension).
 - Ne mélange pas plusieurs zones critiques sans raison : ce lot touche
   `data/` (banques + niveau), pas les moteurs ni les validateurs. Si la cible
   exige un moteur ou un `params.type` inexistant, **arrête-toi et signale-le** :
@@ -78,14 +91,18 @@ de contenu déjà exploité, et en laissant le dépôt dans un état validé.
 5. **Rédige le contenu.** Qualité pédagogique adaptée au cycle
    (Cycle 2 = CP-CE2, Cycle 3 = CM1-CM2). Pour des **leçons**, respecte
    `docs/lesson-guidelines.md` : format `lesson-card`, **une notion par leçon**,
-   exemple concret obligatoire, **3 à 5 blocs** parmi
-   `paragraph / example / tip / bullets / mini-table`. Écris d'abord les items de
+   exemple concret obligatoire, **3 à 5 blocs de contenu** parmi
+   `paragraph / example / tip / bullets / mini-table`, **suivis d'exactement
+   2 blocs `check`** (le quiz d'ancrage — voir les invariants ci-dessus ; ces
+   2 blocs viennent **en plus** des 3 à 5, ils n'entrent pas dans le quota et ne
+   doivent jamais être supprimés pour y rentrer). Écris d'abord les items de
    banque, puis branche le/les exercice(s) dans `data/<grade>.json` (id préfixé,
    `params` conformes au registre).
 
 6. **Pipeline de validation complet (impératif, dans l'ordre) :**
    ```
    powershell -ExecutionPolicy Bypass -File scripts/validate-data.ps1
+   node scripts/check-lesson-quiz.js             # SEULEMENT si tu as touché des leçons
    node scripts/build-content-index.js --check   # doit passer : pas d'id dupliqué
    node scripts/validate-subjects.js
    node scripts/validate-maps.js                 # SEULEMENT si tu as touché une carte/board-interactive
@@ -106,6 +123,39 @@ de contenu déjà exploité, et en laissant le dépôt dans un état validé.
 8. **Vérification manuelle (décris-la, tu ne peux pas ouvrir le navigateur).**
    Rappelle dans le rapport ce qui doit être testé à la main : un des exercices
    générés + un retour vers résultats, conformément au workflow de `CLAUDE.md`.
+
+## Mode `lesson-check` — équiper des leçons existantes de leur quiz
+
+Quand la demande est d'**ajouter le quiz d'ancrage à des leçons déjà écrites**
+(et non de créer du contenu neuf), le workflow ci-dessus ne s'applique
+qu'en partie. Dans ce mode :
+
+- **Tu n'ajoutes que des blocs `check`.** Interdiction absolue de toucher à
+  `lesson.id`, `title`, `subtitle`, `format`, et aux blocs de contenu
+  existants. Les `id` sont des clés de records côté utilisateur ; la prose a
+  déjà été relue.
+- **Aucune banque, aucun exercice, aucun nouvel id.** Les étapes 2 et 3
+  (index anti-doublon, stratégie de vivier) ne s'appliquent pas : il n'y a pas
+  de doublon possible. Lis directement les leçons ciblées dans
+  `data/<grade>.json`.
+- **Édite par remplacement de texte exact** (outil Edit), jamais en
+  réécrivant le JSON via `JSON.stringify` : les fichiers de niveau sont en
+  CRLF, indentation 4 espaces, **sans BOM**, et une réécriture globale
+  reformaterait des milliers de lignes non concernées.
+- **Écris 2 checks par leçon**, conformes aux règles **R1-R5** de
+  `docs/lesson-guidelines.md`. Relis la prose de la leçon avant de rédiger :
+  si ta réponse s'y trouve mot pour mot, la question est à refaire (R1). Au
+  moins un des 2 checks porte sur un **cas nouveau**, jamais l'exemple déjà
+  présent dans la leçon (R2).
+- **Modèle à suivre** : `cp-lesson-addition-comprendre` dans `data/cp.json`.
+- **Pipeline** : `validate-data.ps1` → `check-lesson-quiz.js` (doit renvoyer
+  `LESSON_QUIZ_OK`) → `build-content-index.js --check` → bundle → architecture
+  → index → bump `APP_VERSION`.
+- **Contrôle de dérive, obligatoire avant de rendre la main** :
+  `git diff --stat` doit montrer des lignes **ajoutées** presque exclusivement,
+  et `git diff` ne doit contenir **aucune** ligne `"id":` modifiée. Si le diff
+  est disproportionné par rapport au nombre de leçons visées, tu as reformaté
+  le fichier : restaure (`git checkout`) et recommence par Edit.
 
 ## Rapport final (toujours)
 

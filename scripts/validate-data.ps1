@@ -294,11 +294,16 @@ function Validate-LessonBlock($path, $subthemeId, $lessonId, $block) {
             Add-Issue("${path}: bloc check sans answer ou answer invalide dans ${subthemeId}/${lessonId}")
             return
         }
-        if ($block.choices -notcontains $block.answer) {
-            Add-Issue("${path}: bloc check : answer doit figurer dans choices dans ${subthemeId}/${lessonId}")
+        # -cnotcontains / comparaison ordinale : au runtime, ui.js compare avec
+        # === (value === block.answer). Un contrôle insensible à la casse ici
+        # laisserait passer answer:'6 BILLES' / choices:['6 billes'] : aucun
+        # choix ne serait jamais correct, le CTA resterait verrouillé à vie et
+        # la leçon deviendrait une impasse que rien ne signale.
+        if ($block.choices -cnotcontains $block.answer) {
+            Add-Issue("${path}: bloc check : answer doit figurer dans choices à l'identique (casse comprise) dans ${subthemeId}/${lessonId}")
             return
         }
-        $uniqueChoices = @($block.choices | Select-Object -Unique)
+        $uniqueChoices = @($block.choices | Sort-Object -Unique -CaseSensitive)
         if ($uniqueChoices.Count -ne $block.choices.Count) {
             Add-Issue("${path}: bloc check : choices contient des doublons dans ${subthemeId}/${lessonId}")
             return
