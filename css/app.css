@@ -1478,6 +1478,11 @@ button,
     box-shadow: 0 6px 14px rgba(47, 133, 90, 0.22);
 }
 
+.profile-keyboard {
+    grid-column: 1 / -1;
+    margin-top: var(--space-2);
+}
+
 .game-zone {
     flex: 1;
     display: flex;

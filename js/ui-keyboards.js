@@ -127,6 +127,36 @@ const UIKeyboards = {
         kb.innerHTML = html;
     },
 
+    // Clavier AZERTY autonome pour la création de profil : indépendant du
+    // clavier d'exercice (#keyboard-num), rendu dans le conteneur fourni.
+    // Palliatif iPadOS où le clavier natif ne monte pas de façon fiable.
+    renderProfileKeyboard(container) {
+        if (!container) return;
+
+        const rows = ["azertyuiop", "qsdfghjklm", "wxcvbn"];
+        let html = '<div class="alpha-keyboard">';
+
+        html += `<div class="kb-row accent-row">` + "éèêëàâçîïôûù-".split('').map(a =>
+            `<button type="button" class="btn key letter-key" data-val="${a}">${a}</button>`
+        ).join('') + `</div>`;
+
+        rows.forEach(row => {
+            html += `<div class="kb-row">`;
+            row.split('').forEach(char => {
+                html += `<button type="button" class="btn key letter-key" data-val="${char}">${char}</button>`;
+            });
+            html += `</div>`;
+        });
+
+        html += `<div class="kb-row kb-row-actions">
+            <button type="button" class="btn btn--danger key action del key-delete key-flex-2" data-val="backspace" aria-label="Effacer">&#9003;</button>
+            <button type="button" class="btn key space-key key-flex-5" data-val=" ">ESPACE</button>
+            <button type="button" class="btn btn--success key action ok key-ok key-flex-3" data-val="ok" aria-label="Créer le profil">OK</button>
+        </div></div>`;
+
+        container.innerHTML = html;
+    },
+
     renderRomanKeyboard() {
         const kb = document.getElementById('keyboard-num');
         if (!kb) return;

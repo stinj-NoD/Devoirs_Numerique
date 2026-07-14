@@ -155,6 +155,39 @@
                 input.focus();
             });
         }
+
+        bindProfileKeyboard(input);
+    }
+
+    // Clavier virtuel AZERTY du formulaire profil : le clavier natif est
+    // supprimé (inputmode="none") car il ne monte pas de façon fiable sur
+    // certaines versions d'iPadOS ; la saisie physique reste possible.
+    function bindProfileKeyboard(input) {
+        const container = document.getElementById('profile-keyboard');
+        if (!container || !input) return;
+
+        // UIKeyboards est un const top-level (binding global lexical) :
+        // accessible en bare, pas via window.
+        if (typeof UIKeyboards !== 'undefined' && typeof UIKeyboards.renderProfileKeyboard === 'function') {
+            UIKeyboards.renderProfileKeyboard(container);
+        }
+
+        container.addEventListener('click', (event) => {
+            const key = event.target.closest('.key');
+            if (!key || !key.hasAttribute('data-val')) return;
+            const val = key.getAttribute('data-val');
+
+            if (val === 'ok') {
+                window.dnCreateProfileFallback(event);
+                return;
+            }
+            if (val === 'backspace') {
+                input.value = input.value.slice(0, -1);
+                return;
+            }
+            const max = input.maxLength > 0 ? input.maxLength : 15;
+            if (input.value.length < max) input.value += val;
+        });
     }
 
     function registerServiceWorker() {
