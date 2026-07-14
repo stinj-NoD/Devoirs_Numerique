@@ -2243,13 +2243,62 @@ const UI = {
         </svg>`;
     },
 
-    updateGrimoireCoins(coins, boosterCost) {
+    updateGrimoireCoins(coins) {
         const el = document.getElementById('grimoire-coins');
         if (el) el.innerHTML = `🪙 <strong>${Math.max(0, Number(coins) || 0)}</strong> pièce${coins > 1 ? 's' : ''}`;
-        const btn = document.getElementById('btn-open-booster');
-        if (btn) {
-            btn.disabled = coins < boosterCost;
-            btn.textContent = `🎁 OUVRIR UN BOOSTER (${boosterCost} 🪙)`;
+        this.updateGrimoireBundles(coins);
+    },
+
+    /**
+     * Les trois choix d'ouverture (×1, ×5, ×10) : même structure, même typo,
+     * mêmes trois lignes (quantité / cartes / prix). Seule l'INTENSITÉ visuelle
+     * monte avec la quantité (tier1 → tier3), pour que l'œil aille vers le ×10.
+     *
+     * Le doré était sur le ×1 : ça cassait l'harmonie (un bouton plein face à
+     * deux cartes vides) et ça mettait l'emphase sur l'offre la MOINS
+     * intéressante. Il est désormais réservé au palier le plus fort.
+     *
+     * Prix et ristournes viennent de Storage.getBoosterBundles() : jamais
+     * codés en dur ici, sinon l'UI et l'économie divergent.
+     */
+    updateGrimoireBundles(coins) {
+        const wrap = document.getElementById('grimoire-bundles');
+        if (!wrap || typeof Storage === 'undefined' || !Storage.getBoosterBundles) return;
+
+        const bundles = Storage.getBoosterBundles();
+        if (!bundles.length) { wrap.innerHTML = ''; return; }
+        const safeCoins = Math.max(0, Number(coins) || 0);
+        const cardsEach = Storage.cardsPerBooster || 3;
+
+        wrap.innerHTML = bundles.map((b, i) => {
+            const locked = safeCoins < b.price;
+            const cards = b.size * cardsEach;
+            // Le palier suit le RANG dans la liste, pas la taille : si les lots
+            // changent un jour (×3 / ×8…), la montée en intensité reste juste.
+            const tier = Math.min(3, i + 1);
+            return `
+            <button
+                type="button"
+                class="btn grimoire-bundle-btn grimoire-bundle-btn--tier${tier}"
+                data-bundle-size="${b.size}"
+                ${locked ? 'disabled' : ''}
+                aria-label="Ouvrir ${b.size} booster${b.size > 1 ? 's' : ''}, ${cards} cartes, ${b.price} pièces${b.discount > 0 ? `, ${b.discount} pièces d'économie` : ''}"
+            >
+                ${b.discount > 0 ? `<span class="grimoire-bundle-save" aria-hidden="true">−${b.discount}</span>` : ''}
+                <span class="grimoire-bundle-size">×${b.size}</span>
+                <span class="grimoire-bundle-cards">${cards} cartes</span>
+                <span class="grimoire-bundle-price">${b.price} 🪙</span>
+            </button>
+        `;
+        }).join('');
+
+        if (typeof this._onOpenBundle === 'function') {
+            wrap.querySelectorAll('[data-bundle-size]').forEach((node) => {
+                node.onclick = () => {
+                    if (node.disabled) return;
+                    this._onOpenBundle(Number(node.getAttribute('data-bundle-size')));
+                };
+            });
         }
     },
 
@@ -2257,16 +2306,19 @@ const UI = {
         return `grimoire-card--${['commune', 'rare', 'epique', 'legendaire', 'brillante'].includes(rarity) ? rarity : 'commune'}`;
     },
 
-    renderGrimoire(catalog, ownedIds, coins, boosterCost, onOpenBooster) {
+    // onOpenBundle(size) gère les trois quantités, ×1 compris : les boutons
+    // sont générés à partir de Storage.getBoosterBundles().
+    renderGrimoire(catalog, ownedIds, coins, onOpenBundle) {
         const grid = document.getElementById('grimoire-grid');
         const progress = document.getElementById('grimoire-progress');
         const reveal = document.getElementById('booster-reveal');
         if (!grid) return;
 
         if (reveal) { reveal.classList.add('is-hidden'); reveal.innerHTML = ''; }
-        this.updateGrimoireCoins(coins, boosterCost);
-        const btn = document.getElementById('btn-open-booster');
-        if (btn) btn.onclick = onOpenBooster;
+        // Mémorisé avant updateGrimoireCoins : c'est lui qui (re)crée les
+        // boutons et leur rebranche ce callback.
+        if (typeof onOpenBundle === 'function') this._onOpenBundle = onOpenBundle;
+        this.updateGrimoireCoins(coins);
 
         const cards = Array.isArray(catalog?.cards) ? catalog.cards : [];
         const ownedCount = cards.filter((c) => ownedIds[c.id]).length;
@@ -2403,6 +2455,101 @@ const UI = {
             (this._rarityRank[card.rarity] || 0) > (this._rarityRank[best] || 0) ? card.rarity : best, 'commune');
     },
 
+    /**
+     * Révélation d'un LOT (x5 / x10). On ne rejoue pas la déchirure paquet par
+     * paquet — 10 fois le même geste serait pénible : un seul paquet à ouvrir,
+     * puis toutes les cartes en grille, retournables. Le reste (aura par rareté,
+     * étiquette nouveau/doublon, confettis) est le rendu unitaire réutilisé tel
+     * quel via _renderBoosterCards, dont le contrat est déjà `result.cards`.
+     */
+    renderBoosterBundleReveal(result, catalog, onDone) {
+        const reveal = document.getElementById('booster-reveal');
+        if (!reveal) return;
+        const rarities = catalog?.rarities || {};
+        const count = result?.packs?.length || 0;
+        reveal.classList.remove('is-hidden');
+
+        const best = this._bestRarity(result);
+        const bestRank = this._rarityRank[best] || 0;
+        const glowColor = this._rarityGlowColors[best] || null;
+
+        reveal.innerHTML = `
+            <div class="booster-stage">
+                <button type="button" class="booster-pack booster-pack--bundle" aria-label="Ouvrir le lot de ${count} boosters">
+                    <div class="booster-pack-tear"><span class="booster-pack-tear-strip"></span></div>
+                    <div class="booster-pack-shine"></div>
+                    <div class="booster-pack-logo">${this.grimoireLogoSvg(64)}</div>
+                    <div class="booster-pack-title">LOT ×${count}</div>
+                    <div class="booster-pack-sub">${result.cards.length} cartes magiques</div>
+                    <span class="booster-pack-stack" aria-hidden="true"></span>
+                    <span class="booster-pack-stack booster-pack-stack--2" aria-hidden="true"></span>
+                </button>
+                <div class="booster-hint">✂️ Glisse ton doigt pour ouvrir tout le lot !</div>
+            </div>
+        `;
+        reveal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        const pack = reveal.querySelector('.booster-pack');
+        if (glowColor) {
+            pack.classList.add('booster-pack--charged');
+            pack.style.setProperty('--charge-color', glowColor);
+        }
+        this._bindBoosterPackOpen(pack, reveal, bestRank, glowColor, () => {
+            this._renderBoosterCards(reveal, result, rarities, onDone, {
+                summary: `${count} boosters ouverts · ${result.newCount} nouvelle${result.newCount > 1 ? 's' : ''} carte${result.newCount > 1 ? 's' : ''}${result.refundTotal > 0 ? ` · +${result.refundTotal} 🪙 de doublons` : ''}`
+            });
+        });
+    },
+
+    /**
+     * Geste d'ouverture d'un paquet (déchirure au glisser, tap ou clavier),
+     * partagé par le booster unitaire et les lots.
+     */
+    _bindBoosterPackOpen(pack, reveal, bestRank, glowColor, onOpened) {
+        let opened = false;
+        const open = () => {
+            if (opened) return;
+            opened = true;
+            pack.classList.add('is-bursting');
+            this._spawnBoosterSparks(pack, bestRank);
+            this._spawnShockwave(pack, glowColor);
+            if (bestRank >= 3) {
+                const stage = reveal.querySelector('.booster-stage');
+                if (stage) stage.classList.add('is-quaking');
+            }
+            const hint = reveal.querySelector('.booster-hint');
+            if (hint) hint.textContent = '';
+            setTimeout(onOpened, bestRank >= 3 ? 750 : 550);
+        };
+
+        let tearStart = null;
+        pack.onpointerdown = (event) => {
+            tearStart = event.clientX;
+            // setPointerCapture lève si le pointerId n'est plus actif (pointeur
+            // déjà relâché, événement synthétique) : l'optional chaining teste
+            // la méthode, pas la validité de l'id. La capture n'est qu'un confort
+            // de suivi du geste, son échec ne doit pas casser l'ouverture.
+            try { pack.setPointerCapture?.(event.pointerId); } catch (e) {}
+        };
+        pack.onpointermove = (event) => {
+            if (tearStart === null || opened) return;
+            const progress = Math.min(1, Math.max(0, (event.clientX - tearStart) / (pack.offsetWidth * 0.7)));
+            pack.style.setProperty('--tear', progress);
+            if (progress >= 1) open();
+        };
+        pack.onpointerup = () => {
+            if (opened) return;
+            const progress = Number(pack.style.getPropertyValue('--tear')) || 0;
+            if (progress < 0.3) open();
+            else pack.style.setProperty('--tear', 0);
+            tearStart = null;
+        };
+        pack.onclick = (event) => event.preventDefault();
+        pack.onkeydown = (event) => {
+            if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); open(); }
+        };
+    },
+
     renderBoosterReveal(result, catalog, onDone) {
         const reveal = document.getElementById('booster-reveal');
         if (!reveal) return;
@@ -2419,7 +2566,7 @@ const UI = {
                     <div class="booster-pack-shine"></div>
                     <div class="booster-pack-logo">${this.grimoireLogoSvg(64)}</div>
                     <div class="booster-pack-title">GRIMOIRE</div>
-                    <div class="booster-pack-sub">3 cartes magiques</div>
+                    <div class="booster-pack-sub">${result.cards.length} cartes magiques</div>
                 </button>
                 <div class="booster-hint">✂️ Glisse ton doigt pour déchirer le paquet !</div>
             </div>
@@ -2438,50 +2585,11 @@ const UI = {
             pack.style.setProperty('--charge-color', glowColor);
         }
 
-        let opened = false;
-        const open = () => {
-            if (opened) return;
-            opened = true;
-            pack.classList.add('is-bursting');
-            this._spawnBoosterSparks(pack, bestRank);
-            this._spawnShockwave(pack, glowColor);
-            if (bestRank >= 3) {
-                const stage = reveal.querySelector('.booster-stage');
-                if (stage) stage.classList.add('is-quaking');
-            }
-            const hint = reveal.querySelector('.booster-hint');
-            if (hint) hint.textContent = '';
-            setTimeout(() => this._renderBoosterCards(reveal, result, rarities, onDone), bestRank >= 3 ? 750 : 550);
-        };
-
-        // Déchirure au glisser : la bande du haut suit le doigt ; au-delà de
-        // 70 % de la largeur, le paquet s'ouvre. Un simple tap marche aussi
-        // (accessibilité + souris).
-        let tearStart = null;
-        pack.onpointerdown = (event) => {
-            tearStart = event.clientX;
-            pack.setPointerCapture?.(event.pointerId);
-        };
-        pack.onpointermove = (event) => {
-            if (tearStart === null || opened) return;
-            const progress = Math.min(1, Math.max(0, (event.clientX - tearStart) / (pack.offsetWidth * 0.7)));
-            pack.style.setProperty('--tear', progress);
-            if (progress >= 1) open();
-        };
-        pack.onpointerup = () => {
-            if (opened) return;
-            const progress = Number(pack.style.getPropertyValue('--tear')) || 0;
-            if (progress < 0.3) {
-                open(); // tap simple
-            } else {
-                pack.style.setProperty('--tear', 0); // déchirure abandonnée
-            }
-            tearStart = null;
-        };
-        pack.onclick = (event) => event.preventDefault();
-        pack.onkeydown = (event) => {
-            if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); open(); }
-        };
+        // Déchirure au glisser (tap et clavier acceptés) : geste partagé avec
+        // les lots — voir _bindBoosterPackOpen.
+        this._bindBoosterPackOpen(pack, reveal, bestRank, glowColor, () => {
+            this._renderBoosterCards(reveal, result, rarities, onDone);
+        });
     },
 
     // Gerbe d'étincelles à l'éclatement — d'autant plus fournie que le
@@ -2516,9 +2624,12 @@ const UI = {
         setTimeout(() => wave.remove(), 900);
     },
 
-    // --- Étape 2 : 3 cartes face cachée, à retourner une par une ---
-    _renderBoosterCards(reveal, result, rarities, onDone) {
+    // --- Étape 2 : les cartes face cachée, à retourner une par une ---
+    // options.summary : ligne de récap affichée au-dessus (lots x5/x10).
+    _renderBoosterCards(reveal, result, rarities, onDone, options = {}) {
         reveal.innerHTML = `
+            ${options.summary ? `<div class="booster-bundle-summary">${this._escapeText(options.summary)}</div>` : ''}
+            ${options.summary ? `<button type="button" class="btn booster-flip-all" data-flip-all>RETOURNER TOUTES LES CARTES</button>` : ''}
             <div class="booster-cards">
                 ${result.cards.map(({ card, isNew, refund }, i) => {
                     // Aura d'anticipation : les hautes raretés brillent AVANT
@@ -2555,6 +2666,20 @@ const UI = {
         let flipped = 0;
         const total = result.cards.length;
         const buttons = Array.from(reveal.querySelectorAll('.booster-flip'));
+        // Lots : retourner 30 cartes une par une serait punitif. Le bouton
+        // rejoue les mêmes clics (donc mêmes effets/sons), légèrement décalés
+        // pour garder la mise en scène plutôt que tout révéler d'un bloc.
+        const flipAllBtn = reveal.querySelector('[data-flip-all]');
+        if (flipAllBtn) {
+            flipAllBtn.onclick = () => {
+                flipAllBtn.disabled = true;
+                buttons.forEach((b, i) => {
+                    if (b.classList.contains('is-flipped')) return;
+                    setTimeout(() => b.click(), i * 90);
+                });
+            };
+        }
+
         // Roulement de tambour : quand il ne reste qu'une carte à retourner
         // et qu'elle contient une haute rareté, elle tremble d'impatience.
         const updateDrumroll = () => {

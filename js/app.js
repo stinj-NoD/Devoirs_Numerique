@@ -1563,7 +1563,7 @@ const App = {
         const coins = Storage.getCoins();
         const entry = document.getElementById('grimoire-entry-coins');
         if (entry) entry.textContent = `🪙 ${coins}`;
-        UI.updateGrimoireCoins(coins, Storage.boosterCost);
+        UI.updateGrimoireCoins(coins);
     },
 
     // Toasts de séries complétées, espacés pour ne pas se chevaucher
@@ -1579,30 +1579,57 @@ const App = {
         const catalog = await this.getCardsCatalog();
         // Rétroactif : crédite les séries déjà complètes jamais récompensées
         const completed = Storage.claimSeriesBonuses(catalog);
-        UI.renderGrimoire(catalog, Storage.getOwnedCards(), Storage.getCoins(), Storage.boosterCost, () => this.openBoosterFlow());
+        UI.renderGrimoire(
+            catalog,
+            Storage.getOwnedCards(),
+            Storage.getCoins(),
+            (size) => this.openBoosterBundleFlow(size)
+        );
         this.refreshCoinsDisplays();
         UI.showScreen('screen-grimoire');
         this._toastCompletedSeries(completed);
     },
 
-    async openBoosterFlow() {
+    /**
+     * Ouvre 1, 5 ou 10 boosters. Le ×1 passe par le même chemin que les lots :
+     * c'est le même geste en trois quantités, une seule fonction évite que les
+     * deux parcours divergent.
+     * Un seul paquet à déchirer même pour un lot — répéter le geste 10 fois
+     * serait pénible.
+     */
+    async openBoosterBundleFlow(size) {
         const catalog = await this.getCardsCatalog();
         if (!catalog.cards.length) return;
-        if (Storage.getCoins() < Storage.boosterCost) {
-            UI.showSimpleToast('🪙', `Il te faut ${Storage.boosterCost} pièces pour un booster. Gagne des étoiles !`);
+
+        const price = Storage.getBoosterBundlePrice(size);
+        if (price === null) return;
+        if (Storage.getCoins() < price) {
+            const quoi = size > 1 ? `un lot de ${size}` : 'un booster';
+            UI.showSimpleToast('🪙', `Il te faut ${price} pièces pour ${quoi}. Gagne des étoiles !`);
             return;
         }
-        const result = Storage.openBooster(catalog);
+
+        const result = Storage.openBoosterBundle(catalog, size);
         if (!result) return;
         // Bonus de série éventuel : crédité tout de suite, annoncé à la fin
         // de la révélation pour ne pas déflorer le contenu du paquet.
         const completed = Storage.claimSeriesBonuses(catalog);
-        UI.renderBoosterReveal(result, catalog, () => {
-            UI.renderGrimoire(catalog, Storage.getOwnedCards(), Storage.getCoins(), Storage.boosterCost, () => this.openBoosterFlow());
-            this.refreshCoinsDisplays();
-            this._toastCompletedSeries(completed);
-        });
+        const done = () => this._afterBoosterReveal(catalog, completed);
+        if (size > 1) UI.renderBoosterBundleReveal(result, catalog, done);
+        else UI.renderBoosterReveal(result.packs[0], catalog, done);
         this.refreshCoinsDisplays();
+    },
+
+    // Retour au Grimoire après une révélation (unitaire ou lot).
+    _afterBoosterReveal(catalog, completed) {
+        UI.renderGrimoire(
+            catalog,
+            Storage.getOwnedCards(),
+            Storage.getCoins(),
+            (size) => this.openBoosterBundleFlow(size)
+        );
+        this.refreshCoinsDisplays();
+        this._toastCompletedSeries(completed);
     },
 
     async loadAllGradesCache() {

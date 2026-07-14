@@ -323,22 +323,145 @@ const Storage = {
         return this._readCardState(name).ownedIds;
     },
 
-    boosterCost: 20,
-    // Remboursement des doublons, par rareté (x1.5 vs version d'origine :
-    // un doublon reste toujours moins bon qu'une nouvelle carte, mais pique
-    // moins la frustration — n'accélère pas la collection, voir sim_economy.js)
-    _duplicateRefund: { commune: 3, rare: 6, epique: 12, legendaire: 22, brillante: 38 },
+    boosterCost: 25,
+
+    /**
+     * Cartes par booster. Passé de 3 à 4 en v4.21.0 : à 3 cartes, compléter les
+     * 176 cartes demandait ~266 boosters, soit beaucoup trop de temps devant
+     * l'écran. À 4 cartes (+ pity resserré, voir _pityThreshold) : ~185.
+     * Le prix passe à 25 p en contrepartie : à 20 p, la récupération par
+     * doublons montait à 101 % et le booster s'auto-finançait de nouveau
+     * (le bug corrigé en v4.20.0). À 25 p elle reste à ~81 %, inchangée.
+     */
+    cardsPerBooster: 4,
+
+    /**
+     * Pity : nombre de boosters SANS nouvelle carte avant d'en forcer une.
+     * Abaissé de 2 à 1 en v4.21.0. C'est le vrai levier du rythme de
+     * découverte : en fin de collection presque tout est doublon, donc le pity
+     * dicte la cadence — bien plus que les poids ou le nombre de cartes.
+     * Mesuré : 267 boosters (pity 2) → 185 (pity 1). Descendre à 0 (une
+     * nouveauté à CHAQUE paquet) tombe à ~112 boosters / 2,8 mois : la
+     * collection perd sa valeur. 1 est le compromis.
+     */
+    _pityThreshold: 1,
+    /**
+     * Remboursement des doublons, par rareté. Recalibré en juillet 2026
+     * (176 cartes) : les valeurs précédentes (3/6/12/22/38) faisaient
+     * rembourser à un booster **105 % de son prix** une fois la collection
+     * avancée — il s'auto-finançait, et 80 % des pièces venaient des doublons
+     * plutôt que des exercices. Le lien « je travaille → je progresse » était
+     * rompu, et la collection tombait à ~2,5 mois.
+     *
+     * Ici, la récupération retombe à ~81 % du prix (mesuré sur 2 000 boosters
+     * réels, pity inclus) : un booster redevient une perte nette d'environ
+     * 4 pièces, donc les exercices restent la vraie source de revenu.
+     * Les hautes raretés sont volontairement plus généreuses qu'avant
+     * (légendaire 15→18, prismatique 25→30) : c'est là que le doublon fait mal.
+     *
+     * Deux pièges si on retouche ces valeurs :
+     * - le slot rare garanti sort une `rare` dans 72 % des boosters : c'est le
+     *   poste le plus lourd du total remboursé, bien avant les hautes raretés ;
+     * - le pity force une carte non possédée tous les 2 boosters sans nouveauté,
+     *   ce qui tire la distribution réelle vers les hautes raretés : le taux
+     *   mesuré (~81 %) dépasse le calcul théorique naïf (~77 %).
+     * Toujours re-mesurer avec scratchpad/sim_economy.js, qui relit ce fichier.
+     */
+    _duplicateRefund: { commune: 3, rare: 4, epique: 8, legendaire: 18, brillante: 30 },
     // Probabilités de tirage par carte (2 premiers emplacements du booster).
-    // Réajustées en juillet 2026 (141 cartes, 5 raretés) : le catalogue a
-    // grossi (24 cartes Loup/Fennec) sans que les taux suivent, ce qui aurait
-    // fait grimper la complétion à ~14 mois pour un enfant moyen. Le
-    // légendaire et la Prismatique restent volontairement rares (repérés
-    // typiquement entre le 10e et le 15e booster), mais plus assez pour
-    // que la collection dépasse l'année scolaire. Voir sim_economy.js.
+    // Le légendaire et la Prismatique restent volontairement rares : la 1re
+    // légendaire tombe typiquement vers le 14e booster, ce qui en fait un
+    // événement. Ne PAS desserrer sans mesurer : testé à 6-8 %, elle tombe dès
+    // le 3e booster et perd tout son sel.
+    //
+    // Anomalie connue et assumée : 39 légendaires se partagent 1 % de poids
+    // (0,026 % pour une carte précise). Les compléter par tirage pur demanderait
+    // ~3 000 boosters ; c'est le PITY (voir openBooster) qui rend la collection
+    // faisable. L'équilibrage repose donc sur ce filet. Voir docs/grimoire-economy.md.
     _rarityWeights: { commune: 50, rare: 33, epique: 14, legendaire: 1, brillante: 2 },
     // 3e emplacement : « slot rare garanti », comme dans tous les grands jeux
     // de cartes — un booster ne peut jamais sortir 3 communes.
     _rareSlotWeights: { rare: 72, epique: 22, legendaire: 3.5, brillante: 2.5 },
+
+    /**
+     * Lots de boosters : ouvrir en une fois, avec une petite ristourne.
+     * La remise est PROGRESSIVE (5 % puis 7,5 %) pour que le x10 soit
+     * réellement plus intéressant que le x5 — une remise identique rendrait
+     * le x10 inutile hors gain de clics.
+     *
+     * Volontairement modeste : la ristourne baisse le prix effectif du booster,
+     * donc AUGMENTE mécaniquement le taux de récupération par doublons
+     * (16,3 p remboursés en moyenne / prix effectif). À 18 p effectifs on
+     * atteindrait 90 %, trop près des 100 % où le booster s'auto-finance et
+     * où les exercices cessent d'être la source de pièces.
+     * Voir docs/grimoire-economy.md et scratchpad/sim_economy.js.
+     */
+    _boosterBundles: [
+        { size: 1, discount: 0 },
+        { size: 5, discount: 5 },   // 95 p au lieu de 100 → 19,0 p/booster
+        { size: 10, discount: 15 }  // 185 p au lieu de 200 → 18,5 p/booster
+    ],
+
+    getBoosterBundles() {
+        return this._boosterBundles.map((b) => ({
+            size: b.size,
+            discount: b.discount,
+            price: b.size * this.boosterCost - b.discount
+        }));
+    },
+
+    getBoosterBundlePrice(size) {
+        const bundle = this._boosterBundles.find((b) => b.size === size);
+        if (!bundle) return null;
+        return bundle.size * this.boosterCost - bundle.discount;
+    },
+
+    /**
+     * Ouvre `size` boosters d'un coup. Le prix du lot est débité UNE fois
+     * (ristourne comprise), puis chaque booster est tiré par openBooster avec
+     * son prix individuel recrédité juste avant : on réutilise ainsi tout le
+     * moteur existant (pity, slot rare garanti, remboursements, bonus de série)
+     * sans le dupliquer — le pity continue de courir d'un booster à l'autre.
+     *
+     * Retourne { packs: [{cards, refundTotal}], cards, refundTotal, newCount,
+     * spent, discount } ou null si pièces insuffisantes.
+     */
+    openBoosterBundle(catalog, size, name = this.getCurrentUser()) {
+        const bundle = this._boosterBundles.find((b) => b.size === size);
+        if (!bundle) return null;
+        const all = Array.isArray(catalog?.cards) ? catalog.cards : [];
+        if (!all.length) return null;
+
+        const price = bundle.size * this.boosterCost - bundle.discount;
+        if (this.getCoins(name) < price) return null;
+        if (!this.spendCoins(price, name)) return null;
+
+        const packs = [];
+        for (let i = 0; i < bundle.size; i++) {
+            // openBooster débite lui-même boosterCost : on lui rend sa mise,
+            // le prix du lot ayant déjà été payé ci-dessus.
+            this.addCoins(this.boosterCost, name);
+            const pack = this.openBooster(catalog, name);
+            if (!pack) {
+                // Ne devrait pas arriver (solde vérifié) : on rembourse le
+                // reliquat non ouvert plutôt que de perdre les pièces.
+                this.addCoins(this.boosterCost * (bundle.size - i) - this.boosterCost, name);
+                break;
+            }
+            packs.push(pack);
+        }
+        if (!packs.length) return null;
+
+        const cards = packs.flatMap((p) => p.cards);
+        return {
+            packs,
+            cards,
+            refundTotal: packs.reduce((sum, p) => sum + p.refundTotal, 0),
+            newCount: cards.filter((c) => c.isNew).length,
+            spent: price,
+            discount: bundle.discount
+        };
+    },
 
     /**
      * Ouvre un booster de 3 cartes parmi `catalog` (data/cards.json).
@@ -375,9 +498,10 @@ const Storage = {
 
         const pick = (pool) => pool[Math.floor(Math.random() * pool.length)];
         const results = [];
-        const pityActive = state.boostersSansNouvelle >= 2 && all.some((c) => !owned[c.id]);
+        const pityActive = state.boostersSansNouvelle >= this._pityThreshold && all.some((c) => !owned[c.id]);
+        const cardCount = this.cardsPerBooster;
 
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < cardCount; i++) {
             let card;
             if (i === 0 && pityActive) {
                 // Carte garantie nouvelle : tirage de rareté restreint aux non possédées
@@ -395,8 +519,9 @@ const Storage = {
                 }
                 card = pick(unownedByRarity[rarity]);
             } else {
-                // Le 3e emplacement est le slot rare garanti
-                const weights = i === 2 ? this._rareSlotWeights : this._rarityWeights;
+                // Le DERNIER emplacement est le slot rare garanti (un booster ne
+                // peut jamais sortir que des communes), quel que soit cardCount.
+                const weights = i === cardCount - 1 ? this._rareSlotWeights : this._rarityWeights;
                 card = pick(byRarity[drawWeightedRarity(weights)]);
             }
             const isNew = !owned[card.id];

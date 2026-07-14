@@ -5227,14 +5227,12 @@ button.collection-map--fact {
 /* ---------- GRIMOIRE ---------- */
 
 .grimoire-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    justify-items: center;
     gap: var(--space-3);
     width: 100%;
     max-width: 560px;
     margin: 0 auto var(--space-3);
-    flex-wrap: wrap;
 }
 
 .grimoire-coins {
@@ -5244,19 +5242,192 @@ button.collection-map--fact {
 }
 
 
-.grimoire-booster-btn {
-    background: linear-gradient(135deg, #f3b13c 0%, #e8912d 100%);
+/* ── Choix d'ouverture (×1 / ×5 / ×10) ──
+   Trois cartes de la MÊME famille : même structure, même typo, même rythme.
+   Seule l'INTENSITÉ monte avec la quantité (bordure, halo, échelle), pour que
+   l'œil aille naturellement vers le ×10 — la meilleure affaire — sans que le
+   ×1 devienne un bouton d'une autre nature.
+   Le dégradé doré est réservé au niveau le plus fort : mis sur le ×1, il
+   cassait l'harmonie et pointait l'offre la moins intéressante.
+   Tokens + variable --tier-color → suit le thème sombre tout seul. */
+.grimoire-bundles {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: var(--space-2);
+    width: 100%;
+    /* laisse respirer le halo et l'échelle du ×10 */
+    padding: 6px 2px 2px;
+}
+
+.grimoire-bundle-btn {
+    --tier-color: var(--color-border-strong);
+    position: relative;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 3px;
+    justify-items: center;
+    align-content: center;
+    min-height: 76px;
+    padding: var(--space-2) 4px;
+    border: 2px solid var(--tier-color);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-family: inherit;
+    cursor: pointer;
+    touch-action: manipulation;
+    transition: transform 0.12s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Palier 1 — ×1 : le plus sobre. Reste une carte, pas un bouton à part. */
+.grimoire-bundle-btn--tier1 {
+    --tier-color: var(--color-border);
+}
+
+/* Palier 2 — ×5 : accent doré léger, l'offre commence à se voir. */
+.grimoire-bundle-btn--tier2 {
+    --tier-color: #e8b45c;
+    background: linear-gradient(180deg, var(--color-surface) 55%, rgba(243, 177, 60, 0.12) 100%);
+}
+
+/* Palier 3 — ×10 : plein doré, légèrement plus grand, halo. C'est LUI qu'on
+   veut voir en premier. */
+.grimoire-bundle-btn--tier3 {
+    --tier-color: #d98520;
+    background: linear-gradient(160deg, #f7c25a 0%, #ef9c2e 100%);
     color: #4a2c00;
-    font-weight: 800;
+    transform: scale(1.045);
+    box-shadow: 0 4px 14px rgba(233, 145, 45, 0.35);
 }
 
-.grimoire-booster-btn:disabled {
-    opacity: 0.5;
+.grimoire-bundle-btn:disabled {
+    opacity: 0.4;
     cursor: not-allowed;
+    box-shadow: none;
 }
 
+/* Un lot verrouillé ne doit pas rester "gonflé" : il perd son emphase. */
+.grimoire-bundle-btn--tier3:disabled {
+    transform: none;
+}
 
+.grimoire-bundle-btn:not(:disabled):hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
 
+.grimoire-bundle-btn--tier3:not(:disabled):hover {
+    box-shadow: 0 6px 18px rgba(233, 145, 45, 0.45);
+}
+
+.grimoire-bundle-btn:not(:disabled):active {
+    transform: scale(0.97);
+}
+
+.grimoire-bundle-btn--tier3:not(:disabled):active {
+    transform: scale(1.015);
+}
+
+/* Ligne 1 : la quantité, seule information qui change de taille entre paliers */
+.grimoire-bundle-size {
+    font-size: var(--font-size-lg);
+    font-weight: 800;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.grimoire-bundle-btn--tier1 .grimoire-bundle-size {
+    font-size: var(--font-size-base);
+}
+
+/* Ligne 2 : le contenu réel du lot — l'argument le plus concret pour un enfant */
+.grimoire-bundle-cards {
+    font-size: var(--font-size-xs);
+    opacity: 0.8;
+    white-space: nowrap;
+}
+
+/* Ligne 3 : le prix */
+.grimoire-bundle-price {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.grimoire-bundle-btn--tier1 .grimoire-bundle-price,
+.grimoire-bundle-btn--tier2 .grimoire-bundle-price {
+    color: var(--color-text-muted);
+}
+
+/* La ristourne : pastille en surplomb, hors du flux, pour ne pas décaler les
+   trois lignes d'un bouton à l'autre (l'alignement fait l'harmonie). */
+.grimoire-bundle-save {
+    position: absolute;
+    top: -7px;
+    right: -4px;
+    padding: 1px 7px;
+    border-radius: var(--radius-pill);
+    background: var(--color-success);
+    color: #fff;
+    font-size: var(--font-size-xs);
+    font-weight: 800;
+    line-height: 1.4;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 420px) {
+    .grimoire-bundle-size { font-size: var(--font-size-base); }
+    .grimoire-bundle-btn--tier1 .grimoire-bundle-size { font-size: var(--font-size-sm); }
+}
+
+/* Pile de paquets : donne à voir qu'un lot en contient plusieurs. */
+.booster-pack--bundle .booster-pack-stack {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: inherit;
+    z-index: -1;
+    transform: rotate(-4deg) translateY(4px);
+    opacity: 0.55;
+}
+
+.booster-pack--bundle .booster-pack-stack--2 {
+    transform: rotate(4deg) translateY(8px);
+    opacity: 0.3;
+}
+
+.booster-bundle-summary {
+    max-width: 560px;
+    margin: 0 auto var(--space-3);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-soft);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-weight: 600;
+    text-align: center;
+}
+
+.booster-flip-all {
+    display: block;
+    min-height: var(--touch-target-min);
+    margin: 0 auto var(--space-4);
+    padding: var(--space-2) var(--space-4);
+    border: 2px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-family: inherit;
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.booster-flip-all:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
 
 .grimoire-progress {
     text-align: center;
