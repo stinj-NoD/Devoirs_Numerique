@@ -136,6 +136,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Multiplier, c'est ajouter plusieurs fois le même nombre."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans une boîte, il y a 5 œufs. J'ai 4 boîtes pleines. Combien d'œufs en tout ?",
+                                    "choices": [
+                                        "9 œufs",
+                                        "20 œufs",
+                                        "16 œufs"
+                                    ],
+                                    "answer": "20 œufs",
+                                    "explanation": "Il y a 4 groupes de 5, donc 5 + 5 + 5 + 5 = 20, ou 4 × 5 = 20. Ici, 4 et 5 ne s'ajoutent pas : ils disent le nombre de groupes et ce qu'il y a dedans."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur chacune des 3 étagères, Tom range 6 livres. Quel calcul donne le nombre de livres ?",
+                                    "choices": [
+                                        "6 + 6 + 6",
+                                        "6 + 3 + 6",
+                                        "6 + 3"
+                                    ],
+                                    "answer": "6 + 6 + 6",
+                                    "explanation": "Chaque étagère porte le même nombre de livres : je répète 6 autant de fois qu'il y a d'étagères, soit 3 fois. Cela s'écrit aussi 3 × 6 = 18."
                                 }
                             ]
                         },
@@ -168,6 +190,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Réciter un peu chaque jour vaut mieux qu'une longue séance : cinq minutes par jour et les tables restent !"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Je veux trouver 9 × 4 avec l'astuce de la table de 10. Que dois-je calculer ?",
+                                    "choices": [
+                                        "10 × 4, puis j'enlève 4",
+                                        "10 × 4, puis j'enlève 10",
+                                        "10 × 4, puis j'ajoute 4"
+                                    ],
+                                    "answer": "10 × 4, puis j'enlève 4",
+                                    "explanation": "9 fois 4, c'est une fois 4 de moins que 10 fois 4. Donc 40 − 4 = 36. J'enlève le nombre multiplié, ici 4, et non 10."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Je sais que 8 + 8 = 16. Quel résultat puis-je en déduire tout de suite ?",
+                                    "choices": [
+                                        "2 × 8 = 16",
+                                        "8 × 8 = 16",
+                                        "2 + 8 = 16"
+                                    ],
+                                    "answer": "2 × 8 = 16",
+                                    "explanation": "Prendre 2 fois le nombre 8, c'est exactement 8 + 8. La table de 2 donne les doubles : je connais donc 2 × 8 sans le calculer."
                                 }
                             ]
                         }
@@ -444,6 +488,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Les paires qui font 10 (1+9, 2+8, 3+7, 4+6, 5+5) sont les meilleures amies du calcul mental : apprends-les comme une comptine !"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une boîte contient 20 places pour des œufs. J'y ai déjà rangé 16 œufs. Combien de places restent libres ?",
+                                    "choices": [
+                                        "4 places",
+                                        "6 places",
+                                        "36 places"
+                                    ],
+                                    "answer": "4 places",
+                                    "explanation": "Je pars de 16 et je compte jusqu'à 20 : 17, 18, 19, 20, soit 4 pas. Attention à ne pas additionner 16 et 20 : la boîte ne peut pas contenir plus de 20 œufs."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Jules cherche 8 + ? = 15. Quel calcul lui donne la réponse d'un coup ?",
+                                    "choices": [
+                                        "15 − 8",
+                                        "15 + 8",
+                                        "8 − 15"
+                                    ],
+                                    "answer": "15 − 8",
+                                    "explanation": "Chercher ce qui manque pour aller de 8 à 15, c'est une soustraction cachée : 15 − 8 = 7. Je vérifie en additionnant : 8 + 7 = 15."
                                 }
                             ]
                         },
@@ -475,6 +541,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Connaître les doubles par cœur aide à calculer plus vite : 6 + 7, c'est le double de 6, plus 1 !"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Deux enfants se partagent équitablement 18 billes. Combien de billes chacun ?",
+                                    "choices": [
+                                        "9 billes",
+                                        "36 billes",
+                                        "8 billes"
+                                    ],
+                                    "answer": "9 billes",
+                                    "explanation": "Partager en deux parts égales, c'est chercher la moitié : je cherche le nombre qui, ajouté à lui-même, donne 18. Comme 9 + 9 = 18, chacun reçoit 9 billes. Trouver 36, c'est avoir doublé au lieu de partager."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Zoé sait que 8 + 8 = 16. Comment calcule-t-elle 8 + 9 très vite ?",
+                                    "choices": [
+                                        "16 + 1, donc 17",
+                                        "16 + 8, donc 24",
+                                        "16 − 1, donc 15"
+                                    ],
+                                    "answer": "16 + 1, donc 17",
+                                    "explanation": "9, c'est 8 plus 1. Donc 8 + 9 vaut le double de 8 (16) plus 1 encore, soit 17. Comme j'ajoute un peu plus, le résultat monte au-dessus du double."
                                 }
                             ]
                         },
@@ -506,6 +594,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Vérifie ton résultat : une addition rend toujours un nombre PLUS GRAND que chacun des deux nombres de départ."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans un car, il y a 47 personnes. À l'arrêt suivant, 26 personnes montent. Combien y a-t-il de personnes ?",
+                                    "choices": [
+                                        "73 personnes",
+                                        "63 personnes",
+                                        "21 personnes"
+                                    ],
+                                    "answer": "73 personnes",
+                                    "explanation": "J'ajoute d'abord les dizaines : 47 + 20 = 67, puis les unités : 67 + 6 = 73. Trouver 63, c'est avoir oublié que 7 + 6 dépasse la dizaine."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève écrit 58 + 34 = 82. Pourquoi peut-on dire que c'est faux sans tout recalculer ?",
+                                    "choices": [
+                                        "Parce que 50 + 30 font déjà 80, et il reste 8 + 4 à ajouter",
+                                        "Parce que le résultat doit finir par le même chiffre que 58",
+                                        "Parce qu'une addition donne toujours un nombre pair"
+                                    ],
+                                    "answer": "Parce que 50 + 30 font déjà 80, et il reste 8 + 4 à ajouter",
+                                    "explanation": "Les dizaines seules donnent 80, et 8 + 4 = 12 en ajoute encore : le total dépasse forcément 90. Le bon résultat est 92 ; 82 vient d'un oubli de la retenue."
                                 }
                             ]
                         },
@@ -537,6 +647,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Pour vérifier une soustraction, additionne : si 52 − 48 = 4, alors 48 + 4 doit bien redonner 52 !"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Maya a 64 autocollants et en colle 21 dans son cahier. Combien lui en reste-t-il ?",
+                                    "choices": [
+                                        "43 autocollants",
+                                        "85 autocollants",
+                                        "44 autocollants"
+                                    ],
+                                    "answer": "43 autocollants",
+                                    "explanation": "J'enlève d'abord les dizaines : 64 − 20 = 44, puis l'unité : 44 − 1 = 43. Trouver 85, c'est avoir additionné alors qu'on enlève : il doit rester moins qu'au départ."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour calculer 71 − 69, quelle façon de faire est la plus rapide ?",
+                                    "choices": [
+                                        "Avancer de 69 jusqu'à 71",
+                                        "Reculer de 69 pas depuis 71",
+                                        "Ajouter 69 à 71"
+                                    ],
+                                    "answer": "Avancer de 69 jusqu'à 71",
+                                    "explanation": "Les deux nombres sont très proches : plutôt que de reculer 69 fois, je cherche l'écart en avançant de 69 à 71, soit 2 pas. Donc 71 − 69 = 2."
                                 }
                             ]
                         }
@@ -578,6 +710,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Les formes aident à décrire les objets que l'on voit autour de soi."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une pancarte a 3 côtés droits et 3 coins. Quelle forme est-ce ?",
+                                    "choices": [
+                                        "Un triangle",
+                                        "Un rectangle",
+                                        "Un cercle"
+                                    ],
+                                    "answer": "Un triangle",
+                                    "explanation": "Je compte les côtés : 3 côtés et 3 coins, c'est un triangle. Le carré en a 4, et le cercle n'a ni côté droit ni coin."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un ballon de football roule et se tient dans la main. Qu'est-ce que cela nous apprend ?",
+                                    "choices": [
+                                        "C'est un solide, une sphère, pas une forme plane",
+                                        "C'est une forme plane, un cercle comme sur une feuille",
+                                        "C'est un solide, un cube, comme une boîte à chaussures"
+                                    ],
+                                    "answer": "C'est un solide, une sphère, pas une forme plane",
+                                    "explanation": "Un cercle est plat : il se dessine sur une feuille. Un ballon se tient dans la main et roule dans tous les sens : c'est un solide appelé sphère."
                                 }
                             ]
                         },
@@ -609,6 +763,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Pour comparer correctement, il faut aligner les objets ou mesurer avec le même outil."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tom mesure son crayon en partant de la graduation 2 de sa règle et lit 12 au bout. Quelle est la longueur du crayon ?",
+                                    "choices": [
+                                        "10 cm",
+                                        "12 cm",
+                                        "14 cm"
+                                    ],
+                                    "answer": "10 cm",
+                                    "explanation": "La règle n'a pas démarré à 0 : il faut compter les graduations parcourues, de 2 jusqu'à 12, soit 12 − 2 = 10 cm. Lire 12 directement, c'est oublier le décalage du départ."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léa dit que sa gomme est plus longue que celle de Sami, car elle a compté 5 trombones contre 4 pour lui. Que faut-il vérifier ?",
+                                    "choices": [
+                                        "Que les trombones utilisés ont tous la même taille",
+                                        "Que les deux gommes ont bien la même couleur et la même forme",
+                                        "Que Léa a recompté ses trombones au moins deux fois de suite"
+                                    ],
+                                    "answer": "Que les trombones utilisés ont tous la même taille",
+                                    "explanation": "On ne peut comparer deux mesures que si l'outil est le même. Avec des trombones plus petits, on en aligne davantage sans que la gomme soit plus longue."
                                 }
                             ]
                         },
@@ -640,6 +816,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Les repères de la journée aident à raconter et organiser les activités."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sami raconte : « Je me réveille, je prends mon petit-déjeuner, puis je pars à l'école. » Que peut-on en déduire ?",
+                                    "choices": [
+                                        "Ces trois actions se passent avant le repas de midi",
+                                        "Ces trois actions se passent après le repas de midi",
+                                        "Ces trois actions se passent juste avant de dormir"
+                                    ],
+                                    "answer": "Ces trois actions se passent avant le repas de midi",
+                                    "explanation": "Le réveil et le petit-déjeuner ouvrent la journée : ils viennent tous les deux avant midi. La classe de Sami commence donc dans la première partie de la journée."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "La maîtresse annonce une sortie « juste après le repas de midi ». Un élève demande s'il faut apporter son pyjama. Pourquoi non ?",
+                                    "choices": [
+                                        "Parce que la sortie a lieu bien avant le moment de dormir",
+                                        "Parce que la sortie a lieu juste avant le repas de midi",
+                                        "Parce que la sortie a lieu au moment du réveil, très tôt le matin"
+                                    ],
+                                    "answer": "Parce que la sortie a lieu bien avant le moment de dormir",
+                                    "explanation": "Les moments se suivent toujours dans le même ordre. Ce qui suit midi arrive au milieu de la journée : il reste encore beaucoup de temps avant d'aller se coucher."
                                 }
                             ]
                         },
@@ -671,6 +869,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Je regarde la grande aiguille pour savoir si c'est pile, et quart, et demie ou moins le quart."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "La petite aiguille est entre le 4 et le 5, la grande est sur le 6. Quelle heure est-il ?",
+                                    "choices": [
+                                        "4 heures et demie",
+                                        "5 heures et demie",
+                                        "6 heures et demie"
+                                    ],
+                                    "answer": "4 heures et demie",
+                                    "explanation": "La grande aiguille sur le 6 indique la demie. La petite n'a pas encore atteint le 5 : l'heure commencée est donc 4 heures. Il est 4 heures et demie."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève voit la grande aiguille sur le 3 et annonce « il est 3 heures ». Quelle est son erreur ?",
+                                    "choices": [
+                                        "La grande aiguille donne les minutes, pas les heures",
+                                        "La grande aiguille se lit toujours à l'envers",
+                                        "La grande aiguille ne sert que pour les heures piles"
+                                    ],
+                                    "answer": "La grande aiguille donne les minutes, pas les heures",
+                                    "explanation": "C'est la petite aiguille qui dit l'heure. La grande sur le 3 signale un quart d'heure passé : il est donc « et quart », par exemple 8 heures et quart si la petite est après le 8."
                                 }
                             ]
                         },
@@ -702,6 +922,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Le kilogramme sert à peser, le litre sert à mesurer un liquide."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur une brique de jus, on lit 500 mL. Combien de briques faut-il pour obtenir 1 litre ?",
+                                    "choices": [
+                                        "2 briques",
+                                        "5 briques",
+                                        "10 briques"
+                                    ],
+                                    "answer": "2 briques",
+                                    "explanation": "1 L vaut 1000 mL. Comme 500 + 500 = 1000, deux briques suffisent : 500 mL, c'est la moitié d'un litre."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Avec quelle unité indique-t-on ce que pèse un cartable rempli ?",
+                                    "choices": [
+                                        "En kilogrammes, car on mesure une masse",
+                                        "En litres, car on mesure une contenance",
+                                        "En millilitres, car on mesure une masse"
+                                    ],
+                                    "answer": "En kilogrammes, car on mesure une masse",
+                                    "explanation": "Un cartable n'est pas un liquide : on le pose sur une balance pour connaître sa masse, qui s'exprime en kilogrammes. Les litres servent à mesurer ce qui se verse."
                                 }
                             ]
                         }
@@ -892,6 +1134,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Un problème peut demander plusieurs étapes : je calcule dans l'ordre et je vérifie chaque résultat."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Dans le bus, il y a 24 enfants et 3 adultes. 5 enfants descendent. Combien reste-t-il d'enfants ? » Quel nombre ne sert pas ?",
+                                    "choices": [
+                                        "Le 3, car la question porte sur les enfants",
+                                        "Le 5, car personne ne monte dans le bus à cet arrêt",
+                                        "Le 24, car c'est le nombre écrit tout au début"
+                                    ],
+                                    "answer": "Le 3, car la question porte sur les enfants",
+                                    "explanation": "Un énoncé peut contenir un nombre inutile. On demande les enfants restants : je garde 24 et 5 (24 − 5 = 19) et je laisse les 3 adultes de côté."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Un jardinier plante 46 tulipes le matin et 38 l'après-midi. Combien en tout ? » Un élève répond 8 fleurs. Que peut-on dire ?",
+                                    "choices": [
+                                        "C'est impossible : le total dépasse forcément 46",
+                                        "C'est possible : il a bien lu les deux nombres de l'énoncé",
+                                        "C'est impossible : il aurait dû trouver 38 tulipes en tout"
+                                    ],
+                                    "answer": "C'est impossible : le total dépasse forcément 46",
+                                    "explanation": "On réunit deux paquets de fleurs : le total est plus grand que chaque paquet. L'élève a soustrait au lieu d'additionner. La bonne réponse est 46 + 38 = 84 tulipes."
                                 }
                             ]
                         },
@@ -924,6 +1188,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Les mots « en tout » font souvent penser à une addition ; « il reste » à une soustraction."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Noé avait 15 images. Il en gagne 6. » Quelle opération répond à la question « combien en a-t-il maintenant ? »",
+                                    "choices": [
+                                        "15 + 6",
+                                        "15 − 6",
+                                        "15 + 15"
+                                    ],
+                                    "answer": "15 + 6",
+                                    "explanation": "Gagner, c'est recevoir en plus : sa collection grandit, donc j'additionne. 15 + 6 = 21 images. On enlèverait seulement s'il en avait perdu ou donné."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Une boîte contient 4 gâteaux. Maman achète 3 boîtes. Combien de gâteaux en tout ? » Pourquoi 4 + 3 est-il faux ?",
+                                    "choices": [
+                                        "Parce qu'il faut répéter 4 trois fois, soit 4 + 4 + 4",
+                                        "Parce qu'il faut enlever les 3 boîtes aux 4 gâteaux",
+                                        "Parce qu'il faut compter seulement le nombre de boîtes"
+                                    ],
+                                    "answer": "Parce qu'il faut répéter 4 trois fois, soit 4 + 4 + 4",
+                                    "explanation": "« En tout » ne veut pas toujours dire additionner les deux nombres de l'énoncé. Ici, 3 compte les boîtes : chaque boîte apporte 4 gâteaux, donc 4 + 4 + 4 = 12, c'est-à-dire 3 × 4."
                                 }
                             ]
                         }
@@ -1137,6 +1423,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Le son [o] a trois costumes : o (vélo), au (jaune), eau (bateau). En cas de doute, pense à un mot de la même famille que tu connais !"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Combien de syllabes entends-tu dans le mot « manteau » ?",
+                                    "choices": [
+                                        "Deux syllabes",
+                                        "Trois syllabes",
+                                        "Sept syllabes"
+                                    ],
+                                    "answer": "Deux syllabes",
+                                    "explanation": "En frappant dans mes mains, j'entends man-teau : cela fait 2 frappes. Sept, ce serait le nombre de lettres, pas de syllabes."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sous la dictée, Noé écrit « un oizo » pour « un oiseau ». Que lui conseilles-tu ?",
+                                    "choices": [
+                                        "Chercher comment s'écrit le son [o] à la fin du mot",
+                                        "Écrire le mot beaucoup plus vite",
+                                        "Enlever la dernière syllabe du mot"
+                                    ],
+                                    "answer": "Chercher comment s'écrit le son [o] à la fin du mot",
+                                    "explanation": "Noé entend bien tous les sons, mais ici le son [o] s'écrit e-a-u : « un oiseau ». Un même son peut avoir plusieurs costumes."
                                 }
                             ]
                         },
@@ -1168,6 +1476,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Avant d'écrire un mot avec le son « an » ou « on », regarde la lettre suivante : si c'est m, b ou p… mets un m !"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Comment s'écrit le début du mot « co…pter » (compter) ?",
+                                    "choices": [
+                                        "compter, avec un m",
+                                        "conpter, avec un n",
+                                        "conmpter, avec les deux"
+                                    ],
+                                    "answer": "compter, avec un m",
+                                    "explanation": "La lettre juste après est un p : le n du son « on » se change en m. On écrit « compter »."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pourquoi écrit-on « un ruban » avec un n, alors qu'on entend le son « an » ?",
+                                    "choices": [
+                                        "Parce qu'aucune lettre ne suit le son « an »",
+                                        "Parce que le mot commence par la lettre r",
+                                        "Parce que le mot « ruban » est une exception"
+                                    ],
+                                    "answer": "Parce qu'aucune lettre ne suit le son « an »",
+                                    "explanation": "Le n ne devient m que devant m, b ou p. À la fin de « ruban », il n'y a aucune de ces lettres : le n reste un n."
                                 }
                             ],
                             "format": "lesson-card"
@@ -1200,6 +1530,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "La lettre muette est souvent un indice caché : elle réapparaît dans les mots de la même famille."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel mot aide à trouver la lettre muette de « lourd » ?",
+                                    "choices": [
+                                        "lourde",
+                                        "lourdement",
+                                        "beaucoup"
+                                    ],
+                                    "answer": "lourde",
+                                    "explanation": "Au féminin, « lourde » fait entendre le d. « beaucoup » n'est pas de la même famille et n'aide pas."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Zoé hésite entre « le tapi » et « le tapis ». Comment peut-elle trancher ?",
+                                    "choices": [
+                                        "Penser au mot « tapisserie », qui garde le s",
+                                        "Compter les syllabes du mot « tapis »",
+                                        "Choisir le mot le plus court des deux"
+                                    ],
+                                    "answer": "Penser au mot « tapisserie », qui garde le s",
+                                    "explanation": "Dans « tapisserie », on entend le s : c'est l'indice que « tapis » se termine par un s muet."
                                 }
                             ],
                             "format": "lesson-card"
@@ -1310,6 +1662,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Articule le mot en silence en l'écrivant : ta bouche t'aide à ne pas oublier de son en route !"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans le mot « chanson », combien de sons entends-tu ?",
+                                    "choices": [
+                                        "Quatre sons : [ch]-[an]-[s]-[on]",
+                                        "Sept sons, un par lettre écrite",
+                                        "Deux sons, un par syllabe"
+                                    ],
+                                    "answer": "Quatre sons : [ch]-[an]-[s]-[on]",
+                                    "explanation": "Ici « ch », « an » et « on » s'écrivent avec deux lettres mais font chacun un seul son : 4 sons pour 7 lettres."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "La maîtresse dicte « le bain ». Tom écrit « le pain ». Quel son a-t-il mal entendu ?",
+                                    "choices": [
+                                        "Le premier son, [b] confondu avec [p]",
+                                        "Le dernier son, [in] confondu avec [an]",
+                                        "Le mot « le » placé devant"
+                                    ],
+                                    "answer": "Le premier son, [b] confondu avec [p]",
+                                    "explanation": "[b] et [p] se ressemblent beaucoup à l'oreille. Il faut bien écouter le début du mot pour les distinguer."
                                 }
                             ]
                         }
@@ -1419,6 +1793,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Fabrique-toi une boîte à mots : chaque mot fréquent sur une petite carte, et trois cartes piochées chaque soir. En deux semaines, ils sont tous à toi !"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel mot complète correctement : « Papa … la voiture » ?",
+                                    "choices": [
+                                        "lave",
+                                        "avec",
+                                        "sous"
+                                    ],
+                                    "answer": "lave",
+                                    "explanation": "La phrase a besoin d'une action. « avec » et « sous » sont des mots fréquents, mais ils ne disent pas ce que fait Papa."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Nino … content », faut-il écrire « et » ou « est » ?",
+                                    "choices": [
+                                        "est, car on peut dire « Nino était content »",
+                                        "et, car il relie deux mots de la phrase",
+                                        "les deux s'écrivent pareil à l'oreille"
+                                    ],
+                                    "answer": "est, car on peut dire « Nino était content »",
+                                    "explanation": "Si je remplace par « était » et que la phrase garde son sens, j'écris « est ». « et » sert seulement à relier, comme dans « Nino et Lila »."
                                 }
                             ]
                         }
@@ -1548,6 +1944,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Lire, ce n'est pas seulement dire les mots : c'est aussi comprendre la phrase."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Je lis : « Le vélo roule sur la route. » Où roule le vélo ?",
+                                    "choices": [
+                                        "Sur la route",
+                                        "Sur le vélo",
+                                        "Dans la maison"
+                                    ],
+                                    "answer": "Sur la route",
+                                    "explanation": "La fin de la phrase donne le lieu : « sur la route ». Je lis tous les mots jusqu'au bout pour le trouver."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Adam lit vite : « La souris mange le fromage. » Il dit que le fromage mange la souris. Pourquoi se trompe-t-il ?",
+                                    "choices": [
+                                        "Il n'a pas gardé les mots dans l'ordre",
+                                        "Il a oublié de lire le mot « le »",
+                                        "La phrase ne veut rien dire du tout"
+                                    ],
+                                    "answer": "Il n'a pas gardé les mots dans l'ordre",
+                                    "explanation": "L'ordre des mots dit qui fait l'action : c'est la souris qui est écrite en premier, donc c'est elle qui mange."
                                 }
                             ]
                         },
@@ -1578,6 +1996,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Comprendre une phrase, c'est trouver le sens de l'idée complète."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Le facteur apporte une lettre », qui fait l'action ?",
+                                    "choices": [
+                                        "Le facteur",
+                                        "Une lettre",
+                                        "Apporte"
+                                    ],
+                                    "answer": "Le facteur",
+                                    "explanation": "Je me demande qui apporte : c'est le facteur. « une lettre » est ce qu'il apporte, et « apporte » est l'action."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Les enfants chantent une chanson », quel mot dit ce qui se passe ?",
+                                    "choices": [
+                                        "chantent",
+                                        "enfants",
+                                        "chanson"
+                                    ],
+                                    "answer": "chantent",
+                                    "explanation": "« chantent » raconte l'action. « enfants » dit qui agit et « chanson » dit quoi, mais ils ne sont pas l'action."
                                 }
                             ]
                         }
@@ -1615,6 +2055,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Ranger les mots aide à mieux comprendre et mieux apprendre le vocabulaire."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel mot est de la même famille que « dent » ?",
+                                    "choices": [
+                                        "dentiste",
+                                        "dedans",
+                                        "demain"
+                                    ],
+                                    "answer": "dentiste",
+                                    "explanation": "« dentiste » parle bien des dents : le sens est partagé. « dedans » et « demain » se ressemblent seulement au début."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans la liste « rose, tulipe, marteau, tournesol », quel mot ne va pas avec les autres ?",
+                                    "choices": [
+                                        "marteau",
+                                        "tournesol",
+                                        "tulipe"
+                                    ],
+                                    "answer": "marteau",
+                                    "explanation": "Rose, tulipe et tournesol sont des fleurs : ils partagent le même thème. Le marteau est un outil, il n'a pas le même sens."
                                 }
                             ]
                         },
@@ -1645,6 +2107,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Quand je range les mots par thème, je retiens mieux leur sens."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans quel thème rangerais-tu « cartable, règle, cahier » ?",
+                                    "choices": [
+                                        "L'école",
+                                        "Les aliments",
+                                        "Les animaux"
+                                    ],
+                                    "answer": "L'école",
+                                    "explanation": "Ces trois objets servent en classe : ils appartiennent au domaine de l'école."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léo range « souris » dans les animaux, Jade la range dans l'informatique. Qui a raison ?",
+                                    "choices": [
+                                        "Les deux, selon la phrase où le mot est employé",
+                                        "Léo, car une souris est toujours un animal",
+                                        "Jade, car c'est le sens le plus récent"
+                                    ],
+                                    "answer": "Les deux, selon la phrase où le mot est employé",
+                                    "explanation": "Un même mot peut changer de groupe selon le sujet dont on parle : la souris du grenier n'est pas celle de l'ordinateur."
                                 }
                             ]
                         },
@@ -1675,6 +2159,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Connaître les contraires aide à préciser et à varier son vocabulaire."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel est le contraire de « lourd » ?",
+                                    "choices": [
+                                        "léger",
+                                        "pesant",
+                                        "lentement"
+                                    ],
+                                    "answer": "léger",
+                                    "explanation": "« léger » dit exactement l'inverse de « lourd ». « pesant » veut dire la même chose que lourd, ce n'est pas un contraire."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sami dit : « Le contraire de courir, c'est marcher. » A-t-il raison ?",
+                                    "choices": [
+                                        "Non, marcher n'est pas l'inverse de courir",
+                                        "Oui, car on va moins vite en marchant",
+                                        "Oui, car ce sont deux actions des jambes"
+                                    ],
+                                    "answer": "Non, marcher n'est pas l'inverse de courir",
+                                    "explanation": "Marcher est seulement plus lent que courir : le sens n'est pas opposé. Le contraire de courir serait plutôt « s'arrêter »."
                                 }
                             ]
                         },
@@ -1706,6 +2212,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Connaître l'ordre alphabétique permet de retrouver vite un mot dans un dictionnaire."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel mot vient en premier dans le dictionnaire : « lune » ou « lapin » ?",
+                                    "choices": [
+                                        "lapin",
+                                        "lune",
+                                        "les deux à la même page"
+                                    ],
+                                    "answer": "lapin",
+                                    "explanation": "Les deux commencent par l. Je compare la deuxième lettre : a vient avant u, donc « lapin » passe devant."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Maya cherche « bateau » et tombe sur « ballon ». Que doit-elle faire ?",
+                                    "choices": [
+                                        "Avancer un peu, car l vient avant t",
+                                        "Reculer un peu, car t vient avant l",
+                                        "Repartir à la lettre a du dictionnaire"
+                                    ],
+                                    "answer": "Avancer un peu, car l vient avant t",
+                                    "explanation": "« ballon » et « bateau » partagent le b et le a. La troisième lettre les sépare : l est avant t, donc « bateau » est plus loin."
                                 }
                             ]
                         }
@@ -1822,6 +2350,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Le déterminant est un espion du genre et du nombre : « les » t'avertit que le nom prendra un s !"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Que faut-il écrire devant le nom « oiseau » : « le » ou « l' » ?",
+                                    "choices": [
+                                        "l'oiseau",
+                                        "le oiseau",
+                                        "la oiseau"
+                                    ],
+                                    "answer": "l'oiseau",
+                                    "explanation": "« oiseau » commence par la voyelle o : « le » perd son e et devient l'. On écrit « l'oiseau »."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « J'ai vu une voiture », que nous apprend le mot « une » ?",
+                                    "choices": [
+                                        "Qu'il s'agit d'une seule voiture, sans dire laquelle",
+                                        "Qu'il s'agit de la voiture qu'on connaît déjà",
+                                        "Qu'il s'agit de plusieurs voitures"
+                                    ],
+                                    "answer": "Qu'il s'agit d'une seule voiture, sans dire laquelle",
+                                    "explanation": "« une » est au singulier et ne précise pas laquelle. Si je connaissais la voiture, je dirais « la voiture »."
                                 }
                             ]
                         },
@@ -1852,6 +2402,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Astuce : mets « hier » ou « demain » devant la phrase. Le mot qui se transforme est le verbe."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « La fleur pousse », quel mot se transforme si je dis « Demain, la fleur… » ?",
+                                    "choices": [
+                                        "le mot « pousse »",
+                                        "le mot « fleur »",
+                                        "le mot « La »"
+                                    ],
+                                    "answer": "le mot « pousse »",
+                                    "explanation": "Demain, la fleur poussera : seul « pousse » change. C'est donc lui le verbe ; « fleur » reste identique, c'est le nom."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pourquoi « voiture » ne peut-il pas être un verbe dans « Une voiture démarre » ?",
+                                    "choices": [
+                                        "Parce qu'il désigne une chose et ne change pas avec le temps",
+                                        "Parce qu'il est placé au début de la phrase",
+                                        "Parce qu'il se termine par la lettre e"
+                                    ],
+                                    "answer": "Parce qu'il désigne une chose et ne change pas avec le temps",
+                                    "explanation": "Hier, une voiture démarrait : « voiture » ne bouge pas, c'est « démarre » qui se transforme. Le nom désigne, le verbe raconte."
                                 }
                             ],
                             "format": "lesson-card"
@@ -1884,6 +2456,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Relis toujours ta phrase à voix basse : si elle « sonne » bizarre, l'ordre des mots est sans doute à revoir."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel signe faut-il à la fin de « Où vas-tu » ?",
+                                    "choices": [
+                                        "?",
+                                        ".",
+                                        "!"
+                                    ],
+                                    "answer": "?",
+                                    "explanation": "Cette phrase pose une question : elle se termine par un point d'interrogation."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Hugo écrit : « Mange le poisson chat le. » Quel est son problème ?",
+                                    "choices": [
+                                        "Les mots ne sont pas dans le bon ordre",
+                                        "Il manque la majuscule du début",
+                                        "Il manque le point de la fin"
+                                    ],
+                                    "answer": "Les mots ne sont pas dans le bon ordre",
+                                    "explanation": "La majuscule et le point sont bien là, mais la phrase ne veut rien dire. Remis en ordre : « Le chat mange le poisson. »"
                                 }
                             ],
                             "format": "lesson-card"
@@ -1916,6 +2510,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Si le nom prend un s, pense à accorder aussi son déterminant : les, des."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Comment écrit-on le groupe « … fleurs » s'il y en a plusieurs ?",
+                                    "choices": [
+                                        "des fleurs",
+                                        "une fleurs",
+                                        "la fleurs"
+                                    ],
+                                    "answer": "des fleurs",
+                                    "explanation": "« fleurs » porte un s : il est au pluriel. Son déterminant doit l'être aussi, donc « des » (ou « les »), jamais « une » ni « la »."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Alice écrit « les cahier ». Que doit-elle changer ?",
+                                    "choices": [
+                                        "Ajouter un s à « cahier »",
+                                        "Remplacer « les » par « le »",
+                                        "Enlever le s du mot « les »"
+                                    ],
+                                    "answer": "Ajouter un s à « cahier »",
+                                    "explanation": "« les » annonce plusieurs objets : le nom doit suivre et prendre un s. On écrit « les cahiers »."
                                 }
                             ]
                         }
@@ -2227,6 +2843,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Récite-les dans l'ordre puis dans le désordre : « nous sommes ? vous avez ? » Quand tu réponds sans réfléchir, c'est gagné !"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel mot complète : « Les élèves … dans la cour » ?",
+                                    "choices": [
+                                        "sont",
+                                        "ont",
+                                        "est"
+                                    ],
+                                    "answer": "sont",
+                                    "explanation": "La phrase dit où se trouvent les élèves : c'est le verbe être. Avec « les élèves » (pluriel), on écrit « sont »."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Malo écrit : « Ils sont trois ans. » Quelle est son erreur ?",
+                                    "choices": [
+                                        "Il fallait le verbe avoir : « Ils ont trois ans »",
+                                        "Il fallait écrire « Il sont » au singulier",
+                                        "Il fallait mettre « ans » sans le s final"
+                                    ],
+                                    "answer": "Il fallait le verbe avoir : « Ils ont trois ans »",
+                                    "explanation": "On possède un âge, on ne l'est pas : c'est le verbe avoir. Avec « ils », avoir donne « ont »."
                                 }
                             ]
                         },
@@ -2259,6 +2897,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Le piège du présent : « tu » prend toujours un s (tu joues), et « ils » se termine par -ent qu'on n'entend pas."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Comment écrit-on le verbe dessiner avec « nous » au présent ?",
+                                    "choices": [
+                                        "nous dessinons",
+                                        "nous dessinez",
+                                        "nous dessinent"
+                                    ],
+                                    "answer": "nous dessinons",
+                                    "explanation": "Avec « nous », la terminaison est toujours -ons. « -ez » appartient à vous et « -ent » à ils."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Lina entend « ils marchent » et « il marche » de la même façon. Comment choisir à l'écrit ?",
+                                    "choices": [
+                                        "Regarder s'il y a une ou plusieurs personnes",
+                                        "Écouter encore mieux la fin du mot",
+                                        "Choisir toujours la forme la plus courte"
+                                    ],
+                                    "answer": "Regarder s'il y a une ou plusieurs personnes",
+                                    "explanation": "La terminaison -ent ne s'entend pas : seule la personne décide. Pour plusieurs, j'écris « ils marchent » avec -ent."
                                 }
                             ],
                             "format": "lesson-card"

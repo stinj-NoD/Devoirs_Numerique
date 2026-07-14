@@ -511,8 +511,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Multiplication `(ce1-multiplication)`
 
 - **Leçons** (2) :
-  - Comprendre la multiplication `(ce1-lesson-multiplication-bases)` — blocs: paragraph, example, bullets, tip
-  - Apprendre ses tables malin `(ce1-lesson-tables-astuces)` — blocs: paragraph, example, bullets, tip
+  - Comprendre la multiplication `(ce1-lesson-multiplication-bases)` — blocs: paragraph, example, bullets, tip, check, check
+  - Apprendre ses tables malin `(ce1-lesson-tables-astuces)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (8) :
   - Table de 2 `(mult-2)` — engine: `math-input`, type=mult, table=2, questions=10
   - Table de 3 `(mult-3)` — engine: `math-input`, type=mult, table=3, questions=10
@@ -526,10 +526,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Nombres & Calculs `(ce1-nombres-calculs)`
 
 - **Leçons** (4) :
-  - Compléter jusqu'à 20 `(ce1-lesson-complements-20)` — blocs: paragraph, example, bullets, tip
-  - Doubles et moitiés `(ce1-lesson-doubles-moities)` — blocs: paragraph, example, bullets, tip
-  - Additionner jusqu'à 100 `(ce1-lesson-additionner-100)` — blocs: paragraph, example, bullets, tip
-  - Soustraire sans se tromper `(ce1-lesson-soustraire)` — blocs: paragraph, example, bullets, tip
+  - Compléter jusqu'à 20 `(ce1-lesson-complements-20)` — blocs: paragraph, example, bullets, tip, check, check
+  - Doubles et moitiés `(ce1-lesson-doubles-moities)` — blocs: paragraph, example, bullets, tip, check, check
+  - Additionner jusqu'à 100 `(ce1-lesson-additionner-100)` — blocs: paragraph, example, bullets, tip, check, check
+  - Soustraire sans se tromper `(ce1-lesson-soustraire)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (19) :
   - Compléments à 100 `(add-100)` — engine: `math-input`, type=add-trou, min=10, max=100, questions=10
   - Calcul rapide `(add-chrono)` — engine: `math-input`, type=oiseau-math, min=10, max=30, vitesse=5, questions=10
@@ -554,11 +554,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Géométrie et mesures `(ce1-geometrie-mesures-subtheme)`
 
 - **Leçons** (5) :
-  - Reconnaître des formes `(ce1-lesson-formes-planes)` — blocs: paragraph, example, bullets, paragraph, tip
-  - Mesurer et comparer `(ce1-lesson-mesurer-comparer)` — blocs: paragraph, example, bullets, tip
-  - Se repérer dans la journée `(ce1-lesson-se-reperer-journee)` — blocs: paragraph, example, bullets, tip
-  - Lire l'heure `(ce1-lesson-lire-heure)` — blocs: paragraph, example, bullets, tip
-  - Masses et contenances `(ce1-lesson-masses-contenances)` — blocs: paragraph, example, bullets, tip
+  - Reconnaître des formes `(ce1-lesson-formes-planes)` — blocs: paragraph, example, bullets, paragraph, tip, check, check
+  - Mesurer et comparer `(ce1-lesson-mesurer-comparer)` — blocs: paragraph, example, bullets, tip, check, check
+  - Se repérer dans la journée `(ce1-lesson-se-reperer-journee)` — blocs: paragraph, example, bullets, tip, check, check
+  - Lire l'heure `(ce1-lesson-lire-heure)` — blocs: paragraph, example, bullets, tip, check, check
+  - Masses et contenances `(ce1-lesson-masses-contenances)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (7) :
   - Formes planes et solides `(ce1-geo-formes-solides-planes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_ce1.json, category=ce1-formes-solides-planes, questions=8
   - Mesurer des longueurs `(ce1-geo-longueurs-mesures)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_ce1.json, category=ce1-longueurs-mesures, questions=8
@@ -571,8 +571,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Problèmes `(ce1-problemes-subtheme)`
 
 - **Leçons** (2) :
-  - Bien lire un problème `(ce1-lesson-bien-lire-probleme)` — blocs: paragraph, example, bullets, tip
-  - Résoudre un petit problème `(ce1-lesson-resoudre-probleme)` — blocs: paragraph, example, bullets, tip
+  - Bien lire un problème `(ce1-lesson-bien-lire-probleme)` — blocs: paragraph, example, bullets, tip, check, check
+  - Résoudre un petit problème `(ce1-lesson-resoudre-probleme)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Problèmes additifs `(ce1-problemes-additifs)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=ce1-problemes-additifs, questions=8
   - Problèmes à étapes `(ce1-problemes-mixtes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=ce1-problemes-mixtes, questions=8
@@ -585,9 +585,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Orthographe `(ce1-orthographe)`
 
 - **Leçons** (3) :
-  - Réussir une dictée de mots `(ce1-lesson-dictee-mots)` — blocs: paragraph, example, bullets, tip
-  - La règle du m devant m, b, p `(ce1-lesson-m-devant-mbp)` — blocs: paragraph, example, bullets, tip
-  - Les lettres muettes `(ce1-lesson-lettres-finales)` — blocs: paragraph, example, bullets, tip
+  - Réussir une dictée de mots `(ce1-lesson-dictee-mots)` — blocs: paragraph, example, bullets, tip, check, check
+  - La règle du m devant m, b, p `(ce1-lesson-m-devant-mbp)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les lettres muettes `(ce1-lesson-lettres-finales)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (13) :
   - Dictée des animaux `(ce1-sp-animaux)` — engine: `math-input`, type=spelling, category=animals, questions=8
   - Le Corps `(ce1-sp-corps)` — engine: `math-input`, type=spelling, category=corps, questions=8
@@ -606,7 +606,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Dictée audio `(ce1-dictee-audio)`
 
 - **Leçons** (1) :
-  - Écouter et écrire `(ce1-lesson-ecouter-ecrire)` — blocs: paragraph, example, bullets, tip
+  - Écouter et écrire `(ce1-lesson-ecouter-ecrire)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - L'École `(ce1-audio-ecole)` — engine: `audio-spelling`, category=school, speechRate=0.74, questions=6
   - La Maison `(ce1-audio-maison)` — engine: `audio-spelling`, category=house, speechRate=0.74, questions=6
@@ -618,7 +618,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Dictée mots fréquents `(ce1-dictee-mots-frequents)`
 
 - **Leçons** (1) :
-  - Mémoriser les mots fréquents `(ce1-lesson-mots-frequents)` — blocs: paragraph, example, bullets, tip
+  - Mémoriser les mots fréquents `(ce1-lesson-mots-frequents)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Période 1 `(ce1-audio-mots-frequents-p1)` — engine: `audio-spelling`, category=ce1_mots_frequents_p1, speechRate=0.73, questions=8
   - Période 2 `(ce1-audio-mots-frequents-p2)` — engine: `audio-spelling`, category=ce1_mots_frequents_p2, speechRate=0.73, questions=8
@@ -630,8 +630,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Lecture `(ce1-lecture-subtheme)`
 
 - **Leçons** (2) :
-  - Lire des phrases courtes `(ce1-lesson-lire-phrases-courtes)` — blocs: paragraph, example, bullets, tip
-  - Comprendre une phrase `(ce1-lesson-comprendre-phrase)` — blocs: paragraph, example, bullets, tip
+  - Lire des phrases courtes `(ce1-lesson-lire-phrases-courtes)` — blocs: paragraph, example, bullets, tip, check, check
+  - Comprendre une phrase `(ce1-lesson-comprendre-phrase)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (9) :
   - Lire des phrases courtes `(ce1-lecture-phrases)` — engine: `reading`, category=ce1_lire_phrases_courtes, questions=5
   - Comprendre une phrase `(ce1-lecture-comprendre)` — engine: `reading`, category=ce1_comprendre_phrase_courte, questions=5
@@ -646,10 +646,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Vocabulaire `(ce1-vocabulaire-subtheme)`
 
 - **Leçons** (4) :
-  - Les familles de mots `(ce1-lesson-vocabulaire-ranger-mots)` — blocs: paragraph, example, bullets, tip
-  - Ranger les mots par thème `(ce1-lesson-vocabulaire-theme)` — blocs: paragraph, example, bullets, tip
-  - Les contraires `(ce1-lesson-vocabulaire-contraires)` — blocs: paragraph, example, bullets, tip
-  - L'ordre alphabétique `(ce1-lesson-ordre-alphabetique)` — blocs: paragraph, example, bullets, tip
+  - Les familles de mots `(ce1-lesson-vocabulaire-ranger-mots)` — blocs: paragraph, example, bullets, tip, check, check
+  - Ranger les mots par thème `(ce1-lesson-vocabulaire-theme)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les contraires `(ce1-lesson-vocabulaire-contraires)` — blocs: paragraph, example, bullets, tip, check, check
+  - L'ordre alphabétique `(ce1-lesson-ordre-alphabetique)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (7) :
   - Mots de sens proche `(ce1-vocab-synonymes)` — engine: `reading`, category=ce1_vocabulaire_synonymes, questions=5
   - Ranger les mots `(ce1-vocab-familles)` — engine: `reading`, category=ce1_vocabulaire_champs, questions=5
@@ -662,10 +662,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Grammaire `(ce1-grammaire-subject)`
 
 - **Leçons** (4) :
-  - Les déterminants `(ce1-lesson-determinants)` — blocs: paragraph, example, bullets, tip
-  - Le nom et le verbe `(ce1-lesson-nom-verbe)` — blocs: paragraph, example, bullets, tip
-  - Une phrase bien construite `(ce1-lesson-phrase)` — blocs: paragraph, example, bullets, tip
-  - L'accord déterminant-nom `(ce1-lesson-accord-det-nom)` — blocs: paragraph, example, bullets, tip
+  - Les déterminants `(ce1-lesson-determinants)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le nom et le verbe `(ce1-lesson-nom-verbe)` — blocs: paragraph, example, bullets, tip, check, check
+  - Une phrase bien construite `(ce1-lesson-phrase)` — blocs: paragraph, example, bullets, tip, check, check
+  - L'accord déterminant-nom `(ce1-lesson-accord-det-nom)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (12) :
   - Un ou Une? `(ce1-gram-un-une)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_classe, questions=8
   - Le, La ou L'? `(ce1-gram-le-la)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_maison, questions=8
@@ -683,8 +683,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Conjugaison `(ce1-conjugaison-subject)`
 
 - **Leçons** (2) :
-  - Être et avoir au présent `(ce1-lesson-etre-avoir)` — blocs: paragraph, example, bullets, tip
-  - Les verbes en -er au présent `(ce1-lesson-verbes-er-present)` — blocs: paragraph, example, bullets, tip
+  - Être et avoir au présent `(ce1-lesson-etre-avoir)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les verbes en -er au présent `(ce1-lesson-verbes-er-present)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (8) :
   - Les Indispensables `(ce1-conj-base)` — engine: `conjugation`, category=etre_avoir_p, tenses=présent, questions=5
   - Verbes en -ER (1) `(ce1-conj-er-facile)` — engine: `conjugation`, category=present_1, tenses=présent, questions=5
