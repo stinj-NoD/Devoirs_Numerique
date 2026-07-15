@@ -445,10 +445,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Vivre ensemble `(cp-emc-vivre-ensemble-subtheme)`
 
 - **Leçons** (4) :
-  - Vivre ensemble à l'école `(cp-lesson-vivre-ensemble)` — blocs: paragraph, example, bullets, tip
-  - Les règles de la classe `(cp-lesson-regles-classe)` — blocs: paragraph, example, bullets, tip
-  - Les droits et les devoirs `(cp-lesson-droits-devoirs)` — blocs: paragraph, example, bullets, tip
-  - Respecter le matériel `(cp-lesson-respect-materiel)` — blocs: paragraph, example, bullets, tip
+  - Vivre ensemble à l'école `(cp-lesson-vivre-ensemble)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les règles de la classe `(cp-lesson-regles-classe)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les droits et les devoirs `(cp-lesson-droits-devoirs)` — blocs: paragraph, example, bullets, tip, check, check
+  - Respecter le matériel `(cp-lesson-respect-materiel)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Vivre ensemble `(cp-emc-vivre-ensemble)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-vivre-ensemble, questions=6
   - Respecter les autres `(cp-emc-respecter-autres)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cp.json, category=cp-vivre-ensemble
@@ -458,7 +458,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Sécurité `(cp-emc-securite-subtheme)`
 
 - **Leçons** (1) :
-  - Être prudent au quotidien `(cp-lesson-securite-quotidienne)` — blocs: paragraph, example, bullets, tip
+  - Être prudent au quotidien `(cp-lesson-securite-quotidienne)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Sécurité `(cp-emc-securite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-securite, questions=6
   - Être prudent `(cp-emc-etre-prudent)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cp.json, category=cp-securite
@@ -467,7 +467,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Entraide `(cp-emc-entraide-subtheme)`
 
 - **Leçons** (1) :
-  - Entraide et respect `(cp-lesson-entraide-respect)` — blocs: paragraph, example, bullets, tip
+  - Entraide et respect `(cp-lesson-entraide-respect)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Entraide `(cp-emc-entraide)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-entraide, questions=6
   - Aider un camarade `(cp-emc-aider-camarade)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cp.json, category=cp-entraide
@@ -476,8 +476,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Les émotions `(cp-emc-emotions-subtheme)`
 
 - **Leçons** (2) :
-  - Les émotions `(cp-lesson-emotions)` — blocs: paragraph, example, bullets, tip
-  - Exprimer ses émotions `(cp-lesson-exprimer-emotions)` — blocs: paragraph, example, bullets, tip
+  - Les émotions `(cp-lesson-emotions)` — blocs: paragraph, example, bullets, tip, check, check
+  - Exprimer ses émotions `(cp-lesson-exprimer-emotions)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Mes émotions `(cp-emc-emotions)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-emotions, questions=6
   - Exprimer ses émotions `(cp-emc-exprimer-emotions)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-emotions, questions=8
@@ -487,7 +487,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Décider ensemble `(cp-emc-vote-subtheme)`
 
 - **Leçons** (1) :
-  - Décider ensemble `(cp-lesson-vote)` — blocs: paragraph, example, bullets, tip
+  - Décider ensemble `(cp-lesson-vote)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Le vote en classe `(cp-emc-vote)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-vote, questions=5
   - Voter ensemble `(cp-emc-vote-vivre-ensemble)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-vivre-ensemble, questions=5
@@ -496,7 +496,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Respecter l'environnement `(cp-emc-environnement-subtheme)`
 
 - **Leçons** (1) :
-  - Respecter l'environnement `(cp-lesson-environnement)` — blocs: paragraph, bullets, example, tip
+  - Respecter l'environnement `(cp-lesson-environnement)` — blocs: paragraph, bullets, example, tip, check, check
 - **Exercices** (3) :
   - Prendre soin de l'environnement `(cp-emc-environnement)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-environnement, questions=5
   - Partager le matériel `(cp-emc-env-partager)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-partager-materiel, questions=5
@@ -858,8 +858,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Règles communes `(ce1-emc-regles-subtheme)`
 
 - **Leçons** (2) :
-  - Les règles de la classe `(ce1-lesson-regles-communes)` — blocs: paragraph, example, bullets, tip
-  - Les rôles dans la classe `(ce1-lesson-roles-classe)` — blocs: paragraph, example, bullets, tip
+  - Les règles de la classe `(ce1-lesson-regles-communes)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les rôles dans la classe `(ce1-lesson-roles-classe)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Règles communes `(ce1-emc-regles)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-regles, questions=6
   - Être responsable `(ce1-emc-responsabilites)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-responsabilites-eleve, questions=6
@@ -871,8 +871,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Être citoyen `(ce1-emc-citoyen-subtheme)`
 
 - **Leçons** (2) :
-  - Être citoyen `(ce1-lesson-citoyen-honnetete)` — blocs: paragraph, example, bullets, tip
-  - Les numéros qui sauvent `(ce1-lesson-numeros-urgence)` — blocs: paragraph, example, bullets, tip
+  - Être citoyen `(ce1-lesson-citoyen-honnetete)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les numéros qui sauvent `(ce1-lesson-numeros-urgence)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Être citoyen `(ce1-emc-citoyen)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-citoyen, questions=6
   - Défi : être citoyen `(ce1-bonus-emc-citoyen-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-citoyen, questions=9, bonus (seuil=2)
@@ -883,8 +883,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Entraide et respect `(ce1-emc-entraide-subtheme)`
 
 - **Leçons** (2) :
-  - Entraide et respect `(ce1-lesson-entraide-respect)` — blocs: paragraph, example, bullets, tip
-  - Tous différents, tous ensemble `(ce1-lesson-differences)` — blocs: paragraph, example, bullets, tip
+  - Entraide et respect `(ce1-lesson-entraide-respect)` — blocs: paragraph, example, bullets, tip, check, check
+  - Tous différents, tous ensemble `(ce1-lesson-differences)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Entraide et respect `(ce1-emc-entraide)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-entraide-respect, questions=6
   - S'entraider au quotidien `(ce1-emc-sentraider-quotidien)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_ce1.json, category=ce1-entraide-respect
@@ -1226,9 +1226,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Règles `(ce2-emc-regles-subtheme)`
 
 - **Leçons** (3) :
-  - Respecter les règles `(ce2-lesson-regles)` — blocs: paragraph, example, bullets, tip
-  - Les droits et les devoirs `(ce2-lesson-droits-devoirs)` — blocs: paragraph, example, bullets, tip
-  - Parler et écouter avec respect `(ce2-lesson-dialogue-respectueux)` — blocs: paragraph, example, bullets, tip
+  - Respecter les règles `(ce2-lesson-regles)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les droits et les devoirs `(ce2-lesson-droits-devoirs)` — blocs: paragraph, example, bullets, tip, check, check
+  - Parler et écouter avec respect `(ce2-lesson-dialogue-respectueux)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Règles `(ce2-emc-regles)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-regles, questions=8
   - Lieux et objets communs `(ce2-emc-lieux-communs)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-lieux-objets-communs, questions=6
@@ -1239,8 +1239,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Citoyen `(ce2-emc-citoyen-subtheme)`
 
 - **Leçons** (2) :
-  - Être citoyen `(ce2-lesson-citoyen)` — blocs: paragraph, example, bullets, tip
-  - Le vote et les élections `(ce2-lesson-vote-elections)` — blocs: paragraph, example, bullets, tip
+  - Être citoyen `(ce2-lesson-citoyen)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le vote et les élections `(ce2-lesson-vote-elections)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Citoyen `(ce2-emc-citoyen)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-citoyen, questions=8
   - Coopérer `(ce2-emc-cooperation)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-cooperation, questions=6
@@ -1251,8 +1251,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Entraide `(ce2-emc-entraide-subtheme)`
 
 - **Leçons** (2) :
-  - Aider un camarade `(ce2-lesson-entraide)` — blocs: paragraph, example, bullets, tip
-  - La solidarité au quotidien `(ce2-lesson-solidarite-quotidien)` — blocs: paragraph, example, bullets, tip
+  - Aider un camarade `(ce2-lesson-entraide)` — blocs: paragraph, example, bullets, tip, check, check
+  - La solidarité au quotidien `(ce2-lesson-solidarite-quotidien)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Entraide `(ce2-emc-entraide)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-entraide, questions=6
   - Aider et coopérer `(ce2-emc-aider-cooperer)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_ce2.json, category=ce2-entraide
@@ -1262,8 +1262,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Responsabilité `(ce2-emc-responsabilite-subtheme)`
 
 - **Leçons** (2) :
-  - Être responsable `(ce2-lesson-responsable)` — blocs: paragraph, example, bullets, tip
-  - Responsable à l'école et à la maison `(ce2-lesson-responsable-partout)` — blocs: paragraph, example, bullets, tip
+  - Être responsable `(ce2-lesson-responsable)` — blocs: paragraph, example, bullets, tip, check, check
+  - Responsable à l'école et à la maison `(ce2-lesson-responsable-partout)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Responsabilité `(ce2-emc-responsabilite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-responsabilite, questions=6
   - Être responsable `(ce2-emc-etre-responsable)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_ce2.json, category=ce2-responsabilite
@@ -1273,8 +1273,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Esprit critique et symboles `(ce2-emc-esprit-critique-subtheme)`
 
 - **Leçons** (2) :
-  - Vérifier une information `(ce2-lesson-esprit-critique)` — blocs: paragraph, example, bullets, tip
-  - Les symboles de la République `(ce2-lesson-symboles-republique)` — blocs: paragraph, example, bullets, tip
+  - Vérifier une information `(ce2-lesson-esprit-critique)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les symboles de la République `(ce2-lesson-symboles-republique)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Info fiable ou pas ? `(ce2-emc-esprit-critique)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-esprit-critique, questions=6
   - Défi : esprit critique `(ce2-bonus-emc-esprit-critique-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-esprit-critique, questions=9, bonus (seuil=2)
@@ -1657,8 +1657,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Vivre ensemble `(cm1-emc-vivre-ensemble-subtheme)`
 
 - **Leçons** (2) :
-  - Vivre ensemble `(cm1-lesson-vivre-ensemble)` — blocs: paragraph, example, bullets, tip
-  - Alerter et secourir `(cm1-lesson-alerte-secours)` — blocs: paragraph, example, bullets, tip
+  - Vivre ensemble `(cm1-lesson-vivre-ensemble)` — blocs: paragraph, example, bullets, tip, check, check
+  - Alerter et secourir `(cm1-lesson-alerte-secours)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Vivre ensemble `(cm1-emc-vivre-ensemble)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-vivre-ensemble, questions=8
   - Respecter chacun `(cm1-emc-respecter-chacun)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/emc_cm1.json, category=cm1-vivre-ensemble
@@ -1670,8 +1670,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Droits et devoirs `(cm1-emc-droits-devoirs-subtheme)`
 
 - **Leçons** (2) :
-  - Droits et devoirs `(cm1-lesson-droits-devoirs)` — blocs: paragraph, example, bullets, tip
-  - La laïcité à l'école `(cm1-lesson-laicite-ecole)` — blocs: paragraph, example, bullets, tip
+  - Droits et devoirs `(cm1-lesson-droits-devoirs)` — blocs: paragraph, example, bullets, tip, check, check
+  - La laïcité à l'école `(cm1-lesson-laicite-ecole)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Droits et devoirs `(cm1-emc-droits-devoirs)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-droits-devoirs, questions=8
   - Règles et justice `(cm1-emc-regles-justice)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/emc_cm1.json, category=cm1-droits-devoirs
@@ -1682,9 +1682,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Citoyenneté `(cm1-emc-citoyennete-subtheme)`
 
 - **Leçons** (3) :
-  - Décider ensemble `(cm1-lesson-citoyennete)` — blocs: paragraph, example, bullets, tip
-  - Les symboles de la République `(cm1-lesson-symboles-republique)` — blocs: paragraph, example, bullets, tip
-  - La laïcité `(cm1-lesson-laicite-republique)` — blocs: paragraph, example, bullets, tip
+  - Décider ensemble `(cm1-lesson-citoyennete)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les symboles de la République `(cm1-lesson-symboles-republique)` — blocs: paragraph, example, bullets, tip, check, check
+  - La laïcité `(cm1-lesson-laicite-republique)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Citoyenneté `(cm1-emc-citoyennete)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-citoyennete, questions=6
   - Participer à la vie collective `(cm1-emc-vie-collective)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cm1.json, category=cm1-citoyennete
@@ -2117,10 +2117,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Citoyenneté `(cm2-emc-citoyennete-subtheme)`
 
 - **Leçons** (4) :
-  - Droits et devoirs du citoyen `(cm2-lesson-citoyennete-droits-devoirs)` — blocs: paragraph, bullets, tip
-  - La laïcité à l'école `(cm2-lesson-laicite-ecole)` — blocs: paragraph, example, bullets, tip
-  - Les institutions de la République `(cm2-lesson-institutions-republique)` — blocs: paragraph, bullets, example, tip
-  - Le rôle du citoyen `(cm2-lesson-institutions-republique-citoyens)` — blocs: paragraph, example, bullets, tip
+  - Droits et devoirs du citoyen `(cm2-lesson-citoyennete-droits-devoirs)` — blocs: paragraph, bullets, tip, check, check
+  - La laïcité à l'école `(cm2-lesson-laicite-ecole)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les institutions de la République `(cm2-lesson-institutions-republique)` — blocs: paragraph, bullets, example, tip, check, check
+  - Le rôle du citoyen `(cm2-lesson-institutions-republique-citoyens)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Citoyenneté `(cm2-emc-citoyennete)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-citoyennete, questions=8
   - Débattre et choisir `(cm2-emc-debattre-choisir)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/emc_cm2.json, category=cm2-citoyennete
@@ -2130,7 +2130,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Solidarité `(cm2-emc-solidarite-subtheme)`
 
 - **Leçons** (1) :
-  - Agir pour le bien commun `(cm2-lesson-solidarite-bien-commun)` — blocs: paragraph, example, tip
+  - Agir pour le bien commun `(cm2-lesson-solidarite-bien-commun)` — blocs: paragraph, example, tip, check, check
 - **Exercices** (5) :
   - Solidarité `(cm2-emc-solidarite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-solidarite, questions=8
   - Agir avec solidarité `(cm2-emc-agir-solidarite)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/emc_cm2.json, category=cm2-solidarite
@@ -2141,7 +2141,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Engagement `(cm2-emc-engagement-subtheme)`
 
 - **Leçons** (1) :
-  - Participer à la vie collective `(cm2-lesson-engagement-participer)` — blocs: paragraph, bullets, example, tip
+  - Participer à la vie collective `(cm2-lesson-engagement-participer)` — blocs: paragraph, bullets, example, tip, check, check
 - **Exercices** (5) :
   - Engagement `(cm2-emc-engagement)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-engagement, questions=6
   - S'engager dans la classe `(cm2-emc-sengager-classe)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cm2.json, category=cm2-engagement
@@ -2152,8 +2152,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Responsabilités `(cm2-emc-responsabilites-subtheme)`
 
 - **Leçons** (2) :
-  - Assumer ses responsabilités `(cm2-lesson-responsabilites-justice)` — blocs: paragraph, bullets, tip
-  - La loi et la justice `(cm2-lesson-loi-justice)` — blocs: paragraph, example, bullets, tip
+  - Assumer ses responsabilités `(cm2-lesson-responsabilites-justice)` — blocs: paragraph, bullets, tip, check, check
+  - La loi et la justice `(cm2-lesson-loi-justice)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Responsabilités `(cm2-emc-responsabilites)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-responsabilites, questions=6
   - Assumer ses responsabilités `(cm2-emc-assumer-responsabilites)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cm2.json, category=cm2-responsabilites
@@ -2162,9 +2162,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Institutions et débat `(cm2-emc-institutions-debat-subtheme)`
 
 - **Leçons** (3) :
-  - Égalité et dignité `(cm2-lesson-egalite-dignite)` — blocs: paragraph, example, bullets, tip
-  - Le débat démocratique `(cm2-lesson-debat-democratique)` — blocs: paragraph, example, bullets, tip
-  - La justice protège les droits `(cm2-lesson-justice-proteger)` — blocs: paragraph, example, bullets, tip
+  - Égalité et dignité `(cm2-lesson-egalite-dignite)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le débat démocratique `(cm2-lesson-debat-democratique)` — blocs: paragraph, example, bullets, tip, check, check
+  - La justice protège les droits `(cm2-lesson-justice-proteger)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Égalité, débat et justice `(cm2-emc-institutions-debat-egalite-justice)` — engine: `choice-engine`, type=factual-qcm, category=cm2-institutions-debat, dataFile=data/emc_cm2.json, questions=8
   - Les institutions de la République `(cm2-emc-institutions-republique)` — engine: `choice-engine`, type=factual-qcm, category=cm2-citoyennete, dataFile=data/emc_cm2.json, questions=7
