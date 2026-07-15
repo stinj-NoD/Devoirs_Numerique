@@ -293,8 +293,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Avant et après `(cp-histoire-temps)`
 
 - **Leçons** (2) :
-  - Repères du temps `(cp-lesson-temps-qui-passe)` — blocs: paragraph, example, bullets, tip
-  - Les jours de la semaine `(cp-lesson-jours-semaine)` — blocs: paragraph, example, bullets, tip
+  - Repères du temps `(cp-lesson-temps-qui-passe)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les jours de la semaine `(cp-lesson-jours-semaine)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Avant et après `(cp-histoire-avant-apres)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cp.json, category=cp-avant-apres, questions=6
   - Repérer le temps `(cp-histoire-ordre-temps)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_cp.json, category=cp-avant-apres
@@ -306,8 +306,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Vivre autrefois `(cp-histoire-vie)`
 
 - **Leçons** (2) :
-  - Vivre autrefois `(cp-lesson-vivre-autrefois)` — blocs: paragraph, example, bullets, tip
-  - L'école autrefois `(cp-lesson-ecole-autrefois)` — blocs: paragraph, example, bullets, tip
+  - Vivre autrefois `(cp-lesson-vivre-autrefois)` — blocs: paragraph, example, bullets, tip, check, check
+  - L'école autrefois `(cp-lesson-ecole-autrefois)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Vivre autrefois `(cp-histoire-vie-autrefois)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cp.json, category=cp-vie-autrefois, questions=6
   - Comparer autrefois `(cp-histoire-comparer-autrefois)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_cp.json, category=cp-vie-autrefois
@@ -318,8 +318,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Traces du passé `(cp-histoire-traces-subtheme)`
 
 - **Leçons** (2) :
-  - Les traces du passé `(cp-lesson-traces-passe)` — blocs: paragraph, example, bullets, tip
-  - Les objets du passé `(cp-lesson-objets-passe)` — blocs: paragraph, example, bullets, tip
+  - Les traces du passé `(cp-lesson-traces-passe)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les objets du passé `(cp-lesson-objets-passe)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Traces du passé `(cp-histoire-traces)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cp.json, category=cp-personnages-traces, questions=6
   - Observer les traces `(cp-histoire-observer-traces)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_cp.json, category=cp-personnages-traces
@@ -700,8 +700,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Le temps `(ce1-histoire-temps-subtheme)`
 
 - **Leçons** (2) :
-  - Hier, aujourd'hui, demain `(ce1-lesson-hier-aujourdhui-demain)` — blocs: paragraph, example, bullets, tip
-  - La frise du temps `(ce1-lesson-frise-temps)` — blocs: paragraph, example, bullets, tip
+  - Hier, aujourd'hui, demain `(ce1-lesson-hier-aujourdhui-demain)` — blocs: paragraph, example, bullets, tip, check, check
+  - La frise du temps `(ce1-lesson-frise-temps)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Le temps `(ce1-histoire-temps)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-temps, questions=6
   - Avant, après, longtemps `(ce1-histoire-avant-apres-longtemps)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_ce1.json, category=ce1-temps
@@ -710,8 +710,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Vivre autrefois `(ce1-histoire-vie-autrefois-subtheme)`
 
 - **Leçons** (2) :
-  - L'école d'autrefois `(ce1-lesson-ecole-autrefois)` — blocs: paragraph, example, bullets, tip
-  - La vie quotidienne d'autrefois `(ce1-lesson-vie-quotidienne-autrefois)` — blocs: paragraph, example, bullets, tip
+  - L'école d'autrefois `(ce1-lesson-ecole-autrefois)` — blocs: paragraph, example, bullets, tip, check, check
+  - La vie quotidienne d'autrefois `(ce1-lesson-vie-quotidienne-autrefois)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Vivre autrefois `(ce1-histoire-vie-autrefois)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-vie-autrefois, questions=6
   - Défi : vivre autrefois `(ce1-bonus-histoire-vie-autrefois-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-vie-autrefois, questions=9, bonus (seuil=2)
@@ -720,8 +720,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Monuments et personnages `(ce1-histoire-monuments-subtheme)`
 
 - **Leçons** (2) :
-  - Les monuments et les personnages `(ce1-lesson-monuments-personnages)` — blocs: paragraph, example, bullets, tip
-  - Les traces du passé `(ce1-lesson-traces-passe)` — blocs: paragraph, example, bullets, tip
+  - Les monuments et les personnages `(ce1-lesson-monuments-personnages)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les traces du passé `(ce1-lesson-traces-passe)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Monuments et personnages `(ce1-histoire-monuments)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-monuments-personnages, questions=6
   - Monuments du passé `(ce1-histoire-monuments-passe)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_ce1.json, category=ce1-monuments-personnages
@@ -732,8 +732,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Objets du passé `(ce1-histoire-objets-subtheme)`
 
 - **Leçons** (2) :
-  - Les objets du passé `(ce1-lesson-objets-passe)` — blocs: paragraph, example, bullets, tip
-  - Du lavoir au lave-linge `(ce1-lesson-inventions-quotidien)` — blocs: paragraph, example, bullets, tip
+  - Les objets du passé `(ce1-lesson-objets-passe)` — blocs: paragraph, example, bullets, tip, check, check
+  - Du lavoir au lave-linge `(ce1-lesson-inventions-quotidien)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Objets du passé `(ce1-histoire-objets-passe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-objets-passe, questions=6
   - Comparer les objets `(ce1-histoire-comparer-objets)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_ce1.json, category=ce1-objets-passe
@@ -1067,8 +1067,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Repères `(ce2-histoire-reperes-subtheme)`
 
 - **Leçons** (2) :
-  - Situer les événements dans le temps `(ce2-lesson-situer-temps)` — blocs: paragraph, example, bullets, tip
-  - Jours, années, siècles `(ce2-lesson-siecle-frise)` — blocs: paragraph, example, bullets, tip
+  - Situer les événements dans le temps `(ce2-lesson-situer-temps)` — blocs: paragraph, example, bullets, tip, check, check
+  - Jours, années, siècles `(ce2-lesson-siecle-frise)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Repères `(ce2-histoire-reperes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce2.json, category=ce2-reperes, questions=8
   - Situer dans le temps `(ce2-histoire-situer-temps)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_ce2.json, category=ce2-reperes
@@ -1078,8 +1078,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Autrefois `(ce2-histoire-vie-subtheme)`
 
 - **Leçons** (2) :
-  - Comparer autrefois et aujourd'hui `(ce2-lesson-comparer-autrefois)` — blocs: paragraph, example, bullets, tip
-  - Les objets du passé `(ce2-lesson-objets-passe)` — blocs: paragraph, example, bullets, tip
+  - Comparer autrefois et aujourd'hui `(ce2-lesson-comparer-autrefois)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les objets du passé `(ce2-lesson-objets-passe)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Autrefois `(ce2-histoire-vie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce2.json, category=ce2-vie-autrefois, questions=8
   - Comparer la vie d'autrefois `(ce2-histoire-comparer-autrefois)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_ce2.json, category=ce2-vie-autrefois
@@ -1089,8 +1089,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Monuments et personnages `(ce2-histoire-monuments-subtheme)`
 
 - **Leçons** (2) :
-  - Les traces du passé `(ce2-lesson-traces-passe)` — blocs: paragraph, example, bullets, tip
-  - Les monuments, témoins du passé `(ce2-lesson-monuments-indices)` — blocs: paragraph, example, bullets, tip
+  - Les traces du passé `(ce2-lesson-traces-passe)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les monuments, témoins du passé `(ce2-lesson-monuments-indices)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Monuments et personnages `(ce2-histoire-monuments)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce2.json, category=ce2-personnages-monuments, questions=6
   - Personnages célèbres `(ce2-histoire-personnages-celebres)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce2.json, category=ce2-personnages-celebres, questions=6
@@ -1101,8 +1101,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### L'école d'autrefois `(ce2-histoire-ecole-subtheme)`
 
 - **Leçons** (2) :
-  - L'école d'autrefois `(ce2-lesson-ecole-autrefois)` — blocs: paragraph, example, bullets, tip
-  - L'école pour tous `(ce2-lesson-jules-ferry)` — blocs: paragraph, example, bullets, tip
+  - L'école d'autrefois `(ce2-lesson-ecole-autrefois)` — blocs: paragraph, example, bullets, tip, check, check
+  - L'école pour tous `(ce2-lesson-jules-ferry)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - L'école d'autrefois `(ce2-histoire-ecole-autrefois)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce2.json, category=ce2-ecole-autrefois, questions=6
   - Écrire et apprendre autrefois `(ce2-histoire-apprendre-autrefois)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_ce2.json, category=ce2-ecole-autrefois
