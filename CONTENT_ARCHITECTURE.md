@@ -1487,11 +1487,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Grandes périodes `(cm1-histoire-periodes)`
 
 - **Leçons** (5) :
-  - La Préhistoire `(cm1-lesson-prehistoire)` — blocs: paragraph, example, bullets, tip
-  - Antiquité, Moyen Âge, Temps modernes `(cm1-lesson-periodes)` — blocs: paragraph, bullets, example, tip
-  - La vie au Moyen Âge `(cm1-lesson-vie-moyen-age)` — blocs: paragraph, example, bullets, tip
-  - La Gaule romaine `(cm1-lesson-gaule-romaine)` — blocs: paragraph, example, bullets, tip
-  - La société féodale `(cm1-lesson-vivre-moyen-age)` — blocs: paragraph, example, bullets, tip
+  - La Préhistoire `(cm1-lesson-prehistoire)` — blocs: paragraph, example, bullets, tip, check, check
+  - Antiquité, Moyen Âge, Temps modernes `(cm1-lesson-periodes)` — blocs: paragraph, bullets, example, tip, check, check
+  - La vie au Moyen Âge `(cm1-lesson-vie-moyen-age)` — blocs: paragraph, example, bullets, tip, check, check
+  - La Gaule romaine `(cm1-lesson-gaule-romaine)` — blocs: paragraph, example, bullets, tip, check, check
+  - La société féodale `(cm1-lesson-vivre-moyen-age)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (8) :
   - Préhistoire `(cm1-histoire-prehistoire)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm1.json, category=cm1-prehistoire, questions=8
   - Antiquité `(cm1-histoire-antiquite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm1.json, category=cm1-antiquite, questions=8
@@ -1505,7 +1505,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Frises historiques `(cm1-histoire-frises)`
 
 - **Leçons** (1) :
-  - Le temps des rois `(cm1-lesson-frise)` — blocs: paragraph, example, bullets, tip
+  - Le temps des rois `(cm1-lesson-frise)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (11) :
   - Frise historique `(cm1-histoire-frise-ordre)` — engine: `timeline`, mode=order, grade=cm1, dataFile=data/history_chrono.json, timelineId=cm1-reperes-celebres, questions=5
   - Placer sur la frise `(cm1-histoire-frise-place)` — engine: `timeline`, mode=place, grade=cm1, dataFile=data/history_chrono.json, timelineId=cm1-place-moyen-age, questions=5
@@ -1904,13 +1904,13 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Repères historiques `(cm2-histoire-reperes)`
 
 - **Leçons** (7) :
-  - La Révolution française `(cm2-lesson-revolution-francaise)` — blocs: paragraph, example, bullets, tip
-  - Le temps de la République `(cm2-lesson-temps-republique)` — blocs: paragraph, example, bullets, tip
-  - La France et l'Union européenne `(cm2-lesson-france-europe)` — blocs: paragraph, example, bullets, tip
-  - Le XXe siècle en France `(cm2-lesson-reperes-xxe-siecle)` — blocs: paragraph, bullets, example, tip
-  - La Première Guerre mondiale (1914-1918) `(cm2-lesson-premiere-guerre-mondiale)` — blocs: paragraph, example, bullets, tip
-  - La Seconde Guerre mondiale (1939-1945) `(cm2-lesson-seconde-guerre-mondiale)` — blocs: paragraph, example, bullets, tip
-  - La décolonisation `(cm2-lesson-decolonisation)` — blocs: paragraph, example, bullets, tip
+  - La Révolution française `(cm2-lesson-revolution-francaise)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le temps de la République `(cm2-lesson-temps-republique)` — blocs: paragraph, example, bullets, tip, check, check
+  - La France et l'Union européenne `(cm2-lesson-france-europe)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le XXe siècle en France `(cm2-lesson-reperes-xxe-siecle)` — blocs: paragraph, bullets, example, tip, check, check
+  - La Première Guerre mondiale (1914-1918) `(cm2-lesson-premiere-guerre-mondiale)` — blocs: paragraph, example, bullets, tip, check, check
+  - La Seconde Guerre mondiale (1939-1945) `(cm2-lesson-seconde-guerre-mondiale)` — blocs: paragraph, example, bullets, tip, check, check
+  - La décolonisation `(cm2-lesson-decolonisation)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (11) :
   - Révolution `(cm2-histoire-revolution)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-revolution, questions=8
   - XXe siècle `(cm2-histoire-xxe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-xxe-siecle, questions=8
@@ -1927,8 +1927,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Frises historiques `(cm2-histoire-frises)`
 
 - **Leçons** (2) :
-  - Quelques repères du XXe siècle `(cm2-lesson-reperes-xxe-siecle-frise)` — blocs: paragraph, bullets, example, tip
-  - Les progrès techniques `(cm2-lesson-progres-techniques)` — blocs: paragraph, bullets, example, tip
+  - Quelques repères du XXe siècle `(cm2-lesson-reperes-xxe-siecle-frise)` — blocs: paragraph, bullets, example, tip, check, check
+  - Les progrès techniques `(cm2-lesson-progres-techniques)` — blocs: paragraph, bullets, example, tip, check, check
 - **Exercices** (11) :
   - Frise historique `(cm2-histoire-frise-ordre)` — engine: `timeline`, mode=order, grade=cm2, dataFile=data/history_chrono.json, timelineId=cm2-revolution-ordre, questions=5
   - Placer sur la frise `(cm2-histoire-frise-place)` — engine: `timeline`, mode=place, grade=cm2, dataFile=data/history_chrono.json, timelineId=cm2-place-xx, questions=5
@@ -1945,9 +1945,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Récits historiques `(cm2-histoire-recits-subtheme)`
 
 - **Leçons** (3) :
-  - La Révolution française `(cm2-lesson-revolution-francaise-recit)` — blocs: paragraph, example, bullets, tip
-  - La République s'installe `(cm2-lesson-republique-progres)` — blocs: paragraph, example, bullets, tip
-  - Le XXe siècle en France `(cm2-lesson-xxe-siecle-changements)` — blocs: paragraph, example, bullets, tip
+  - La Révolution française `(cm2-lesson-revolution-francaise-recit)` — blocs: paragraph, example, bullets, tip, check, check
+  - La République s'installe `(cm2-lesson-republique-progres)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le XXe siècle en France `(cm2-lesson-xxe-siecle-changements)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Récits de la Révolution à la République `(cm2-histoire-recits-revolution-republique)` — engine: `choice-engine`, type=factual-qcm, category=cm2-recits-historiques, dataFile=data/history_cm2.json, questions=8
   - Défi : récits historiques `(cm2-bonus-histoire-recits-expert)` — engine: `choice-engine`, type=factual-qcm, category=cm2-recits-historiques, dataFile=data/history_cm2.json, questions=8, bonus (seuil=2)
