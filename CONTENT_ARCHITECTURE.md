@@ -1811,10 +1811,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Conjugaison `(cm2-francais-conjugaison)`
 
 - **Leçons** (4) :
-  - Former le passé composé `(cm2-lesson-passe-compose)` — blocs: paragraph, example, bullets, tip
-  - Être et avoir à l'imparfait `(cm2-lesson-etre-avoir-imparfait)` — blocs: paragraph, example, mini-table, bullets, tip
-  - Reconnaître le passé simple `(cm2-lesson-passe-simple)` — blocs: paragraph, example, bullets, tip
-  - Conjuguer au passé simple `(cm2-lesson-passe-simple-conjuguer)` — blocs: paragraph, example, bullets, tip
+  - Former le passé composé `(cm2-lesson-passe-compose)` — blocs: paragraph, example, bullets, tip, check, check
+  - Être et avoir à l'imparfait `(cm2-lesson-etre-avoir-imparfait)` — blocs: paragraph, example, mini-table, bullets, tip, check, check
+  - Reconnaître le passé simple `(cm2-lesson-passe-simple)` — blocs: paragraph, example, bullets, tip, check, check
+  - Conjuguer au passé simple `(cm2-lesson-passe-simple-conjuguer)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (11) :
   - Présent 3e Groupe `(cm2_conj_present_3)` — engine: `conjugation`, category=present_3_freq, tenses=présent, questions=10
   - Futur Simple `(cm2_conj_future)` — engine: `conjugation`, category=future_1, tenses=futur, questions=10
@@ -1831,8 +1831,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Homophones `(cm2-francais-homophones)`
 
 - **Leçons** (2) :
-  - Choisir le bon homophone `(cm2-lesson-homophones-strategie)` — blocs: paragraph, example, bullets, tip
-  - Tester un remplacement `(cm2-lesson-homophones-remplacement)` — blocs: paragraph, example, mini-table, tip
+  - Choisir le bon homophone `(cm2-lesson-homophones-strategie)` — blocs: paragraph, example, bullets, tip, check, check
+  - Tester un remplacement `(cm2-lesson-homophones-remplacement)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (8) :
   - Grand Mix Homophones `(cm2_homophones_mix)` — engine: `choice-engine`, type=homophone-duel, category=mix_all, questions=15
   - Ce ou se ? `(cm2_homophones_ce_se)` — engine: `choice-engine`, type=homophone-duel, category=ce_se, questions=10
@@ -1846,11 +1846,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Grammaire `(cm2-francais-grammaire)`
 
 - **Leçons** (5) :
-  - Accorder le groupe nominal `(cm2-lesson-accords-groupe-nominal)` — blocs: paragraph, example, mini-table, tip
-  - Trouver le sujet et le verbe `(cm2-lesson-sujet-verbe)` — blocs: paragraph, example, bullets, tip
-  - Comprendre le sens des mots `(cm2-lesson-sens-des-mots)` — blocs: paragraph, example, bullets, tip
-  - Écrire des phrases riches et claires `(cm2-lesson-ecrire-phrases-riches)` — blocs: paragraph, example, bullets, tip
-  - Nature et fonction d’un mot `(cm2-lesson-nature-fonction)` — blocs: paragraph, example, mini-table, tip
+  - Accorder le groupe nominal `(cm2-lesson-accords-groupe-nominal)` — blocs: paragraph, example, mini-table, tip, check, check
+  - Trouver le sujet et le verbe `(cm2-lesson-sujet-verbe)` — blocs: paragraph, example, bullets, tip, check, check
+  - Comprendre le sens des mots `(cm2-lesson-sens-des-mots)` — blocs: paragraph, example, bullets, tip, check, check
+  - Écrire des phrases riches et claires `(cm2-lesson-ecrire-phrases-riches)` — blocs: paragraph, example, bullets, tip, check, check
+  - Nature et fonction d’un mot `(cm2-lesson-nature-fonction)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (17) :
   - Un ou Une ? `(cm2_g_abstrait)` — engine: `choice-engine`, type=gender-articles, category=gender_cm2_abstrait, questions=8
   - Le, La ou L' ? `(cm2_g_elision)` — engine: `choice-engine`, type=gender-articles, category=gender_cm2_elision, questions=8
@@ -1873,10 +1873,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Lecture et vocabulaire `(cm2-francais-lecture-vocabulaire-subtheme)`
 
 - **Leçons** (4) :
-  - Trouver l'idée principale `(cm2-lesson-idee-principale)` — blocs: paragraph, example, bullets, tip
-  - Employer un vocabulaire précis `(cm2-lesson-vocabulaire-precis)` — blocs: paragraph, example, bullets, tip
-  - Sens propre et sens figuré `(cm2-lesson-sens-propre-figure)` — blocs: paragraph, example, bullets, tip
-  - Polysémie et familles de mots avancées `(cm2-lesson-polysemie-familles-avance)` — blocs: paragraph, example, bullets, tip
+  - Trouver l'idée principale `(cm2-lesson-idee-principale)` — blocs: paragraph, example, bullets, tip, check, check
+  - Employer un vocabulaire précis `(cm2-lesson-vocabulaire-precis)` — blocs: paragraph, example, bullets, tip, check, check
+  - Sens propre et sens figuré `(cm2-lesson-sens-propre-figure)` — blocs: paragraph, example, bullets, tip, check, check
+  - Polysémie et familles de mots avancées `(cm2-lesson-polysemie-familles-avance)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (9) :
   - Trouver l'idée principale `(cm2-lecture-idee-principale)` — engine: `reading`, category=cm2_lecture_idee_principale, questions=5
   - Choisir le sens du mot `(cm2-vocabulaire-sens)` — engine: `reading`, category=cm2_vocabulaire_sens, questions=5
@@ -1891,7 +1891,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Dictée audio `(cm2-dictee-audio-subtheme)`
 
 - **Leçons** (1) :
-  - Une dictée exigeante `(cm2-lesson-dictee-exigeante)` — blocs: paragraph, example, bullets, tip
+  - Une dictée exigeante `(cm2-lesson-dictee-exigeante)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Vocabulaire scolaire avancé `(cm2-audio-ecole-avancee)` — engine: `audio-spelling`, category=school_advanced, speechRate=0.9, questions=8
   - Vocabulaire de la maison `(cm2-audio-maison-avancee)` — engine: `audio-spelling`, category=house_advanced, speechRate=0.9, questions=8

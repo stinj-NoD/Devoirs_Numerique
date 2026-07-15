@@ -53,6 +53,28 @@
                                     "type": "tip",
                                     "content": "Pour lire un nombre, je découpe d'abord en classes de trois chiffres, puis je nomme chaque classe.",
                                     "label": "À retenir"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève lit 2 060 400 « deux mille soixante mille quatre cents ». Quelle est son erreur ?",
+                                    "choices": [
+                                        "Il a oublié de nommer la classe des millions : le 2 est isolé à gauche",
+                                        "Il a oublié le zéro des centaines : il fallait dire « quatre mille »",
+                                        "Il a inversé les groupes : il fallait commencer la lecture par la droite"
+                                    ],
+                                    "answer": "Il a oublié de nommer la classe des millions : le 2 est isolé à gauche",
+                                    "explanation": "En classes de trois chiffres depuis la droite : 400 (unités), 060 (mille), 2 (millions). Le 2 est seul dans la classe des millions, donc on lit « deux millions soixante mille quatre cents ». Dire « quatre mille » est faux : 400 appartient à la classe des unités, pas des milliers. Et lire en commençant par la droite est faux aussi : on découpe depuis la droite, mais on nomme ensuite de gauche à droite."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Combien de chiffres au minimum faut-il pour écrire un nombre qui atteint la classe des millions ?",
+                                    "choices": [
+                                        "7",
+                                        "6",
+                                        "9"
+                                    ],
+                                    "answer": "7",
+                                    "explanation": "Il faut 3 chiffres pour la classe des unités et 3 pour celle des milliers, soit 6 ; le 7e chiffre ouvre la classe des millions. 1 000 000 en compte bien 7. Avec 6 chiffres, on plafonne à 999 999 : on reste dans les milliers. Et 9 chiffres, ce n'est pas le minimum : on serait déjà rendu aux milliards."
                                 }
                             ]
                         }
@@ -314,6 +336,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Ajouter un zéro à droite de la virgule ne change pas la valeur du nombre."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève affirme que 7,15 est plus grand que 7,9 « parce que 15 est plus grand que 9 ». Pourquoi se trompe-t-il ?",
+                                    "choices": [
+                                        "La partie décimale ne se lit pas comme un entier : 7,15 a 1 dixième, 7,9 en a 9",
+                                        "Il fallait comparer le nombre de chiffres : 7,15 en a plus, donc il est plus petit",
+                                        "Il fallait d'abord comparer les parties entières, qui départagent les deux nombres"
+                                    ],
+                                    "answer": "La partie décimale ne se lit pas comme un entier : 7,15 a 1 dixième, 7,9 en a 9",
+                                    "explanation": "Après la virgule, chaque rang a sa valeur : 7,15 vaut 1 dixième et 5 centièmes, 7,9 vaut 9 dixièmes. Comme 1 dixième est plus petit que 9 dixièmes, 7,15 < 7,9. Compter les chiffres ne prouve rien : 7,90 a autant de chiffres que 7,15 et reste le plus grand. Et les parties entières ne départagent rien ici : elles valent 7 toutes les deux."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel signe faut-il placer entre 3,4 et 3,40 ?",
+                                    "choices": [
+                                        "=",
+                                        "<",
+                                        ">"
+                                    ],
+                                    "answer": "=",
+                                    "explanation": "3,4 vaut 4 dixièmes ; 3,40 vaut 4 dixièmes et 0 centième, ce qui n'ajoute rien. Les deux écritures désignent la même quantité, d'où le signe =. Le signe < supposerait que 3,4 soit plus petit, et le signe > que le zéro final ajoute de la valeur : ni l'un ni l'autre, un zéro placé tout à droite après la virgule ne change jamais le nombre."
                                 }
                             ],
                             "title": "Comparer des décimaux",
@@ -362,6 +406,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Une même quantité peut s'écrire sous forme de fraction ou de nombre décimal."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève écrit que 1/5 = 0,15. Quelle est son erreur ?",
+                                    "choices": [
+                                        "Il a collé les deux chiffres au lieu de calculer 1 ÷ 5, qui donne 0,2",
+                                        "Il a oublié une décimale : 1/5 s'écrit 0,155",
+                                        "Il a inversé la fraction : 1/5 s'écrit 0,51"
+                                    ],
+                                    "answer": "Il a collé les deux chiffres au lieu de calculer 1 ÷ 5, qui donne 0,2",
+                                    "explanation": "Une fraction est une division : 1/5 se calcule 1 ÷ 5 = 0,2, et non en accolant le 1 et le 5. Écrire 0,155 est faux : ajouter des décimales n'a aucun rapport avec le calcul de la division. Et 0,51 est faux aussi : intervertir les chiffres ne correspond à aucune règle, une fraction ne se lit pas à l'envers."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léo a bu 2/5 d'une bouteille d'un litre. Quelle quantité a-t-il bue, écrite en décimal ?",
+                                    "choices": [
+                                        "0,4 L",
+                                        "0,25 L",
+                                        "2,5 L"
+                                    ],
+                                    "answer": "0,4 L",
+                                    "explanation": "2/5, c'est 2 ÷ 5 = 0,4 : Léo a bu 0,4 L. 0,25 L correspond à 1/4, pas à 2/5 : c'est confondre deux fractions différentes. Et 2,5 L est impossible : la bouteille ne contient qu'un litre, or une part d'un litre est forcément inférieure à 1."
                                 }
                             ],
                             "title": "Fraction ou décimal ?",
@@ -404,6 +470,28 @@
                                     "type": "tip",
                                     "content": "La division est l'opération inverse de la multiplication.",
                                     "label": "À retenir"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un maître range 96 livres dans 4 cartons identiques. Quelle opération donne le nombre de livres par carton ?",
+                                    "choices": [
+                                        "96 ÷ 4, ce qui donne 24",
+                                        "96 × 4, ce qui donne 384",
+                                        "96 − 4, ce qui donne 92"
+                                    ],
+                                    "answer": "96 ÷ 4, ce qui donne 24",
+                                    "explanation": "On partage 96 livres en 4 parts égales : c'est une division, 96 ÷ 4 = 24 livres par carton. Multiplier donnerait 384, soit bien plus que le stock de départ : impossible en partageant. Soustraire donnerait 92, ce qui reviendrait à retirer 4 livres, alors qu'on ne retire rien : on répartit."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sans poser l'opération, comment vérifier rapidement que 72 ÷ 8 = 9 est juste ?",
+                                    "choices": [
+                                        "En calculant 8 × 9 : si on retrouve 72, le résultat est bon",
+                                        "En calculant 72 − 8 : si on retrouve 9, le résultat est bon",
+                                        "En calculant 72 + 8 : si le total est un multiple de 9, le résultat est bon"
+                                    ],
+                                    "answer": "En calculant 8 × 9 : si on retrouve 72, le résultat est bon",
+                                    "explanation": "Diviser et multiplier sont deux opérations inverses : si 72 ÷ 8 = 9, alors 8 × 9 doit redonner 72, ce qui est le cas. La soustraction ne convient pas : 72 − 8 = 64, et non 9 ; retirer une fois le diviseur n'annule pas une division. L'addition non plus : 72 + 8 = 80, et le fait qu'un total tombe ou non sur un multiple ne prouve rien sur le quotient."
                                 }
                             ]
                         },
@@ -444,6 +532,28 @@
                                     "type": "tip",
                                     "content": "Un reste ne peut jamais être égal ou supérieur au diviseur.",
                                     "label": "À retenir"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève écrit : 61 ÷ 7 = 7 reste 12. Comment repérer que c'est faux sans refaire la division ?",
+                                    "choices": [
+                                        "12 dépasse 7 : on pouvait encore placer un 7 de plus au quotient",
+                                        "Le calcul 7 × 7 + 12 ne tombe pas sur 61",
+                                        "Le quotient est égal au diviseur, ce qui est interdit"
+                                    ],
+                                    "answer": "12 dépasse 7 : on pouvait encore placer un 7 de plus au quotient",
+                                    "explanation": "Un reste doit rester inférieur au diviseur : ici 12 > 7, donc un 7 supplémentaire tenait encore, et la vraie réponse est 61 ÷ 7 = 8 reste 5. Le deuxième choix est trompeur : 7 × 7 + 12 = 61 tombe pourtant juste, ce qui montre qu'une vérification par multiplication ne suffit pas si l'on ne contrôle pas aussi le reste. Le troisième est faux : rien n'interdit qu'un quotient égale le diviseur, comme dans 49 ÷ 7 = 7."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une division par 6 est correctement posée. Quel reste est impossible ?",
+                                    "choices": [
+                                        "6",
+                                        "5",
+                                        "0"
+                                    ],
+                                    "answer": "6",
+                                    "explanation": "Le reste doit être strictement inférieur au diviseur : avec un diviseur de 6, les restes possibles vont de 0 à 5. Un reste de 6 signifierait qu'on peut encore retirer un groupe de 6. Le reste 5 est donc parfaitement possible, c'est le plus grand admis. Le reste 0 l'est aussi : il signale simplement que la division tombe juste."
                                 }
                             ]
                         }
@@ -771,6 +881,28 @@
                                     "label": "À retenir",
                                     "content": "En temps, on multiplie souvent par 60 pour changer d'unité.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève convertit 2 h 15 min et écrit 215 min. Quelle est son erreur ?",
+                                    "choices": [
+                                        "Il a collé les nombres : il fallait calculer 2 × 60 + 15, soit 135 min",
+                                        "Il a oublié les secondes : il fallait calculer 2 × 60 × 60 + 15",
+                                        "Il a mal placé la virgule : il fallait écrire 2,15 min"
+                                    ],
+                                    "answer": "Il a collé les nombres : il fallait calculer 2 × 60 + 15, soit 135 min",
+                                    "explanation": "Le temps ne se compte pas de dix en dix : 2 h valent 2 × 60 = 120 min, auxquelles on ajoute les 15 min, soit 135 min. Passer par 60 × 60 est faux ici : cela convertirait en secondes, alors que la question demande des minutes. Et 2,15 min est faux aussi : ce serait une durée d'à peine plus de 2 minutes, pas de plus de deux heures."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un film dure 195 min. Combien de temps dure-t-il en heures et minutes ?",
+                                    "choices": [
+                                        "3 h 15 min",
+                                        "1 h 95 min",
+                                        "19 h 5 min"
+                                    ],
+                                    "answer": "3 h 15 min",
+                                    "explanation": "On cherche combien de fois 60 min tiennent dans 195 : trois fois, soit 180 min, et il reste 15 min, d'où 3 h 15 min. « 1 h 95 min » est incorrect : une durée en minutes doit rester sous 60, sinon il faut encore convertir. « 19 h 5 min » vient d'un découpage des chiffres, mais 195 min font à peine plus de 3 heures, pas 19."
                                 }
                             ],
                             "title": "Convertir des durées",
@@ -823,6 +955,28 @@
                                     "type": "tip",
                                     "content": "Quand je convertis une longueur, je change d'unité sans changer la longueur elle-même.",
                                     "label": "À retenir"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève convertit 2,5 km et écrit 250 m. Quelle est son erreur ?",
+                                    "choices": [
+                                        "Il a multiplié par 100 au lieu de 1 000 : 2,5 km valent 2 500 m",
+                                        "Il a multiplié alors qu'il fallait diviser : 2,5 km valent 0,0025 m",
+                                        "Il a oublié que le kilomètre est plus petit que le mètre"
+                                    ],
+                                    "answer": "Il a multiplié par 100 au lieu de 1 000 : 2,5 km valent 2 500 m",
+                                    "explanation": "Un kilomètre vaut 1 000 m, donc 2,5 × 1 000 = 2 500 m. Diviser serait un contresens : on va d'une grande unité vers une plus petite, donc le nombre doit augmenter, pas devenir minuscule. Et le dernier choix inverse la réalité : le kilomètre est bien plus grand que le mètre, c'est justement pour cela qu'on multiplie."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "La piste d'un stade mesure 1 500 m. Quelle écriture exprime la même longueur ?",
+                                    "choices": [
+                                        "1,5 km",
+                                        "15 km",
+                                        "150 km"
+                                    ],
+                                    "answer": "1,5 km",
+                                    "explanation": "Pour passer des mètres aux kilomètres, on divise par 1 000 : 1 500 ÷ 1 000 = 1,5 km, soit un kilomètre et demi, ce qui est plausible pour une piste. 15 km reviendrait à diviser par 100 seulement, et 150 km à diviser par 10 : dans les deux cas, la piste ferait la longueur d'un trajet entre deux villes."
                                 }
                             ]
                         },
@@ -885,6 +1039,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Échelle, vitesse, recettes et pourcentages sont des situations de proportionnalité : on utilise toujours le même coefficient."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un pull coûte 80 € et bénéficie d'une remise de 25 %. Un élève annonce un prix final de 25 €. Quelle est son erreur ?",
+                                    "choices": [
+                                        "Il a pris le pourcentage pour un prix : la remise vaut 20 €, donc le pull coûte 60 €",
+                                        "Il a oublié de multiplier par 100 : la remise vaut 2 000 €",
+                                        "Il a divisé par 25 au lieu de 4 : le pull coûte 3,20 €"
+                                    ],
+                                    "answer": "Il a pris le pourcentage pour un prix : la remise vaut 20 €, donc le pull coûte 60 €",
+                                    "explanation": "25 % est une proportion, pas une somme : 25 % de 80 €, c'est le quart de 80, soit 20 € de remise, et le pull revient à 80 − 20 = 60 €. Multiplier par 100 donnerait 2 000 €, une remise plus grande que le prix : impossible. Diviser par 25 donne 3,20 €, ce qui n'a pas de sens non plus : une remise de 25 % ne peut pas faire perdre presque tout le prix."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur un plan à l'échelle 1/100, un salon mesure 7 cm de long. Quelle est sa longueur réelle ?",
+                                    "choices": [
+                                        "7 m",
+                                        "70 m",
+                                        "0,7 m"
+                                    ],
+                                    "answer": "7 m",
+                                    "explanation": "À l'échelle 1/100, chaque centimètre du plan vaut 100 cm en vrai, soit 1 m : 7 cm représentent donc 7 m, une longueur crédible pour un salon. 70 m reviendrait à appliquer un coefficient de 1 000 : ce serait la longueur d'un stade. Et 0,7 m supposerait de réduire au lieu d'agrandir, alors qu'un plan est toujours plus petit que la réalité."
                                 }
                             ]
                         }
@@ -923,6 +1099,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Je peux utiliser l'équerre pour repérer un angle droit et des droites perpendiculaires."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Deux droites tracées sur une feuille ne se coupent pas sur le dessin. Un élève en conclut qu'elles sont parallèles. A-t-il forcément raison ?",
+                                    "choices": [
+                                        "Non : elles peuvent se croiser plus loin, il faut vérifier qu'elles gardent partout le même écart",
+                                        "Oui : deux droites qui ne se croisent pas sur la feuille sont parallèles",
+                                        "Non : deux droites finissent toujours par se croiser quelque part"
+                                    ],
+                                    "answer": "Non : elles peuvent se croiser plus loin, il faut vérifier qu'elles gardent partout le même écart",
+                                    "explanation": "Une droite est illimitée : deux droites légèrement inclinées l'une vers l'autre ne se coupent pas sur la feuille mais se couperaient si on les prolongeait. Le test fiable est de mesurer l'écart en deux endroits : s'il est constant, elles sont parallèles. Le deuxième choix confond le dessin et la droite entière. Le troisième est faux : des droites vraiment parallèles ne se croisent jamais, même prolongées à l'infini."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Deux droites sont toutes les deux perpendiculaires à une même troisième droite. Que peut-on affirmer à leur sujet ?",
+                                    "choices": [
+                                        "Elles sont parallèles entre elles",
+                                        "Elles sont perpendiculaires entre elles",
+                                        "Elles se coupent en formant un angle droit"
+                                    ],
+                                    "answer": "Elles sont parallèles entre elles",
+                                    "explanation": "Chacune forme un angle droit avec la même droite : elles ont donc exactement la même direction et gardent partout le même écart, comme les deux bords d'une règle posée en travers d'une ligne. Elles ne sont pas perpendiculaires entre elles, et elles ne se coupent pas du tout : les deux autres réponses décrivent la relation de chacune avec la troisième droite, pas leur relation mutuelle."
                                 }
                             ]
                         },
@@ -955,6 +1153,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "En géométrie, décrire une figure avec les bons mots aide à la reconnaître et à la construire."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève doit tracer un cercle de 6 cm de diamètre. Quel écartement doit-il donner à son compas ?",
+                                    "choices": [
+                                        "3 cm, car le compas s'ouvre de la valeur du rayon",
+                                        "6 cm, car le compas s'ouvre de la valeur du diamètre",
+                                        "12 cm, car il faut doubler le diamètre"
+                                    ],
+                                    "answer": "3 cm, car le compas s'ouvre de la valeur du rayon",
+                                    "explanation": "La pointe du compas se place au centre et la mine trace à la distance du rayon, soit la moitié du diamètre : 6 ÷ 2 = 3 cm. Ouvrir à 6 cm donnerait un cercle de 12 cm de diamètre, deux fois trop grand. Ouvrir à 12 cm serait pire encore : on doublerait une longueur qu'il fallait justement diviser par deux."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une figure a 4 côtés. Que peut-on affirmer avec certitude ?",
+                                    "choices": [
+                                        "C'est un quadrilatère, mais ses angles peuvent être quelconques",
+                                        "C'est un carré, car un carré a 4 côtés",
+                                        "Ses 4 côtés ont la même longueur"
+                                    ],
+                                    "answer": "C'est un quadrilatère, mais ses angles peuvent être quelconques",
+                                    "explanation": "Le nombre de côtés donne la famille : 4 côtés font un quadrilatère, sans rien imposer aux angles ni aux longueurs. Conclure au carré est trop rapide : un carré est un quadrilatère particulier, avec 4 angles droits et 4 côtés égaux, alors qu'un quadrilatère quelconque n'a rien de tout cela. Affirmer que les côtés sont égaux est faux pour la même raison : un rectangle allongé a bien 4 côtés de longueurs différentes."
                                 }
                             ]
                         },
@@ -986,6 +1206,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Pour vérifier une symétrie, j'observe si les deux côtés se répondent de part et d'autre de l'axe."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève trace la diagonale d'un rectangle et affirme que c'est un axe de symétrie « puisqu'elle le coupe en deux parts identiques ». Pourquoi se trompe-t-il ?",
+                                    "choices": [
+                                        "Les deux moitiés ne se superposent pas par pliage le long de la diagonale",
+                                        "Un rectangle ne possède aucun axe de symétrie",
+                                        "Un axe de symétrie doit toujours être vertical"
+                                    ],
+                                    "answer": "Les deux moitiés ne se superposent pas par pliage le long de la diagonale",
+                                    "explanation": "Découper en deux parts de même aire ne suffit pas : il faut que le pliage superpose exactement les deux moitiés, or en pliant un rectangle le long de sa diagonale, les triangles dépassent l'un de l'autre. Dire qu'un rectangle n'a aucun axe est faux : il en a deux, passant par les milieux des côtés opposés. Et un axe n'est pas forcément vertical : celui d'un rectangle posé à plat peut être horizontal."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un point A est situé à 3 cm à gauche d'un axe de symétrie. Où se trouve son symétrique A' ?",
+                                    "choices": [
+                                        "À 3 cm à droite de l'axe, à la même hauteur que A",
+                                        "À 6 cm à droite de l'axe, à la même hauteur que A",
+                                        "Sur l'axe, à mi-distance entre A et l'axe"
+                                    ],
+                                    "answer": "À 3 cm à droite de l'axe, à la même hauteur que A",
+                                    "explanation": "Comme dans un miroir, le symétrique se place de l'autre côté de l'axe, à la même distance et à la même hauteur : 3 cm à gauche deviennent 3 cm à droite. 6 cm confond la distance de A à l'axe avec la distance totale de A à A' : c'est justement 3 + 3 = 6, mais mesurés depuis l'axe il n'y a que 3 cm. Et placer A' sur l'axe est impossible : seul un point déjà situé sur l'axe est son propre symétrique."
                                 }
                             ]
                         },
@@ -1022,6 +1264,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "L'aire se mesure en unités carrées (cm²), le volume en unités cubes (cm³)."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "On demande l'aire d'un rectangle de 8 cm sur 3 cm. Un élève répond 22 cm. Quelle est son erreur ?",
+                                    "choices": [
+                                        "Il a calculé le périmètre : l'aire vaut 8 × 3 = 24 cm²",
+                                        "Il a oublié l'unité : il fallait écrire 22 cm²",
+                                        "Il a additionné les côtés au lieu de les diviser : l'aire vaut 8 ÷ 3 cm²"
+                                    ],
+                                    "answer": "Il a calculé le périmètre : l'aire vaut 8 × 3 = 24 cm²",
+                                    "explanation": "22 cm correspond au tour de la figure, 2 × (8 + 3), c'est-à-dire au périmètre. L'aire mesure la surface et se calcule en multipliant : 8 × 3 = 24 cm². Écrire 22 cm² ne corrigerait rien : le nombre lui-même est celui du périmètre, changer l'unité ne le transforme pas en aire. Et diviser les côtés ne correspond à aucune formule d'aire."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une boîte a pour dimensions 5 cm, 2 cm et 3 cm de hauteur. Quel est son volume ?",
+                                    "choices": [
+                                        "30 cm³",
+                                        "10 cm³",
+                                        "30 cm²"
+                                    ],
+                                    "answer": "30 cm³",
+                                    "explanation": "Le volume d'un pavé droit se calcule en multipliant les trois dimensions : 5 × 2 × 3 = 30 cm³. 10 cm³ ne prend en compte que la longueur et la largeur (5 × 2) : c'est oublier la hauteur, donc calculer une aire et non un volume. Et 30 cm² a le bon nombre mais la mauvaise unité : un espace occupé se mesure en unités cubes, pas en unités carrées."
                                 }
                             ]
                         }
@@ -1327,6 +1591,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Un graphique permet de comparer des données rapidement, sans tout recalculer."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur un diagramme, la barre « lundi » atteint 45 entrées et la barre « mardi » 28. Que calcule-t-on pour savoir combien lundi a fait d'entrées de plus que mardi ?",
+                                    "choices": [
+                                        "45 − 28, ce qui donne 17 entrées de plus",
+                                        "45 + 28, ce qui donne 73 entrées de plus",
+                                        "45 ÷ 28, ce qui donne environ 1,6 entrée de plus"
+                                    ],
+                                    "answer": "45 − 28, ce qui donne 17 entrées de plus",
+                                    "explanation": "Un écart entre deux barres se lit avec une soustraction : 45 − 28 = 17 entrées. L'addition donne 73, soit le total des deux jours et non leur différence. La division donne environ 1,6, qui indique combien de fois lundi dépasse mardi, pas de combien d'entrées : ce n'est pas ce qui est demandé."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur un diagramme, la barre A est deux fois plus haute que la barre B. Un élève en conclut que A vaut le double de B. Que faut-il vérifier avant de l'affirmer ?",
+                                    "choices": [
+                                        "Que l'axe des quantités commence bien à zéro",
+                                        "Que les deux barres ont la même largeur",
+                                        "Que les barres sont placées côte à côte"
+                                    ],
+                                    "answer": "Que l'axe des quantités commence bien à zéro",
+                                    "explanation": "Si l'axe démarre à 20 par exemple, une barre deux fois plus haute qu'une autre ne vaut pas du tout le double : les hauteurs ne sont comparables que mesurées depuis zéro. La largeur des barres ne porte aucune information dans un diagramme en barres : seule la hauteur compte. Leur position côte à côte ou éloignée ne change rien non plus à la valeur qu'elles représentent."
                                 }
                             ]
                         },
@@ -1358,6 +1644,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Tableaux et diagrammes présentent les mêmes informations qu’un long texte, mais d’un seul coup d’œil."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un diagramme circulaire représente les 200 élèves d'une école. La part « demi-pensionnaires » occupe un quart du disque. Combien d'élèves cela représente-t-il ?",
+                                    "choices": [
+                                        "50 élèves",
+                                        "25 élèves",
+                                        "100 élèves"
+                                    ],
+                                    "answer": "50 élèves",
+                                    "explanation": "Le disque entier vaut les 200 élèves ; un quart du disque en représente donc le quart, soit 200 ÷ 4 = 50 élèves. Répondre 25 revient à confondre le pourcentage avec un nombre d'élèves : 25 % est une proportion, pas un effectif. Et 100 élèves correspondrait à la moitié du disque, soit une part deux fois plus grande que celle décrite."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans un tableau à double entrée, on cherche le nombre de livres empruntés par les CM1 en janvier. Où lire l'information ?",
+                                    "choices": [
+                                        "Dans la case où la ligne « CM1 » et la colonne « Janvier » se croisent",
+                                        "Dans la case du total de la ligne « CM1 »",
+                                        "Dans la première case de la colonne « Janvier »"
+                                    ],
+                                    "answer": "Dans la case où la ligne « CM1 » et la colonne « Janvier » se croisent",
+                                    "explanation": "Un tableau à double entrée croise deux informations : il faut donc les deux repères à la fois, la classe et le mois. La case de total de la ligne « CM1 » donnerait les emprunts de l'année entière, tous mois confondus. La première case de la colonne « Janvier » concerne bien janvier, mais celle d'une autre classe : sans croiser les deux entrées, on lit la mauvaise donnée."
                                 }
                             ]
                         },
@@ -1389,6 +1697,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Moyenne = somme des valeurs ÷ nombre de valeurs."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève calcule la moyenne de 14, 8, 11 et 7 et annonce 13,3. Comment repérer immédiatement que c'est faux ?",
+                                    "choices": [
+                                        "Il a divisé par 3 au lieu de 4 : la moyenne vaut 40 ÷ 4 = 10",
+                                        "Il a oublié une valeur dans la somme : la moyenne vaut 40 ÷ 3",
+                                        "Il a additionné sans ordonner les valeurs de la série"
+                                    ],
+                                    "answer": "Il a divisé par 3 au lieu de 4 : la moyenne vaut 40 ÷ 4 = 10",
+                                    "explanation": "La somme vaut 14 + 8 + 11 + 7 = 40, et la série compte 4 valeurs : 40 ÷ 4 = 10. Le 13,3 annoncé vient de 40 ÷ 3, soit un oubli dans le comptage des valeurs. Le deuxième choix décrit l'inverse de l'erreur : la somme de 40 est correcte, c'est le diviseur qui est faux. Et l'ordre des valeurs n'a aucune importance : une addition donne le même total dans n'importe quel ordre."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une série contient les valeurs 6, 9 et 12. Quelle réponse est impossible pour sa moyenne, avant même tout calcul ?",
+                                    "choices": [
+                                        "14",
+                                        "9",
+                                        "8"
+                                    ],
+                                    "answer": "14",
+                                    "explanation": "Une moyenne se situe toujours entre la plus petite et la plus grande valeur de la série, ici entre 6 et 12 : 14 sort de cet intervalle, c'est donc forcément une erreur. 9 est possible, et c'est même le résultat exact : 27 ÷ 3 = 9. 8 est plausible aussi puisqu'il tombe entre 6 et 12 : seul le calcul permet de l'écarter, alors que 14 s'élimine d'un coup d'œil."
                                 }
                             ]
                         }
@@ -1559,6 +1889,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Je repère d'abord l'auxiliaire puis le participe passé."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Nina écrit : « Mes cousines sont arrivé hier soir. » Que faut-il corriger ?",
+                                    "choices": [
+                                        "Écrire « arrivées » : avec être, le participe s'accorde avec le sujet",
+                                        "Écrire « ont » : le verbe arriver se construit avec avoir",
+                                        "Écrire « arriver » : après un auxiliaire on met l'infinitif"
+                                    ],
+                                    "answer": "Écrire « arrivées » : avec être, le participe s'accorde avec le sujet",
+                                    "explanation": "L'auxiliaire est « sont » (être) : le participe s'accorde avec le sujet « mes cousines », féminin pluriel, d'où « arrivées ». Remplacer par « ont » est faux, car arriver se conjugue avec être. Et « arriver » à l'infinitif est faux aussi : après un auxiliaire, on écrit le participe passé, jamais l'infinitif."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Les élèves ont rangé la classe », pourquoi « rangé » ne prend-il pas de -s malgré le sujet pluriel ?",
+                                    "choices": [
+                                        "Parce que l'auxiliaire est avoir et que le COD est placé après le verbe",
+                                        "Parce qu'un participe passé ne s'accorde jamais",
+                                        "Parce que « la classe » est au singulier"
+                                    ],
+                                    "answer": "Parce que l'auxiliaire est avoir et que le COD est placé après le verbe",
+                                    "explanation": "Avec avoir, le participe ne s'accorde jamais avec le sujet : « les élèves » n'a donc aucun effet. Il s'accorde seulement avec le COD s'il est placé avant (« la classe qu'ils ont rangée »), ce qui n'est pas le cas ici. Dire qu'un participe ne s'accorde jamais est faux (avec être, il s'accorde), et le singulier de « la classe » n'entre pas en jeu puisque ce COD est placé après le verbe."
                                 }
                             ],
                             "title": "Former le passé composé",
@@ -1631,6 +1983,28 @@
                                     "label": "À retenir",
                                     "content": "Quand tu racontes une habitude passée, être et avoir reviennent très souvent à l'imparfait.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tom écrit : « Quand nous étions petits, vous aviez toujours peur de l'orage. » Léa lui dit qu'il y a une faute. A-t-elle raison ?",
+                                    "choices": [
+                                        "Non, les deux verbes sont correctement conjugués",
+                                        "Oui, il fallait écrire « nous étiez »",
+                                        "Oui, il fallait écrire « vous avaient »"
+                                    ],
+                                    "answer": "Non, les deux verbes sont correctement conjugués",
+                                    "explanation": "La terminaison suit la personne, pas le voisinage : « nous » prend -ions (étions) et « vous » prend -iez (aviez). « Nous étiez » mélange le pronom nous avec la terminaison de vous. « Vous avaient » prend la terminaison de ils/elles. Ici, tout est juste."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Autrefois, la boulangerie ___ ouverte le dimanche. » Pourquoi l'imparfait convient-il mieux que le passé composé ?",
+                                    "choices": [
+                                        "Parce qu'il décrit une habitude qui durait, et non un fait unique",
+                                        "Parce que l'imparfait s'emploie toujours après le mot autrefois",
+                                        "Parce que le passé composé ne peut pas parler du passé"
+                                    ],
+                                    "answer": "Parce qu'il décrit une habitude qui durait, et non un fait unique",
+                                    "explanation": "L'imparfait sert à décrire ce qui durait ou se répétait : la boulangerie ouvrait chaque dimanche. Ce n'est pas le mot « autrefois » qui commande le temps, c'est le sens : « Autrefois, elle a ouvert une seule fois » resterait correct au passé composé. Et le passé composé parle bien du passé, mais d'une action ponctuelle et terminée."
                                 }
                             ],
                             "title": "Être et avoir à l'imparfait",
@@ -1662,6 +2036,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Si une phrase raconte une action ponctuelle dans un récit écrit, c'est souvent du passé simple."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« La nuit tombait sur le village quand un cavalier surgit. » Qu'apporte le passage de « tombait » à « surgit » ?",
+                                    "choices": [
+                                        "Le décor qui durait laisse place à une action brève qui l'interrompt",
+                                        "Les deux verbes racontent deux actions qui durent aussi longtemps",
+                                        "L'auteur a changé de temps par erreur, il aurait dû garder l'imparfait"
+                                    ],
+                                    "answer": "Le décor qui durait laisse place à une action brève qui l'interrompt",
+                                    "explanation": "Dans un récit, l'imparfait pose le décor qui dure (« tombait ») et le passé simple lance l'action soudaine (« surgit »). Les deux verbes ne durent donc pas pareil. Et ce n'est pas une erreur : ce jeu entre les deux temps est justement ce qui fait avancer un récit."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans une rédaction, un élève écrit : « Hier, je pris mon vélo et j'allai à la piscine. » Pourquoi cela sonne-t-il bizarre ?",
+                                    "choices": [
+                                        "Le passé simple ne s'emploie pas pour raconter sa propre journée : on attend le passé composé",
+                                        "Les verbes prendre et aller n'existent pas au passé simple",
+                                        "Il aurait fallu écrire « je pris » et « j'alla », avec deux terminaisons différentes"
+                                    ],
+                                    "answer": "Le passé simple ne s'emploie pas pour raconter sa propre journée : on attend le passé composé",
+                                    "explanation": "Le passé simple appartient au récit écrit (contes, romans) ; pour raconter sa journée, on dit « j'ai pris mon vélo et je suis allé ». Les deux verbes existent pourtant bien au passé simple (il prit, il alla). Quant à « j'alla », c'est faux : « alla » est la forme de il/elle, la première personne est « j'allai »."
                                 }
                             ],
                             "title": "Reconnaître le passé simple",
@@ -1698,6 +2094,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "À l'écrit, les formes les plus utiles sont « il » et « ils » : il chanta / ils chantèrent, il fut / ils furent — commence par bien les connaître !"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Le verbe SAUTER est en -er. Comment s'écrit-il au passé simple avec « les enfants » ?",
+                                    "choices": [
+                                        "les enfants sautèrent",
+                                        "les enfants sautaient",
+                                        "les enfants sautirent"
+                                    ],
+                                    "answer": "les enfants sautèrent",
+                                    "explanation": "« Les enfants », c'est ils : un verbe en -er prend donc -èrent, comme chantèrent. « Sautaient » est de l'imparfait, pas du passé simple. Et « sautirent » applique la terminaison -irent, réservée aux verbes du type finir ou prendre (ils prirent), pas aux verbes en -er."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Malo écrit : « Le roi entendit le message, puis il pu répondre. » Quelle est son erreur ?",
+                                    "choices": [
+                                        "Il fallait écrire « put » : au passé simple, il prend un -t",
+                                        "Il fallait écrire « pouvait » : deux verbes ne peuvent pas être au même temps",
+                                        "Il fallait écrire « peut » : après « puis », on repasse au présent"
+                                    ],
+                                    "answer": "Il fallait écrire « put » : au passé simple, il prend un -t",
+                                    "explanation": "Pouvoir suit le modèle en -us/-ut : je pus, il put. « Pu » tout court est le participe passé (il a pu), pas le passé simple. Rien n'interdit deux verbes au même temps dans une phrase : entendit et put s'enchaînent très bien. Et « puis » n'est pas un mot qui ramène au présent : le récit reste au passé."
                                 }
                             ],
                             "format": "lesson-card"
@@ -1849,6 +2267,28 @@
                                     "label": "À retenir",
                                     "content": "Un homophone se choisit avec le sens et la grammaire, pas seulement avec l'oreille.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Les joueurs enfilent ___ maillot. » Chacun n'en a qu'un. Que faut-il écrire, et pourquoi ?",
+                                    "choices": [
+                                        "leur, car il accompagne le nom maillot, qui reste au singulier",
+                                        "leurs, car le sujet « les joueurs » est au pluriel",
+                                        "leur's, pour montrer que le maillot appartient aux joueurs"
+                                    ],
+                                    "answer": "leur, car il accompagne le nom maillot, qui reste au singulier",
+                                    "explanation": "Devant un nom, leur est un déterminant : il s'accorde avec le nom qui suit, pas avec le sujet. Chaque joueur enfile un seul maillot, donc « leur maillot ». Regarder « les joueurs » pour mettre un -s est justement le piège : ce n'est pas ce mot qui commande. Et « leur's » n'existe pas : l'apostrophe ne marque jamais la possession en français."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Il ___ trompé de chemin. » Quel raisonnement permet de choisir entre « c'est » et « s'est » ?",
+                                    "choices": [
+                                        "Je remplace par « je me suis trompé » : le verbe est pronominal, donc s'est",
+                                        "Je remplace par « cela est trompé » : la phrase reste correcte, donc c'est",
+                                        "J'écoute la phrase : les deux se prononcent pareil, donc les deux s'écrivent pareil"
+                                    ],
+                                    "answer": "Je remplace par « je me suis trompé » : le verbe est pronominal, donc s'est",
+                                    "explanation": "« Se tromper » est un verbe pronominal : en changeant de personne, on entend le pronom se transformer (je me suis trompé, tu t'es trompé, il s'est trompé). Le test « cela est trompé » ne donne rien de correct, ce qui écarte « c'est ». Et se fier à l'oreille est exactement l'erreur à éviter : deux mots qui se prononcent pareil s'écrivent selon leur rôle dans la phrase."
                                 }
                             ],
                             "title": "Choisir le bon homophone",
@@ -1897,6 +2337,28 @@
                                     "label": "À retenir",
                                     "content": "Si le remplacement fonctionne, il t'aide souvent à choisir le bon mot.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Sarah ___ oublié son sac ___ la piscine. » Quel test permet de trancher les deux fois ?",
+                                    "choices": [
+                                        "Je mets la phrase à l'imparfait : ce qui devient « avait » s'écrit a, l'autre prend l'accent",
+                                        "Je mets un accent sur les deux : à s'écrit toujours avec un accent",
+                                        "Je regarde la place dans la phrase : le premier est toujours a, le second toujours à"
+                                    ],
+                                    "answer": "Je mets la phrase à l'imparfait : ce qui devient « avait » s'écrit a, l'autre prend l'accent",
+                                    "explanation": "« Sarah avait oublié » fonctionne : c'est le verbe avoir, donc « a » sans accent. « Son sac avait la piscine » ne veut rien dire : c'est la préposition, donc « à » avec accent. Mettre un accent partout est faux, puisque le verbe avoir n'en prend jamais. Et se fier à la place dans la phrase ne marche pas : dans « À midi, Sarah a faim », l'ordre est inversé."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour choisir entre « ces » et « ses », le test « ou bien » ne sert à rien. Quel test faut-il utiliser ?",
+                                    "choices": [
+                                        "Je mets au singulier : « ce livre » donne ces, « son livre » donne ses",
+                                        "Je mets la phrase à l'imparfait pour entendre le verbe avoir",
+                                        "Je compte les lettres : ces et ses ont le même nombre, donc les deux conviennent"
+                                    ],
+                                    "answer": "Je mets au singulier : « ce livre » donne ces, « son livre » donne ses",
+                                    "explanation": "Chaque homophone a son propre test. Repasser au singulier révèle le sens : « ces livres » (ceux-là, on les montre) devient « ce livre » ; « ses livres » (les siens) devient « son livre ». L'imparfait sert pour est/et ou a/à, pas ici : ni ces ni ses n'est un verbe. Et compter les lettres ne dit rien du sens : deux mots de même longueur peuvent avoir des rôles opposés."
                                 }
                             ],
                             "title": "Tester un remplacement",
@@ -2147,6 +2609,28 @@
                                     "label": "À retenir",
                                     "content": "Quand un mot passe au pluriel, les autres mots du groupe changent souvent aussi.",
                                     "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Mets « une longue histoire » au pluriel. Combien de mots sur les trois changent d'orthographe ?",
+                                    "choices": [
+                                        "Les trois : de longues histoires",
+                                        "Un seul, le nom : une longues histoires",
+                                        "Deux, le déterminant et le nom : des longue histoires"
+                                    ],
+                                    "answer": "Les trois : de longues histoires",
+                                    "explanation": "Le pluriel se propage à tout le groupe nominal : le déterminant (une devient de/des), le nom (histoires) et l'adjectif (longues) prennent la marque. Ne changer que le nom laisse « une » au singulier devant un nom pluriel. Et oublier l'adjectif est l'erreur la plus fréquente : « longue » doit suivre le nom qu'il qualifie."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève écrit : « Le sac et le cahier sont neuf. » Pourquoi faut-il écrire « neufs » ?",
+                                    "choices": [
+                                        "L'adjectif qualifie deux noms à la fois, donc il se met au pluriel",
+                                        "Tous les adjectifs placés après le verbe prennent un -s",
+                                        "L'adjectif s'accorde avec « cahier », le nom le plus proche de lui"
+                                    ],
+                                    "answer": "L'adjectif qualifie deux noms à la fois, donc il se met au pluriel",
+                                    "explanation": "Le sac est neuf et le cahier est neuf : l'adjectif se rapporte aux deux, ce qui fait un ensemble pluriel, donc « neufs ». La place après le verbe n'y est pour rien : dans « Le sac est neuf », l'adjectif reste au singulier. Et s'accorder avec le seul nom le plus proche est justement le piège : il faut compter tous les noms qualifiés."
                                 }
                             ],
                             "title": "Accorder le groupe nominal",
@@ -2182,6 +2666,28 @@
                                     "type": "tip",
                                     "content": "Comprendre le sujet et le verbe aide à accorder correctement la phrase.",
                                     "label": "À retenir"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Sous le pont passent les péniches », quel est le sujet du verbe « passent » ?",
+                                    "choices": [
+                                        "les péniches",
+                                        "Sous le pont",
+                                        "passent"
+                                    ],
+                                    "answer": "les péniches",
+                                    "explanation": "Je pose la question « qui est-ce qui passe ? » : ce sont les péniches, même si elles arrivent après le verbe. « Sous le pont » répond à « où ? » : c'est un complément, pas un sujet. Et « passent » est le verbe lui-même : un verbe ne peut pas être son propre sujet. Le -ent confirme d'ailleurs que le sujet est pluriel."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Le panier de cerises ___ sur la table. » Faut-il « est » ou « sont » ?",
+                                    "choices": [
+                                        "est, car le sujet est « le panier », qui est au singulier",
+                                        "sont, car le mot « cerises » juste avant le verbe est au pluriel",
+                                        "est ou sont, les deux sont acceptés dans cette phrase"
+                                    ],
+                                    "answer": "est, car le sujet est « le panier », qui est au singulier",
+                                    "explanation": "« Qui est-ce qui est sur la table ? » Le panier — « de cerises » précise seulement lequel. Le verbe s'accorde donc au singulier. Se laisser attirer par « cerises » parce qu'il est collé au verbe est le piège classique : ce mot n'est pas le sujet. Et non, les deux ne sont pas acceptés : un verbe n'a qu'un seul accord possible avec son sujet."
                                 }
                             ]
                         },
@@ -2213,6 +2719,28 @@
                                     "type": "tip",
                                     "content": "Un mot juste aide à mieux comprendre et à mieux écrire.",
                                     "label": "À retenir"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Le boulanger enfourne la pâte. » Quel indice de la phrase permet de comprendre le mot « enfourne » sans dictionnaire ?",
+                                    "choices": [
+                                        "Le mot contient « four », et le boulanger travaille avec de la pâte",
+                                        "Le mot ressemble à « fourrer », qui veut dire remplir",
+                                        "Le mot commence par en-, comme entrer, donc il signifie arriver"
+                                    ],
+                                    "answer": "Le mot contient « four », et le boulanger travaille avec de la pâte",
+                                    "explanation": "Deux outils se combinent : la famille de mots (four → enfourner, mettre au four) et le contexte (un boulanger, de la pâte). « Fourrer » ne fait que se ressembler à l'oreille : ce n'est pas la même famille, et le sens ne colle pas. Quant au préfixe en-, il ne signifie pas « arriver » : c'est le radical « four » qui porte le sens ici."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « La vedette a fendu les vagues », que faut-il faire pour choisir le bon sens du mot « vedette » ?",
+                                    "choices": [
+                                        "Regarder ce que fait le mot dans la phrase : ici elle fend les vagues, c'est un bateau",
+                                        "Garder le sens le plus connu : une vedette est une personne célèbre",
+                                        "Chercher un mot de la même famille : vedette ressemble à vedettariat"
+                                    ],
+                                    "answer": "Regarder ce que fait le mot dans la phrase : ici elle fend les vagues, c'est un bateau",
+                                    "explanation": "Une vedette est aussi un petit bateau rapide, et c'est le contexte (fendre les vagues) qui le dit. Choisir d'office le sens le plus connu est le réflexe à corriger : une star ne fend pas les vagues. Et passer par la famille de mots ne sert à rien ici, puisque « vedettariat » renvoie justement à l'autre sens, celui des célébrités."
                                 }
                             ]
                         },
@@ -2244,6 +2772,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "La règle des trois relectures : 1) le sens, 2) les accords, 3) les répétitions. Les écrivains eux-mêmes réécrivent plusieurs fois !"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Le pirate met son trésor dans la grotte. » Quelle réécriture améliore vraiment la phrase ?",
+                                    "choices": [
+                                        "Le pirate dissimule son trésor dans la grotte",
+                                        "Le pirate met son très beau trésor dans la grotte",
+                                        "Le pirate, il met son trésor dans la grotte"
+                                    ],
+                                    "answer": "Le pirate dissimule son trésor dans la grotte",
+                                    "explanation": "« Mettre » est un verbe passe-partout : « dissimule » dit la même action tout en ajoutant l'idée de cacher. Ajouter « très beau » enrichit le nom mais laisse le verbe faible, qui est le vrai problème. Et « Le pirate, il met » ne fait que répéter le sujet : c'est une tournure orale, pas une amélioration."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève écrit : « Le loup dormait quand les chasseurs arrivent. » Que faut-il corriger ?",
+                                    "choices": [
+                                        "Écrire « arrivèrent » : le récit est au passé, il ne doit pas basculer au présent",
+                                        "Écrire « dorment » : il faut mettre les deux verbes au présent",
+                                        "Écrire « dormait » et « arrivaient » : deux verbes doivent avoir le même temps"
+                                    ],
+                                    "answer": "Écrire « arrivèrent » : le récit est au passé, il ne doit pas basculer au présent",
+                                    "explanation": "C'est une rupture de concordance : le récit commence au passé, il doit y rester. Tout basculer au présent est possible en théorie, mais on abîme alors le début déjà écrit au passé. Et mettre « arrivaient » à l'imparfait effacerait l'action soudaine : le loup dormait (ça durait), les chasseurs arrivèrent (ça surgit)."
                                 }
                             ],
                             "format": "lesson-card"
@@ -2293,6 +2843,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "La nature est fixe comme la carte d’identité du mot ; la fonction dépend de la phrase."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Léa téléphone à sa grand-mère. » Quelle question faut-il poser pour analyser « à sa grand-mère », et qu’obtient-on ?",
+                                    "choices": [
+                                        "Téléphone à qui ? On obtient un COI",
+                                        "Téléphone quoi ? On obtient un COD",
+                                        "Téléphone où ? On obtient un complément circonstanciel"
+                                    ],
+                                    "answer": "Téléphone à qui ? On obtient un COI",
+                                    "explanation": "Le groupe est introduit par la préposition « à » : on demande donc « téléphone à qui ? », ce qui donne un COI. La question « quoi ? » servirait pour un COD, mais un COD n’est jamais précédé de « à ». Et « où ? » ne convient pas : « à sa grand-mère » désigne une personne, pas un lieu."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève affirme : dans « J’écoute le vent », le mot vent est un COD, donc sa nature est COD. Où se trompe-t-il ?",
+                                    "choices": [
+                                        "COD est une fonction, pas une nature : la nature de « vent » reste nom",
+                                        "Il se trompe de fonction : « le vent » est en réalité sujet",
+                                        "Il n’y a pas d’erreur : un mot peut avoir COD comme nature"
+                                    ],
+                                    "answer": "COD est une fonction, pas une nature : la nature de « vent » reste nom",
+                                    "explanation": "Il confond les deux niveaux : « vent » est un nom (nature, fixe) et il occupe ici la fonction de COD (rôle, variable). La fonction COD est bien correcte, ce n’est pas là l’erreur : le sujet de cette phrase est « je ». Et non, aucun mot n’a « COD » pour nature : les natures sont nom, verbe, adjectif, déterminant, pronom, adverbe."
                                 }
                             ]
                         }
@@ -2330,6 +2902,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Trouver l'idée principale aide à résumer et mieux comprendre un texte."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un texte explique que les abeilles sont indispensables aux cultures, puis raconte qu'un apiculteur nommé Paul possède douze ruches. Quelle est l'idée principale ?",
+                                    "choices": [
+                                        "Les abeilles jouent un rôle essentiel pour les cultures",
+                                        "Un apiculteur nommé Paul possède douze ruches",
+                                        "Les apiculteurs devraient tous avoir douze ruches"
+                                    ],
+                                    "answer": "Les abeilles jouent un rôle essentiel pour les cultures",
+                                    "explanation": "Paul et ses douze ruches sont un exemple qui illustre le propos : un détail ne peut pas être l'idée principale, sinon tout le reste du texte n'aurait rien à voir avec lui. Quant à dire que tous les apiculteurs devraient avoir douze ruches, le texte ne l'affirme nulle part : c'est une invention à partir d'un chiffre."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Comment vérifier qu'on a bien identifié l'idée principale d'un texte, et pas un simple détail ?",
+                                    "choices": [
+                                        "On vérifie que la plupart des phrases du texte s'y rattachent",
+                                        "On vérifie qu'elle se trouve dans la toute première phrase",
+                                        "On vérifie qu'elle est répétée avec les mêmes mots plusieurs fois"
+                                    ],
+                                    "answer": "On vérifie que la plupart des phrases du texte s'y rattachent",
+                                    "explanation": "L'idée principale est celle que le reste du texte sert : si les autres phrases l'expliquent ou l'illustrent, c'est la bonne. La première phrase peut n'être qu'une accroche ou un exemple. Et la répétition des mêmes mots n'est pas un critère : un bon texte évite justement les répétitions en variant le vocabulaire."
                                 }
                             ]
                         },
@@ -2361,6 +2955,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Plus le mot est précis, plus le message est clair."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour décrire une maison en ruine, quel mot remplace le mieux « vieille » dans « une vieille maison » ?",
+                                    "choices": [
+                                        "délabrée",
+                                        "ancienne",
+                                        "grande"
+                                    ],
+                                    "answer": "délabrée",
+                                    "explanation": "« Délabrée » dit à la fois l'âge et l'état d'abandon : c'est exactement l'idée de ruine. « Ancienne » indique seulement que la maison est vieille, sans dire qu'elle tombe en morceaux — un château ancien peut être parfaitement entretenu. Et « grande » parle de la taille, ce qui n'a aucun rapport avec l'état du bâtiment."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève écrit : « Le chien fait un bruit. » Pourquoi « Le chien grogne » est-il meilleur ?",
+                                    "choices": [
+                                        "Un seul verbe dit à la fois le bruit et ce que ressent l'animal",
+                                        "La phrase est plus courte, et une phrase courte est toujours meilleure",
+                                        "Le verbe faire est interdit dans une rédaction"
+                                    ],
+                                    "answer": "Un seul verbe dit à la fois le bruit et ce que ressent l'animal",
+                                    "explanation": "« Grogne » précise la nature du bruit et suggère la menace : le lecteur voit la scène. La brièveté n'est pas le critère : « Le chien émet un grognement sourd » est plus long et pourtant meilleur que « fait un bruit ». Et « faire » n'est pas interdit : il est juste imprécis ici, alors qu'il convient très bien dans « faire ses devoirs »."
                                 }
                             ]
                         },
@@ -2392,6 +3008,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Le contexte aide à savoir si un mot est employé au sens propre ou au sens figuré."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Cette nouvelle m'a glacé le sang. » Comment sait-on que « glacé » est ici au sens figuré ?",
+                                    "choices": [
+                                        "Une nouvelle ne peut pas refroidir un liquide : le mot exprime la peur",
+                                        "Le verbe glacer désigne toujours une image, jamais une action réelle",
+                                        "Le mot sang n'existe qu'au sens figuré dans les expressions"
+                                    ],
+                                    "answer": "Une nouvelle ne peut pas refroidir un liquide : le mot exprime la peur",
+                                    "explanation": "C'est l'impossibilité réelle qui signale le sens figuré : personne ne refroidit vraiment son sang en écoutant une nouvelle, le mot sert à dire la peur intense. « Glacer » garde pourtant un sens propre bien concret : « le vent a glacé le lac ». Et « sang » a lui aussi un sens propre parfaitement réel, comme dans « une prise de sang »."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans laquelle de ces phrases le mot « briller » est-il employé au sens propre ?",
+                                    "choices": [
+                                        "Les phares de la voiture brillent dans la nuit",
+                                        "Camille brille en mathématiques",
+                                        "Ses yeux brillaient de fierté"
+                                    ],
+                                    "answer": "Les phares de la voiture brillent dans la nuit",
+                                    "explanation": "Des phares émettent réellement de la lumière : c'est le sens propre, celui de la réalité. « Briller en mathématiques » ne produit aucune lumière : le mot signifie « réussir remarquablement ». Et des yeux qui brillent de fierté décrivent un sentiment par une image : là encore, c'est le sens figuré."
                                 }
                             ]
                         },
@@ -2423,6 +3061,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Plus un mot est abstrait, plus il faut s'appuyer sur le contexte pour en trouver le sens exact."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Le témoin a passé sous silence un détail important. » Quel sens le verbe « passer » prend-il ici ?",
+                                    "choices": [
+                                        "Il n'en a délibérément pas parlé",
+                                        "Il s'est déplacé sans faire de bruit",
+                                        "Il a mis du temps à en parler"
+                                    ],
+                                    "answer": "Il n'en a délibérément pas parlé",
+                                    "explanation": "« Passer sous silence », c'est taire volontairement quelque chose : le contexte (un témoin, un détail) impose ce sens abstrait. Comprendre « se déplacer sans bruit » revient à garder le sens concret de passer, que l'expression a justement quitté. Et l'idée de durée n'est pas dans la phrase : le témoin n'en a pas parlé du tout, ce n'est pas une question de temps."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Parmi ces trois mots, lequel n'appartient PAS à la famille de « tenir » ?",
+                                    "choices": [
+                                        "tenter",
+                                        "retenir",
+                                        "maintenir"
+                                    ],
+                                    "answer": "tenter",
+                                    "explanation": "« Tenter » signifie essayer : il ne vient pas de tenir, il lui ressemble seulement par le début du mot, ce qui est exactement le piège. « Retenir » (tenir en arrière) et « maintenir » (tenir avec la main, maintenir en place) portent bien tous les deux l'idée de tenir. Deux mots qui commencent pareil ne sont donc pas forcément de la même famille : c'est le sens du radical qui décide."
                                 }
                             ]
                         }
@@ -2616,6 +3276,28 @@
                                     "type": "tip",
                                     "label": "À retenir",
                                     "content": "Le vocabulaire riche (sciences, citoyenneté) demande une attention particulière à l'orthographe d'usage."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "On dicte le mot BAVARD. Quelle famille de mots aide à ne pas oublier le D final muet ?",
+                                    "choices": [
+                                        "bavarde, bavardage : le D s'entend dans ces mots",
+                                        "bave, baver : ces mots commencent pareil",
+                                        "aucune, il faut apprendre ce mot par cœur"
+                                    ],
+                                    "answer": "bavarde, bavardage : le D s'entend dans ces mots",
+                                    "explanation": "Pour trouver une lettre finale muette, on cherche un mot de la même famille où elle se prononce : dans « bavarde » et « bavardage », le D s'entend, donc bavard se termine par un D. « Bave » ne contient aucun D et ne renseigne donc sur rien. Et non, ce mot n'est pas à apprendre par cœur : la famille de mots donne la réponse."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "En dictée, un élève écrit « aparition ». Quel raisonnement permet de corriger sa faute ?",
+                                    "choices": [
+                                        "Je pense à apparaître, qui prend deux P : c'est la même famille",
+                                        "Je découpe le mot en syllabes : a-pa-ri-tion, j'écris ce que j'entends",
+                                        "Je double toujours la consonne après le préfixe a-"
+                                    ],
+                                    "answer": "Je pense à apparaître, qui prend deux P : c'est la même famille",
+                                    "explanation": "La famille de mots fixe l'orthographe : apparaître, apparence et apparition prennent tous deux P. Écrire ce qu'on entend est justement ce qui produit la faute, car une double consonne ne s'entend pas. Et il n'existe aucune règle qui doublerait toujours la consonne après a- : « avion » ou « ami » n'en prennent qu'une."
                                 }
                             ]
                         }
