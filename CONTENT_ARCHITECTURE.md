@@ -1165,8 +1165,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Le vivant `(ce2-sciences-vivant-subtheme)`
 
 - **Leçons** (2) :
-  - Les besoins des êtres vivants `(ce2-lesson-besoins-vivant)` — blocs: paragraph, example, bullets, tip
-  - Les cinq sens `(ce2-lesson-cinq-sens)` — blocs: paragraph, example, bullets, tip
+  - Les besoins des êtres vivants `(ce2-lesson-besoins-vivant)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les cinq sens `(ce2-lesson-cinq-sens)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Le vivant `(ce2-sciences-vivant)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-vivant, questions=8
   - Grandir et se nourrir `(ce2-sciences-grandir-nourrir)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_ce2.json, category=ce2-vivant
@@ -1177,8 +1177,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Matière `(ce2-sciences-matiere-subtheme)`
 
 - **Leçons** (2) :
-  - L'eau et ses états `(ce2-lesson-etats-eau)` — blocs: paragraph, example, bullets, tip
-  - Solide, liquide, gaz `(ce2-lesson-solides-liquides-gaz)` — blocs: paragraph, example, bullets, tip
+  - L'eau et ses états `(ce2-lesson-etats-eau)` — blocs: paragraph, example, bullets, tip, check, check
+  - Solide, liquide, gaz `(ce2-lesson-solides-liquides-gaz)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Matière `(ce2-sciences-matiere)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-matiere, questions=8
   - Objets du quotidien `(ce2-sciences-objets-techniques)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-objets-quotidien, questions=6
@@ -1189,8 +1189,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Observer `(ce2-sciences-observer-subtheme)`
 
 - **Leçons** (2) :
-  - Observer puis classer `(ce2-lesson-observer-classer)` — blocs: paragraph, example, bullets, tip
-  - Mener une expérience `(ce2-lesson-demarche-experience)` — blocs: paragraph, example, bullets, tip
+  - Observer puis classer `(ce2-lesson-observer-classer)` — blocs: paragraph, example, bullets, tip, check, check
+  - Mener une expérience `(ce2-lesson-demarche-experience)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Observer `(ce2-sciences-observer)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-observer-experimenter, questions=6
   - Expériences simples `(ce2-sciences-experiences)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-experiences-simples, questions=6
@@ -1202,8 +1202,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Saisons et météo `(ce2-sciences-saisons-subtheme)`
 
 - **Leçons** (2) :
-  - Le cycle des saisons `(ce2-lesson-cycle-saisons)` — blocs: paragraph, example, bullets, tip
-  - Les instruments de la météo `(ce2-lesson-instruments-meteo)` — blocs: paragraph, example, mini-table, tip
+  - Le cycle des saisons `(ce2-lesson-cycle-saisons)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les instruments de la météo `(ce2-lesson-instruments-meteo)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (4) :
   - Le cycle des saisons `(ce2-sciences-cycle-saisons)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-saisons-meteo, questions=8
   - Mesurer la météo `(ce2-sciences-mesurer-meteo)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-saisons-meteo, questions=6
@@ -1213,8 +1213,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Les milieux de vie `(ce2-sciences-milieux-subtheme)`
 
 - **Leçons** (2) :
-  - Qu'est-ce qu'un milieu de vie ? `(ce2-lesson-ecosysteme-simple)` — blocs: paragraph, example, bullets, tip
-  - La biodiversité d'un milieu `(ce2-lesson-biodiversite-milieux)` — blocs: paragraph, example, mini-table, tip
+  - Qu'est-ce qu'un milieu de vie ? `(ce2-lesson-ecosysteme-simple)` — blocs: paragraph, example, bullets, tip, check, check
+  - La biodiversité d'un milieu `(ce2-lesson-biodiversite-milieux)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (4) :
   - Les écosystèmes simples `(ce2-sciences-ecosystemes-simples)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-milieux-vie, questions=8
   - La biodiversité autour de nous `(ce2-sciences-biodiversite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-milieux-vie, questions=6
@@ -1583,9 +1583,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Le vivant `(cm1-sciences-vivant-subtheme)`
 
 - **Leçons** (3) :
-  - Classer le vivant `(cm1-lesson-vivant)` — blocs: paragraph, example, bullets, tip
-  - Vivant ou non-vivant ? `(cm1-lesson-vivant-non-vivant)` — blocs: paragraph, example, bullets, tip
-  - La chaîne alimentaire `(cm1-lesson-chaine-alimentaire)` — blocs: paragraph, example, bullets, tip
+  - Classer le vivant `(cm1-lesson-vivant)` — blocs: paragraph, example, bullets, tip, check, check
+  - Vivant ou non-vivant ? `(cm1-lesson-vivant-non-vivant)` — blocs: paragraph, example, bullets, tip, check, check
+  - La chaîne alimentaire `(cm1-lesson-chaine-alimentaire)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Le vivant `(cm1-sciences-vivant)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-vivant, questions=8
   - Classer le vivant `(cm1-sciences-classer-vivant)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/science_cm1.json, category=cm1-vivant
@@ -1595,7 +1595,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Matière et énergie `(cm1-sciences-matiere-subtheme)`
 
 - **Leçons** (1) :
-  - Matière et énergie `(cm1-lesson-matiere-energie)` — blocs: paragraph, example, bullets, tip
+  - Matière et énergie `(cm1-lesson-matiere-energie)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (9) :
   - Matière et énergie `(cm1-sciences-matiere)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-matiere-energie, questions=8
   - Sources d'énergie `(cm1-sciences-sources-energie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-sources-energie, questions=6
@@ -1610,8 +1610,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Corps et hygiène `(cm1-sciences-corps-subtheme)`
 
 - **Leçons** (2) :
-  - Prendre soin de son corps `(cm1-lesson-corps-hygiene)` — blocs: paragraph, example, bullets, tip
-  - Les cinq sens `(cm1-lesson-cinq-sens)` — blocs: paragraph, example, bullets, tip
+  - Prendre soin de son corps `(cm1-lesson-corps-hygiene)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les cinq sens `(cm1-lesson-cinq-sens)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Corps et hygiène `(cm1-sciences-corps)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-corps-hygiene, questions=6
   - Hygiène et santé `(cm1-sciences-hygiene-sante)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cm1.json, category=cm1-corps-hygiene
@@ -1622,8 +1622,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Électricité `(cm1-sciences-electricite-subtheme)`
 
 - **Leçons** (2) :
-  - Le circuit électrique simple `(cm1-lesson-circuit-simple)` — blocs: paragraph, example, bullets, tip
-  - La sécurité électrique de base `(cm1-lesson-securite-electrique-base)` — blocs: paragraph, example, bullets, tip
+  - Le circuit électrique simple `(cm1-lesson-circuit-simple)` — blocs: paragraph, example, bullets, tip, check, check
+  - La sécurité électrique de base `(cm1-lesson-securite-electrique-base)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Le circuit électrique `(cm1-sciences-circuit-electrique)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-electricite-base, questions=6
   - Piles et appareils `(cm1-sciences-piles-appareils)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-electricite-base, questions=6
@@ -1633,8 +1633,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Environnement `(cm1-sciences-environnement-subtheme)`
 
 - **Leçons** (2) :
-  - Les déchets et le tri simple `(cm1-lesson-tri-dechets-simple)` — blocs: paragraph, example, bullets, tip
-  - Des gestes simples pour la nature `(cm1-lesson-gestes-environnement-simples)` — blocs: paragraph, example, bullets, tip
+  - Les déchets et le tri simple `(cm1-lesson-tri-dechets-simple)` — blocs: paragraph, example, bullets, tip, check, check
+  - Des gestes simples pour la nature `(cm1-lesson-gestes-environnement-simples)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Trier ses déchets `(cm1-sciences-trier-dechets)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-environnement-gestes, questions=6
   - Économiser les ressources `(cm1-sciences-economiser-ressources)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-environnement-gestes, questions=6
@@ -1644,8 +1644,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Objets techniques `(cm1-sciences-techno-subtheme)`
 
 - **Leçons** (2) :
-  - Les machines simples `(cm1-lesson-objets-techniques)` — blocs: paragraph, example, tip
-  - Les objets techniques `(cm1-lesson-objets-techniques-fonction)` — blocs: paragraph, example, bullets, tip
+  - Les machines simples `(cm1-lesson-objets-techniques)` — blocs: paragraph, example, tip, check, check
+  - Les objets techniques `(cm1-lesson-objets-techniques-fonction)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Machines simples `(cm1-sciences-techno-objets)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-techno-objets, questions=8
   - Mécanismes en action `(cm1-sciences-techno-energie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-techno-objets, questions=6
@@ -2021,9 +2021,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Le vivant `(cm2-sciences-vivant-subtheme)`
 
 - **Leçons** (3) :
-  - Classer les êtres vivants `(cm2-lesson-classification-vivant)` — blocs: paragraph, bullets, bullets, tip
-  - La reproduction des êtres vivants `(cm2-lesson-reproduction-vivant)` — blocs: paragraph, bullets, bullets, example
-  - Chaînes alimentaires et écosystèmes `(cm2-lesson-chaines-alimentaires)` — blocs: paragraph, bullets, example, tip
+  - Classer les êtres vivants `(cm2-lesson-classification-vivant)` — blocs: paragraph, bullets, bullets, tip, check, check
+  - La reproduction des êtres vivants `(cm2-lesson-reproduction-vivant)` — blocs: paragraph, bullets, bullets, example, check, check
+  - Chaînes alimentaires et écosystèmes `(cm2-lesson-chaines-alimentaires)` — blocs: paragraph, bullets, example, tip, check, check
 - **Exercices** (5) :
   - Classer les êtres vivants `(cm2-sciences-vivant-classification)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-vivant-classification, questions=8
   - La reproduction des êtres vivants `(cm2-sciences-vivant-reproduction)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-vivant-reproduction, questions=6
@@ -2034,8 +2034,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Corps et santé `(cm2-sciences-corps-subtheme)`
 
 - **Leçons** (2) :
-  - Préserver sa santé `(cm2-lesson-corps-sante)` — blocs: paragraph, bullets, tip
-  - Les cinq sens `(cm2-lesson-cinq-sens)` — blocs: paragraph, mini-table, example, tip
+  - Préserver sa santé `(cm2-lesson-corps-sante)` — blocs: paragraph, bullets, tip, check, check
+  - Les cinq sens `(cm2-lesson-cinq-sens)` — blocs: paragraph, mini-table, example, tip, check, check
 - **Exercices** (4) :
   - Corps et santé `(cm2-sciences-corps)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-corps-sante, questions=8
   - Préserver sa santé `(cm2-sciences-preserver-sante)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/science_cm2.json, category=cm2-corps-sante
@@ -2045,7 +2045,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Énergie `(cm2-sciences-energie-subtheme)`
 
 - **Leçons** (1) :
-  - Produire et utiliser l'énergie `(cm2-lesson-sources-energie)` — blocs: paragraph, bullets, tip
+  - Produire et utiliser l'énergie `(cm2-lesson-sources-energie)` — blocs: paragraph, bullets, tip, check, check
 - **Exercices** (5) :
   - Énergie `(cm2-sciences-energie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-techno-energie, questions=8
   - Produire et économiser l'énergie `(cm2-sciences-produire-economiser-energie)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/science_cm2.json, category=cm2-techno-energie
@@ -2056,8 +2056,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Environnement `(cm2-sciences-environnement-subtheme)`
 
 - **Leçons** (2) :
-  - Protéger les milieux `(cm2-lesson-proteger-environnement-sciences)` — blocs: paragraph, bullets, tip
-  - Les états de la matière `(cm2-lesson-etats-matiere)` — blocs: paragraph, mini-table, example, tip
+  - Protéger les milieux `(cm2-lesson-proteger-environnement-sciences)` — blocs: paragraph, bullets, tip, check, check
+  - Les états de la matière `(cm2-lesson-etats-matiere)` — blocs: paragraph, mini-table, example, tip, check, check
 - **Exercices** (5) :
   - Environnement `(cm2-sciences-environnement)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-environnement, questions=6
   - Protéger les milieux `(cm2-sciences-proteger-milieux)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cm2.json, category=cm2-environnement
@@ -2068,7 +2068,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Corps et effort `(cm2-sciences-effort-subtheme)`
 
 - **Leçons** (1) :
-  - Le corps pendant l'effort `(cm2-lesson-corps-effort)` — blocs: paragraph, example, tip
+  - Le corps pendant l'effort `(cm2-lesson-corps-effort)` — blocs: paragraph, example, tip, check, check
 - **Exercices** (4) :
   - Corps et effort `(cm2-sciences-effort)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-corps-effort, questions=6
   - Respirer et récupérer `(cm2-sciences-respirer-recuperer)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cm2.json, category=cm2-corps-effort
@@ -2078,7 +2078,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Électricité `(cm2-sciences-electricite-subtheme)`
 
 - **Leçons** (1) :
-  - Faire circuler l'électricité `(cm2-lesson-electricite-circuit)` — blocs: paragraph, bullets, tip
+  - Faire circuler l'électricité `(cm2-lesson-electricite-circuit)` — blocs: paragraph, bullets, tip, check, check
 - **Exercices** (6) :
   - Électricité `(cm2-sciences-electricite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-electricite-objets, questions=6
   - Objets techniques `(cm2-sciences-objets-techniques)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-objets-techniques-quotidien, questions=6
@@ -2090,7 +2090,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Climat et déchets `(cm2-sciences-climat-subtheme)`
 
 - **Leçons** (1) :
-  - Réduire les déchets `(cm2-lesson-climat-dechets)` — blocs: paragraph, bullets, tip
+  - Réduire les déchets `(cm2-lesson-climat-dechets)` — blocs: paragraph, bullets, tip, check, check
 - **Exercices** (4) :
   - Climat et déchets `(cm2-sciences-climat)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-climat-dechets, questions=6
   - Prévention des déchets `(cm2-sciences-prevention-dechets)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-prevention-dechets, questions=6
@@ -2100,9 +2100,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Matière et transformations `(cm2-sciences-matiere-transformations-subtheme)`
 
 - **Leçons** (3) :
-  - Les états et les transformations `(cm2-lesson-etats-transformations)` — blocs: paragraph, example, bullets, tip
-  - Mélanges et séparations `(cm2-lesson-melanges-separations)` — blocs: paragraph, example, bullets, tip
-  - Lumière et son `(cm2-lesson-lumiere-son)` — blocs: paragraph, example, bullets, tip
+  - Les états et les transformations `(cm2-lesson-etats-transformations)` — blocs: paragraph, example, bullets, tip, check, check
+  - Mélanges et séparations `(cm2-lesson-melanges-separations)` — blocs: paragraph, example, bullets, tip, check, check
+  - Lumière et son `(cm2-lesson-lumiere-son)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (7) :
   - Matière et transformations `(cm2-sciences-matiere-transformations)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-matiere-transformations, questions=8
   - Les états de l’eau `(cm2-sciences-etats-eau)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-etats-eau, questions=8
