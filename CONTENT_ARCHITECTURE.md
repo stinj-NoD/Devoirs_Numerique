@@ -4,7 +4,7 @@ Document de référence listant, pour chaque niveau, chaque matière, chaque sou
 
 Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon, sans exercice, catégories peu fournies) pour prioriser les ajouts.
 
-> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-07-14 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
+> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-07-15 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
 
 ---
 
@@ -378,9 +378,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Le vivant `(cp-sciences-vivant-subtheme)`
 
 - **Leçons** (3) :
-  - Les besoins du vivant `(cp-lesson-vivant-besoins)` — blocs: paragraph, example, bullets, tip
-  - Plantes et animaux `(cp-lesson-plantes-animaux)` — blocs: paragraph, example, bullets, tip
-  - Vivant ou non-vivant `(cp-lesson-vivant-non-vivant)` — blocs: paragraph, example, bullets, tip
+  - Les besoins du vivant `(cp-lesson-vivant-besoins)` — blocs: paragraph, example, bullets, tip, check, check
+  - Plantes et animaux `(cp-lesson-plantes-animaux)` — blocs: paragraph, example, bullets, tip, check, check
+  - Vivant ou non-vivant `(cp-lesson-vivant-non-vivant)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Le vivant `(cp-sciences-vivant)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-vivant, questions=6
   - Animaux et plantes `(cp-sciences-animaux-plantes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-animaux-plantes-quotidien, questions=6
@@ -389,7 +389,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Matière et lumière `(cp-sciences-matiere-subtheme)`
 
 - **Leçons** (1) :
-  - La matière et ses états `(cp-lesson-matiere-etat)` — blocs: paragraph, example, bullets, tip
+  - La matière et ses états `(cp-lesson-matiere-etat)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Matière et lumière `(cp-sciences-matiere)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-matiere, questions=6
   - Objets et usages `(cp-sciences-objets-usages)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-objets-usages, questions=6
@@ -398,8 +398,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Corps et sens `(cp-sciences-corps-subtheme)`
 
 - **Leçons** (2) :
-  - Les cinq sens `(cp-lesson-corps-sens)` — blocs: paragraph, example, bullets, tip
-  - Les organes des sens `(cp-lesson-organes-sens)` — blocs: paragraph, example, bullets, tip
+  - Les cinq sens `(cp-lesson-corps-sens)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les organes des sens `(cp-lesson-organes-sens)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Corps et sens `(cp-sciences-corps)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-corps-sens, questions=6
   - Les cinq sens `(cp-sciences-cinq-sens)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cp.json, category=cp-corps-sens
@@ -410,8 +410,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Saisons et météo `(cp-sciences-saisons-subtheme)`
 
 - **Leçons** (2) :
-  - Les quatre saisons `(cp-lesson-quatre-saisons)` — blocs: paragraph, example, bullets, tip
-  - La météo du jour `(cp-lesson-meteo-du-jour)` — blocs: paragraph, example, bullets, tip
+  - Les quatre saisons `(cp-lesson-quatre-saisons)` — blocs: paragraph, example, bullets, tip, check, check
+  - La météo du jour `(cp-lesson-meteo-du-jour)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Les quatre saisons `(cp-sciences-saisons)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-saisons-meteo, questions=6
   - Le temps qu'il fait `(cp-sciences-meteo)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-saisons-meteo, questions=6
@@ -420,8 +420,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Où vivent les animaux ? `(cp-sciences-milieux-subtheme)`
 
 - **Leçons** (2) :
-  - Près de chez nous `(cp-lesson-milieux-proches)` — blocs: paragraph, example, bullets, tip
-  - La forêt, la mare et la mer `(cp-lesson-foret-mare-mer)` — blocs: paragraph, example, bullets, tip
+  - Près de chez nous `(cp-lesson-milieux-proches)` — blocs: paragraph, example, bullets, tip, check, check
+  - La forêt, la mare et la mer `(cp-lesson-foret-mare-mer)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Où vivent les animaux ? `(cp-sciences-milieux-vie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-milieux-vie, questions=6
   - La maison et le jardin `(cp-sciences-maison-jardin)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-milieux-vie, questions=6
@@ -431,8 +431,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Objets du quotidien `(cp-sciences-objets-subtheme)`
 
 - **Leçons** (2) :
-  - À quoi servent les objets ? `(cp-lesson-fonction-objets)` — blocs: paragraph, example, bullets, tip
-  - En quoi sont faits les objets ? `(cp-lesson-materiaux-simples)` — blocs: paragraph, example, bullets, tip
+  - À quoi servent les objets ? `(cp-lesson-fonction-objets)` — blocs: paragraph, example, bullets, tip, check, check
+  - En quoi sont faits les objets ? `(cp-lesson-materiaux-simples)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - À quoi ça sert ? `(cp-sciences-objets-fonction)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-objets-quotidien, questions=6
   - En quoi c'est fait ? `(cp-sciences-objets-materiaux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-objets-quotidien, questions=6
@@ -786,9 +786,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Le vivant `(ce1-sciences-vivant-subtheme)`
 
 - **Leçons** (3) :
-  - Le vivant a des besoins `(ce1-lesson-vivant-besoins)` — blocs: paragraph, example, bullets, tip
-  - Vivant ou non vivant ? `(ce1-lesson-vivant-non-vivant)` — blocs: paragraph, example, bullets, tip
-  - Le cycle de vie `(ce1-lesson-cycle-vie)` — blocs: paragraph, example, bullets, tip
+  - Le vivant a des besoins `(ce1-lesson-vivant-besoins)` — blocs: paragraph, example, bullets, tip, check, check
+  - Vivant ou non vivant ? `(ce1-lesson-vivant-non-vivant)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le cycle de vie `(ce1-lesson-cycle-vie)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Le vivant `(ce1-sciences-vivant)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-vivant, questions=6
   - Besoins du vivant `(ce1-sciences-besoins-vivant)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-besoins-vivant, questions=6
@@ -800,8 +800,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Matière `(ce1-sciences-matiere-subtheme)`
 
 - **Leçons** (2) :
-  - Les états de la matière `(ce1-lesson-matiere-eau-lumiere)` — blocs: paragraph, example, bullets, tip
-  - Mélanger et séparer `(ce1-lesson-melanger-separer)` — blocs: paragraph, example, bullets, tip
+  - Les états de la matière `(ce1-lesson-matiere-eau-lumiere)` — blocs: paragraph, example, bullets, tip, check, check
+  - Mélanger et séparer `(ce1-lesson-melanger-separer)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Matière `(ce1-sciences-matiere)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-matiere, questions=6
   - Les états de l'eau `(ce1-sciences-etats-eau)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-etats-eau, questions=6
@@ -811,8 +811,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Corps et hygiène `(ce1-sciences-corps-subtheme)`
 
 - **Leçons** (2) :
-  - Prendre soin de son corps `(ce1-lesson-prendre-soin-corps)` — blocs: paragraph, example, bullets, tip
-  - Les cinq sens `(ce1-lesson-cinq-sens)` — blocs: paragraph, example, bullets, tip
+  - Prendre soin de son corps `(ce1-lesson-prendre-soin-corps)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les cinq sens `(ce1-lesson-cinq-sens)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Corps et hygiène `(ce1-sciences-corps)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-corps-hygiene, questions=6
   - Prendre soin de son corps `(ce1-sciences-prendre-soin-corps)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_ce1.json, category=ce1-corps-hygiene
@@ -824,8 +824,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Saisons et météo `(ce1-sciences-saisons-subtheme)`
 
 - **Leçons** (2) :
-  - Le cycle des quatre saisons `(ce1-lesson-quatre-saisons)` — blocs: paragraph, example, bullets, tip
-  - Les phénomènes météo `(ce1-lesson-phenomenes-meteo)` — blocs: paragraph, example, bullets, tip
+  - Le cycle des quatre saisons `(ce1-lesson-quatre-saisons)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les phénomènes météo `(ce1-lesson-phenomenes-meteo)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Les saisons de l'année `(ce1-sciences-saisons-annee)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-saisons-meteo, questions=6
   - Observer la météo `(ce1-sciences-observer-meteo)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-saisons-meteo, questions=8
@@ -835,8 +835,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Les milieux de vie `(ce1-sciences-milieux-subtheme)`
 
 - **Leçons** (2) :
-  - Qu'est-ce qu'un milieu de vie ? `(ce1-lesson-milieu-de-vie)` — blocs: paragraph, example, bullets, tip
-  - Des milieux de vie en France `(ce1-lesson-milieux-france)` — blocs: paragraph, example, bullets, tip
+  - Qu'est-ce qu'un milieu de vie ? `(ce1-lesson-milieu-de-vie)` — blocs: paragraph, example, bullets, tip, check, check
+  - Des milieux de vie en France `(ce1-lesson-milieux-france)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Les milieux de vie `(ce1-sciences-milieux-vie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-milieux-vie, questions=6
   - Qui vit où ? `(ce1-sciences-qui-vit-ou)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-milieux-vie, questions=8
@@ -846,8 +846,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Objets et matériaux `(ce1-sciences-objets-subtheme)`
 
 - **Leçons** (2) :
-  - Les objets techniques simples `(ce1-lesson-objets-techniques)` — blocs: paragraph, example, bullets, tip
-  - Les propriétés des matériaux `(ce1-lesson-proprietes-materiaux)` — blocs: paragraph, example, bullets, tip
+  - Les objets techniques simples `(ce1-lesson-objets-techniques)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les propriétés des matériaux `(ce1-lesson-proprietes-materiaux)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Les objets techniques `(ce1-sciences-objets-techniques)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-objets-materiaux, questions=6
   - Propriétés des matériaux `(ce1-sciences-proprietes-materiaux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-objets-materiaux, questions=8
@@ -1702,7 +1702,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Nombres & calcul mental `(cm2-nombres-calcul-mental)`
 
 - **Leçons** (1) :
-  - Lire et écrire les grands nombres `(cm2-lesson-grands-nombres)` — blocs: paragraph, example, mini-table, tip
+  - Lire et écrire les grands nombres `(cm2-lesson-grands-nombres)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (10) :
   - Les Milliards `(cm2_grands_nombres)` — engine: `math-input`, type=dictée-nombres, min=1000000, max=9999999999, questions=10
   - Division Mentale `(cm2_division_mentale)` — engine: `math-input`, type=calc-mental, operator=/, questions=10
@@ -1718,8 +1718,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Fractions & décimaux `(cm2-fractions-decimaux)`
 
 - **Leçons** (2) :
-  - Comparer des décimaux `(cm2-lesson-decimaux-comparer)` — blocs: paragraph, example, bullets, tip
-  - Fraction ou décimal ? `(cm2-lesson-fractions-decimaux-lien)` — blocs: paragraph, example, mini-table, tip
+  - Comparer des décimaux `(cm2-lesson-decimaux-comparer)` — blocs: paragraph, example, bullets, tip, check, check
+  - Fraction ou décimal ? `(cm2-lesson-fractions-decimaux-lien)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (8) :
   - Décimaux `(cm2_decimaux_compare)` — engine: `choice-engine`, type=compare-decimals, questions=10
   - Fractions `(cm2_fractions_lecture)` — engine: `math-input`, type=fraction-view, maxDenom=12, questions=10
@@ -1733,8 +1733,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Division posée `(cm2-division-posee-subtheme)`
 
 - **Leçons** (2) :
-  - Comprendre la division posée `(cm2-lesson-division-comprendre)` — blocs: paragraph, example, bullets, tip
-  - Vérifier une division `(cm2-lesson-division-verifier)` — blocs: paragraph, mini-table, example, tip
+  - Comprendre la division posée `(cm2-lesson-division-comprendre)` — blocs: paragraph, example, bullets, tip, check, check
+  - Vérifier une division `(cm2-lesson-division-verifier)` — blocs: paragraph, mini-table, example, tip, check, check
 - **Exercices** (5) :
   - Division posée `(cm2_division_posee)` — engine: `math-input`, type=division-posed, level=2, questions=6
   - Division posée : reste `(cm2_division_posee_reste)` — engine: `math-input`, type=division-posed, level=2, ask=reste, questions=6
@@ -1745,9 +1745,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Grandeurs & mesures `(cm2-grandeurs-mesures-subtheme)`
 
 - **Leçons** (3) :
-  - Convertir des durées `(cm2-lesson-conversions-temps)` — blocs: paragraph, example, mini-table, tip
-  - Mesurer des longueurs `(cm2-lesson-mesures-longueurs)` — blocs: paragraph, mini-table, example, tip
-  - Proportionnalité, échelle et vitesse `(cm2-lesson-proportionnalite-echelle)` — blocs: paragraph, example, mini-table, example, bullets, example, tip
+  - Convertir des durées `(cm2-lesson-conversions-temps)` — blocs: paragraph, example, mini-table, tip, check, check
+  - Mesurer des longueurs `(cm2-lesson-mesures-longueurs)` — blocs: paragraph, mini-table, example, tip, check, check
+  - Proportionnalité, échelle et vitesse `(cm2-lesson-proportionnalite-echelle)` — blocs: paragraph, example, mini-table, example, bullets, example, tip, check, check
 - **Exercices** (17) :
   - Conversions de longueurs `(cm2-conversions-longueurs)` — engine: `conversion`, subtype=metric, questions=10
   - Heures et minutes `(cm2-heures-minutes)` — engine: `conversion`, subtype=time, memo=false, randomMinutes=true, questions=10
@@ -1770,10 +1770,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Géométrie `(cm2-geometrie-subtheme)`
 
 - **Leçons** (4) :
-  - Droites et angles `(cm2-lesson-droites-angles)` — blocs: paragraph, example, bullets, tip
-  - Polygones et cercle `(cm2-lesson-figures-cercle)` — blocs: paragraph, example, bullets, tip
-  - La symétrie `(cm2-lesson-symetrie)` — blocs: paragraph, example, bullets, tip
-  - Aires et volumes `(cm2-lesson-aires-volumes)` — blocs: paragraph, example, example, bullets, tip
+  - Droites et angles `(cm2-lesson-droites-angles)` — blocs: paragraph, example, bullets, tip, check, check
+  - Polygones et cercle `(cm2-lesson-figures-cercle)` — blocs: paragraph, example, bullets, tip, check, check
+  - La symétrie `(cm2-lesson-symetrie)` — blocs: paragraph, example, bullets, tip, check, check
+  - Aires et volumes `(cm2-lesson-aires-volumes)` — blocs: paragraph, example, example, bullets, tip, check, check
 - **Exercices** (15) :
   - Droites et angles `(cm2-geo-droites-angles)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm2.json, category=cm2-droites-angles, questions=8
   - Symétrie et figures `(cm2-geo-symetrie-figures)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm2.json, category=cm2-symetrie-figures, questions=8
@@ -1794,9 +1794,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Lire un graphique `(cm2-graphiques-subtheme)`
 
 - **Leçons** (3) :
-  - Lire un diagramme en barres `(cm2-lesson-lire-graphique)` — blocs: paragraph, example, bullets, tip
-  - Lire un tableau et un diagramme circulaire `(cm2-lesson-lire-tableau-diagramme)` — blocs: paragraph, example, bullets, tip
-  - La moyenne `(cm2-lesson-moyenne)` — blocs: paragraph, example, bullets, tip
+  - Lire un diagramme en barres `(cm2-lesson-lire-graphique)` — blocs: paragraph, example, bullets, tip, check, check
+  - Lire un tableau et un diagramme circulaire `(cm2-lesson-lire-tableau-diagramme)` — blocs: paragraph, example, bullets, tip, check, check
+  - La moyenne `(cm2-lesson-moyenne)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (7) :
   - Lire un diagramme en barres `(cm2-graphique-lecture)` — engine: `math-input`, type=bar-chart-read, maxBars=5, maxValue=30, questions=6
   - Lire un tableau de données `(cm2-donnees-tableaux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=cm2-donnees-tableaux, questions=6
