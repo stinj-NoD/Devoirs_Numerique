@@ -953,18 +953,22 @@ const App = {
                     UI.showScreen('screen-mode');
                     return;
                 }
-                UI.showScreen('screen-exercises');
+                if (this.state.currentLessonOrigin === 'library') {
+                    this.openLessonLibrary();
+                    return;
+                }
+                this.showExercisesScreen();
             },
             'screen-lesson': () => {
                 if (this.state.currentLessonOrigin === 'evening') {
                     UI.showScreen('screen-mode');
                     return;
                 }
-                if ((this.state.currentBrowseMode || 'exercises') === 'lessons' && this.state.currentLessonOrigin === 'library') {
+                if (this.state.currentLessonOrigin === 'library') {
                     UI.showScreen('screen-library');
                     return;
                 }
-                UI.showScreen('screen-exercises');
+                this.showExercisesScreen();
             },
             'screen-library': () => UI.showScreen('screen-mode'),
             'screen-exercises': () => {
@@ -2503,6 +2507,22 @@ const App = {
         UI.showScreen('screen-exercises');
     },
 
+    /**
+     * Affiche `screen-exercises` en garantissant que sa liste est rendue.
+     * `showScreen` seul ne suffit pas : le conteneur n'est peuplé que par
+     * renderThemeContent, et une leçon ouverte depuis la bibliothèque n'y est
+     * jamais passée — l'écran s'affichait alors vide sous son titre statique.
+     * Sans thème courant, on remonte au menu plutôt que d'afficher du vide.
+     */
+    showExercisesScreen(mode) {
+        if (!this.state.currentTheme) {
+            this.showBrowseModeMenu();
+            return;
+        }
+        this.renderThemeContent(mode || this.state.currentBrowseMode || 'exercises');
+        UI.showScreen('screen-exercises');
+    },
+
     renderThemeContent(mode = 'exercises') {
         const theme = this.state.currentTheme;
         if (!theme) return;
@@ -2740,12 +2760,7 @@ const App = {
                 this.openLessonLibrary();
                 return;
             }
-            if (this.state.currentTheme) {
-                this.renderThemeContent('exercises');
-                UI.showScreen('screen-exercises');
-                return;
-            }
-            this.showBrowseModeMenu();
+            this.showExercisesScreen('exercises');
         };
 
         UI.renderLesson(lesson, onContinue, {
