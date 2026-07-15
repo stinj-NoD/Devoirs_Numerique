@@ -333,8 +333,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Plan et quartier `(cp-plan-quartier-subtheme)`
 
 - **Leçons** (2) :
-  - Le plan de l'école `(cp-lesson-plan-ecole)` — blocs: paragraph, example, bullets, tip
-  - Le quartier `(cp-lesson-quartier)` — blocs: paragraph, example, bullets, tip
+  - Le plan de l'école `(cp-lesson-plan-ecole)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le quartier `(cp-lesson-quartier)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Le plan et le quartier `(cp-geo-plan-quartier)` — engine: `choice-engine`, type=factual-qcm, category=cp-plan-quartier, dataFile=data/geography_cp.json, questions=6
   - Défi : plan et quartier `(cp-bonus-plan-quartier-defi)` — engine: `choice-engine`, type=factual-qcm, category=cp-plan-quartier, dataFile=data/geography_cp.json, questions=8, bonus (seuil=2)
@@ -344,8 +344,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Se repérer `(cp-geo-reperage-subtheme)`
 
 - **Leçons** (2) :
-  - Se repérer à l'école `(cp-lesson-se-reperer-ecole)` — blocs: paragraph, example, bullets, tip
-  - Ma gauche, ma droite `(cp-lesson-gauche-droite)` — blocs: paragraph, example, bullets, tip
+  - Se repérer à l'école `(cp-lesson-se-reperer-ecole)` — blocs: paragraph, example, bullets, tip, check, check
+  - Ma gauche, ma droite `(cp-lesson-gauche-droite)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Se repérer `(cp-geo-reperer)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-se-reperer, questions=6
   - Se repérer à l'école `(cp-geo-ecole-trajets)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cp.json, category=cp-se-reperer
@@ -355,7 +355,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Paysages `(cp-geo-paysages-subtheme)`
 
 - **Leçons** (1) :
-  - Reconnaître des paysages `(cp-lesson-paysages-reperes)` — blocs: paragraph, example, bullets, tip
+  - Reconnaître des paysages `(cp-lesson-paysages-reperes)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Paysages `(cp-geo-paysages)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-paysages, questions=6
   - Reconnaître les paysages `(cp-geo-reconnaitre-paysages)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cp.json, category=cp-paysages
@@ -365,7 +365,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Transports et lieux `(cp-geo-transports-subtheme)`
 
 - **Leçons** (1) :
-  - Se déplacer selon les lieux `(cp-lesson-transports-lieux)` — blocs: paragraph, example, bullets, tip
+  - Se déplacer selon les lieux `(cp-lesson-transports-lieux)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Transports et lieux `(cp-geo-transports)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-transports-lieux, questions=6
   - Se déplacer selon les lieux `(cp-geo-deplacements-lieux)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cp.json, category=cp-transports-lieux
@@ -747,8 +747,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Se repérer `(ce1-geo-reperage-subtheme)`
 
 - **Leçons** (2) :
-  - Se repérer à l'école `(ce1-lesson-se-reperer-ecole)` — blocs: paragraph, example, bullets, tip
-  - La commune `(ce1-lesson-commune)` — blocs: paragraph, example, bullets, tip
+  - Se repérer à l'école `(ce1-lesson-se-reperer-ecole)` — blocs: paragraph, example, bullets, tip, check, check
+  - La commune `(ce1-lesson-commune)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Se repérer `(ce1-geo-reperage)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce1.json, category=ce1-reperage, questions=6
   - Plan du quartier `(ce1-geo-plan-quartier)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce1.json, category=ce1-plan-quartier, questions=6
@@ -760,9 +760,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Paysages `(ce1-geo-paysages-subtheme)`
 
 - **Leçons** (3) :
-  - Observer un paysage `(ce1-lesson-paysages-du-quotidien)` — blocs: paragraph, example, bullets, tip
-  - Mer, montagne, campagne, ville `(ce1-lesson-paysages-france)` — blocs: paragraph, example, bullets, tip
-  - Vivre au village ou en ville `(ce1-lesson-village-ville)` — blocs: paragraph, example, bullets, tip
+  - Observer un paysage `(ce1-lesson-paysages-du-quotidien)` — blocs: paragraph, example, bullets, tip, check, check
+  - Mer, montagne, campagne, ville `(ce1-lesson-paysages-france)` — blocs: paragraph, example, bullets, tip, check, check
+  - Vivre au village ou en ville `(ce1-lesson-village-ville)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Paysages `(ce1-geo-paysages)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce1.json, category=ce1-paysages, questions=6
   - Reconnaître les paysages `(ce1-geo-reconnaitre-paysages)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_ce1.json, category=ce1-paysages
@@ -774,8 +774,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### France et transports `(ce1-geo-transports-subtheme)`
 
 - **Leçons** (2) :
-  - Se déplacer en France `(ce1-lesson-transports-france)` — blocs: paragraph, example, bullets, tip
-  - À chaque trajet son transport `(ce1-lesson-choisir-transport)` — blocs: paragraph, example, bullets, tip
+  - Se déplacer en France `(ce1-lesson-transports-france)` — blocs: paragraph, example, bullets, tip, check, check
+  - À chaque trajet son transport `(ce1-lesson-choisir-transport)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - France et transports `(ce1-geo-transports)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce1.json, category=ce1-transports-france, questions=6
   - Se déplacer en France `(ce1-geo-se-deplacer-france)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_ce1.json, category=ce1-transports-france
@@ -1115,9 +1115,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Espaces `(ce2-geo-espaces-subtheme)`
 
 - **Leçons** (3) :
-  - Habiter des espaces différents `(ce2-lesson-habiter-espaces-differents)` — blocs: paragraph, example, bullets, tip
-  - La commune et ses services `(ce2-lesson-commune-services)` — blocs: paragraph, example, bullets, tip
-  - Ville et campagne `(ce2-lesson-ville-campagne)` — blocs: paragraph, example, bullets, tip
+  - Habiter des espaces différents `(ce2-lesson-habiter-espaces-differents)` — blocs: paragraph, example, bullets, tip, check, check
+  - La commune et ses services `(ce2-lesson-commune-services)` — blocs: paragraph, example, bullets, tip, check, check
+  - Ville et campagne `(ce2-lesson-ville-campagne)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Espaces `(ce2-geo-espaces)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce2.json, category=ce2-espaces, questions=8
   - Habiter et activités `(ce2-geo-habiter)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce2.json, category=ce2-habiter-activites, questions=6
@@ -1129,8 +1129,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### La France `(ce2-geo-france-subtheme)`
 
 - **Leçons** (2) :
-  - Lire une carte de France `(ce2-lesson-lire-carte-france)` — blocs: paragraph, example, bullets, tip
-  - La France en relief `(ce2-lesson-france-releifs-fleuves)` — blocs: paragraph, example, bullets, tip
+  - Lire une carte de France `(ce2-lesson-lire-carte-france)` — blocs: paragraph, example, bullets, tip, check, check
+  - La France en relief `(ce2-lesson-france-releifs-fleuves)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - La France `(ce2-geo-france)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce2.json, category=ce2-france, questions=8
   - Reliefs simples `(ce2-geo-reliefs)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce2.json, category=ce2-reliefs-simples, questions=6
@@ -1140,8 +1140,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Se repérer `(ce2-geo-reperage-subtheme)`
 
 - **Leçons** (2) :
-  - Lire une carte simple `(ce2-lesson-lire-carte-simple)` — blocs: paragraph, example, bullets, tip
-  - Le plan du quartier `(ce2-lesson-plan-quartier)` — blocs: paragraph, example, bullets, tip
+  - Lire une carte simple `(ce2-lesson-lire-carte-simple)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le plan du quartier `(ce2-lesson-plan-quartier)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Se repérer `(ce2-geo-reperage)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce2.json, category=ce2-se-reperer, questions=6
   - Plan et repères `(ce2-geo-plan-reperes)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_ce2.json, category=ce2-se-reperer
@@ -1152,8 +1152,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Transports `(ce2-geo-transports-subtheme)`
 
 - **Leçons** (2) :
-  - Se déplacer selon les lieux `(ce2-lesson-choisir-transport)` — blocs: paragraph, example, bullets, tip
-  - Comparer les transports `(ce2-lesson-transports-comparer)` — blocs: paragraph, example, bullets, tip
+  - Se déplacer selon les lieux `(ce2-lesson-choisir-transport)` — blocs: paragraph, example, bullets, tip, check, check
+  - Comparer les transports `(ce2-lesson-transports-comparer)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Transports `(ce2-geo-transports)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce2.json, category=ce2-transports, questions=6
   - Voyager et se déplacer `(ce2-geo-voyager-deplacer)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_ce2.json, category=ce2-transports
@@ -1524,8 +1524,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Reliefs et fleuves `(cm1-geo-relief-subtheme)`
 
 - **Leçons** (2) :
-  - Observer un paysage `(cm1-lesson-relief-paysage)` — blocs: paragraph, example, bullets, tip
-  - Les paysages de France `(cm1-lesson-paysages-france)` — blocs: paragraph, example, mini-table, tip
+  - Observer un paysage `(cm1-lesson-relief-paysage)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les paysages de France `(cm1-lesson-paysages-france)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (5) :
   - Reliefs et fleuves `(cm1-geo-relief)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-france-relief, questions=8
   - Fleuves et reliefs de France `(cm1-geo-fleuves-reliefs-france)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/geography_cm1.json, category=cm1-france-relief
@@ -1536,9 +1536,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Territoires `(cm1-geo-territoires-subtheme)`
 
 - **Leçons** (3) :
-  - Repérer un territoire `(cm1-lesson-territoires)` — blocs: paragraph, example, bullets, tip
-  - Lire une carte de France `(cm1-lesson-carte-legende)` — blocs: paragraph, example, bullets, tip
-  - Les régions de France `(cm1-lesson-regions-france)` — blocs: paragraph, example, bullets, tip
+  - Repérer un territoire `(cm1-lesson-territoires)` — blocs: paragraph, example, bullets, tip, check, check
+  - Lire une carte de France `(cm1-lesson-carte-legende)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les régions de France `(cm1-lesson-regions-france)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Territoires `(cm1-geo-territoires)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-france-regions, questions=8
   - Types de territoires `(cm1-geo-types-territoires)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-types-territoires, questions=6
@@ -1549,8 +1549,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Se déplacer `(cm1-geo-deplacements-subtheme)`
 
 - **Leçons** (2) :
-  - Se déplacer en France `(cm1-lesson-deplacements)` — blocs: paragraph, example, bullets, tip
-  - Se déplacer en France `(cm1-lesson-mobilites-france)` — blocs: paragraph, example, bullets, tip
+  - Se déplacer en France `(cm1-lesson-deplacements)` — blocs: paragraph, example, bullets, tip, check, check
+  - Se déplacer en France `(cm1-lesson-mobilites-france)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Se déplacer `(cm1-geo-deplacements)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-se-deplacer, questions=6
   - Défi : se déplacer `(cm1-bonus-geo-deplacements-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-se-deplacer, questions=10, bonus (seuil=2)
@@ -1560,7 +1560,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Se situer dans le monde `(cm1-geo-europe-subtheme)`
 
 - **Leçons** (1) :
-  - La France en Europe `(cm1-lesson-france-europe)` — blocs: paragraph, example, bullets, tip
+  - La France en Europe `(cm1-lesson-france-europe)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (15) :
   - La France en Europe `(cm1-geo-france-europe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-europe-monde, questions=6
   - Se situer dans le monde `(cm1-geo-se-situer-monde)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-europe-monde, questions=6
@@ -1960,8 +1960,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### France et Europe `(cm2-geo-europe-subtheme)`
 
 - **Leçons** (2) :
-  - Habiter des espaces différents `(cm2-lesson-habiter-espaces-differents)` — blocs: paragraph, example, bullets, tip
-  - La France dans l'Union européenne `(cm2-lesson-france-union-europeenne)` — blocs: paragraph, example, bullets, tip
+  - Habiter des espaces différents `(cm2-lesson-habiter-espaces-differents)` — blocs: paragraph, example, bullets, tip, check, check
+  - La France dans l'Union européenne `(cm2-lesson-france-union-europeenne)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (8) :
   - France et Europe `(cm2-geo-europe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-france-europe, questions=8
   - Europe proche `(cm2-geo-europe-proche)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-europe-proche, questions=6
@@ -1975,10 +1975,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Habiter `(cm2-geo-habiter-subtheme)`
 
 - **Leçons** (4) :
-  - Échanger et circuler dans le monde `(cm2-lesson-mondialisation-echanges)` — blocs: paragraph, example, bullets, tip
-  - Les grands territoires français `(cm2-lesson-territoires-france)` — blocs: paragraph, example, bullets, tip
-  - Vivre à la campagne `(cm2-lesson-vivre-campagne)` — blocs: paragraph, example, bullets, tip
-  - Vivre sur le littoral ou à la montagne `(cm2-lesson-littoral-montagne)` — blocs: paragraph, example, mini-table, tip
+  - Échanger et circuler dans le monde `(cm2-lesson-mondialisation-echanges)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les grands territoires français `(cm2-lesson-territoires-france)` — blocs: paragraph, example, bullets, tip, check, check
+  - Vivre à la campagne `(cm2-lesson-vivre-campagne)` — blocs: paragraph, example, bullets, tip, check, check
+  - Vivre sur le littoral ou à la montagne `(cm2-lesson-littoral-montagne)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (8) :
   - Habiter `(cm2-geo-habiter)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-habiter, questions=8
   - Habiter différents espaces `(cm2-geo-habiter-espaces)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/geography_cm2.json, category=cm2-habiter
@@ -1992,8 +1992,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Échanges `(cm2-geo-mondialisation-subtheme)`
 
 - **Leçons** (2) :
-  - Les acteurs de la mondialisation `(cm2-lesson-acteurs-mondialisation)` — blocs: paragraph, example, bullets, tip
-  - Le coût environnemental des échanges `(cm2-lesson-developpement-durable-echanges)` — blocs: paragraph, example, bullets, tip
+  - Les acteurs de la mondialisation `(cm2-lesson-acteurs-mondialisation)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le coût environnemental des échanges `(cm2-lesson-developpement-durable-echanges)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Échanges `(cm2-geo-mondialisation)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-mondialisation, questions=6
   - Échanges et flux `(cm2-geo-echanges-flux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-echanges-flux, questions=6
@@ -2004,9 +2004,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Développement durable `(cm2-geo-durable-subtheme)`
 
 - **Leçons** (3) :
-  - Habiter plus durablement `(cm2-lesson-habiter-durablement)` — blocs: paragraph, example, bullets, tip
-  - Le développement durable `(cm2-lesson-developpement-durable)` — blocs: paragraph, example, bullets, tip
-  - Protéger les milieux `(cm2-lesson-proteger-environnement)` — blocs: paragraph, bullets, example, tip
+  - Habiter plus durablement `(cm2-lesson-habiter-durablement)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le développement durable `(cm2-lesson-developpement-durable)` — blocs: paragraph, example, bullets, tip, check, check
+  - Protéger les milieux `(cm2-lesson-proteger-environnement)` — blocs: paragraph, bullets, example, tip, check, check
 - **Exercices** (7) :
   - Développement durable `(cm2-geo-durable)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-developpement-durable, questions=6
   - Agir pour durer `(cm2-geo-agir-pour-durer)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cm2.json, category=cm2-developpement-durable
