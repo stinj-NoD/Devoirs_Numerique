@@ -922,8 +922,21 @@ const UI = {
         if (!Array.isArray(checkBlocks) || checkBlocks.length === 0) return '';
         const esc = (v) => SecurityUtils.escapeHtml(v);
 
+        // Les `choices` sont écrits dans les JSON avec la bonne réponse en tête :
+        // sans ce mélange, l'enfant apprend la position au lieu de la leçon.
+        // La validation compare la VALEUR (`value === block.answer`), jamais
+        // l'index : mélanger l'affichage est donc sans effet de bord.
+        const shuffled = (list) => {
+            const out = list.slice();
+            for (let i = out.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [out[i], out[j]] = [out[j], out[i]];
+            }
+            return out;
+        };
+
         const questionsHtml = checkBlocks.map((block, index) => {
-            const choices = Array.isArray(block.choices) ? block.choices : [];
+            const choices = shuffled(Array.isArray(block.choices) ? block.choices : []);
             return `
                 <div class="lesson-check-item" data-check-index="${index}">
                     <p class="lesson-check-question">
