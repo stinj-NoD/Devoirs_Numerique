@@ -147,6 +147,12 @@ qu'en partie. Dans ce mode :
   si ta réponse s'y trouve mot pour mot, la question est à refaire (R1). Au
   moins un des 2 checks porte sur un **cas nouveau**, jamais l'exemple déjà
   présent dans la leçon (R2).
+- **Piège le plus fréquent (R4)** : rédiger la bonne réponse complètement et
+  expédier les distracteurs. L'enfant prend alors la plus longue sans lire.
+  Donne aux distracteurs une longueur comparable — du détail concret et
+  franchement faux, jamais une nuance qui les rendrait plausibles.
+  `check-lesson-quiz.js` avertit au-delà de 1,35 fois la 2e plus longue.
+  Inutile de soigner l'ordre de `choices` : le rendu les mélange.
 - **Modèle à suivre** : `cp-lesson-addition-comprendre` dans `data/cp.json`.
 - **Pipeline** : `validate-data.ps1` → `check-lesson-quiz.js` (doit renvoyer
   `LESSON_QUIZ_OK`) → `build-content-index.js --check` → bundle → architecture

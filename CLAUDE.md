@@ -25,6 +25,7 @@ Puis vérifier manuellement au minimum : une leçon, un exercice maths, un exerc
 ```bash
 node scripts/validate-subjects.js   # chaque sujet des 5 niveaux doit être reconnu par Storage.canonicalizeSubjectId (sinon ses records n'ont pas de matière pour les badges)
 node scripts/validate-maps.js       # à lancer après tout ajout de carte map-locate ou d'exercice board-interactive
+node scripts/check-lesson-quiz.js   # à lancer après TOUTE modification d'un bloc `check` : couverture des quiz + les 5 règles éditoriales (docs/lesson-guidelines.md)
 ```
 
 **Anti-doublon et référencement (`scripts/build-content-index.js`)** : `--check` échoue si un `id` d'exercice/leçon est dupliqué (les validateurs historiques ne vérifient l'unicité que *par fichier* ; or un `id` est une clé de record côté utilisateur), si le registre des moteurs (`data/engine-registry.json`) diverge de `Validators.knownEngines`/`$knownEngines`, ou si `CONTENT_INDEX.json` est périmé. Il rapporte en **avertissement** (non bloquant) les doublons « mous » légitimes du contenu historique (variantes bonus, banque étalée sur plusieurs exercices) — leur but est de rendre visibles les viviers `dataFile::category` déjà utilisés pour ne pas **en créer de nouveaux**. `CONTENT_INDEX.json` (racine, généré) et `data/engine-registry.json` sont de l'**outillage** exclu du bundle runtime (voir `regenerate-data-bundle.ps1`) ; le registre est documenté dans `docs/engine-registry.md`.

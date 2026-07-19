@@ -175,6 +175,19 @@ Contraintes (validées **en miroir** par `js/validators.js` et
 `scripts/validate-data.ps1`) : 2 à 4 `choices`, sans doublon, `answer` doit
 figurer dans `choices`, `explanation` facultative.
 
+**L'ordre des `choices` n'est pas celui affiché.** `UI.renderLessonCheck`
+mélange les propositions à chaque rendu (Fisher-Yates), y compris à la
+relecture d'une leçon déjà comprise. La validation compare la **valeur**
+(`choice === block.answer`), jamais l'indice : l'ordre du JSON n'a donc aucune
+incidence fonctionnelle. Ce mélange a été ajouté parce que 693 des 696 blocs
+`check` du catalogue déclaraient la bonne réponse en première position — des
+enfants testeurs répondaient juste en cliquant toujours le premier bouton.
+
+Corollaire éditorial : le mélange neutralise l'indice de position, pas ceux de
+forme. Une bonne réponse nettement plus longue que ses distracteurs reste
+repérable sans comprendre — voir la règle R4 de `docs/lesson-guidelines.md`,
+contrôlée par `scripts/check-lesson-quiz.js`.
+
 > Ce bloc est **hors du pipeline des moteurs** (`engine` + `params`), volontairement :
 > la boucle de jeu d'un moteur crée un record, ce qui fausserait `exercisesAttempted`,
 > `perfectCount` et les badges de maîtrise. Une leçon comprise crédite des **pièces**

@@ -121,12 +121,19 @@ for (const grade of GRADES) {
                     }
 
                     // --- Contrôle 4 (R4) : réponse déductible de sa longueur. AVERTISSEMENT.
+                    // On compare à la DEUXIÈME plus longue, pas à la plus courte :
+                    // c'est ce que fait l'œil. L'ancien seuil (max > min * 2) laissait
+                    // passer 54 vrais indices — une réponse de 82 car. face à 45 et 49
+                    // ne double pas le minimum mais saute aux yeux.
+                    // Les réponses courtes par nature (« ph », « 14 », « 3 000 m ») sont
+                    // exclues : leurs distracteurs ne sont pas rallongeables sans absurdité.
                     if (choices.length >= 2) {
-                        const lengths = choices.map((c) => String(c).length);
-                        const min = Math.min(...lengths);
-                        const max = Math.max(...lengths);
-                        if (min > 0 && max > min * 2 && String(answer).length === max) {
-                            warnings.push(`${at} : la bonne réponse est le choix le plus long (${max} car. contre ${min}) — repérable sans comprendre (R4).`);
+                        const answerText = String(answer);
+                        const others = choices.filter((c) => String(c) !== answerText).map((c) => String(c).length);
+                        const secondLongest = others.length ? Math.max(...others) : 0;
+                        const isProse = answerText.length > 20 && answerText.includes(' ');
+                        if (secondLongest > 0 && isProse && answerText.length / secondLongest >= 1.35) {
+                            warnings.push(`${at} : la bonne réponse est nettement la plus longue (${answerText.length} car. contre ${secondLongest}) — repérable sans comprendre (R4). Étoffer les distracteurs sans les rendre plus plausibles.`);
                         }
                     }
                 });

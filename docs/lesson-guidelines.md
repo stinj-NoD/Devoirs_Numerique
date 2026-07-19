@@ -79,7 +79,22 @@ Contrat du bloc :
   transforme le QCM en question à un seul choix plausible.
 - **R4 — Réponse non déductible de la forme.** Choix de longueur comparable ;
   la bonne réponse ne reprend pas les mots saillants de la question.
-  *(partiellement vérifié par le script)*
+  *(vérifié par le script : avertissement si la bonne réponse atteint 1,35 fois
+  la deuxième plus longue)*. Deux pièges de forme, tous deux constatés en
+  production sur des enfants testeurs :
+  - **La position.** Ne pas compter sur l'ordre du JSON : `UI.renderLessonCheck`
+    mélange les choix à chaque rendu. Écrire `answer` en tête de `choices` est
+    donc sans effet visible — mais ne dispense pas des autres règles.
+  - **La longueur.** Le piège réel : rédiger la bonne réponse complètement et
+    expédier les distracteurs. L'enfant prend alors la plus longue sans lire.
+    Correction : **étoffer les distracteurs sans les rendre plus plausibles** —
+    du détail concret et franchement faux (« le mercredi matin », « au fond de
+    lui »), jamais une nuance qui les rapproche de la vérité. Le but est de
+    supprimer un indice visuel, pas de fabriquer des pièges ambigus.
+
+  Exception : quand la réponse est courte par nature (« ph » face à « f »/« v »,
+  « 14 » face à « 9 »/« 8 »), allonger les distracteurs les rendrait absurdes —
+  le script ignore ces cas.
 - **R5 — `explanation` obligatoire de fait et explicative.** Le validateur la
   rend facultative, l'éditorial l'exige : « J'ajoute les deux quantités : 4 et
   2 font 6 », jamais « Bravo ». C'est le seul retour que reçoit l'enfant qui
