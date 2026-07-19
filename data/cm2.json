@@ -412,8 +412,8 @@
                                     "question": "Un élève écrit que 1/5 = 0,15. Quelle est son erreur ?",
                                     "choices": [
                                         "Il a collé les deux chiffres au lieu de calculer 1 ÷ 5, qui donne 0,2",
-                                        "Il a oublié une décimale : 1/5 s'écrit 0,155",
-                                        "Il a inversé la fraction : 1/5 s'écrit 0,51"
+                                        "Il a simplement oublié une décimale au passage : 1/5 s'écrit 0,155",
+                                        "Il a inversé les deux termes de la fraction : 1/5 s'écrit 0,51"
                                     ],
                                     "answer": "Il a collé les deux chiffres au lieu de calculer 1 ÷ 5, qui donne 0,2",
                                     "explanation": "Une fraction est une division : 1/5 se calcule 1 ÷ 5 = 0,2, et non en accolant le 1 et le 5. Écrire 0,155 est faux : ajouter des décimales n'a aucun rapport avec le calcul de la division. Et 0,51 est faux aussi : intervertir les chiffres ne correspond à aucune règle, une fraction ne se lit pas à l'envers."
@@ -1045,8 +1045,8 @@
                                     "question": "Un pull coûte 80 € et bénéficie d'une remise de 25 %. Un élève annonce un prix final de 25 €. Quelle est son erreur ?",
                                     "choices": [
                                         "Il a pris le pourcentage pour un prix : la remise vaut 20 €, donc le pull coûte 60 €",
-                                        "Il a oublié de multiplier par 100 : la remise vaut 2 000 €",
-                                        "Il a divisé par 25 au lieu de 4 : le pull coûte 3,20 €"
+                                        "Il a oublié de multiplier le tout par 100 : la remise vaut alors 2 000 €",
+                                        "Il a divisé par 25 au lieu de diviser par 4 : le pull coûte 3,20 €"
                                     ],
                                     "answer": "Il a pris le pourcentage pour un prix : la remise vaut 20 €, donc le pull coûte 60 €",
                                     "explanation": "25 % est une proportion, pas une somme : 25 % de 80 €, c'est le quart de 80, soit 20 € de remise, et le pull revient à 80 − 20 = 60 €. Multiplier par 100 donnerait 2 000 €, une remise plus grande que le prix : impossible. Diviser par 25 donne 3,20 €, ce qui n'a pas de sens non plus : une remise de 25 % ne peut pas faire perdre presque tout le prix."
@@ -1170,8 +1170,8 @@
                                     "question": "Une figure a 4 côtés. Que peut-on affirmer avec certitude ?",
                                     "choices": [
                                         "C'est un quadrilatère, mais ses angles peuvent être quelconques",
-                                        "C'est un carré, car un carré a 4 côtés",
-                                        "Ses 4 côtés ont la même longueur"
+                                        "C'est forcément un carré, puisqu'un carré possède 4 côtés",
+                                        "Ses 4 côtés ont obligatoirement la même longueur"
                                     ],
                                     "answer": "C'est un quadrilatère, mais ses angles peuvent être quelconques",
                                     "explanation": "Le nombre de côtés donne la famille : 4 côtés font un quadrilatère, sans rien imposer aux angles ni aux longueurs. Conclure au carré est trop rapide : un carré est un quadrilatère particulier, avec 4 angles droits et 4 côtés égaux, alors qu'un quadrilatère quelconque n'a rien de tout cela. Affirmer que les côtés sont égaux est faux pour la même raison : un rectangle allongé a bien 4 côtés de longueurs différentes."
@@ -1212,8 +1212,8 @@
                                     "question": "Un élève trace la diagonale d'un rectangle et affirme que c'est un axe de symétrie « puisqu'elle le coupe en deux parts identiques ». Pourquoi se trompe-t-il ?",
                                     "choices": [
                                         "Les deux moitiés ne se superposent pas par pliage le long de la diagonale",
-                                        "Un rectangle ne possède aucun axe de symétrie",
-                                        "Un axe de symétrie doit toujours être vertical"
+                                        "Un rectangle ne possède en réalité aucun axe de symétrie",
+                                        "Un axe de symétrie doit toujours être tracé verticalement"
                                     ],
                                     "answer": "Les deux moitiés ne se superposent pas par pliage le long de la diagonale",
                                     "explanation": "Découper en deux parts de même aire ne suffit pas : il faut que le pliage superpose exactement les deux moitiés, or en pliant un rectangle le long de sa diagonale, les triangles dépassent l'un de l'autre. Dire qu'un rectangle n'a aucun axe est faux : il en a deux, passant par les milieux des côtés opposés. Et un axe n'est pas forcément vertical : celui d'un rectangle posé à plat peut être horizontal."
@@ -1661,8 +1661,8 @@
                                     "question": "Dans un tableau à double entrée, on cherche le nombre de livres empruntés par les CM1 en janvier. Où lire l'information ?",
                                     "choices": [
                                         "Dans la case où la ligne « CM1 » et la colonne « Janvier » se croisent",
-                                        "Dans la case du total de la ligne « CM1 »",
-                                        "Dans la première case de la colonne « Janvier »"
+                                        "Dans la case qui donne le total de toute la ligne « CM1 »",
+                                        "Dans la toute première case en haut de la colonne « Janvier »"
                                     ],
                                     "answer": "Dans la case où la ligne « CM1 » et la colonne « Janvier » se croisent",
                                     "explanation": "Un tableau à double entrée croise deux informations : il faut donc les deux repères à la fois, la classe et le mois. La case de total de la ligne « CM1 » donnerait les emprunts de l'année entière, tous mois confondus. La première case de la colonne « Janvier » concerne bien janvier, mais celle d'une autre classe : sans croiser les deux entrées, on lit la mauvaise donnée."
@@ -1906,8 +1906,8 @@
                                     "question": "Dans « Les élèves ont rangé la classe », pourquoi « rangé » ne prend-il pas de -s malgré le sujet pluriel ?",
                                     "choices": [
                                         "Parce que l'auxiliaire est avoir et que le COD est placé après le verbe",
-                                        "Parce qu'un participe passé ne s'accorde jamais",
-                                        "Parce que « la classe » est au singulier"
+                                        "Parce qu'un participe passé ne s'accorde jamais avec le sujet",
+                                        "Parce que le groupe « la classe » est au singulier"
                                     ],
                                     "answer": "Parce que l'auxiliaire est avoir et que le COD est placé après le verbe",
                                     "explanation": "Avec avoir, le participe ne s'accorde jamais avec le sujet : « les élèves » n'a donc aucun effet. Il s'accorde seulement avec le COD s'il est placé avant (« la classe qu'ils ont rangée »), ce qui n'est pas le cas ici. Dire qu'un participe ne s'accorde jamais est faux (avec être, il s'accorde), et le singulier de « la classe » n'entre pas en jeu puisque ce COD est placé après le verbe."
@@ -3025,8 +3025,8 @@
                                     "question": "Dans laquelle de ces phrases le mot « briller » est-il employé au sens propre ?",
                                     "choices": [
                                         "Les phares de la voiture brillent dans la nuit",
-                                        "Camille brille en mathématiques",
-                                        "Ses yeux brillaient de fierté"
+                                        "Camille brille tout particulièrement en mathématiques",
+                                        "Ses yeux brillaient de fierté devant toute la classe"
                                     ],
                                     "answer": "Les phares de la voiture brillent dans la nuit",
                                     "explanation": "Des phares émettent réellement de la lumière : c'est le sens propre, celui de la réalité. « Briller en mathématiques » ne produit aucune lumière : le mot signifie « réussir remarquablement ». Et des yeux qui brillent de fierté décrivent un sentiment par une image : là encore, c'est le sens figuré."
@@ -4188,8 +4188,8 @@
                                     "question": "Dans la devise de la République, que demande le mot « Fraternité » aux citoyens ?",
                                     "choices": [
                                         "De se soutenir entre eux, comme les membres d'une même communauté",
-                                        "D'être tous frères et sœurs d'une même famille",
-                                        "De penser tous exactement la même chose"
+                                        "D'être tous les frères et les sœurs d'une même famille",
+                                        "De penser tous exactement la même chose sur chaque sujet"
                                     ],
                                     "answer": "De se soutenir entre eux, comme les membres d'une même communauté",
                                     "explanation": "La fraternité, c'est l'entraide et la solidarité entre citoyens qui ne se connaissent pas forcément. Il ne s'agit pas de liens du sang, et la République protège au contraire la liberté de penser différemment."
@@ -4745,8 +4745,8 @@
                                     "question": "Deux communes françaises ont exactement le même nombre d'habitants, mais l'une s'étend sur 2 km² et l'autre sur 90 km². Que peut-on en déduire ?",
                                     "choices": [
                                         "La première est dense et urbaine, la seconde rurale et étalée",
-                                        "La première est plus riche que la seconde",
-                                        "Les deux communes ont les mêmes paysages"
+                                        "La première commune est forcément plus riche que la seconde",
+                                        "Les deux communes présentent exactement les mêmes paysages"
                                     ],
                                     "answer": "La première est dense et urbaine, la seconde rurale et étalée",
                                     "explanation": "À population égale, la surface révèle la densité : entassée sur 2 km², c'est la ville ; dispersée sur 90 km², c'est la campagne. La richesse ne se déduit pas d'une surface. Et leurs paysages diffèrent forcément : immeubles d'un côté, champs et hameaux de l'autre."
@@ -5481,8 +5481,8 @@
                                     "question": "Dans une forêt, les champignons et les bactéries disparaissent. Que se passe-t-il ?",
                                     "choices": [
                                         "Les feuilles mortes s'accumulent sans être recyclées",
-                                        "Les arbres poussent bien plus vite",
-                                        "Rien : ils ne mangent aucun animal"
+                                        "Les arbres de la forêt poussent alors bien plus vite",
+                                        "Rien du tout : ils ne mangent aucun animal de la forêt"
                                     ],
                                     "answer": "Les feuilles mortes s'accumulent sans être recyclées",
                                     "explanation": "Les décomposeurs transforment la matière morte en éléments réutilisables par le sol. Sans eux, les feuilles et les cadavres s'entassent et les arbres finissent par manquer de ce que le sol ne leur rend plus."
@@ -5680,8 +5680,8 @@
                                     "question": "Un élève regarde une image, mais une lésion du cerveau l'empêche de l'identifier. Ses yeux sont intacts. Que montre ce cas ?",
                                     "choices": [
                                         "L'organe ne suffit pas : le cerveau interprète",
-                                        "Les yeux ne captent pas la lumière",
-                                        "La vue ne dépend pas du cerveau"
+                                        "Les yeux ne captent pas du tout la lumière qui arrive",
+                                        "La vue ne dépend pas du cerveau mais des yeux seuls"
                                     ],
                                     "answer": "L'organe ne suffit pas : le cerveau interprète",
                                     "explanation": "Ses yeux captent bien la lumière, puisqu'ils sont intacts. Mais un organe des sens ne fait que recevoir l'information : c'est le cerveau qui la traite. Sans lui, l'information arrive sans être comprise."
@@ -6209,8 +6209,8 @@
                                     "question": "Un élève veut savoir si une pièce de monnaie conduit le courant. Que doit-il faire ?",
                                     "choices": [
                                         "L'insérer dans un circuit à pile et observer",
-                                        "L'approcher d'une prise du mur",
-                                        "La poser sur une ampoule allumée"
+                                        "L'approcher doucement d'une prise de courant du mur",
+                                        "La poser directement sur une ampoule déjà allumée"
                                     ],
                                     "answer": "L'insérer dans un circuit à pile et observer",
                                     "explanation": "Le courant du mur est dangereux : on ne l'utilise jamais pour tester, et une prise ne doit recevoir aucun objet métallique. Poser la pièce sur une ampoule n'apprend rien. Un circuit à pile, lui, est sans danger : si la lampe s'allume, la pièce conduit."
@@ -6558,8 +6558,8 @@
                                     "question": "Une cloche sonne sous une cloche à vide dont on a retiré tout l'air : on ne l'entend plus, mais on la voit bouger. Pourquoi ?",
                                     "choices": [
                                         "Le son a besoin de matière pour se propager",
-                                        "La cloche a cessé de vibrer",
-                                        "Le vide absorbe le bruit"
+                                        "La cloche a tout simplement cessé de vibrer",
+                                        "Le vide absorbe complètement le bruit émis"
                                     ],
                                     "answer": "Le son a besoin de matière pour se propager",
                                     "explanation": "On voit bien qu'elle vibre toujours, donc elle produit du son. Mais le son est une vibration qui doit être transmise de proche en proche par de la matière : sans air, rien ne transporte la vibration jusqu'à l'oreille."
@@ -7416,8 +7416,8 @@
                                     "question": "À la fin d'un débat, Amine change d'avis après avoir entendu un camarade. Comment faut-il le comprendre ?",
                                     "choices": [
                                         "Il a entendu un argument et l'a trouvé meilleur que le sien",
-                                        "Il a perdu le débat face à son camarade",
-                                        "Il n'avait pas d'avis solide au départ"
+                                        "Il a perdu le débat face à son camarade devant tous",
+                                        "Il n'avait aucun avis vraiment solide au départ"
                                     ],
                                     "answer": "Il a entendu un argument et l'a trouvé meilleur que le sien",
                                     "explanation": "Changer d'avis devant un meilleur argument est exactement ce que permet un débat : c'est la preuve qu'il a servi. Un débat n'a ni vainqueur ni vaincu, et se laisser convaincre par une raison n'est pas un signe de faiblesse."
