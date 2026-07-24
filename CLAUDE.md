@@ -109,3 +109,4 @@ Pas de backend, donc la sécurité porte sur la robustesse des données et l'abs
 - `docs/content-production-backlog.md` — historique et backlog de production de contenu
 - `docs/platform-target.md`, `docs/storage-gap.md` — notes de plateforme/stockage
 - `.claude/agents/card-image-processor.md` — agent dédié au pipeline des illustrations de cartes du Grimoire (traitement PNG → WebP, intégration catalogue)
+- `.claude/agents/doc-propagator.md` — agent qui répercute une évolution du projet dans toute la doc concernée : distingue docs générées (régénérées par script) et docs rédigées, met à jour, régénère les artefacts, bump `APP_VERSION`, valide

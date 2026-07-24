@@ -326,14 +326,17 @@ const Storage = {
     boosterCost: 25,
 
     /**
-     * Cartes par booster. Passé de 3 à 4 en v4.21.0 : à 3 cartes, compléter les
-     * 176 cartes demandait ~266 boosters, soit beaucoup trop de temps devant
-     * l'écran. À 4 cartes (+ pity resserré, voir _pityThreshold) : ~185.
-     * Le prix passe à 25 p en contrepartie : à 20 p, la récupération par
-     * doublons montait à 101 % et le booster s'auto-finançait de nouveau
-     * (le bug corrigé en v4.20.0). À 25 p elle reste à ~81 %, inchangée.
+     * Cartes par booster. Passé de 3 à 4 en v4.21.0, puis de 4 à 5 en v4.34.0
+     * avec l'arc « Panthéon des Divinités » (+90 cartes, dont 76 légendaires).
+     * Le catalogue passant de 176 à 266 cartes, la complétion au profil léger
+     * grimpait à ~16 mois (moyen ~8,6) : hors de l'année scolaire. Comme la
+     * fin de collection est pity-bornée (presque tout est doublon), ajouter une
+     * carte par booster réduit les paquets stériles sans toucher aux poids —
+     * mesuré : léger ~8,9 mois, moyen ~4,8 mois (recentré dans la cible 4-7),
+     * récupération par doublons ~77 % (sous le seuil des 90 %). Prix inchangé
+     * (25 p) et poids de tirage intacts (préserve l'« événement » 1re légendaire).
      */
-    cardsPerBooster: 4,
+    cardsPerBooster: 5,
 
     /**
      * Pity : nombre de boosters SANS nouvelle carte avant d'en forcer une.

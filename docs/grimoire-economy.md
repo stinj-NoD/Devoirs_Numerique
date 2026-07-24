@@ -6,7 +6,8 @@ tout changement de taux, de prix ou d'ajout massif de cartes.
 
 ## Paramètres actuels (réajustés juillet 2026, taux calibrés sur 141 cartes)
 
-- Booster : **25 pièces**, **4 cartes**, dernier emplacement = slot rare garanti
+- Booster : **25 pièces**, **5 cartes** (passé de 4 à 5 en v4.34.0 avec l'arc
+  Panthéon, voir « Passage à 266 cartes » plus bas), dernier emplacement = slot rare garanti
 - **Pity : 1** — une carte non possédée est forcée dès le 1er booster stérile
   (`_pityThreshold`). C'est le **vrai levier du rythme de découverte** : voir
   « Réduction du temps d'écran » plus bas.
@@ -109,6 +110,54 @@ désormais tout proche** (à 4-24 cartes près) — pas encore atteint, mais le
 prochain ajout de cartes, même modeste, devra être suivi d'une nouvelle
 passe `sim_economy.js` avant d'ajouter davantage.
 
+### Passage à 266 cartes (v4.34.0) — l'arc Panthéon et le 5e emplacement
+
+Ajout de l'arc **Panthéon des Divinités** (`family: "pantheon"`, label
+« Panthéon des Divinités », icône ⚡, thème : mythologies du monde) : **90 cartes**
+(76 divinités de base + 14 variantes ✨), chaque divinité portant un champ
+optionnel `origin` (regroupement culturel : grec, romain, égyptien, nordique,
+hindou, mésoaméricain, africain, japonais, celtique, slave, océanien,
+mésopotamien, amérindien, chinois — **14 origines**). Le catalogue passe de
+**176 → 266 cartes** (16 familles).
+
+**Le panthéon est une 2e branche « prestige », comme le Bestiaire Mythologique.**
+Créé d'abord en pyramide (communes/rares/épiques), il était incohérent avec
+`family: "mythologie"` qui est 100 % légendaire/brillante. Corrigé : toutes les
+divinités de base sont `legendaire`, les variantes `brillante`. État final —
+`pantheon` = **76 légendaires + 14 brillantes** ; `mythologie` = 30 légendaires
++ 5 brillantes. Les deux branches mythologiques suivent désormais la même
+logique de prestige (aucune commune/rare/épique). Total légendaires : 39 → **115**.
+
+**Seul paramètre économique touché : `cardsPerBooster` 4 → 5.** À 266 cartes, la
+complétion au profil léger montait à ~13-16 mois (moyen ~7-8,6), hors de l'année
+scolaire. La fin de collection étant **pity-bornée** (presque tout est doublon,
+voir « le pity est le vrai levier »), ajouter une carte par booster réduit les
+paquets stériles **sans toucher aux poids de tirage ni au prix**. Mesuré avec
+`sim_economy.js` (paramètres lus dans `js/storage.js`, **après** le changement) :
+
+| Profil | Collection complète en |
+|---|---|
+| Léger (~3 exos/j) | **~5,9 mois** (médiane 176 j, p95 206 j) |
+| **Moyen (~5 exos/j)** | **~3,2 mois** (médiane 96 j, p95 111 j) |
+| Assidu (~8 exos/j) | **~1,9 mois** |
+
+- Récupération par doublons : **~77 %** du prix du booster — sous le seuil de
+  sûreté des 90 %, **garde-fou intact**.
+- Coût net de complétion : **~8 500 pièces**.
+- 1re légendaire : **booster n°9-10** — reste un événement.
+
+**Non touchés, délibérément** : poids de tirage (`_rarityWeights` /
+`_rareSlotWeights`), prix du booster (25 p), remboursements de doublons, pity (1).
+Desserrer les poids détruirait l'« événement » de la 1re légendaire ; baisser le
+prix ferait remonter la récupération par doublons vers l'auto-financement.
+
+> Le profil moyen (~3,2 mois) est cette fois **sous** la fourchette cible des
+> 4-7 mois. C'est assumé : le panthéon étant 100 % hautes raretés, chaque carte
+> pèse plus lourd que la moyenne, et le 5e emplacement était le levier le moins
+> intrusif pour éviter les ~16 mois du profil léger. À rouvrir (poids ou pity)
+> **avant** tout nouvel arc, pas maintenant — désempiler deux leviers à la fois
+> a déjà masqué une dérive par le passé.
+
 ### Réduction du temps d'écran (v4.21.0) — le pity est le vrai levier
 
 Constat produit : compléter les 176 cartes demandait **~266 boosters**, soit
@@ -152,38 +201,41 @@ soit 84-86 % de récupération effective — sous le seuil des 90 %.
 > collection tombe à ~112 boosters / 2,8 mois et perd toute valeur. 1 est le
 > compromis entre « jamais frustrant » et « ça reste une collection ».
 
-### ⚠️ Anomalie connue, non corrigée : 39 légendaires pour 1 % de poids
+### ⚠️ Anomalie connue, non corrigée : 115 légendaires pour 1 % de poids
 
-La branche mythologie a **triplé** le nombre de légendaires (13 → 39) sans que
-leur poids de tirage bouge. Conséquence mesurée :
+Les deux branches prestige (mythologie puis panthéon) ont porté le nombre de
+légendaires de 13 → 39 → **115** sans que leur poids de tirage bouge (l'arc
+Panthéon en a ajouté 76 d'un coup, voir « Passage à 266 cartes »).
+Conséquence mesurée sur le catalogue à 266 cartes :
 
 | Rareté | Cartes | Poids (slots 1-2) | Proba d'UNE carte précise |
 |---|---|---|---|
 | commune | 29 | 50 % | 1,724 % |
 | rare | 48 | 33 % | 0,688 % |
 | épique | 32 | 14 % | 0,438 % |
-| **légendaire** | **39** | **1 %** | **0,026 %** |
-| prismatique | 28 | 2 % | 0,071 % |
+| **légendaire** | **115** | **1 %** | **0,009 %** |
+| brillante | 42 | 2 % | 0,048 % |
 
 > **Attention à ne pas mal lire ce tableau.** Une projection *théorique* dit que
-> compléter les seules légendaires demanderait ~3 000 boosters **en tirage pur,
-> pity désactivé** — contre ~115 pour les communes (facteur 26×). **Ce n'est PAS
-> le vécu réel** : le pity court-circuite les poids en fin de collection et
-> ramène le total à **~186 boosters**. Le chiffre de 3 000 ne sert qu'à montrer
-> que les poids seuls sont insuffisants ; ne jamais le citer comme une durée.
+> compléter les seules légendaires demanderait des **milliers** de boosters
+> **en tirage pur, pity désactivé** — un facteur de dizaines par rapport aux
+> communes. **Ce n'est PAS le vécu réel** : le pity court-circuite les poids en
+> fin de collection et ramène le total au nombre de boosters réellement mesuré
+> (voir « Passage à 266 cartes »). Ce chiffre théorique ne sert qu'à montrer que
+> les poids seuls sont insuffisants ; ne jamais le citer comme une durée.
 
 **L'équilibrage repose donc entièrement sur ce filet de sécurité**, et c'est
 d'ailleurs pour ça que le pity est le levier n°1 du rythme (voir « Réduction du
 temps d'écran »). Ce n'est pas sain sur le principe, mais desserrer le légendaire
 a été testé et **rejeté** : à 6-8 % de poids, la première légendaire tombe dès le
-booster n°3-5 et cesse d'être un événement (elle est aujourd'hui au n°14). Le
-compromis est assumé ; à rouvrir avant d'ajouter une nouvelle famille de hautes
-raretés.
+booster n°3-5 et cesse d'être un événement (elle est aujourd'hui au booster
+n°9-10). Le compromis est assumé ; à rouvrir avant d'ajouter une nouvelle
+famille de hautes raretés.
 
-Point notable : la branche mythologie n'ayant que des hautes raretés, elle
-pèse plus lourd par carte sur le temps de complétion que les familles
-standards (pas de communes/rares pour absorber du volume à bas coût) — à
-prendre en compte dans la prochaine simulation, pas seulement le nombre
+Point notable : les deux branches prestige (mythologie et panthéon) n'ayant que
+des hautes raretés, elles pèsent plus lourd par carte sur le temps de complétion
+que les familles standards (pas de communes/rares pour absorber du volume à bas
+coût) — à prendre en compte dans la prochaine simulation, pas seulement le nombre
 total de cartes.
 
 ### Recalibrage à 176 cartes (v4.20.0) — le booster s'auto-finançait
