@@ -94,6 +94,32 @@
                             }
                         },
                         {
+                            "id": "mult-8",
+                            "title": "Table de 8",
+                            "subtitle": "Défi : encore un peu d'avance",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "mult",
+                                "table": 8,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "mult-9",
+                            "title": "Table de 9",
+                            "subtitle": "Défi : la dernière avant 10",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "mult",
+                                "table": 9,
+                                "questions": 10
+                            }
+                        },
+                        {
                             "id": "ce1-bonus-mult-melange",
                             "title": "Défi : tables mélangées",
                             "subtitle": "Toutes les tables, en rafale",
@@ -371,6 +397,34 @@
                                 "min": 10,
                                 "maxSum": 150,
                                 "questions": 12
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-additions-999",
+                            "title": "Défi : additions jusqu'à 999",
+                            "subtitle": "Calcul mental jusqu'aux centaines",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "add-simple",
+                                "min": 100,
+                                "maxSum": 999,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-soustractions-999",
+                            "title": "Défi : soustractions jusqu'à 999",
+                            "subtitle": "Enlever des centaines entières",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "sub-simple",
+                                "min": 100,
+                                "max": 999,
+                                "questions": 10
                             }
                         },
                         {
@@ -671,6 +725,80 @@
                                     "explanation": "Les deux nombres sont très proches : plutôt que de reculer 69 fois, je cherche l'écart en avançant de 69 à 71, soit 2 pas. Donc 71 − 69 = 2."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-nombres-jusqu-1000",
+                            "title": "Les nombres jusqu'à 1000",
+                            "subtitle": "Centaines, dizaines et unités",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un nombre à trois chiffres se décompose en centaines, dizaines et unités. Chaque chiffre a une valeur qui dépend de sa place dans le nombre."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "247, c'est 2 centaines, 4 dizaines et 7 unités : 200 + 40 + 7 = 247."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "headers": [
+                                        "Chiffre dans 583",
+                                        "Ce qu'il représente"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "5",
+                                            "5 centaines, soit 500"
+                                        ],
+                                        [
+                                            "8",
+                                            "8 dizaines, soit 80"
+                                        ],
+                                        [
+                                            "3",
+                                            "3 unités, soit 3"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Une centaine, c'est 10 dizaines, soit 100 unités.",
+                                        "Dans un nombre à trois chiffres, le premier chiffre à gauche compte les centaines.",
+                                        "999 est le plus grand nombre à trois chiffres : après, on entre dans les mille."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour lire un grand nombre, je le découpe : centaines, puis dizaines, puis unités, et j'additionne leurs valeurs."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Combien de centaines, de dizaines et d'unités compte le nombre 706 ?",
+                                    "choices": [
+                                        "7 centaines, 0 dizaine, 6 unités",
+                                        "7 centaines, 6 dizaines, 0 unité",
+                                        "0 centaine, 7 dizaines, 6 unités"
+                                    ],
+                                    "answer": "7 centaines, 0 dizaine, 6 unités",
+                                    "explanation": "Dans 706, le chiffre des centaines est 7, celui des dizaines est 0 (aucune dizaine), et celui des unités est 6 : 700 + 0 + 6 = 706."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un nombre a 4 centaines, 9 dizaines et 2 unités. Quel est ce nombre ?",
+                                    "choices": [
+                                        "492",
+                                        "942",
+                                        "429"
+                                    ],
+                                    "answer": "492",
+                                    "explanation": "Je place chaque valeur à sa position : 4 centaines s'écrit en premier, puis 9 dizaines, puis 2 unités : 400 + 90 + 2 = 492."
+                                }
+                            ]
                         }
                     ]
                 },
@@ -699,7 +827,8 @@
                                         "carré",
                                         "rectangle",
                                         "triangle",
-                                        "cercle"
+                                        "cercle",
+                                        "losange"
                                     ]
                                 },
                                 {
@@ -2668,6 +2797,17 @@
                             "params": {
                                 "type": "grammar-cloze",
                                 "category": "grammar_phrase_types_ce1",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce1-gram-sujet-verbe",
+                            "title": "Le sujet du verbe",
+                            "subtitle": "Qui fait l'action ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "grammar_sujet_verbe_ce1",
                                 "questions": 8
                             }
                         },

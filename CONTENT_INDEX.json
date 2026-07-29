@@ -1,8 +1,8 @@
 {
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
-    "exercises": 965,
-    "lessons": 348,
+    "exercises": 970,
+    "lessons": 349,
     "levels": 5,
     "banks": 74
   },
@@ -2846,6 +2846,28 @@
       "contractHash": "math-input|{\"table\":7,\"type\":\"mult\"}"
     },
     {
+      "id": "mult-8",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-multiplication",
+      "engine": "math-input",
+      "paramsType": "mult",
+      "pool": null,
+      "contractHash": "math-input|{\"table\":8,\"type\":\"mult\"}"
+    },
+    {
+      "id": "mult-9",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-multiplication",
+      "engine": "math-input",
+      "paramsType": "mult",
+      "pool": null,
+      "contractHash": "math-input|{\"table\":9,\"type\":\"mult\"}"
+    },
+    {
       "id": "ce1-bonus-mult-melange",
       "kind": "exercise",
       "level": "ce1",
@@ -2891,6 +2913,17 @@
     },
     {
       "id": "ce1-lesson-soustraire",
+      "kind": "lesson",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce1-lesson-nombres-jusqu-1000",
       "kind": "lesson",
       "level": "ce1",
       "subjectId": "ce1-maths",
@@ -3031,6 +3064,28 @@
       "paramsType": "add-simple",
       "pool": null,
       "contractHash": "math-input|{\"maxSum\":150,\"min\":10,\"type\":\"add-simple\"}"
+    },
+    {
+      "id": "ce1-bonus-additions-999",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "add-simple",
+      "pool": null,
+      "contractHash": "math-input|{\"maxSum\":999,\"min\":100,\"type\":\"add-simple\"}"
+    },
+    {
+      "id": "ce1-bonus-soustractions-999",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "sub-simple",
+      "pool": null,
+      "contractHash": "math-input|{\"max\":999,\"min\":100,\"type\":\"sub-simple\"}"
     },
     {
       "id": "ce1-doubles",
@@ -4054,6 +4109,17 @@
       "paramsType": "grammar-cloze",
       "pool": null,
       "contractHash": "choice-engine|{\"category\":\"grammar_phrase_types_ce1\",\"type\":\"grammar-cloze\"}"
+    },
+    {
+      "id": "ce1-gram-sujet-verbe",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-francais",
+      "subthemeId": "ce1-grammaire-subject",
+      "engine": "choice-engine",
+      "paramsType": "word-class-choice",
+      "pool": null,
+      "contractHash": "choice-engine|{\"category\":\"grammar_sujet_verbe_ce1\",\"type\":\"word-class-choice\"}"
     },
     {
       "id": "ce1-bonus-grammaire-cloze-expert",
@@ -14926,7 +14992,7 @@
     },
     "data/math_geometry_ce1.json": {
       "categories": {
-        "ce1-formes-solides-planes": 16,
+        "ce1-formes-solides-planes": 19,
         "ce1-longueurs-mesures": 16,
         "ce1-reperes-journee": 16,
         "ce1-masses-contenances": 16
@@ -15000,7 +15066,7 @@
     },
     "data/science_ce1.json": {
       "categories": {
-        "ce1-vivant": 20,
+        "ce1-vivant": 17,
         "ce1-matiere": 9,
         "ce1-corps-hygiene": 20,
         "ce1-besoins-vivant": 8,
@@ -15008,7 +15074,7 @@
         "ce1-sommeil-alimentation": 16,
         "ce1-hygiene-quotidienne": 10,
         "ce1-objets-maison": 11,
-        "ce1-cycle-vie-simple": 11,
+        "ce1-cycle-vie-simple": 14,
         "ce1-melanges-simples": 19,
         "ce1-saisons-meteo": 16,
         "ce1-milieux-vie": 16,

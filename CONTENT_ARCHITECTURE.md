@@ -4,19 +4,19 @@ Document de référence listant, pour chaque niveau, chaque matière, chaque sou
 
 Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon, sans exercice, catégories peu fournies) pour prioriser les ajouts.
 
-> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-07-15 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
+> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-07-29 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
 
 ---
 
 ## Vue d'ensemble
 
-- **965 exercices** et **348 leçons** répartis sur 5 niveaux (CP à CM2).
+- **970 exercices** et **349 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
 |---|---|
-| `choice-engine` | 518 |
-| `math-input` | 140 |
+| `choice-engine` | 519 |
+| `math-input` | 144 |
 | `reading` | 51 |
 | `matching` | 49 |
 | `conjugation` | 47 |
@@ -513,7 +513,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Comprendre la multiplication `(ce1-lesson-multiplication-bases)` — blocs: paragraph, example, bullets, tip, check, check
   - Apprendre ses tables malin `(ce1-lesson-tables-astuces)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (8) :
+- **Exercices** (10) :
   - Table de 2 `(mult-2)` — engine: `math-input`, type=mult, table=2, questions=10
   - Table de 3 `(mult-3)` — engine: `math-input`, type=mult, table=3, questions=10
   - Table de 4 `(mult-4)` — engine: `math-input`, type=mult, table=4, questions=10
@@ -521,16 +521,19 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Table de 10 `(mult-10)` — engine: `math-input`, type=mult, table=10, questions=10
   - Table de 6 `(mult-6)` — engine: `math-input`, type=mult, table=6, questions=10, bonus (seuil=2)
   - Table de 7 `(mult-7)` — engine: `math-input`, type=mult, table=7, questions=10, bonus (seuil=2)
+  - Table de 8 `(mult-8)` — engine: `math-input`, type=mult, table=8, questions=10, bonus (seuil=2)
+  - Table de 9 `(mult-9)` — engine: `math-input`, type=mult, table=9, questions=10, bonus (seuil=2)
   - Défi : tables mélangées `(ce1-bonus-mult-melange)` — engine: `math-input`, type=mult, table=mix, questions=15, bonus (seuil=2)
 
 #### Nombres & Calculs `(ce1-nombres-calculs)`
 
-- **Leçons** (4) :
+- **Leçons** (5) :
   - Compléter jusqu'à 20 `(ce1-lesson-complements-20)` — blocs: paragraph, example, bullets, tip, check, check
   - Doubles et moitiés `(ce1-lesson-doubles-moities)` — blocs: paragraph, example, bullets, tip, check, check
   - Additionner jusqu'à 100 `(ce1-lesson-additionner-100)` — blocs: paragraph, example, bullets, tip, check, check
   - Soustraire sans se tromper `(ce1-lesson-soustraire)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (19) :
+  - Les nombres jusqu'à 1000 `(ce1-lesson-nombres-jusqu-1000)` — blocs: paragraph, example, mini-table, bullets, tip, check, check
+- **Exercices** (21) :
   - Compléments à 100 `(add-100)` — engine: `math-input`, type=add-trou, min=10, max=100, questions=10
   - Calcul rapide `(add-chrono)` — engine: `math-input`, type=oiseau-math, min=10, max=30, vitesse=5, questions=10
   - Comparer jusqu'à 100 `(comp-ce1-1)` — engine: `choice-engine`, range=100, questions=10
@@ -543,6 +546,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Nombres et opérations `(ce1-maths-appariement)` — engine: `matching`, category=matching_math_ce1, dataFile=data/math_matching.json, questions=3
   - Jeu de mémoire `(ce1-maths-memoire)` — engine: `board-interactive`, type=memory-match, dataFile=data/board_memory_match_ce1.json, category=ce1_memory_match_maths, questions=4
   - Défi : additions jusqu'à 150 `(ce1-bonus-additions-100)` — engine: `math-input`, type=add-simple, min=10, maxSum=150, questions=12, bonus (seuil=2)
+  - Défi : additions jusqu'à 999 `(ce1-bonus-additions-999)` — engine: `math-input`, type=add-simple, min=100, maxSum=999, questions=10, bonus (seuil=2)
+  - Défi : soustractions jusqu'à 999 `(ce1-bonus-soustractions-999)` — engine: `math-input`, type=sub-simple, min=100, max=999, questions=10, bonus (seuil=2)
   - Les doubles `(ce1-doubles)` — engine: `math-input`, type=double, min=3, max=30, questions=6
   - Les moitiés `(ce1-moities)` — engine: `math-input`, type=half, min=3, max=25, questions=6
   - Compléments à 20 `(ce1-complements-20)` — engine: `math-input`, type=complement, target=20, questions=6
@@ -666,7 +671,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Le nom et le verbe `(ce1-lesson-nom-verbe)` — blocs: paragraph, example, bullets, tip, check, check
   - Une phrase bien construite `(ce1-lesson-phrase)` — blocs: paragraph, example, bullets, tip, check, check
   - L'accord déterminant-nom `(ce1-lesson-accord-det-nom)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (12) :
+- **Exercices** (13) :
   - Un ou Une? `(ce1-gram-un-une)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_classe, questions=8
   - Le, La ou L'? `(ce1-gram-le-la)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_maison, questions=8
   - Les noms de la nature `(ce1-gram-nature)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_nature, questions=8
@@ -678,6 +683,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Ordre des mots `(ce1-francais-ordre-mots)` — engine: `word-order`, category=word_order_ce1, dataFile=data/french_word_order.json, questions=5
   - Raconte une histoire `(ce1-francais-raconte-histoire)` — engine: `word-order`, category=story_order_ce1, dataFile=data/french_word_order.json, questions=4
   - Types de phrases `(ce1-gram-types-phrases)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_phrase_types_ce1, questions=8
+  - Le sujet du verbe `(ce1-gram-sujet-verbe)` — engine: `choice-engine`, type=word-class-choice, category=grammar_sujet_verbe_ce1, questions=8
   - Défi : phrases à compléter `(ce1-bonus-grammaire-cloze-expert)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_cloze_ce1, questions=12, bonus (seuil=2)
 
 #### Conjugaison `(ce1-conjugaison-subject)`
