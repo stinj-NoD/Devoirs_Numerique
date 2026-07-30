@@ -555,10 +555,17 @@ const UI = {
                         ? 'À faire'
                         : '';
 
+        let sectionIndex = -1;
         (data || []).forEach(item => {
             if (item?.kind === 'section') {
+                sectionIndex += 1;
                 const section = document.createElement('div');
                 section.className = 'menu-section';
+                if (Number.isInteger(item.anchorIndex)) {
+                    section.id = `${id}-section-${item.anchorIndex}`;
+                } else {
+                    section.id = `${id}-section-${sectionIndex}`;
+                }
                 const safeSectionTitle = this._escapeText(item.title || 'Section');
                 const safeSectionSubtitle = item.subtitle ? this._escapeText(item.subtitle) : '';
                 section.innerHTML = `
@@ -621,6 +628,42 @@ const UI = {
                 </div>`;
             card.onclick = () => { if (!isLockedBonus) callback(item); };
             container.appendChild(card);
+        });
+    },
+
+    /**
+     * Barre de pastilles au-dessus d'une liste à sections (ex: bibliothèque
+     * de leçons) : une pastille par matière qui bascule l'affichage sur
+     * cette seule matière (plus une pastille "Toutes"), pour éviter de
+     * devoir tout parcourir pour changer de matière. `onSelect(sectionIndex|null)`
+     * est appelé avec `null` pour "Toutes".
+     */
+    renderJumpBar(barId, groups, activeIndex, onSelect) {
+        const bar = document.getElementById(barId);
+        if (!bar) return;
+        bar.innerHTML = '';
+
+        const safeGroups = Array.isArray(groups) ? groups : [];
+        if (safeGroups.length < 2) {
+            bar.style.display = 'none';
+            return;
+        }
+        bar.style.display = '';
+
+        const makeChip = (label, index) => {
+            const chip = document.createElement('button');
+            chip.type = 'button';
+            chip.className = `menu-jump-chip${activeIndex === index ? ' is-active' : ''}`;
+            chip.textContent = label;
+            chip.setAttribute('aria-pressed', activeIndex === index ? 'true' : 'false');
+            chip.onclick = () => onSelect(index);
+            return chip;
+        };
+
+        bar.appendChild(makeChip('Toutes', null));
+        safeGroups.forEach((group, index) => {
+            const label = group.icon ? `${group.icon} ${group.title}` : (group.title || 'Matière');
+            bar.appendChild(makeChip(label, index));
         });
     },
 

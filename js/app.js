@@ -2292,11 +2292,17 @@ const App = {
         UI.showScreen('screen-progress');
     },
 
-    getGradeLessonLibraryEntries() {
+    /**
+     * Regroupe les leçons du niveau par matière. Chaque groupe expose son
+     * entrée `section` (titre/soustitre affichés en tête de liste) et ses
+     * entrées `lesson`, pour permettre à openLessonLibrary() de filtrer
+     * l'affichage sur une seule matière via les pastilles.
+     */
+    getGradeLessonLibraryGroups() {
         const grade = this.state.currentGrade;
         if (!Array.isArray(grade?.subjects)) return [];
 
-        const entries = [];
+        const groups = [];
         for (const subject of grade.subjects) {
             const subjectTitle = subject?.title || 'Matière';
             const subjectIcon = subject?.icon || '📘';
@@ -2320,23 +2326,28 @@ const App = {
             }
 
             if (!lessonEntries.length) continue;
-            entries.push({
-                kind: 'section',
+            groups.push({
                 title: subjectTitle,
-                subtitle: `${lessonEntries.length} leçon${lessonEntries.length > 1 ? 's' : ''} à relire`
+                icon: subjectIcon,
+                section: {
+                    kind: 'section',
+                    title: subjectTitle,
+                    subtitle: `${lessonEntries.length} leçon${lessonEntries.length > 1 ? 's' : ''} à relire`,
+                    icon: subjectIcon
+                },
+                lessons: lessonEntries
             });
-            entries.push(...lessonEntries);
         }
 
-        return entries;
+        return groups;
     },
 
     openLessonLibrary() {
         const grade = this.state.currentGrade;
         if (!grade) return this.loadGradesMenu();
 
-        const entries = this.getGradeLessonLibraryEntries();
-        if (!entries.length) {
+        const groups = this.getGradeLessonLibraryGroups();
+        if (!groups.length) {
             alert("Aucune leçon disponible pour ce niveau.");
             return this.showBrowseModeMenu();
         }
@@ -2344,15 +2355,38 @@ const App = {
         const title = document.querySelector('#screen-library h2');
         const lead = document.getElementById('library-lead');
         if (title) title.textContent = `Bibliothèque ${grade.title || grade.gradeId || ''}`.trim();
-        if (lead) lead.textContent = "Choisis une leçon à revoir. Elles sont rangées par matière pour retrouver l'essentiel plus vite.";
 
-        UI.renderMenu('library-list', entries, (entry) => {
+        this.state.libraryActiveSubject = null;
+        const onSelectLesson = (entry) => {
             if (entry?.kind !== 'lesson') return;
             this.state.currentSubject = entry.__subject || null;
             this.state.currentTheme = entry.__theme || null;
             this.state.currentLessonOrigin = 'library';
             this.startLesson(entry);
-        });
+        };
+
+        const renderLibraryList = () => {
+            const activeIndex = this.state.libraryActiveSubject;
+            const activeGroups = Number.isInteger(activeIndex) ? [groups[activeIndex]] : groups;
+            const entries = [];
+            for (const group of activeGroups) entries.push(group.section, ...group.lessons);
+
+            if (lead) {
+                lead.textContent = Number.isInteger(activeIndex)
+                    ? `Leçons de ${groups[activeIndex].title}.`
+                    : "Choisis une leçon à revoir. Elles sont rangées par matière pour retrouver l'essentiel plus vite.";
+            }
+
+            UI.renderJumpBar('library-jumpbar', groups, activeIndex, (index) => {
+                this.state.libraryActiveSubject = index;
+                renderLibraryList();
+                const screen = document.getElementById('screen-library');
+                if (screen) screen.scrollTop = 0;
+            });
+            UI.renderMenu('library-list', entries, onSelectLesson);
+        };
+
+        renderLibraryList();
         UI.showScreen('screen-library');
     },
 
