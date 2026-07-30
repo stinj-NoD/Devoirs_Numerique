@@ -13,7 +13,7 @@ Une couche de gamification annexe (le **Grimoire**) vient soutenir l'engagement 
 Le socle est aujourd'hui stable sur quatre axes :
 - navigation locale profils -> classe -> parcours -> matière -> sous-thème
 - bibliothèque globale de leçons par niveau
-- corpus de **970 exercices et 349 leçons** CP à CM2 sur maths, français, histoire, géographie, sciences et EMC (chiffres de [CONTENT_ARCHITECTURE.md](CONTENT_ARCHITECTURE.md), généré depuis `data/`)
+- corpus de **981 exercices et 355 leçons** CP à CM2 sur maths, français, histoire, géographie, sciences et EMC (chiffres de [CONTENT_ARCHITECTURE.md](CONTENT_ARCHITECTURE.md), généré depuis `data/`)
 - validation forte des données avant runtime et bundle offline régénéré
 
 Le projet propose aussi :

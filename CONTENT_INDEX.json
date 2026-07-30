@@ -1,8 +1,8 @@
 {
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
-    "exercises": 970,
-    "lessons": 349,
+    "exercises": 981,
+    "lessons": 355,
     "levels": 5,
     "banks": 74
   },
@@ -5728,6 +5728,17 @@
       "contractHash": null
     },
     {
+      "id": "ce2-lesson-grands-nombres",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-maths",
+      "subthemeId": "ce2-calculs-logique",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "ce2-cible-1",
       "kind": "exercise",
       "level": "ce2",
@@ -5824,7 +5835,7 @@
       "engine": "math-input",
       "paramsType": "complement",
       "pool": null,
-      "contractHash": "math-input|{\"target\":1000,\"type\":\"complement\"}"
+      "contractHash": "math-input|{\"target\":2000,\"type\":\"complement\"}"
     },
     {
       "id": "ce2-clock-2",
@@ -5946,6 +5957,50 @@
       "paramsType": "complement",
       "pool": null,
       "contractHash": "math-input|{\"target\":5000,\"type\":\"complement\"}"
+    },
+    {
+      "id": "ce2-nb-lecture-ecriture",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-maths",
+      "subthemeId": "ce2-calculs-logique",
+      "engine": "math-input",
+      "paramsType": "dictée-nombres",
+      "pool": null,
+      "contractHash": "math-input|{\"max\":10000,\"type\":\"dictée-nombres\"}"
+    },
+    {
+      "id": "ce2-nb-comparer-10000",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-maths",
+      "subthemeId": "ce2-calculs-logique",
+      "engine": "choice-engine",
+      "paramsType": null,
+      "pool": null,
+      "contractHash": "choice-engine|{\"range\":10000}"
+    },
+    {
+      "id": "ce2-doubles",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-maths",
+      "subthemeId": "ce2-calculs-logique",
+      "engine": "math-input",
+      "paramsType": "double",
+      "pool": null,
+      "contractHash": "math-input|{\"max\":100,\"min\":10,\"type\":\"double\"}"
+    },
+    {
+      "id": "ce2-moities",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-maths",
+      "subthemeId": "ce2-calculs-logique",
+      "engine": "math-input",
+      "paramsType": "half",
+      "pool": null,
+      "contractHash": "math-input|{\"max\":100,\"min\":10,\"type\":\"half\"}"
     },
     {
       "id": "ce2-lesson-figures-solides",
@@ -6114,6 +6169,28 @@
     },
     {
       "id": "ce2-lesson-pluriel-noms",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-francais",
+      "subthemeId": "ce2-orthographe-grammaire",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce2-lesson-sujet-verbe-complement",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-francais",
+      "subthemeId": "ce2-orthographe-grammaire",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce2-lesson-phrase-simple-complexe",
       "kind": "lesson",
       "level": "ce2",
       "subjectId": "ce2-francais",
@@ -6364,6 +6441,28 @@
       "paramsType": "grammar-cloze",
       "pool": null,
       "contractHash": "choice-engine|{\"category\":\"grammar_phrase_types_ce2\",\"type\":\"grammar-cloze\"}"
+    },
+    {
+      "id": "ce2-g-fonction-qcm",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-francais",
+      "subthemeId": "ce2-orthographe-grammaire",
+      "engine": "choice-engine",
+      "paramsType": "word-class-choice",
+      "pool": null,
+      "contractHash": "choice-engine|{\"category\":\"grammar_sujet_verbe_ce2\",\"type\":\"word-class-choice\"}"
+    },
+    {
+      "id": "ce2-g-phrase-complexite-qcm",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-francais",
+      "subthemeId": "ce2-orthographe-grammaire",
+      "engine": "choice-engine",
+      "paramsType": "grammar-cloze",
+      "pool": null,
+      "contractHash": "choice-engine|{\"category\":\"grammar_phrase_complexite_ce2\",\"type\":\"grammar-cloze\"}"
     },
     {
       "id": "ce2-bonus-ordre-mots-expert",
@@ -7125,6 +7224,61 @@
       "contractHash": "choice-engine|{\"category\":\"ce2-ecole-autrefois\",\"dataFile\":\"data/history_ce2.json\",\"type\":\"factual-qcm\"}"
     },
     {
+      "id": "ce2-lesson-grandes-periodes",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-histoire-subject",
+      "subthemeId": "ce2-histoire-grandes-periodes-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce2-lesson-recits-fondateurs",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-histoire-subject",
+      "subthemeId": "ce2-histoire-grandes-periodes-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce2-histoire-grandes-periodes",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-histoire-subject",
+      "subthemeId": "ce2-histoire-grandes-periodes-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/history_ce2.json::ce2-grandes-periodes",
+      "contractHash": "choice-engine|{\"category\":\"ce2-grandes-periodes\",\"dataFile\":\"data/history_ce2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "ce2-histoire-recits-fondateurs",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-histoire-subject",
+      "subthemeId": "ce2-histoire-grandes-periodes-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/history_ce2.json::ce2-recits-fondateurs",
+      "contractHash": "choice-engine|{\"category\":\"ce2-recits-fondateurs\",\"dataFile\":\"data/history_ce2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "ce2-bonus-histoire-grandes-periodes-defi",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-histoire-subject",
+      "subthemeId": "ce2-histoire-grandes-periodes-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/history_ce2.json::ce2-grandes-periodes",
+      "contractHash": "choice-engine|{\"category\":\"ce2-grandes-periodes\",\"dataFile\":\"data/history_ce2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
       "id": "ce2-lesson-habiter-espaces-differents",
       "kind": "lesson",
       "level": "ce2",
@@ -7455,6 +7609,17 @@
       "contractHash": null
     },
     {
+      "id": "ce2-lesson-corps-hygiene",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-sciences-subject",
+      "subthemeId": "ce2-sciences-vivant-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "ce2-sciences-vivant",
       "kind": "exercise",
       "level": "ce2",
@@ -7508,6 +7673,28 @@
       "paramsType": "tap-features",
       "pool": "data/board_tap_features_science.json::ce2_tap_corps_humain",
       "contractHash": "board-interactive|{\"category\":\"ce2_tap_corps_humain\",\"dataFile\":\"data/board_tap_features_science.json\",\"type\":\"tap-features\"}"
+    },
+    {
+      "id": "ce2-sciences-corps-fonctions",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-sciences-subject",
+      "subthemeId": "ce2-sciences-vivant-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/science_ce2.json::ce2-corps-fonctions",
+      "contractHash": "choice-engine|{\"category\":\"ce2-corps-fonctions\",\"dataFile\":\"data/science_ce2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "ce2-sciences-classification-vivant",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-sciences-subject",
+      "subthemeId": "ce2-sciences-vivant-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/science_ce2.json::ce2-classification-vivant",
+      "contractHash": "choice-engine|{\"category\":\"ce2-classification-vivant\",\"dataFile\":\"data/science_ce2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce2-lesson-etats-eau",
@@ -14940,7 +15127,9 @@
         "ce2-personnages-celebres": 20,
         "ce2-souvenirs-monuments": 8,
         "ce2-ecole-autrefois": 20,
-        "ce2-frise-vie-famille": 12
+        "ce2-frise-vie-famille": 12,
+        "ce2-grandes-periodes": 13,
+        "ce2-recits-fondateurs": 8
       }
     },
     "data/history_chrono.json": {
@@ -15093,7 +15282,9 @@
         "ce2-chaines-alimentaires-simples": 11,
         "ce2-eau-transformations": 20,
         "ce2-saisons-meteo": 18,
-        "ce2-milieux-vie": 20
+        "ce2-milieux-vie": 20,
+        "ce2-corps-fonctions": 12,
+        "ce2-classification-vivant": 10
       }
     },
     "data/science_cm1.json": {

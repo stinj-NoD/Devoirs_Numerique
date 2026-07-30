@@ -35,7 +35,7 @@ Lecture spécifique pour les leçons :
 
 - structure CP-CM2 cohérente
 - bibliothèque de leçons en place
-- corpus de 970+ exercices large et exploitable
+- corpus de 980+ exercices large et exploitable
 - forte couverture en français et mathématiques
 - socle documentaire désormais présent sur tous les niveaux
 - proportionnalité, pourcentages, échelle et vitesse renforcés en CM1/CM2

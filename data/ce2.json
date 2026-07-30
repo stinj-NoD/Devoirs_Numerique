@@ -431,12 +431,12 @@
                         },
                         {
                             "id": "ce2-comp-2000",
-                            "title": "Compléments à 1000",
+                            "title": "Compléments à 2000",
                             "subtitle": "Vers les grands nombres",
                             "engine": "math-input",
                             "params": {
                                 "type": "complement",
-                                "target": 1000,
+                                "target": 2000,
                                 "questions": 10
                             }
                         },
@@ -574,6 +574,51 @@
                                 "type": "complement",
                                 "target": 5000,
                                 "questions": 12
+                            }
+                        },
+                        {
+                            "id": "ce2-nb-lecture-ecriture",
+                            "title": "Lire et écrire les grands nombres",
+                            "subtitle": "Jusqu'à 10 000",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "dictée-nombres",
+                                "max": 10000,
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-nb-comparer-10000",
+                            "title": "Comparer jusqu'à 10 000",
+                            "subtitle": "Trouver le plus grand",
+                            "engine": "choice-engine",
+                            "params": {
+                                "range": 10000,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "ce2-doubles",
+                            "title": "Les doubles",
+                            "subtitle": "Le double d'un nombre jusqu'à 100",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "double",
+                                "min": 10,
+                                "max": 100,
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-moities",
+                            "title": "Les moitiés",
+                            "subtitle": "La moitié d'un nombre pair jusqu'à 200",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "half",
+                                "min": 10,
+                                "max": 100,
+                                "questions": 8
                             }
                         }
                     ],
@@ -1064,6 +1109,75 @@
                                     ],
                                     "answer": "Elle a multiplié par 100 au lieu de multiplier par 1000",
                                     "explanation": "Un kilogramme vaut 1000 grammes, donc 3 kg font 3 × 1000 = 3000 g. Camille n'a ajouté que deux zéros au lieu de trois. Un sac de 300 g serait dix fois plus léger que le vrai sac."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-grands-nombres",
+                            "title": "Les grands nombres jusqu'à 10 000",
+                            "subtitle": "Milliers, centaines, dizaines, unités",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un grand nombre s'écrit avec plusieurs chiffres, chacun placé à une position précise. En partant de la droite, on trouve les unités, puis les dizaines, puis les centaines, puis les milliers."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "4527 se décompose ainsi : 4 milliers (4000), 5 centaines (500), 2 dizaines (20) et 7 unités (7). Donc 4527 = 4000 + 500 + 20 + 7."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "headers": [
+                                        "Position",
+                                        "Chiffre dans 4527"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "Milliers",
+                                            "4"
+                                        ],
+                                        [
+                                            "Centaines",
+                                            "5"
+                                        ],
+                                        [
+                                            "Dizaines",
+                                            "2"
+                                        ],
+                                        [
+                                            "Unités",
+                                            "7"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour comparer deux grands nombres, je regarde d'abord celui qui a le plus de chiffres, puis je compare chiffre par chiffre en partant de la gauche (les milliers d'abord)."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Comment décompose-t-on le nombre 3162 en milliers, centaines, dizaines et unités ?",
+                                    "choices": [
+                                        "3000 + 100 + 60 + 2",
+                                        "3000 + 160 + 2 + 0",
+                                        "300 + 100 + 6 + 2"
+                                    ],
+                                    "answer": "3000 + 100 + 60 + 2",
+                                    "explanation": "Dans 3162, le chiffre 3 est aux milliers (3000), le 1 aux centaines (100), le 6 aux dizaines (60) et le 2 aux unités (2). En additionnant : 3000 + 100 + 60 + 2 = 3162."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léa compare 2 nombres : 6 480 et 6 079. Lequel est le plus grand, et pourquoi ?",
+                                    "choices": [
+                                        "6480, car son chiffre des centaines (4) est plus grand que celui de 6079 (0)",
+                                        "6079, car son chiffre des unités (9) est plus grand que celui de 6480 (0)",
+                                        "Les deux nombres sont égaux, car ils ont le même chiffre des milliers"
+                                    ],
+                                    "answer": "6480, car son chiffre des centaines (4) est plus grand que celui de 6079 (0)",
+                                    "explanation": "Les deux nombres ont le même chiffre des milliers (6), donc on compare la position suivante : les centaines. 6480 a 4 centaines contre 0 pour 6079, donc 6480 est le plus grand. On ne compare les unités qu'en dernier recours, si toutes les autres positions sont égales."
                                 }
                             ]
                         }
@@ -1640,6 +1754,28 @@
                             }
                         },
                         {
+                            "id": "ce2-g-fonction-qcm",
+                            "title": "Sujet, verbe ou complément",
+                            "subtitle": "Trouver le rôle du mot dans la phrase",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "grammar_sujet_verbe_ce2",
+                                "questions": 9
+                            }
+                        },
+                        {
+                            "id": "ce2-g-phrase-complexite-qcm",
+                            "title": "Phrase simple ou complexe ?",
+                            "subtitle": "Compter les verbes conjugués",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "grammar_phrase_complexite_ce2",
+                                "questions": 8
+                            }
+                        },
+                        {
                             "id": "ce2-bonus-ordre-mots-expert",
                             "title": "Défi : phrases mélangées",
                             "subtitle": "Super série sur l'ordre des mots",
@@ -1878,6 +2014,113 @@
                                 }
                             ],
                             "format": "lesson-card"
+                        },
+                        {
+                            "id": "ce2-lesson-sujet-verbe-complement",
+                            "title": "Sujet, verbe, complément",
+                            "subtitle": "Les trois rôles d'une phrase simple",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans une phrase simple, chaque groupe de mots joue un rôle précis : le sujet fait l'action, le verbe dit ce qui se passe, et le complément apporte une information en plus (ce qui est fait, où, ou avec qui)."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« La petite souris grise mange un morceau de fromage. » Sujet : la petite souris grise (elle fait l'action). Verbe : mange (l'action). Complément : un morceau de fromage (ce qui est mangé)."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Comment les trouver",
+                                    "items": [
+                                        "Sujet : je pose la question « qui est-ce qui fait l'action ? »",
+                                        "Verbe : je cherche le mot qui dit l'action ou l'état.",
+                                        "Complément : je cherche ce qui complète le verbe (quoi, où, avec qui...)."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le sujet peut être un seul mot (il, Léa), plusieurs mots (le vieux chat du voisin) ou plusieurs personnes reliées par « et »."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Les deux frères réparent leur vélo dans le garage », quel est le sujet du verbe « réparent » ?",
+                                    "choices": [
+                                        "Les deux frères",
+                                        "leur vélo",
+                                        "dans le garage"
+                                    ],
+                                    "answer": "Les deux frères",
+                                    "explanation": "Ce sont « les deux frères » qui font l'action de réparer : ce groupe de mots est le sujet du verbe « réparent »."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Le facteur dépose un colis devant la porte », quel groupe de mots est le complément (ce qui est déposé) ?",
+                                    "choices": [
+                                        "un colis",
+                                        "Le facteur",
+                                        "dépose"
+                                    ],
+                                    "answer": "un colis",
+                                    "explanation": "« Un colis » complète le verbe « dépose » : c'est ce que le facteur dépose. « Le facteur » est le sujet, et « dépose » est le verbe."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-phrase-simple-complexe",
+                            "title": "Phrase simple ou phrase complexe ?",
+                            "subtitle": "Compter les verbes conjugués",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une phrase simple ne contient qu'un seul verbe conjugué. Une phrase complexe en contient plusieurs, reliés par un petit mot comme « et », « mais », « parce que », « car », ou séparés par une virgule."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« La pluie tombe. » → un seul verbe conjugué (tombe) : phrase simple. « La pluie tombe et le vent souffle. » → deux verbes conjugués (tombe, souffle) : phrase complexe."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Ma méthode",
+                                    "items": [
+                                        "je repère chaque verbe conjugué de la phrase",
+                                        "je compte combien il y en a",
+                                        "un seul verbe conjugué → phrase simple",
+                                        "plusieurs verbes conjugués → phrase complexe"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Ce n'est pas la longueur de la phrase qui compte, mais le nombre de verbes conjugués !"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Le chien aboie car il a peur. » Combien de verbes conjugués compte cette phrase, et qu'en conclure ?",
+                                    "choices": [
+                                        "Deux verbes conjugués (aboie, a) : c'est une phrase complexe",
+                                        "Un seul verbe conjugué (aboie) : c'est une phrase simple",
+                                        "Cinq mots avant le verbe : c'est une phrase complexe"
+                                    ],
+                                    "answer": "Deux verbes conjugués (aboie, a) : c'est une phrase complexe",
+                                    "explanation": "« Aboie » et « a » sont deux verbes conjugués, reliés par « car » : la phrase est donc complexe. Le nombre de mots ne joue aucun rôle, seul compte le nombre de verbes conjugués."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Les enfants dessinent un beau soleil. » Cette phrase est-elle simple ou complexe ?",
+                                    "choices": [
+                                        "Simple : un seul verbe conjugué, dessinent",
+                                        "Complexe : la phrase parle de plusieurs enfants",
+                                        "Complexe : il y a plus de quatre mots"
+                                    ],
+                                    "answer": "Simple : un seul verbe conjugué, dessinent",
+                                    "explanation": "Un seul verbe conjugué apparaît dans cette phrase : « dessinent ». Peu importe que les enfants soient plusieurs ou que la phrase soit longue : c'est le nombre de verbes conjugués qui décide."
+                                }
+                            ]
                         },
                         {
                             "id": "ce2-lesson-a-accent-ou-pas",
@@ -3661,6 +3904,161 @@
                             "format": "lesson-card"
                         }
                     ]
+                },
+                {
+                    "id": "ce2-histoire-grandes-periodes-subtheme",
+                    "title": "Grandes périodes et récits fondateurs",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "ce2-histoire-grandes-periodes",
+                            "title": "Les grandes périodes",
+                            "subtitle": "Préhistoire et Antiquité, en repères simples",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce2.json",
+                                "category": "ce2-grandes-periodes",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-histoire-recits-fondateurs",
+                            "title": "Récits fondateurs",
+                            "subtitle": "Des légendes racontées depuis très longtemps",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce2.json",
+                                "category": "ce2-recits-fondateurs",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-bonus-histoire-grandes-periodes-defi",
+                            "title": "Défi : Préhistoire, Antiquité, légendes",
+                            "subtitle": "Super quiz sur les grandes périodes",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce2.json",
+                                "category": "ce2-grandes-periodes",
+                                "questions": 10
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "ce2-lesson-grandes-periodes",
+                            "title": "Avant nous : Préhistoire et Antiquité",
+                            "subtitle": "Deux périodes très anciennes de l'histoire",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Bien avant nos arrière-grands-parents, il y a eu des périodes très, très anciennes. La plus lointaine, la Préhistoire, se passe avant l'invention de l'écriture. Puis vient l'Antiquité, dès que les hommes commencent à écrire."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Pendant la Préhistoire, les hommes chassaient et fabriquaient des outils en pierre. Plus tard, en Gaule (notre pays d'aujourd'hui), les Gaulois puis les Romains ont vécu à l'époque de l'Antiquité."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Préhistoire : avant l'écriture, les hommes chassaient et taillaient la pierre.",
+                                        "Antiquité : dès que l'écriture existe, l'Histoire commence.",
+                                        "En Gaule (notre pays), à l'Antiquité, ont vécu les Gaulois puis les Romains.",
+                                        "Sans écriture, on connaît la Préhistoire grâce aux objets et aux peintures retrouvés."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Ordre à connaître : Préhistoire d'abord (pas d'écriture), Antiquité ensuite (l'écriture apparaît)."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un archéologue trouve une grotte avec des peintures, mais aucun texte écrit. De quelle période s'agit-il sûrement ?",
+                                    "choices": [
+                                        "De la Préhistoire",
+                                        "De l'Antiquité",
+                                        "D'aujourd'hui"
+                                    ],
+                                    "answer": "De la Préhistoire",
+                                    "explanation": "L'absence totale d'écriture est le signe de la Préhistoire : dès qu'apparaissent des textes, on entre dans l'Antiquité, la première période de l'Histoire."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pourquoi ne peut-on pas lire de « journal » ou de lettre écrits pendant la Préhistoire ?",
+                                    "choices": [
+                                        "Parce que l'écriture n'existait pas encore à cette époque",
+                                        "Parce que tous ces documents ont été perdus dans un incendie",
+                                        "Parce que les hommes préhistoriques ne savaient pas parler"
+                                    ],
+                                    "answer": "Parce que l'écriture n'existait pas encore à cette époque",
+                                    "explanation": "La Préhistoire se définit justement par l'absence d'écriture : ce n'est pas un hasard de perte de documents, l'écrit n'existait tout simplement pas encore. Les hommes préhistoriques parlaient, mais n'écrivaient pas."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-recits-fondateurs",
+                            "title": "Les récits fondateurs",
+                            "subtitle": "Des légendes racontées depuis très longtemps",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un récit fondateur est une légende très ancienne que les gens se racontaient pour expliquer l'origine d'un peuple ou d'une ville. Ce n'est pas forcément un fait vérifié : c'est une histoire transmise depuis très longtemps."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une légende de l'Antiquité raconte que deux frères recueillis par une louve auraient fondé la ville de Rome. Personne ne peut prouver cette histoire : c'est un récit transmis depuis des siècles."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Un récit fondateur explique, sous forme d'histoire, l'origine d'un peuple ou d'une ville.",
+                                        "Une légende se transmettait surtout à l'oral, avant d'être parfois écrite.",
+                                        "Une légende peut mêler du vrai et de l'imaginaire.",
+                                        "Un fait historique, lui, s'appuie sur des traces ou des documents sérieux."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Une légende se raconte ; un fait historique se prouve avec des traces."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une histoire affirme qu'un géant aurait creusé une vallée d'un coup de pied, il y a très longtemps. Comment la classer ?",
+                                    "choices": [
+                                        "Comme une légende, pas comme un fait prouvé",
+                                        "Comme un fait historique certain",
+                                        "Comme un événement d'aujourd'hui"
+                                    ],
+                                    "answer": "Comme une légende, pas comme un fait prouvé",
+                                    "explanation": "Un exploit impossible à vérifier, transmis comme une belle histoire, est le signe d'une légende : rien ne prouve qu'un geste pareil ait réellement eu lieu."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pourquoi Vercingétorix n'est-il pas un récit fondateur comme celui de Romulus et Remus ?",
+                                    "choices": [
+                                        "Parce que des traces sérieuses confirment qu'il a réellement existé",
+                                        "Parce que son histoire est plus récente que celle de Rome",
+                                        "Parce qu'il n'a jamais combattu les Romains"
+                                    ],
+                                    "answer": "Parce que des traces sérieuses confirment qu'il a réellement existé",
+                                    "explanation": "Contrairement à une légende, l'existence de Vercingétorix s'appuie sur des documents et des traces de l'Antiquité : c'est un fait historique, pas une histoire inventée."
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -4501,6 +4899,30 @@
                                 "category": "ce2_tap_corps_humain",
                                 "questions": 4
                             }
+                        },
+                        {
+                            "id": "ce2-sciences-corps-fonctions",
+                            "title": "Le corps qui bouge, respire, digère",
+                            "subtitle": "Digestion, respiration, mouvement, hygiène",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-corps-fonctions",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-sciences-classification-vivant",
+                            "title": "Animaux ou végétaux ?",
+                            "subtitle": "Classer les êtres vivants",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce2.json",
+                                "category": "ce2-classification-vivant",
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
@@ -4609,6 +5031,60 @@
                                     ],
                                     "answer": "Deux sens travaillent souvent ensemble",
                                     "explanation": "La langue fonctionne toujours, et le nez ne mâche rien. Mais pour apprécier un plat, le goût et l'odorat agissent ensemble : si l'odorat est bloqué, il manque la moitié de l'information."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-corps-hygiene",
+                            "title": "Mon corps bouge, respire et digère",
+                            "subtitle": "Prendre soin de sa santé",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le corps fait plusieurs choses en même temps sans qu'on y pense : il bouge grâce aux muscles, il respire pour prendre de l'air, et il digère ce qu'on mange pour en tirer de l'énergie."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Quand tu cours dans la cour, tes muscles tirent sur tes os pour bouger tes jambes, et tu respires plus vite pour apporter plus d'air à tout ton corps."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "les muscles et les os permettent de bouger",
+                                        "les poumons servent à respirer",
+                                        "le ventre digère les aliments avalés",
+                                        "se laver les mains et se brosser les dents protège la santé"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Bien manger, dormir assez et se laver aident le corps à rester en bonne santé."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Après avoir joué au ballon dans le froid, Inès a les mains pleines de terre et va manger son goûter. Que doit-elle faire avant ?",
+                                    "choices": [
+                                        "Se laver les mains pour enlever les microbes",
+                                        "Courir encore plus vite autour de la cour",
+                                        "Boucher son nez avant chaque bouchée du goûter"
+                                    ],
+                                    "answer": "Se laver les mains pour enlever les microbes",
+                                    "explanation": "Des mains pleines de terre transportent des microbes. Se les laver avant de manger évite de les avaler avec le goûter."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pendant une partie de course, Malo remarque qu'il respire beaucoup plus vite que lorsqu'il est assis. Pourquoi ?",
+                                    "choices": [
+                                        "Ses muscles ont besoin de plus d'air pour bouger",
+                                        "Son ventre a arrêté de digérer son repas de midi",
+                                        "Ses oreilles entendent moins bien le bruit du vent"
+                                    ],
+                                    "answer": "Ses muscles ont besoin de plus d'air pour bouger",
+                                    "explanation": "Courir demande beaucoup d'énergie aux muscles : le corps respire plus vite pour leur apporter davantage d'air."
                                 }
                             ]
                         }

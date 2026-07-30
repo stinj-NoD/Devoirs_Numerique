@@ -4,19 +4,19 @@ Document de référence listant, pour chaque niveau, chaque matière, chaque sou
 
 Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon, sans exercice, catégories peu fournies) pour prioriser les ajouts.
 
-> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-07-29 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
+> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-07-30 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
 
 ---
 
 ## Vue d'ensemble
 
-- **970 exercices** et **349 leçons** répartis sur 5 niveaux (CP à CM2).
+- **981 exercices** et **355 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
 |---|---|
-| `choice-engine` | 519 |
-| `math-input` | 144 |
+| `choice-engine` | 527 |
+| `math-input` | 147 |
 | `reading` | 51 |
 | `matching` | 49 |
 | `conjugation` | 47 |
@@ -928,7 +928,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Calculs & Logique `(ce2-calculs-logique)`
 
-- **Leçons** (9) :
+- **Leçons** (10) :
   - Poser une division `(ce2-lesson-division-posee)` — blocs: paragraph, example, tip, check, check
   - Les fractions simples `(ce2-lesson-fractions-simples)` — blocs: paragraph, bullets, tip, check, check
   - Chercher le complément `(ce2-lesson-complements-1000)` — blocs: paragraph, example, bullets, tip, check, check
@@ -938,7 +938,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Les longueurs `(ce2-lesson-longueurs)` — blocs: paragraph, example, bullets, tip, check, check
   - Les formes planes `(ce2-lesson-formes-planes)` — blocs: paragraph, example, bullets, tip, check, check
   - Masses et contenances `(ce2-lesson-masses-contenances)` — blocs: paragraph, example, mini-table, tip, check, check
-- **Exercices** (20) :
+  - Les grands nombres jusqu'à 10 000 `(ce2-lesson-grands-nombres)` — blocs: paragraph, example, mini-table, tip, check, check
+- **Exercices** (24) :
   - Le Compte est bon `(ce2-cible-1)` — engine: `math-input`, type=cibles, nbFleches=5, questions=5
   - Carré Magique `(ce2-carre-magique-1)` — engine: `math-input`, type=carre-somme, solutionCount=3, targetMin=15, targetMax=25, gridSize=9, questions=6
   - Défi : Carré Magique Expert `(ce2-bonus-carre-magique-defi)` — engine: `math-input`, type=carre-somme, solutionCount=3, targetMin=25, targetMax=35, gridSize=9, questions=6, bonus (seuil=2)
@@ -947,7 +948,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Compléments à 1000 `(ce2-comp-1000)` — engine: `math-input`, type=complement, target=1000, questions=10
   - Comparer < 1000 `(ce2-comp-1000-compare)` — engine: `choice-engine`, range=1000, questions=10
   - Compléments à 500 `(ce2-comp-500)` — engine: `math-input`, type=complement, questions=10, target=500
-  - Compléments à 1000 `(ce2-comp-2000)` — engine: `math-input`, type=complement, target=1000, questions=10
+  - Compléments à 2000 `(ce2-comp-2000)` — engine: `math-input`, type=complement, target=2000, questions=10
   - L'horloge (2) `(ce2-clock-2)` — engine: `clock`, questions=8
   - Problèmes additifs `(ce2-problemes-additifs)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=ce2-problemes-additifs, questions=8
   - Problèmes multiplicatifs `(ce2-problemes-multiplicatifs)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=ce2-problemes-multiplicatifs, questions=8
@@ -959,6 +960,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Division posée avec reste `(ce2-division-posee-reste)` — engine: `math-input`, type=division-posed, level=1, ask=reste, questions=5
   - Lire des fractions simples `(ce2-fractions-simples)` — engine: `math-input`, type=fraction-view, maxDenom=4, questions=8
   - Défi : anticipation CM1 `(ce2-bonus-comp-5000)` — engine: `math-input`, type=complement, target=5000, questions=12, bonus (seuil=2)
+  - Lire et écrire les grands nombres `(ce2-nb-lecture-ecriture)` — engine: `math-input`, type=dictée-nombres, max=10000, questions=8
+  - Comparer jusqu'à 10 000 `(ce2-nb-comparer-10000)` — engine: `choice-engine`, range=10000, questions=10
+  - Les doubles `(ce2-doubles)` — engine: `math-input`, type=double, min=10, max=100, questions=8
+  - Les moitiés `(ce2-moities)` — engine: `math-input`, type=half, min=10, max=100, questions=8
 
 #### Géométrie `(ce2-geometrie-subtheme)`
 
@@ -981,13 +986,15 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Orthographe & Grammaire `(ce2-orthographe-grammaire)`
 
-- **Leçons** (5) :
+- **Leçons** (7) :
   - Choisir le bon homophone `(ce2-lesson-homophones-reperes)` — blocs: paragraph, example, bullets, tip, check, check
   - Accorder le groupe nominal `(ce2-lesson-accord-groupe-nominal)` — blocs: paragraph, example, bullets, tip, check, check
   - La phrase et la ponctuation `(ce2-lesson-phrase-ponctuation)` — blocs: paragraph, example, bullets, tip, check, check
   - Le pluriel des noms `(ce2-lesson-pluriel-noms)` — blocs: paragraph, example, bullets, tip, check, check
+  - Sujet, verbe, complément `(ce2-lesson-sujet-verbe-complement)` — blocs: paragraph, example, bullets, tip, check, check
+  - Phrase simple ou phrase complexe ? `(ce2-lesson-phrase-simple-complexe)` — blocs: paragraph, example, bullets, tip, check, check
   - a ou à ? et ou est ? `(ce2-lesson-a-accent-ou-pas)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (23) :
+- **Exercices** (25) :
   - Et ou Est ? `(ce2-h-et)` — engine: `choice-engine`, type=homophone-duel, category=et_est, questions=8
   - A ou à ? `(ce2-h-a)` — engine: `choice-engine`, type=homophone-duel, category=a_à, questions=8
   - Son ou Sont ? `(ce2-h-son)` — engine: `choice-engine`, type=homophone-duel, category=son_sont, questions=8
@@ -1009,6 +1016,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Le, La ou L' ? (2) `(ce2-g-elision)` — engine: `choice-engine`, type=gender-articles, category=gender_ce2_elision_2, questions=8
   - Ordre des mots `(ce2-francais-ordre-mots)` — engine: `word-order`, category=word_order_ce2, dataFile=data/french_word_order.json, questions=5
   - Types et formes de phrases `(ce2-g-types-phrases)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_phrase_types_ce2, questions=8
+  - Sujet, verbe ou complément `(ce2-g-fonction-qcm)` — engine: `choice-engine`, type=word-class-choice, category=grammar_sujet_verbe_ce2, questions=9
+  - Phrase simple ou complexe ? `(ce2-g-phrase-complexite-qcm)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_phrase_complexite_ce2, questions=8
   - Défi : phrases mélangées `(ce2-bonus-ordre-mots-expert)` — engine: `word-order`, category=word_order_ce2, dataFile=data/french_word_order.json, questions=10, bonus (seuil=2)
   - Raconte une histoire `(ce2-francais-raconte-histoire)` — engine: `word-order`, category=story_order_ce2, dataFile=data/french_word_order.json, questions=4
 
@@ -1116,6 +1125,16 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Repères d'histoire mélangés `(ce2-histoire-ecole-appariement)` — engine: `matching`, category=matching_histoire_ce2, dataFile=data/history_matching.json, questions=2
   - Défi : l'école autrefois `(ce2-bonus-histoire-ecole)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce2.json, category=ce2-ecole-autrefois, questions=10, bonus (seuil=2)
 
+#### Grandes périodes et récits fondateurs `(ce2-histoire-grandes-periodes-subtheme)`
+
+- **Leçons** (2) :
+  - Avant nous : Préhistoire et Antiquité `(ce2-lesson-grandes-periodes)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les récits fondateurs `(ce2-lesson-recits-fondateurs)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (3) :
+  - Les grandes périodes `(ce2-histoire-grandes-periodes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce2.json, category=ce2-grandes-periodes, questions=8
+  - Récits fondateurs `(ce2-histoire-recits-fondateurs)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce2.json, category=ce2-recits-fondateurs, questions=6
+  - Défi : Préhistoire, Antiquité, légendes `(ce2-bonus-histoire-grandes-periodes-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce2.json, category=ce2-grandes-periodes, questions=10, bonus (seuil=2)
+
 ### Questionner l'espace (ce2-geographie-subject)
 
 #### Espaces `(ce2-geo-espaces-subtheme)`
@@ -1170,15 +1189,18 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Le vivant `(ce2-sciences-vivant-subtheme)`
 
-- **Leçons** (2) :
+- **Leçons** (3) :
   - Les besoins des êtres vivants `(ce2-lesson-besoins-vivant)` — blocs: paragraph, example, bullets, tip, check, check
   - Les cinq sens `(ce2-lesson-cinq-sens)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (5) :
+  - Mon corps bouge, respire et digère `(ce2-lesson-corps-hygiene)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (7) :
   - Le vivant `(ce2-sciences-vivant)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-vivant, questions=8
   - Grandir et se nourrir `(ce2-sciences-grandir-nourrir)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_ce2.json, category=ce2-vivant
   - Chaînes alimentaires simples `(ce2-sciences-chaines-alimentaires)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-chaines-alimentaires-simples, questions=6
   - Défi : chaînes alimentaires `(ce2-bonus-sciences-chaines-alimentaires-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-chaines-alimentaires-simples, questions=9, bonus (seuil=2)
   - Les parties du corps `(ce2-sciences-tap-corps)` — engine: `board-interactive`, type=tap-features, dataFile=data/board_tap_features_science.json, category=ce2_tap_corps_humain, questions=4
+  - Le corps qui bouge, respire, digère `(ce2-sciences-corps-fonctions)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-corps-fonctions, questions=8
+  - Animaux ou végétaux ? `(ce2-sciences-classification-vivant)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-classification-vivant, questions=8
 
 #### Matière `(ce2-sciences-matiere-subtheme)`
 
