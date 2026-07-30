@@ -465,27 +465,32 @@ const App = {
     },
 
     getFrenchVoice() {
+        return this.getVoiceForLang('fr');
+    },
+
+    // Sélectionne la meilleure voix disponible pour une langue donnée
+    // ("fr" ou "en"). Centralise ici la logique déjà utilisée pour le
+    // français afin qu'une future banque de dictée anglaise n'ait qu'à
+    // appeler getVoiceForLang('en') sans dupliquer le classement de voix.
+    getVoiceForLang(lang) {
         if (!this.supportsSpeechSynthesis()) return null;
+        const langCode = (lang || 'fr').toString().toLowerCase();
+        const langNamePattern = langCode === 'en' ? /english/i : /french|fran[çc]ais/i;
         const voices = window.speechSynthesis.getVoices?.() || [];
-        const frenchVoices = voices.filter((voice) =>
-            /^fr(-|_)/i.test(voice.lang || '') || /french|fran[çc]ais/i.test(voice.name || '')
+        const matchingVoices = voices.filter((voice) =>
+            new RegExp(`^${langCode}(-|_)`, 'i').test(voice.lang || '') || langNamePattern.test(voice.name || '')
         );
-        if (!frenchVoices.length) return null;
+        if (!matchingVoices.length) return null;
 
-        const preferredNames = [
-            /hortense/i,
-            /denise/i,
-            /amelie/i,
-            /audrey/i,
-            /brigitte/i,
-            /thomas/i,
-            /paul/i
-        ];
+        const preferredNames = langCode === 'en'
+            ? [/samantha/i, /karen/i, /daniel/i, /moira/i, /tessa/i]
+            : [/hortense/i, /denise/i, /amelie/i, /audrey/i, /brigitte/i, /thomas/i, /paul/i];
+        const preferredLocale = langCode === 'en' ? 'en-us' : 'fr-fr';
 
-        const ranked = [...frenchVoices].sort((a, b) => {
+        const ranked = [...matchingVoices].sort((a, b) => {
             const score = (voice) => {
                 let value = 0;
-                if ((voice.lang || '').toLowerCase() === 'fr-fr') value += 5;
+                if ((voice.lang || '').toLowerCase() === preferredLocale) value += 5;
                 if (voice.localService) value += 3;
                 const name = voice.name || '';
                 const preferredIndex = preferredNames.findIndex((pattern) => pattern.test(name));
@@ -511,14 +516,15 @@ const App = {
 
         this.stopSpeech();
         this.setAudioSpellingStatus('playing');
+        const lang = (problem.data?.lang || 'fr').toString().toLowerCase();
         const baseRate = Number.isFinite(Number(problem.data?.speechRate)) ? Number(problem.data.speechRate) : 0.72;
         const multiplier = Storage.getSpeechRateMultiplier();
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'fr-FR';
+        utterance.lang = lang === 'en' ? 'en-US' : 'fr-FR';
         utterance.rate = Math.min(2, Math.max(0.4, baseRate * multiplier));
         utterance.pitch = Number.isFinite(Number(problem.data?.speechPitch)) ? Number(problem.data.speechPitch) : 1.15;
         utterance.volume = Number.isFinite(Number(problem.data?.speechVolume)) ? Number(problem.data.speechVolume) : 0.9;
-        const voice = this.getFrenchVoice();
+        const voice = this.getVoiceForLang(lang);
         if (voice) utterance.voice = voice;
         utterance.onend = () => this.setAudioSpellingStatus('ready');
         utterance.onerror = () => this.setAudioSpellingStatus('error');
@@ -3391,7 +3397,7 @@ const App = {
         const ansZone = document.getElementById('user-answer');
         
         // 1. NETTOYAGE & TOLÉRANCE
-        const clean = s => (s || "").toString().toLowerCase().trim();
+        const clean = s => (s || "").toString().toLowerCase().trim().replace(/[’‘]/g, "'");
         let uInput = clean(userInput);
         let tAnswer = clean(targetAnswer);
 
@@ -3404,6 +3410,15 @@ const App = {
         let isCorrect = false;
         if (hasAnswered) {
             isCorrect = (uInput === tAnswer);
+            // Mots composés (spelling/audioSpelling) : le tiret/espace n'est
+            // pas la compétence testée (c'est l'orthographe des lettres) —
+            // on accepte "sous-marin", "sous marin" et "sousmarin" comme
+            // équivalents, dans les deux sens (saisie et réponse attendue).
+            if (!isCorrect && ['spelling', 'audioSpelling'].includes(problemData.visualType)) {
+                const collapse = s => s.replace(/[-\s]+/g, " ").trim();
+                const strip = s => s.replace(/[-\s]/g, "");
+                isCorrect = collapse(uInput) === collapse(tAnswer) || strip(uInput) === strip(tAnswer);
+            }
             // Tolérance horloge : accepte "1h30" écrit "130" sans le zéro initial (heures 1-9)
             if (!isCorrect && problemData.visualType === 'clock' && /^\d{3}$/.test(uInput) && /^\d{4}$/.test(tAnswer)) {
                 isCorrect = ("0" + uInput) === tAnswer;

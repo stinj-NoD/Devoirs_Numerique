@@ -102,6 +102,11 @@
         const picked = Engines.utils.pickUnused(pool, p.usedSet);
         const answer = (picked.word || "").toString().trim();
         if (!answer) return Engines.fallback("Mot audio indisponible");
+        // Texte de prononciation distinct du texte validé : un mot composé
+        // ("sous-marin") peut nécessiter un texte différent pour que le TTS
+        // le dise correctement (ex. tiret remplacé par un espace) sans que
+        // ça change jamais ce qui est accepté comme réponse écrite.
+        const audioText = (picked.audio || answer).toString().trim().replace(/-/g, " ");
         return {
             isVisual: true,
             visualType: "audioSpelling",
@@ -109,9 +114,10 @@
             question: `<span class="small-question">Écoute le mot puis écris-le.</span>`,
             answer: answer.toLowerCase(),
             data: {
-                audioText: (picked.audio || answer).toString().trim(),
+                audioText,
                 targetText: answer.toUpperCase(),
                 targetLength: Array.from(answer).length,
+                lang: (p.lang || "fr").toString(),
                 speechRate: Number.isFinite(Number(p.speechRate)) ? Number(p.speechRate) : 0.72,
                 speechPitch: Number.isFinite(Number(p.speechPitch)) ? Number(p.speechPitch) : 1.15,
                 speechVolume: Number.isFinite(Number(p.speechVolume)) ? Number(p.speechVolume) : 0.9,

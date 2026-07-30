@@ -1685,7 +1685,15 @@ const UI = {
     drawAudioSpelling(p, input) {
         const d = p.data || {};
         const target = Array.from((d.targetText || '').toString());
-        const typed = Array.from((input || '').toString().toUpperCase());
+        // La saisie de l'enfant n'a pas à reproduire exactement les séparateurs
+        // (tiret/espace/apostrophe) du mot cible ni leur position : on ne
+        // consomme un caractère tapé que pour remplir un slot-lettre, en
+        // ignorant les séparateurs qu'il aurait lui-même tapés. Sans ça,
+        // un mot composé où l'enfant omet ou décale un tiret/espace décalait
+        // tout l'affichage des lettres suivantes.
+        const isSeparator = (char) => char === ' ' || char === '-' || char === "'" || char === '’';
+        const typedLetters = Array.from((input || '').toString().toUpperCase()).filter((char) => !isSeparator(char));
+        let typedCursor = 0;
         const status = (d.audioStatus || 'ready').toString();
         const isUnsupported = status === 'unsupported';
         const isPlaying = status === 'playing';
@@ -1694,10 +1702,12 @@ const UI = {
             : isPlaying
                 ? "Le mot est en train d'être lu."
                 : "Écoute bien le mot, puis écris-le. Tu peux le réécouter.";
-        const slots = target.map((char, idx) => {
+        const slots = target.map((char) => {
             if (char === ' ') return `<span class="audio-spelling-separator">&nbsp;</span>`;
             if (char === '-' || char === "'") return `<span class="audio-spelling-separator">${char}</span>`;
-            return `<span class="audio-spelling-slot">${typed[idx] || "&nbsp;"}</span>`;
+            const typedChar = typedLetters[typedCursor];
+            typedCursor += 1;
+            return `<span class="audio-spelling-slot">${typedChar || "&nbsp;"}</span>`;
         }).join('');
 
         const currentLevel = window.Storage?.getSpeechRateLevel ? Storage.getSpeechRateLevel() : 'normal';
