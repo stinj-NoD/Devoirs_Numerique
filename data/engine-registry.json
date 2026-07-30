@@ -22,6 +22,8 @@
         "division-simple": { "params": ["max"] },
         "division-reste": { "params": ["max"] },
         "division-posed": { "params": ["min", "max"] },
+        "operation-posed": { "params": ["operator", "level"], "note": "operator='add'|'sub'|'mult' ; level 1-3 borne la difficulté ; rendu par ui-visuals.js::drawOperationPosedCard (visualType 'operationPosed')" },
+        "place-value": { "params": ["digitCount", "ask"], "note": "digitCount = nombre de chiffres généré (défaut 4) ; ask='digit'|'value' (défaut 'digit') ; pas de rendu visuel dédié, pattern textuel comme decimal-place" },
         "proportionnalite": { "params": [] },
         "pourcentage": { "params": [] },
         "aire-rectangle": { "params": [] },

@@ -424,5 +424,67 @@ const UIVisuals = {
                     </div>
                 </div>
             </div>`;
+    },
+
+    drawOperationPosedCard(p) {
+        const d = p.data || {};
+        const a = d.a || 0;
+        const b = d.b || 0;
+        const operator = d.operator || 'add';
+        const symbol = d.operatorSymbol || '+';
+        const aStr = a.toString();
+        const bStr = b.toString();
+        const width = Math.max(aStr.length, bStr.length) + (operator === 'mult' ? 1 : 0);
+
+        const buildDigitRow = (value, colorClass = '') => {
+            const str = value.toString();
+            const pad = width - str.length;
+            const cells = Array.from({ length: pad }, () => '<span class="operation-cell">&nbsp;</span>').join('');
+            const digits = str.split('').map((ch) => `<span class="operation-cell${colorClass ? ' ' + colorClass : ''}">${ch}</span>`).join('');
+            return cells + digits;
+        };
+
+        // Calcule les retenues (addition) ou emprunts (soustraction) colonne
+        // par colonne, de droite à gauche, pour les afficher au-dessus du
+        // premier terme — c'est le repère visuel qui manque le plus aux
+        // enfants pour comprendre où "ça déborde".
+        const carries = [];
+        if (operator === 'add') {
+            let carry = 0;
+            const aDigits = aStr.split('').reverse().map(Number);
+            const bDigits = bStr.split('').reverse().map(Number);
+            for (let i = 0; i < width; i++) {
+                const sum = (aDigits[i] || 0) + (bDigits[i] || 0) + carry;
+                carry = sum >= 10 ? 1 : 0;
+                carries.unshift(i < width - 1 ? carry : 0);
+            }
+        } else if (operator === 'sub') {
+            let borrow = 0;
+            const aDigits = aStr.split('').reverse().map(Number);
+            const bDigits = bStr.split('').reverse().map(Number);
+            for (let i = 0; i < width; i++) {
+                const need = (aDigits[i] || 0) - borrow < (bDigits[i] || 0);
+                carries.unshift(need ? 1 : 0);
+                borrow = need ? 1 : 0;
+            }
+        }
+        const hasCarryRow = operator !== 'mult' && carries.some((c) => c);
+        const carryRowHtml = hasCarryRow
+            ? `<div class="operation-row operation-row--carry">${carries.map((c) => `<span class="operation-cell operation-cell--carry">${c ? (operator === 'add' ? '1' : '•') : '&nbsp;'}</span>`).join('')}</div>`
+            : '';
+
+        return `
+            <div class="operation-posed-card visual-card visual-card--operation-posed">
+                <div class="operation-layout" style="--operation-width:${width};">
+                    ${carryRowHtml}
+                    <div class="operation-row">${buildDigitRow(a)}</div>
+                    <div class="operation-row operation-row--operand">
+                        <span class="operation-sign">${symbol}</span>
+                        ${buildDigitRow(b)}
+                    </div>
+                    <div class="operation-line"></div>
+                    <div class="operation-row operation-row--result">${Array.from({ length: width }, () => `<span class="operation-cell operation-cell--empty">?</span>`).join('')}</div>
+                </div>
+            </div>`;
     }
 };

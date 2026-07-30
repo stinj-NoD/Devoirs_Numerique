@@ -180,6 +180,68 @@
                 const divExplanation = `${d_dividend} : ${d_divisor} : le quotient est ${d_q} (${d_divisor} × ${d_q} = ${d_divisor * d_q}) et il reste ${d_r}.`;
                 return { question: askRemainder ? "Quel est le reste ?" : "Quel est le quotient ?", answer: askRemainder ? d_r : d_q, isVisual: true, visualType: 'division', inputType: 'numeric', data: { dividend: d_dividend, divisor: d_divisor, askRemainder }, explanation: divExplanation };
             }
+            case 'operation-posed': {
+                const level = p.level || 1;
+                const operator = p.operator || 'add';
+                let opA, opB;
+                if (operator === 'add') {
+                    if (level === 1) { opA = rnd(10, 99); opB = rnd(10, 99); }
+                    else if (level === 2) { opA = rnd(100, 999); opB = rnd(100, 999); }
+                    else { opA = rnd(1000, 9999); opB = rnd(1000, 9999); }
+                } else if (operator === 'sub') {
+                    if (level === 1) { opA = rnd(20, 99); opB = rnd(10, opA - 1); }
+                    else if (level === 2) { opA = rnd(200, 999); opB = rnd(100, opA - 1); }
+                    else { opA = rnd(2000, 9999); opB = rnd(1000, opA - 1); }
+                } else {
+                    if (level === 1) { opA = rnd(11, 99); opB = rnd(2, 9); }
+                    else if (level === 2) { opA = rnd(11, 99); opB = rnd(11, 99); }
+                    else { opA = rnd(100, 999); opB = rnd(11, 99); }
+                }
+                const result = operator === 'add' ? opA + opB : (operator === 'sub' ? opA - opB : opA * opB);
+                const opSymbol = operator === 'add' ? '+' : (operator === 'sub' ? '-' : '×');
+                const opExplanation = operator === 'add'
+                    ? `${opA} + ${opB} = ${result} (pense aux retenues quand une colonne dépasse 9).`
+                    : operator === 'sub'
+                        ? `${opA} - ${opB} = ${result} (pense aux emprunts quand le chiffre du haut est plus petit).`
+                        : `${opA} × ${opB} = ${result}.`;
+                return {
+                    question: "Quel est le résultat ?",
+                    answer: result,
+                    isVisual: true,
+                    visualType: 'operationPosed',
+                    inputType: 'numeric',
+                    data: { a: opA, b: opB, operator, operatorSymbol: opSymbol },
+                    explanation: opExplanation
+                };
+            }
+            case 'place-value': {
+                const digitCount = p.digitCount || 4;
+                const minValue = Math.pow(10, digitCount - 1);
+                const maxValue = Math.pow(10, digitCount) - 1;
+                const value = rnd(p.min || minValue, p.max || maxValue);
+                const valueStr = value.toString();
+                const placeNames = ['unités', 'dizaines', 'centaines', 'milliers', 'dizaines de milliers', 'centaines de milliers'];
+                const askMode = p.ask || 'digit';
+                const positionsAvailable = valueStr.length;
+                const posFromRight = rnd(0, positionsAvailable - 1);
+                const posFromLeft = positionsAvailable - 1 - posFromRight;
+                const digit = Number(valueStr[posFromLeft]);
+                const placeName = placeNames[posFromRight] || `position ${posFromRight}`;
+                const placeVal = digit * Math.pow(10, posFromRight);
+                const askValue = askMode === 'value';
+                const pvQuestion = askValue
+                    ? `Dans <b>${value}</b>, quelle est la valeur du chiffre des <b style="color:#e91e63">${placeName}</b> ?`
+                    : `Dans <b>${value}</b>, quel est le chiffre des <b style="color:#e91e63">${placeName}</b> ?`;
+                const pvExplanation = askValue
+                    ? `Dans ${value}, le chiffre des ${placeName} est ${digit}, ce qui représente ${placeVal}.`
+                    : `Dans ${value}, le chiffre des ${placeName} est ${digit}.`;
+                return {
+                    question: `<div style="font-size:2.6rem; font-weight:bold; letter-spacing:2px;">${value}</div><div class="small-question" style="margin-top:10px;">${askValue ? `Quelle est la valeur du chiffre des ${placeName} ?` : `Quel est le chiffre des ${placeName} ?`}</div>`,
+                    answer: askValue ? placeVal : digit,
+                    inputType: 'numeric',
+                    explanation: pvExplanation
+                };
+            }
             case 'bar-chart-read': {
                 const themes = p.themes || [
                     { unit: 'fruits récoltés', labels: ['Pommes', 'Poires', 'Cerises', 'Prunes'] },

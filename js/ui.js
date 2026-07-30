@@ -1212,8 +1212,9 @@ const UI = {
             // Dispatcher vers les moteurs de dessin
             else {
                     const drawMethods = { 
-                    clock:'drawClockCard', spelling:'drawSpelling', audioSpelling:'drawAudioSpelling', conjugation:'drawConjugation', 
+                    clock:'drawClockCard', spelling:'drawSpelling', audioSpelling:'drawAudioSpelling', conjugation:'drawConjugation',
                     target:'drawSvgTarget', money:'drawMoneyCard', bird:'drawBird', division:'drawDivisionCard',
+                    operationPosed: 'drawOperationPosedCard',
                     square:'drawSquare', reading: 'drawReading', counting: 'drawCountingCard', fraction: 'drawFraction',
                     conversionTable: 'drawConversionCard', timeMemo: 'drawTimeMemoCard', factualCard: 'drawFactualCard',
                     timelineOrder: 'drawTimelineOrder', timelinePlace: 'drawTimelinePlace', matching: 'drawMatching',
@@ -1614,6 +1615,10 @@ const UI = {
 
     drawDivisionCard(...args) {
         return UIVisuals.drawDivisionCard(...args);
+    },
+
+    drawOperationPosedCard(...args) {
+        return UIVisuals.drawOperationPosedCard(...args);
     },
 
     drawReading(p) {

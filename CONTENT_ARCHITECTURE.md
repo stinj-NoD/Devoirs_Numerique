@@ -10,13 +10,13 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 
 ## Vue d'ensemble
 
-- **981 exercices** et **355 leçons** répartis sur 5 niveaux (CP à CM2).
+- **985 exercices** et **355 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
 |---|---|
 | `choice-engine` | 527 |
-| `math-input` | 147 |
+| `math-input` | 151 |
 | `reading` | 51 |
 | `matching` | 49 |
 | `conjugation` | 47 |
@@ -533,7 +533,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Additionner jusqu'à 100 `(ce1-lesson-additionner-100)` — blocs: paragraph, example, bullets, tip, check, check
   - Soustraire sans se tromper `(ce1-lesson-soustraire)` — blocs: paragraph, example, bullets, tip, check, check
   - Les nombres jusqu'à 1000 `(ce1-lesson-nombres-jusqu-1000)` — blocs: paragraph, example, mini-table, bullets, tip, check, check
-- **Exercices** (21) :
+- **Exercices** (23) :
   - Compléments à 100 `(add-100)` — engine: `math-input`, type=add-trou, min=10, max=100, questions=10
   - Calcul rapide `(add-chrono)` — engine: `math-input`, type=oiseau-math, min=10, max=30, vitesse=5, questions=10
   - Comparer jusqu'à 100 `(comp-ce1-1)` — engine: `choice-engine`, range=100, questions=10
@@ -555,6 +555,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Soustractions jusqu'à 60 `(ce1-soustractions-60)` — engine: `math-input`, type=sub-simple, min=20, max=60, questions=6
   - Le nombre caché `(ce1-nombre-cache-50)` — engine: `math-input`, type=add-trou, min=20, max=50, questions=6
   - Défi : compléments à 100 `(ce1-bonus-complements-100)` — engine: `math-input`, type=complement, target=100, questions=8, bonus (seuil=2)
+  - Addition posée en colonnes `(ce1-addition-posee-colonnes)` — engine: `math-input`, type=operation-posed, operator=add, level=1, questions=6
+  - Soustraction posée en colonnes `(ce1-soustraction-posee-colonnes)` — engine: `math-input`, type=operation-posed, operator=sub, level=1, questions=6
 
 #### Géométrie et mesures `(ce1-geometrie-mesures-subtheme)`
 
@@ -939,7 +941,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Les formes planes `(ce2-lesson-formes-planes)` — blocs: paragraph, example, bullets, tip, check, check
   - Masses et contenances `(ce2-lesson-masses-contenances)` — blocs: paragraph, example, mini-table, tip, check, check
   - Les grands nombres jusqu'à 10 000 `(ce2-lesson-grands-nombres)` — blocs: paragraph, example, mini-table, tip, check, check
-- **Exercices** (24) :
+- **Exercices** (26) :
   - Le Compte est bon `(ce2-cible-1)` — engine: `math-input`, type=cibles, nbFleches=5, questions=5
   - Carré Magique `(ce2-carre-magique-1)` — engine: `math-input`, type=carre-somme, solutionCount=3, targetMin=15, targetMax=25, gridSize=9, questions=6
   - Défi : Carré Magique Expert `(ce2-bonus-carre-magique-defi)` — engine: `math-input`, type=carre-somme, solutionCount=3, targetMin=25, targetMax=35, gridSize=9, questions=6, bonus (seuil=2)
@@ -964,6 +966,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Comparer jusqu'à 10 000 `(ce2-nb-comparer-10000)` — engine: `choice-engine`, range=10000, questions=10
   - Les doubles `(ce2-doubles)` — engine: `math-input`, type=double, min=10, max=100, questions=8
   - Les moitiés `(ce2-moities)` — engine: `math-input`, type=half, min=10, max=100, questions=8
+  - Le chiffre à sa place `(ce2-grands-nombres-chiffre-position)` — engine: `math-input`, type=place-value, digitCount=4, ask=digit, questions=6
+  - La valeur d'un chiffre `(ce2-grands-nombres-valeur-position)` — engine: `math-input`, type=place-value, digitCount=4, ask=value, questions=6
 
 #### Géométrie `(ce2-geometrie-subtheme)`
 

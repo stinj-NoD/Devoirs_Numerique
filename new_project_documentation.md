@@ -10,7 +10,7 @@ Le projet est aujourd’hui stabilisé sur trois axes :
 - robustesse locale/offline renforcée
 
 État actuel :
-- mathématiques, français, histoire, géographie, sciences et EMC présents sur tous les niveaux (981 exercices et 355 leçons, voir [CONTENT_ARCHITECTURE.md](CONTENT_ARCHITECTURE.md))
+- mathématiques, français, histoire, géographie, sciences et EMC présents sur tous les niveaux (985 exercices et 355 leçons, voir [CONTENT_ARCHITECTURE.md](CONTENT_ARCHITECTURE.md))
 - bibliothèque française modulaire dans `data/french/`
 - moteurs de grammaire en contexte et dictée audio en service
 - activités interactives non-QCM (`board-interactive`) : cartes à toucher, classement de figures, mémoire, point sur quadrillage, symétrie, fraction à construire, carte à localiser (`map-locate`)

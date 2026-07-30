@@ -3696,6 +3696,80 @@ button,
     font-family: 'Quicksand', sans-serif;
 }
 
+.operation-posed-card {
+    margin-top: 20px;
+    padding: calc(var(--panel-padding) + 2px) var(--panel-padding);
+}
+
+.operation-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    font-family: 'Courier New', monospace;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.operation-row {
+    display: grid;
+    grid-template-columns: 32px repeat(var(--operation-width, 4), 25px);
+    align-items: end;
+    min-height: 40px;
+}
+
+.operation-row--carry {
+    min-height: 26px;
+    font-size: 1.1rem;
+    color: #e74c3c;
+}
+
+.operation-row--operand {
+    position: relative;
+}
+
+.operation-cell {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 40px;
+    line-height: 1;
+    grid-column: span 1;
+}
+
+.operation-row--carry .operation-cell {
+    min-height: 26px;
+}
+
+.operation-sign {
+    grid-column: 1;
+    justify-self: start;
+    align-self: flex-end;
+}
+
+.operation-cell--carry {
+    color: #e74c3c;
+}
+
+.operation-line {
+    border-bottom: 4px solid #2c3e50;
+    width: calc(32px + var(--operation-width, 4) * 25px);
+    margin-top: 4px;
+}
+
+.operation-row--result .operation-cell {
+    font-weight: 800;
+}
+
+.operation-cell--empty {
+    color: var(--subject-accent-strong);
+    background: var(--subject-accent-soft);
+    border-radius: 6px;
+}
+
 .answer-display.shake { animation: shake 0.4s; }
 .square-container { display: flex; flex-direction: column; align-items: center; gap: 15px; }
 .target-badge { background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-secondary-strong) 100%); color: white; padding: 8px 25px; border-radius: 50px; font-size: 1.5rem; font-weight: bold; box-shadow: 0 4px 0 #b63e3e; }
@@ -4527,6 +4601,37 @@ button,
 
     .division-quotient-label {
         font-size: 0.72rem;
+    }
+
+    .operation-posed-card {
+        margin-top: var(--space-3);
+        padding: var(--space-3) var(--space-2);
+    }
+
+    .operation-layout {
+        font-size: 1.25rem;
+    }
+
+    .operation-row {
+        grid-template-columns: 20px repeat(var(--operation-width, 4), minmax(15px, 1fr));
+        min-height: 24px;
+    }
+
+    .operation-cell {
+        min-height: 24px;
+    }
+
+    .operation-row--carry {
+        min-height: 18px;
+        font-size: 0.85rem;
+    }
+
+    .operation-row--carry .operation-cell {
+        min-height: 18px;
+    }
+
+    .operation-line {
+        width: calc(20px + var(--operation-width, 4) * 15px);
     }
 }
 .clock-digit-block { background: var(--color-text); color: var(--color-success); padding: 5px 10px; border-radius: 5px; font-family: monospace; font-size: 2rem; letter-spacing: 2px; }
@@ -7182,6 +7287,7 @@ button.collection-map--fact {
     .money-card,
     .counting-card,
     .division-card,
+    .operation-posed-card,
     .conversion-card {
         padding: var(--space-4);
     }
@@ -7266,6 +7372,29 @@ button.collection-map--fact {
     .division-quotient-value {
         min-width: 48px;
         padding: 4px 8px;
+    }
+    .operation-posed-card {
+        margin-top: var(--space-4);
+    }
+    .operation-layout {
+        font-size: 1.5rem;
+    }
+    .operation-row {
+        grid-template-columns: 24px repeat(var(--operation-width, 4), minmax(18px, 1fr));
+        min-height: 30px;
+    }
+    .operation-cell {
+        min-height: 30px;
+    }
+    .operation-row--carry {
+        min-height: 20px;
+        font-size: 1rem;
+    }
+    .operation-row--carry .operation-cell {
+        min-height: 20px;
+    }
+    .operation-line {
+        width: calc(24px + var(--operation-width, 4) * 18px);
     }
     .timeline-event-card {
         grid-template-columns: 32px 34px 1fr;

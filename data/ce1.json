@@ -510,6 +510,30 @@
                                 "target": 100,
                                 "questions": 8
                             }
+                        },
+                        {
+                            "id": "ce1-addition-posee-colonnes",
+                            "title": "Addition posée en colonnes",
+                            "subtitle": "Poser l'addition et gérer la retenue",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "add",
+                                "level": 1,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-soustraction-posee-colonnes",
+                            "title": "Soustraction posée en colonnes",
+                            "subtitle": "Poser la soustraction et gérer l'emprunt",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "sub",
+                                "level": 1,
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [

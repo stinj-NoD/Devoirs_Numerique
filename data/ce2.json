@@ -620,6 +620,30 @@
                                 "max": 100,
                                 "questions": 8
                             }
+                        },
+                        {
+                            "id": "ce2-grands-nombres-chiffre-position",
+                            "title": "Le chiffre à sa place",
+                            "subtitle": "Retrouver un chiffre dans un grand nombre",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "place-value",
+                                "digitCount": 4,
+                                "ask": "digit",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-grands-nombres-valeur-position",
+                            "title": "La valeur d'un chiffre",
+                            "subtitle": "Milliers, centaines, dizaines ou unités ?",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "place-value",
+                                "digitCount": 4,
+                                "ask": "value",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [

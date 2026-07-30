@@ -1,7 +1,7 @@
 {
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
-    "exercises": 981,
+    "exercises": 985,
     "lessons": 355,
     "levels": 5,
     "banks": 74
@@ -3165,6 +3165,28 @@
       "contractHash": "math-input|{\"target\":100,\"type\":\"complement\"}"
     },
     {
+      "id": "ce1-addition-posee-colonnes",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "operation-posed",
+      "pool": null,
+      "contractHash": "math-input|{\"level\":1,\"operator\":\"add\",\"type\":\"operation-posed\"}"
+    },
+    {
+      "id": "ce1-soustraction-posee-colonnes",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "operation-posed",
+      "pool": null,
+      "contractHash": "math-input|{\"level\":1,\"operator\":\"sub\",\"type\":\"operation-posed\"}"
+    },
+    {
       "id": "ce1-lesson-formes-planes",
       "kind": "lesson",
       "level": "ce1",
@@ -6001,6 +6023,28 @@
       "paramsType": "half",
       "pool": null,
       "contractHash": "math-input|{\"max\":100,\"min\":10,\"type\":\"half\"}"
+    },
+    {
+      "id": "ce2-grands-nombres-chiffre-position",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-maths",
+      "subthemeId": "ce2-calculs-logique",
+      "engine": "math-input",
+      "paramsType": "place-value",
+      "pool": null,
+      "contractHash": "math-input|{\"ask\":\"digit\",\"digitCount\":4,\"type\":\"place-value\"}"
+    },
+    {
+      "id": "ce2-grands-nombres-valeur-position",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-maths",
+      "subthemeId": "ce2-calculs-logique",
+      "engine": "math-input",
+      "paramsType": "place-value",
+      "pool": null,
+      "contractHash": "math-input|{\"ask\":\"value\",\"digitCount\":4,\"type\":\"place-value\"}"
     },
     {
       "id": "ce2-lesson-figures-solides",
