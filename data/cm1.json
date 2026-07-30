@@ -281,6 +281,66 @@
                                 "level": 2,
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "cm1-m-addition-posee-retenue",
+                            "title": "Addition posée avec retenue",
+                            "subtitle": "Poser l'addition de grands nombres",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "add",
+                                "level": 2,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-m-soustraction-posee-emprunt",
+                            "title": "Soustraction posée avec emprunt",
+                            "subtitle": "Poser la soustraction de grands nombres",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "sub",
+                                "level": 2,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-m-multiplication-posee-2-chiffres",
+                            "title": "Multiplication posée par un nombre à 2 chiffres",
+                            "subtitle": "Poser la multiplication et gérer les retenues",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "mult",
+                                "level": 2,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-m-position-chiffre-million",
+                            "title": "Le chiffre à sa place",
+                            "subtitle": "Repérer un chiffre jusqu'aux centaines de mille",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "place-value",
+                                "digitCount": 6,
+                                "ask": "digit",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-m-valeur-chiffre-million",
+                            "title": "La valeur d'un chiffre",
+                            "subtitle": "Unités, milliers ou centaines de mille ?",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "place-value",
+                                "digitCount": 5,
+                                "ask": "value",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -568,6 +628,176 @@
                                     ],
                                     "answer": "Les âges avancent de la même durée, pas dans le même rapport",
                                     "explanation": "Toutes les situations ne sont pas proportionnelles. Quand Yanis gagne 8 ans, son père gagne 8 ans aussi : il aura 40 ans, pas 64."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-addition-soustraction-posees",
+                            "title": "Addition et soustraction posées",
+                            "subtitle": "Retenue et emprunt sur grands nombres",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour poser une addition ou une soustraction, j'aligne les nombres par la droite (unités sous unités, dizaines sous dizaines) et je calcule colonne par colonne, en partant des unités."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple avec retenue",
+                                    "content": "347 + 486 : unités 7 + 6 = 13, j'écris 3 et je retiens 1. Dizaines 4 + 8 + 1 (la retenue) = 13, j'écris 3 et je retiens 1. Centaines 3 + 4 + 1 = 8. Résultat : 833."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple avec emprunt",
+                                    "content": "523 - 267 : unités 3 - 7 impossible, j'emprunte une dizaine (13 - 7 = 6). Dizaines 1 - 1 (emprunt) - 6 impossible, j'emprunte une centaine (10 - 6 = 4). Centaines 4 - 1 (emprunt) - 2 = 1. Résultat : 256."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je fais attention à",
+                                    "items": [
+                                        "bien aligner les chiffres selon leur rang (unités, dizaines, centaines)",
+                                        "reporter la retenue sur la colonne suivante dans une addition",
+                                        "emprunter une unité au rang supérieur dans une soustraction quand le chiffre du haut est trop petit",
+                                        "vérifier que le résultat est cohérent avec l'ordre de grandeur"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Une retenue s'ajoute à la colonne suivante ; un emprunt se soustrait à la colonne suivante. Je calcule toujours en partant de la droite."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour poser 268 + 175, que dois-je faire à la colonne des dizaines après avoir calculé 8 + 5 = 13 aux unités ?",
+                                    "choices": [
+                                        "Ajouter la retenue de 1 aux dizaines",
+                                        "Recommencer le calcul des unités",
+                                        "Emprunter une centaine"
+                                    ],
+                                    "answer": "Ajouter la retenue de 1 aux dizaines",
+                                    "explanation": "Aux unités, 8 + 5 = 13 : j'écris 3 et je retiens 1. Cette retenue de 1 s'ajoute ensuite au calcul des dizaines."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour poser 402 - 158, à quelle colonne dois-je emprunter en premier ?",
+                                    "choices": [
+                                        "Aux unités, car 2 - 8 est impossible",
+                                        "Aux centaines, car 4 - 1 est impossible",
+                                        "Je n'ai besoin d'aucun emprunt"
+                                    ],
+                                    "answer": "Aux unités, car 2 - 8 est impossible",
+                                    "explanation": "Aux unités, 2 est plus petit que 8 : je dois emprunter une dizaine au chiffre 0 des dizaines pour pouvoir soustraire."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-multiplication-posee-2-chiffres",
+                            "title": "Multiplication posée par un nombre à 2 chiffres",
+                            "subtitle": "Deux lignes de produits partiels",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour multiplier par un nombre à 2 chiffres, je calcule deux produits partiels (un pour les unités, un pour les dizaines) puis je les additionne."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "34 × 27 : je multiplie 34 par 7 (unités de 27) → 238. Je multiplie 34 par 20 (dizaines de 27) → 680. J'additionne 238 + 680 = 918."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les étapes",
+                                    "items": [
+                                        "je multiplie d'abord par le chiffre des unités du deuxième nombre",
+                                        "je décale d'un rang vers la gauche pour multiplier par le chiffre des dizaines",
+                                        "j'additionne les deux produits partiels obtenus",
+                                        "je gère les retenues à chaque multiplication comme dans une multiplication simple"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le produit par les dizaines du deuxième nombre se décale d'un rang vers la gauche avant d'être additionné au premier produit."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour poser 43 × 26, quel est le premier produit partiel à calculer ?",
+                                    "choices": [
+                                        "43 × 6",
+                                        "43 × 20",
+                                        "26 × 3"
+                                    ],
+                                    "answer": "43 × 6",
+                                    "explanation": "Je commence toujours par multiplier par le chiffre des unités du deuxième nombre : ici 6, ce qui donne 43 × 6 = 258."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "En posant 52 × 19, un élève calcule 52 × 9 = 468 puis 52 × 1 = 52 et additionne directement 468 + 52. Quelle erreur fait-il ?",
+                                    "choices": [
+                                        "Il a oublié de décaler le produit par les dizaines d'un rang",
+                                        "Il a inversé les deux nombres à multiplier",
+                                        "Il aurait dû soustraire les deux produits partiels"
+                                    ],
+                                    "answer": "Il a oublié de décaler le produit par les dizaines d'un rang",
+                                    "explanation": "Le 1 de 19 représente une dizaine, donc 52 × 1 vaut en réalité 52 × 10 = 520, pas 52. Sans ce décalage, le résultat final est faux."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-position-valeur-grands-nombres",
+                            "title": "La position d'un chiffre dans un grand nombre",
+                            "subtitle": "Unités, milliers et centaines de mille",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans un grand nombre, chaque chiffre occupe un rang précis (unités, dizaines, centaines, milliers, dizaines de mille, centaines de mille) et sa valeur dépend de ce rang : le même chiffre 5 ne vaut pas la même chose selon sa position."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans 452 318, le chiffre 5 est au rang des dizaines de mille : il représente 50 000. Le chiffre 3 est au rang des centaines : il représente 300."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "label": "Décomposition de 452 318",
+                                    "headers": ["Rang", "Chiffre", "Valeur"],
+                                    "rows": [
+                                        ["centaines de mille", "4", "400 000"],
+                                        ["dizaines de mille", "5", "50 000"],
+                                        ["milliers", "2", "2 000"],
+                                        ["centaines", "3", "300"],
+                                        ["dizaines", "1", "10"],
+                                        ["unités", "8", "8"]
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour trouver la valeur d'un chiffre, je multiplie le chiffre par la valeur de son rang (unité, dizaine, centaine, mille, dix mille ou cent mille)."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans le nombre 738 291, quel est le chiffre des centaines de mille ?",
+                                    "choices": [
+                                        "7",
+                                        "3",
+                                        "8"
+                                    ],
+                                    "answer": "7",
+                                    "explanation": "En partant de la droite, les rangs sont unités, dizaines, centaines, milliers, dizaines de mille puis centaines de mille : le premier chiffre à gauche, 7, occupe ce dernier rang."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans le nombre 619 045, que représente le chiffre 1 ?",
+                                    "choices": [
+                                        "10 000",
+                                        "100 000",
+                                        "1 000"
+                                    ],
+                                    "answer": "10 000",
+                                    "explanation": "Le chiffre 1 est au rang des dizaines de mille (deuxième chiffre en partant de la gauche), donc il représente 1 × 10 000 = 10 000."
                                 }
                             ]
                         }
@@ -1501,6 +1731,79 @@
                                     "explanation": "5 × 3 = 15 ne donne que l'aire du fond du carton. Il faut empiler ce fond sur 2 cm de hauteur : 5 × 3 × 2 = 30 cm³."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cm1-lesson-solides-patron",
+                            "title": "Décrire un solide",
+                            "subtitle": "Faces, arêtes, sommets et patron",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un solide comme un dé (un cube) se décrit avec trois mots : une face est une surface plate, une arête est le segment où deux faces se rejoignent, un sommet est le point où plusieurs arêtes se croisent. Le dé a 6 faces carrées, 12 arêtes et 8 sommets."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une boîte à chaussures a la forme d'un pavé droit : elle a 6 faces rectangulaires, 12 arêtes et 8 sommets, comme le cube, mais ses faces ne sont pas toutes carrées."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "headers": [
+                                        "Solide",
+                                        "Faces",
+                                        "Arêtes",
+                                        "Sommets"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "Cube",
+                                            "6",
+                                            "12",
+                                            "8"
+                                        ],
+                                        [
+                                            "Pavé droit",
+                                            "6",
+                                            "12",
+                                            "8"
+                                        ],
+                                        [
+                                            "Pyramide à base carrée",
+                                            "5",
+                                            "8",
+                                            "5"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "Le patron d'un solide",
+                                    "content": "Un patron, c'est le dessin à plat d'un solide : si on le découpe et qu'on le plie le long des traits, il se referme pour former le solide. Le patron du cube est fait de 6 carrés reliés entre eux."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une tente a la forme d'une pyramide à base carrée. Combien de sommets a-t-elle ?",
+                                    "choices": [
+                                        "5",
+                                        "8",
+                                        "4"
+                                    ],
+                                    "answer": "5",
+                                    "explanation": "La pyramide à base carrée a 4 sommets sur sa base et 1 sommet en haut (la pointe) : 4 + 1 = 5 sommets en tout."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un patron de 4 triangles reliés à un carré central, une fois plié, forme quel solide ?",
+                                    "choices": [
+                                        "Une pyramide à base carrée",
+                                        "Un cube aux faces peintes",
+                                        "Un pavé droit très allongé"
+                                    ],
+                                    "answer": "Une pyramide à base carrée",
+                                    "explanation": "Le carré central devient la base, et chaque triangle se relève pour former une face qui rejoint la pointe : c'est le patron de la pyramide à base carrée, pas celui du cube (6 carrés) ni du pavé droit (6 rectangles)."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -1670,6 +1973,18 @@
                                 "type": "volume-pave",
                                 "max": 6,
                                 "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-solides-patron",
+                            "title": "Décrire un solide",
+                            "subtitle": "Faces, arêtes, sommets et patron",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_geometry_cm1.json",
+                                "category": "cm1-solides-patron",
+                                "questions": 8
                             }
                         },
                         {
@@ -1952,6 +2267,51 @@
                             }
                         },
                         {
+                            "id": "cm1-h-ou",
+                            "title": "Ou ou Où ?",
+                            "subtitle": "Le choix ou le lieu",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "homophone-duel",
+                                "category": "ou_où",
+                                "choices": [
+                                    "ou",
+                                    "où"
+                                ],
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-h-leur",
+                            "title": "Leur ou Leurs ?",
+                            "subtitle": "Un pronom invariable ou un adjectif pluriel",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "homophone-duel",
+                                "category": "leur_leurs",
+                                "choices": [
+                                    "leur",
+                                    "leurs"
+                                ],
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-h-cest",
+                            "title": "C'est ou S'est ?",
+                            "subtitle": "Présenter ou se transformer au passé",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "homophone-duel",
+                                "category": "c_est_s_est",
+                                "choices": [
+                                    "c'est",
+                                    "s'est"
+                                ],
+                                "questions": 10
+                            }
+                        },
+                        {
                             "id": "cm1-bonus-homophones-mix",
                             "title": "Défi : tous les homophones",
                             "subtitle": "On/ont, a/à, ce/se... sans filet",
@@ -2076,6 +2436,116 @@
                                     ],
                                     "answer": "Je remplace par « avait » : là où ça marche, j'écris a",
                                     "explanation": "« Le train avait destination de Brest » ne se dit pas, donc c'est « à destination ». « Le train avait du retard » se dit, donc c'est « a du retard ». La phrase correcte est : « Le train à destination de Brest a du retard. » L'ordre des mots ne donne aucune règle fiable : seul le test avec « avait » décide.",
+                                    "label": "Vérifie que tu as compris"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-homophones-leur-leurs",
+                            "title": "Leur ou leurs ?",
+                            "subtitle": "Un mot qui ne change jamais, un autre qui s'accorde",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Leur placé devant un verbe est un pronom : il remplace « à eux » ou « à elles » et ne prend jamais de s. Leurs placé devant un nom est un adjectif possessif pluriel : il s'accorde avec le nom qu'il accompagne."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le maître leur explique la leçon. / Les élèves rangent leurs cahiers."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je vérifie",
+                                    "items": [
+                                        "devant un verbe (leur + verbe) : jamais de s",
+                                        "devant un nom pluriel (leurs + nom) : toujours un s",
+                                        "je peux remplacer par lui/leur au singulier pour tester le pronom"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Leur devant un verbe est invariable ; leurs devant un nom pluriel prend toujours un s."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Yasmine écrit : « Les fermiers nourrissent leur animaux avant de partir. » Que faut-il corriger ?",
+                                    "choices": [
+                                        "Ajouter un s à leur, car il précède un nom pluriel",
+                                        "Retirer le s de animaux, car leur reste toujours invariable",
+                                        "Rien : la phrase est déjà correcte telle quelle"
+                                    ],
+                                    "answer": "Ajouter un s à leur, car il précède un nom pluriel",
+                                    "explanation": "Ici « leur » accompagne le nom pluriel « animaux » : c'est l'adjectif possessif, il faut donc écrire « leurs animaux ». Si le mot avait précédé un verbe (« on leur donne à manger »), il serait resté sans s.",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Le facteur ... apporte un colis chaque matin », comment choisir entre leur et leurs ?",
+                                    "choices": [
+                                        "Le mot précède le verbe apporte, donc c'est le pronom leur sans s",
+                                        "Le mot précède un nom, donc il faut écrire leurs avec un s",
+                                        "Les deux graphies sont acceptées dans ce genre de phrase"
+                                    ],
+                                    "answer": "Le mot précède le verbe apporte, donc c'est le pronom leur sans s",
+                                    "explanation": "« Leur » est ici placé juste devant le verbe « apporte » : c'est le pronom qui remplace « à eux », et il reste toujours invariable. La phrase correcte est « Le facteur leur apporte un colis chaque matin. »",
+                                    "label": "Vérifie que tu as compris"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-homophones-cest-sest",
+                            "title": "C'est ou s'est ?",
+                            "subtitle": "Présenter une chose ou raconter une transformation",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "C'est sert à présenter ou désigner : on peut le remplacer par « cela est ». S'est annonce un verbe pronominal au passé composé (se blesser, se cacher, se souvenir...) : on peut le remplacer par « s'était »."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "C'est une belle journée. / Le chien s'est caché sous la table."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je vérifie",
+                                    "items": [
+                                        "je remplace par cela est : si ça marche, j'écris c'est",
+                                        "je remplace par s'était : si ça marche, j'écris s'est",
+                                        "s'est est toujours suivi d'un participe passé (caché, blessé, souvenu...)"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Cela est pour c'est, s'était pour s'est : le remplacement tranche à chaque fois."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Hugo hésite dans « Mon frère ... perdu dans la forêt, ... vraiment inquiétant. » Quel test l'aide à choisir les deux mots ?",
+                                    "choices": [
+                                        "Remplacer par s'était puis par cela est pour trouver s'est puis c'est",
+                                        "Compter les lettres de chaque mot avant et après le trou",
+                                        "Regarder si une virgule sépare les deux morceaux de la phrase"
+                                    ],
+                                    "answer": "Remplacer par s'était puis par cela est pour trouver s'est puis c'est",
+                                    "explanation": "« Mon frère s'était perdu » se dit : c'est le verbe pronominal, donc « s'est ». « Cela est vraiment inquiétant » se dit aussi : c'est la présentation, donc « c'est ». La phrase correcte est « Mon frère s'est perdu dans la forêt, c'est vraiment inquiétant. »",
+                                    "label": "Vérifie que tu as compris"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pourquoi écrit-on « Léa s'est réveillée en sursaut » et non « Léa c'est réveillée en sursaut » ?",
+                                    "choices": [
+                                        "Parce qu'on peut dire « Léa s'était réveillée », donc c'est le verbe pronominal",
+                                        "Parce que le mot réveillée commence par une lettre consonne",
+                                        "Parce que la phrase parle d'une fille et non d'un objet ou d'un animal"
+                                    ],
+                                    "answer": "Parce qu'on peut dire « Léa s'était réveillée », donc c'est le verbe pronominal",
+                                    "explanation": "Le test du remplacement donne la réponse : « Léa s'était réveillée » fonctionne, donc on écrit « s'est ». « Léa cela est réveillée » ne veut rien dire, donc « c'est » serait faux ici. Le genre du sujet ou la lettre qui suit ne changent rien à la règle.",
                                     "label": "Vérifie que tu as compris"
                                 }
                             ]
@@ -2737,6 +3207,17 @@
                             "params": {
                                 "type": "grammar-cloze",
                                 "category": "grammar_agreement_cm1",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-g-pp-accord-etre",
+                            "title": "Accorder le participe passé avec être",
+                            "subtitle": "Le participe s'accorde avec le sujet",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "grammar-cloze",
+                                "category": "grammar_pp_accord_etre_cm1",
                                 "questions": 8
                             }
                         },

@@ -1,8 +1,8 @@
 {
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
-    "exercises": 985,
-    "lessons": 355,
+    "exercises": 995,
+    "lessons": 361,
     "levels": 5,
     "banks": 74
   },
@@ -8445,6 +8445,39 @@
       "contractHash": null
     },
     {
+      "id": "cm1-lesson-addition-soustraction-posees",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-multiplication-posee-2-chiffres",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-position-valeur-grands-nombres",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm1-m-big",
       "kind": "exercise",
       "level": "cm1",
@@ -8696,6 +8729,61 @@
       "paramsType": "division-posed",
       "pool": null,
       "contractHash": "math-input|{\"level\":2,\"type\":\"division-posed\"}"
+    },
+    {
+      "id": "cm1-m-addition-posee-retenue",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "operation-posed",
+      "pool": null,
+      "contractHash": "math-input|{\"level\":2,\"operator\":\"add\",\"type\":\"operation-posed\"}"
+    },
+    {
+      "id": "cm1-m-soustraction-posee-emprunt",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "operation-posed",
+      "pool": null,
+      "contractHash": "math-input|{\"level\":2,\"operator\":\"sub\",\"type\":\"operation-posed\"}"
+    },
+    {
+      "id": "cm1-m-multiplication-posee-2-chiffres",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "operation-posed",
+      "pool": null,
+      "contractHash": "math-input|{\"level\":2,\"operator\":\"mult\",\"type\":\"operation-posed\"}"
+    },
+    {
+      "id": "cm1-m-position-chiffre-million",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "place-value",
+      "pool": null,
+      "contractHash": "math-input|{\"ask\":\"digit\",\"digitCount\":6,\"type\":\"place-value\"}"
+    },
+    {
+      "id": "cm1-m-valeur-chiffre-million",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "place-value",
+      "pool": null,
+      "contractHash": "math-input|{\"ask\":\"value\",\"digitCount\":5,\"type\":\"place-value\"}"
     },
     {
       "id": "cm1-lesson-conversions-mesures",
@@ -8995,6 +9083,17 @@
       "contractHash": null
     },
     {
+      "id": "cm1-lesson-solides-patron",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-geometrie-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm1-geo-polygones",
       "kind": "exercise",
       "level": "cm1",
@@ -9149,6 +9248,17 @@
       "contractHash": "math-input|{\"max\":6,\"type\":\"volume-pave\"}"
     },
     {
+      "id": "cm1-geo-solides-patron",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-geometrie-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/math_geometry_cm1.json::cm1-solides-patron",
+      "contractHash": "choice-engine|{\"category\":\"cm1-solides-patron\",\"dataFile\":\"data/math_geometry_cm1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
       "id": "cm1-maths-geo-appariement",
       "kind": "exercise",
       "level": "cm1",
@@ -9259,6 +9369,28 @@
       "contractHash": null
     },
     {
+      "id": "cm1-lesson-homophones-leur-leurs",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-francais-subject",
+      "subthemeId": "cm1-francais-homophones",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-homophones-cest-sest",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-francais-subject",
+      "subthemeId": "cm1-francais-homophones",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm1-h-ce",
       "kind": "exercise",
       "level": "cm1",
@@ -9312,6 +9444,39 @@
       "paramsType": "homophone-duel",
       "pool": null,
       "contractHash": "choice-engine|{\"category\":\"on_ont\",\"type\":\"homophone-duel\"}"
+    },
+    {
+      "id": "cm1-h-ou",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-francais-subject",
+      "subthemeId": "cm1-francais-homophones",
+      "engine": "choice-engine",
+      "paramsType": "homophone-duel",
+      "pool": null,
+      "contractHash": "choice-engine|{\"category\":\"ou_où\",\"type\":\"homophone-duel\"}"
+    },
+    {
+      "id": "cm1-h-leur",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-francais-subject",
+      "subthemeId": "cm1-francais-homophones",
+      "engine": "choice-engine",
+      "paramsType": "homophone-duel",
+      "pool": null,
+      "contractHash": "choice-engine|{\"category\":\"leur_leurs\",\"type\":\"homophone-duel\"}"
+    },
+    {
+      "id": "cm1-h-cest",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-francais-subject",
+      "subthemeId": "cm1-francais-homophones",
+      "engine": "choice-engine",
+      "paramsType": "homophone-duel",
+      "pool": null,
+      "contractHash": "choice-engine|{\"category\":\"c_est_s_est\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm1-bonus-homophones-mix",
@@ -9675,6 +9840,17 @@
       "paramsType": "grammar-cloze",
       "pool": null,
       "contractHash": "choice-engine|{\"category\":\"grammar_agreement_cm1\",\"type\":\"grammar-cloze\"}"
+    },
+    {
+      "id": "cm1-g-pp-accord-etre",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-francais-subject",
+      "subthemeId": "cm1-francais-grammaire",
+      "engine": "choice-engine",
+      "paramsType": "grammar-cloze",
+      "pool": null,
+      "contractHash": "choice-engine|{\"category\":\"grammar_pp_accord_etre_cm1\",\"type\":\"grammar-cloze\"}"
     },
     {
       "id": "cm1-francais-ordre-mots",
@@ -15182,7 +15358,7 @@
     "data/history_cm1.json": {
       "categories": {
         "cm1-prehistoire": 16,
-        "cm1-antiquite": 15,
+        "cm1-antiquite": 18,
         "cm1-moyen-age": 24,
         "cm1-temps-modernes": 13,
         "cm1-renaissance-inventions": 11,
@@ -15243,7 +15419,8 @@
         "cm1-perimetre-angles": 24,
         "cm1-polygones": 16,
         "cm1-symetrie-reperage": 16,
-        "cm1-vocabulaire-geometrique": 16
+        "cm1-vocabulaire-geometrique": 16,
+        "cm1-solides-patron": 8
       }
     },
     "data/math_geometry_cm2.json": {

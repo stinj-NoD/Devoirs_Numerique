@@ -10,13 +10,13 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 
 ## Vue d'ensemble
 
-- **985 exercices** et **355 leçons** répartis sur 5 niveaux (CP à CM2).
+- **995 exercices** et **361 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
 |---|---|
-| `choice-engine` | 527 |
-| `math-input` | 151 |
+| `choice-engine` | 532 |
+| `math-input` | 156 |
 | `reading` | 51 |
 | `matching` | 49 |
 | `conjugation` | 47 |
@@ -1320,13 +1320,16 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Nombres et calculs `(cm1-nombres-calculs)`
 
-- **Leçons** (5) :
+- **Leçons** (8) :
   - Lire une fraction `(cm1-lesson-fractions)` — blocs: paragraph, example, bullets, tip, check, check
   - Repérer les décimaux `(cm1-lesson-decimaux-reperes)` — blocs: paragraph, example, bullets, tip, check, check
   - Résoudre un problème `(cm1-lesson-problemes-calcul)` — blocs: paragraph, example, bullets, tip, check, check
   - Résoudre un problème `(cm1-lesson-resoudre-probleme)` — blocs: paragraph, example, bullets, tip, check, check
   - La proportionnalité `(cm1-lesson-proportionnalite)` — blocs: paragraph, example, mini-table, bullets, tip, check, check
-- **Exercices** (23) :
+  - Addition et soustraction posées `(cm1-lesson-addition-soustraction-posees)` — blocs: paragraph, example, example, bullets, tip, check, check
+  - Multiplication posée par un nombre à 2 chiffres `(cm1-lesson-multiplication-posee-2-chiffres)` — blocs: paragraph, example, bullets, tip, check, check
+  - La position d'un chiffre dans un grand nombre `(cm1-lesson-position-valeur-grands-nombres)` — blocs: paragraph, example, mini-table, tip, check, check
+- **Exercices** (28) :
   - Grands Nombres `(cm1-m-big)` — engine: `math-input`, type=dictée-nombres, max=1000000, questions=5
   - Fractions `(cm1-frac-1)` — engine: `math-input`, type=fraction-view, maxDenom=8, questions=10
   - Construis la fraction `(cm1-frac-build)` — engine: `board-interactive`, type=fraction-build, minDenom=2, maxDenom=8, questions=8
@@ -1350,6 +1353,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Calculer un pourcentage simple `(cm1-pourcentage-1)` — engine: `math-input`, type=pourcentage, maxMultiple=8, questions=6
   - Défi : proportionnalité experte `(cm1-bonus-proportionnalite-expert)` — engine: `math-input`, type=proportionnalite, maxCoef=9, maxBase=9, questions=8, bonus (seuil=2)
   - Défi : grands calculs `(cm1-bonus-grands-calculs)` — engine: `math-input`, type=division-posed, level=2, questions=6, bonus (seuil=2)
+  - Addition posée avec retenue `(cm1-m-addition-posee-retenue)` — engine: `math-input`, type=operation-posed, operator=add, level=2, questions=6
+  - Soustraction posée avec emprunt `(cm1-m-soustraction-posee-emprunt)` — engine: `math-input`, type=operation-posed, operator=sub, level=2, questions=6
+  - Multiplication posée par un nombre à 2 chiffres `(cm1-m-multiplication-posee-2-chiffres)` — engine: `math-input`, type=operation-posed, operator=mult, level=2, questions=6
+  - Le chiffre à sa place `(cm1-m-position-chiffre-million)` — engine: `math-input`, type=place-value, digitCount=6, ask=digit, questions=6
+  - La valeur d'un chiffre `(cm1-m-valeur-chiffre-million)` — engine: `math-input`, type=place-value, digitCount=5, ask=value, questions=6
 
 #### Grandeurs et mesures `(cm1-grandeurs-mesures)`
 
@@ -1377,7 +1385,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Géométrie `(cm1-geometrie-subtheme)`
 
-- **Leçons** (8) :
+- **Leçons** (9) :
   - Reconnaître les polygones `(cm1-lesson-polygones)` — blocs: paragraph, example, bullets, tip, check, check
   - L'angle droit `(cm1-lesson-angles-droits)` — blocs: paragraph, example, bullets, tip, check, check
   - Les familles d'angles `(cm1-lesson-familles-angles)` — blocs: paragraph, example, bullets, tip, check, check
@@ -1386,7 +1394,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Le périmètre `(cm1-lesson-perimetre)` — blocs: paragraph, example, bullets, tip, check, check
   - L'aire du rectangle `(cm1-lesson-aire-rectangle)` — blocs: paragraph, example, bullets, tip, check, check
   - Découvrir le volume `(cm1-lesson-volume-pave)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (17) :
+  - Décrire un solide `(cm1-lesson-solides-patron)` — blocs: paragraph, example, mini-table, tip, check, check
+- **Exercices** (18) :
   - Reconnaître les polygones `(cm1-geo-polygones)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm1.json, category=cm1-polygones, questions=8
   - Périmètre et angle droit `(cm1-geo-perimetre-angles)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm1.json, category=cm1-perimetre-angles, questions=8
   - Touche les angles droits `(cm1-geo-angle-droit-pratique)` — engine: `board-interactive`, type=tap-features, dataFile=data/board_tap_features_cm1.json, category=cm1_tap_angle_droit, questions=5
@@ -1401,6 +1410,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Vocabulaire géométrique `(cm1-geo-vocabulaire)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm1.json, category=cm1-vocabulaire-geometrique, questions=8
   - Calculer une aire `(cm1-geo-aire-rectangle)` — engine: `math-input`, type=aire-rectangle, max=12, questions=6
   - Calculer un volume `(cm1-geo-volume-pave)` — engine: `math-input`, type=volume-pave, max=6, questions=5
+  - Décrire un solide `(cm1-geo-solides-patron)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm1.json, category=cm1-solides-patron, questions=8
   - Figures et formules `(cm1-maths-geo-appariement)` — engine: `matching`, category=matching_math_cm1, dataFile=data/math_matching.json, questions=3
   - Classer les formes géométriques `(cm1-geo-classement-formes)` — engine: `board-interactive`, type=shape-classify, dataFile=data/board_shape_classify_cm1.json, category=cm1_shape_classify, questions=6
   - Défi : figures et formules `(cm1-bonus-geo-figures-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm1.json, category=cm1-perimetre-angles, questions=12, bonus (seuil=2)
@@ -1419,15 +1429,20 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Homophones `(cm1-francais-homophones)`
 
-- **Leçons** (2) :
+- **Leçons** (4) :
   - Reconnaître un homophone `(cm1-lesson-homophones-strategie)` — blocs: paragraph, example, bullets, tip, check, check
   - A ou à ? `(cm1-lesson-homophones-a-a)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (6) :
+  - Leur ou leurs ? `(cm1-lesson-homophones-leur-leurs)` — blocs: paragraph, example, bullets, tip, check, check
+  - C'est ou s'est ? `(cm1-lesson-homophones-cest-sest)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (9) :
   - Ce ou Se ? `(cm1-h-ce)` — engine: `choice-engine`, type=homophone-duel, category=ce_se, questions=10
   - Ces ou Ses ? `(cm1-h-ces)` — engine: `choice-engine`, type=homophone-duel, category=ces_ses, questions=10
   - A ou À ? `(cm1-h-aa)` — engine: `choice-engine`, type=homophone-duel, category=a_à, questions=10
   - Son ou Sont ? `(cm1-h-son)` — engine: `choice-engine`, type=homophone-duel, category=son_sont, questions=10
   - On ou Ont ? `(cm1-h-on)` — engine: `choice-engine`, type=homophone-duel, category=on_ont, questions=10
+  - Ou ou Où ? `(cm1-h-ou)` — engine: `choice-engine`, type=homophone-duel, category=ou_où, questions=10
+  - Leur ou Leurs ? `(cm1-h-leur)` — engine: `choice-engine`, type=homophone-duel, category=leur_leurs, questions=10
+  - C'est ou S'est ? `(cm1-h-cest)` — engine: `choice-engine`, type=homophone-duel, category=c_est_s_est, questions=10
   - Défi : tous les homophones `(cm1-bonus-homophones-mix)` — engine: `choice-engine`, type=homophone-duel, category=on_ont, questions=16, bonus (seuil=2)
 
 #### Conjugaison `(cm1-francais-conjugaison)`
@@ -1468,7 +1483,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Reconnaître la nature d'un mot `(cm1-lesson-nature-mots)` — blocs: paragraph, example, mini-table, tip, check, check
   - Les familles de mots `(cm1-lesson-familles-mots)` — blocs: paragraph, example, bullets, tip, check, check
   - Les connecteurs pour bien écrire `(cm1-lesson-connecteurs)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (12) :
+- **Exercices** (13) :
   - Le bon article `(cm1-g-article-qcm)` — engine: `choice-engine`, type=article-choice, category=article_choice_cm1, questions=8
   - Le bon déterminant `(cm1-g-pluriel-qcm)` — engine: `choice-engine`, type=plural-choice, category=plural_choice_cm1, questions=8
   - Nom, verbe ou adjectif `(cm1-g-nature-qcm)` — engine: `choice-engine`, type=word-class-choice, category=word_class_choice_cm1, questions=8
@@ -1476,6 +1491,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Déterminant dans la phrase `(cm1-g-cloze-det)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_cloze_cm1, questions=8
   - Écris le bon mot `(cm1-g-cloze-ecrit)` — engine: `cloze-fill-in`, category=grammar_cloze_cm1, questions=6
   - Accorder dans la phrase `(cm1-g-cloze-accord)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_agreement_cm1, questions=8
+  - Accorder le participe passé avec être `(cm1-g-pp-accord-etre)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_pp_accord_etre_cm1, questions=8
   - Ordre des mots `(cm1-francais-ordre-mots)` — engine: `word-order`, category=word_order_cm1, dataFile=data/french_word_order.json, questions=5
   - Structurer un récit ou une lettre `(cm1-francais-structure-recit)` — engine: `word-order`, category=story_order_cm1, dataFile=data/french_word_order.json, questions=4
   - Défi : accords sans filet `(cm1-bonus-grammaire-accords)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_agreement_cm1, questions=14, bonus (seuil=2)
