@@ -37,6 +37,7 @@
         "spelling": { "params": ["category"], "note": "branché avant calculate() dans engines.js ; s'appuie sur la lib français" },
         "clock": { "params": [], "note": "alias : engine 'clock' direct équivalent" },
         "fraction-view": { "params": ["maxDenom"] },
+        "fraction-operation": { "params": ["operator", "level", "maxDenom"], "note": "operator='add'|'sub' ; level 1-2 = dénominateurs identiques (level 1 : maxDenom défaut 6 ; level 2 : maxDenom défaut 10, dénominateurs 4+) ; level 3 = dénominateurs différents mais l'un multiple de l'autre, dénominateur commun donné dans l'énoncé (pas de PPCM demandé à l'élève ; cas général avec PPCM hors scope) ; réponse attendue = numérateur seul du résultat ; rendu par ui-visuals.js::drawFractionOperation (visualType 'fractionOperation'). À ne pas confondre avec 'fraction-view', moteur séparé et plus simple qui ne fait que lire/représenter une fraction unique." },
         "number-spelling": { "params": ["max"] },
         "carre-somme": { "params": [] }
       }
@@ -79,7 +80,9 @@
       "label": "Conversions d'unités",
       "sourceKind": "generator",
       "commonParams": ["questions", "modes", "memo"],
-      "paramsTypes": {}
+      "paramsTypes": {
+        "metric-area": { "params": ["range"], "note": "conversions d'aire (cm²/m²/dm²/mm²) ; progression x100 par palier (contrairement au subtype 'metric' existant, en x10) ; range optionnel [0-3], indices 0=m² à 3=mm² ; rendu par ui-visuals.js::drawConversionCard avec cols=['m²','dm²','cm²','mm²']" }
+      }
     },
     "conjugation": {
       "label": "Conjugaison",

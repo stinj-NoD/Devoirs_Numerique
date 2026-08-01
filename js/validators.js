@@ -499,6 +499,23 @@
                 return { valid: false, reason: 'maxValue invalide pour average-compute.' };
             }
         }
+        if (exercise.params.type === 'fraction-operation') {
+            if (exercise.params.operator !== undefined && !['add', 'sub'].includes(exercise.params.operator)) {
+                return { valid: false, reason: 'operator invalide pour fraction-operation.' };
+            }
+            if (exercise.params.level !== undefined) {
+                const lvl = Number(exercise.params.level);
+                if (!Number.isFinite(lvl) || lvl < 1 || lvl > 3) {
+                    return { valid: false, reason: 'level invalide pour fraction-operation (1-3 attendu).' };
+                }
+            }
+            if (exercise.params.maxDenom !== undefined) {
+                const md = Number(exercise.params.maxDenom);
+                if (!Number.isFinite(md) || md < 2) {
+                    return { valid: false, reason: 'maxDenom invalide pour fraction-operation.' };
+                }
+            }
+        }
         if (exercise.engine === 'matching' && !this.isNonEmptyString(exercise.params.category)) {
             return { valid: false, reason: 'category manquante pour matching.' };
         }
@@ -541,6 +558,19 @@
             }
             if (!this.isNonEmptyString(exercise.params.timelineId)) {
                 return { valid: false, reason: 'timelineId manquant.' };
+            }
+        }
+        if (exercise.engine === 'conversion') {
+            const validSubtypes = ['roman', 'time', 'metric', 'metric-area'];
+            if (!this.isNonEmptyString(exercise.params.subtype) || !validSubtypes.includes(exercise.params.subtype)) {
+                return { valid: false, reason: 'subtype conversion invalide.' };
+            }
+            if (exercise.params.subtype === 'metric-area' && exercise.params.range !== undefined) {
+                const r = exercise.params.range;
+                if (!Array.isArray(r) || r.length !== 2 || !Number.isFinite(Number(r[0])) || !Number.isFinite(Number(r[1]))
+                    || Number(r[0]) < 0 || Number(r[1]) > 3 || Number(r[0]) > Number(r[1])) {
+                    return { valid: false, reason: 'range invalide pour metric-area (attendu [0-3, 0-3]).' };
+                }
             }
         }
 

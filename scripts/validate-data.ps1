@@ -172,6 +172,25 @@ function Validate-Exercise($path, $themeId, $exercise) {
             }
         }
     }
+    if ($exercise.params.type -eq 'fraction-operation') {
+        if ($null -ne $exercise.params.operator -and $exercise.params.operator -notin @('add', 'sub')) {
+            Add-Issue("${path}: operator invalide pour $($exercise.id)")
+        }
+        if ($null -ne $exercise.params.level) {
+            $fracLevelVal = 0
+            $fracLevelOk = [int]::TryParse([string]$exercise.params.level, [ref]$fracLevelVal)
+            if (-not $fracLevelOk -or $fracLevelVal -lt 1 -or $fracLevelVal -gt 3) {
+                Add-Issue("${path}: level invalide pour $($exercise.id)")
+            }
+        }
+        if ($null -ne $exercise.params.maxDenom) {
+            $fracMaxDenomVal = 0
+            $fracMaxDenomOk = [int]::TryParse([string]$exercise.params.maxDenom, [ref]$fracMaxDenomVal)
+            if (-not $fracMaxDenomOk -or $fracMaxDenomVal -lt 2) {
+                Add-Issue("${path}: maxDenom invalide pour $($exercise.id)")
+            }
+        }
+    }
     if ($exercise.engine -eq 'timeline') {
         if (-not (Is-NonEmptyString $exercise.params.grade)) {
             Add-Issue("${path}: grade manquant pour $($exercise.id)")
@@ -181,6 +200,24 @@ function Validate-Exercise($path, $themeId, $exercise) {
         }
         if (-not (Is-NonEmptyString $exercise.params.timelineId)) {
             Add-Issue("${path}: timelineId manquant pour $($exercise.id)")
+        }
+    }
+    if ($exercise.engine -eq 'conversion') {
+        $validConversionSubtypes = @('roman', 'time', 'metric', 'metric-area')
+        if (-not (Is-NonEmptyString $exercise.params.subtype) -or $exercise.params.subtype -notin $validConversionSubtypes) {
+            Add-Issue("${path}: subtype conversion invalide pour $($exercise.id)")
+        }
+        if ($exercise.params.subtype -eq 'metric-area' -and $null -ne $exercise.params.range) {
+            $r = $exercise.params.range
+            $rangeOk = ($r -is [System.Collections.IList]) -and $r.Count -eq 2
+            if ($rangeOk) {
+                $r0 = 0; $r1 = 0
+                $rangeOk = [int]::TryParse([string]$r[0], [ref]$r0) -and [int]::TryParse([string]$r[1], [ref]$r1) `
+                    -and $r0 -ge 0 -and $r1 -le 3 -and $r0 -le $r1
+            }
+            if (-not $rangeOk) {
+                Add-Issue("${path}: range invalide pour metric-area ($($exercise.id))")
+            }
         }
     }
 

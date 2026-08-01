@@ -10,19 +10,19 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 
 ## Vue d'ensemble
 
-- **1008 exercices** et **364 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1013 exercices** et **367 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
 |---|---|
 | `choice-engine` | 539 |
-| `math-input` | 161 |
+| `math-input` | 164 |
 | `reading` | 52 |
 | `matching` | 49 |
 | `conjugation` | 47 |
 | `audio-spelling` | 44 |
 | `board-interactive` | 42 |
-| `conversion` | 26 |
+| `conversion` | 28 |
 | `timeline` | 22 |
 | `word-order` | 13 |
 | `clock` | 6 |
@@ -1320,8 +1320,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Nombres et calculs `(cm1-nombres-calculs)`
 
-- **Leçons** (8) :
+- **Leçons** (9) :
   - Lire une fraction `(cm1-lesson-fractions)` — blocs: paragraph, example, bullets, tip, check, check
+  - Additionner des fractions de même dénominateur `(cm1-lesson-fractions-addition)` — blocs: paragraph, example, bullets, tip, check, check
   - Repérer les décimaux `(cm1-lesson-decimaux-reperes)` — blocs: paragraph, example, bullets, tip, check, check
   - Résoudre un problème `(cm1-lesson-problemes-calcul)` — blocs: paragraph, example, bullets, tip, check, check
   - Résoudre un problème `(cm1-lesson-resoudre-probleme)` — blocs: paragraph, example, bullets, tip, check, check
@@ -1329,10 +1330,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Addition et soustraction posées `(cm1-lesson-addition-soustraction-posees)` — blocs: paragraph, example, example, bullets, tip, check, check
   - Multiplication posée par un nombre à 2 chiffres `(cm1-lesson-multiplication-posee-2-chiffres)` — blocs: paragraph, example, bullets, tip, check, check
   - La position d'un chiffre dans un grand nombre `(cm1-lesson-position-valeur-grands-nombres)` — blocs: paragraph, example, mini-table, tip, check, check
-- **Exercices** (28) :
+- **Exercices** (29) :
   - Grands Nombres `(cm1-m-big)` — engine: `math-input`, type=dictée-nombres, max=1000000, questions=5
   - Fractions `(cm1-frac-1)` — engine: `math-input`, type=fraction-view, maxDenom=8, questions=10
   - Construis la fraction `(cm1-frac-build)` — engine: `board-interactive`, type=fraction-build, minDenom=2, maxDenom=8, questions=8
+  - Additionne des fractions `(cm1-frac-addition)` — engine: `math-input`, type=fraction-operation, operator=add, level=1, questions=8
   - Décimaux : Positions (1) `(cm1-dec-pos-1)` — engine: `math-input`, type=decimal-place, trap=false, questions=10
   - Décimaux : Positions (2) `(cm1-dec-pos-2)` — engine: `math-input`, type=decimal-place, trap=true, questions=10
   - La Moitié `(cm1-div-1)` — engine: `math-input`, type=half, questions=10
@@ -1770,10 +1772,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Fractions & décimaux `(cm2-fractions-decimaux)`
 
-- **Leçons** (2) :
+- **Leçons** (3) :
   - Comparer des décimaux `(cm2-lesson-decimaux-comparer)` — blocs: paragraph, example, bullets, tip, check, check
   - Fraction ou décimal ? `(cm2-lesson-fractions-decimaux-lien)` — blocs: paragraph, example, mini-table, tip, check, check
-- **Exercices** (8) :
+  - Additionner et soustraire des fractions `(cm2-lesson-fractions-addition)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (10) :
   - Décimaux `(cm2_decimaux_compare)` — engine: `choice-engine`, type=compare-decimals, questions=10
   - Fractions `(cm2_fractions_lecture)` — engine: `math-input`, type=fraction-view, maxDenom=12, questions=10
   - Construis la fraction `(cm2-frac-build)` — engine: `board-interactive`, type=fraction-build, minDenom=2, maxDenom=12, questions=8
@@ -1782,6 +1785,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Fractions (2) `(cm2_fractions_lecture_2)` — engine: `math-input`, type=fraction-view, maxDenom=20, questions=10
   - Fractions et décimaux `(cm2-maths-fractions-appariement)` — engine: `matching`, category=matching_math_cm2, dataFile=data/math_matching.json, questions=3
   - Défi : fractions expertes `(cm2-bonus-fractions-expert)` — engine: `math-input`, type=fraction-view, maxDenom=24, questions=12, bonus (seuil=2)
+  - Additionne des fractions `(cm2-frac-addition)` — engine: `math-input`, type=fraction-operation, operator=add, level=2, questions=8
+  - Défi : dénominateurs multiples `(cm2-frac-addition-avancee)` — engine: `math-input`, type=fraction-operation, operator=add, level=3, questions=6, bonus (seuil=2)
 
 #### Division posée `(cm2-division-posee-subtheme)`
 
@@ -1797,11 +1802,12 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Grandeurs & mesures `(cm2-grandeurs-mesures-subtheme)`
 
-- **Leçons** (3) :
+- **Leçons** (4) :
   - Convertir des durées `(cm2-lesson-conversions-temps)` — blocs: paragraph, example, mini-table, tip, check, check
   - Mesurer des longueurs `(cm2-lesson-mesures-longueurs)` — blocs: paragraph, mini-table, example, tip, check, check
   - Proportionnalité, échelle et vitesse `(cm2-lesson-proportionnalite-echelle)` — blocs: paragraph, example, mini-table, example, bullets, example, tip, check, check
-- **Exercices** (17) :
+  - Convertir les unités d'aire `(cm2-lesson-conversion-aires)` — blocs: paragraph, example, mini-table, tip, check, check
+- **Exercices** (19) :
   - Conversions de longueurs `(cm2-conversions-longueurs)` — engine: `conversion`, subtype=metric, questions=10
   - Heures et minutes `(cm2-heures-minutes)` — engine: `conversion`, subtype=time, memo=false, randomMinutes=true, questions=10
   - Minutes et secondes `(cm2-minutes-secondes)` — engine: `conversion`, subtype=time, modes=min_to_sec, memo=false, questions=10
@@ -1819,6 +1825,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Convertir des masses `(cm2-conversions-masses)` — engine: `conversion`, subtype=metric, unitType=masse, questions=6
   - Convertir des contenances `(cm2-conversions-contenances)` — engine: `conversion`, subtype=metric, unitType=capacite, questions=6
   - Défi : chiffres romains jusqu'à M `(cm2-bonus-romains-1000)` — engine: `conversion`, subtype=roman, max=1000, questions=8, bonus (seuil=2)
+  - Convertir des aires `(cm2-conversions-aires)` — engine: `conversion`, subtype=metric-area, questions=8
+  - Défi : conversions d'aires `(cm2-bonus-conversions-aires)` — engine: `conversion`, subtype=metric-area, questions=8, bonus (seuil=2)
 
 #### Géométrie `(cm2-geometrie-subtheme)`
 

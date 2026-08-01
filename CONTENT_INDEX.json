@@ -1,8 +1,8 @@
 {
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
-    "exercises": 1008,
-    "lessons": 364,
+    "exercises": 1013,
+    "lessons": 367,
     "levels": 5,
     "banks": 74
   },
@@ -8401,6 +8401,17 @@
       "contractHash": null
     },
     {
+      "id": "cm1-lesson-fractions-addition",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm1-lesson-decimaux-reperes",
       "kind": "lesson",
       "level": "cm1",
@@ -8509,6 +8520,17 @@
       "paramsType": "fraction-build",
       "pool": null,
       "contractHash": "board-interactive|{\"maxDenom\":8,\"minDenom\":2,\"type\":\"fraction-build\"}"
+    },
+    {
+      "id": "cm1-frac-addition",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "fraction-operation",
+      "pool": null,
+      "contractHash": "math-input|{\"level\":1,\"operator\":\"add\",\"type\":\"fraction-operation\"}"
     },
     {
       "id": "cm1-dec-pos-1",
@@ -11756,6 +11778,17 @@
       "contractHash": null
     },
     {
+      "id": "cm2-lesson-fractions-addition",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-fractions-decimaux",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm2_decimaux_compare",
       "kind": "exercise",
       "level": "cm2",
@@ -11842,6 +11875,28 @@
       "paramsType": "fraction-view",
       "pool": null,
       "contractHash": "math-input|{\"maxDenom\":24,\"type\":\"fraction-view\"}"
+    },
+    {
+      "id": "cm2-frac-addition",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-fractions-decimaux",
+      "engine": "math-input",
+      "paramsType": "fraction-operation",
+      "pool": null,
+      "contractHash": "math-input|{\"level\":2,\"operator\":\"add\",\"type\":\"fraction-operation\"}"
+    },
+    {
+      "id": "cm2-frac-addition-avancee",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-fractions-decimaux",
+      "engine": "math-input",
+      "paramsType": "fraction-operation",
+      "pool": null,
+      "contractHash": "math-input|{\"level\":3,\"operator\":\"add\",\"type\":\"fraction-operation\"}"
     },
     {
       "id": "cm2-lesson-division-comprendre",
@@ -11944,6 +11999,17 @@
     },
     {
       "id": "cm2-lesson-proportionnalite-echelle",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-grandeurs-mesures-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm2-lesson-conversion-aires",
       "kind": "lesson",
       "level": "cm2",
       "subjectId": "cm2-maths-subject",
@@ -12139,6 +12205,28 @@
       "paramsType": null,
       "pool": null,
       "contractHash": "conversion|{\"max\":1000,\"subtype\":\"roman\"}"
+    },
+    {
+      "id": "cm2-conversions-aires",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-grandeurs-mesures-subtheme",
+      "engine": "conversion",
+      "paramsType": null,
+      "pool": null,
+      "contractHash": "conversion|{\"subtype\":\"metric-area\"}"
+    },
+    {
+      "id": "cm2-bonus-conversions-aires",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-grandeurs-mesures-subtheme",
+      "engine": "conversion",
+      "paramsType": null,
+      "pool": null,
+      "contractHash": "conversion|{\"subtype\":\"metric-area\"}"
     },
     {
       "id": "cm2-lesson-droites-angles",

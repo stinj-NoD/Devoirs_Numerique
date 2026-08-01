@@ -43,6 +43,18 @@ const EnginesCore = {
             return newArr;
         },
 
+        gcd(a, b) {
+            a = Math.abs(a); b = Math.abs(b);
+            while (b) { [a, b] = [b, a % b]; }
+            return a || 1;
+        },
+
+        simplifyFraction(n, d) {
+            if (d === 0) return { n, d };
+            const g = this.gcd(n, d);
+            return { n: n / g, d: d / g };
+        },
+
         romanize(num) {
             if (!+num) return false;
             const digits = String(+num).split("");

@@ -30,6 +30,7 @@ const Engines = {
                     if (params.type === 'spelling') result = this.generators.spelling(params, lib);
                     else if (params.type === 'clock') result = this.generators.clock(params);
                     else if (params.type === 'fraction-view') result = this.generators.fractionView(params);
+                    else if (params.type === 'fraction-operation') result = this.generators.fractionOperation(params);
                     else if (params.type === 'number-spelling') result = this.generators.numberSpelling(params);
                     else if (params.type === 'carre-somme') result = this.generators.carreSomme(params);
                     else result = this.generators.calculate(params);
@@ -151,6 +152,10 @@ const Engines = {
 
         fractionView(...args) {
             return EnginesMath.fractionView(...args);
+        },
+
+        fractionOperation(...args) {
+            return EnginesMath.fractionOperation(...args);
         },
 
         counting(...args) {

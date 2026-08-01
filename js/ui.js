@@ -1260,6 +1260,7 @@ const UI = {
                     operationPosed: 'drawOperationPosedCard',
                     square:'drawSquare', reading: 'drawReading', counting: 'drawCountingCard', fraction: 'drawFraction',
                     conversionTable: 'drawConversionCard', timeMemo: 'drawTimeMemoCard', factualCard: 'drawFactualCard',
+                    fractionOperation: 'drawFractionOperation',
                     timelineOrder: 'drawTimelineOrder', timelinePlace: 'drawTimelinePlace', matching: 'drawMatching',
                     wordOrder: 'drawWordOrder', 'geometry-board': 'drawGeometryBoard', barChart: 'drawBarChart',
                     dataTable: 'drawDataTable', pieChart: 'drawPieChart'
@@ -1352,6 +1353,13 @@ const UI = {
                         <span class="fraction-answer-current">${input || "?"}</span>
                         <span class="fraction-answer-separator">/</span>
                         <span>${p.data?.d || "?"}</span>
+                    </div>`;
+            } else if (p.visualType === 'fractionOperation') {
+                answerZone.innerHTML = `
+                    <div class="fraction-answer">
+                        <span class="fraction-answer-current">${input || "?"}</span>
+                        <span class="fraction-answer-separator">/</span>
+                        <span>${p.data?.commonD || "?"}</span>
                     </div>`;
             } else if (p.visualType === 'timelineOrder') {
                 const orderSize = (p.data?.currentOrder || []).length;
@@ -1654,6 +1662,10 @@ const UI = {
 
     drawConversionCard(...args) {
         return UIVisuals.drawConversionCard(...args);
+    },
+
+    drawFractionOperation(...args) {
+        return UIVisuals.drawFractionOperation(...args);
     },
 
     drawDivisionCard(...args) {

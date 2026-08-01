@@ -549,6 +549,25 @@
             const resultStr = result.toString().replace('.', ',');
             return { question: "Convertis :", answer: resultStr, inputType: 'numeric', isVisual: true, visualType: 'conversionTable', data: { val, u1, u2, type: unitType }, explanation: `${val} ${u1} = ${resultStr} ${u2}.` };
         }
+        if (p.subtype === 'metric-area') {
+            // Unités et facteurs LOCAUX à cette branche : l'aire progresse en x100
+            // par palier (1 m² = 100 dm² = 10000 cm²), incompatible avec le tableau
+            // factors partagé ci-dessus qui suppose un pas x10 uniforme.
+            const areaUnits = ['m²', 'dm²', 'cm²', 'mm²'];
+            const areaFactors = [1, 0.01, 0.0001, 0.000001];
+            let range = p.range || [0, 3];
+            const idx1 = rnd(range[0], range[1]);
+            let idx2 = rnd(Math.max(range[0], idx1 - 2), Math.min(range[1], idx1 + 2));
+            while (idx1 === idx2) idx2 = rnd(range[0], range[1]);
+            const u1 = areaUnits[idx1], u2 = areaUnits[idx2];
+            const f1 = areaFactors[idx1], f2 = areaFactors[idx2];
+            const goingFiner = idx1 < idx2;
+            const steps = Math.abs(idx2 - idx1);
+            const val = goingFiner ? rnd(1, 20) : rnd(1, 9) * Math.pow(100, steps === 0 ? 0 : 1);
+            const result = Math.round((val * (f1 / f2)) * 1000000) / 1000000;
+            const resultStr = result.toString().replace('.', ',');
+            return { question: "Convertis :", answer: resultStr, inputType: 'numeric', isVisual: true, visualType: 'conversionTable', data: { val, u1, u2, type: 'aire' }, explanation: `${val} ${u1} = ${resultStr} ${u2}.` };
+        }
         return Engines.fallback("Conversion indisponible");
     },
     carreSomme(p) {
@@ -648,6 +667,65 @@
         const d = Engines.utils.rnd(2, p.maxDenom || 8);
         const n = Engines.utils.rnd(1, d - 1);
         return { isVisual: true, visualType: 'fraction', inputType: 'numeric', data: { n, d }, answer: n };
+    },
+    fractionOperation(p) {
+        const { rnd } = Engines.utils;
+        const level = p.level || 1;
+        const operator = p.operator || 'add';
+
+        let d1, d2, n1, n2, commonD;
+        if (level === 1) {
+            d1 = d2 = commonD = rnd(2, p.maxDenom || 6);
+            n1 = rnd(1, commonD - 1);
+            n2 = rnd(1, commonD - 1);
+        } else if (level === 2) {
+            d1 = d2 = commonD = rnd(4, p.maxDenom || 10);
+            n1 = rnd(1, commonD - 1);
+            n2 = rnd(1, commonD - 1);
+        } else {
+            // level 3 : dénominateurs différents mais d2 multiple de d1 ; le
+            // dénominateur commun (le plus grand des deux) est donné dans la
+            // question, on ne demande pas à l'élève de le trouver (aucune
+            // notion d'équivalence de fractions n'est enseignée dans l'appli
+            // à ce jour). Le cas général (dénominateurs non multiples,
+            // nécessitant un vrai PPCM) est volontairement hors scope.
+            d1 = rnd(2, p.maxDenom ? Math.floor(p.maxDenom / 2) : 5);
+            const multiplier = rnd(2, 3);
+            d2 = d1 * multiplier;
+            commonD = d2;
+            n1 = rnd(1, d1 - 1);
+            n2 = rnd(1, d2 - 1);
+        }
+
+        const scaledN1 = level === 3 ? n1 * (commonD / d1) : n1;
+        const scaledN2 = level === 3 ? n2 * (commonD / d2) : n2;
+
+        let resultN;
+        let outN1 = n1, outD1 = d1, outN2 = n2, outD2 = d2;
+        if (operator === 'sub') {
+            // Garantit un résultat non négatif (comme operation-posed pour opA/opB) :
+            // si l'ordre tiré est défavorable, on permute AUSSI les fractions
+            // affichées pour rester cohérent avec le résultat calculé.
+            if (scaledN2 > scaledN1) {
+                [outN1, outD1, outN2, outD2] = [n2, d2, n1, d1];
+                resultN = scaledN2 - scaledN1;
+            } else {
+                resultN = scaledN1 - scaledN2;
+            }
+        } else {
+            resultN = scaledN1 + scaledN2;
+        }
+
+        const opSymbol = operator === 'add' ? '+' : '-';
+        return {
+            question: `Calcule et donne le numérateur du résultat (dénominateur : ${commonD})`,
+            answer: resultN,
+            inputType: 'numeric',
+            isVisual: true,
+            visualType: 'fractionOperation',
+            data: { n1: outN1, d1: outD1, n2: outN2, d2: outD2, commonD, operator, operatorSymbol: opSymbol, resultN },
+            explanation: `${outN1}/${outD1} ${opSymbol} ${outN2}/${outD2} = ${resultN}/${commonD}.`
+        };
     },
     counting(p) {
         const val = Engines.utils.rnd(p.min || 1, p.max || 20);

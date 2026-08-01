@@ -105,27 +105,51 @@ const UIVisuals = {
         </div>`;
     },
 
-    drawFraction(p) {
-        const d = p.data || {};
-        const denom = d.d || 1;
-        const num = d.n || 0;
-
-        const radius = 60;
-        const center = 80;
+    drawFractionWedges(n, d, radius, center) {
         let paths = "";
-
-        for (let i = 0; i < denom; i++) {
-            const a1 = (i * 2 * Math.PI) / denom - Math.PI / 2;
-            const a2 = ((i + 1) * 2 * Math.PI) / denom - Math.PI / 2;
+        for (let i = 0; i < d; i++) {
+            const a1 = (i * 2 * Math.PI) / d - Math.PI / 2;
+            const a2 = ((i + 1) * 2 * Math.PI) / d - Math.PI / 2;
             const x1 = center + radius * Math.cos(a1);
             const y1 = center + radius * Math.sin(a1);
             const x2 = center + radius * Math.cos(a2);
             const y2 = center + radius * Math.sin(a2);
-            const color = i < num ? 'var(--primary)' : 'white';
+            const color = i < n ? 'var(--primary)' : 'white';
             paths += `<path d="M ${center} ${center} L ${x1} ${y1} A ${radius} ${radius} 0 0 1 ${x2} ${y2} Z" fill="${color}" stroke="var(--dark)" stroke-width="2" />`;
         }
+        return paths;
+    },
 
+    drawFraction(p) {
+        const d = p.data || {};
+        const denom = d.d || 1;
+        const num = d.n || 0;
+        const paths = this.drawFractionWedges(num, denom, 60, 80);
         return `<div class="fraction-display visual-card visual-card--fraction"><svg viewBox="0 0 160 160" width="140" height="140">${paths}</svg></div>`;
+    },
+
+    drawFractionOperation(p) {
+        const d = p.data || {};
+        const radius = 45, center = 55, size = 110;
+        const pie1 = this.drawFractionWedges(d.n1 || 0, d.d1 || 1, radius, center);
+        const pie2 = this.drawFractionWedges(d.n2 || 0, d.d2 || 1, radius, center);
+        const opSymbol = d.operatorSymbol || '+';
+
+        return `
+            <div class="fraction-op-display visual-card visual-card--fraction-op">
+                <div class="fraction-op-row">
+                    <svg viewBox="0 0 ${size} ${size}" width="100" height="100">${pie1}</svg>
+                    <span class="fraction-op-symbol">${opSymbol}</span>
+                    <svg viewBox="0 0 ${size} ${size}" width="100" height="100">${pie2}</svg>
+                    <span class="fraction-op-symbol">=</span>
+                    <span class="fraction-op-result-placeholder">?/${d.commonD || '?'}</span>
+                </div>
+                <div class="fraction-op-labels">
+                    <span>${d.n1}/${d.d1}</span>
+                    <span class="fraction-op-symbol-label">${opSymbol}</span>
+                    <span>${d.n2}/${d.d2}</span>
+                </div>
+            </div>`;
     },
 
     drawClockCard(p) {
@@ -322,6 +346,7 @@ const UIVisuals = {
         let cols = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
         if (d.type === 'masse') cols = ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'];
         if (d.type === 'capacite') cols = ['kL', 'hL', 'daL', 'L', 'dL', 'cL', 'mL'];
+        if (d.type === 'aire') cols = ['m²', 'dm²', 'cm²', 'mm²'];
 
         const headerHtml = cols.map((unit) => {
             const isHighlight = unit === d.u1 || unit === d.u2;
