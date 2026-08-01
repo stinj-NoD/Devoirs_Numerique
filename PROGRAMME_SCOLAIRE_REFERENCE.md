@@ -543,7 +543,7 @@ Légende : ✅ couvert · ⚠️ partiel/faible volume · ❌ absent (aucun exer
 
 **Points restants à combler**, par ordre de priorité :
 
-1. **Compétences transversales "introduction"** non prioritaires (cohérentes avec leur statut) : symétrie centrale CM2, conditionnel/impératif CM2, multiplication décimal×entier CM2, fonctions COD/COI/CC (CM1/CM2), sous-thème "Oral" (CE2+).
+1. **Compétences transversales "introduction"** non prioritaires (cohérentes avec leur statut) : conditionnel/impératif CM2, multiplication décimal×entier CM2, fonctions COD/COI/CC (CM1/CM2), sous-thème "Oral" (CE2+). Symétrie centrale CM2 comblée (session 2026-08-01, `cm2-lesson-symetrie-centrale` + `cm2-geo-symetrie-centrale`).
 
 ---
 

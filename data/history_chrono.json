@@ -1015,6 +1015,38 @@
                                            ],
                                "events":  [
                                               {
+                                                  "id":  "decouverte-amerique",
+                                                  "label":  "Christophe Colomb atteint l'Amérique",
+                                                  "year":  1492,
+                                                  "period":  "temps-modernes",
+                                                  "icon":  "📘",
+                                                  "difficulty":  1
+                                              },
+                                              {
+                                                  "id":  "tour-du-monde-magellan",
+                                                  "label":  "Fin du premier tour du monde en bateau",
+                                                  "year":  1522,
+                                                  "period":  "temps-modernes",
+                                                  "icon":  "📘",
+                                                  "difficulty":  2
+                                              },
+                                              {
+                                                  "id":  "cour-versailles-louis-xiv",
+                                                  "label":  "Louis XIV installe la cour à Versailles",
+                                                  "year":  1682,
+                                                  "period":  "temps-modernes",
+                                                  "icon":  "📘",
+                                                  "difficulty":  2
+                                              },
+                                              {
+                                                  "id":  "revocation-edit-nantes",
+                                                  "label":  "Louis XIV révoque l'édit de Nantes",
+                                                  "year":  1685,
+                                                  "period":  "temps-modernes",
+                                                  "icon":  "📘",
+                                                  "difficulty":  3
+                                              },
+                                              {
                                                   "id":  "bastille",
                                                   "label":  "Prise de la Bastille",
                                                   "year":  1789,
@@ -1062,6 +1094,7 @@
                                                   "id":  "napoleon-empereur",
                                                   "label":  "Napoléon devient empereur",
                                                   "year":  1804,
+                                                  "order":  1,
                                                   "period":  "revolution-empire",
                                                   "icon":  "📘",
                                                   "difficulty":  1
@@ -1070,6 +1103,7 @@
                                                   "id":  "code-civil",
                                                   "label":  "Mise en place du Code civil",
                                                   "year":  1804,
+                                                  "order":  0,
                                                   "period":  "revolution-empire",
                                                   "icon":  "📘",
                                                   "difficulty":  2
@@ -1332,6 +1366,17 @@
                                               }
                                           ],
                                "timelines":  [
+                                                 {
+                                                     "id":  "cm2-ordre-temps-modernes",
+                                                     "mode":  "order",
+                                                     "title":  "Repères des Temps modernes",
+                                                     "items":  [
+                                                                   "decouverte-amerique",
+                                                                   "tour-du-monde-magellan",
+                                                                   "cour-versailles-louis-xiv",
+                                                                   "revocation-edit-nantes"
+                                                               ]
+                                                 },
                                                  {
                                                      "id":  "cm2-revolution-ordre",
                                                      "mode":  "order",

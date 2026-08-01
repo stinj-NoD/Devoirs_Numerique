@@ -1,8 +1,8 @@
 {
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
-    "exercises": 995,
-    "lessons": 361,
+    "exercises": 1008,
+    "lessons": 364,
     "levels": 5,
     "banks": 74
   },
@@ -11679,6 +11679,61 @@
       "contractHash": "math-input|{\"operator\":\"x\",\"type\":\"calc-mental\"}"
     },
     {
+      "id": "cm2-m-position-chiffre-milliard",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-nombres-calcul-mental",
+      "engine": "math-input",
+      "paramsType": "place-value",
+      "pool": null,
+      "contractHash": "math-input|{\"ask\":\"digit\",\"digitCount\":6,\"min\":500000,\"type\":\"place-value\"}"
+    },
+    {
+      "id": "cm2-m-valeur-chiffre-milliard",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-nombres-calcul-mental",
+      "engine": "math-input",
+      "paramsType": "place-value",
+      "pool": null,
+      "contractHash": "math-input|{\"ask\":\"value\",\"digitCount\":6,\"min\":500000,\"type\":\"place-value\"}"
+    },
+    {
+      "id": "cm2-m-addition-posee-experte",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-nombres-calcul-mental",
+      "engine": "math-input",
+      "paramsType": "operation-posed",
+      "pool": null,
+      "contractHash": "math-input|{\"level\":3,\"operator\":\"add\",\"type\":\"operation-posed\"}"
+    },
+    {
+      "id": "cm2-m-soustraction-posee-experte",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-nombres-calcul-mental",
+      "engine": "math-input",
+      "paramsType": "operation-posed",
+      "pool": null,
+      "contractHash": "math-input|{\"level\":3,\"operator\":\"sub\",\"type\":\"operation-posed\"}"
+    },
+    {
+      "id": "cm2-m-multiplication-posee-experte",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-nombres-calcul-mental",
+      "engine": "math-input",
+      "paramsType": "operation-posed",
+      "pool": null,
+      "contractHash": "math-input|{\"level\":3,\"operator\":\"mult\",\"type\":\"operation-posed\"}"
+    },
+    {
       "id": "cm2-lesson-decimaux-comparer",
       "kind": "lesson",
       "level": "cm2",
@@ -12119,6 +12174,17 @@
       "contractHash": null
     },
     {
+      "id": "cm2-lesson-symetrie-centrale",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-geometrie-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm2-lesson-aires-volumes",
       "kind": "lesson",
       "level": "cm2",
@@ -12185,6 +12251,28 @@
       "contractHash": "choice-engine|{\"category\":\"cm2-nature-angles\",\"dataFile\":\"data/math_geometry_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
+      "id": "cm2-geo-symetrie-centrale",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-geometrie-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/math_geometry_cm2.json::cm2-symetrie-centrale",
+      "contractHash": "choice-engine|{\"category\":\"cm2-symetrie-centrale\",\"dataFile\":\"data/math_geometry_cm2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm2-geo-agrandissement-reduction",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-geometrie-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/math_geometry_cm2.json::cm2-agrandissement-reduction",
+      "contractHash": "choice-engine|{\"category\":\"cm2-agrandissement-reduction\",\"dataFile\":\"data/math_geometry_cm2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
       "id": "cm2-geo-aire-rectangle",
       "kind": "exercise",
       "level": "cm2",
@@ -12194,6 +12282,17 @@
       "paramsType": "aire-rectangle",
       "pool": null,
       "contractHash": "math-input|{\"max\":20,\"type\":\"aire-rectangle\"}"
+    },
+    {
+      "id": "cm2-geo-aire-figure-composee",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-geometrie-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/math_geometry_cm2.json::cm2-aire-figure-composee",
+      "contractHash": "choice-engine|{\"category\":\"cm2-aire-figure-composee\",\"dataFile\":\"data/math_geometry_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-geo-volume-pave",
@@ -12680,6 +12779,28 @@
       "contractHash": "choice-engine|{\"category\":\"mix_all\",\"type\":\"homophone-duel\"}"
     },
     {
+      "id": "cm2-h-leur",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-francais-subject",
+      "subthemeId": "cm2-francais-homophones",
+      "engine": "choice-engine",
+      "paramsType": "homophone-duel",
+      "pool": null,
+      "contractHash": "choice-engine|{\"category\":\"leur_leurs\",\"type\":\"homophone-duel\"}"
+    },
+    {
+      "id": "cm2-h-cest",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-francais-subject",
+      "subthemeId": "cm2-francais-homophones",
+      "engine": "choice-engine",
+      "paramsType": "homophone-duel",
+      "pool": null,
+      "contractHash": "choice-engine|{\"category\":\"c_est_s_est\",\"type\":\"homophone-duel\"}"
+    },
+    {
       "id": "cm2-lesson-accords-groupe-nominal",
       "kind": "lesson",
       "level": "cm2",
@@ -12725,6 +12846,17 @@
     },
     {
       "id": "cm2-lesson-nature-fonction",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-francais-subject",
+      "subthemeId": "cm2-francais-grammaire",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm2-lesson-attribut-sujet",
       "kind": "lesson",
       "level": "cm2",
       "subjectId": "cm2-francais-subject",
@@ -12810,6 +12942,17 @@
       "paramsType": "word-class-choice",
       "pool": null,
       "contractHash": "choice-engine|{\"category\":\"nature_fonction_cm2\",\"type\":\"word-class-choice\"}"
+    },
+    {
+      "id": "cm2-g-attribut-sujet",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-francais-subject",
+      "subthemeId": "cm2-francais-grammaire",
+      "engine": "choice-engine",
+      "paramsType": "word-class-choice",
+      "pool": null,
+      "contractHash": "choice-engine|{\"category\":\"attribut_sujet_cm2\",\"type\":\"word-class-choice\"}"
     },
     {
       "id": "cm2_g_cloze_det",
@@ -13054,6 +13197,17 @@
       "contractHash": "reading|{\"category\":\"cm2_lecture_connecteurs_logiques\"}"
     },
     {
+      "id": "cm2-lecture-niveaux-langue",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-francais-subject",
+      "subthemeId": "cm2-francais-lecture-vocabulaire-subtheme",
+      "engine": "reading",
+      "paramsType": null,
+      "pool": null,
+      "contractHash": "reading|{\"category\":\"cm2_niveaux_langue\"}"
+    },
+    {
       "id": "cm2-bonus-vocabulaire-polysemie-expert",
       "kind": "exercise",
       "level": "cm2",
@@ -13129,6 +13283,17 @@
       "paramsType": null,
       "pool": null,
       "contractHash": "audio-spelling|{\"category\":\"cm2_orthographe_avancee\",\"speechRate\":1}"
+    },
+    {
+      "id": "cm2-lesson-temps-modernes",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-histoire-subject",
+      "subthemeId": "cm2-histoire-reperes",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
     },
     {
       "id": "cm2-lesson-revolution-francaise",
@@ -13316,6 +13481,17 @@
       "paramsType": "factual-qcm",
       "pool": "data/history_cm2.json::cm2-seconde-guerre-mondiale",
       "contractHash": "choice-engine|{\"category\":\"cm2-seconde-guerre-mondiale\",\"dataFile\":\"data/history_cm2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm2-histoire-temps-modernes",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-histoire-subject",
+      "subthemeId": "cm2-histoire-reperes",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/history_cm2.json::cm2-temps-modernes",
+      "contractHash": "choice-engine|{\"category\":\"cm2-temps-modernes\",\"dataFile\":\"data/history_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-bonus-histoire-xxe-expert",
@@ -15376,7 +15552,8 @@
         "cm2-guerres-narratif": 10,
         "cm2-decolonisation": 14,
         "cm2-premiere-guerre-mondiale": 13,
-        "cm2-seconde-guerre-mondiale": 13
+        "cm2-seconde-guerre-mondiale": 13,
+        "cm2-temps-modernes": 6
       }
     },
     "data/history_cp.json": {
@@ -15428,7 +15605,10 @@
         "cm2-symetrie-figures": 12,
         "cm2-droites-angles": 12,
         "cm2-vocabulaire-construction": 16,
-        "cm2-nature-angles": 16
+        "cm2-nature-angles": 16,
+        "cm2-symetrie-centrale": 8,
+        "cm2-agrandissement-reduction": 7,
+        "cm2-aire-figure-composee": 10
       }
     },
     "data/math_geometry_cp.json": {

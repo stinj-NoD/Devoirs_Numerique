@@ -111,7 +111,7 @@
                         {
                             "id": "cm2_tables_x",
                             "title": "Multiplier par 11 à 15",
-                            "subtitle": "Calcul mental avancé",
+                            "subtitle": "Multiplication à deux chiffres",
                             "engine": "math-input",
                             "params": {
                                 "type": "calc-mental",
@@ -126,7 +126,7 @@
                         {
                             "id": "cm2_tables_x_16_20",
                             "title": "Multiplier par 16 à 20",
-                            "subtitle": "Calcul mental expert",
+                            "subtitle": "Multiplication à deux chiffres (2)",
                             "engine": "math-input",
                             "params": {
                                 "type": "calc-mental",
@@ -199,7 +199,7 @@
                         {
                             "id": "cm2-bonus-tables-x-21-25",
                             "title": "Défi : multiplier par 21 à 25",
-                            "subtitle": "Calcul mental ultra avancé",
+                            "subtitle": "Multiplication à deux chiffres (défi)",
                             "engine": "math-input",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -211,6 +211,68 @@
                                     25
                                 ],
                                 "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm2-m-position-chiffre-milliard",
+                            "title": "Le chiffre à sa place",
+                            "subtitle": "Repérer un chiffre dans un nombre à 6 chiffres",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "place-value",
+                                "digitCount": 6,
+                                "min": 500000,
+                                "ask": "digit",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-m-valeur-chiffre-milliard",
+                            "title": "La valeur d'un chiffre",
+                            "subtitle": "Unités, milliers ou centaines de mille ?",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "place-value",
+                                "digitCount": 6,
+                                "min": 500000,
+                                "ask": "value",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-m-addition-posee-experte",
+                            "title": "Addition posée niveau expert",
+                            "subtitle": "Poser l'addition de très grands nombres",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "add",
+                                "level": 3,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-m-soustraction-posee-experte",
+                            "title": "Soustraction posée niveau expert",
+                            "subtitle": "Poser la soustraction de très grands nombres",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "sub",
+                                "level": 3,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-m-multiplication-posee-experte",
+                            "title": "Multiplication posée niveau expert",
+                            "subtitle": "Poser la multiplication avec retenues",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "mult",
+                                "level": 3,
+                                "questions": 6
                             }
                         }
                     ]
@@ -1232,6 +1294,59 @@
                             ]
                         },
                         {
+                            "id": "cm2-lesson-symetrie-centrale",
+                            "title": "La symétrie centrale",
+                            "subtitle": "Une figure qui tourne d'un demi-tour",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans une symétrie centrale, chaque point d'une figure a un symétrique par rapport à un point fixe appelé le centre. Le point, son symétrique et le centre sont toujours alignés, et le centre est exactement à mi-chemin entre les deux : c'est comme faire tourner la figure d'un demi-tour (180°) autour de ce point."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un point M est à 4 cm au-dessus du centre O. Son symétrique M' se trouve à 4 cm en dessous de O, sur la même droite verticale que M et O : si on trace le segment MM', le point O en est le milieu exact."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "centre de symétrie",
+                                        "demi-tour (180°)",
+                                        "alignement point / centre / symétrique",
+                                        "le centre est le milieu du segment"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour construire le symétrique d'un point par rapport à un centre O, je prolonge la droite qui va du point vers O, puis je reporte la même distance de l'autre côté de O."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un point B est situé à 5 cm à droite d'un centre de symétrie O, à la même hauteur que O. Où se trouve son symétrique B' ?",
+                                    "choices": [
+                                        "À 5 cm à gauche de O, à la même hauteur, sur la droite (B, O)",
+                                        "À 5 cm au-dessus de O",
+                                        "Au même endroit que B, car un centre ne déplace pas les points"
+                                    ],
+                                    "answer": "À 5 cm à gauche de O, à la même hauteur, sur la droite (B, O)",
+                                    "explanation": "Dans une symétrie centrale, B, O et B' sont toujours alignés et O est le milieu de [BB'] : B' est donc de l'autre côté de O, sur la même droite, à la même distance, soit 5 cm à gauche à la même hauteur. Le placer au-dessus de O romprait l'alignement avec B. Et dire que B reste sur place confond avec l'identité : une symétrie centrale déplace bien tous les points, sauf le centre lui-même."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Comment distinguer une symétrie centrale d'une symétrie axiale en observant une figure et son image ?",
+                                    "choices": [
+                                        "Dans la symétrie centrale, l'image semble tournée d'un demi-tour ; dans la symétrique axiale, elle est retournée comme dans un miroir",
+                                        "La symétrie centrale ne s'applique qu'aux cercles et jamais aux triangles, carrés ou autres polygones, contrairement à la symétrie axiale",
+                                        "Les deux transformations produisent toujours exactement la même image finale, seul le nom employé par l'enseignant change selon l'habitude de la classe"
+                                    ],
+                                    "answer": "Dans la symétrie centrale, l'image semble tournée d'un demi-tour ; dans la symétrique axiale, elle est retournée comme dans un miroir",
+                                    "explanation": "La symétrie axiale retourne la figure comme un reflet dans un miroir posé le long d'un axe, alors que la symétrie centrale fait pivoter la figure d'un demi-tour autour d'un point : sur une lettre comme F, l'image axiale et l'image centrale ne se ressemblent pas du tout. Rien n'interdit d'appliquer une symétrie centrale à un carré, un triangle ou toute autre figure, pas seulement au cercle. Et les deux transformations donnent des images différentes : ce ne sont pas deux noms pour la même opération."
+                                }
+                            ]
+                        },
+                        {
                             "id": "cm2-lesson-aires-volumes",
                             "title": "Aires et volumes",
                             "subtitle": "Surfaces et espaces",
@@ -1352,6 +1467,30 @@
                             }
                         },
                         {
+                            "id": "cm2-geo-symetrie-centrale",
+                            "title": "La symétrie centrale",
+                            "subtitle": "Un demi-tour autour d'un point",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_geometry_cm2.json",
+                                "category": "cm2-symetrie-centrale",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-geo-agrandissement-reduction",
+                            "title": "Agrandir ou réduire une figure",
+                            "subtitle": "Garder les proportions",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_geometry_cm2.json",
+                                "category": "cm2-agrandissement-reduction",
+                                "questions": 8
+                            }
+                        },
+                        {
                             "id": "cm2-geo-aire-rectangle",
                             "title": "Calculer une aire",
                             "subtitle": "Aires de rectangles",
@@ -1360,6 +1499,18 @@
                                 "type": "aire-rectangle",
                                 "max": 20,
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-geo-aire-figure-composee",
+                            "title": "Aire d'une figure composée",
+                            "subtitle": "Décompose en rectangles simples",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_geometry_cm2.json",
+                                "category": "cm2-aire-figure-composee",
+                                "questions": 8
                             }
                         },
                         {
@@ -2240,6 +2391,36 @@
                                 "category": "mix_all",
                                 "questions": 20
                             }
+                        },
+                        {
+                            "id": "cm2-h-leur",
+                            "title": "Leur ou Leurs ?",
+                            "subtitle": "Un pronom invariable ou un adjectif pluriel",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "homophone-duel",
+                                "category": "leur_leurs",
+                                "choices": [
+                                    "leur",
+                                    "leurs"
+                                ],
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm2-h-cest",
+                            "title": "C'est ou S'est ?",
+                            "subtitle": "Présenter ou se transformer au passé",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "homophone-duel",
+                                "category": "c_est_s_est",
+                                "choices": [
+                                    "c'est",
+                                    "s'est"
+                                ],
+                                "questions": 10
+                            }
                         }
                     ],
                     "lessons": [
@@ -2456,6 +2637,17 @@
                             "params": {
                                 "type": "word-class-choice",
                                 "category": "nature_fonction_cm2",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-g-attribut-sujet",
+                            "title": "L'attribut du sujet",
+                            "subtitle": "Être, sembler, paraître, devenir, rester",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "attribut_sujet_cm2",
                                 "questions": 8
                             }
                         },
@@ -2867,6 +3059,58 @@
                                     "explanation": "Il confond les deux niveaux : « vent » est un nom (nature, fixe) et il occupe ici la fonction de COD (rôle, variable). La fonction COD est bien correcte, ce n’est pas là l’erreur : le sujet de cette phrase est « je ». Et non, aucun mot n’a « COD » pour nature : les natures sont nom, verbe, adjectif, déterminant, pronom, adverbe."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cm2-lesson-attribut-sujet",
+                            "title": "L’attribut du sujet",
+                            "subtitle": "Une fonction après les verbes d’état",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Certains verbes ne décrivent pas une action : ils relient le sujet à ce qu’il est, ce qu’il devient ou ce qu’il paraît être. Ce sont les verbes d’état : être, sembler, paraître, devenir, rester. Le mot qui suit ces verbes et qui qualifie le sujet s’appelle l’attribut du sujet."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans « La forêt paraît silencieuse », le verbe d’état « paraît » relie « la forêt » à « silencieuse » : silencieuse est l’attribut du sujet, il donne une qualité à la forêt elle-même."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "l’attribut suit toujours un verbe d’état (être, sembler, paraître, devenir, rester)",
+                                        "il qualifie ou identifie le sujet, jamais un objet différent",
+                                        "sans verbe d’état, pas d’attribut : après un verbe d’action, on cherche un COD ou un complément circonstanciel"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour reconnaître un attribut, on peut remplacer le verbe d’état par « être » : la phrase garde le même sens général."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Ces fruits deviennent trop mûrs », quel mot qualifie « ces fruits » eux-mêmes, juste après le verbe d’état « deviennent » ?",
+                                    "choices": [
+                                        "trop mûrs",
+                                        "ces fruits",
+                                        "deviennent"
+                                    ],
+                                    "answer": "trop mûrs",
+                                    "explanation": "« Devenir » est un verbe d’état : « trop mûrs » qualifie directement le sujet « ces fruits », il ne désigne pas un objet différent. « Ces fruits » est le sujet lui-même, et « deviennent » est le verbe : aucun des deux ne peut être la réponse."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Le gardien surveille les visiteurs », pourquoi ne peut-il pas y avoir d’attribut du sujet ?",
+                                    "choices": [
+                                        "Parce que « surveille » n’est pas un verbe d’état",
+                                        "Parce que la phrase ne contient pas de sujet",
+                                        "Parce que « les visiteurs » est au pluriel"
+                                    ],
+                                    "answer": "Parce que « surveille » n’est pas un verbe d’état",
+                                    "explanation": "L’attribut du sujet n’existe qu’après un verbe d’état (être, sembler, paraître, devenir, rester). « Surveiller » est un verbe d’action : « les visiteurs » en est le COD, pas un attribut. Le sujet existe bien (« le gardien ») et le pluriel n’a aucun rapport avec cette règle."
+                                }
+                            ]
                         }
                     ]
                 },
@@ -3170,6 +3414,16 @@
                             }
                         },
                         {
+                            "id": "cm2-lecture-niveaux-langue",
+                            "title": "Niveaux de langue",
+                            "subtitle": "Familier, courant ou soutenu ?",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm2_niveaux_langue",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "cm2-bonus-vocabulaire-polysemie-expert",
                             "title": "Défi : polysémie experte",
                             "subtitle": "Mots à sens multiples, série longue",
@@ -3435,6 +3689,18 @@
                             }
                         },
                         {
+                            "id": "cm2-histoire-temps-modernes",
+                            "title": "Les Temps modernes",
+                            "subtitle": "Grandes découvertes et monarchie absolue",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm2.json",
+                                "category": "cm2-temps-modernes",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "cm2-bonus-histoire-xxe-expert",
                             "title": "Défi : XXe siècle expert",
                             "subtitle": "Série longue sur les grandes guerres",
@@ -3450,6 +3716,60 @@
                         }
                     ],
                     "lessons": [
+                        {
+                            "id": "cm2-lesson-temps-modernes",
+                            "title": "Les Temps modernes",
+                            "subtitle": "1492-1789 : le monde s'élargit, le roi devient tout-puissant",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Entre 1492 et 1789, les historiens parlent des Temps modernes. Deux évolutions marquent cette période : les Européens découvrent que le monde est bien plus vaste qu'ils ne le pensaient, et le roi de France concentre peu à peu tous les pouvoirs entre ses mains."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "En 1682, Louis XIV installe sa cour au château de Versailles pour rassembler les grands nobles autour de lui et les surveiller de près."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Repères à retenir",
+                                    "items": [
+                                        "1492 : Christophe Colomb atteint l'Amérique",
+                                        "1522 : le retour du navire de l'expédition de Magellan prouve que la Terre est ronde",
+                                        "1682 : Louis XIV installe la cour à Versailles",
+                                        "1685 : Louis XIV révoque l'édit de Nantes et impose de nouveau une seule religion"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Sous une monarchie absolue, le roi gouverne seul : il décide des lois, des impôts et de la guerre sans qu'aucune assemblée ne limite son pouvoir."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un roi affirme : « Je décide seul des impôts et des lois de mon royaume, aucune assemblée ne peut s'y opposer. » Quel nom donne-t-on à ce type de pouvoir ?",
+                                    "choices": [
+                                        "La monarchie absolue",
+                                        "La monarchie parlementaire",
+                                        "La République"
+                                    ],
+                                    "answer": "La monarchie absolue",
+                                    "explanation": "Quand le roi gouverne seul sans qu'une assemblée limite ses décisions, on parle de monarchie absolue : c'est le régime que Louis XIV incarne au XVIIe siècle."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "En rassemblant les grands nobles autour de lui au château de Versailles plutôt qu'à Paris, quel avantage Louis XIV cherche-t-il surtout à obtenir ?",
+                                    "choices": [
+                                        "Il peut surveiller les nobles et les occuper loin de tout complot",
+                                        "Il économise l'argent du royaume en réduisant les dépenses de la cour",
+                                        "Il permet aux nobles de gouverner à sa place pendant ses absences"
+                                    ],
+                                    "answer": "Il peut surveiller les nobles et les occuper loin de tout complot",
+                                    "explanation": "En occupant les nobles avec les cérémonies et l'étiquette de la cour à Versailles, Louis XIV les tient sous son regard et les empêche de préparer une révolte loin de lui. Versailles a au contraire coûté très cher à construire et à entretenir, et le roi n'y délègue jamais son pouvoir : c'est lui seul qui gouverne."
+                                }
+                            ]
+                        },
                         {
                             "id": "cm2-lesson-revolution-francaise",
                             "title": "La Révolution française",

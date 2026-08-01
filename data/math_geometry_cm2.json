@@ -529,6 +529,262 @@
                 "answer": "le partage en deux angles égaux",
                 "explanation": "« Bi-secare » = couper en deux : chaque moitié fait exactement le même angle."
             }
+        ],
+        "cm2-symetrie-centrale": [
+            {
+                "question": "Dans une symétrie centrale, un point et son symétrique sont toujours...",
+                "choices": [
+                    "alignés avec le centre, qui est le milieu du segment qui les relie",
+                    "situés du même côté du centre, à des distances différentes",
+                    "reliés par un angle droit passant par le centre"
+                ],
+                "answer": "alignés avec le centre, qui est le milieu du segment qui les relie",
+                "explanation": "C'est la définition même de la symétrie centrale : le point, le centre et son symétrique sont sur une même droite, et le centre se trouve exactement à mi-distance des deux, comme un demi-tour autour de ce point."
+            },
+            {
+                "question": "Une figure obtenue par symétrie centrale ressemble à la figure de départ...",
+                "choices": [
+                    "tournée d'un demi-tour (180°) autour du centre",
+                    "agrandie deux fois par rapport au centre",
+                    "inversée comme dans un miroir posé sur un axe"
+                ],
+                "answer": "tournée d'un demi-tour (180°) autour du centre",
+                "explanation": "La symétrie centrale fait pivoter chaque point d'un demi-tour complet autour du centre : la figure garde la même taille, mais elle apparaît retournée bout pour bout, pas reflétée comme dans un miroir (ce serait une symétrie axiale)."
+            },
+            {
+                "question": "Le point O est le centre de symétrie. Le point P est à 6 cm de O. À quelle distance de O se trouve P', le symétrique de P ?",
+                "choices": [
+                    "6 cm, de l'autre côté de O",
+                    "3 cm, du même côté de O",
+                    "12 cm, du même côté de O"
+                ],
+                "answer": "6 cm, de l'autre côté de O",
+                "explanation": "O est le milieu du segment [PP'], donc P' est exactement à la même distance de O que P, mais de l'autre côté : 6 cm de part et d'autre du centre."
+            },
+            {
+                "question": "Pour construire à la règle le symétrique A' d'un point A par rapport à un centre O, il faut...",
+                "choices": [
+                    "tracer la droite (AO) et reporter la longueur AO au-delà de O",
+                    "tracer la perpendiculaire à (AO) passant par O",
+                    "mesurer la distance de A au bord de la feuille"
+                ],
+                "answer": "tracer la droite (AO) et reporter la longueur AO au-delà de O",
+                "explanation": "A, O et A' doivent être alignés avec O au milieu : on prolonge donc la droite (AO) de l'autre côté de O, et on reporte la même longueur AO pour placer A'."
+            },
+            {
+                "question": "Quelle figure a un centre de symétrie évident, son propre centre ?",
+                "choices": [
+                    "Un cercle, par rapport à son centre",
+                    "Un triangle équilatéral, par rapport à un sommet",
+                    "Un angle droit, par rapport à son sommet"
+                ],
+                "answer": "Un cercle, par rapport à son centre",
+                "explanation": "Tout point du cercle a son symétrique par rapport au centre qui est aussi sur le cercle, à égale distance de l'autre côté : le cercle est donc symétrique par rapport à son centre. Le triangle équilatéral n'a pas de centre de symétrie (seulement des axes), et un angle droit non plus."
+            },
+            {
+                "question": "Un rectangle possède-t-il un centre de symétrie ?",
+                "choices": [
+                    "Oui, le point d'intersection de ses diagonales",
+                    "Non, seuls les cercles ont un centre de symétrie",
+                    "Oui, mais uniquement l'un de ses quatre sommets"
+                ],
+                "answer": "Oui, le point d'intersection de ses diagonales",
+                "explanation": "Dans un rectangle, les diagonales se coupent en un point qui est le milieu de chacune : ce point est bien un centre de symétrie, car tout point du rectangle a son symétrique par rapport à ce centre à l'intérieur de la figure."
+            },
+            {
+                "question": "Quelle est la différence principale entre une symétrie axiale et une symétrie centrale ?",
+                "choices": [
+                    "L'axiale se fait par rapport à une droite, la centrale par rapport à un point",
+                    "L'axiale change la taille de la figure, la centrale non",
+                    "Elles produisent toujours exactement la même image finale"
+                ],
+                "answer": "L'axiale se fait par rapport à une droite, la centrale par rapport à un point",
+                "explanation": "La symétrie axiale utilise un axe (une droite) comme miroir, alors que la symétrie centrale utilise un point comme pivot pour un demi-tour. Aucune des deux ne change la taille de la figure, mais elles donnent des images différentes."
+            },
+            {
+                "question": "Le point O est le centre de symétrie. Le point R a pour symétrique R' tel que OR = 4 cm et OR' = 4 cm. R, O et R' sont...",
+                "choices": [
+                    "alignés",
+                    "les sommets d'un triangle",
+                    "à des distances différentes de O"
+                ],
+                "answer": "alignés",
+                "explanation": "Avoir OR = OR' ne suffit pas à garantir une symétrie centrale : il faut aussi que les trois points soient alignés, avec O entre R et R'. C'est cet alignement qui distingue le symétrique centrale d'un simple point à la même distance."
+            }
+        ],
+        "cm2-agrandissement-reduction": [
+            {
+                "question": "On agrandit un rectangle de 3 cm sur 5 cm avec un facteur 2. Quelles sont les nouvelles dimensions ?",
+                "choices": [
+                    "6 cm sur 10 cm",
+                    "5 cm sur 7 cm",
+                    "9 cm sur 15 cm"
+                ],
+                "answer": "6 cm sur 10 cm",
+                "explanation": "Agrandir avec un facteur 2 signifie multiplier chaque longueur par 2 : 3 × 2 = 6 cm et 5 × 2 = 10 cm. Ajouter 2 à chaque côté ne respecte pas les proportions, et multiplier par 3 correspondrait à un facteur 3, pas 2."
+            },
+            {
+                "question": "Un triangle a des côtés de 8 cm, 6 cm et 4 cm. On le réduit avec un facteur 1/2. Quelles sont les nouvelles longueurs ?",
+                "choices": [
+                    "4 cm, 3 cm et 2 cm",
+                    "16 cm, 12 cm et 8 cm",
+                    "7 cm, 5 cm et 3 cm"
+                ],
+                "answer": "4 cm, 3 cm et 2 cm",
+                "explanation": "Réduire avec un facteur 1/2 revient à diviser chaque longueur par 2 : 8 ÷ 2 = 4, 6 ÷ 2 = 3 et 4 ÷ 2 = 2. Doubler les longueurs (16, 12, 8) serait un agrandissement, pas une réduction ; soustraire 1 à chaque côté ne respecte pas les proportions."
+            },
+            {
+                "question": "Pour qu'un agrandissement respecte les proportions d'une figure, il faut...",
+                "choices": [
+                    "multiplier toutes les longueurs par le même facteur",
+                    "multiplier seulement la longueur, pas la largeur",
+                    "ajouter le même nombre de centimètres à chaque côté"
+                ],
+                "answer": "multiplier toutes les longueurs par le même facteur",
+                "explanation": "Un agrandissement (ou une réduction) qui respecte les proportions applique le même facteur multiplicatif à toutes les dimensions de la figure ; sinon la forme se déforme, ce qui n'est plus un agrandissement mais une figure différente."
+            },
+            {
+                "question": "Un carré de 4 cm de côté est agrandi avec un facteur 3. Quel est le périmètre du nouveau carré ?",
+                "choices": [
+                    "48 cm",
+                    "16 cm",
+                    "12 cm"
+                ],
+                "answer": "48 cm",
+                "explanation": "Le nouveau côté mesure 4 × 3 = 12 cm, donc le périmètre du carré vaut 4 × 12 = 48 cm. 16 cm est le périmètre du carré de départ (4 × 4), et 12 cm n'est que la longueur du nouveau côté, pas le périmètre entier."
+            },
+            {
+                "question": "Une figure est réduite avec un facteur 1/3 : ses côtés sont-ils plus grands ou plus petits qu'avant ?",
+                "choices": [
+                    "Plus petits, car chaque longueur est divisée par 3",
+                    "Plus grands, car 3 est un nombre plus grand que 1",
+                    "De la même taille, seule la couleur change"
+                ],
+                "answer": "Plus petits, car chaque longueur est divisée par 3",
+                "explanation": "Un facteur 1/3 revient à diviser chaque longueur par 3 : la figure obtenue est donc plus petite que l'originale, tout en gardant la même forme. Ce n'est ni un agrandissement, ni une figure identique en taille."
+            },
+            {
+                "question": "Un rectangle de 10 cm sur 4 cm est agrandi et devient un rectangle de 20 cm sur 8 cm. Quel facteur d'agrandissement a été utilisé ?",
+                "choices": [
+                    "2",
+                    "10",
+                    "4"
+                ],
+                "answer": "2",
+                "explanation": "On retrouve le facteur en comparant une dimension avant/après : 20 ÷ 10 = 2 et 8 ÷ 4 = 2, le même facteur pour les deux côtés, ce qui confirme que les proportions sont respectées."
+            },
+            {
+                "question": "Un plan à l'échelle représente un jardin agrandi ou réduit par rapport à la réalité. Quel terme utilise-t-on en géométrie pour ce type de figure qui garde la même forme mais change de taille ?",
+                "choices": [
+                    "Une figure à l'échelle, ou figure agrandie/réduite proportionnellement",
+                    "Une figure symétrique",
+                    "Une figure translatée"
+                ],
+                "answer": "Une figure à l'échelle, ou figure agrandie/réduite proportionnellement",
+                "explanation": "Agrandir ou réduire une figure en respectant les proportions produit une figure semblable à l'originale, souvent appelée figure « à l'échelle » : même forme, taille différente. Une figure symétrique est le résultat d'un miroir ou d'un demi-tour, pas d'un changement de taille ; une translation ne fait que déplacer la figure sans la redimensionner."
+            }
+        ],
+        "cm2-aire-figure-composee": [
+            {
+                "question": "Une figure en forme de L est faite d'un rectangle de 8 cm sur 5 cm et d'un rectangle de 3 cm sur 4 cm. Quelle est son aire totale ?",
+                "choices": [
+                    "52 cm²",
+                    "40 cm²",
+                    "12 cm²"
+                ],
+                "answer": "52 cm²",
+                "explanation": "On calcule l'aire de chaque rectangle puis on additionne : 8 × 5 = 40 cm² et 3 × 4 = 12 cm², donc 40 + 12 = 52 cm². 40 cm² n'est que le premier rectangle, et 12 cm² n'est que le second."
+            },
+            {
+                "question": "Une figure en forme de T est composée d'un rectangle de 10 cm sur 2 cm (la barre du haut) et d'un rectangle de 3 cm sur 6 cm (le pied). Quelle est l'aire totale de la figure ?",
+                "choices": [
+                    "38 cm²",
+                    "20 cm²",
+                    "60 cm²"
+                ],
+                "answer": "38 cm²",
+                "explanation": "L'aire de la barre du haut est 10 × 2 = 20 cm² et celle du pied est 3 × 6 = 18 cm² ; l'aire totale est 20 + 18 = 38 cm². 60 cm² correspond à une multiplication des deux aires entre elles, ce qui n'a pas de sens ici."
+            },
+            {
+                "question": "Une pièce en forme de L mesure : un premier rectangle de 6 m sur 4 m, et un second rectangle de 2 m sur 3 m. Quelle est la surface totale de la pièce ?",
+                "choices": [
+                    "30 m²",
+                    "24 m²",
+                    "6 m²"
+                ],
+                "answer": "30 m²",
+                "explanation": "On additionne les deux aires : 6 × 4 = 24 m² et 2 × 3 = 6 m², soit 24 + 6 = 30 m². 24 m² oublie le second rectangle, et 6 m² oublie le premier."
+            },
+            {
+                "question": "Un jardin en forme de L est formé d'un rectangle de 9 m sur 5 m et d'un rectangle de 4 m sur 3 m. Quelle est l'aire totale du jardin ?",
+                "choices": [
+                    "57 m²",
+                    "45 m²",
+                    "17 m²"
+                ],
+                "answer": "57 m²",
+                "explanation": "L'aire du premier rectangle est 9 × 5 = 45 m² et celle du second est 4 × 3 = 12 m² ; le total est 45 + 12 = 57 m². 17 m² additionne des longueurs au lieu d'additionner les deux aires calculées séparément."
+            },
+            {
+                "question": "Pour calculer l'aire d'une figure composée en forme de L, la méthode correcte est...",
+                "choices": [
+                    "découper la figure en rectangles simples, calculer chaque aire, puis additionner",
+                    "multiplier la longueur totale par la largeur totale de la figure",
+                    "additionner uniquement les longueurs de tous les côtés"
+                ],
+                "answer": "découper la figure en rectangles simples, calculer chaque aire, puis additionner",
+                "explanation": "Une figure composée ne correspond pas à un seul rectangle : il faut la décomposer en rectangles plus simples, calculer l'aire de chacun (longueur × largeur), puis additionner ces aires. Multiplier la longueur totale par la largeur totale donnerait l'aire d'un rectangle englobant trop grand, et additionner les longueurs des côtés donne un périmètre, pas une aire."
+            },
+            {
+                "question": "Une terrasse en forme de T est composée d'un rectangle de 12 m sur 3 m et d'un rectangle de 4 m sur 5 m. Quelle est l'aire totale de la terrasse ?",
+                "choices": [
+                    "56 m²",
+                    "36 m²",
+                    "15 m²"
+                ],
+                "answer": "56 m²",
+                "explanation": "L'aire du premier rectangle est 12 × 3 = 36 m² et celle du second est 4 × 5 = 20 m² ; on additionne : 36 + 20 = 56 m². 36 m² oublie le second rectangle, et 15 m² n'est le résultat d'aucun des deux calculs corrects."
+            },
+            {
+                "question": "Une figure en forme de L est faite de deux rectangles : le premier de 7 cm sur 6 cm, le second de 2 cm sur 5 cm. Quelle est l'aire totale de la figure ?",
+                "choices": [
+                    "52 cm²",
+                    "42 cm²",
+                    "10 cm²"
+                ],
+                "answer": "52 cm²",
+                "explanation": "7 × 6 = 42 cm² pour le premier rectangle, et 2 × 5 = 10 cm² pour le second : 42 + 10 = 52 cm². 42 cm² ne compte que le grand rectangle et oublie d'ajouter le petit."
+            },
+            {
+                "question": "Un logo en forme de T est composé d'un rectangle de 8 cm sur 2 cm et d'un rectangle de 2 cm sur 6 cm. Quelle est l'aire totale du logo ?",
+                "choices": [
+                    "28 cm²",
+                    "16 cm²",
+                    "12 cm²"
+                ],
+                "answer": "28 cm²",
+                "explanation": "8 × 2 = 16 cm² pour le premier rectangle et 2 × 6 = 12 cm² pour le second ; l'aire totale est 16 + 12 = 28 cm². 16 cm² ne compte que le premier rectangle et oublie le second."
+            },
+            {
+                "question": "Une salle en forme de L est composée d'un rectangle de 5 m sur 4 m et d'un rectangle de 3 m sur 2 m. Quelle est la surface totale de la salle ?",
+                "choices": [
+                    "26 m²",
+                    "20 m²",
+                    "14 m²"
+                ],
+                "answer": "26 m²",
+                "explanation": "5 × 4 = 20 m² pour le premier rectangle et 3 × 2 = 6 m² pour le second ; le total est 20 + 6 = 26 m². 14 m² additionne des longueurs isolées au lieu d'additionner les deux aires calculées."
+            },
+            {
+                "question": "Une figure composée est formée d'un rectangle de 6 cm sur 3 cm et d'un carré de 4 cm de côté accolé à celui-ci. Quelle est l'aire totale de la figure ?",
+                "choices": [
+                    "34 cm²",
+                    "18 cm²",
+                    "16 cm²"
+                ],
+                "answer": "34 cm²",
+                "explanation": "L'aire du rectangle est 6 × 3 = 18 cm² et celle du carré est 4 × 4 = 16 cm² ; on additionne les deux aires : 18 + 16 = 34 cm². 18 cm² et 16 cm² ne correspondent chacun qu'à une seule des deux parties de la figure."
+            }
         ]
     },
     "subjectId": "math"

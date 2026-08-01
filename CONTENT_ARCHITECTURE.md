@@ -4,20 +4,20 @@ Document de référence listant, pour chaque niveau, chaque matière, chaque sou
 
 Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon, sans exercice, catégories peu fournies) pour prioriser les ajouts.
 
-> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-07-30 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
+> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-08-01 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
 
 ---
 
 ## Vue d'ensemble
 
-- **995 exercices** et **361 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1008 exercices** et **364 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
 |---|---|
-| `choice-engine` | 532 |
-| `math-input` | 156 |
-| `reading` | 51 |
+| `choice-engine` | 539 |
+| `math-input` | 161 |
+| `reading` | 52 |
 | `matching` | 49 |
 | `conjugation` | 47 |
 | `audio-spelling` | 44 |
@@ -1751,7 +1751,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 - **Leçons** (1) :
   - Lire et écrire les grands nombres `(cm2-lesson-grands-nombres)` — blocs: paragraph, example, mini-table, tip, check, check
-- **Exercices** (10) :
+- **Exercices** (15) :
   - Les Milliards `(cm2_grands_nombres)` — engine: `math-input`, type=dictée-nombres, min=1000000, max=9999999999, questions=10
   - Division Mentale `(cm2_division_mentale)` — engine: `math-input`, type=calc-mental, operator=/, questions=10
   - Multiplier par 11 à 15 `(cm2_tables_x)` — engine: `math-input`, type=calc-mental, operator=x, questions=10
@@ -1762,6 +1762,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Problèmes de pourcentages `(cm2-problemes-pourcentages)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=cm2-problemes-pourcentages, questions=8
   - Problèmes à étapes `(cm2-problemes-multi-etapes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=cm2-problemes-multi-etapes, questions=8
   - Défi : multiplier par 21 à 25 `(cm2-bonus-tables-x-21-25)` — engine: `math-input`, type=calc-mental, operator=x, questions=10, bonus (seuil=2)
+  - Le chiffre à sa place `(cm2-m-position-chiffre-milliard)` — engine: `math-input`, type=place-value, digitCount=6, min=500000, ask=digit, questions=8
+  - La valeur d'un chiffre `(cm2-m-valeur-chiffre-milliard)` — engine: `math-input`, type=place-value, digitCount=6, min=500000, ask=value, questions=8
+  - Addition posée niveau expert `(cm2-m-addition-posee-experte)` — engine: `math-input`, type=operation-posed, operator=add, level=3, questions=6
+  - Soustraction posée niveau expert `(cm2-m-soustraction-posee-experte)` — engine: `math-input`, type=operation-posed, operator=sub, level=3, questions=6
+  - Multiplication posée niveau expert `(cm2-m-multiplication-posee-experte)` — engine: `math-input`, type=operation-posed, operator=mult, level=3, questions=6
 
 #### Fractions & décimaux `(cm2-fractions-decimaux)`
 
@@ -1817,18 +1822,22 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Géométrie `(cm2-geometrie-subtheme)`
 
-- **Leçons** (4) :
+- **Leçons** (5) :
   - Droites et angles `(cm2-lesson-droites-angles)` — blocs: paragraph, example, bullets, tip, check, check
   - Polygones et cercle `(cm2-lesson-figures-cercle)` — blocs: paragraph, example, bullets, tip, check, check
   - La symétrie `(cm2-lesson-symetrie)` — blocs: paragraph, example, bullets, tip, check, check
+  - La symétrie centrale `(cm2-lesson-symetrie-centrale)` — blocs: paragraph, example, bullets, tip, check, check
   - Aires et volumes `(cm2-lesson-aires-volumes)` — blocs: paragraph, example, example, bullets, tip, check, check
-- **Exercices** (15) :
+- **Exercices** (18) :
   - Droites et angles `(cm2-geo-droites-angles)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm2.json, category=cm2-droites-angles, questions=8
   - Symétrie et figures `(cm2-geo-symetrie-figures)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm2.json, category=cm2-symetrie-figures, questions=8
   - Complète la figure symétrique `(cm2-geo-symetrie-pratique)` — engine: `board-interactive`, type=symmetry-complete, dataFile=data/board_symmetry_complete_cm2.json, category=cm2_symmetry_complete, questions=5
   - Construction géométrique `(cm2-geo-vocabulaire-construction)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm2.json, category=cm2-vocabulaire-construction, questions=8
   - Nature des angles `(cm2-geo-nature-angles)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm2.json, category=cm2-nature-angles, questions=8
+  - La symétrie centrale `(cm2-geo-symetrie-centrale)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm2.json, category=cm2-symetrie-centrale, questions=8
+  - Agrandir ou réduire une figure `(cm2-geo-agrandissement-reduction)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm2.json, category=cm2-agrandissement-reduction, questions=8
   - Calculer une aire `(cm2-geo-aire-rectangle)` — engine: `math-input`, type=aire-rectangle, max=20, questions=6
+  - Aire d'une figure composée `(cm2-geo-aire-figure-composee)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm2.json, category=cm2-aire-figure-composee, questions=8
   - Calculer un volume `(cm2-geo-volume-pave)` — engine: `math-input`, type=volume-pave, max=8, questions=5
   - Figures et propriétés `(cm2-maths-geo-appariement)` — engine: `matching`, category=matching_math_cm2, dataFile=data/math_matching.json, questions=3
   - Classer les formes géométriques `(cm2-geo-classement-formes)` — engine: `board-interactive`, type=shape-classify, dataFile=data/board_shape_classify_cm2.json, category=cm2_shape_classify, questions=6
@@ -1881,7 +1890,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Choisir le bon homophone `(cm2-lesson-homophones-strategie)` — blocs: paragraph, example, bullets, tip, check, check
   - Tester un remplacement `(cm2-lesson-homophones-remplacement)` — blocs: paragraph, example, mini-table, tip, check, check
-- **Exercices** (8) :
+- **Exercices** (10) :
   - Grand Mix Homophones `(cm2_homophones_mix)` — engine: `choice-engine`, type=homophone-duel, category=mix_all, questions=15
   - Ce ou se ? `(cm2_homophones_ce_se)` — engine: `choice-engine`, type=homophone-duel, category=ce_se, questions=10
   - Ces ou ses ? `(cm2_homophones_ces_ses)` — engine: `choice-engine`, type=homophone-duel, category=ces_ses, questions=10
@@ -1890,16 +1899,19 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Son ou Sont ? `(cm2-homophones-son-sont)` — engine: `choice-engine`, type=homophone-duel, category=son_sont, questions=10
   - On ou Ont ? `(cm2-homophones-on-ont)` — engine: `choice-engine`, type=homophone-duel, category=on_ont, questions=10
   - Défi : grand mix expert `(cm2-bonus-homophones-mix-expert)` — engine: `choice-engine`, type=homophone-duel, category=mix_all, questions=20, bonus (seuil=2)
+  - Leur ou Leurs ? `(cm2-h-leur)` — engine: `choice-engine`, type=homophone-duel, category=leur_leurs, questions=10
+  - C'est ou S'est ? `(cm2-h-cest)` — engine: `choice-engine`, type=homophone-duel, category=c_est_s_est, questions=10
 
 #### Grammaire `(cm2-francais-grammaire)`
 
-- **Leçons** (5) :
+- **Leçons** (6) :
   - Accorder le groupe nominal `(cm2-lesson-accords-groupe-nominal)` — blocs: paragraph, example, mini-table, tip, check, check
   - Trouver le sujet et le verbe `(cm2-lesson-sujet-verbe)` — blocs: paragraph, example, bullets, tip, check, check
   - Comprendre le sens des mots `(cm2-lesson-sens-des-mots)` — blocs: paragraph, example, bullets, tip, check, check
   - Écrire des phrases riches et claires `(cm2-lesson-ecrire-phrases-riches)` — blocs: paragraph, example, bullets, tip, check, check
   - Nature et fonction d’un mot `(cm2-lesson-nature-fonction)` — blocs: paragraph, example, mini-table, tip, check, check
-- **Exercices** (17) :
+  - L’attribut du sujet `(cm2-lesson-attribut-sujet)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (18) :
   - Un ou Une ? `(cm2_g_abstrait)` — engine: `choice-engine`, type=gender-articles, category=gender_cm2_abstrait, questions=8
   - Le, La ou L' ? `(cm2_g_elision)` — engine: `choice-engine`, type=gender-articles, category=gender_cm2_elision, questions=8
   - Le bon article `(cm2_g_article_qcm)` — engine: `choice-engine`, type=article-choice, category=article_choice_cm2, questions=8
@@ -1907,6 +1919,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Nom, verbe ou adjectif `(cm2_g_nature_qcm)` — engine: `choice-engine`, type=word-class-choice, category=word_class_choice_cm2, questions=8
   - Sujet, verbe ou complément `(cm2_g_fonction_qcm)` — engine: `choice-engine`, type=word-class-choice, category=sentence_function_choice_cm2, questions=6
   - Nature et fonction des mots `(cm2-g-nature-fonction)` — engine: `choice-engine`, type=word-class-choice, category=nature_fonction_cm2, questions=8
+  - L'attribut du sujet `(cm2-g-attribut-sujet)` — engine: `choice-engine`, type=word-class-choice, category=attribut_sujet_cm2, questions=8
   - Déterminant dans la phrase `(cm2_g_cloze_det)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_cloze_cm2, questions=8
   - Écris le bon mot `(cm2_g_cloze_ecrit)` — engine: `cloze-fill-in`, category=grammar_cloze_cm2, questions=6
   - Accorder dans la phrase `(cm2_g_cloze_accord)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_agreement_cm2, questions=8
@@ -1925,7 +1938,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Employer un vocabulaire précis `(cm2-lesson-vocabulaire-precis)` — blocs: paragraph, example, bullets, tip, check, check
   - Sens propre et sens figuré `(cm2-lesson-sens-propre-figure)` — blocs: paragraph, example, bullets, tip, check, check
   - Polysémie et familles de mots avancées `(cm2-lesson-polysemie-familles-avance)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (9) :
+- **Exercices** (10) :
   - Trouver l'idée principale `(cm2-lecture-idee-principale)` — engine: `reading`, category=cm2_lecture_idee_principale, questions=5
   - Choisir le sens du mot `(cm2-vocabulaire-sens)` — engine: `reading`, category=cm2_vocabulaire_sens, questions=5
   - Sens propre ou sens figuré ? `(cm2-sens-propre-figure)` — engine: `reading`, category=cm2_sens_propre_figure, questions=6
@@ -1934,6 +1947,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Expressions et synonymes `(cm2-vocab-appariement)` — engine: `matching`, category=matching_expressions_cm2, dataFile=data/french/matching.json, questions=2
   - Comprendre un personnage `(cm2-lecture-inference-personnage)` — engine: `reading`, category=cm2_lecture_inference_personnage, questions=6
   - Connecteurs logiques `(cm2-lecture-connecteurs-logiques)` — engine: `reading`, category=cm2_lecture_connecteurs_logiques, questions=6
+  - Niveaux de langue `(cm2-lecture-niveaux-langue)` — engine: `reading`, category=cm2_niveaux_langue, questions=6
   - Défi : polysémie experte `(cm2-bonus-vocabulaire-polysemie-expert)` — engine: `reading`, category=cm2_vocabulaire_polysemie, questions=10, bonus (seuil=2)
 
 #### Dictée audio `(cm2-dictee-audio-subtheme)`
@@ -1951,7 +1965,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Repères historiques `(cm2-histoire-reperes)`
 
-- **Leçons** (7) :
+- **Leçons** (8) :
+  - Les Temps modernes `(cm2-lesson-temps-modernes)` — blocs: paragraph, example, bullets, tip, check, check
   - La Révolution française `(cm2-lesson-revolution-francaise)` — blocs: paragraph, example, bullets, tip, check, check
   - Le temps de la République `(cm2-lesson-temps-republique)` — blocs: paragraph, example, bullets, tip, check, check
   - La France et l'Union européenne `(cm2-lesson-france-europe)` — blocs: paragraph, example, bullets, tip, check, check
@@ -1959,7 +1974,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - La Première Guerre mondiale (1914-1918) `(cm2-lesson-premiere-guerre-mondiale)` — blocs: paragraph, example, bullets, tip, check, check
   - La Seconde Guerre mondiale (1939-1945) `(cm2-lesson-seconde-guerre-mondiale)` — blocs: paragraph, example, bullets, tip, check, check
   - La décolonisation `(cm2-lesson-decolonisation)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (11) :
+- **Exercices** (12) :
   - Révolution `(cm2-histoire-revolution)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-revolution, questions=8
   - XXe siècle `(cm2-histoire-xxe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-xxe-siecle, questions=8
   - République `(cm2-histoire-republique)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-republique, questions=6
@@ -1970,6 +1985,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - La décolonisation `(cm2-histoire-decolonisation)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-decolonisation, questions=8
   - La Première Guerre mondiale `(cm2-histoire-premiere-guerre)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-premiere-guerre-mondiale, questions=8
   - La Seconde Guerre mondiale `(cm2-histoire-seconde-guerre)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-seconde-guerre-mondiale, questions=8
+  - Les Temps modernes `(cm2-histoire-temps-modernes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-temps-modernes, questions=6
   - Défi : XXe siècle expert `(cm2-bonus-histoire-xxe-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-xxe-siecle, questions=12, bonus (seuil=2)
 
 #### Frises historiques `(cm2-histoire-frises)`

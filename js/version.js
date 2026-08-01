@@ -6,5 +6,5 @@
  */
 (function (scope) {
     'use strict';
-    scope.APP_VERSION = '4.37.8';
+    scope.APP_VERSION = '4.37.13';
 })(typeof self !== 'undefined' ? self : window);
