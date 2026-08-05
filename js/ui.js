@@ -332,7 +332,7 @@ const UI = {
             card.innerHTML = `
                 ${streakHtml}
                 <span class="card-icon${p.cardImage ? ' card-icon--card-avatar' : ''}" aria-hidden="true">${p.cardImage
-                    ? `<img class="profile-card-avatar-img" src="${SecurityUtils.safeImagePath(p.cardImage)}" alt="">`
+                    ? `<img class="profile-card-avatar-img" src="${this._safeImagePath(p.cardImage)}" alt="">`
                     : this.safeIcon(p.avatar, '\u{1F464}')}</span>
                 ${this.buildCardContent(profileName)}
                 ${statsHtml}
@@ -546,7 +546,7 @@ const UI = {
                     const btn = document.createElement('button');
                     btn.type = 'button';
                     btn.className = `profile-customize-card-choice rarity-${this._escapeText(card.rarity || 'commune')}${card.id === selectedCard ? ' is-selected' : ''}`;
-                    btn.innerHTML = `<img class="profile-customize-card-img" src="${SecurityUtils.safeImagePath(card.image)}" alt="" loading="lazy">`;
+                    btn.innerHTML = `<img class="profile-customize-card-img" src="${this._safeImagePath(card.image)}" alt="" loading="lazy">`;
                     btn.setAttribute('aria-label', `${card.name} comme avatar`);
                     btn.setAttribute('aria-pressed', card.id === selectedCard ? 'true' : 'false');
                     btn.title = card.name;
@@ -829,6 +829,11 @@ const UI = {
         });
     },
 
+    // Fallback local nécessaire ici (contrairement à ui-documentary.js/
+    // ui-keyboards.js) : preview-local.html charge ui.js seul, sans
+    // security.js. Toute insertion HTML dynamique dans ce fichier doit
+    // passer par _escapeText/_safeAttr/_safeImagePath ci-dessous plutôt
+    // que par un appel direct à window.SecurityUtils.
     _escapeText(value) {
         if (window.SecurityUtils?.escapeHtml) return window.SecurityUtils.escapeHtml(value);
         return (value ?? "").toString()
@@ -837,6 +842,19 @@ const UI = {
             .replace(/>/g, '&gt;')
             .replace(/"/g, '&quot;')
             .replace(/'/g, '&#39;');
+    },
+
+    _safeAttr(value) {
+        if (window.SecurityUtils?.escapeAttr) return window.SecurityUtils.escapeAttr(value);
+        return this._escapeText(value).replace(/`/g, '&#96;');
+    },
+
+    _safeImagePath(value) {
+        if (window.SecurityUtils?.safeImagePath) return window.SecurityUtils.safeImagePath(value);
+        const raw = (value ?? "").toString().trim();
+        if (!raw) return '';
+        if (/^(?:\.\/)?(?:data\/|img\/|images\/|assets\/)[a-zA-Z0-9/_-]+\.(?:png|jpe?g|webp|gif|svg)$/i.test(raw)) return raw;
+        return '';
     },
 
     renderBrowseModes(data, callback, containerId = 'mode-list') {
@@ -990,7 +1008,7 @@ const UI = {
      */
     renderLessonCheck(checkBlocks, alreadyCompleted) {
         if (!Array.isArray(checkBlocks) || checkBlocks.length === 0) return '';
-        const esc = (v) => SecurityUtils.escapeHtml(v);
+        const esc = (v) => this._escapeText(v);
 
         // Les `choices` sont écrits dans les JSON avec la bonne réponse en tête :
         // sans ce mélange, l'enfant apprend la position au lieu de la leçon.
@@ -1019,7 +1037,7 @@ const UI = {
                                 type="button"
                                 class="lesson-check-choice"
                                 data-check-index="${index}"
-                                data-choice="${SecurityUtils.escapeAttr(choice)}"
+                                data-choice="${this._safeAttr(choice)}"
                             >${esc(choice)}</button>
                         `).join('')}
                     </div>
@@ -1108,7 +1126,7 @@ const UI = {
 
     renderLessonBlock(block) {
         if (!block || typeof block !== 'object') return '';
-        const esc = (v) => SecurityUtils.escapeHtml(v);
+        const esc = (v) => this._escapeText(v);
 
         if (block.type === 'paragraph') {
             return `<p class="lesson-block lesson-block--paragraph">${esc(block.text || '')}</p>`;
@@ -1775,7 +1793,7 @@ const UI = {
         const d = p.data || {};
         const word = (d.word || "").toString();
         const icon = this.safeIcon(d.icon, "❓");
-        const imgPath = window.SecurityUtils?.safeImagePath ? SecurityUtils.safeImagePath(d.img) : "";
+        const imgPath = this._safeImagePath(d.img);
         const hasImage = !!imgPath;
 
         let slots;
@@ -2012,7 +2030,7 @@ const UI = {
             return;
         }
 
-        const esc = (v) => SecurityUtils.escapeHtml(v);
+        const esc = (v) => this._escapeText(v);
         const best = Math.max(0, Number(streak?.best) || 0);
         const activeToday = streak?.isActiveToday === true;
 
@@ -2459,7 +2477,7 @@ const UI = {
             return `
                 <button type="button" class="grimoire-card ${this._cardRarityClass(card.rarity)}${mythique}" data-card-id="${this._escapeText(card.id)}"
                     aria-label="${this._escapeText(card.name)}, carte ${this._escapeText(rarities[card.rarity]?.label || card.rarity)}${card.family === 'mythologie' ? ', Mythique' : ''}">
-                    <img class="grimoire-card-img" src="${SecurityUtils.safeImagePath(card.image)}" alt="" loading="lazy">
+                    <img class="grimoire-card-img" src="${this._safeImagePath(card.image)}" alt="" loading="lazy">
                     <div class="grimoire-card-name">${this._escapeText(card.name)}</div>
                     ${count > 1 ? `<div class="grimoire-card-count">×${count}</div>` : ''}
                 </button>`;
@@ -2543,7 +2561,7 @@ const UI = {
         box.className = `card-detail ${this._cardRarityClass(card.rarity)}${mythique ? ' grimoire-card--mythique' : ''}`;
         box.innerHTML = `
             <div class="card-detail-rarity" style="color: ${this._escapeText(rarity.color)}">${this._escapeText(rarity.label)}${mythique ? ' <span class="card-detail-mythique-tag">✦ Mythique</span>' : ''}</div>
-            <img class="card-detail-img" src="${SecurityUtils.safeImagePath(card.image)}" alt="${this._escapeText(card.name)}">
+            <img class="card-detail-img" src="${this._safeImagePath(card.image)}" alt="${this._escapeText(card.name)}">
             <div class="card-detail-name">${this._escapeText(card.name)}</div>
             <p class="card-detail-lore">${this._escapeText(card.lore || '')}</p>
             ${chainParts.length ? `<p class="card-detail-evolution">${chainParts.join('<br>')}</p>` : ''}
@@ -2759,7 +2777,7 @@ const UI = {
                                 <span class="booster-flip-back-logo">${this.grimoireLogoSvg(44)}</span>
                             </div>
                             <div class="booster-flip-front booster-card ${this._cardRarityClass(card.rarity)}${mythique}">
-                                <img class="grimoire-card-img" src="${SecurityUtils.safeImagePath(card.image)}" alt="">
+                                <img class="grimoire-card-img" src="${this._safeImagePath(card.image)}" alt="">
                                 <div class="grimoire-card-name">${this._escapeText(card.name)}</div>
                                 <div class="booster-card-tag">${isNew
                                     ? `<span class="booster-new">NOUVEAU !</span>`
