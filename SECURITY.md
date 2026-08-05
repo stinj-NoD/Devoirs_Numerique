@@ -89,6 +89,8 @@ Les seules entrées réellement libres côté utilisateur sont limitées :
 
 Les contenus pédagogiques ne doivent jamais injecter de HTML arbitraire. Les leçons restent rendues comme données structurées, pas comme markup libre. [security.js](js/security.js) (`SecurityUtils.escapeHtml`/`escapeAttr`) échappe systématiquement le texte dynamique inséré dans le DOM (questions générées, libellés de cartes, contenus de moteurs procéduraux).
 
+Toute insertion `<img src>` dynamique (avatars/cartes du Grimoire, illustrations de mots pour `drawSpelling`) passe par `SecurityUtils.safeImagePath` — une whitelist de chemin (`data/`, `img/`, `images/`, `assets/`) et d'extension (`png`, `jpe?g`, `webp`, `gif`, `svg`), ou un `data:image/...;base64` bien formé — plutôt qu'un simple échappement de caractères, qui n'empêche pas un chemin construit dynamiquement de pointer hors des répertoires attendus. [ui.js](js/ui.js) définit un fallback local (`_escapeText`/`_safeAttr`/`_safeImagePath`) qui retombe sur la même logique quand `security.js` n'est pas chargé, car `ui.js` est aussi utilisé seul par [preview-local.html](preview-local.html).
+
 ### 6. Mise à jour forcée du service worker
 
 Le bouton « Mettre à jour l'application » (`App.forceAppUpdate()` dans [app.js](js/app.js)) appelle `registration.update()` puis active le nouveau worker via `SKIP_WAITING`. Il n'expose aucune nouvelle surface d'entrée : c'est un appel à l'API standard `ServiceWorkerRegistration`, sans paramètre fourni par l'utilisateur.
@@ -98,7 +100,7 @@ Le bouton « Mettre à jour l'application » (`App.forceAppUpdate()` dans [app.j
 Les risques résiduels du projet sont aujourd'hui :
 - dette d'encodage UTF-8 dans certains fichiers historiques
 - altération de JSON par outillage de sérialisation
-- divergence entre validateur hors runtime et validateur frontend si les contrats évoluent sans synchronisation
+- divergence entre validateur hors runtime et validateur frontend si les contrats évoluent sans synchronisation — un tel écart a déjà cassé au clic les exercices `word-order` narratifs (`sentences[]`) alors que `validate-data.ps1` restait vert ; `node scripts/build-content-index.js --check` détecte désormais automatiquement toute désynchronisation des routes de validation de dataset entre `validators.js` et `validate-data.ps1`
 - corruption manuelle du `localStorage`
 
 ## Règles de sécurité projet
