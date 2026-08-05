@@ -157,6 +157,30 @@ function enginesFromRegistry() {
     }
 }
 
+/*
+ * Garde-fou supplémentaire : quels (engine ou params.type) déclenchent une
+ * validation de DATASET dédiée (validateExerciseData / la boucle sur
+ * $script:ExerciseRefs) — c'est précisément le point qui a divergé une fois
+ * en prod (word-order narratif accepté par PS1, rejeté au runtime par JS,
+ * exercices cassés au clic malgré un validate-data.ps1 vert). Comparaison
+ * structurelle légère (quels cas sont routés), pas une réplication de la
+ * logique de validation de chaque dataset.
+ */
+function datasetRoutesFromValidatorsJs() {
+    const src = fs.readFileSync(path.join(ROOT, 'js', 'validators.js'), 'utf8');
+    const m = src.match(/validateExerciseData\(exercise, dataSet\)\s*\{([\s\S]*?)\n    \},/);
+    if (!m) return null;
+    const body = m[1];
+    return [...body.matchAll(/exercise\.(?:engine|params\?\.type) === '([^']+)'/g)].map(x => x[1]);
+}
+function datasetRoutesFromValidatePs1() {
+    const src = fs.readFileSync(path.join(ROOT, 'scripts', 'validate-data.ps1'), 'utf8');
+    const m = src.match(/foreach \(\$ref in \$script:ExerciseRefs\) \{([\s\S]*?)\n\}/);
+    if (!m) return null;
+    const body = m[1];
+    return [...body.matchAll(/\$ref\.(?:Engine|Type) -eq '([^']+)'/g)].map(x => x[1]);
+}
+
 function sortedEqual(a, b) {
     if (!a || !b || a.length !== b.length) return false;
     const sa = [...a].sort();
@@ -231,6 +255,20 @@ function detect(index) {
         errors.push(`engine-registry.json désynchronisé de validators.js` +
             (missReg.length ? ` — absents du registre: ${missReg.join(', ')}` : '') +
             (extraReg.length ? ` — en trop dans le registre: ${extraReg.join(', ')}` : ''));
+    }
+
+    // 5. Garde-fou : mêmes (engine/type) routés vers une validation de
+    //    dataset dédiée côté runtime (JS) et outillage hors-ligne (PS1).
+    const dsJs = datasetRoutesFromValidatorsJs();
+    const dsPs = datasetRoutesFromValidatePs1();
+    if (!dsJs) errors.push('Impossible d\'extraire les routes de dataset de js/validators.js (validateExerciseData)');
+    if (!dsPs) errors.push('Impossible d\'extraire les routes de dataset de scripts/validate-data.ps1 (boucle ExerciseRefs)');
+    if (dsJs && dsPs && !sortedEqual(dsJs, dsPs)) {
+        const missPs = dsJs.filter(x => !dsPs.includes(x));
+        const extraPs = dsPs.filter(x => !dsJs.includes(x));
+        errors.push(`Routes de validation de dataset désynchronisées entre validators.js et validate-data.ps1` +
+            (missPs.length ? ` — absentes de validate-data.ps1: ${missPs.join(', ')}` : '') +
+            (extraPs.length ? ` — en trop dans validate-data.ps1: ${extraPs.join(', ')}` : ''));
     }
 
     return { errors, warnings };

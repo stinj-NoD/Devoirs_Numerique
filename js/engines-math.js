@@ -512,7 +512,8 @@
         }
         if (p.subtype === 'time') {
             const showMemo = p.memo === true;
-            const mode = Engines.utils.pick(p.modes || ['h_to_min']);
+            const modesList = Array.isArray(p.modes) ? p.modes : (p.modes ? [p.modes] : ['h_to_min']);
+            const mode = Engines.utils.pick(modesList);
             const isSeconds = mode.includes('sec');
             const unitBig = isSeconds ? 'min' : 'h';
             const unitSmall = isSeconds ? 's' : 'min';

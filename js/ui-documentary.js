@@ -1,17 +1,13 @@
 const UIDocumentary = {
+    // ui-documentary.js n'est chargé que dans le flux SPA complet (index.html),
+    // toujours après security.js — pas de fallback local nécessaire ici,
+    // contrairement à ui.js qui doit aussi fonctionner depuis preview-local.html.
     _escape(value) {
-        if (window.SecurityUtils?.escapeHtml) return window.SecurityUtils.escapeHtml(value);
-        return (value ?? "").toString()
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#39;');
+        return SecurityUtils.escapeHtml(value);
     },
 
     _safeAttr(value) {
-        if (window.SecurityUtils?.escapeAttr) return window.SecurityUtils.escapeAttr(value);
-        return this._escape(value).replace(/`/g, '&#96;');
+        return SecurityUtils.escapeAttr(value);
     },
 
     drawTimelineOrder(p) {

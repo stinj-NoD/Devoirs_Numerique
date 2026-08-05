@@ -10,7 +10,7 @@
     --color-border-strong: #bfd1e2;
     --color-text: #243447;
     --color-text-muted: #66768a;
-    --color-text-soft: #8a97a8;
+    --color-text-soft: #687686;
     --color-primary: #4a90e2;
     --color-primary-strong: #2f6fb8;
     --color-primary-soft: #eaf4ff;
@@ -403,6 +403,12 @@ button,
     transform: translateY(1px);
 }
 
+@media (hover: hover) and (pointer: fine) {
+    .btn:hover {
+        filter: brightness(1.06);
+    }
+}
+
 .btn--header,
 .btn-header {
     min-width: var(--touch-target-min);
@@ -424,6 +430,13 @@ button,
 .btn-header:active {
     background: rgba(255,255,255,0.32);
     transform: translateY(1px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .btn--header:hover,
+    .btn-header:hover {
+        background: rgba(255,255,255,0.22);
+    }
 }
 
 .nav-sheet {
@@ -591,6 +604,19 @@ button,
     animation: fadeIn 0.3s ease-out;
 }
 
+/* Variante posée par UI.showScreen(id, 'back') (retour arrière dans la
+   navigation) : glisse depuis la gauche plutôt que depuis le bas, pour que
+   le sens du geste corresponde au sens de la navigation. */
+.active--back {
+    display: flex;
+    animation: slideInFromLeft 0.3s ease-out;
+}
+
+@keyframes slideInFromLeft {
+    from { opacity: 0; transform: translateX(-16px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
 .grid-menu {
     display: grid;
     /* Colonnes adaptatives : 1 sur petit téléphone, 2 sur mobile large/640px,
@@ -635,7 +661,7 @@ button,
 }
 
 .card-icon {
-    font-size: 2.8rem;
+    font-size: var(--font-size-3xl);
     filter: drop-shadow(0 4px 10px rgba(47, 111, 184, 0.18));
 }
 
@@ -926,7 +952,7 @@ button,
 }
 
 .mode-card-arrow {
-    font-size: 2rem;
+    font-size: var(--font-size-2xl);
     font-weight: 800;
     opacity: 0.8;
     position: relative;
@@ -1185,7 +1211,7 @@ button,
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
     cursor: pointer;
     background: var(--color-surface);
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -1416,7 +1442,7 @@ button,
 
 .profile-customize-card-hint {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
     color: var(--color-text-soft, #64748b);
     text-align: center;
 }
@@ -1560,7 +1586,7 @@ button,
     padding: var(--space-3);
     border: 2px solid var(--color-border);
     border-radius: var(--radius-md);
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
     outline: none;
     color: var(--color-text);
     background: var(--color-surface);
@@ -2294,7 +2320,7 @@ button,
     border: 2px solid var(--color-border);
     border-radius: 22px;
     background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-soft) 100%);
-    box-shadow: inset 0 -4px 0 #e6eef7, 0 10px 24px rgba(31, 45, 61, 0.08);
+    box-shadow: inset 0 -4px 0 var(--color-surface-muted), 0 10px 24px rgba(31, 45, 61, 0.08);
     padding: var(--space-3) var(--space-5);
     transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
@@ -2434,7 +2460,7 @@ button,
 }
 
 .prompt-card--number-spelling {
-    font-size: 1rem;
+    font-size: var(--font-size-md);
     font-weight: 700;
     padding: 16px 14px;
     max-width: 340px;
@@ -2529,6 +2555,14 @@ button,
     align-items: center;
 }
 
+/* .visual-card--fraction-op et .visual-card--operation-posed (voir
+   ui-visuals.js) n'ont volontairement aucune règle dédiée ici : leur style
+   réel est porté par la classe compagne présente sur le même élément
+   (.fraction-op-display, .operation-posed-card), qui hérite du fond neutre
+   de .visual-card ci-dessus. Un futur ajout suivant le pattern
+   visual-card--{type} n'hérite PAS automatiquement d'un style : vérifier la
+   classe compagne avant de supposer un style manquant. */
+
 .visual-card--bird {
     min-height: 220px;
     /* Le fond ciel/nuages est porté par .sky-container (même élément),
@@ -2541,7 +2575,7 @@ button,
 .visual-card--time {
     background:
         radial-gradient(circle at bottom right, rgba(99, 179, 237, 0.08), transparent 30%),
-        linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+        linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-soft) 100%);
 }
 
 .board-card {
@@ -3111,7 +3145,7 @@ button,
     border-radius: 20px;
     font-weight: bold;
     margin-bottom: 15px;
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
 }
 
 .time-memo-card {
@@ -3131,17 +3165,16 @@ button,
     border-radius: 8px;
     display: inline-block;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
     margin-bottom: 25px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     animation: popIn 0.5s ease;
 }
 
 .time-memo-question {
-    font-family: 'Quicksand', sans-serif;
     font-size: 3rem;
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--color-text);
     margin-bottom: 20px;
 }
 
@@ -3454,7 +3487,7 @@ button,
     border: 1px solid #d9e4ef;
     padding: 8px 10px;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
 }
 
 .data-table-grid thead th {
@@ -3583,7 +3616,7 @@ button,
     gap: 10px;
     flex-wrap: wrap;
     margin-bottom: 20px;
-    color: #2c3e50;
+    color: var(--color-text);
 }
 
 .conversion-value,
@@ -3596,7 +3629,7 @@ button,
 .conversion-target {
     font-size: 1.4rem;
     font-weight: 700;
-    color: #718096;
+    color: var(--color-text-muted);
 }
 
 .conversion-target {
@@ -3605,16 +3638,16 @@ button,
 
 .conversion-arrow {
     font-size: 1.8rem;
-    color: #a0aec0;
+    color: var(--color-text-soft);
     font-weight: 700;
 }
 
 .conversion-grid {
     display: flex;
-    border: 2px solid #2c3e50;
+    border: 2px solid var(--color-text);
     border-radius: 12px;
     overflow: hidden;
-    background: white;
+    background: var(--color-surface);
     text-align: center;
     font-size: 1.05rem;
     font-weight: 700;
@@ -3623,7 +3656,7 @@ button,
 .conversion-unit {
     flex: 1;
     padding: 10px 0;
-    border-right: 1px solid #d9e4ef;
+    border-right: 1px solid var(--color-border);
 }
 
 .conversion-unit:last-child {
@@ -3631,13 +3664,13 @@ button,
 }
 
 .conversion-unit--active {
-    background: #e3f2fd;
+    background: var(--color-primary-soft);
     color: var(--primary);
 }
 
 .conversion-hint {
     font-size: 0.95rem;
-    color: #718096;
+    color: var(--color-text-muted);
     margin-top: 8px;
     text-align: center;
 }
@@ -3658,7 +3691,7 @@ button,
 }
 
 .fraction-op-symbol {
-    font-size: 2rem;
+    font-size: var(--font-size-2xl);
     font-weight: 800;
     color: var(--dark);
 }
@@ -3677,7 +3710,7 @@ button,
     margin-top: 14px;
     font-size: 1.2rem;
     font-weight: 700;
-    color: #718096;
+    color: var(--color-text-muted);
 }
 
 .fraction-op-symbol-label {
@@ -3697,7 +3730,7 @@ button,
     font-family: 'Courier New', monospace;
     font-size: 2.2rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: var(--color-text);
 }
 
 .division-work {
@@ -3705,7 +3738,7 @@ button,
     flex-direction: column;
     gap: 2px;
     padding-right: 15px;
-    border-right: 4px solid #2c3e50;
+    border-right: 4px solid var(--color-text);
 }
 
 .division-row {
@@ -3734,7 +3767,7 @@ button,
 }
 
 .division-row--sub {
-    color: #7f8c8d;
+    color: var(--color-text-muted);
 }
 
 .division-row--result .division-cell {
@@ -3742,7 +3775,7 @@ button,
 }
 
 .division-cell-next {
-    color: #e74c3c;
+    color: var(--color-danger-strong);
 }
 
 .division-cell-masked {
@@ -3753,7 +3786,7 @@ button,
 
 .division-row-line {
     align-self: end;
-    border-bottom: 2px solid #2c3e50;
+    border-bottom: 2px solid var(--color-text);
     margin-bottom: 1px;
     z-index: 1;
 }
@@ -3766,7 +3799,7 @@ button,
 }
 
 .division-divisor {
-    border-bottom: 4px solid #2c3e50;
+    border-bottom: 4px solid var(--color-text);
     height: 40px;
     display: flex;
     align-items: flex-end;
@@ -3789,10 +3822,9 @@ button,
 
 .division-quotient-label {
     font-size: 0.8rem;
-    color: #95a5a6;
+    color: var(--color-text-muted);
     margin-top: 5px;
     text-align: center;
-    font-family: 'Quicksand', sans-serif;
 }
 
 .operation-posed-card {
@@ -3808,7 +3840,7 @@ button,
     font-family: 'Courier New', monospace;
     font-size: 2.2rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: var(--color-text);
     width: fit-content;
     margin: 0 auto;
 }
@@ -3822,8 +3854,8 @@ button,
 
 .operation-row--carry {
     min-height: 26px;
-    font-size: 1.1rem;
-    color: #e74c3c;
+    font-size: var(--font-size-lg);
+    color: var(--color-danger-strong);
 }
 
 .operation-row--operand {
@@ -3850,11 +3882,11 @@ button,
 }
 
 .operation-cell--carry {
-    color: #e74c3c;
+    color: var(--color-danger-strong);
 }
 
 .operation-line {
-    border-bottom: 4px solid #2c3e50;
+    border-bottom: 4px solid var(--color-text);
     width: calc(32px + var(--operation-width, 4) * 25px);
     margin-top: 4px;
 }
@@ -3894,12 +3926,27 @@ button,
 .number-card.selected { background: var(--subject-accent); color: white; border-color: var(--subject-accent-strong); box-shadow: 0 4px 0 var(--subject-accent-strong); }
 .number-card.selected:active { box-shadow: none; }
 .conjugation-container { width: 100%; max-width: 400px; display: flex; flex-direction: column; align-items: center; gap: 15px; }
-.tense-badge { background: var(--subject-accent); color: white; padding: 5px 15px; border-radius: 15px; font-weight: bold; font-size: 0.9rem; text-transform: uppercase; }
+.tense-badge { background: var(--subject-accent); color: white; padding: 5px 15px; border-radius: 15px; font-weight: bold; font-size: var(--font-size-sm); text-transform: uppercase; }
 .verb-machine { background: var(--panel-bg); width: 100%; padding: var(--panel-padding); border-radius: var(--panel-radius); border-color: var(--panel-border-color); box-shadow: var(--shadow-press); display: flex; flex-direction: column; align-items: center; }
 .verb-infinitive { font-size: 1.3rem; font-weight: bold; color: var(--dark); margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px dashed var(--color-surface-muted); width: 100%; text-align: center; }
 .verb-body { display: flex; align-items: center; gap: 15px; width: 100%; justify-content: center; }
 .pronoun-tag { background: var(--color-surface-muted); padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 1.2rem; min-width: 60px; text-align: center; }
 .verb-input-zone { font-size: 1.5rem; font-weight: bold; color: var(--subject-accent); border-bottom: 3px solid var(--subject-accent); min-width: 100px; text-align: left; }
+.reading-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 1px;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+}
+.syll-0 { color: var(--color-primary-strong); }
+.syll-1 { color: var(--color-secondary-strong); }
+.char-silent { color: var(--color-text-soft, var(--color-text-muted)); opacity: 0.6; }
+.reading-space { display: inline-block; width: 0.4em; }
 .spelling-container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
 .audio-spelling-container { display: flex; flex-direction: column; align-items: center; gap: 18px; width: 100%; }
 .audio-spelling-replay { min-width: 220px; }
@@ -3931,7 +3978,7 @@ button,
     background: var(--color-primary);
     color: #fff;
 }
-.audio-spelling-hint { font-size: 1rem; font-weight: 700; color: var(--subject-accent); text-align: center; }
+.audio-spelling-hint { font-size: var(--font-size-md); font-weight: 700; color: var(--subject-accent); text-align: center; }
 .audio-spelling-slots { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; min-height: 60px; }
 .audio-spelling-slot,
 .audio-spelling-separator {
@@ -3970,7 +4017,7 @@ button,
 .fallback-icon-large { font-size: 4rem; }
 .spelling-image { max-height: 140px; border-radius: 10px; }
 .spelling-fallback-text {
-    font-size: 0.78rem;
+    font-size: var(--font-size-xs);
     line-height: 1.2;
     color: #5b6b7f;
     font-weight: 700;
@@ -4132,7 +4179,7 @@ button,
 }
 
 .timeline-title {
-    font-size: 1.35rem;
+    font-size: var(--font-size-xl);
     font-weight: 800;
     color: var(--dark);
 }
@@ -4187,7 +4234,7 @@ button,
 }
 
 .timeline-event-text {
-    font-size: 1rem;
+    font-size: var(--font-size-md);
     font-weight: 700;
     line-height: 1.25;
     color: var(--dark);
@@ -4202,7 +4249,7 @@ button,
 .timeline-control {
     min-height: 54px;
     padding: 10px 12px;
-    font-size: 1rem;
+    font-size: var(--font-size-md);
     border-radius: var(--radius-md);
 }
 
@@ -4620,7 +4667,7 @@ button,
     .timeline-slot-label {
         min-height: 40px;
         padding: 6px;
-        font-size: 0.78rem;
+        font-size: var(--font-size-xs);
     }
 
     .timeline-ruler {
@@ -4656,7 +4703,7 @@ button,
 
     .division-work {
         border-right: none;
-        border-bottom: 3px solid #2c3e50;
+        border-bottom: 3px solid var(--color-text);
         padding-right: 0;
         padding-bottom: 10px;
         align-items: center;
@@ -4683,7 +4730,7 @@ button,
 
     .division-divisor {
         border-bottom: none;
-        border-left: 4px solid #2c3e50;
+        border-left: 4px solid var(--color-text);
         height: auto;
         padding: 0 0 0 10px;
     }
@@ -4695,7 +4742,7 @@ button,
     .division-quotient-value {
         min-width: 40px;
         padding: 3px 6px;
-        font-size: 1.1rem;
+        font-size: var(--font-size-lg);
     }
 
     .division-quotient-label {
@@ -4733,10 +4780,10 @@ button,
         width: calc(20px + var(--operation-width, 4) * 15px);
     }
 }
-.clock-digit-block { background: var(--color-text); color: var(--color-success); padding: 5px 10px; border-radius: 5px; font-family: monospace; font-size: 2rem; letter-spacing: 2px; }
+.clock-digit-block { background: var(--color-text); color: var(--color-success); padding: 5px 10px; border-radius: 5px; font-family: monospace; font-size: var(--font-size-2xl); letter-spacing: 2px; }
 .answer-display.is-error .clock-digit-block { color: #fca5a5; }
 .answer-display.is-success .clock-digit-block { color: #9ae6b4; }
-.clock-separator { font-size: 2rem; color: var(--color-text); margin: 0 5px; animation: blink 1s infinite; }
+.clock-separator { font-size: var(--font-size-2xl); color: var(--color-text); margin: 0 5px; animation: blink 1s infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 .sky-container {
     width: 100%;
@@ -4894,6 +4941,7 @@ button,
     to { left: 110%; }
 }
 .keyboard-container { background: linear-gradient(180deg, rgba(237, 243, 248, 0.92) 0%, rgba(244, 247, 251, 0.98) 100%); padding: 10px; padding-bottom: 20px; flex-shrink: 0; border-top: 1px solid var(--color-border-strong); backdrop-filter: blur(8px); }
+#app.theme-dark .keyboard-container { background: linear-gradient(180deg, rgba(30, 36, 44, 0.92) 0%, rgba(16, 20, 26, 0.98) 100%); }
 .keyboard-layout { display: none; gap: var(--space-2); width: 100%; max-width: var(--container-max); margin: 0 auto; }
 
 .key {
@@ -4942,6 +4990,16 @@ button,
 .btn-false {
     background: linear-gradient(180deg, var(--color-danger-soft) 0%, #ffe2e2 100%);
     color: #b83232;
+}
+
+#app.theme-dark .btn-true {
+    background: linear-gradient(180deg, var(--color-success-soft) 0%, #16281f 100%);
+    color: #7fd9a6;
+}
+
+#app.theme-dark .btn-false {
+    background: linear-gradient(180deg, var(--color-danger-soft) 0%, #2e1a1c 100%);
+    color: #e88a8a;
 }
 
 .qcm-symbol {
@@ -5016,6 +5074,10 @@ button,
 }
 
 .key:active { transform: translateY(4px); box-shadow: none; }
+
+@media (hover: hover) and (pointer: fine) {
+    .key:hover { filter: brightness(1.05); }
+}
 .key.action.del { background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-secondary-strong) 100%); color: white; box-shadow: 0 4px 0 #b63e3e; border-color: transparent; }
 .key.action.ok { background: linear-gradient(180deg, var(--color-success) 0%, var(--color-success-strong) 100%); color: white; box-shadow: 0 4px 0 #2F855A; border-color: transparent; }
 .wide-btn { grid-column: 1 / -1; font-size: 1.2rem; }
@@ -5039,8 +5101,8 @@ button,
 .alpha-keyboard { display: flex; flex-direction: column; gap: 8px; width: 100%; }
 .kb-row { display: flex; justify-content: center; gap: 4px; width: 100%; }
 .letter-key { flex: 1; height: 45px; font-size: 1.2rem; min-width: 0; padding: 0; }
-.accent-row .letter-key { background: var(--color-surface-muted); font-size: 1rem; height: 35px; }
-.space-key { flex: 4; font-size: 1rem; }
+.accent-row .letter-key { background: var(--color-surface-muted); font-size: var(--font-size-md); height: 35px; }
+.space-key { flex: 4; font-size: var(--font-size-md); }
 .screen-results {
     justify-content: center;
     align-items: center;
@@ -5080,7 +5142,7 @@ button,
 }
 
 .onboarding-step-icon {
-    font-size: 2rem;
+    font-size: var(--font-size-2xl);
 }
 
 .onboarding-step-title {
@@ -5860,7 +5922,7 @@ button.collection-map--fact {
         radial-gradient(circle at 30% 25%, rgba(255,255,255,0.14) 0%, transparent 40%),
         linear-gradient(135deg, #3d4a6b 0%, #232c45 100%);
     color: rgba(255, 255, 255, 0.75);
-    font-size: 2rem;
+    font-size: var(--font-size-2xl);
     font-weight: 800;
 }
 
@@ -6704,6 +6766,7 @@ button.collection-map--fact {
     background: rgba(148, 163, 184, 0.12);
 }
 #app.theme-dark .grimoire-card--legendaire { background: linear-gradient(180deg, #3a2f14 0%, var(--color-surface) 100%); }
+#app.theme-dark .grimoire-card--brillante { background: linear-gradient(120deg, #3a2438 0%, #1e2c3a 50%, #3a2e1e 100%); }
 
 .home-footer-links {
     display: flex;
@@ -6734,7 +6797,7 @@ button.collection-map--fact {
 
 .parents-pin-display {
     text-align: center;
-    font-size: 2rem;
+    font-size: var(--font-size-2xl);
     letter-spacing: var(--space-2);
     margin: var(--space-4) 0;
 }
@@ -6761,6 +6824,7 @@ button.collection-map--fact {
 }
 
 .parents-pin-key {
+    min-height: var(--keyboard-key-min);
     padding: var(--space-4);
     border-radius: var(--radius-md);
     border: 1px solid var(--color-border);
@@ -6768,6 +6832,11 @@ button.collection-map--fact {
     font-size: 1.4rem;
     font-weight: 700;
     cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.parents-pin-key:active {
+    transform: translateY(2px);
 }
 
 .parents-pin-key--back {
@@ -6909,7 +6978,7 @@ button.collection-map--fact {
 }
 
 .program-subject-icon {
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
 }
 
 .program-subject-title {
@@ -7321,6 +7390,8 @@ button.collection-map--fact {
 .key:focus-visible,
 .card:focus-visible,
 .btn-add-profile:focus-visible,
+.quiz-choice:focus-visible,
+.parents-pin-key:focus-visible,
 #new-profile-name:focus-visible,
 #btn-results-menu:focus-visible {
     outline: 3px solid var(--color-focus);
@@ -7375,7 +7446,7 @@ button.collection-map--fact {
         min-height: 0;
         margin-bottom: var(--space-2);
     }
-    .answer-display { font-size: 2rem; padding: 0 12px; min-height: 56px; margin: 8px 0 14px; }
+    .answer-display { font-size: var(--font-size-2xl); padding: 0 12px; min-height: 56px; margin: 8px 0 14px; }
     .math-problem { min-height: 140px; }
     .exercise-surface,
     .factual-card {
@@ -7400,7 +7471,7 @@ button.collection-map--fact {
     }
     .conversion-source,
     .conversion-target {
-        font-size: 1.1rem;
+        font-size: var(--font-size-lg);
     }
     .conversion-grid {
         font-size: 0.86rem;
@@ -7487,7 +7558,7 @@ button.collection-map--fact {
     }
     .operation-row--carry {
         min-height: 20px;
-        font-size: 1rem;
+        font-size: var(--font-size-md);
     }
     .operation-row--carry .operation-cell {
         min-height: 20px;
@@ -7503,10 +7574,10 @@ button.collection-map--fact {
     .timeline-event-rank {
         width: 32px;
         height: 32px;
-        font-size: 0.9rem;
+        font-size: var(--font-size-sm);
     }
     .timeline-event-icon {
-        font-size: 1.35rem;
+        font-size: var(--font-size-xl);
     }
     .timeline-event-text {
         font-size: 0.94rem;
@@ -7683,7 +7754,7 @@ button.collection-map--fact {
         min-height: 54px;
         margin: 10px 0 14px;
         padding: 10px 16px;
-        font-size: 2rem;
+        font-size: var(--font-size-2xl);
     }
 
     #screen-game.compact-number-spelling-long .keyboard-container,

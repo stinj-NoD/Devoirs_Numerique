@@ -165,8 +165,6 @@ const Engines = {
         compare(...args) {
             return EnginesMath.compare(...args);
         },
-        // à ajouter dans Engines.generators dans enginesv2.js
-        // à mettre dans Engines.generators dans enginesv2.js
         genderArticles(...args) {
             return EnginesFrench.genderArticles(...args);
         },

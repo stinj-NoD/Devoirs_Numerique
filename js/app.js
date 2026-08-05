@@ -918,7 +918,7 @@ const App = {
         this.startLesson(target);
     },
 
-    goBack() {
+    async goBack() {
         if (!this.confirmLeaveExercise()) return;
         UI.closeNavSheet?.(false);
         const wasChampionMode = !!this.state.championMode;
@@ -1006,8 +1006,19 @@ const App = {
             }
         };
 
-        if (actions[currentScreen]) actions[currentScreen]();
-        else this.renderProfilesScreen();
+        // Tout showScreen() déclenché pendant goBack() (direct, ou via une
+        // méthode intermédiaire comme renderProfilesScreen/showQuizHome —
+        // certaines sont async) doit glisser depuis la gauche : on
+        // intercepte l'appel le temps de cette exécution plutôt que de
+        // propager 'back' à chaque site.
+        const originalShowScreen = UI.showScreen.bind(UI);
+        UI.showScreen = (id, direction = 'back') => originalShowScreen(id, direction);
+        try {
+            if (actions[currentScreen]) await actions[currentScreen]();
+            else await this.renderProfilesScreen();
+        } finally {
+            UI.showScreen = originalShowScreen;
+        }
     },
 
     // --- GESTION DES PROFILS ---
@@ -1828,11 +1839,16 @@ const App = {
             <li class="news-item"><span class="news-item-icon" aria-hidden="true">${n.icon}</span><span>${UI._escapeText(n.text)}</span></li>
         `).join('');
         overlay.classList.remove('is-hidden');
+        this._newsFocusTrapCleanup = UI.trapOverlayFocus(overlay, () => this.closeNews());
     },
 
     closeNews() {
         const overlay = document.getElementById('news-overlay');
         if (overlay) overlay.classList.add('is-hidden');
+        if (typeof this._newsFocusTrapCleanup === 'function') {
+            this._newsFocusTrapCleanup();
+            this._newsFocusTrapCleanup = null;
+        }
         Storage.setLastSeenNewsVersion(this.latestNewsVersion);
         this.refreshNewsBadge();
     },
@@ -3119,225 +3135,7 @@ const App = {
 
         // --- CAS SPÉCIAL : Plateau interactif (géométrie) ---
         if (typeof val === 'string' && val.startsWith('board-') && p.visualType === 'geometry-board' && p.data) {
-            const d = p.data;
-
-            if (val === 'board-zoom-in' || val === 'board-zoom-out') {
-                // Manipule le <svg> déjà monté directement (pas de refreshUI) :
-                // un zoom doit rester instantané, pas re-générer tout le HTML.
-                const problemZone = document.getElementById('math-problem');
-                UI.zoomMap(problemZone, p, val === 'board-zoom-in' ? 1.5 : 1 / 1.5);
-                return;
-            }
-
-            if (val === 'board-reset') {
-                if (d.boardKind === 'tap-features') d.userState = { selectedIds: [] };
-                else if (d.boardKind === 'shape-classify') d.userState = { selectedFigureId: null, assignments: {} };
-                else if (d.boardKind === 'point-on-grid') d.userState = { point: null };
-                else if (d.boardKind === 'symmetry-complete') d.userState = { placedPoints: [] };
-                else if (d.boardKind === 'fraction-build') d.userState = { selectedSlices: [] };
-                else if (d.boardKind === 'angle-classify') d.userState = { selectedId: null };
-                else if (d.boardKind === 'angle-measure') d.userState = { selectedDegrees: null };
-                else if (d.boardKind === 'construction-report') d.userState = { selectedIndex: null };
-                d.revealed = false;
-                this.state.userInput = "";
-                this.refreshUI();
-                return;
-            }
-
-            if (val === 'board-submit') {
-                if (d.boardKind === 'tap-features') {
-                    const ids = Array.isArray(d.userState?.selectedIds) ? [...d.userState.selectedIds].sort() : [];
-                    this.state.userInput = ids.join('|');
-                } else if (d.boardKind === 'shape-classify') {
-                    const assignments = d.userState?.assignments || {};
-                    this.state.userInput = EnginesBoard.canonicalizeAssignments(assignments);
-                } else if (d.boardKind === 'point-on-grid') {
-                    const point = d.userState?.point;
-                    this.state.userInput = EnginesBoard.canonicalizePoint(point);
-                } else if (d.boardKind === 'symmetry-complete') {
-                    const points = d.userState?.placedPoints || [];
-                    this.state.userInput = EnginesBoard.canonicalizePoints(points);
-                } else if (d.boardKind === 'fraction-build') {
-                    const slices = Array.isArray(d.userState?.selectedSlices) ? d.userState.selectedSlices : [];
-                    this.state.userInput = String(slices.length);
-                } else if (d.boardKind === 'construction-report') {
-                    const index = d.userState?.selectedIndex;
-                    const point = Number.isInteger(index) && Array.isArray(d.candidates) ? d.candidates[index] : null;
-                    this.state.userInput = EnginesBoard.canonicalizePoint(point);
-                }
-                d.revealed = true;
-                this.refreshUI();
-                return this.validateAnswer();
-            }
-
-            if (val.startsWith('board-pick-angle:') && d.boardKind === 'angle-classify') {
-                const bucketId = val.replace('board-pick-angle:', '');
-                if (!d.userState) d.userState = { selectedId: null };
-                d.userState.selectedId = bucketId;
-                this.state.userInput = bucketId;
-                d.revealed = true;
-                this.refreshUI();
-                return this.validateAnswer();
-            }
-
-            if (val.startsWith('board-pick-angle-degrees:') && d.boardKind === 'angle-measure') {
-                const degrees = Number(val.replace('board-pick-angle-degrees:', ''));
-                if (!Number.isFinite(degrees)) return;
-                if (!d.userState) d.userState = { selectedDegrees: null };
-                d.userState.selectedDegrees = degrees;
-                this.state.userInput = String(degrees);
-                d.revealed = true;
-                this.refreshUI();
-                return this.validateAnswer();
-            }
-
-            if (val.startsWith('board-pick-candidate:') && d.boardKind === 'construction-report') {
-                if (d.revealed) return;
-                const index = parseInt(val.replace('board-pick-candidate:', ''), 10);
-                if (!Number.isInteger(index) || !Array.isArray(d.candidates) || !d.candidates[index]) return;
-                if (!d.userState) d.userState = { selectedIndex: null };
-                d.userState.selectedIndex = index;
-                this.state.userInput = EnginesBoard.canonicalizePoint(d.candidates[index]);
-                this.refreshUI();
-                return;
-            }
-
-            if (val.startsWith('board-toggle-feature:') && d.boardKind === 'tap-features') {
-                const featureId = val.replace('board-toggle-feature:', '');
-                if (!d.userState) d.userState = { selectedIds: [] };
-                if (!Array.isArray(d.userState.selectedIds)) d.userState.selectedIds = [];
-                const idx = d.userState.selectedIds.indexOf(featureId);
-                if (idx > -1) d.userState.selectedIds.splice(idx, 1);
-                else d.userState.selectedIds.push(featureId);
-                this.refreshUI();
-                return;
-            }
-
-            if (val.startsWith('board-select-figure:') && d.boardKind === 'shape-classify') {
-                const figureId = val.replace('board-select-figure:', '');
-                if (!d.userState) d.userState = { selectedFigureId: null, assignments: {} };
-                d.userState.selectedFigureId = figureId;
-                this.refreshUI();
-                return;
-            }
-
-            if (val.startsWith('board-assign-bucket:') && d.boardKind === 'shape-classify') {
-                const bucketId = val.replace('board-assign-bucket:', '');
-                if (!d.userState || !d.userState.selectedFigureId) return;
-                if (!d.userState.assignments) d.userState.assignments = {};
-                d.userState.assignments[d.userState.selectedFigureId] = bucketId;
-                d.userState.selectedFigureId = null;
-
-                const figuresCount = Array.isArray(d.figures) ? d.figures.length : 0;
-                const assignedCount = Object.keys(d.userState.assignments).length;
-                this.state.userInput = EnginesBoard.canonicalizeAssignments(d.userState.assignments);
-                if (figuresCount > 0 && assignedCount === figuresCount) {
-                    d.revealed = true;
-                    this.refreshUI();
-                    return this.validateAnswer();
-                }
-                this.refreshUI();
-                return;
-            }
-
-            if (val.startsWith('board-place-point:') && d.boardKind === 'point-on-grid') {
-                const parts = val.split(':');
-                const x = parseInt(parts[1]);
-                const y = parseInt(parts[2]);
-                if (isNaN(x) || isNaN(y)) return;
-                if (!d.userState) d.userState = { point: null };
-                d.userState.point = [x, y];
-                this.state.userInput = EnginesBoard.canonicalizePoint([x, y]);
-                this.refreshUI();
-                return;
-            }
-
-            if (val.startsWith('board-toggle-point:') && d.boardKind === 'symmetry-complete') {
-                const parts = val.split(':');
-                const x = parseInt(parts[1]);
-                const y = parseInt(parts[2]);
-                if (isNaN(x) || isNaN(y)) return;
-                if (!d.userState) d.userState = { placedPoints: [] };
-                if (!Array.isArray(d.userState.placedPoints)) d.userState.placedPoints = [];
-                const idx = d.userState.placedPoints.findIndex((pt) => Number(pt[0]) === x && Number(pt[1]) === y);
-                if (idx > -1) d.userState.placedPoints.splice(idx, 1);
-                else d.userState.placedPoints.push([x, y]);
-                this.state.userInput = EnginesBoard.canonicalizePoints(d.userState.placedPoints);
-                this.refreshUI();
-                return;
-            }
-
-            if (val.startsWith('board-select-zone:') && d.boardKind === 'map-locate') {
-                if (d.revealed) return;
-                const zoneId = val.replace('board-select-zone:', '');
-                if (!d.userState) d.userState = { selectedZoneId: null };
-                d.userState.selectedZoneId = zoneId;
-                this.state.userInput = zoneId;
-                d.revealed = true;
-                this.refreshUI();
-                return this.validateAnswer();
-            }
-
-            if (val.startsWith('board-flip-card:') && d.boardKind === 'memory-match') {
-                if (d.locked) return;
-                const cardId = val.replace('board-flip-card:', '');
-                if (!d.userState) d.userState = { flippedIds: [], matchedPairIds: [] };
-                if (!Array.isArray(d.userState.flippedIds)) d.userState.flippedIds = [];
-                if (!Array.isArray(d.userState.matchedPairIds)) d.userState.matchedPairIds = [];
-
-                const card = (d.cards || []).find((c) => c.id === cardId);
-                if (!card) return;
-                if (d.userState.matchedPairIds.includes(card.pairId)) return;
-                if (d.userState.flippedIds.includes(cardId)) return;
-                if (d.userState.flippedIds.length >= 2) return;
-
-                d.userState.flippedIds.push(cardId);
-                this.refreshUI();
-
-                if (d.userState.flippedIds.length === 2) {
-                    const [firstId, secondId] = d.userState.flippedIds;
-                    const firstCard = d.cards.find((c) => c.id === firstId);
-                    const secondCard = d.cards.find((c) => c.id === secondId);
-                    const isMatch = firstCard && secondCard && firstCard.pairId === secondCard.pairId;
-
-                    d.locked = true;
-                    setTimeout(() => {
-                        if (this.state.problemData !== p) return;
-                        d.locked = false;
-                        if (isMatch) {
-                            d.userState.matchedPairIds.push(firstCard.pairId);
-                        }
-                        d.userState.flippedIds = [];
-
-                        const total = Number(d.totalPairs) || 0;
-                        if (total > 0 && d.userState.matchedPairIds.length === total) {
-                            this.state.userInput = EnginesBoard.canonicalizeMatchedPairs(d.userState.matchedPairIds);
-                            d.revealed = true;
-                            this.refreshUI();
-                            this.validateAnswer();
-                            return;
-                        }
-                        this.refreshUI();
-                    }, isMatch ? 500 : 900);
-                }
-                return;
-            }
-
-            if (val.startsWith('board-toggle-slice:') && d.boardKind === 'fraction-build') {
-                if (d.revealed) return;
-                const sliceIndex = parseInt(val.replace('board-toggle-slice:', ''));
-                if (isNaN(sliceIndex)) return;
-                if (!d.userState) d.userState = { selectedSlices: [] };
-                if (!Array.isArray(d.userState.selectedSlices)) d.userState.selectedSlices = [];
-                const idx = d.userState.selectedSlices.indexOf(sliceIndex);
-                if (idx > -1) d.userState.selectedSlices.splice(idx, 1);
-                else d.userState.selectedSlices.push(sliceIndex);
-                this.state.userInput = String(d.userState.selectedSlices.length);
-                this.refreshUI();
-                return;
-            }
-
-            return;
+            return this.handleBoardInput(val, p);
         }
 
         // --- GESTION CLAVIER ---
@@ -3368,6 +3166,236 @@ const App = {
         }
 
         this.refreshUI();
+    },
+
+    /**
+     * Gestion des interactions du plateau géométrie (visualType
+     * 'geometry-board'), extraite de handleInput() : un plateau peut porter
+     * des types très différents (d.boardKind), chacun avec son propre
+     * préfixe de commande ('board-toggle-feature:', 'board-place-point:'...).
+     * Dispatch par préfixe, un handler par cas plutôt qu'une cascade de if.
+     */
+    handleBoardInput(val, p) {
+        const d = p.data;
+
+        if (val === 'board-zoom-in' || val === 'board-zoom-out') {
+            // Manipule le <svg> déjà monté directement (pas de refreshUI) :
+            // un zoom doit rester instantané, pas re-générer tout le HTML.
+            const problemZone = document.getElementById('math-problem');
+            UI.zoomMap(problemZone, p, val === 'board-zoom-in' ? 1.5 : 1 / 1.5);
+            return;
+        }
+
+        if (val === 'board-reset') {
+            const resetStates = {
+                'tap-features': { selectedIds: [] },
+                'shape-classify': { selectedFigureId: null, assignments: {} },
+                'point-on-grid': { point: null },
+                'symmetry-complete': { placedPoints: [] },
+                'fraction-build': { selectedSlices: [] },
+                'angle-classify': { selectedId: null },
+                'angle-measure': { selectedDegrees: null },
+                'construction-report': { selectedIndex: null }
+            };
+            if (resetStates[d.boardKind]) d.userState = resetStates[d.boardKind];
+            d.revealed = false;
+            this.state.userInput = "";
+            this.refreshUI();
+            return;
+        }
+
+        if (val === 'board-submit') {
+            if (d.boardKind === 'tap-features') {
+                const ids = Array.isArray(d.userState?.selectedIds) ? [...d.userState.selectedIds].sort() : [];
+                this.state.userInput = ids.join('|');
+            } else if (d.boardKind === 'shape-classify') {
+                const assignments = d.userState?.assignments || {};
+                this.state.userInput = EnginesBoard.canonicalizeAssignments(assignments);
+            } else if (d.boardKind === 'point-on-grid') {
+                const point = d.userState?.point;
+                this.state.userInput = EnginesBoard.canonicalizePoint(point);
+            } else if (d.boardKind === 'symmetry-complete') {
+                const points = d.userState?.placedPoints || [];
+                this.state.userInput = EnginesBoard.canonicalizePoints(points);
+            } else if (d.boardKind === 'fraction-build') {
+                const slices = Array.isArray(d.userState?.selectedSlices) ? d.userState.selectedSlices : [];
+                this.state.userInput = String(slices.length);
+            } else if (d.boardKind === 'construction-report') {
+                const index = d.userState?.selectedIndex;
+                const point = Number.isInteger(index) && Array.isArray(d.candidates) ? d.candidates[index] : null;
+                this.state.userInput = EnginesBoard.canonicalizePoint(point);
+            }
+            d.revealed = true;
+            this.refreshUI();
+            return this.validateAnswer();
+        }
+
+        if (val.startsWith('board-pick-angle:') && d.boardKind === 'angle-classify') {
+            const bucketId = val.replace('board-pick-angle:', '');
+            if (!d.userState) d.userState = { selectedId: null };
+            d.userState.selectedId = bucketId;
+            this.state.userInput = bucketId;
+            d.revealed = true;
+            this.refreshUI();
+            return this.validateAnswer();
+        }
+
+        if (val.startsWith('board-pick-angle-degrees:') && d.boardKind === 'angle-measure') {
+            const degrees = Number(val.replace('board-pick-angle-degrees:', ''));
+            if (!Number.isFinite(degrees)) return;
+            if (!d.userState) d.userState = { selectedDegrees: null };
+            d.userState.selectedDegrees = degrees;
+            this.state.userInput = String(degrees);
+            d.revealed = true;
+            this.refreshUI();
+            return this.validateAnswer();
+        }
+
+        if (val.startsWith('board-pick-candidate:') && d.boardKind === 'construction-report') {
+            if (d.revealed) return;
+            const index = parseInt(val.replace('board-pick-candidate:', ''), 10);
+            if (!Number.isInteger(index) || !Array.isArray(d.candidates) || !d.candidates[index]) return;
+            if (!d.userState) d.userState = { selectedIndex: null };
+            d.userState.selectedIndex = index;
+            this.state.userInput = EnginesBoard.canonicalizePoint(d.candidates[index]);
+            this.refreshUI();
+            return;
+        }
+
+        if (val.startsWith('board-toggle-feature:') && d.boardKind === 'tap-features') {
+            const featureId = val.replace('board-toggle-feature:', '');
+            if (!d.userState) d.userState = { selectedIds: [] };
+            if (!Array.isArray(d.userState.selectedIds)) d.userState.selectedIds = [];
+            const idx = d.userState.selectedIds.indexOf(featureId);
+            if (idx > -1) d.userState.selectedIds.splice(idx, 1);
+            else d.userState.selectedIds.push(featureId);
+            this.refreshUI();
+            return;
+        }
+
+        if (val.startsWith('board-select-figure:') && d.boardKind === 'shape-classify') {
+            const figureId = val.replace('board-select-figure:', '');
+            if (!d.userState) d.userState = { selectedFigureId: null, assignments: {} };
+            d.userState.selectedFigureId = figureId;
+            this.refreshUI();
+            return;
+        }
+
+        if (val.startsWith('board-assign-bucket:') && d.boardKind === 'shape-classify') {
+            const bucketId = val.replace('board-assign-bucket:', '');
+            if (!d.userState || !d.userState.selectedFigureId) return;
+            if (!d.userState.assignments) d.userState.assignments = {};
+            d.userState.assignments[d.userState.selectedFigureId] = bucketId;
+            d.userState.selectedFigureId = null;
+
+            const figuresCount = Array.isArray(d.figures) ? d.figures.length : 0;
+            const assignedCount = Object.keys(d.userState.assignments).length;
+            this.state.userInput = EnginesBoard.canonicalizeAssignments(d.userState.assignments);
+            if (figuresCount > 0 && assignedCount === figuresCount) {
+                d.revealed = true;
+                this.refreshUI();
+                return this.validateAnswer();
+            }
+            this.refreshUI();
+            return;
+        }
+
+        if (val.startsWith('board-place-point:') && d.boardKind === 'point-on-grid') {
+            const parts = val.split(':');
+            const x = parseInt(parts[1]);
+            const y = parseInt(parts[2]);
+            if (isNaN(x) || isNaN(y)) return;
+            if (!d.userState) d.userState = { point: null };
+            d.userState.point = [x, y];
+            this.state.userInput = EnginesBoard.canonicalizePoint([x, y]);
+            this.refreshUI();
+            return;
+        }
+
+        if (val.startsWith('board-toggle-point:') && d.boardKind === 'symmetry-complete') {
+            const parts = val.split(':');
+            const x = parseInt(parts[1]);
+            const y = parseInt(parts[2]);
+            if (isNaN(x) || isNaN(y)) return;
+            if (!d.userState) d.userState = { placedPoints: [] };
+            if (!Array.isArray(d.userState.placedPoints)) d.userState.placedPoints = [];
+            const idx = d.userState.placedPoints.findIndex((pt) => Number(pt[0]) === x && Number(pt[1]) === y);
+            if (idx > -1) d.userState.placedPoints.splice(idx, 1);
+            else d.userState.placedPoints.push([x, y]);
+            this.state.userInput = EnginesBoard.canonicalizePoints(d.userState.placedPoints);
+            this.refreshUI();
+            return;
+        }
+
+        if (val.startsWith('board-select-zone:') && d.boardKind === 'map-locate') {
+            if (d.revealed) return;
+            const zoneId = val.replace('board-select-zone:', '');
+            if (!d.userState) d.userState = { selectedZoneId: null };
+            d.userState.selectedZoneId = zoneId;
+            this.state.userInput = zoneId;
+            d.revealed = true;
+            this.refreshUI();
+            return this.validateAnswer();
+        }
+
+        if (val.startsWith('board-flip-card:') && d.boardKind === 'memory-match') {
+            if (d.locked) return;
+            const cardId = val.replace('board-flip-card:', '');
+            if (!d.userState) d.userState = { flippedIds: [], matchedPairIds: [] };
+            if (!Array.isArray(d.userState.flippedIds)) d.userState.flippedIds = [];
+            if (!Array.isArray(d.userState.matchedPairIds)) d.userState.matchedPairIds = [];
+
+            const card = (d.cards || []).find((c) => c.id === cardId);
+            if (!card) return;
+            if (d.userState.matchedPairIds.includes(card.pairId)) return;
+            if (d.userState.flippedIds.includes(cardId)) return;
+            if (d.userState.flippedIds.length >= 2) return;
+
+            d.userState.flippedIds.push(cardId);
+            this.refreshUI();
+
+            if (d.userState.flippedIds.length === 2) {
+                const [firstId, secondId] = d.userState.flippedIds;
+                const firstCard = d.cards.find((c) => c.id === firstId);
+                const secondCard = d.cards.find((c) => c.id === secondId);
+                const isMatch = firstCard && secondCard && firstCard.pairId === secondCard.pairId;
+
+                d.locked = true;
+                setTimeout(() => {
+                    if (this.state.problemData !== p) return;
+                    d.locked = false;
+                    if (isMatch) {
+                        d.userState.matchedPairIds.push(firstCard.pairId);
+                    }
+                    d.userState.flippedIds = [];
+
+                    const total = Number(d.totalPairs) || 0;
+                    if (total > 0 && d.userState.matchedPairIds.length === total) {
+                        this.state.userInput = EnginesBoard.canonicalizeMatchedPairs(d.userState.matchedPairIds);
+                        d.revealed = true;
+                        this.refreshUI();
+                        this.validateAnswer();
+                        return;
+                    }
+                    this.refreshUI();
+                }, isMatch ? 500 : 900);
+            }
+            return;
+        }
+
+        if (val.startsWith('board-toggle-slice:') && d.boardKind === 'fraction-build') {
+            if (d.revealed) return;
+            const sliceIndex = parseInt(val.replace('board-toggle-slice:', ''));
+            if (isNaN(sliceIndex)) return;
+            if (!d.userState) d.userState = { selectedSlices: [] };
+            if (!Array.isArray(d.userState.selectedSlices)) d.userState.selectedSlices = [];
+            const idx = d.userState.selectedSlices.indexOf(sliceIndex);
+            if (idx > -1) d.userState.selectedSlices.splice(idx, 1);
+            else d.userState.selectedSlices.push(sliceIndex);
+            this.state.userInput = String(d.userState.selectedSlices.length);
+            this.refreshUI();
+            return;
+        }
     },
 
     refreshUI() {
@@ -3456,7 +3484,7 @@ const App = {
             } else if (problemData.visualType === 'timelineOrder') {
                 ansZone.textContent = isCorrect
                     ? "Ordre correct"
-                    : (problemData.data?.orderedLabels || []).join("  â†’  ");
+                    : (problemData.data?.orderedLabels || []).join("  →  ");
             } else if (problemData.visualType === 'timelinePlace') {
                 ansZone.textContent = isCorrect
                     ? `${userInput}`

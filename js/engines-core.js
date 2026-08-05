@@ -89,7 +89,8 @@ const EnginesCore = {
             inputType: res.inputType || "numeric",
             isVisual: !!res.isVisual,
             visualType: res.visualType || null,
-            data: res.data || {}
+            data: res.data || {},
+            explanation: res.explanation || ""
         };
     },
 

@@ -15,7 +15,7 @@ const AudioFeedback = {
     },
 
     _isEnabled() {
-        return typeof Storage !== 'undefined' && Storage.getPreference
+        return Storage.getPreference
             ? !Storage.getPreference('sound_muted')
             : true;
     },

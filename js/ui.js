@@ -18,17 +18,21 @@ const UI = {
     /**
      * Gestionnaire d'affichage des écrans
      */
-    showScreen(id) {
+    showScreen(id, direction = 'forward') {
         // 1. Gestion des écrans
         if (this.screens.length === 0) return console.warn("UI: Aucun écran trouvé dans le DOM");
 
         this.screens.forEach(s => {
             if (s.id === id) {
-                s.classList.add('active');
+                s.classList.remove('active', 'active--back');
+                // Force le redémarrage de l'animation même si le même écran
+                // était déjà affiché juste avant (reflow synchrone nécessaire).
+                void s.offsetWidth;
+                s.classList.add(direction === 'back' ? 'active--back' : 'active');
                 s.style.display = 'flex';
                 s.scrollTop = 0;
             } else {
-                s.classList.remove('active');
+                s.classList.remove('active', 'active--back');
                 s.style.display = 'none';
             }
         });
@@ -64,6 +68,29 @@ const UI = {
             this.btnHome.setAttribute('aria-label', model.menuTitle);
             this.btnHome.setAttribute('title', model.menuTitle);
         }
+    },
+
+    /**
+     * Gestion clavier générique pour une modale role="dialog" : focus initial,
+     * Escape pour fermer, refocus sur l'élément déclencheur à la fermeture.
+     * closeFn est appelé une seule fois (Escape), retourne une fonction de
+     * nettoyage à invoquer par le closeFn réel de l'appelant.
+     */
+    trapOverlayFocus(overlay, closeFn) {
+        if (!overlay || typeof closeFn !== 'function') return () => {};
+        const lastFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+        const focusable = overlay.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (focusable instanceof HTMLElement) focusable.focus();
+
+        const onKeydown = (event) => {
+            if (event.key === 'Escape') closeFn();
+        };
+        document.addEventListener('keydown', onKeydown);
+
+        return () => {
+            document.removeEventListener('keydown', onKeydown);
+            if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+        };
     },
 
     openNavSheet(actions = []) {
@@ -274,7 +301,7 @@ const UI = {
         container.innerHTML = "";
 
         (profiles || []).forEach(p => {
-            const streak = (typeof Storage !== 'undefined' && Storage.getStreak) ? Storage.getStreak(p.name) : { current: 0 };
+            const streak = Storage.getStreak ? Storage.getStreak(p.name) : { current: 0 };
             const streakHtml = streak.current > 0
                 ? `<div class="profile-card-streak" title="${streak.current} jour${streak.current > 1 ? 's' : ''} de suite">🔥 ${streak.current}</div>`
                 : '';
@@ -283,7 +310,7 @@ const UI = {
             // Aperçu de progression : étoiles cumulées + badges débloqués,
             // visibles d'un coup d'œil sans entrer dans le profil.
             let statsHtml = '';
-            if (typeof Storage !== 'undefined' && Storage.getTotalStars) {
+            if (Storage.getTotalStars) {
                 const stars = Storage.getTotalStars(p.name);
                 const badges = Storage.getBadges ? Storage.getBadges(p.name).filter(b => b.unlocked).length : 0;
                 if (stars > 0 || badges > 0) {
@@ -305,7 +332,7 @@ const UI = {
             card.innerHTML = `
                 ${streakHtml}
                 <span class="card-icon${p.cardImage ? ' card-icon--card-avatar' : ''}" aria-hidden="true">${p.cardImage
-                    ? `<img class="profile-card-avatar-img" src="${this._escapeText(p.cardImage)}" alt="">`
+                    ? `<img class="profile-card-avatar-img" src="${SecurityUtils.safeImagePath(p.cardImage)}" alt="">`
                     : this.safeIcon(p.avatar, '\u{1F464}')}</span>
                 ${this.buildCardContent(profileName)}
                 ${statsHtml}
@@ -519,7 +546,7 @@ const UI = {
                     const btn = document.createElement('button');
                     btn.type = 'button';
                     btn.className = `profile-customize-card-choice rarity-${this._escapeText(card.rarity || 'commune')}${card.id === selectedCard ? ' is-selected' : ''}`;
-                    btn.innerHTML = `<img class="profile-customize-card-img" src="${this._escapeText(card.image)}" alt="" loading="lazy">`;
+                    btn.innerHTML = `<img class="profile-customize-card-img" src="${SecurityUtils.safeImagePath(card.image)}" alt="" loading="lazy">`;
                     btn.setAttribute('aria-label', `${card.name} comme avatar`);
                     btn.setAttribute('aria-pressed', card.id === selectedCard ? 'true' : 'false');
                     btn.title = card.name;
@@ -580,7 +607,7 @@ const UI = {
             let stars = 0;
             let needsReview = false;
             try {
-                if (typeof Storage !== 'undefined' && Storage.getRecord) {
+                if (Storage.getRecord) {
                     const gradeId = window.App?.state?.currentGrade?.gradeId || null;
                     const record = Storage.getRecord(item.id, gradeId);
                     if (record) {
@@ -1748,7 +1775,7 @@ const UI = {
         const d = p.data || {};
         const word = (d.word || "").toString();
         const icon = this.safeIcon(d.icon, "❓");
-        const imgPath = d.img || "";
+        const imgPath = window.SecurityUtils?.safeImagePath ? SecurityUtils.safeImagePath(d.img) : "";
         const hasImage = !!imgPath;
 
         let slots;
@@ -2346,7 +2373,7 @@ const UI = {
      */
     updateGrimoireBundles(coins) {
         const wrap = document.getElementById('grimoire-bundles');
-        if (!wrap || typeof Storage === 'undefined' || !Storage.getBoosterBundles) return;
+        if (!wrap || !Storage.getBoosterBundles) return;
 
         const bundles = Storage.getBoosterBundles();
         if (!bundles.length) { wrap.innerHTML = ''; return; }
@@ -2432,7 +2459,7 @@ const UI = {
             return `
                 <button type="button" class="grimoire-card ${this._cardRarityClass(card.rarity)}${mythique}" data-card-id="${this._escapeText(card.id)}"
                     aria-label="${this._escapeText(card.name)}, carte ${this._escapeText(rarities[card.rarity]?.label || card.rarity)}${card.family === 'mythologie' ? ', Mythique' : ''}">
-                    <img class="grimoire-card-img" src="${this._escapeText(card.image)}" alt="" loading="lazy">
+                    <img class="grimoire-card-img" src="${SecurityUtils.safeImagePath(card.image)}" alt="" loading="lazy">
                     <div class="grimoire-card-name">${this._escapeText(card.name)}</div>
                     ${count > 1 ? `<div class="grimoire-card-count">×${count}</div>` : ''}
                 </button>`;
@@ -2457,7 +2484,7 @@ const UI = {
                 (this._rarityRank[a.rarity] || 0) - (this._rarityRank[b.rarity] || 0)
                 || (a.stage || 0) - (b.stage || 0));
         });
-        const seriesStatus = (typeof Storage !== 'undefined' && Storage.getSeriesStatus)
+        const seriesStatus = Storage.getSeriesStatus
             ? Storage.getSeriesStatus(catalog)
             : {};
 
@@ -2516,14 +2543,18 @@ const UI = {
         box.className = `card-detail ${this._cardRarityClass(card.rarity)}${mythique ? ' grimoire-card--mythique' : ''}`;
         box.innerHTML = `
             <div class="card-detail-rarity" style="color: ${this._escapeText(rarity.color)}">${this._escapeText(rarity.label)}${mythique ? ' <span class="card-detail-mythique-tag">✦ Mythique</span>' : ''}</div>
-            <img class="card-detail-img" src="${this._escapeText(card.image)}" alt="${this._escapeText(card.name)}">
+            <img class="card-detail-img" src="${SecurityUtils.safeImagePath(card.image)}" alt="${this._escapeText(card.name)}">
             <div class="card-detail-name">${this._escapeText(card.name)}</div>
             <p class="card-detail-lore">${this._escapeText(card.lore || '')}</p>
             ${chainParts.length ? `<p class="card-detail-evolution">${chainParts.join('<br>')}</p>` : ''}
             <button type="button" class="btn card-detail-close">FERMER</button>
         `;
         overlay.classList.remove('is-hidden');
-        const close = () => overlay.classList.add('is-hidden');
+        const close = () => {
+            overlay.classList.add('is-hidden');
+            if (typeof cleanupFocusTrap === 'function') cleanupFocusTrap();
+        };
+        const cleanupFocusTrap = this.trapOverlayFocus(overlay, close);
         overlay.onclick = (event) => { if (event.target === overlay) close(); };
         box.querySelector('.card-detail-close').onclick = close;
     },
@@ -2728,7 +2759,7 @@ const UI = {
                                 <span class="booster-flip-back-logo">${this.grimoireLogoSvg(44)}</span>
                             </div>
                             <div class="booster-flip-front booster-card ${this._cardRarityClass(card.rarity)}${mythique}">
-                                <img class="grimoire-card-img" src="${this._escapeText(card.image)}" alt="">
+                                <img class="grimoire-card-img" src="${SecurityUtils.safeImagePath(card.image)}" alt="">
                                 <div class="grimoire-card-name">${this._escapeText(card.name)}</div>
                                 <div class="booster-card-tag">${isNew
                                     ? `<span class="booster-new">NOUVEAU !</span>`

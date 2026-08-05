@@ -1,17 +1,13 @@
 const UIKeyboards = {
+    // ui-keyboards.js n'est chargé que dans le flux SPA complet (index.html),
+    // toujours après security.js — pas de fallback local nécessaire ici,
+    // contrairement à ui.js qui doit aussi fonctionner depuis preview-local.html.
     _escape(value) {
-        if (window.SecurityUtils?.escapeHtml) return window.SecurityUtils.escapeHtml(value);
-        return (value ?? "").toString()
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#39;');
+        return SecurityUtils.escapeHtml(value);
     },
 
     _safeAttr(value) {
-        if (window.SecurityUtils?.escapeAttr) return window.SecurityUtils.escapeAttr(value);
-        return this._escape(value).replace(/`/g, '&#96;');
+        return SecurityUtils.escapeAttr(value);
     },
 
     initKeyboard(callback) {
@@ -86,7 +82,7 @@ const UIKeyboards = {
         kb.style.gridTemplateColumns = "repeat(3, 1fr)";
 
         let html = "123456789".split("").map(v =>
-            `<button class="btn key" data-val="${v}">${v}</button>`
+            `<button class="btn key" data-val="${this._safeAttr(v)}">${this._escape(v)}</button>`
         ).join("");
 
         html += `<button class="btn key key-comma" data-val=",">,</button>`;
@@ -107,13 +103,13 @@ const UIKeyboards = {
         let html = '<div class="alpha-keyboard">';
 
         html += `<div class="kb-row accent-row">` + "\u00e9\u00e8\u00ea\u00eb\u00e0\u00e2\u00e7\u00ee\u00ef\u00f4\u00fb\u00f9-'".split('').map(a =>
-            `<button class="btn key letter-key" data-val="${a}">${a}</button>`
+            `<button class="btn key letter-key" data-val="${this._safeAttr(a)}">${this._escape(a)}</button>`
         ).join('') + `</div>`;
 
         rows.forEach(row => {
             html += `<div class="kb-row">`;
             row.split('').forEach(char => {
-                html += `<button class="btn key letter-key" data-val="${char}">${char}</button>`;
+                html += `<button class="btn key letter-key" data-val="${this._safeAttr(char)}">${this._escape(char)}</button>`;
             });
             html += `</div>`;
         });
@@ -137,13 +133,13 @@ const UIKeyboards = {
         let html = '<div class="alpha-keyboard">';
 
         html += `<div class="kb-row accent-row">` + "éèêëàâçîïôûù-".split('').map(a =>
-            `<button type="button" class="btn key letter-key" data-val="${a}">${a}</button>`
+            `<button type="button" class="btn key letter-key" data-val="${this._safeAttr(a)}">${this._escape(a)}</button>`
         ).join('') + `</div>`;
 
         rows.forEach(row => {
             html += `<div class="kb-row">`;
             row.split('').forEach(char => {
-                html += `<button type="button" class="btn key letter-key" data-val="${char}">${char}</button>`;
+                html += `<button type="button" class="btn key letter-key" data-val="${this._safeAttr(char)}">${this._escape(char)}</button>`;
             });
             html += `</div>`;
         });
@@ -168,13 +164,13 @@ const UIKeyboards = {
     <div class="roman-keyboard">
         <div class="roman-keyboard-row">
             ${["I", "V", "X", "L"].map(k =>
-                `<button class="btn key roman-key" data-val="${k}">${k}</button>`
+                `<button class="btn key roman-key" data-val="${this._safeAttr(k)}">${this._escape(k)}</button>`
             ).join('')}
         </div>
 
         <div class="roman-keyboard-row">
             ${["C", "D", "M"].map(k =>
-                `<button class="btn key roman-key" data-val="${k}">${k}</button>`
+                `<button class="btn key roman-key" data-val="${this._safeAttr(k)}">${this._escape(k)}</button>`
             ).join('')}
             <div class="roman-keyboard-spacer"></div>
         </div>

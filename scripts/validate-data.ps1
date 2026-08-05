@@ -45,6 +45,11 @@ function Is-DataFilePath([string]$value) {
     return ($value.Trim().Replace('\', '/')) -match '^\.?\/?data\/.+\.json$'
 }
 
+function Is-MapFilePath([string]$value) {
+    if (-not (Is-NonEmptyString $value)) { return $false }
+    return ($value.Trim().Replace('\', '/')) -match '^\.?\/?data\/.+\.svg$'
+}
+
 function Add-Issue($message) {
     [void]$script:Issues.Add($message)
 }
@@ -191,6 +196,48 @@ function Validate-Exercise($path, $themeId, $exercise) {
             }
         }
     }
+    if ($exercise.engine -eq 'matching' -and -not (Is-NonEmptyString $exercise.params.category)) {
+        Add-Issue("${path}: category manquante pour matching ($($exercise.id))")
+    }
+    if ($exercise.engine -eq 'word-order' -and -not (Is-NonEmptyString $exercise.params.category)) {
+        Add-Issue("${path}: category manquante pour word-order ($($exercise.id))")
+    }
+    if ($exercise.engine -eq 'cloze-fill-in' -and -not (Is-NonEmptyString $exercise.params.category)) {
+        Add-Issue("${path}: category manquante pour cloze-fill-in ($($exercise.id))")
+    }
+    if ($exercise.engine -eq 'board-interactive') {
+        $validBoardTypes = @('tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete', 'map-locate', 'memory-match', 'fraction-build', 'angle-classify', 'angle-measure', 'construction-report')
+        if (-not (Is-NonEmptyString $exercise.params.type) -or $exercise.params.type -notin $validBoardTypes) {
+            Add-Issue("${path}: type board-interactive invalide pour $($exercise.id)")
+        }
+        if ($exercise.params.type -ne 'fraction-build' -and -not (Is-NonEmptyString $exercise.params.category)) {
+            Add-Issue("${path}: category manquante pour board-interactive ($($exercise.id))")
+        }
+        if ($exercise.params.type -eq 'fraction-build') {
+            if ($null -ne $exercise.params.minDenom) {
+                $minDenomVal = 0
+                $minDenomOk = [int]::TryParse([string]$exercise.params.minDenom, [ref]$minDenomVal)
+                if (-not $minDenomOk -or $minDenomVal -lt 2) {
+                    Add-Issue("${path}: minDenom invalide pour fraction-build ($($exercise.id))")
+                }
+            }
+            if ($null -ne $exercise.params.maxDenom) {
+                $boardMaxDenomVal = 0
+                $boardMaxDenomOk = [int]::TryParse([string]$exercise.params.maxDenom, [ref]$boardMaxDenomVal)
+                if (-not $boardMaxDenomOk -or $boardMaxDenomVal -lt 2) {
+                    Add-Issue("${path}: maxDenom invalide pour fraction-build ($($exercise.id))")
+                }
+            }
+        }
+        if ($exercise.params.type -eq 'map-locate') {
+            if (-not (Is-MapFilePath $exercise.params.mapFile)) {
+                Add-Issue("${path}: mapFile manquant ou invalide pour map-locate ($($exercise.id))")
+            }
+            if (-not (Is-NonEmptyString $exercise.params.mapId)) {
+                Add-Issue("${path}: mapId manquant pour map-locate ($($exercise.id))")
+            }
+        }
+    }
     if ($exercise.engine -eq 'timeline') {
         if (-not (Is-NonEmptyString $exercise.params.grade)) {
             Add-Issue("${path}: grade manquant pour $($exercise.id)")
@@ -206,6 +253,15 @@ function Validate-Exercise($path, $themeId, $exercise) {
         $validConversionSubtypes = @('roman', 'time', 'metric', 'metric-area')
         if (-not (Is-NonEmptyString $exercise.params.subtype) -or $exercise.params.subtype -notin $validConversionSubtypes) {
             Add-Issue("${path}: subtype conversion invalide pour $($exercise.id)")
+        }
+        if ($exercise.params.subtype -eq 'time' -and $null -ne $exercise.params.modes) {
+            $validTimeModes = @('h_to_min', 'min_to_sec', 'hmin_to_min', 'minsec_to_sec')
+            $modesValue = $exercise.params.modes
+            $modesArray = if ($modesValue -is [System.Collections.IList]) { $modesValue } else { @($modesValue) }
+            $invalidModes = @($modesArray | Where-Object { -not (Is-NonEmptyString $_) -or $_ -notin $validTimeModes })
+            if ($modesArray.Count -eq 0 -or $invalidModes.Count -gt 0) {
+                Add-Issue("${path}: modes conversion/time invalide pour $($exercise.id)")
+            }
         }
         if ($exercise.params.subtype -eq 'metric-area' -and $null -ne $exercise.params.range) {
             $r = $exercise.params.range
@@ -700,6 +756,53 @@ function Validate-BoardDataset($ref, $dataSet) {
         if (-not (Is-PlainObject $item) -or -not (Is-SafeLessonText $item.prompt) -or -not (Is-PlainObject $item.board)) {
             Add-Issue("$($ref.DataFile): entree interactive invalide dans $($ref.Category)")
             break
+        }
+
+        if ($ref.Type -eq 'tap-features') {
+            $featuresValid = ($item.features -is [System.Collections.IList]) -and $item.features.Count -gt 0
+            if ($featuresValid) {
+                foreach ($feature in $item.features) {
+                    $fx = [double]::NaN
+                    $fy = [double]::NaN
+                    [double]::TryParse([string]$feature.x, [ref]$fx) | Out-Null
+                    [double]::TryParse([string]$feature.y, [ref]$fy) | Out-Null
+                    if (-not (Is-PlainObject $feature) -or -not (Is-NonEmptyString $feature.id) -or [double]::IsNaN($fx) -or [double]::IsNaN($fy) -or -not ($feature.correct -is [bool])) {
+                        $featuresValid = $false
+                        break
+                    }
+                }
+            }
+            if (-not $featuresValid) {
+                Add-Issue("$($ref.DataFile): tap-features invalide dans $($ref.Category)")
+                break
+            }
+        }
+
+        if ($ref.Type -eq 'shape-classify') {
+            $figuresValid = ($item.figures -is [System.Collections.IList]) -and $item.figures.Count -gt 0
+            $bucketsValid = ($item.buckets -is [System.Collections.IList]) -and $item.buckets.Count -gt 1
+            $answerValid2 = Is-PlainObject $item.answer
+            if (-not $figuresValid -or -not $bucketsValid -or -not $answerValid2) {
+                Add-Issue("$($ref.DataFile): shape-classify invalide dans $($ref.Category)")
+                break
+            }
+        }
+
+        if ($ref.Type -eq 'point-on-grid') {
+            $target = $item.task.target
+            if (-not (Is-PlainObject $item.task) -or -not ($target -is [System.Collections.IList]) -or $target.Count -ne 2) {
+                Add-Issue("$($ref.DataFile): point-on-grid invalide dans $($ref.Category)")
+                break
+            }
+        }
+
+        if ($ref.Type -eq 'symmetry-complete') {
+            $givenPointsValid = ($item.givenPoints -is [System.Collections.IList]) -and $item.givenPoints.Count -gt 0
+            $targetPointsValid = ($item.targetPoints -is [System.Collections.IList]) -and $item.targetPoints.Count -gt 0
+            if (-not $givenPointsValid -or -not $targetPointsValid) {
+                Add-Issue("$($ref.DataFile): symmetry-complete invalide dans $($ref.Category)")
+                break
+            }
         }
 
         if ($ref.Type -eq 'angle-measure') {

@@ -565,6 +565,13 @@
             if (!this.isNonEmptyString(exercise.params.subtype) || !validSubtypes.includes(exercise.params.subtype)) {
                 return { valid: false, reason: 'subtype conversion invalide.' };
             }
+            if (exercise.params.subtype === 'time' && exercise.params.modes !== undefined) {
+                const validTimeModes = ['h_to_min', 'min_to_sec', 'hmin_to_min', 'minsec_to_sec'];
+                const modesArray = Array.isArray(exercise.params.modes) ? exercise.params.modes : [exercise.params.modes];
+                if (modesArray.length === 0 || modesArray.some((m) => !this.isNonEmptyString(m) || !validTimeModes.includes(m))) {
+                    return { valid: false, reason: 'modes conversion/time invalide.' };
+                }
+            }
             if (exercise.params.subtype === 'metric-area' && exercise.params.range !== undefined) {
                 const r = exercise.params.range;
                 if (!Array.isArray(r) || r.length !== 2 || !Number.isFinite(Number(r[0])) || !Number.isFinite(Number(r[1]))
@@ -800,13 +807,16 @@
             return { valid: false, reason: `Catégorie remise en ordre introuvable (${exercise.params.category}).` };
         }
 
-        const invalidItem = pool.find((item) =>
-            !this.isPlainObject(item) ||
-            !this.isSafeLessonText(item.sentence) ||
-            item.sentence.trim().split(/\s+/).length < 3 ||
-            (item.instruction !== undefined && !this.isSafeLessonText(item.instruction)) ||
-            (item.explanation !== undefined && !this.isSafeLessonText(item.explanation))
-        );
+        const invalidItem = pool.find((item) => {
+            if (!this.isPlainObject(item)) return true;
+            const sentenceOk = Array.isArray(item.sentences)
+                ? item.sentences.length >= 3 && item.sentences.every((s) => this.isSafeLessonText(s))
+                : this.isSafeLessonText(item.sentence) && item.sentence.trim().split(/\s+/).length >= 3;
+            if (!sentenceOk) return true;
+            if (item.instruction !== undefined && !this.isSafeLessonText(item.instruction)) return true;
+            if (item.explanation !== undefined && !this.isSafeLessonText(item.explanation)) return true;
+            return false;
+        });
 
         if (invalidItem) {
             return { valid: false, reason: `phrase invalide dans ${exercise.params.category}.` };
