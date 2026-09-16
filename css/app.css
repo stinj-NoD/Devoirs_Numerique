@@ -203,6 +203,12 @@ input {
        d'exercices interactifs) restaient bloqués sur la couleur du thème
        clair, illisibles sur fond sombre. */
     --dark: var(--color-text);
+    /* Même piège pour --panel-bg (ligne ~56, fond de .card/.card--action —
+       tous les boutons "carte" : export, import, changer le code...) : figé
+       sur le dégradé clair faute de redéclaration ici, ce qui laissait ces
+       boutons blancs (texte illisible) en thème sombre alors que
+       .menu-card, lui, a déjà son propre correctif (ligne ~257). */
+    --panel-bg: linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-soft) 100%);
 }
 
 #app.theme-dark body,
