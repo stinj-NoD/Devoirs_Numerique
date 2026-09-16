@@ -186,6 +186,14 @@ input {
     --color-danger-soft: #3a2326;
     --color-warning-soft: #3a3220;
     --color-focus: rgba(74, 144, 226, 0.35);
+    /* --dark (alias legacy de --color-text, ligne ~84) doit être redéfini
+       ici aussi : une variable CSS qui référence var(--autre-variable) fige
+       sa valeur au moment où ELLE est déclarée (ici :root, thème clair),
+       elle ne se recalcule pas par élément. Sans cette ligne, les 15
+       usages de var(--dark) (formules mathématiques, conjugaison, bordures
+       d'exercices interactifs) restaient bloqués sur la couleur du thème
+       clair, illisibles sur fond sombre. */
+    --dark: var(--color-text);
 }
 
 #app.theme-dark body,
@@ -2080,6 +2088,12 @@ button,
     border-radius: var(--radius-pill);
     background: linear-gradient(135deg, #fff3d6 0%, #ffe39a 100%);
     box-shadow: var(--shadow-1);
+}
+
+/* Sans cette règle, le HUD (vide) s'affichait sur tout écran de jeu,
+   pas seulement en Mode Champions. */
+.champion-hud.is-hidden {
+    display: none;
 }
 
 .champion-timer {
