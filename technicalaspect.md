@@ -18,6 +18,10 @@ Principes structurants :
 - [index.html](index.html)
 - [css/app.css](css/app.css)
 - [js/app.js](js/app.js)
+- [js/app-quiz.js](js/app-quiz.js)
+- [js/app-champion.js](js/app-champion.js)
+- [js/app-grimoire.js](js/app-grimoire.js)
+- [js/app-parents.js](js/app-parents.js)
 - [js/bootstrap.js](js/bootstrap.js)
 - [js/security.js](js/security.js)
 - [js/ui.js](js/ui.js)
@@ -47,14 +51,34 @@ Principes structurants :
 
 ### `app.js`
 
-Responsable de :
+Depuis le découpage architectural (v4.40.0), `app.js` est le cœur de l'application ; 4 modules compagnons (`app-quiz.js`, `app-champion.js`, `app-grimoire.js`, `app-parents.js`) sont fusionnés sur le même objet `App` via `Object.assign(App, {...})` — extraction mécanique du code, sans changement de logique : `this.state` et les appels croisés entre modules restent partagés (même objet JS, pas d'encapsulation).
+
+`app.js` reste responsable de :
 - l'initialisation globale
-- la navigation SPA
+- la navigation SPA (machine à états, `goBack`, la table `actions`)
 - le chargement des niveaux
 - le split `J'apprends / Je m'entraîne`
 - l'ouverture des leçons
 - le cycle question -> correction -> score -> résultat
 - le retour vers la leçon depuis les résultats
+- la gestion des profils, des préférences et de la synthèse vocale
+- l'onboarding et les « Nouveautés »
+
+### `app-quiz.js`
+
+Responsable du Grand Quiz (culture générale, cross-profil, sans chrono) : catalogue de questions, déroulé question par question, scores par niveau.
+
+### `app-champion.js`
+
+Responsable du Mode Champions (épreuve chronométrée) : configuration de la durée, minuteur, enchaînement des questions, scores par durée.
+
+### `app-grimoire.js`
+
+Responsable du Grimoire : collection de cartes, boosters, `mapCollectionDefinitions` (cartes interactives `map-locate` à débloquer — voir `docs/maps-architecture.md`), statuts de collection.
+
+### `app-parents.js`
+
+Responsable de l'espace parents : export/import complet des données d'un profil, guide, aperçu du programme, PIN parental, tableau de bord.
 
 ### `ui.js`
 

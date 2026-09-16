@@ -190,9 +190,9 @@ for (const svg of allSvgs) {
     }
 }
 
-// --- 5. Cohérence avec la Collection (app.js) ---
-const appJs = read('js/app.js');
-const collMatch = appJs.match(/mapCollectionDefinitions:\s*\[([\s\S]*?)\]/);
+// --- 5. Cohérence avec la Collection (app-grimoire.js) ---
+const appGrimoireJs = read('js/app-grimoire.js');
+const collMatch = appGrimoireJs.match(/mapCollectionDefinitions:\s*\[([\s\S]*?)\]/);
 if (collMatch) {
     const collectionIds = [...collMatch[1].matchAll(/mapId:\s*'([^']+)'/g)].map((m) => m[1]);
     for (const id of collectionIds) {

@@ -54,7 +54,11 @@ L’application gère :
 
 - `index.html` : shell SPA
 - `css/app.css` : styles globaux, responsive, surfaces d’exercice
-- `js/app.js` : orchestration, navigation, cycle de jeu, audio, offline local, Grimoire, Mode Champions, Grand Quiz
+- `js/app.js` : cœur — orchestration, navigation, cycle de jeu, audio, offline local
+- `js/app-quiz.js` : Le Grand Quiz (culture générale)
+- `js/app-champion.js` : Mode Champions (chronométré)
+- `js/app-grimoire.js` : Grimoire (collection de cartes, boosters, `mapCollectionDefinitions`)
+- `js/app-parents.js` : Espace parents (PIN, dashboard, export/import, guide)
 - `js/bootstrap.js` : amorçage, désenregistrement du service worker en dev local
 - `js/security.js` : échappement HTML/attributs, sanitation des IDs (`SecurityUtils`)
 - `js/ui.js` : façade UI et rendu DOM principal
@@ -89,6 +93,11 @@ L’application gère :
 ### Rôles des modules
 
 - **`app.js`**
+  Depuis le découpage architectural (v4.40.0), `app.js` est le cœur ; 4 modules
+  compagnons (`app-quiz.js`, `app-champion.js`, `app-grimoire.js`,
+  `app-parents.js`) sont fusionnés dessus via `Object.assign(App, {...})`
+  (extraction mécanique, aucun changement de logique — `this.state` et les
+  appels croisés restent partagés).
   Responsable de :
   - l’initialisation globale
   - la navigation SPA
@@ -97,6 +106,14 @@ L’application gère :
   - le cycle question -> validation -> score -> résultat
   - la gestion de la synthèse vocale pour `audio-spelling`
   - les garde-fous runtime sur les états incohérents
+
+- **`app-quiz.js`** : Le Grand Quiz (culture générale, cross-profil, sans chrono)
+
+- **`app-champion.js`** : Mode Champions (épreuve chronométrée)
+
+- **`app-grimoire.js`** : Grimoire (collection de cartes, boosters, `mapCollectionDefinitions`)
+
+- **`app-parents.js`** : Espace parents (export/import de profil, guide, PIN parental, tableau de bord)
 
 - **`ui.js`**
   Responsable de :
@@ -267,8 +284,8 @@ Chaque exercice contient :
 - `params`
 
 Compatibilité :
-- le runtime sait encore lire `themes[]`
-- le corpus actuel CP → CM2 est déjà migré sur `subjects[]`
+- le schéma legacy `themes[]` (jamais utilisé par un fichier `data/*.json` réel) a été retiré du runtime en v4.40.0 : `validators.js`, `validate-data.ps1` et `app.js` n'acceptent/ne construisent plus que `subjects[]`
+- le corpus actuel CP → CM2 est intégralement sur `subjects[]`
 
 ### Bibliothèques et datasets
 

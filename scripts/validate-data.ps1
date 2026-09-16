@@ -430,95 +430,63 @@ function Validate-Lesson($path, $subthemeId, $lesson) {
 }
 
 function Validate-GradeData($path, $data) {
-    $hasThemes = ($data.themes -is [System.Collections.IList]) -and $data.themes.Count -gt 0
     $hasSubjects = ($data.subjects -is [System.Collections.IList]) -and $data.subjects.Count -gt 0
 
-    if (-not (Is-PlainObject $data) -or -not (Is-NonEmptyString $data.gradeId) -or (-not $hasThemes -and -not $hasSubjects)) {
-        Add-Issue("${path}: gradeId/themes/subjects manquants ou vides")
+    if (-not (Is-PlainObject $data) -or -not (Is-NonEmptyString $data.gradeId) -or -not $hasSubjects) {
+        Add-Issue("${path}: gradeId/subjects manquants ou vides")
         return
     }
 
-    $themeIds = @{}
     $subjectIds = @{}
     $subthemeIds = @{}
     $exerciseIds = @{}
 
-    if ($hasThemes) {
-        foreach ($theme in $data.themes) {
-            if (-not (Is-PlainObject $theme)) {
-                Add-Issue("${path}: thème invalide")
-                continue
-            }
-            if (-not (Is-NonEmptyString $theme.id) -or -not (Is-SafeLessonText $theme.title) -or -not ($theme.exercises -is [System.Collections.IList]) -or $theme.exercises.Count -eq 0) {
-                Add-Issue("${path}: theme incomplet ou titre non sur ($($theme.id))")
-                continue
-            }
-            if ($themeIds.ContainsKey($theme.id)) {
-                Add-Issue("${path}: id de thème dupliqué ($($theme.id))")
-            } else {
-                $themeIds[$theme.id] = $true
-            }
-            foreach ($exercise in $theme.exercises) {
-                if (Is-NonEmptyString $exercise.id) {
-                    if ($exerciseIds.ContainsKey($exercise.id)) {
-                        Add-Issue("${path}: id d'exercice dupliqué ($($exercise.id))")
-                    } else {
-                        $exerciseIds[$exercise.id] = $true
-                    }
-                }
-                Validate-Exercise $path $theme.id $exercise
-            }
+    foreach ($subject in $data.subjects) {
+        if (-not (Is-PlainObject $subject)) {
+            Add-Issue("${path}: matière invalide")
+            continue
         }
-    }
+        if (-not (Is-NonEmptyString $subject.id) -or -not (Is-SafeLessonText $subject.title) -or -not ($subject.subthemes -is [System.Collections.IList]) -or $subject.subthemes.Count -eq 0) {
+            Add-Issue("${path}: matiere incomplete ou titre non sur ($($subject.id))")
+            continue
+        }
+        if ($subjectIds.ContainsKey($subject.id)) {
+            Add-Issue("${path}: id de matière dupliqué ($($subject.id))")
+        } else {
+            $subjectIds[$subject.id] = $true
+        }
 
-    if ($hasSubjects) {
-        foreach ($subject in $data.subjects) {
-            if (-not (Is-PlainObject $subject)) {
-                Add-Issue("${path}: matière invalide")
+        foreach ($subtheme in $subject.subthemes) {
+            if (-not (Is-PlainObject $subtheme)) {
+                Add-Issue("${path}: sous-thème invalide dans $($subject.id)")
                 continue
             }
-            if (-not (Is-NonEmptyString $subject.id) -or -not (Is-SafeLessonText $subject.title) -or -not ($subject.subthemes -is [System.Collections.IList]) -or $subject.subthemes.Count -eq 0) {
-                Add-Issue("${path}: matiere incomplete ou titre non sur ($($subject.id))")
+            $hasExercises = ($subtheme.exercises -is [System.Collections.IList]) -and $subtheme.exercises.Count -gt 0
+            $hasLessons = ($subtheme.lessons -is [System.Collections.IList]) -and $subtheme.lessons.Count -gt 0
+            if (-not (Is-NonEmptyString $subtheme.id) -or -not (Is-SafeLessonText $subtheme.title) -or (-not $hasExercises -and -not $hasLessons)) {
+                Add-Issue("${path}: sous-theme incomplet ou titre non sur ($($subtheme.id))")
                 continue
             }
-            if ($subjectIds.ContainsKey($subject.id)) {
-                Add-Issue("${path}: id de matière dupliqué ($($subject.id))")
+            if ($subthemeIds.ContainsKey($subtheme.id)) {
+                Add-Issue("${path}: id de sous-theme duplique ($($subtheme.id))")
             } else {
-                $subjectIds[$subject.id] = $true
+                $subthemeIds[$subtheme.id] = $true
             }
-
-            foreach ($subtheme in $subject.subthemes) {
-                if (-not (Is-PlainObject $subtheme)) {
-                    Add-Issue("${path}: sous-thème invalide dans $($subject.id)")
-                    continue
+            if ($hasLessons) {
+                foreach ($lesson in $subtheme.lessons) {
+                    Validate-Lesson $path $subtheme.id $lesson
                 }
-                $hasExercises = ($subtheme.exercises -is [System.Collections.IList]) -and $subtheme.exercises.Count -gt 0
-                $hasLessons = ($subtheme.lessons -is [System.Collections.IList]) -and $subtheme.lessons.Count -gt 0
-                if (-not (Is-NonEmptyString $subtheme.id) -or -not (Is-SafeLessonText $subtheme.title) -or (-not $hasExercises -and -not $hasLessons)) {
-                    Add-Issue("${path}: sous-theme incomplet ou titre non sur ($($subtheme.id))")
-                    continue
-                }
-                if ($subthemeIds.ContainsKey($subtheme.id)) {
-                    Add-Issue("${path}: id de sous-theme duplique ($($subtheme.id))")
-                } else {
-                    $subthemeIds[$subtheme.id] = $true
-                }
-                if ($hasLessons) {
-                    foreach ($lesson in $subtheme.lessons) {
-                        Validate-Lesson $path $subtheme.id $lesson
-                    }
-                }
-                if ($hasExercises) {
-                    foreach ($exercise in $subtheme.exercises) {
-                        if (Is-NonEmptyString $exercise.id) {
-                            if ($exerciseIds.ContainsKey($exercise.id)) {
-                                Add-Issue("${path}: id d'exercice duplique ($($exercise.id))")
-                            } else {
-                                $exerciseIds[$exercise.id] = $true
-                            }
+            }
+            if ($hasExercises) {
+                foreach ($exercise in $subtheme.exercises) {
+                    if (Is-NonEmptyString $exercise.id) {
+                        if ($exerciseIds.ContainsKey($exercise.id)) {
+                            Add-Issue("${path}: id d'exercice duplique ($($exercise.id))")
+                        } else {
+                            $exerciseIds[$exercise.id] = $true
                         }
-                        Validate-Exercise $path $subtheme.id $exercise
                     }
+                    Validate-Exercise $path $subtheme.id $exercise
                 }
             }
         }
@@ -1009,9 +977,8 @@ foreach ($entry in $parsed.GetEnumerator()) {
     if ($entry.Key -notmatch '^[^/]+\.json$') { continue }
     if ($entry.Key -eq 'index.json') { continue }
 
-    $hasThemes = ($entry.Value.themes -is [System.Collections.IList]) -and $entry.Value.themes.Count -gt 0
     $hasSubjects = ($entry.Value.subjects -is [System.Collections.IList]) -and $entry.Value.subjects.Count -gt 0
-    if ($entry.Value.gradeId -and ($hasThemes -or $hasSubjects)) {
+    if ($entry.Value.gradeId -and $hasSubjects) {
         Validate-GradeData ("data/" + $entry.Key) $entry.Value
     }
 }

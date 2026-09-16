@@ -209,31 +209,55 @@
             return { valid: false, reason: 'Fichier de niveau invalide : gradeId manquant.' };
         }
 
-        const hasLegacyThemes = Array.isArray(data.themes) && data.themes.length > 0;
-        const hasSubjects = Array.isArray(data.subjects) && data.subjects.length > 0;
-
-        if (!hasLegacyThemes && !hasSubjects) {
-            return { valid: false, reason: 'Fichier de niveau invalide : themes/subjects manquants ou vides.' };
+        if (!Array.isArray(data.subjects) || data.subjects.length === 0) {
+            return { valid: false, reason: 'Fichier de niveau invalide : subjects manquants ou vides.' };
         }
 
-        const themeIds = [];
         const exerciseIds = [];
         const subjectIds = [];
         const subthemeIds = [];
 
-        if (hasLegacyThemes) {
-            for (const theme of data.themes) {
-                const check = this.validateTheme(theme);
-                if (!check.valid) return check;
+        for (const subject of data.subjects) {
+            if (!this.isPlainObject(subject)) {
+                return { valid: false, reason: "Fichier de niveau invalide : une matière n'est pas un objet." };
+            }
+            if (!this.isNonEmptyString(subject.id) || !this.isNonEmptyString(subject.title) || !Array.isArray(subject.subthemes) || subject.subthemes.length === 0) {
+                return { valid: false, reason: `Fichier de niveau invalide : matière incomplète (${subject?.id || 'id manquant'}).` };
+            }
 
-                themeIds.push(theme.id.trim());
+            subjectIds.push(subject.id.trim());
 
-                for (const exercise of theme.exercises) {
+            for (const subtheme of subject.subthemes) {
+                const check = this.validateSubtheme(subtheme);
+                if (!check.valid) {
+                    return { valid: false, reason: check.reason };
+                }
+
+                subthemeIds.push(subtheme.id.trim());
+
+                const lessonIds = [];
+                const lessons = Array.isArray(subtheme.lessons) ? subtheme.lessons : [];
+                for (const lesson of lessons) {
+                    const lessonCheck = this.validateLesson(lesson);
+                    if (!lessonCheck.valid) {
+                        return {
+                            valid: false,
+                            reason: `Fichier de niveau invalide : leçon ${lesson?.id || 'sans id'} dans ${subtheme.id} - ${lessonCheck.reason}`
+                        };
+                    }
+                    lessonIds.push(lesson.id.trim());
+                }
+
+                if (this.hasDuplicates(lessonIds)) {
+                    return { valid: false, reason: `Fichier de niveau invalide : id de leçons dupliqués dans ${subtheme.id}.` };
+                }
+
+                for (const exercise of subtheme.exercises) {
                     const exerciseCheck = this.validateExercise(exercise);
                     if (!exerciseCheck.valid) {
                         return {
                             valid: false,
-                            reason: `Fichier de niveau invalide : exercice ${exercise?.id || 'sans id'} dans ${theme.id} - ${exerciseCheck.reason}`
+                            reason: `Fichier de niveau invalide : exercice ${exercise?.id || 'sans id'} dans ${subtheme.id} - ${exerciseCheck.reason}`
                         };
                     }
                     exerciseIds.push(exercise.id.trim());
@@ -241,59 +265,6 @@
             }
         }
 
-        if (hasSubjects) {
-            for (const subject of data.subjects) {
-                if (!this.isPlainObject(subject)) {
-                    return { valid: false, reason: "Fichier de niveau invalide : une matière n'est pas un objet." };
-                }
-                if (!this.isNonEmptyString(subject.id) || !this.isNonEmptyString(subject.title) || !Array.isArray(subject.subthemes) || subject.subthemes.length === 0) {
-                    return { valid: false, reason: `Fichier de niveau invalide : matière incomplète (${subject?.id || 'id manquant'}).` };
-                }
-
-                subjectIds.push(subject.id.trim());
-
-                for (const subtheme of subject.subthemes) {
-                    const check = this.validateSubtheme(subtheme);
-                    if (!check.valid) {
-                        return { valid: false, reason: check.reason };
-                    }
-
-                    subthemeIds.push(subtheme.id.trim());
-
-                    const lessonIds = [];
-                    const lessons = Array.isArray(subtheme.lessons) ? subtheme.lessons : [];
-                    for (const lesson of lessons) {
-                        const lessonCheck = this.validateLesson(lesson);
-                        if (!lessonCheck.valid) {
-                            return {
-                                valid: false,
-                                reason: `Fichier de niveau invalide : leçon ${lesson?.id || 'sans id'} dans ${subtheme.id} - ${lessonCheck.reason}`
-                            };
-                        }
-                        lessonIds.push(lesson.id.trim());
-                    }
-
-                    if (this.hasDuplicates(lessonIds)) {
-                        return { valid: false, reason: `Fichier de niveau invalide : id de leçons dupliqués dans ${subtheme.id}.` };
-                    }
-
-                    for (const exercise of subtheme.exercises) {
-                        const exerciseCheck = this.validateExercise(exercise);
-                        if (!exerciseCheck.valid) {
-                            return {
-                                valid: false,
-                                reason: `Fichier de niveau invalide : exercice ${exercise?.id || 'sans id'} dans ${subtheme.id} - ${exerciseCheck.reason}`
-                            };
-                        }
-                        exerciseIds.push(exercise.id.trim());
-                    }
-                }
-            }
-        }
-
-        if (this.hasDuplicates(themeIds)) {
-            return { valid: false, reason: 'Fichier de niveau invalide : id de thèmes dupliqués.' };
-        }
         if (this.hasDuplicates(subjectIds)) {
             return { valid: false, reason: 'Fichier de niveau invalide : id de matières dupliqués.' };
         }
@@ -304,16 +275,6 @@
             return { valid: false, reason: 'Fichier de niveau invalide : id d\'exercices dupliqués.' };
         }
 
-        return { valid: true };
-    },
-
-    validateTheme(theme, label = 'thème') {
-        if (!this.isPlainObject(theme)) {
-            return { valid: false, reason: `Fichier de niveau invalide : un ${label} n'est pas un objet.` };
-        }
-        if (!this.isNonEmptyString(theme.id) || !this.isSafeLessonText(theme.title) || !Array.isArray(theme.exercises) || theme.exercises.length === 0) {
-            return { valid: false, reason: `Fichier de niveau invalide : ${label} incomplet ou titre non sûr (${theme?.id || 'id manquant'}).` };
-        }
         return { valid: true };
     },
 

@@ -24,6 +24,14 @@ sur le dispatch critique est disproportionné). À la place,
 `scripts/build-content-index.js --check` **échoue** si ces trois listes
 divergent : toute dérive future est attrapée en validation, pas en production.
 
+Le même garde-fou compare aussi trois énumérations littérales imbriquées,
+dupliquées mot pour mot entre `js/validators.js` et `scripts/validate-data.ps1`
+sans qu'aucune vérification croisée n'existait auparavant : les types valides
+de `board-interactive` (colonne ci-dessous), les subtypes valides de
+`conversion`, et ses modes `time`. Même classe de risque que les trois listes
+`knownEngines`, à l'échelle d'un `engine` particulier plutôt que de la liste
+globale.
+
 ## Trois natures de moteur (`sourceKind`)
 
 | `sourceKind` | Ce que ça implique pour `params` | Doublon = ? |

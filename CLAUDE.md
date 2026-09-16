@@ -28,7 +28,7 @@ node scripts/validate-maps.js       # à lancer après tout ajout de carte map-l
 node scripts/check-lesson-quiz.js   # à lancer après TOUTE modification d'un bloc `check` : couverture des quiz + les 5 règles éditoriales (docs/lesson-guidelines.md)
 ```
 
-**Anti-doublon et référencement (`scripts/build-content-index.js`)** : `--check` échoue si un `id` d'exercice/leçon est dupliqué (les validateurs historiques ne vérifient l'unicité que *par fichier* ; or un `id` est une clé de record côté utilisateur), si le registre des moteurs (`data/engine-registry.json`) diverge de `Validators.knownEngines`/`$knownEngines`, si les routes de validation de dataset (`board-interactive`/`matching`/`word-order`/`cloze-fill-in`…) divergent entre `js/validators.js` (`validateExerciseData`) et `scripts/validate-data.ps1` (boucle `$script:ExerciseRefs`), ou si `CONTENT_INDEX.json` est périmé. Ce garde-fou de routes existe parce qu'un tel écart a déjà cassé au clic les exercices `word-order` narratifs en prod malgré un `validate-data.ps1` vert. Il rapporte en **avertissement** (non bloquant) les doublons « mous » légitimes du contenu historique (variantes bonus, banque étalée sur plusieurs exercices) — leur but est de rendre visibles les viviers `dataFile::category` déjà utilisés pour ne pas **en créer de nouveaux**. `CONTENT_INDEX.json` (racine, généré) et `data/engine-registry.json` sont de l'**outillage** exclu du bundle runtime (voir `regenerate-data-bundle.ps1`) ; le registre est documenté dans `docs/engine-registry.md`.
+**Anti-doublon et référencement (`scripts/build-content-index.js`)** : `--check` échoue si un `id` d'exercice/leçon est dupliqué (les validateurs historiques ne vérifient l'unicité que *par fichier* ; or un `id` est une clé de record côté utilisateur), si le registre des moteurs (`data/engine-registry.json`) diverge de `Validators.knownEngines`/`$knownEngines`, si les routes de validation de dataset (`board-interactive`/`matching`/`word-order`/`cloze-fill-in`…) divergent entre `js/validators.js` (`validateExerciseData`) et `scripts/validate-data.ps1` (boucle `$script:ExerciseRefs`), si les énumérations imbriquées (types `board-interactive`, subtypes/modes `conversion`) divergent entre ces deux mêmes fichiers, ou si `CONTENT_INDEX.json` est périmé. Ce garde-fou de routes existe parce qu'un tel écart a déjà cassé au clic les exercices `word-order` narratifs en prod malgré un `validate-data.ps1` vert. Il rapporte en **avertissement** (non bloquant) les doublons « mous » légitimes du contenu historique (variantes bonus, banque étalée sur plusieurs exercices) — leur but est de rendre visibles les viviers `dataFile::category` déjà utilisés pour ne pas **en créer de nouveaux**. `CONTENT_INDEX.json` (racine, généré) et `data/engine-registry.json` sont de l'**outillage** exclu du bundle runtime (voir `regenerate-data-bundle.ps1`) ; le registre est documenté dans `docs/engine-registry.md`.
 
 **Vérification de syntaxe rapide sur un fichier JS modifié :**
 ```bash
@@ -57,6 +57,8 @@ En dev servi en local (`localhost`/`127.0.0.1`/`192.168.*`), `js/bootstrap.js` *
 
 **Ne jamais changer un contrat `engine` + `params` sans mettre à jour les deux validateurs** (`js/validators.js` runtime + `scripts/validate-data.ps1` hors-runtime) — ils doivent rester strictement synchronisés, sinon un contenu invalide passe en prod ou un contenu valide est rejeté à tort.
 
+`js/app.js` (le cœur : navigation/machine à états, cycle de jeu, profils, préférences, synthèse vocale, onboarding, « Nouveautés ») est complété par 4 modules fusionnés sur le même objet `App` via `Object.assign(App, {...})` (découpage mécanique, `this.state` et les appels croisés restent partagés) : `js/app-quiz.js` (Le Grand Quiz), `js/app-champion.js` (Mode Champions), `js/app-grimoire.js` (Grimoire : cartes, boosters, `mapCollectionDefinitions`), `js/app-parents.js` (Espace parents). `index.html` les charge juste après `app.js` et avant `bootstrap.js` ; `sw.js` les précache dans `APP_ASSETS`.
+
 Modules `engines-*.js` :
 - `engines-core.js` : utils partagés (`rnd`, `pick`, `pickUnused` — tirage sans répétition dans une session, `shuffle`, romanisation)
 - `engines-math.js`, `engines-french.js`, `engines-documentary.js` : générateurs par domaine
@@ -76,7 +78,7 @@ Niveau → `subjects[]` → `subthemes[]` → `lessons[]` et/ou `exercises[]`. U
 
 ### Cartes interactives (`map-locate`)
 
-Sous-système à part avec ses propres règles — lire `docs/maps-architecture.md` avant tout ajout/modif. En résumé : un exercice `map-locate` relie un SVG (`data/maps/*.svg`, un `<path id="zone" data-name="Nom">` par zone cliquable), une banque de questions (`targetZoneId` doit matcher un id du SVG), et une entrée dans `mapCollectionDefinitions` (`js/app.js`) pour la collection à débloquer. `node scripts/validate-maps.js` vérifie ces cohérences croisées.
+Sous-système à part avec ses propres règles — lire `docs/maps-architecture.md` avant tout ajout/modif. En résumé : un exercice `map-locate` relie un SVG (`data/maps/*.svg`, un `<path id="zone" data-name="Nom">` par zone cliquable), une banque de questions (`targetZoneId` doit matcher un id du SVG), et une entrée dans `mapCollectionDefinitions` (`js/app-grimoire.js`) pour la collection à débloquer. `node scripts/validate-maps.js` vérifie ces cohérences croisées.
 
 ### `storage.js` (localStorage)
 

@@ -23,7 +23,7 @@ data/maps/*.svg                    la carte
   └─ un <path id="zone" data-name="Nom"> par zone cliquable
      (chargé par fetchText, embarqué dans le bundle pour file://)
 
-js/app.js → mapCollectionDefinitions   la Collection "Cartes du monde"
+js/app-grimoire.js → mapCollectionDefinitions   la Collection "Cartes du monde"
   └─ un mapId par carte à débloquer (récompense ≥ 50 % sur un exercice)
 ```
 
@@ -44,7 +44,7 @@ js/app.js → mapCollectionDefinitions   la Collection "Cartes du monde"
      source + licence dans `CREDITS.md`
   2. Banque `data/board_map_locate_<nom>.json`
   3. Exercice(s) dans le(s) fichier(s) de niveau
-  4. `mapCollectionDefinitions` dans `js/app.js` (sinon warning du validateur)
+  4. `mapCollectionDefinitions` dans `js/app-grimoire.js` (sinon warning du validateur)
   5. SVG dans `DATA_ASSETS` de `sw.js` si servi hors bundle + bump CACHE_NAME
   6. `node scripts/validate-maps.js` puis régénérer le bundle
 

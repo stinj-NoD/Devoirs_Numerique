@@ -197,7 +197,7 @@ const UI = {
             el.textContent = '';
             const img = document.createElement('img');
             img.className = 'header-avatar-img';
-            img.src = appearance.cardImage;
+            img.src = this._safeImagePath(appearance.cardImage);
             img.alt = '';
             el.appendChild(img);
         } else {
@@ -216,7 +216,7 @@ const UI = {
         const icon = (value || "").toString().trim();
         if (!icon) return fallback;
         if (/[\uFFFD]/.test(icon) || /ï¿|Ã|�/.test(icon)) return fallback;
-        return icon;
+        return this._escapeText(icon);
     },
 
     resolveMenuIcon(item, menuVariant = '') {
@@ -393,7 +393,7 @@ const UI = {
                 <p class="profile-customize-starter-intro">Choisis ton premier compagnon, il grandira avec tes étoiles !</p>
                 <div class="profile-customize-starter-list">
                     ${starters.map((s) => `
-                        <button type="button" class="profile-customize-starter-option" data-starter-id="${this._escapeText(s.id)}">
+                        <button type="button" class="profile-customize-starter-option" data-starter-id="${this._safeAttr(s.id)}">
                             <span class="profile-customize-starter-emoji">${s.emoji}</span>
                             <span class="profile-customize-starter-label">${this._escapeText(s.label)}</span>
                         </button>
@@ -417,7 +417,7 @@ const UI = {
                     </div>
                     <div class="profile-customize-evolve-options">
                         ${nextOptions.map((opt) => `
-                            <button type="button" class="profile-customize-evolve-option" data-evolve-id="${this._escapeText(opt.id)}">
+                            <button type="button" class="profile-customize-evolve-option" data-evolve-id="${this._safeAttr(opt.id)}">
                                 <span class="profile-customize-evolve-emoji">${opt.emoji}</span>
                                 <span class="profile-customize-evolve-label">${this._escapeText(opt.label)}</span>
                             </button>
@@ -921,7 +921,7 @@ const UI = {
                         <button
                             type="button"
                             class="lesson-outline-item${item.id === lesson?.id ? ' is-active' : ''}"
-                            data-lesson-id="${this._escapeText(item.id)}"
+                            data-lesson-id="${this._safeAttr(item.id)}"
                         >
                             <span class="lesson-outline-index">${index + 1}</span>
                             <span class="lesson-outline-content">
@@ -1731,7 +1731,7 @@ const UI = {
             h += `<span class="syll-${sIdx%2}">`;
             for (let char of syll) {
                 const isSilent = d.silent && d.silent.includes(charIdx);
-                h += `<span class="${isSilent ? 'char-silent' : ''}">${char}</span>`;
+                h += `<span class="${isSilent ? 'char-silent' : ''}">${this._escapeText(char)}</span>`;
                 charIdx++;
             }
             h += `</span>`;
@@ -1798,7 +1798,7 @@ const UI = {
 
         let slots;
         if (isQCM) {
-            slots = `<div class="word-full">${word}</div>`;
+            slots = `<div class="word-full">${this._escapeText(word)}</div>`;
         } else {
             slots = '<div class="spelling-slots">' + word.split("").map((_, idx) => {
                 const char = input[idx] ? input[idx].toUpperCase() : "";
@@ -1837,9 +1837,9 @@ const UI = {
 
         return `
             <div class="conjugation-container">
-                <div class="tense-badge">${temps}</div>
+                <div class="tense-badge">${this._escapeText(temps)}</div>
                 <div class="verb-machine">
-                    <div class="verb-infinitive">${infinitif}</div>
+                    <div class="verb-infinitive">${this._escapeText(infinitif)}</div>
                     <div class="verb-body">
                         <span class="pronoun-tag">${pronom}</span>
                         <span class="verb-input-zone">${saisie}</span>
@@ -2308,7 +2308,7 @@ const UI = {
                 <div class="collection-maps-list">
                     ${series.cards.map((c) => c.unlocked ? `
                         <button type="button" class="collection-map is-unlocked collection-map--fact"
-                            data-fact="${this._escapeText(c.fact || '')}"
+                            data-fact="${this._safeAttr(c.fact || '')}"
                             aria-label="${this._escapeText(c.label)} — toucher pour découvrir une anecdote">
                             <span class="collection-map-icon" aria-hidden="true">${c.icon}</span>
                             <span class="collection-map-label">${this._escapeText(c.label)}</span>
@@ -2475,7 +2475,7 @@ const UI = {
             }
             const mythique = card.family === 'mythologie' ? ' grimoire-card--mythique' : '';
             return `
-                <button type="button" class="grimoire-card ${this._cardRarityClass(card.rarity)}${mythique}" data-card-id="${this._escapeText(card.id)}"
+                <button type="button" class="grimoire-card ${this._cardRarityClass(card.rarity)}${mythique}" data-card-id="${this._safeAttr(card.id)}"
                     aria-label="${this._escapeText(card.name)}, carte ${this._escapeText(rarities[card.rarity]?.label || card.rarity)}${card.family === 'mythologie' ? ', Mythique' : ''}">
                     <img class="grimoire-card-img" src="${this._safeImagePath(card.image)}" alt="" loading="lazy">
                     <div class="grimoire-card-name">${this._escapeText(card.name)}</div>

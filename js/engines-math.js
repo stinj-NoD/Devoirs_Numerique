@@ -105,7 +105,12 @@
                     { item: 'bonbons', unit: '€', label: 'bonbons' },
                     { item: 'litres de jus', unit: '€', label: 'litres' }
                 ];
-                const ctx = pick(contexts);
+                const rawCtx = pick(contexts);
+                const ctx = {
+                    ...rawCtx,
+                    label: SecurityUtils.escapeHtml((rawCtx.label || '').toString()),
+                    unit: SecurityUtils.escapeHtml((rawCtx.unit || '').toString())
+                };
                 const coef = rnd(2, p.maxCoef || 5);
                 const baseQty = rnd(1, p.maxBase || 6);
                 const basePrix = rnd(1, p.maxBase || 6);
@@ -473,7 +478,7 @@
                     'kilomètres parcourus par jour',
                     'livres lus par mois'
                 ];
-                const context = pick(contexts);
+                const context = SecurityUtils.escapeHtml(pick(contexts).toString());
                 const question = `Voici une série de ${context} : ${values.join(', ')}.<br>Quelle est la moyenne de cette série ?`;
                 const explanation = `${values.join(' + ')} = ${sum}. ${sum} ÷ ${seriesLength} = ${average}.`;
                 return {

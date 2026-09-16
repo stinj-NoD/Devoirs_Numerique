@@ -58,7 +58,11 @@ Elle gère :
 Fichiers principaux :
 - [index.html](index.html) : shell SPA
 - [app.css](css/app.css) : styles globaux
-- [app.js](js/app.js) : orchestration, navigation, runtime, Grimoire, Mode Champions, Grand Quiz
+- [app.js](js/app.js) : cœur — orchestration, navigation, cycle de jeu, profils, préférences, synthèse vocale, onboarding, Nouveautés
+- [app-quiz.js](js/app-quiz.js) : Le Grand Quiz (culture générale)
+- [app-champion.js](js/app-champion.js) : Mode Champions (chronométré)
+- [app-grimoire.js](js/app-grimoire.js) : Grimoire (collection de cartes, boosters, `mapCollectionDefinitions`)
+- [app-parents.js](js/app-parents.js) : Espace parents (PIN, dashboard, export/import, guide)
 - [bootstrap.js](js/bootstrap.js) : amorçage, désenregistrement du service worker en dev local
 - [security.js](js/security.js) : échappement HTML/attributs, sanitation des IDs (`SecurityUtils`)
 - [ui.js](js/ui.js) : rendu UI et cartes

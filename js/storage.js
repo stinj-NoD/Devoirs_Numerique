@@ -252,7 +252,7 @@ const Storage = {
         return {
             key,
             ownedIds: clean,
-            boostersSansNouvelle: Math.max(0, Number(raw.boostersSansNouvelle) || 0),
+            boostersSansNouvelle: Math.min(999999, Math.max(0, Number(raw.boostersSansNouvelle) || 0)),
             seriesClaimed
         };
     },
@@ -1189,7 +1189,9 @@ const Storage = {
                     champion: this._safeParseObject(this._getItem(`champion_${cleanName}`)),
                     redemptions: this.getRedemptionCount(cleanName),
                     coins: this.getCoins(cleanName),
-                    cards: this._safeParseObject(this._getItem(`cards_${cleanName}`))
+                    cards: this._safeParseObject(this._getItem(`cards_${cleanName}`)),
+                    dailyChallenge: this._safeParseObject(this._getItem(`daily_challenge_${cleanName}`)),
+                    newsSeenVersion: this.getLastSeenNewsVersion(cleanName)
                 };
             })
         };
@@ -1254,6 +1256,13 @@ const Storage = {
             }
             if (profile.cards && typeof profile.cards === 'object' && !Array.isArray(profile.cards)) {
                 this._setItem(`cards_${cleanName}`, JSON.stringify(profile.cards));
+            }
+            if (profile.dailyChallenge && typeof profile.dailyChallenge === 'object' && !Array.isArray(profile.dailyChallenge)) {
+                this._setItem(`daily_challenge_${cleanName}`, JSON.stringify(profile.dailyChallenge));
+            }
+            const newsSeenVersion = Math.max(0, Number(profile.newsSeenVersion) || 0);
+            if (newsSeenVersion > 0) {
+                this.setLastSeenNewsVersion(newsSeenVersion, cleanName);
             }
             // L'apparence en dernier : le déblocage d'un accessoire dépend des
             // badges, donc des records qui viennent d'être restaurés.

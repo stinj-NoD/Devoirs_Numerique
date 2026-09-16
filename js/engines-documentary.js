@@ -49,7 +49,7 @@ const EnginesDocumentary = {
         const right = shuffle(pairs.map((pair, index) => ({ id: index, label: pair[1] })));
 
         return {
-            question: item.title || "Relie chaque élément à sa correspondance.",
+            question: SecurityUtils.escapeHtml(item.title || "Relie chaque élément à sa correspondance."),
             answer: pairs.map((_, index) => index).join(","),
             inputType: "matching",
             isVisual: true,
@@ -85,9 +85,9 @@ const EnginesDocumentary = {
         const shuffled = shuffle(units.map((label, index) => ({ id: index, label })));
 
         return {
-            question: item.instruction || (isStorySequence
+            question: SecurityUtils.escapeHtml(item.instruction || (isStorySequence
                 ? "Remets les phrases dans le bon ordre pour reconstituer le récit."
-                : "Remets les mots dans le bon ordre pour former une phrase."),
+                : "Remets les mots dans le bon ordre pour former une phrase.")),
             answer: units.map((_, i) => i).join(","),
             inputType: "word-order",
             isVisual: true,
@@ -149,7 +149,7 @@ const EnginesDocumentary = {
             }));
 
             return {
-                question: timelineDef.title || "Remets les événements dans l'ordre.",
+                question: SecurityUtils.escapeHtml(timelineDef.title || "Remets les événements dans l'ordre."),
                 answer: orderItems.map((item) => item.id).join(","),
                 inputType: 'selection',
                 isVisual: true,
@@ -211,7 +211,7 @@ const EnginesDocumentary = {
             if (!promptLabel) promptLabel = target.label;
 
             return {
-                question: timelineDef.title || "Place l'événement sur la frise.",
+                question: SecurityUtils.escapeHtml(timelineDef.title || "Place l'événement sur la frise."),
                 answer: target.year.toString(),
                 inputType: 'selection',
                 isVisual: true,

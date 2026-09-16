@@ -16,7 +16,11 @@
  *         mort des validateurs actuels, qui ne vérifient l'unicité que par
  *         fichier — or les ids sont des clés de records côté utilisateur) ;
  *       - les listes knownEngines de js/validators.js, scripts/validate-data.ps1
- *         et data/engine-registry.json divergent (garde-fou du registre).
+ *         et data/engine-registry.json divergent (garde-fou du registre) ;
+ *       - les énumérations imbriquées (types board-interactive, subtypes/modes
+ *         de conversion) divergent entre js/validators.js et
+ *         scripts/validate-data.ps1 (même famille de risque que les routes
+ *         de dataset ci-dessus).
  *     Rapporte en WARNING (sans échouer) les doublons "mous", légitimes pour
  *     le contenu existant (variantes bonus, banque étalée sur plusieurs
  *     exercices) mais que l'agent auteur doit voir pour ne pas EN AJOUTER :
@@ -181,6 +185,50 @@ function datasetRoutesFromValidatePs1() {
     return [...body.matchAll(/\$ref\.(?:Engine|Type) -eq '([^']+)'/g)].map(x => x[1]);
 }
 
+/*
+ * Garde-fou supplémentaire (2) : les énumérations littérales imbriquées dans
+ * validateExercise/le bloc board-interactive+conversion, dupliquées mot pour
+ * mot entre js/validators.js et scripts/validate-data.ps1 sans qu'aucun
+ * garde-fou ne les compare — même classe de risque que les routes de dataset
+ * ci-dessus (angle mort identifié lors de la revue d'architecture de 2026-09).
+ */
+function boardTypesFromValidatorsJs() {
+    const src = fs.readFileSync(path.join(ROOT, 'js', 'validators.js'), 'utf8');
+    const m = src.match(/!\[([^\]]+)\]\.includes\(exercise\.params\.type\)\)\s*\{\s*\n\s*return \{ valid: false, reason: 'type board-interactive invalide\.' \};/);
+    if (!m) return null;
+    return [...m[1].matchAll(/'([^']+)'/g)].map(x => x[1]);
+}
+function boardTypesFromValidatePs1() {
+    const src = fs.readFileSync(path.join(ROOT, 'scripts', 'validate-data.ps1'), 'utf8');
+    const m = src.match(/\$validBoardTypes = @\(([^)]+)\)/);
+    if (!m) return null;
+    return [...m[1].matchAll(/'([^']+)'/g)].map(x => x[1]);
+}
+function conversionSubtypesFromValidatorsJs() {
+    const src = fs.readFileSync(path.join(ROOT, 'js', 'validators.js'), 'utf8');
+    const m = src.match(/const validSubtypes = \[([^\]]+)\];/);
+    if (!m) return null;
+    return [...m[1].matchAll(/'([^']+)'/g)].map(x => x[1]);
+}
+function conversionSubtypesFromValidatePs1() {
+    const src = fs.readFileSync(path.join(ROOT, 'scripts', 'validate-data.ps1'), 'utf8');
+    const m = src.match(/\$validConversionSubtypes = @\(([^)]+)\)/);
+    if (!m) return null;
+    return [...m[1].matchAll(/'([^']+)'/g)].map(x => x[1]);
+}
+function timeModesFromValidatorsJs() {
+    const src = fs.readFileSync(path.join(ROOT, 'js', 'validators.js'), 'utf8');
+    const m = src.match(/const validTimeModes = \[([^\]]+)\];/);
+    if (!m) return null;
+    return [...m[1].matchAll(/'([^']+)'/g)].map(x => x[1]);
+}
+function timeModesFromValidatePs1() {
+    const src = fs.readFileSync(path.join(ROOT, 'scripts', 'validate-data.ps1'), 'utf8');
+    const m = src.match(/\$validTimeModes = @\(([^)]+)\)/);
+    if (!m) return null;
+    return [...m[1].matchAll(/'([^']+)'/g)].map(x => x[1]);
+}
+
 function sortedEqual(a, b) {
     if (!a || !b || a.length !== b.length) return false;
     const sa = [...a].sort();
@@ -269,6 +317,28 @@ function detect(index) {
         errors.push(`Routes de validation de dataset désynchronisées entre validators.js et validate-data.ps1` +
             (missPs.length ? ` — absentes de validate-data.ps1: ${missPs.join(', ')}` : '') +
             (extraPs.length ? ` — en trop dans validate-data.ps1: ${extraPs.join(', ')}` : ''));
+    }
+
+    // 6. Garde-fou : énumérations littérales imbriquées (board-interactive
+    //    types, subtypes/modes de conversion) dupliquées entre validators.js
+    //    et validate-data.ps1 sans vérification croisée jusqu'ici.
+    const enumChecks = [
+        ['type board-interactive', boardTypesFromValidatorsJs, boardTypesFromValidatePs1],
+        ['subtype conversion', conversionSubtypesFromValidatorsJs, conversionSubtypesFromValidatePs1],
+        ['modes conversion/time', timeModesFromValidatorsJs, timeModesFromValidatePs1]
+    ];
+    for (const [label, fromJs, fromPs1] of enumChecks) {
+        const vals = fromJs();
+        const vals2 = fromPs1();
+        if (!vals) errors.push(`Impossible d'extraire l'énumération "${label}" de js/validators.js`);
+        if (!vals2) errors.push(`Impossible d'extraire l'énumération "${label}" de scripts/validate-data.ps1`);
+        if (vals && vals2 && !sortedEqual(vals, vals2)) {
+            const missPs1 = vals.filter(x => !vals2.includes(x));
+            const extraPs1 = vals2.filter(x => !vals.includes(x));
+            errors.push(`Énumération "${label}" désynchronisée entre validators.js et validate-data.ps1` +
+                (missPs1.length ? ` — absentes de validate-data.ps1: ${missPs1.join(', ')}` : '') +
+                (extraPs1.length ? ` — en trop dans validate-data.ps1: ${extraPs1.join(', ')}` : ''));
+        }
     }
 
     return { errors, warnings };
