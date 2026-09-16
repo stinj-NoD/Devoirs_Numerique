@@ -603,7 +603,7 @@ const App = {
         this.renderProfilesScreen();
     },
 
-    getNavUiState(screenId = document.querySelector('.screen.active')?.id || 'screen-profiles') {
+    getNavUiState(screenId = document.querySelector('.screen.active, .screen.active--back')?.id || 'screen-profiles') {
         const isProfileRoot = screenId === 'screen-profiles' || screenId === 'screen-onboarding';
         const isGame = screenId === 'screen-game';
         return {
@@ -617,13 +617,13 @@ const App = {
     },
 
     confirmLeaveExercise() {
-        const currentScreen = document.querySelector('.screen.active')?.id || '';
+        const currentScreen = document.querySelector('.screen.active, .screen.active--back')?.id || '';
         if (currentScreen !== 'screen-game') return true;
         return confirm("Quitter cet exercice et perdre la progression en cours ?");
     },
 
     openNavMenu() {
-        const currentScreen = document.querySelector('.screen.active')?.id || '';
+        const currentScreen = document.querySelector('.screen.active, .screen.active--back')?.id || '';
         const actions = [];
 
         if (currentScreen !== 'screen-profiles') {
@@ -846,7 +846,7 @@ const App = {
         this._goBackInFlight = true;
         UI.closeNavSheet?.(false);
         const wasChampionMode = !!this.state.championMode;
-        const currentScreen = document.querySelector('.screen.active')?.id;
+        const currentScreen = document.querySelector('.screen.active, .screen.active--back')?.id;
         this.stopCurrentExercise();
         const actions = {
             'screen-progress': () => UI.showScreen('screen-mode'),
