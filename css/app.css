@@ -113,6 +113,15 @@ input {
     width: 100%;
     max-width: var(--container-max);
     background: var(--color-surface);
+    /* `body` (ligne ~104) déclare déjà color: var(--color-text), mais body
+       est un ANCÊTRE de #app, donc en dehors de la portée #app.theme-dark :
+       sa valeur calculée reste celle du thème clair. #app en hérite tel
+       quel (color n'était pas redéclaré ici), donc tout élément qui ne fixe
+       pas lui-même sa couleur (ex. .screen h1/h2, qui ne posent que
+       margin: 0) restait bloqué sur le texte clair, illisible en thème
+       sombre. Redéclarer color ici force sa résolution dans LA portée
+       #app, où #app.theme-dark redéfinit correctement --color-text. */
+    color: var(--color-text);
     display: flex;
     flex-direction: column;
     position: relative;
