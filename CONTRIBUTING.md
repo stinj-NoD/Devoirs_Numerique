@@ -40,8 +40,9 @@ Après tout changement dans `data/` ou `js/validators.js` :
 2. lancer `node scripts/build-content-index.js --check` (anti-doublon : ids uniques inter-niveaux + cohérence du registre des moteurs — échoue si un `id` est dupliqué ou si `CONTENT_INDEX.json` est périmé)
 3. régénérer [data-bundle.js](js/data-bundle.js) via [regenerate-data-bundle.ps1](scripts/regenerate-data-bundle.ps1)
 4. régénérer l'index anti-doublon : `node scripts/build-content-index.js --write` (met à jour `CONTENT_INDEX.json`)
-5. lancer les validateurs complémentaires si pertinent : `node scripts/validate-subjects.js`, `node scripts/validate-maps.js` (après ajout d'une carte `map-locate`)
-6. vérifier au minimum :
+5. lancer les validateurs complémentaires si pertinent : `node scripts/validate-subjects.js`, `node scripts/validate-maps.js` (après ajout d'une carte `map-locate`), `node scripts/check-lesson-quiz.js` (après toute modification d'un bloc `check`)
+6. lancer le filet anti-régression sur tout le contenu : `node scripts/smoke-exercises.js` (attendu : `SMOKE_EXERCISES_OK`). Il démarre chaque exercice dans un navigateur et attrape ce que les validateurs de forme ne voient pas — réponse vide, bonne réponse absente de ses propres `choices`, exercice qui sort en `failSafeExit`
+7. vérifier au minimum :
    - une leçon
    - un exercice maths
    - un exercice français

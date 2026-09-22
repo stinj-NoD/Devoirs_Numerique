@@ -13,11 +13,11 @@ Une couche de gamification annexe (le **Grimoire**) vient soutenir l'engagement 
 Le socle est aujourd'hui stable sur quatre axes :
 - navigation locale profils -> classe -> parcours -> matière -> sous-thème
 - bibliothèque globale de leçons par niveau
-- corpus de **1013 exercices et 367 leçons** CP à CM2 sur maths, français, histoire, géographie, sciences et EMC (chiffres de [CONTENT_ARCHITECTURE.md](CONTENT_ARCHITECTURE.md), généré depuis `data/`)
+- corpus de **1082 exercices et 414 leçons** CP à CM2 sur maths, français, histoire, géographie, sciences et EMC (chiffres de [CONTENT_ARCHITECTURE.md](CONTENT_ARCHITECTURE.md), généré depuis `data/`)
 - validation forte des données avant runtime et bundle offline régénéré
 
 Le projet propose aussi :
-- des activités interactives non-QCM (`board-interactive` : cartes à toucher, classement de figures, mémoire, fractions à construire, symétrie, cartes interactives `map-locate`, lecture de graphiques...)
+- des activités interactives non-QCM (`board-interactive` : cartes à toucher, classement de figures, mémoire, fractions à construire, symétrie, cartes interactives `map-locate`, ligne numérique graduée `number-line`, lecture de graphiques...)
 - un système Grimoire complet : économie de pièces, boosters, collection de cartes, arbre d'évolution d'avatar (voir [grimoire-economy.md](docs/grimoire-economy.md))
 - un système de badges de maîtrise par matière et de séries de jours consécutifs (streak) pour suivre la progression
 - un Mode Champions (épreuve chronométrée) et un Grand Quiz cross-profil

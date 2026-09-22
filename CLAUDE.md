@@ -28,6 +28,13 @@ node scripts/validate-maps.js       # à lancer après tout ajout de carte map-l
 node scripts/check-lesson-quiz.js   # à lancer après TOUTE modification d'un bloc `check` : couverture des quiz + les 5 règles éditoriales (docs/lesson-guidelines.md)
 ```
 
+**Filet anti-régression sur la totalité du contenu (`scripts/smoke-exercises.js`)** : démarre **chaque** exercice des 5 niveaux dans un vrai navigateur, génère plusieurs questions par exercice et signale tout ce qui rend un exercice injouable — sortie en `failSafeExit`, problème rejeté par les validateurs runtime, réponse vide, ou bonne réponse absente de ses propres `choices`. C'est le seul contrôle qui voie ces défauts : les validateurs hors-runtime vérifient la *forme* des données, pas ce qu'un moteur produit réellement sur un tirage donné. Il a trouvé 2 exercices d'angles droits injouables (énoncé « touche tous les angles droits » sur un parallélogramme qui n'en a aucun) passés au travers de toute la chaîne existante.
+```bash
+export NODE_PATH="C:/Users/fayne/AppData/Local/npm-cache/_npx/48b1ca104c3549f4/node_modules"
+node scripts/smoke-exercises.js     # démarre son propre serveur ; attendu : SMOKE_EXERCISES_OK
+```
+Playwright est emprunté au cache npx, **jamais** ajouté en dépendance du projet (même convention que la compétence `verify`).
+
 **Anti-doublon et référencement (`scripts/build-content-index.js`)** : `--check` échoue si un `id` d'exercice/leçon est dupliqué (les validateurs historiques ne vérifient l'unicité que *par fichier* ; or un `id` est une clé de record côté utilisateur), si le registre des moteurs (`data/engine-registry.json`) diverge de `Validators.knownEngines`/`$knownEngines`, si les routes de validation de dataset (`board-interactive`/`matching`/`word-order`/`cloze-fill-in`…) divergent entre `js/validators.js` (`validateExerciseData`) et `scripts/validate-data.ps1` (boucle `$script:ExerciseRefs`), si les énumérations imbriquées (types `board-interactive`, subtypes/modes `conversion`) divergent entre ces deux mêmes fichiers, ou si `CONTENT_INDEX.json` est périmé. Ce garde-fou de routes existe parce qu'un tel écart a déjà cassé au clic les exercices `word-order` narratifs en prod malgré un `validate-data.ps1` vert. Il rapporte en **avertissement** (non bloquant) les doublons « mous » légitimes du contenu historique (variantes bonus, banque étalée sur plusieurs exercices) — leur but est de rendre visibles les viviers `dataFile::category` déjà utilisés pour ne pas **en créer de nouveaux**. `CONTENT_INDEX.json` (racine, généré) et `data/engine-registry.json` sont de l'**outillage** exclu du bundle runtime (voir `regenerate-data-bundle.ps1`) ; le registre est documenté dans `docs/engine-registry.md`.
 
 **Vérification de syntaxe rapide sur un fichier JS modifié :**
@@ -62,7 +69,7 @@ En dev servi en local (`localhost`/`127.0.0.1`/`192.168.*`), `js/bootstrap.js` *
 Modules `engines-*.js` :
 - `engines-core.js` : utils partagés (`rnd`, `pick`, `pickUnused` — tirage sans répétition dans une session, `shuffle`, romanisation)
 - `engines-math.js`, `engines-french.js`, `engines-documentary.js` : générateurs par domaine
-- `engines-board.js` : activités interactives non-QCM (tap-features, shape-classify, point-on-grid, symmetry-complete, fraction-build, map-locate, memory-match, angle-classify, angle-measure, construction-report) — rendues par `ui-board.js`
+- `engines-board.js` : activités interactives non-QCM (tap-features, shape-classify, point-on-grid, symmetry-complete, fraction-build, map-locate, memory-match, angle-classify, angle-measure, construction-report, number-line-place, number-line-frame) — rendues par `ui-board.js`
 
 ### Structure du contenu (`data/`)
 
