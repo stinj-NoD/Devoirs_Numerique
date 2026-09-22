@@ -10,16 +10,16 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 
 ## Vue d'ensemble
 
-- **1031 exercices** et **380 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1082 exercices** et **414 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
 |---|---|
-| `choice-engine` | 552 |
-| `math-input` | 164 |
-| `reading` | 52 |
+| `choice-engine` | 575 |
+| `math-input` | 180 |
+| `reading` | 58 |
+| `board-interactive` | 53 |
 | `matching` | 49 |
-| `board-interactive` | 47 |
 | `conjugation` | 47 |
 | `audio-spelling` | 44 |
 | `conversion` | 28 |
@@ -33,14 +33,14 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 
 | Type board-interactive | Nombre d'exercices |
 |---|---|
-| `tap-features` | 11 |
-| `map-locate` | 10 |
-| `point-on-grid` | 6 |
-| `number-line-place` | 3 |
-| `memory-match` | 3 |
+| `tap-features` | 12 |
+| `map-locate` | 11 |
+| `point-on-grid` | 7 |
+| `number-line-place` | 4 |
+| `memory-match` | 4 |
+| `number-line-frame` | 3 |
 | `symmetry-complete` | 3 |
 | `angle-measure` | 3 |
-| `number-line-frame` | 2 |
 | `fraction-build` | 2 |
 | `shape-classify` | 2 |
 | `angle-classify` | 1 |
@@ -350,13 +350,17 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Se repérer `(cp-geo-reperage-subtheme)`
 
-- **Leçons** (2) :
+- **Leçons** (4) :
   - Se repérer à l'école `(cp-lesson-se-reperer-ecole)` — blocs: paragraph, example, bullets, tip, check, check
   - Ma gauche, ma droite `(cp-lesson-gauche-droite)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (4) :
+  - Les quatre points cardinaux `(cp-lesson-points-cardinaux)` — blocs: paragraph, example, bullets, tip, check, check
+  - La rose des vents `(cp-lesson-rose-des-vents)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (6) :
   - Se repérer `(cp-geo-reperer)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-se-reperer, questions=6
   - Se repérer à l'école `(cp-geo-ecole-trajets)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cp.json, category=cp-se-reperer
   - Les lieux de l'école `(cp-geo-lieux-ecole)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cp.json, category=cp-lieux-ecole
+  - Les points cardinaux `(cp-geo-points-cardinaux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-points-cardinaux, questions=6
+  - La rose des vents `(cp-geo-rose-des-vents)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-rose-des-vents, questions=6
   - Défi : se repérer `(cp-bonus-reperage-defi)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/geography_cp.json, category=cp-lieux-ecole, bonus (seuil=2)
 
 #### Paysages `(cp-geo-paysages-subtheme)`
@@ -380,17 +384,30 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Lieux publics `(cp-geo-lieux-publics)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-lieux-publics, questions=6
   - Défi : grand voyageur `(cp-bonus-transports-lieux-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-transports-lieux, questions=10, bonus (seuil=2)
 
+#### Des représentations du monde `(cp-geo-representations-monde-subtheme)`
+
+- **Leçons** (2) :
+  - Le globe et le planisphère `(cp-lesson-globe-planisphere)` — blocs: paragraph, paragraph, example, tip, check, check
+  - La terre et les océans `(cp-lesson-terre-mer-ocean)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (3) :
+  - Le globe et le planisphère `(cp-geo-globe-planisphere)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-representations-monde, questions=6
+  - La terre et les océans `(cp-geo-terre-mer-ocean)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-terre-mer-ocean, questions=6
+  - Le planisphère des continents `(cp-geo-carte-monde-continents)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_cp.json, mapFile=data/maps/world-continents.svg, mapId=world-continents, category=cp_map_continents_monde, questions=4
+
 ### Questionner le vivant et la matière (cp-sciences-subject)
 
 #### Le vivant `(cp-sciences-vivant-subtheme)`
 
-- **Leçons** (3) :
+- **Leçons** (4) :
   - Les besoins du vivant `(cp-lesson-vivant-besoins)` — blocs: paragraph, example, bullets, tip, check, check
   - Plantes et animaux `(cp-lesson-plantes-animaux)` — blocs: paragraph, example, bullets, tip, check, check
   - Vivant ou non-vivant `(cp-lesson-vivant-non-vivant)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (3) :
+  - Élaboré par des êtres vivants `(cp-lesson-vivant-fabrique)` — blocs: paragraph, example, bullets, mini-table, tip, check, check
+- **Exercices** (5) :
   - Le vivant `(cp-sciences-vivant)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-vivant, questions=6
   - Animaux et plantes `(cp-sciences-animaux-plantes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-animaux-plantes-quotidien, questions=6
+  - Vivant, non vivant, élaboré `(cp-sciences-tri-trois-categories)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-tri-trois-categories, questions=6
+  - Jeu de mémoire : d'où ça vient ? `(cp-sciences-memoire-origine-vivant)` — engine: `board-interactive`, type=memory-match, dataFile=data/board_memory_match_cp.json, category=cp_memory_match_sciences, questions=3
   - Défi : le vivant `(cp-bonus-sciences-vivant-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-vivant, questions=9, bonus (seuil=2)
 
 #### Matière et lumière `(cp-sciences-matiere-subtheme)`
@@ -446,6 +463,15 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - L'utilité des objets `(cp-sciences-objets-usages-quotidien)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-objets-usages, questions=6
   - L'hygiène au quotidien `(cp-sciences-hygiene)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-hygiene-quotidienne, questions=6
   - Défi : objets et matériaux `(cp-bonus-sciences-objets-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-objets-quotidien, questions=8, bonus (seuil=2)
+
+#### Chaud, froid et température `(cp-sciences-temperature-subtheme)`
+
+- **Leçons** (2) :
+  - Chaud, tiède ou froid `(cp-lesson-chaud-froid-tiede)` — blocs: paragraph, example, bullets, tip, check, check
+  - Mesurer avec un thermomètre `(cp-lesson-thermometre-degres)` — blocs: paragraph, paragraph, example, bullets, tip, check, check
+- **Exercices** (2) :
+  - Chaud, tiède ou froid `(cp-sciences-chaud-froid)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-chaud-froid, questions=6
+  - Lire un thermomètre `(cp-sciences-thermometre)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-temperature-thermometre, questions=6
 
 ### EMC (cp-emc-subject)
 
@@ -534,7 +560,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Nombres & Calculs `(ce1-nombres-calculs)`
 
-- **Leçons** (8) :
+- **Leçons** (9) :
   - Compléter jusqu'à 20 `(ce1-lesson-complements-20)` — blocs: paragraph, example, bullets, tip, check, check
   - Doubles et moitiés `(ce1-lesson-doubles-moities)` — blocs: paragraph, example, bullets, tip, check, check
   - Additionner jusqu'à 100 `(ce1-lesson-additionner-100)` — blocs: paragraph, example, bullets, tip, check, check
@@ -543,7 +569,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Les fractions simples `(ce1-lesson-fractions-simples)` — blocs: paragraph, example, bullets, tip, check, check
   - Lire un prix avec une virgule `(ce1-lesson-monnaie-decimale)` — blocs: paragraph, example, mini-table, tip, bullets, check, check
   - Encadrer un nombre entre deux centaines `(ce1-lesson-encadrement-centaines)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (26) :
+  - La fraction est un nombre `(ce1-lesson-fraction-sur-ligne)` — blocs: paragraph, example, tip, check, check
+- **Exercices** (32) :
   - Compléments à 100 `(add-100)` — engine: `math-input`, type=add-trou, min=10, max=100, questions=10
   - Calcul rapide `(add-chrono)` — engine: `math-input`, type=oiseau-math, min=10, max=30, vitesse=5, questions=10
   - Comparer jusqu'à 100 `(comp-ce1-1)` — engine: `choice-engine`, range=100, questions=10
@@ -570,16 +597,23 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Partager en parts égales `(ce1-fractions-partage)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=ce1-fractions, questions=8
   - Lire un prix avec une virgule `(ce1-monnaie-decimale-lecture)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=ce1-monnaie-decimale, questions=8
   - Encadrer entre deux centaines `(ce1-encadrement-centaines)` — engine: `board-interactive`, type=number-line-frame, dataFile=data/board_number_line_ce1.json, category=ce1_number_line_frame_centaines, questions=6
+  - Placer une fraction `(ce1-fractions-ligne-graduee)` — engine: `board-interactive`, type=number-line-place, dataFile=data/board_number_line_ce1.json, category=ce1_fractions_ligne_graduee, questions=6
+  - Addition posée jusqu’à 1000 `(ce1-addition-posee-centaines)` — engine: `math-input`, type=operation-posed, operator=add, level=2, questions=6
+  - Soustraction posée jusqu’à 1000 `(ce1-soustraction-posee-centaines)` — engine: `math-input`, type=operation-posed, operator=sub, level=2, questions=6
+  - Centaines, dizaines, unités `(ce1-decomposition-cdu)` — engine: `math-input`, type=place-value, digitCount=3, ask=digit, questions=6
+  - La valeur d’un chiffre `(ce1-valeur-chiffre-cdu)` — engine: `math-input`, type=place-value, digitCount=3, ask=value, questions=6
+  - Comparer jusqu’à 1000 `(ce1-comparer-1000)` — engine: `choice-engine`, range=1000, questions=10
 
 #### Géométrie et mesures `(ce1-geometrie-mesures-subtheme)`
 
-- **Leçons** (5) :
+- **Leçons** (6) :
   - Reconnaître des formes `(ce1-lesson-formes-planes)` — blocs: paragraph, example, bullets, paragraph, tip, check, check
   - Mesurer et comparer `(ce1-lesson-mesurer-comparer)` — blocs: paragraph, example, bullets, tip, check, check
   - Se repérer dans la journée `(ce1-lesson-se-reperer-journee)` — blocs: paragraph, example, bullets, tip, check, check
   - Lire l'heure `(ce1-lesson-lire-heure)` — blocs: paragraph, example, bullets, tip, check, check
   - Masses et contenances `(ce1-lesson-masses-contenances)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (7) :
+  - Se repérer sur un quadrillage `(ce1-lesson-quadrillage)` — blocs: paragraph, example, tip, check, check
+- **Exercices** (8) :
   - Formes planes et solides `(ce1-geo-formes-solides-planes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_ce1.json, category=ce1-formes-solides-planes, questions=8
   - Mesurer des longueurs `(ce1-geo-longueurs-mesures)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_ce1.json, category=ce1-longueurs-mesures, questions=8
   - Repères de la journée `(ce1-geo-reperes-journee)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_ce1.json, category=ce1-reperes-journee, questions=8
@@ -587,6 +621,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Masses et contenances `(ce1-geo-masses-contenances)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_ce1.json, category=ce1-masses-contenances, questions=8
   - Nombres et notions clés `(ce1-maths-geo-appariement)` — engine: `matching`, category=matching_math_ce1, dataFile=data/math_matching.json, questions=3
   - Défi : lire l'heure `(ce1-bonus-geo-lire-heure)` — engine: `clock`, level=2, questions=10, bonus (seuil=2)
+  - Le bon croisement `(ce1-geo-point-quadrillage)` — engine: `board-interactive`, type=point-on-grid, dataFile=data/board_point_on_grid_ce1.json, category=ce1_point_on_grid, questions=6
 
 #### Problèmes `(ce1-problemes-subtheme)`
 
@@ -681,12 +716,13 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Grammaire `(ce1-grammaire-subject)`
 
-- **Leçons** (4) :
+- **Leçons** (5) :
   - Les déterminants `(ce1-lesson-determinants)` — blocs: paragraph, example, bullets, tip, check, check
   - Le nom et le verbe `(ce1-lesson-nom-verbe)` — blocs: paragraph, example, bullets, tip, check, check
   - Une phrase bien construite `(ce1-lesson-phrase)` — blocs: paragraph, example, bullets, tip, check, check
   - L'accord déterminant-nom `(ce1-lesson-accord-det-nom)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (13) :
+  - L'adjectif `(ce1-lesson-adjectif)` — blocs: paragraph, example, tip, check, check
+- **Exercices** (14) :
   - Un ou Une? `(ce1-gram-un-une)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_classe, questions=8
   - Le, La ou L'? `(ce1-gram-le-la)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_maison, questions=8
   - Les noms de la nature `(ce1-gram-nature)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_nature, questions=8
@@ -700,6 +736,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Types de phrases `(ce1-gram-types-phrases)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_phrase_types_ce1, questions=8
   - Le sujet du verbe `(ce1-gram-sujet-verbe)` — engine: `choice-engine`, type=word-class-choice, category=grammar_sujet_verbe_ce1, questions=8
   - Défi : phrases à compléter `(ce1-bonus-grammaire-cloze-expert)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_cloze_ce1, questions=12, bonus (seuil=2)
+  - Nom, verbe ou adjectif ? `(ce1-gram-classes-mots)` — engine: `choice-engine`, type=word-class-choice, category=word_class_choice_ce1, questions=8
 
 #### Conjugaison `(ce1-conjugaison-subject)`
 
@@ -943,7 +980,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Calculs & Logique `(ce2-calculs-logique)`
 
-- **Leçons** (10) :
+- **Leçons** (16) :
   - Poser une division `(ce2-lesson-division-posee)` — blocs: paragraph, example, tip, check, check
   - Les fractions simples `(ce2-lesson-fractions-simples)` — blocs: paragraph, bullets, tip, check, check
   - Chercher le complément `(ce2-lesson-complements-1000)` — blocs: paragraph, example, bullets, tip, check, check
@@ -954,7 +991,13 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Les formes planes `(ce2-lesson-formes-planes)` — blocs: paragraph, example, bullets, tip, check, check
   - Masses et contenances `(ce2-lesson-masses-contenances)` — blocs: paragraph, example, mini-table, tip, check, check
   - Les grands nombres jusqu'à 10 000 `(ce2-lesson-grands-nombres)` — blocs: paragraph, example, mini-table, tip, check, check
-- **Exercices** (26) :
+  - Poser une addition avec retenue `(ce2-lesson-addition-posee-retenue)` — blocs: paragraph, example, tip, check, check
+  - Poser une soustraction avec retenue `(ce2-lesson-soustraction-posee-retenue)` — blocs: paragraph, example, tip, check, check
+  - Poser une multiplication par un chiffre `(ce2-lesson-multiplication-posee-un-chiffre)` — blocs: paragraph, example, tip, check, check
+  - Les problèmes en deux étapes `(ce2-lesson-problemes-deux-etapes)` — blocs: paragraph, example, tip, check, check
+  - Calculer une durée `(ce2-lesson-calcul-duree)` — blocs: paragraph, example, tip, check, check
+  - Encadrer un nombre entre deux milliers `(ce2-lesson-encadrer-milliers)` — blocs: paragraph, example, tip, check, check
+- **Exercices** (34) :
   - Le Compte est bon `(ce2-cible-1)` — engine: `math-input`, type=cibles, nbFleches=5, questions=5
   - Carré Magique `(ce2-carre-magique-1)` — engine: `math-input`, type=carre-somme, solutionCount=3, targetMin=15, targetMax=25, gridSize=9, questions=6
   - Défi : Carré Magique Expert `(ce2-bonus-carre-magique-defi)` — engine: `math-input`, type=carre-somme, solutionCount=3, targetMin=25, targetMax=35, gridSize=9, questions=6, bonus (seuil=2)
@@ -981,6 +1024,14 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Les moitiés `(ce2-moities)` — engine: `math-input`, type=half, min=10, max=100, questions=8
   - Le chiffre à sa place `(ce2-grands-nombres-chiffre-position)` — engine: `math-input`, type=place-value, digitCount=4, ask=digit, questions=6
   - La valeur d'un chiffre `(ce2-grands-nombres-valeur-position)` — engine: `math-input`, type=place-value, digitCount=4, ask=value, questions=6
+  - Addition posée avec retenue `(ce2-addition-posee-retenue)` — engine: `math-input`, type=operation-posed, operator=add, level=2, questions=6
+  - Soustraction posée avec retenue `(ce2-soustraction-posee-retenue)` — engine: `math-input`, type=operation-posed, operator=sub, level=2, questions=6
+  - Multiplication posée par un chiffre `(ce2-multiplication-posee-un-chiffre)` — engine: `math-input`, type=operation-posed, operator=mult, level=1, questions=6
+  - Addition posée jusqu’aux milliers `(ce2-addition-posee-milliers)` — engine: `math-input`, type=operation-posed, operator=add, level=3, questions=6
+  - Soustraction posée jusqu’aux milliers `(ce2-soustraction-posee-milliers)` — engine: `math-input`, type=operation-posed, operator=sub, level=3, questions=6
+  - Problèmes en deux étapes `(ce2-problemes-deux-etapes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=ce2-problemes-deux-etapes, questions=8
+  - Calculer une durée `(ce2-calcul-durees)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=ce2-durees, questions=8
+  - Encadrer entre deux milliers `(ce2-encadrement-milliers)` — engine: `board-interactive`, type=number-line-frame, dataFile=data/board_number_line_ce2.json, category=ce2_number_line_frame_milliers, questions=6
 
 #### Géométrie `(ce2-geometrie-subtheme)`
 
@@ -1333,7 +1384,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Nombres et calculs `(cm1-nombres-calculs)`
 
-- **Leçons** (10) :
+- **Leçons** (11) :
   - Lire une fraction `(cm1-lesson-fractions)` — blocs: paragraph, example, bullets, tip, check, check
   - Additionner des fractions de même dénominateur `(cm1-lesson-fractions-addition)` — blocs: paragraph, example, bullets, tip, check, check
   - Des fractions équivalentes `(cm1-lesson-fractions-equivalentes)` — blocs: paragraph, example, bullets, tip, check, check
@@ -1344,7 +1395,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Addition et soustraction posées `(cm1-lesson-addition-soustraction-posees)` — blocs: paragraph, example, example, bullets, tip, check, check
   - Multiplication posée par un nombre à 2 chiffres `(cm1-lesson-multiplication-posee-2-chiffres)` — blocs: paragraph, example, bullets, tip, check, check
   - La position d'un chiffre dans un grand nombre `(cm1-lesson-position-valeur-grands-nombres)` — blocs: paragraph, example, mini-table, tip, check, check
-- **Exercices** (30) :
+  - Poser une addition ou une soustraction de décimaux `(cm1-lesson-decimaux-operations-posees)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (34) :
   - Grands Nombres `(cm1-m-big)` — engine: `math-input`, type=dictée-nombres, max=1000000, questions=5
   - Fractions `(cm1-frac-1)` — engine: `math-input`, type=fraction-view, maxDenom=8, questions=10
   - Construis la fraction `(cm1-frac-build)` — engine: `board-interactive`, type=fraction-build, minDenom=2, maxDenom=8, questions=8
@@ -1375,6 +1427,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Multiplication posée par un nombre à 2 chiffres `(cm1-m-multiplication-posee-2-chiffres)` — engine: `math-input`, type=operation-posed, operator=mult, level=2, questions=6
   - Le chiffre à sa place `(cm1-m-position-chiffre-million)` — engine: `math-input`, type=place-value, digitCount=6, ask=digit, questions=6
   - La valeur d'un chiffre `(cm1-m-valeur-chiffre-million)` — engine: `math-input`, type=place-value, digitCount=5, ask=value, questions=6
+  - Addition posée de décimaux `(cm1-m-addition-posee-decimaux-dixiemes)` — engine: `math-input`, type=operation-posed, operator=add, level=2, decimals=1, questions=6
+  - Soustraction posée de décimaux `(cm1-m-soustraction-posee-decimaux-dixiemes)` — engine: `math-input`, type=operation-posed, operator=sub, level=2, decimals=1, questions=6
+  - Addition posée de décimaux (centièmes) `(cm1-m-addition-posee-decimaux-centiemes)` — engine: `math-input`, type=operation-posed, operator=add, level=3, decimals=2, questions=6
+  - Soustraction posée de décimaux (centièmes) `(cm1-m-soustraction-posee-decimaux-centiemes)` — engine: `math-input`, type=operation-posed, operator=sub, level=3, decimals=2, questions=6
 
 #### Grandeurs et mesures `(cm1-grandeurs-mesures)`
 
@@ -1517,12 +1573,15 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Lecture et vocabulaire `(cm1-francais-lecture-vocabulaire-subtheme)`
 
-- **Leçons** (4) :
+- **Leçons** (7) :
   - Comprendre un paragraphe `(cm1-lesson-comprendre-paragraphe)` — blocs: paragraph, example, bullets, tip, check, check
   - La famille de mots `(cm1-lesson-vocabulaire-famille-mots)` — blocs: paragraph, example, bullets, tip, check, check
   - Comprendre un mot par le contexte `(cm1-lesson-vocabulaire-sens-contexte)` — blocs: paragraph, example, bullets, tip, check, check
   - Mots polysémiques et familles de mots `(cm1-lesson-polysemie-familles)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (12) :
+  - Les synonymes `(cm1-lesson-vocabulaire-synonymes)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les antonymes `(cm1-lesson-vocabulaire-antonymes)` — blocs: paragraph, paragraph, example, tip, check, check
+  - L'ordre des évènements dans un récit `(cm1-lesson-ordre-evenements)` — blocs: paragraph, paragraph, example, bullets, tip, check, check
+- **Exercices** (15) :
   - Trouver l'idée principale `(cm1-lecture-idee-principale)` — engine: `reading`, category=cm1_lecture_idee_principale, questions=5
   - Comprendre un mot par le contexte `(cm1-vocabulaire-contexte)` — engine: `reading`, category=cm1_lecture_mot_contexte, questions=5
   - Un mot, plusieurs sens `(cm1-vocabulaire-polysemie)` — engine: `reading`, category=cm1_vocabulaire_polysemie, questions=6
@@ -1535,6 +1594,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Lire entre les lignes `(cm1-lecture-recit-long)` — engine: `reading`, category=cm1_lecture_recit_long, questions=5
   - Comprendre un documentaire `(cm1-lecture-documentaire-long)` — engine: `reading`, category=cm1_lecture_documentaire_long, questions=5
   - Défi : sens et contexte `(cm1-bonus-vocabulaire-polysemie)` — engine: `reading`, category=cm1_vocabulaire_polysemie, questions=10, bonus (seuil=2)
+  - Trouver un synonyme `(cm1-vocabulaire-synonymes)` — engine: `reading`, category=cm1_lecture_synonymes, questions=6
+  - Trouver un antonyme `(cm1-vocabulaire-antonymes)` — engine: `reading`, category=cm1_lecture_antonymes, questions=6
+  - L'ordre des évènements `(cm1-lecture-ordre-evenements)` — engine: `reading`, category=cm1_lecture_ordre_evenements, questions=6
 
 #### Dictée audio `(cm1-dictee-audio-subtheme)`
 
@@ -1663,6 +1725,15 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Exercices** (1) :
   - Se nourrir `(cm1-geo-se-nourrir)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-se-nourrir, questions=8
 
+#### Les inégalités dans le monde `(cm1-geo-inegalites-subtheme)`
+
+- **Leçons** (2) :
+  - L'accès à l'eau, à l'école et aux soins `(cm1-lesson-inegalites-besoins-essentiels)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le niveau de vie dans le monde `(cm1-lesson-inegalites-niveau-de-vie)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (2) :
+  - L'accès à l'eau, à l'école et aux soins `(cm1-geo-inegalites-acces)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-inegalites-acces, questions=8
+  - Comparer les niveaux de vie `(cm1-geo-inegalites-niveau-vie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-inegalites-niveau-vie, questions=8
+
 ### Sciences (cm1-sciences-subject)
 
 #### Le vivant `(cm1-sciences-vivant-subtheme)`
@@ -1750,6 +1821,29 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Défi : trajectoires et vitesses `(cm1-bonus-sciences-mouvements-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-mouvements-vitesse, questions=10, bonus (seuil=2)
   - Défi : signaux du quotidien `(cm1-bonus-sciences-signaux-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-signaux, questions=10, bonus (seuil=2)
 
+#### La Terre, une planète active `(cm1-sciences-terre-active-subtheme)`
+
+- **Leçons** (3) :
+  - La Terre bouge sous nos pieds `(cm1-lesson-terre-plaques)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les volcans `(cm1-lesson-volcans)` — blocs: paragraph, bullets, example, tip, check, check
+  - Les séismes `(cm1-lesson-seismes)` — blocs: paragraph, bullets, example, tip, check, check
+- **Exercices** (4) :
+  - Les plaques de la Terre `(cm1-sciences-terre-plaques)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-terre-plaques, questions=6
+  - Les volcans `(cm1-sciences-volcans)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-terre-volcans, questions=8
+  - Les séismes `(cm1-sciences-seismes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-terre-seismes, questions=8
+  - La coupe d'un volcan `(cm1-sciences-tap-volcan)` — engine: `board-interactive`, type=tap-features, dataFile=data/board_tap_features_cm1.json, category=cm1_tap_volcan, questions=3
+
+#### Le cerveau `(cm1-sciences-cerveau-subtheme)`
+
+- **Leçons** (3) :
+  - Le cerveau commande les mouvements `(cm1-lesson-cerveau-commande-mouvement)` — blocs: paragraph, paragraph, bullets, example, tip, check, check
+  - Le cerveau reçoit les messages des sens `(cm1-lesson-cerveau-messages-sens)` — blocs: paragraph, paragraph, example, tip, check, check
+  - Le sommeil et l'attention `(cm1-lesson-cerveau-sommeil-attention)` — blocs: paragraph, paragraph, example, bullets, tip, check, check
+- **Exercices** (3) :
+  - Le cerveau commande le corps `(cm1-sciences-cerveau-commande)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-cerveau-commande, questions=8
+  - Les messages des sens `(cm1-sciences-cerveau-messages-sens)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-cerveau-sens, questions=6
+  - Sommeil et attention `(cm1-sciences-cerveau-sommeil-attention)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-cerveau-sommeil-attention, questions=8
+
 ### EMC (cm1-emc-subject)
 
 #### Vivre ensemble `(cm1-emc-vivre-ensemble-subtheme)`
@@ -1820,11 +1914,12 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Fractions & décimaux `(cm2-fractions-decimaux)`
 
-- **Leçons** (3) :
+- **Leçons** (4) :
   - Comparer des décimaux `(cm2-lesson-decimaux-comparer)` — blocs: paragraph, example, bullets, tip, check, check
   - Fraction ou décimal ? `(cm2-lesson-fractions-decimaux-lien)` — blocs: paragraph, example, mini-table, tip, check, check
   - Additionner et soustraire des fractions `(cm2-lesson-fractions-addition)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (10) :
+  - Poser une opération à virgule `(cm2-lesson-operations-posees-decimaux)` — blocs: paragraph, example, tip, check, check
+- **Exercices** (13) :
   - Décimaux `(cm2_decimaux_compare)` — engine: `choice-engine`, type=compare-decimals, questions=10
   - Fractions `(cm2_fractions_lecture)` — engine: `math-input`, type=fraction-view, maxDenom=12, questions=10
   - Construis la fraction `(cm2-frac-build)` — engine: `board-interactive`, type=fraction-build, minDenom=2, maxDenom=12, questions=8
@@ -1835,6 +1930,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Défi : fractions expertes `(cm2-bonus-fractions-expert)` — engine: `math-input`, type=fraction-view, maxDenom=24, questions=12, bonus (seuil=2)
   - Additionne des fractions `(cm2-frac-addition)` — engine: `math-input`, type=fraction-operation, operator=add, level=2, questions=8
   - Défi : dénominateurs multiples `(cm2-frac-addition-avancee)` — engine: `math-input`, type=fraction-operation, operator=add, level=3, questions=6, bonus (seuil=2)
+  - Addition posée de décimaux `(cm2-addition-posee-decimaux)` — engine: `math-input`, type=operation-posed, operator=add, level=3, decimals=1, questions=6
+  - Soustraction posée de décimaux `(cm2-soustraction-posee-decimaux)` — engine: `math-input`, type=operation-posed, operator=sub, level=2, decimals=2, questions=6
+  - Multiplication d’un décimal `(cm2-multiplication-posee-decimaux)` — engine: `math-input`, type=operation-posed, operator=mult, level=1, decimals=1, questions=6
 
 #### Division posée `(cm2-division-posee-subtheme)`
 
@@ -1919,6 +2017,18 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Lire un diagramme circulaire `(cm2-diagramme-circulaire)` — engine: `math-input`, type=pie-chart-read, questions=5
   - Calculer une moyenne `(cm2-calcul-moyenne)` — engine: `math-input`, type=average-compute, length=5, maxValue=20, questions=6
 
+#### Probabilités & algorithmique `(cm2-probabilites-algorithmique)`
+
+- **Leçons** (3) :
+  - Certain, possible ou impossible `(cm2-lesson-certain-possible-impossible)` — blocs: paragraph, example, tip, check, check
+  - Suivre un algorithme `(cm2-lesson-algorithme-instructions)` — blocs: paragraph, example, tip, check, check
+  - Trouver le nombre manquant `(cm2-lesson-nombre-manquant-egalite)` — blocs: paragraph, example, tip, check, check
+- **Exercices** (4) :
+  - Certain, possible ou impossible `(cm2-probabilites-vocabulaire)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_probabilites_algo_cm2.json, category=cm2_probabilites_vocabulaire, questions=8
+  - Quel tirage est le plus probable ? `(cm2-probabilites-comparer)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_probabilites_algo_cm2.json, category=cm2_probabilites_comparer, questions=8
+  - Exécuter un algorithme `(cm2-algorithme-executer)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_probabilites_algo_cm2.json, category=cm2_algorithmique, questions=8
+  - Le nombre manquant `(cm2-algebre-nombre-manquant)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_probabilites_algo_cm2.json, category=cm2_algebre_egalites, questions=8
+
 ### Français (cm2-francais-subject)
 
 #### Conjugaison `(cm2-francais-conjugaison)`
@@ -1989,12 +2099,14 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Lecture et vocabulaire `(cm2-francais-lecture-vocabulaire-subtheme)`
 
-- **Leçons** (4) :
+- **Leçons** (6) :
   - Trouver l'idée principale `(cm2-lesson-idee-principale)` — blocs: paragraph, example, bullets, tip, check, check
   - Employer un vocabulaire précis `(cm2-lesson-vocabulaire-precis)` — blocs: paragraph, example, bullets, tip, check, check
   - Sens propre et sens figuré `(cm2-lesson-sens-propre-figure)` — blocs: paragraph, example, bullets, tip, check, check
   - Polysémie et familles de mots avancées `(cm2-lesson-polysemie-familles-avance)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (10) :
+  - Remettre un récit dans l'ordre `(cm2-lesson-ordre-evenements-recit)` — blocs: paragraph, example, bullets, check, check
+  - Les reprises dans un texte `(cm2-lesson-reprises-texte)` — blocs: paragraph, example, tip, check, check
+- **Exercices** (13) :
   - Trouver l'idée principale `(cm2-lecture-idee-principale)` — engine: `reading`, category=cm2_lecture_idee_principale, questions=5
   - Choisir le sens du mot `(cm2-vocabulaire-sens)` — engine: `reading`, category=cm2_vocabulaire_sens, questions=5
   - Sens propre ou sens figuré ? `(cm2-sens-propre-figure)` — engine: `reading`, category=cm2_sens_propre_figure, questions=6
@@ -2005,6 +2117,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Connecteurs logiques `(cm2-lecture-connecteurs-logiques)` — engine: `reading`, category=cm2_lecture_connecteurs_logiques, questions=6
   - Niveaux de langue `(cm2-lecture-niveaux-langue)` — engine: `reading`, category=cm2_niveaux_langue, questions=6
   - Défi : polysémie experte `(cm2-bonus-vocabulaire-polysemie-expert)` — engine: `reading`, category=cm2_vocabulaire_polysemie, questions=10, bonus (seuil=2)
+  - L'ordre des événements `(cm2-lecture-sequence-evenements)` — engine: `reading`, category=cm2_lecture_sequence_evenements, questions=5
+  - À qui renvoie ce mot ? `(cm2-lecture-pronoms-reprises)` — engine: `reading`, category=cm2_lecture_pronoms_reprises, questions=5
+  - Le sens exact en contexte `(cm2-vocabulaire-contexte-precis)` — engine: `reading`, category=cm2_vocabulaire_contexte_precis, questions=5
 
 #### Dictée audio `(cm2-dictee-audio-subtheme)`
 

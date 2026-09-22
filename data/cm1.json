@@ -365,6 +365,58 @@
                                 "ask": "value",
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "cm1-m-addition-posee-decimaux-dixiemes",
+                            "title": "Addition posée de décimaux",
+                            "subtitle": "Des nombres à un chiffre après la virgule",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "add",
+                                "level": 2,
+                                "decimals": 1,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-m-soustraction-posee-decimaux-dixiemes",
+                            "title": "Soustraction posée de décimaux",
+                            "subtitle": "Des nombres à un chiffre après la virgule",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "sub",
+                                "level": 2,
+                                "decimals": 1,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-m-addition-posee-decimaux-centiemes",
+                            "title": "Addition posée de décimaux (centièmes)",
+                            "subtitle": "Des nombres à deux chiffres après la virgule",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "add",
+                                "level": 3,
+                                "decimals": 2,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-m-soustraction-posee-decimaux-centiemes",
+                            "title": "Soustraction posée de décimaux (centièmes)",
+                            "subtitle": "Des nombres à deux chiffres après la virgule",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "sub",
+                                "level": 3,
+                                "decimals": 2,
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -928,6 +980,60 @@
                                     ],
                                     "answer": "10 000",
                                     "explanation": "Le chiffre 1 est au rang des dizaines de mille (deuxième chiffre en partant de la gauche), donc il représente 1 × 10 000 = 10 000."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-decimaux-operations-posees",
+                            "title": "Poser une addition ou une soustraction de décimaux",
+                            "subtitle": "Aligner les virgules avant de calculer",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour poser une addition ou une soustraction de nombres décimaux, on n'aligne pas les nombres par la droite comme avec des entiers : on place les virgules exactement l'une sous l'autre. Les unités se retrouvent alors sous les unités, les dixièmes sous les dixièmes et les centièmes sous les centièmes."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "12,4 + 7,35 : j'écris 12,40 pour que les deux nombres aient deux chiffres après la virgule, puis j'aligne les virgules. Centièmes : 0 + 5 = 5. Dixièmes : 4 + 3 = 7. Unités : 2 + 7 = 9. Dizaines : 1. Résultat : 19,75."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Ma méthode",
+                                    "items": [
+                                        "j'aligne les virgules, l'une exactement sous l'autre",
+                                        "je complète avec des zéros pour que les nombres aient autant de chiffres après la virgule",
+                                        "je calcule colonne par colonne en partant de la droite, comme avec des entiers",
+                                        "je place la virgule du résultat sous les autres virgules"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Ajouter un zéro à la fin de la partie décimale ne change pas le nombre : 12,4 et 12,40 valent la même chose. Attention, ce n'est pas vrai pour un entier : 124 et 1240 sont deux nombres différents."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour poser 8,5 + 13,27, comment faut-il écrire les deux nombres l'un au-dessus de l'autre ?",
+                                    "choices": [
+                                        "En plaçant la virgule de 8,5 sous celle de 13,27",
+                                        "En plaçant le 5 de 8,5 sous le 7 de 13,27",
+                                        "En plaçant le 8 de 8,5 sous le 1 de 13,27"
+                                    ],
+                                    "answer": "En plaçant la virgule de 8,5 sous celle de 13,27",
+                                    "explanation": "Les virgules alignées, le 8 se place sous le 3 (unités) et le 5 sous le 2 (dixièmes). On écrit ensuite 8,50 pour compléter la colonne des centièmes."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Noah a posé 6,4 - 2,15 en alignant les nombres par la droite : il a écrit le 4 de 6,4 sous le 5 de 2,15. Quelle sera la conséquence ?",
+                                    "choices": [
+                                        "Il soustraira des dixièmes à des centièmes et se trompera",
+                                        "Il obtiendra le bon résultat, mais beaucoup plus lentement",
+                                        "Il ne pourra pas finir, car cette soustraction est impossible"
+                                    ],
+                                    "answer": "Il soustraira des dixièmes à des centièmes et se trompera",
+                                    "explanation": "En alignant par la droite, le 4 (des dixièmes) tombe sous le 5 (des centièmes) : les rangs ne se correspondent plus. Il faut écrire 6,40 et aligner les virgules."
                                 }
                             ]
                         }
@@ -3812,6 +3918,164 @@
                                     "label": "Vérifie que tu as compris"
                                 }
                             ]
+                        },
+                        {
+                            "id": "cm1-lesson-vocabulaire-synonymes",
+                            "title": "Les synonymes",
+                            "subtitle": "Des mots de sens proche",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Deux mots sont synonymes lorsqu'ils ont un sens voisin et qu'ils appartiennent à la même classe grammaticale : deux noms, deux adjectifs ou deux verbes. Employer un synonyme permet d'éviter de répéter toujours le même mot dans un texte."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans « Camille est contente de sa note », on peut écrire « Camille est heureuse de sa note » ou « Camille est satisfaite de sa note » : le sens est conservé. En revanche, « Camille est tranquille de sa note » ne veut plus rien dire, car tranquille ne remplace pas contente."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Pour choisir le bon synonyme",
+                                    "items": [
+                                        "je vérifie que les deux mots sont de la même classe : nom, verbe ou adjectif",
+                                        "je remplace le mot dans la phrase et je relis : le sens doit rester le même",
+                                        "je fais attention au niveau de langue : une demeure et une baraque ne s'emploient pas dans les mêmes textes"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Des synonymes ont un sens proche, mais rarement identique. Le bon synonyme est celui qui convient à la phrase où on l'emploie."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Le chien est rapide », quel mot peut remplacer rapide sans changer le sens de la phrase ?",
+                                    "choices": [
+                                        "véloce",
+                                        "bruyant",
+                                        "énorme"
+                                    ],
+                                    "answer": "véloce",
+                                    "explanation": "Véloce et rapide décrivent tous deux une grande vitesse : ce sont des synonymes. Bruyant et énorme sont bien des adjectifs, mais ils décrivent autre chose."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Théo a employé trois fois le verbe « dire » dans son récit. Pourquoi son enseignante lui conseille-t-elle d'utiliser « répond » ou « murmure » ?",
+                                    "choices": [
+                                        "Pour supprimer une répétition et préciser la façon de parler",
+                                        "Pour allonger son texte sans rien changer d'autre au récit",
+                                        "Parce que le verbe dire est interdit dans un récit écrit"
+                                    ],
+                                    "answer": "Pour supprimer une répétition et préciser la façon de parler",
+                                    "explanation": "Un synonyme évite la répétition et ajoute une nuance : murmurer, ce n'est pas seulement dire, c'est dire à voix très basse."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-vocabulaire-antonymes",
+                            "title": "Les antonymes",
+                            "subtitle": "Des mots de sens contraire",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Deux mots sont antonymes lorsqu'ils ont un sens contraire et qu'ils appartiennent à la même classe grammaticale : grand et petit (adjectifs), monter et descendre (verbes), la joie et la tristesse (noms)."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "Certains antonymes se fabriquent en ajoutant un préfixe au mot de départ : possible devient impossible, ranger devient déranger, content devient mécontent. D'autres sont des mots totalement différents : chaud et froid, jour et nuit."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans « la route est longue », l'antonyme de longue est courte : « la route est courte ». Attention, large n'est pas un antonyme de longue : c'est un adjectif qui parle de la largeur, pas de la longueur."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour trouver un antonyme, je cherche le mot qui dit exactement le contraire, puis je vérifie qu'il s'emploie bien dans la même phrase."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel mot est l'antonyme de « bruyant » ?",
+                                    "choices": [
+                                        "silencieux",
+                                        "rapide",
+                                        "coloré"
+                                    ],
+                                    "answer": "silencieux",
+                                    "explanation": "Bruyant signifie qui fait du bruit ; silencieux dit exactement le contraire. Rapide et coloré sont des adjectifs, mais ils ne s'opposent pas à bruyant."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léa doit écrire le contraire de « utile » en ajoutant un préfixe. Quel mot obtient-elle ?",
+                                    "choices": [
+                                        "inutile",
+                                        "utilement",
+                                        "réutiliser"
+                                    ],
+                                    "answer": "inutile",
+                                    "explanation": "Le préfixe in- inverse le sens : utile devient inutile. Utilement est un adverbe et réutiliser signifie utiliser de nouveau : aucun des deux ne dit le contraire."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-ordre-evenements",
+                            "title": "L'ordre des évènements dans un récit",
+                            "subtitle": "Se repérer grâce aux mots du temps",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans un récit, les évènements se succèdent. Pour se repérer, on s'appuie sur les mots qui situent les actions les unes par rapport aux autres : d'abord, ensuite, puis, pendant ce temps, enfin. On les appelle des connecteurs de temps."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "L'ordre du texte n'est pas toujours celui des évènements. Un récit peut commencer par la fin, ou revenir en arrière avec des expressions comme « la veille », « quelques années plus tôt ». Il faut alors reconstituer soi-même la chronologie."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« Paul rentre trempé. Le matin, il avait oublié son parapluie sur la table de la cuisine. » Le texte raconte d'abord le retour de Paul ; pourtant, l'oubli du parapluie s'est produit avant."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Mes repères pour remettre en ordre",
+                                    "items": [
+                                        "je repère les connecteurs : d'abord, ensuite, puis, enfin",
+                                        "je repère les indications de temps : la veille, le lendemain, plus tard",
+                                        "je vérifie la logique : on n'éteint pas un feu avant de l'avoir allumé"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Comprendre un récit, c'est pouvoir dire ce qui s'est passé avant et ce qui s'est passé après, même quand l'auteur ne le raconte pas dans cet ordre."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Nadia éteint la lumière. Une heure plus tôt, elle avait terminé ses devoirs. » Quel évènement s'est produit en premier ?",
+                                    "choices": [
+                                        "Nadia a terminé ses devoirs",
+                                        "Nadia a éteint la lumière",
+                                        "Les deux se sont produits en même temps"
+                                    ],
+                                    "answer": "Nadia a terminé ses devoirs",
+                                    "explanation": "L'expression « une heure plus tôt » renvoie à un moment antérieur : les devoirs sont terminés avant que la lumière ne soit éteinte, même si la phrase est écrite après."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "On lit : « D'abord, Malo prépare la pâte. Ensuite, il l'étale. Enfin, il enfourne la tarte. » À quoi servent les mots d'abord, ensuite et enfin ?",
+                                    "choices": [
+                                        "Ils situent les actions les unes par rapport aux autres",
+                                        "Ils indiquent le lieu précis où se déroulent ces trois actions",
+                                        "Ils précisent qui accomplit chacune des actions décrites"
+                                    ],
+                                    "answer": "Ils situent les actions les unes par rapport aux autres",
+                                    "explanation": "Ces connecteurs ne disent ni le lieu ni l'auteur des actions : ils organisent la succession, du début jusqu'à la fin de la recette."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -3935,6 +4199,36 @@
                             "params": {
                                 "category": "cm1_vocabulaire_polysemie",
                                 "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-vocabulaire-synonymes",
+                            "title": "Trouver un synonyme",
+                            "subtitle": "Un mot de sens proche dans la phrase",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm1_lecture_synonymes",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-vocabulaire-antonymes",
+                            "title": "Trouver un antonyme",
+                            "subtitle": "Le mot de sens contraire",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm1_lecture_antonymes",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-lecture-ordre-evenements",
+                            "title": "L'ordre des évènements",
+                            "subtitle": "Ce qui se passe avant, ce qui se passe après",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm1_lecture_ordre_evenements",
+                                "questions": 6
                             }
                         }
                     ]
@@ -5858,6 +6152,145 @@
                             }
                         }
                     ]
+                },
+                {
+                    "id": "cm1-geo-inegalites-subtheme",
+                    "title": "Les inégalités dans le monde",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-inegalites-besoins-essentiels",
+                            "title": "L'accès à l'eau, à l'école et aux soins",
+                            "subtitle": "Des besoins essentiels inégalement satisfaits",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Partout dans le monde, les habitants ont les mêmes besoins essentiels : boire une eau saine, apprendre à l'école, être soigné quand on est malade. Mais ces besoins ne sont pas satisfaits de la même façon d'un pays à l'autre, ni d'une région à l'autre : on parle alors d'inégalités."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "En France, ouvrir un robinet suffit pour obtenir de l'eau potable. Dans certaines campagnes du monde, il faut marcher jusqu'à un puits ou une pompe située à plusieurs kilomètres du village, puis rapporter les bidons. Ce trajet, souvent confié aux femmes et aux enfants, occupe plusieurs heures par jour."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Trois besoins que les géographes comparent",
+                                    "items": [
+                                        "l'eau : au robinet dans certains pays, à la fontaine collective dans d'autres",
+                                        "l'école : proche et gratuite ici, éloignée ou coûteuse ailleurs",
+                                        "les soins : un hôpital à quelques minutes ici, un dispensaire à plusieurs heures de route ailleurs"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Une inégalité n'est pas une différence entre les habitants eux-mêmes : c'est une différence de moyens et d'aménagements. Un forage, une école ou un centre de soins construits au bon endroit la réduisent durablement."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un puits est creusé au centre d'un village ; jusque-là, les habitants marchaient deux heures chaque jour pour rapporter de l'eau. Quelle conséquence est la plus probable pour les enfants ?",
+                                    "choices": [
+                                        "Ils disposent de plus de temps pour aller en classe",
+                                        "Ils boivent beaucoup moins d'eau qu'auparavant",
+                                        "Ils doivent quitter le village avec leurs parents"
+                                    ],
+                                    "answer": "Ils disposent de plus de temps pour aller en classe",
+                                    "explanation": "Les heures passées à chercher l'eau étaient prises sur la journée des enfants. Rapprocher le point d'eau libère ce temps, qui peut être consacré à l'école."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans un même pays, une famille habite une grande ville avec un hôpital à dix minutes ; une autre vit dans un village de montagne, à trois heures de route du premier centre de soins. Que montre cette comparaison ?",
+                                    "choices": [
+                                        "Des inégalités séparent aussi les régions d'un même pays",
+                                        "Les habitants des montagnes tombent bien moins souvent malades",
+                                        "Tous les habitants d'un pays sont soignés de la même façon"
+                                    ],
+                                    "answer": "Des inégalités séparent aussi les régions d'un même pays",
+                                    "explanation": "L'accès aux soins ne dépend pas seulement du pays où l'on vit, mais aussi de l'endroit : une zone isolée est plus éloignée des équipements qu'une grande ville."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-inegalites-niveau-de-vie",
+                            "title": "Le niveau de vie dans le monde",
+                            "subtitle": "Des écarts entre les pays et à l'intérieur d'un pays",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le niveau de vie décrit ce que les habitants d'un pays peuvent obtenir : logement, nourriture, soins, équipements. Pour le comparer, les géographes s'appuient sur des indicateurs, comme le revenu moyen par habitant, l'espérance de vie ou la part des habitants raccordés à l'électricité."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "En France, la quasi-totalité des logements sont raccordés à l'électricité. Au Tchad, moins d'un habitant sur cinq dispose de l'électricité chez lui : la vie quotidienne s'organise autrement, avec des lampes solaires ou des groupes électrogènes partagés."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Ce qu'un chiffre moyen ne dit pas",
+                                    "items": [
+                                        "un chiffre moyen ne montre pas comment les revenus sont répartis",
+                                        "un pays au revenu moyen élevé compte aussi des habitants aux faibles ressources",
+                                        "un pays au revenu moyen faible compte aussi des habitants très aisés"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Comparer deux pays demande de croiser plusieurs indicateurs. Les inégalités se lisent entre les pays, mais aussi entre les régions et entre les habitants de chacun."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans le pays A, le revenu moyen par habitant est élevé. Pourtant, des familles de ce pays peinent à payer leur logement. Comment l'expliquer ?",
+                                    "choices": [
+                                        "La moyenne cache des écarts entre les habitants du pays",
+                                        "Le revenu moyen a été calculé sur un seul habitant du pays",
+                                        "Un pays au revenu moyen élevé n'a jamais d'habitants modestes"
+                                    ],
+                                    "answer": "La moyenne cache des écarts entre les habitants du pays",
+                                    "explanation": "Le revenu moyen additionne tous les revenus puis les partage entre tous les habitants : il ne dit rien de leur répartition réelle. Quelques revenus très élevés suffisent à le faire monter."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour comparer le niveau de vie de deux pays, un élève regarde uniquement le nombre de voitures vendues chaque année. Pourquoi ce choix est-il insuffisant ?",
+                                    "choices": [
+                                        "Un seul indicateur ne renseigne ni sur la santé ni sur l'école",
+                                        "Le nombre de voitures vendues est impossible à compter",
+                                        "Les voitures n'ont aucun lien avec les conditions de vie"
+                                    ],
+                                    "answer": "Un seul indicateur ne renseigne ni sur la santé ni sur l'école",
+                                    "explanation": "Chaque indicateur n'éclaire qu'un aspect des conditions de vie. Pour décrire un pays, on croise revenu, espérance de vie, scolarisation et accès aux équipements."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-geo-inegalites-acces",
+                            "title": "L'accès à l'eau, à l'école et aux soins",
+                            "subtitle": "Des besoins essentiels dans le monde",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-inegalites-acces",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-geo-inegalites-niveau-vie",
+                            "title": "Comparer les niveaux de vie",
+                            "subtitle": "Indicateurs, moyennes et écarts",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-inegalites-niveau-vie",
+                                "questions": 8
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -7127,6 +7560,431 @@
                                 "dataFile": "data/science_cm1.json",
                                 "category": "cm1-signaux",
                                 "questions": 10
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-sciences-terre-active-subtheme",
+                    "title": "La Terre, une planète active",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-terre-plaques",
+                            "title": "La Terre bouge sous nos pieds",
+                            "subtitle": "Des plaques qui se déplacent très lentement",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La Terre n'est pas une boule immobile. Sa couche solide extérieure, la croûte terrestre, repose sur des roches brûlantes capables de se déformer lentement. Cette couche est découpée en morceaux géants, les plaques, qui glissent les unes par rapport aux autres."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Au milieu de l'océan Atlantique, deux plaques s'écartent d'environ deux centimètres par an, à peu près la vitesse à laquelle poussent nos ongles. L'Amérique et l'Europe s'éloignent donc l'une de l'autre, mais il faut des millions d'années pour que cela se voie sur une carte."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Là où deux plaques se rencontrent",
+                                    "items": [
+                                        "elles s'écartent : des roches chaudes remontent et fabriquent de nouvelles roches",
+                                        "elles se rapprochent : les roches sont comprimées, se plissent et se soulèvent",
+                                        "elles se bloquent et frottent : la roche finit par casser et le sol tremble"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Volcans et séismes ne se produisent pas n'importe où : ils se concentrent aux frontières des plaques. C'est pourquoi le Japon, l'Islande ou le Chili y sont souvent confrontés, contrairement à la Bretagne."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur une carte du monde, les points signalant les volcans et les séismes dessinent de longues lignes au lieu d'être répartis au hasard. Comment expliquer ce tracé ?",
+                                    "choices": [
+                                        "Ces lignes correspondent aux frontières entre les plaques",
+                                        "Ces lignes suivent l'équateur et les deux tropiques",
+                                        "Ces lignes marquent le cours des fleuves les plus longs"
+                                    ],
+                                    "answer": "Ces lignes correspondent aux frontières entre les plaques",
+                                    "explanation": "L'activité de la Terre se concentre là où deux plaques se rencontrent. Comme ces zones de contact forment de longues bandes, les points s'alignent le long de ces bandes."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "L'Himalaya gagne encore quelques millimètres de hauteur chaque année. Quel mouvement de plaques explique le mieux ce phénomène ?",
+                                    "choices": [
+                                        "Deux plaques se rapprochent et soulèvent les roches",
+                                        "Deux plaques s'écartent et creusent un large fossé",
+                                        "Une plaque tourne sur elle-même comme une roue"
+                                    ],
+                                    "answer": "Deux plaques se rapprochent et soulèvent les roches",
+                                    "explanation": "La plaque qui porte l'Inde avance vers l'Asie. Les roches prises entre les deux n'ont pas d'autre issue que de se plisser et de s'élever : la chaîne continue de grandir."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-volcans",
+                            "title": "Les volcans",
+                            "subtitle": "Du magma à l'éruption",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un volcan est un relief par lequel des roches fondues remontent depuis l'intérieur de la Terre. Tant qu'elles restent sous terre, ces roches fondues s'appellent le magma ; lorsqu'elles sortent à l'air libre, on parle de lave."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Le vocabulaire du volcan",
+                                    "items": [
+                                        "le réservoir de magma, situé en profondeur sous le volcan",
+                                        "la cheminée, conduit par lequel le magma remonte",
+                                        "le cratère, ouverture au sommet par laquelle sortent lave, cendres et gaz",
+                                        "la coulée, qui descend le long des pentes avant de refroidir"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "En Islande, la lave s'écoule souvent lentement, en coulées rouges qui avancent au pas d'un promeneur : l'éruption est dite effusive. En Indonésie, le Merapi projette au contraire cendres et blocs de roche très haut dans le ciel : l'éruption est explosive."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Un volcan n'est pas actif en permanence : il peut rester endormi des années, voire des siècles. Les scientifiques le surveillent en mesurant les secousses, les gaz et la déformation du sol, afin d'alerter les habitants à temps."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Au pied d'un volcan, les scientifiques enregistrent depuis plusieurs jours de petites secousses répétées et un léger gonflement du sol. Que cherchent-ils à savoir ?",
+                                    "choices": [
+                                        "Si du magma monte et si une éruption se prépare",
+                                        "Si les roches refroidies du passé sont encore chaudes",
+                                        "Si le cratère du volcan a changé de couleur"
+                                    ],
+                                    "answer": "Si du magma monte et si une éruption se prépare",
+                                    "explanation": "Le magma qui monte pousse sur les roches : il les fissure, ce qui crée des secousses, et fait gonfler le sol. Ces signes annoncent une éruption possible et déclenchent l'alerte."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une coulée rouge sort du cratère et descend la pente. Deux kilomètres plus bas, sous le volcan, d'autres roches fondues attendent dans le réservoir. Comment nomme-t-on ces roches fondues restées sous terre ?",
+                                    "choices": [
+                                        "Du magma",
+                                        "De la lave",
+                                        "Des cendres"
+                                    ],
+                                    "answer": "Du magma",
+                                    "explanation": "C'est le même matériau, mais le nom change selon l'endroit : magma sous la surface, lave dès qu'il s'écoule à l'air libre."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-seismes",
+                            "title": "Les séismes",
+                            "subtitle": "Quand la roche casse, le sol tremble",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un séisme, ou tremblement de terre, est une secousse du sol. Il se produit lorsque des roches soumises à de fortes forces finissent par casser brutalement en profondeur. L'énergie libérée se propage alors en vibrations jusqu'à la surface."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Le vocabulaire du séisme",
+                                    "items": [
+                                        "le foyer : l'endroit, en profondeur, où la roche casse",
+                                        "l'épicentre : le point de la surface situé juste au-dessus du foyer",
+                                        "la magnitude : le nombre qui exprime la puissance du séisme",
+                                        "les répliques : des secousses plus faibles qui suivent la secousse principale"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le 11 mars 2011, un séisme très puissant s'est produit au fond de l'océan, au large du Japon. Le brusque soulèvement du fond marin a déclenché une vague géante, un tsunami, qui a atteint la côte quelques dizaines de minutes plus tard."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "On ne sait pas annoncer la date d'un séisme. En revanche, on sait où ils sont fréquents, on construit des bâtiments capables d'encaisser les secousses et on entraîne les habitants aux bons gestes."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Deux villes se trouvent à la même distance du foyer d'un séisme, mais l'une a été bâtie avec des constructions conçues pour résister aux secousses. Que peut-on attendre ?",
+                                    "choices": [
+                                        "Cette ville subira moins de dégâts, à secousse égale",
+                                        "Cette ville ne ressentira aucune secousse du tout",
+                                        "Cette ville subira une secousse bien plus forte"
+                                    ],
+                                    "answer": "Cette ville subira moins de dégâts, à secousse égale",
+                                    "explanation": "Une construction adaptée ne supprime pas la secousse : elle la supporte mieux. À distance et à magnitude égales, c'est la qualité des bâtiments qui fait la différence."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un appareil enregistre un séisme de magnitude 6, puis une secousse de magnitude 3 au même endroit deux heures plus tard. Comment nomme-t-on cette seconde secousse ?",
+                                    "choices": [
+                                        "Une réplique",
+                                        "Un épicentre",
+                                        "Un tsunami"
+                                    ],
+                                    "answer": "Une réplique",
+                                    "explanation": "Après la rupture principale, les roches continuent de se réajuster pendant des heures ou des jours, ce qui provoque des secousses plus faibles au même endroit."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-sciences-terre-plaques",
+                            "title": "Les plaques de la Terre",
+                            "subtitle": "Une croûte découpée et en mouvement",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-terre-plaques",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-volcans",
+                            "title": "Les volcans",
+                            "subtitle": "Magma, lave et éruptions",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-terre-volcans",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-seismes",
+                            "title": "Les séismes",
+                            "subtitle": "Foyer, magnitude et prévention",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-terre-seismes",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-tap-volcan",
+                            "title": "La coupe d'un volcan",
+                            "subtitle": "Touche le bon élément du volcan",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "tap-features",
+                                "dataFile": "data/board_tap_features_cm1.json",
+                                "category": "cm1_tap_volcan",
+                                "questions": 3
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-sciences-cerveau-subtheme",
+                    "title": "Le cerveau",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-cerveau-commande-mouvement",
+                            "title": "Le cerveau commande les mouvements",
+                            "subtitle": "Des ordres transportés par les nerfs",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le cerveau est un organe logé dans la tête, protégé par les os du crâne. Il dirige une grande partie de ce que fait le corps : quand tu décides d'attraper un stylo, c'est lui qui envoie l'ordre aux muscles de ton bras et de ta main."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "Ces ordres empruntent les nerfs, de fins câbles qui relient le cerveau à tout le corps en passant par la moelle épinière, protégée dans la colonne vertébrale. Les messages y circulent en une fraction de seconde."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Deux sortes de mouvements",
+                                    "items": [
+                                        "le mouvement volontaire : tu décides, le cerveau envoie l'ordre aux muscles",
+                                        "le réflexe : le corps réagit aussitôt pour se protéger, sans attendre la décision",
+                                        "dans les deux cas, ce sont les nerfs qui transportent le message"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Pour écrire son prénom, le cerveau commande en même temps les doigts qui tiennent le crayon, le poignet qui avance sur la feuille et les yeux qui suivent la ligne. Au début de l'apprentissage, le geste est lent et appliqué ; avec l'entraînement, il devient rapide et régulier."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le cerveau est fragile et ne se répare pas comme la peau. On protège donc la tête avec un casque à vélo, en trottinette ou en skate."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un enfant s'entraîne à jongler quelques minutes chaque jour. Au bout d'un mois, il y parvient sans réfléchir à chaque geste. Qu'est-ce qui a changé ?",
+                                    "choices": [
+                                        "Son cerveau commande ce geste de façon plus précise",
+                                        "Ses bras ont doublé de longueur en un mois seulement",
+                                        "Ses muscles décident du geste à la place du cerveau"
+                                    ],
+                                    "answer": "Son cerveau commande ce geste de façon plus précise",
+                                    "explanation": "En répétant un mouvement, le cerveau affine les ordres envoyés aux muscles : le geste devient plus sûr et plus automatique, alors que le corps, lui, n'a pas changé."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léa retire sa main d'une plaque brûlante en un éclair ; en classe, elle lève la main après avoir décidé de répondre. Quelle différence sépare ces deux mouvements ?",
+                                    "choices": [
+                                        "Le premier est un réflexe, le second un mouvement volontaire",
+                                        "Les deux sont des mouvements volontaires de même nature",
+                                        "Le premier est commandé par la peau, le second par les os"
+                                    ],
+                                    "answer": "Le premier est un réflexe, le second un mouvement volontaire",
+                                    "explanation": "Un réflexe se déclenche sans décision, pour protéger le corps le plus vite possible ; lever la main suppose au contraire une décision prise avant le geste."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-cerveau-messages-sens",
+                            "title": "Le cerveau reçoit les messages des sens",
+                            "subtitle": "Des organes qui captent, un cerveau qui interprète",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le cerveau ne fait pas que commander : il est informé en permanence. Les organes des sens — les yeux, les oreilles, le nez, la langue et la peau — captent ce qui se passe autour de nous et transforment ces informations en messages nerveux envoyés au cerveau."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "C'est ensuite le cerveau qui donne un sens à ces messages. L'œil capte de la lumière, mais c'est le cerveau qui reconnaît le visage d'un camarade ; l'oreille capte des vibrations, mais c'est le cerveau qui distingue une sonnerie d'une voix."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans une illusion d'optique, deux traits de même longueur paraissent inégaux. Les yeux ont pourtant transmis une image exacte : c'est l'interprétation du cerveau, trompée par les repères dessinés autour, qui fausse la perception."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Un organe des sens abîmé envoie des messages incomplets : une oreille exposée à un bruit très fort perd des cellules qui ne repoussent pas. Protéger ses organes des sens, c'est protéger l'information qui parvient au cerveau."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sami entend un son dans la rue et reconnaît aussitôt la sirène d'un camion de pompiers. Quel est le rôle de son cerveau dans cette reconnaissance ?",
+                                    "choices": [
+                                        "Il interprète le message envoyé par l'oreille",
+                                        "Il capte lui-même les vibrations de l'air",
+                                        "Il renvoie un son vers l'oreille pour comparer"
+                                    ],
+                                    "answer": "Il interprète le message envoyé par l'oreille",
+                                    "explanation": "L'oreille capte les vibrations et les convertit en message nerveux ; le cerveau compare ensuite ce message à ceux qu'il connaît déjà et identifie la sirène."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "À la suite d'un accident, une personne ne ressent plus la chaleur au niveau d'une main, alors que sa peau n'est pas abîmée. Quelle explication est la plus probable ?",
+                                    "choices": [
+                                        "Le nerf qui conduit le message au cerveau est atteint",
+                                        "Sa peau a cessé d'exister complètement à cet endroit",
+                                        "Son cerveau a oublié le nom de la sensation de chaleur"
+                                    ],
+                                    "answer": "Le nerf qui conduit le message au cerveau est atteint",
+                                    "explanation": "Pour être ressentie, une information doit être captée par un organe puis transportée jusqu'au cerveau. Si ce trajet est interrompu, le message n'arrive pas, même quand l'organe fonctionne."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-cerveau-sommeil-attention",
+                            "title": "Le sommeil et l'attention",
+                            "subtitle": "Ce dont le cerveau a besoin pour apprendre",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le cerveau ne s'arrête jamais, même la nuit. Pendant le sommeil, il trie les informations de la journée et renforce ce qui a été appris, pendant que le corps récupère. Un élève de CM1 a besoin d'environ neuf à onze heures de sommeil par nuit."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le jour, apprendre demande de l'attention, c'est-à-dire la capacité à se concentrer sur une seule tâche en écartant ce qui distrait. L'attention se fatigue : au bout d'un moment, les erreurs se multiplient et une courte pause devient plus efficace que l'acharnement."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Deux élèves apprennent la même poésie. Le premier la relit dix fois le soir même, très tard. Le second la relit trois fois, se couche tôt et la reprend le lendemain matin. C'est en général le second qui la récite le mieux : son cerveau a eu une nuit pour fixer le texte."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Des habitudes qui aident le cerveau",
+                                    "items": [
+                                        "se coucher à des horaires réguliers",
+                                        "éteindre les écrans un bon moment avant le coucher",
+                                        "travailler au calme, une seule tâche à la fois"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Réviser puis dormir vaut mieux que réviser longtemps sans dormir : le sommeil fait partie de l'apprentissage, il ne le remplace pas mais il le consolide."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Lisa doit connaître dix mots d'anglais pour vendredi. Elle hésite entre tout apprendre jeudi soir, tard, ou en apprendre un peu chaque soir de la semaine. Que lui conseiller ?",
+                                    "choices": [
+                                        "Apprendre un peu chaque soir, avec une nuit entre les séances",
+                                        "Tout apprendre jeudi soir, car c'est le plus près du contrôle",
+                                        "Lire les dix mots une seule fois, le plus vite possible"
+                                    ],
+                                    "answer": "Apprendre un peu chaque soir, avec une nuit entre les séances",
+                                    "explanation": "Répartir l'apprentissage sur plusieurs jours laisse au cerveau des nuits pour consolider : la leçon tient bien mieux qu'après une seule longue séance la veille."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Après quarante minutes d'exercices de mathématiques, Malo constate qu'il fait de plus en plus d'erreurs. Quelle réaction est la plus utile ?",
+                                    "choices": [
+                                        "Faire une courte pause avant de reprendre l'exercice",
+                                        "Continuer sans s'arrêter jusqu'à la fin du cahier",
+                                        "Recommencer tout le travail depuis le début aussitôt"
+                                    ],
+                                    "answer": "Faire une courte pause avant de reprendre l'exercice",
+                                    "explanation": "La multiplication des erreurs signale une attention épuisée. Quelques minutes de pause la restaurent, alors que continuer ou tout reprendre fatigue davantage."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-sciences-cerveau-commande",
+                            "title": "Le cerveau commande le corps",
+                            "subtitle": "Nerfs, mouvements volontaires et réflexes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-cerveau-commande",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-cerveau-messages-sens",
+                            "title": "Les messages des sens",
+                            "subtitle": "Des organes au cerveau",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-cerveau-sens",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-cerveau-sommeil-attention",
+                            "title": "Sommeil et attention",
+                            "subtitle": "Bien apprendre, bien dormir",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-cerveau-sommeil-attention",
+                                "questions": 8
                             }
                         }
                     ]

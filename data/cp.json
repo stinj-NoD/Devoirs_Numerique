@@ -4099,6 +4099,30 @@
                             "subtitle": "Retrouver les espaces du quotidien"
                         },
                         {
+                            "id": "cp-geo-points-cardinaux",
+                            "title": "Les points cardinaux",
+                            "subtitle": "Nord, sud, est, ouest",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cp.json",
+                                "category": "cp-points-cardinaux",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-geo-rose-des-vents",
+                            "title": "La rose des vents",
+                            "subtitle": "Lire les directions d'une carte",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cp.json",
+                                "category": "cp-rose-des-vents",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "params": {
                                 "questions": 10,
                                 "dataFile": "data/geography_cp.json",
@@ -4218,6 +4242,112 @@
                                     ],
                                     "answer": "Son épaule droite",
                                     "explanation": "Le bras gauche est levé, donc la main qui reste libre est la main droite, et elle se pose du même côté : l'épaule droite. Ce n'est pas l'épaule gauche, car de ce côté le bras est en l'air. On peut donc bien le savoir : chaque main va avec son côté."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-points-cardinaux",
+                            "title": "Les quatre points cardinaux",
+                            "subtitle": "Le nord, le sud, l'est et l'ouest",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour dire dans quelle direction on va, on utilise quatre repères : le nord, le sud, l'est et l'ouest. On les appelle les points cardinaux."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le matin, le soleil se lève du côté de l'est. Le soir, il se couche du côté de l'ouest."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "le nord",
+                                        "le sud",
+                                        "l'est",
+                                        "l'ouest"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le nord et le sud sont opposés, comme l'est et l'ouest."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Camille marche vers l'est. Elle fait demi-tour et repart dans l'autre sens. Vers quelle direction marche-t-elle maintenant ?",
+                                    "choices": [
+                                        "Vers l'ouest",
+                                        "Vers le nord",
+                                        "Vers l'est, comme avant"
+                                    ],
+                                    "answer": "Vers l'ouest",
+                                    "explanation": "Faire demi-tour, c'est partir dans la direction opposée : l'opposé de l'est est l'ouest. Le nord est une autre direction, et ce n'est plus l'est puisqu'elle a changé de sens."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur une carte, le nord est dessiné tout en haut. Où se trouve alors le sud ?",
+                                    "choices": [
+                                        "Tout en bas de la carte",
+                                        "Tout en haut, lui aussi",
+                                        "Sur le côté droit"
+                                    ],
+                                    "answer": "Tout en bas de la carte",
+                                    "explanation": "Le sud est la direction opposée au nord : si le nord est en haut, le sud est forcément en bas. Deux directions opposées ne peuvent pas être au même endroit, et sur les côtés on trouve l'est et l'ouest."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-rose-des-vents",
+                            "title": "La rose des vents",
+                            "subtitle": "Trouver les directions sur une carte",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Sur une carte, un petit dessin en étoile indique les directions : c'est la rose des vents."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Autour de l'étoile, je lis les lettres N, S, E et O."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "N : nord",
+                                        "S : sud",
+                                        "E : est",
+                                        "O : ouest"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Je regarde la rose des vents avant de dire où se trouve un lieu sur la carte."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léo cherche un village situé au sud sur sa carte. Que doit-il regarder en premier ?",
+                                    "choices": [
+                                        "Le dessin en étoile avec les lettres",
+                                        "Le titre écrit en haut de la page",
+                                        "La couleur des routes dessinées"
+                                    ],
+                                    "answer": "Le dessin en étoile avec les lettres",
+                                    "explanation": "Seule la rose des vents dit où se trouve le sud sur cette carte. Le titre donne le nom de la carte et la couleur des routes n'indique aucune direction."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur son plan, Nina voit une maison placée du côté de la lettre S. Où se trouve cette maison ?",
+                                    "choices": [
+                                        "Au sud du plan",
+                                        "Au nord du plan",
+                                        "Au milieu du plan"
+                                    ],
+                                    "answer": "Au sud du plan",
+                                    "explanation": "La lettre S marque le sud : un lieu placé de ce côté est donc au sud. Le nord est la direction opposée, marquée par la lettre N, et le milieu du plan n'est pas une direction."
                                 }
                             ]
                         }
@@ -4458,6 +4588,153 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "id": "cp-geo-representations-monde-subtheme",
+                    "title": "Des représentations du monde",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "cp-geo-globe-planisphere",
+                            "title": "Le globe et le planisphère",
+                            "subtitle": "Deux façons de montrer la Terre",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cp.json",
+                                "category": "cp-representations-monde",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-geo-terre-mer-ocean",
+                            "title": "La terre et les océans",
+                            "subtitle": "Lire les couleurs du planisphère",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cp.json",
+                                "category": "cp-terre-mer-ocean",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-geo-carte-monde-continents",
+                            "title": "Le planisphère des continents",
+                            "subtitle": "Touche le continent demandé",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "map-locate",
+                                "dataFile": "data/board_map_locate_cp.json",
+                                "mapFile": "data/maps/world-continents.svg",
+                                "mapId": "world-continents",
+                                "category": "cp_map_continents_monde",
+                                "questions": 4
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "cp-lesson-globe-planisphere",
+                            "title": "Le globe et le planisphère",
+                            "subtitle": "Deux façons de représenter la Terre",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La Terre est une immense boule. Pour la montrer en classe, on utilise deux objets différents."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le globe est une petite boule posée sur un support. Le planisphère est la Terre dessinée à plat, sur une feuille ou dans un livre."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Sur le globe, je tourne la boule pour découvrir l'autre côté de la Terre. Sur le planisphère, je vois toute la Terre d'un seul coup d'œil."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le globe et le planisphère montrent la même chose : la Terre entière."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "La maîtresse veut afficher la Terre entière au mur de la classe. Que choisit-elle ?",
+                                    "choices": [
+                                        "Un planisphère",
+                                        "Un globe",
+                                        "Une boussole"
+                                    ],
+                                    "answer": "Un planisphère",
+                                    "explanation": "Le planisphère est plat : il s'accroche au mur et montre toute la Terre d'un coup. Le globe est une boule, il se pose mais ne s'affiche pas. La boussole, elle, sert à trouver le nord."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tom regarde un globe posé sur la table. L'Australie est cachée derrière. Que doit-il faire ?",
+                                    "choices": [
+                                        "Faire tourner le globe",
+                                        "Découper le globe en deux",
+                                        "Regarder le globe de plus loin"
+                                    ],
+                                    "answer": "Faire tourner le globe",
+                                    "explanation": "Le globe est une boule : les pays cachés derrière apparaissent dès qu'on le tourne. Le couper l'abîmerait pour rien, et s'éloigner ne fait pas apparaître l'autre côté."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-terre-mer-ocean",
+                            "title": "La terre et les océans",
+                            "subtitle": "Lire les couleurs d'un planisphère",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Sur un globe ou un planisphère, les couleurs ont un sens. Le bleu montre l'eau ; le vert et le marron montrent les terres."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Sur le planisphère de la classe, la grande zone bleue à côté de l'Europe est de l'eau salée."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "le bleu : les mers et les océans",
+                                        "le vert et le marron : les terres",
+                                        "les très grandes terres : les continents"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Il y a bien plus d'eau que de terre sur notre planète."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sacha cherche sur un planisphère l'endroit où vivent les poissons de mer. Quelle couleur doit-il regarder ?",
+                                    "choices": [
+                                        "Le bleu",
+                                        "Le vert",
+                                        "Le marron"
+                                    ],
+                                    "answer": "Le bleu",
+                                    "explanation": "Les poissons de mer vivent dans l'eau salée, et sur une carte l'eau est toujours coloriée en bleu. Le vert et le marron montrent les terres, où un poisson ne pourrait pas nager."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pourquoi appelle-t-on la Terre « la planète bleue » ?",
+                                    "choices": [
+                                        "Parce que l'eau y occupe une très grande place",
+                                        "Parce que le ciel est bleu au-dessus des maisons",
+                                        "Parce que les cartes sont imprimées en bleu"
+                                    ],
+                                    "answer": "Parce que l'eau y occupe une très grande place",
+                                    "explanation": "Vue de l'espace, la Terre paraît bleue car les océans recouvrent une part énorme de sa surface. Ce n'est pas la couleur du ciel qui compte, ni celle de l'encre des cartes."
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -4493,6 +4770,30 @@
                                 "dataFile": "data/science_cp.json",
                                 "category": "cp-animaux-plantes-quotidien",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-sciences-tri-trois-categories",
+                            "title": "Vivant, non vivant, élaboré",
+                            "subtitle": "Trier en trois groupes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cp.json",
+                                "category": "cp-tri-trois-categories",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-sciences-memoire-origine-vivant",
+                            "title": "Jeu de mémoire : d'où ça vient ?",
+                            "subtitle": "Relie chaque objet à l'être vivant dont il vient",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "memory-match",
+                                "dataFile": "data/board_memory_match_cp.json",
+                                "category": "cp_memory_match_sciences",
+                                "questions": 3
                             }
                         },
                         {
@@ -4667,6 +4968,80 @@
                                     ],
                                     "answer": "Oui, car elle a grandi",
                                     "explanation": "La graine a grandi et est devenue une pousse : seul un vivant fait ça. Ne pas bouger n'empêche pas d'être vivant, et la taille ne dit rien du tout."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-vivant-fabrique",
+                            "title": "Élaboré par des êtres vivants",
+                            "subtitle": "Un troisième groupe pour trier",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Je sais déjà reconnaître ce qui est vivant et ce qui ne l'est pas. Mais certaines choses ne sont pas vivantes et viennent pourtant d'un être vivant."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un pull en laine ne grandit pas et ne mange pas : il n'est pas vivant. Pourtant, sa laine a poussé sur le dos d'un mouton."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "la laine vient du mouton",
+                                        "le bois vient de l'arbre",
+                                        "le cuir vient de la peau d'une vache",
+                                        "le miel vient des abeilles"
+                                    ]
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "headers": [
+                                        "Groupe",
+                                        "Exemple"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "vivant",
+                                            "le mouton"
+                                        ],
+                                        [
+                                            "non vivant",
+                                            "le caillou"
+                                        ],
+                                        [
+                                            "élaboré par un vivant",
+                                            "le pull en laine"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Je trie maintenant en trois groupes au lieu de deux."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans quel groupe ranger une feuille de papier ?",
+                                    "choices": [
+                                        "Élaborée à partir du bois d'un arbre",
+                                        "Vivante, puisqu'elle vient d'un arbre",
+                                        "Non vivante, sans aucun lien avec le vivant"
+                                    ],
+                                    "answer": "Élaborée à partir du bois d'un arbre",
+                                    "explanation": "Le papier est fabriqué avec le bois des arbres : il vient donc bien d'un être vivant. Mais la feuille, elle, ne grandit pas et ne se nourrit pas : elle n'est pas vivante."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Théo range un caillou et une écharpe en laine ensemble, dans le groupe « non vivant ». Qu'en penses-tu ?",
+                                    "choices": [
+                                        "L'écharpe vient d'un animal, elle a son propre groupe",
+                                        "Il a raison, ces deux choses sont pareilles",
+                                        "Le caillou devrait aller dans le groupe des vivants"
+                                    ],
+                                    "answer": "L'écharpe vient d'un animal, elle a son propre groupe",
+                                    "explanation": "Ni le caillou ni l'écharpe ne sont vivants, mais l'écharpe est faite de la laine d'un mouton : elle va dans le troisième groupe. Le caillou, lui, n'a aucun lien avec le vivant."
                                 }
                             ]
                         }
@@ -5440,6 +5815,150 @@
                                     ],
                                     "answer": "Il existe des cuillères en bois",
                                     "explanation": "Un même objet peut être fabriqué avec des matières différentes : cuillère en métal, en bois ou en plastique. Tout objet est fait d'une matière, et le métal sert à bien d'autres choses qu'aux clés."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "cp-sciences-temperature-subtheme",
+                    "title": "Chaud, froid et température",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "cp-sciences-chaud-froid",
+                            "title": "Chaud, tiède ou froid",
+                            "subtitle": "Comparer la chaleur",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cp.json",
+                                "category": "cp-chaud-froid",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-sciences-thermometre",
+                            "title": "Lire un thermomètre",
+                            "subtitle": "La température en degrés",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cp.json",
+                                "category": "cp-temperature-thermometre",
+                                "questions": 6
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "cp-lesson-chaud-froid-tiede",
+                            "title": "Chaud, tiède ou froid",
+                            "subtitle": "Les mots pour comparer la chaleur",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour parler de la chaleur, j'utilise des mots précis : chaud, tiède ou froid. Tiède veut dire un peu chaud, entre les deux."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le chocolat qui fume est chaud, l'eau du bain est tiède, le glaçon est froid."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "brûlant",
+                                        "chaud",
+                                        "tiède",
+                                        "froid",
+                                        "glacé"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Ma main peut me tromper : après l'eau chaude, l'eau du robinet semble glacée."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un bol de soupe bien chaude est oublié une heure sur la table. Comment est la soupe ensuite ?",
+                                    "choices": [
+                                        "Elle a refroidi",
+                                        "Elle est devenue brûlante",
+                                        "Elle n'a pas changé du tout"
+                                    ],
+                                    "answer": "Elle a refroidi",
+                                    "explanation": "Un plat chaud laissé à l'air perd peu à peu sa chaleur : il devient tiède, puis froid. Il ne peut pas se réchauffer tout seul et ne reste pas chaud sans arrêt."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Maya sort d'une piscine chauffée et met la main sous le robinet. L'eau lui semble très froide, alors qu'elle est tiède. Pourquoi ?",
+                                    "choices": [
+                                        "Sa main compare avec l'eau chaude de la piscine",
+                                        "Le robinet donne toujours de l'eau glacée",
+                                        "L'eau tiède refroidit dès qu'on la touche"
+                                    ],
+                                    "answer": "Sa main compare avec l'eau chaude de la piscine",
+                                    "explanation": "La peau ne mesure pas la chaleur, elle compare : après une eau bien chaude, une eau tiède paraît froide. Le robinet ne donne pas que de l'eau glacée, et toucher l'eau ne la refroidit pas."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-thermometre-degres",
+                            "title": "Mesurer avec un thermomètre",
+                            "subtitle": "La température se dit en degrés",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour savoir exactement s'il fait chaud ou froid, on ne se fie pas à sa main : on mesure la température avec un thermomètre."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le thermomètre indique un nombre. Ce nombre est la température et il se dit en degrés."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans la classe, le thermomètre indique 20 degrés. Dehors, il indique 8 degrés : il fait donc plus froid dehors."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "je pose le thermomètre à l'endroit à mesurer",
+                                        "j'attends un petit moment",
+                                        "je lis le nombre indiqué",
+                                        "je dis : il fait tant de degrés"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Plus le nombre est grand, plus il fait chaud."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Le matin, le thermomètre du jardin indique 5 degrés. L'après-midi, il indique 14 degrés. Que s'est-il passé ?",
+                                    "choices": [
+                                        "L'air s'est réchauffé",
+                                        "L'air s'est refroidi",
+                                        "Rien n'a changé dehors"
+                                    ],
+                                    "answer": "L'air s'est réchauffé",
+                                    "explanation": "14 est plus grand que 5 : le nombre a monté, donc il fait plus chaud l'après-midi. Si l'air s'était refroidi, le nombre aurait baissé."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour connaître la température de l'air dehors, où faut-il poser le thermomètre ?",
+                                    "choices": [
+                                        "Dehors, à l'ombre",
+                                        "Dans le frigo de la cuisine",
+                                        "Juste au-dessus du radiateur"
+                                    ],
+                                    "answer": "Dehors, à l'ombre",
+                                    "explanation": "Le thermomètre donne la température de l'endroit où il se trouve : pour mesurer l'air du dehors, il doit être dehors. Dans le frigo ou sur le radiateur, il mesurerait le froid ou la chaleur de ces endroits."
                                 }
                             ]
                         }

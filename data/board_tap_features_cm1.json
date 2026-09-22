@@ -883,6 +883,284 @@
                     }
                 ]
             }
+        ],
+        "cm1_tap_volcan": [
+            {
+                "prompt": "Voici la coupe d'un volcan. Touche le cratère, l'ouverture située tout en haut du cône.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 2,
+                            "y1": 5.5,
+                            "x2": 5,
+                            "y2": 1.5
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 1.5,
+                            "x2": 8,
+                            "y2": 5.5
+                        },
+                        {
+                            "x1": 0.5,
+                            "y1": 5.5,
+                            "x2": 9.5,
+                            "y2": 5.5
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 6,
+                            "x2": 5,
+                            "y2": 1.7
+                        }
+                    ],
+                    "circles": [
+                        {
+                            "x": 5,
+                            "y": 7,
+                            "r": 1
+                        }
+                    ]
+                },
+                "features": [
+                    {
+                        "id": "cratere",
+                        "x": 5,
+                        "y": 1.6,
+                        "correct": true
+                    },
+                    {
+                        "id": "cheminee",
+                        "x": 5,
+                        "y": 3.8,
+                        "correct": false
+                    },
+                    {
+                        "id": "chambre",
+                        "x": 5,
+                        "y": 7,
+                        "correct": false
+                    },
+                    {
+                        "id": "pente",
+                        "x": 3.1,
+                        "y": 4,
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "prompt": "Touche le réservoir de magma, la poche arrondie située sous le volcan, en profondeur.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 2,
+                            "y1": 5.5,
+                            "x2": 5,
+                            "y2": 1.5
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 1.5,
+                            "x2": 8,
+                            "y2": 5.5
+                        },
+                        {
+                            "x1": 0.5,
+                            "y1": 5.5,
+                            "x2": 9.5,
+                            "y2": 5.5
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 6,
+                            "x2": 5,
+                            "y2": 1.7
+                        }
+                    ],
+                    "circles": [
+                        {
+                            "x": 5,
+                            "y": 7,
+                            "r": 1
+                        }
+                    ]
+                },
+                "features": [
+                    {
+                        "id": "cratere",
+                        "x": 5,
+                        "y": 1.6,
+                        "correct": false
+                    },
+                    {
+                        "id": "cheminee",
+                        "x": 5,
+                        "y": 3.8,
+                        "correct": false
+                    },
+                    {
+                        "id": "chambre",
+                        "x": 5,
+                        "y": 7,
+                        "correct": true
+                    },
+                    {
+                        "id": "pente",
+                        "x": 3.1,
+                        "y": 4,
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "prompt": "Touche la cheminée : le conduit vertical qui mène le magma du réservoir jusqu'au sommet.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 2,
+                            "y1": 5.5,
+                            "x2": 5,
+                            "y2": 1.5
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 1.5,
+                            "x2": 8,
+                            "y2": 5.5
+                        },
+                        {
+                            "x1": 0.5,
+                            "y1": 5.5,
+                            "x2": 9.5,
+                            "y2": 5.5
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 6,
+                            "x2": 5,
+                            "y2": 1.7
+                        }
+                    ],
+                    "circles": [
+                        {
+                            "x": 5,
+                            "y": 7,
+                            "r": 1
+                        }
+                    ]
+                },
+                "features": [
+                    {
+                        "id": "cratere",
+                        "x": 5,
+                        "y": 1.6,
+                        "correct": false
+                    },
+                    {
+                        "id": "cheminee",
+                        "x": 5,
+                        "y": 3.8,
+                        "correct": true
+                    },
+                    {
+                        "id": "chambre",
+                        "x": 5,
+                        "y": 7,
+                        "correct": false
+                    },
+                    {
+                        "id": "pente",
+                        "x": 3.1,
+                        "y": 4,
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "prompt": "Touche la pente du volcan, sur son flanc, là où s'écoule une coulée de lave.",
+                "board": {
+                    "width": 10,
+                    "height": 8,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 2,
+                            "y1": 5.5,
+                            "x2": 5,
+                            "y2": 1.5
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 1.5,
+                            "x2": 8,
+                            "y2": 5.5
+                        },
+                        {
+                            "x1": 0.5,
+                            "y1": 5.5,
+                            "x2": 9.5,
+                            "y2": 5.5
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 6,
+                            "x2": 5,
+                            "y2": 1.7
+                        }
+                    ],
+                    "circles": [
+                        {
+                            "x": 5,
+                            "y": 7,
+                            "r": 1
+                        }
+                    ]
+                },
+                "features": [
+                    {
+                        "id": "cratere",
+                        "x": 5,
+                        "y": 1.6,
+                        "correct": false
+                    },
+                    {
+                        "id": "cheminee",
+                        "x": 5,
+                        "y": 3.8,
+                        "correct": false
+                    },
+                    {
+                        "id": "chambre",
+                        "x": 5,
+                        "y": 7,
+                        "correct": false
+                    },
+                    {
+                        "id": "pente",
+                        "x": 3.1,
+                        "y": 4,
+                        "correct": true
+                    }
+                ]
+            }
         ]
     }
 }

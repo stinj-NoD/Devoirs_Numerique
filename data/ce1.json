@@ -570,6 +570,76 @@
                                 "category": "ce1_number_line_frame_centaines",
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "ce1-fractions-ligne-graduee",
+                            "title": "Placer une fraction",
+                            "subtitle": "Sur la ligne graduée",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "number-line-place",
+                                "dataFile": "data/board_number_line_ce1.json",
+                                "category": "ce1_fractions_ligne_graduee",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-addition-posee-centaines",
+                            "title": "Addition posée jusqu’à 1000",
+                            "subtitle": "Des nombres à 3 chiffres",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "add",
+                                "level": 2,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-soustraction-posee-centaines",
+                            "title": "Soustraction posée jusqu’à 1000",
+                            "subtitle": "Des nombres à 3 chiffres",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "sub",
+                                "level": 2,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-decomposition-cdu",
+                            "title": "Centaines, dizaines, unités",
+                            "subtitle": "Trouver le chiffre demandé",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "place-value",
+                                "digitCount": 3,
+                                "ask": "digit",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-valeur-chiffre-cdu",
+                            "title": "La valeur d’un chiffre",
+                            "subtitle": "Jusqu’aux centaines",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "place-value",
+                                "digitCount": 3,
+                                "ask": "value",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-comparer-1000",
+                            "title": "Comparer jusqu’à 1000",
+                            "subtitle": "Plus grand ou plus petit ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "range": 1000,
+                                "questions": 10
+                            }
                         }
                     ],
                     "lessons": [
@@ -1039,6 +1109,50 @@
                                     "explanation": "Le chiffre des centaines de 650 est 6 : la centaine juste avant est 600 et celle juste après est 700."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-fraction-sur-ligne",
+                            "title": "La fraction est un nombre",
+                            "subtitle": "La placer sur une ligne graduée",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une fraction ne sert pas seulement à partager un gâteau : c'est aussi un nombre. Comme les autres nombres, on peut le placer à sa place sur une ligne graduée, entre 0 et 1."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Sur une ligne qui va de 0 à 1 et qui est partagée en 4 parts égales, la fraction 1/4 se place à la première graduation après 0, et 3/4 à la troisième."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le nombre du bas dit en combien de parts égales la ligne est partagée. Le nombre du haut dit combien de ces parts on compte en partant de 0."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une ligne va de 0 à 1 et elle est partagée en 5 parts égales. Où se place la fraction 2/5 ?",
+                                    "choices": [
+                                        "À la deuxième graduation après 0",
+                                        "À la cinquième graduation après 0",
+                                        "Juste avant le 1, tout au bout de la ligne"
+                                    ],
+                                    "answer": "À la deuxième graduation après 0",
+                                    "explanation": "Le 5 indique que la ligne est partagée en 5 parts égales. Le 2 indique qu'on compte 2 de ces parts à partir de 0 : on s'arrête à la deuxième graduation."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur une ligne de 0 à 1 partagée en 4 parts égales, quelle fraction tombe exactement au milieu ?",
+                                    "choices": [
+                                        "2/4, car 2 parts sur 4 font la moitié",
+                                        "1/4, car c'est la première graduation",
+                                        "4/4, car 4 parts font la ligne entière"
+                                    ],
+                                    "answer": "2/4, car 2 parts sur 4 font la moitié",
+                                    "explanation": "Le milieu, c'est la moitié : on compte 2 parts sur les 4 que contient la ligne, soit 2/4. Cette fraction s'écrit aussi 1/2."
+                                }
+                            ]
                         }
                     ]
                 },
@@ -1315,6 +1429,50 @@
                                     "explanation": "Un cartable n'est pas un liquide : on le pose sur une balance pour connaître sa masse, qui s'exprime en kilogrammes. Les litres servent à mesurer ce qui se verse."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-quadrillage",
+                            "title": "Se repérer sur un quadrillage",
+                            "subtitle": "La colonne, puis la ligne",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Sur un quadrillage, on se repère avec deux informations : la colonne, que l'on compte de gauche à droite, et la ligne, que l'on compte de haut en bas. Les deux ensemble désignent un seul point."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Pour trouver le point de la colonne 3 et de la ligne 2, je pose mon doigt sur la colonne 3, puis je descends jusqu'à la ligne 2. Le point cherché est à leur croisement."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "On annonce toujours la colonne d'abord, la ligne ensuite. Si on inverse les deux, on ne tombe pas sur le même point du quadrillage."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Nino cherche le point de la colonne 4, ligne 1. Il pose son doigt colonne 1, ligne 4. Que se passe-t-il ?",
+                                    "choices": [
+                                        "Il se trompe de point : il a inversé la colonne et la ligne",
+                                        "Il trouve le bon point, car l'ordre n'a pas d'importance",
+                                        "Il ne trouve rien, car un tel point n'existe pas sur la grille"
+                                    ],
+                                    "answer": "Il se trompe de point : il a inversé la colonne et la ligne",
+                                    "explanation": "Colonne 4 ligne 1 et colonne 1 ligne 4 désignent deux points différents du quadrillage. L'ordre compte : la colonne se dit avant la ligne."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Que faut-il connaître pour désigner un seul point sur un quadrillage ?",
+                                    "choices": [
+                                        "À la fois sa colonne et sa ligne",
+                                        "Seulement sa colonne, comptée de gauche à droite",
+                                        "Seulement sa ligne, comptée de haut en bas"
+                                    ],
+                                    "answer": "À la fois sa colonne et sa ligne",
+                                    "explanation": "Une seule information ne suffit pas : la colonne désigne toute une bande verticale et la ligne toute une bande horizontale. C'est leur croisement qui donne un point unique."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -1397,6 +1555,18 @@
                             "params": {
                                 "level": 2,
                                 "questions": 10
+                            }
+                        },
+                        {
+                            "id": "ce1-geo-point-quadrillage",
+                            "title": "Le bon croisement",
+                            "subtitle": "Colonne et ligne",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "point-on-grid",
+                                "dataFile": "data/board_point_on_grid_ce1.json",
+                                "category": "ce1_point_on_grid",
+                                "questions": 6
                             }
                         }
                     ]
@@ -2903,6 +3073,50 @@
                                     "explanation": "« les » annonce plusieurs objets : le nom doit suivre et prendre un s. On écrit « les cahiers »."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-adjectif",
+                            "title": "L'adjectif",
+                            "subtitle": "Le mot qui dit comment est le nom",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans une phrase, le nom désigne une personne, un animal ou une chose, et le verbe dit ce que l'on fait. L'adjectif, lui, donne un renseignement sur le nom : il dit comment il est."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans « une petite maison rouge », le mot maison est un nom. Les mots petite et rouge sont deux adjectifs : ils disent comment est la maison."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "Astuce",
+                                    "content": "Pour reconnaître un adjectif, on essaie de l'enlever : la phrase reste correcte, mais on en sait moins. « Un gros camion passe » devient « Un camion passe »."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans la phrase « Le chat noir dort », quel mot est un adjectif ?",
+                                    "choices": [
+                                        "noir, parce qu'il dit comment est le chat",
+                                        "chat, parce que c'est l'animal de la phrase",
+                                        "dort, parce qu'il dit ce que fait le chat"
+                                    ],
+                                    "answer": "noir, parce qu'il dit comment est le chat",
+                                    "explanation": "« noir » renseigne sur le chat : c'est un adjectif. « chat » désigne l'animal, c'est un nom, et « dort » dit ce qu'il fait, c'est un verbe."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « L'oiseau vole », pourquoi « vole » n'est-il pas un adjectif ?",
+                                    "choices": [
+                                        "Parce qu'il dit ce que fait l'oiseau : c'est un verbe",
+                                        "Parce qu'il est placé juste après le nom dans la phrase",
+                                        "Parce qu'il ne commence pas par une lettre majuscule"
+                                    ],
+                                    "answer": "Parce qu'il dit ce que fait l'oiseau : c'est un verbe",
+                                    "explanation": "Un adjectif dit comment est le nom. Ici « vole » dit ce que l'oiseau fait : c'est un verbe. La place du mot dans la phrase ne suffit pas à reconnaître sa classe."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -3062,6 +3276,17 @@
                                 "type": "grammar-cloze",
                                 "category": "grammar_cloze_ce1",
                                 "questions": 12
+                            }
+                        },
+                        {
+                            "id": "ce1-gram-classes-mots",
+                            "title": "Nom, verbe ou adjectif ?",
+                            "subtitle": "Reconnaître la classe d’un mot",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "word-class-choice",
+                                "category": "word_class_choice_ce1",
+                                "questions": 8
                             }
                         }
                     ]
@@ -3399,8 +3624,8 @@
                                     "question": "Trois moments : la naissance de ta maman, ta naissance, ta rentrée au CE1. Lequel est le plus ancien ?",
                                     "choices": [
                                         "La naissance de ta maman",
-                                        "Ta naissance",
-                                        "Ta rentrée au CE1"
+                                        "Ta naissance, il y a 7 ans",
+                                        "Ta rentrée au CE1, en septembre"
                                     ],
                                     "answer": "La naissance de ta maman",
                                     "explanation": "Ta maman est née bien avant toi, et tu es né avant d'entrer au CE1. Le plus ancien est celui qui s'est passé en premier : sa naissance."

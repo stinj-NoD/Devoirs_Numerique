@@ -397,6 +397,45 @@
                                 "level": 3,
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "cm2-addition-posee-decimaux",
+                            "title": "Addition posée de décimaux",
+                            "subtitle": "Aligner les virgules, jusqu'aux centaines",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "add",
+                                "level": 3,
+                                "decimals": 1,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-soustraction-posee-decimaux",
+                            "title": "Soustraction posée de décimaux",
+                            "subtitle": "Jusqu’aux centièmes",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "sub",
+                                "level": 2,
+                                "decimals": 2,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-multiplication-posee-decimaux",
+                            "title": "Multiplication d’un décimal",
+                            "subtitle": "Replacer la virgule dans le résultat",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "mult",
+                                "level": 1,
+                                "decimals": 1,
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -575,6 +614,50 @@
                             "format": "lesson-card",
                             "id": "cm2-lesson-fractions-addition",
                             "subtitle": "Même dénominateur, puis dénominateurs multiples"
+                        },
+                        {
+                            "id": "cm2-lesson-operations-posees-decimaux",
+                            "title": "Poser une opération à virgule",
+                            "subtitle": "Aligner les virgules, puis calculer",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour poser une addition ou une soustraction de nombres décimaux, on aligne les virgules les unes sous les autres. Chaque colonne contient alors des chiffres de même valeur, et la virgule du résultat se place dans la même colonne que les autres."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "9,13 + 1,94. Centièmes : 3 + 4 = 7. Dixièmes : 1 + 9 = 10, j'écris 0 et je retiens 1. Unités : 9 + 1 + 1 = 11. Le résultat est 11,07."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour multiplier un décimal par un entier, on calcule comme si la virgule n'existait pas, puis on la replace dans le résultat : il doit avoir autant de chiffres après la virgule que le nombre décimal de départ."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tu poses 4,5 + 12,75. Comment places-tu les deux nombres ?",
+                                    "choices": [
+                                        "Je place les virgules l'une sous l'autre et j'écris 4,50 pour compléter",
+                                        "Je place les derniers chiffres l'un sous l'autre, comme pour les entiers",
+                                        "Je place les premiers chiffres l'un sous l'autre, en partant de la gauche"
+                                    ],
+                                    "answer": "Je place les virgules l'une sous l'autre et j'écris 4,50 pour compléter",
+                                    "explanation": "Ce sont les virgules qui doivent être alignées, pas les derniers chiffres. Écrire 4,50 au lieu de 4,5 ne change pas la valeur du nombre et donne le même nombre de décimales aux deux lignes."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour calculer 2,4 × 3, Sam multiplie d'abord 24 × 3 = 72. Que doit-il faire ensuite ?",
+                                    "choices": [
+                                        "Replacer la virgule : 2,4 a un chiffre après la virgule, le résultat est 7,2",
+                                        "Garder 72, car une multiplication fait disparaître la virgule du calcul",
+                                        "Écrire 0,72, en comptant les chiffres après la virgule des deux nombres"
+                                    ],
+                                    "answer": "Replacer la virgule : 2,4 a un chiffre après la virgule, le résultat est 7,2",
+                                    "explanation": "On multiplie sans la virgule, puis on la replace. 2,4 a un seul chiffre après la virgule, donc le résultat en a un seul aussi : 7,2. On vérifie l'ordre de grandeur, 2,4 × 3 est proche de 2 × 3 = 6."
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2049,6 +2132,195 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "id": "cm2-probabilites-algorithmique",
+                    "title": "Probabilités & algorithmique",
+                    "icon": "🎲",
+                    "lessons": [
+                        {
+                            "id": "cm2-lesson-certain-possible-impossible",
+                            "title": "Certain, possible ou impossible",
+                            "subtitle": "Un premier regard sur le hasard",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Quand on ne peut pas savoir à l'avance ce qui va se produire, on dit que le résultat dépend du hasard. On classe alors un événement en trois familles : il est certain, possible ou impossible."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "On lance un dé ordinaire à six faces. Obtenir un nombre compris entre 1 et 6 est certain. Obtenir 4 est possible. Obtenir 7 est impossible."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Entre deux événements possibles, l'un peut être plus probable que l'autre : c'est celui qui a le plus de chances de se produire, parce qu'il correspond à un plus grand nombre de cas."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un sac contient 5 billes rouges et 1 bille bleue. On en tire une sans regarder. Que peut-on dire ?",
+                                    "choices": [
+                                        "Tirer une rouge est possible, et plus probable que tirer une bleue",
+                                        "Tirer une rouge est certain, puisqu'il y en a beaucoup plus dans le sac",
+                                        "Tirer une bleue est impossible, car il n'y en a qu'une seule dans le sac"
+                                    ],
+                                    "answer": "Tirer une rouge est possible, et plus probable que tirer une bleue",
+                                    "explanation": "Les deux tirages peuvent arriver : aucun n'est certain ni impossible. Mais il y a 5 cas favorables sur 6 pour la rouge contre 1 sur 6 pour la bleue, donc la rouge est plus probable."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Parmi ces trois événements, lequel est impossible ?",
+                                    "choices": [
+                                        "Obtenir un 8 en lançant un dé ordinaire à six faces",
+                                        "Obtenir deux fois de suite un 6 en lançant un dé",
+                                        "Qu'il pleuve le jour de la sortie scolaire de la classe"
+                                    ],
+                                    "answer": "Obtenir un 8 en lançant un dé ordinaire à six faces",
+                                    "explanation": "Un dé ordinaire ne porte que les nombres de 1 à 6 : le 8 ne peut jamais sortir. Les deux autres événements sont seulement peu probables, ce qui n'est pas la même chose qu'impossible."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-algorithme-instructions",
+                            "title": "Suivre un algorithme",
+                            "subtitle": "Des instructions dans l'ordre",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un algorithme est une suite d'instructions exécutées les unes après les autres, dans l'ordre où elles sont écrites. Une machine applique ces instructions à la lettre, sans rien deviner."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Programme : « avance de 2 cases, tourne à droite, avance de 3 cases ». Le robot parcourt d'abord 2 cases, change de direction, puis parcourt 3 cases dans la nouvelle direction."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Une boucle répète plusieurs fois les mêmes instructions sans les réécrire. Une instruction conditionnelle, elle, commence par « si » : elle n'est exécutée que dans certains cas."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Programme : « répète 3 fois : avance de 2 cases ». De combien de cases le robot avance-t-il en tout ?",
+                                    "choices": [
+                                        "6 cases, car la boucle répète 3 fois un déplacement de 2 cases",
+                                        "2 cases, car la boucle revient à chaque fois sur la même case",
+                                        "5 cases, car on additionne les 3 répétitions et les 2 cases"
+                                    ],
+                                    "answer": "6 cases, car la boucle répète 3 fois un déplacement de 2 cases",
+                                    "explanation": "La boucle exécute trois fois l'instruction « avance de 2 cases » : 2 + 2 + 2 = 6 cases, ce qui revient à calculer 3 × 2."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Programme A : « avance de 3, tourne à droite ». Programme B : « tourne à droite, avance de 3 ». Le robot finit-il au même endroit ?",
+                                    "choices": [
+                                        "Non, car les instructions ne sont pas exécutées dans le même ordre",
+                                        "Oui, car les deux programmes contiennent exactement les mêmes instructions",
+                                        "Oui, car tourner sur place ne fait jamais changer le robot de case"
+                                    ],
+                                    "answer": "Non, car les instructions ne sont pas exécutées dans le même ordre",
+                                    "explanation": "Il est vrai que tourner ne déplace pas le robot, mais cela change sa direction. En A il avance avant de tourner, en B il avance après : les 3 cases ne sont pas parcourues dans le même sens."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-nombre-manquant-egalite",
+                            "title": "Trouver le nombre manquant",
+                            "subtitle": "Les deux côtés du signe égal",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le signe égal ne veut pas dire « voici le résultat » : il indique que ce qui est écrit à gauche et ce qui est écrit à droite ont exactement la même valeur. On peut donc chercher un nombre manquant dans une égalité."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans ? + 17 = 45, on cherche ce qu'il faut ajouter à 17 pour obtenir 45. On calcule 45 - 17 = 28. Le nombre manquant est 28, car 28 + 17 = 45."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour retrouver un nombre manquant, on emploie l'opération inverse : une addition se défait par une soustraction, une multiplication se défait par une division."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel nombre manque dans l'égalité 6 × ? = 54 ?",
+                                    "choices": [
+                                        "9, car je divise 54 par 6 pour défaire la multiplication",
+                                        "48, car je retire 6 à 54 pour trouver ce qui manque",
+                                        "60, car j'ajoute 6 à 54 pour compléter l'égalité"
+                                    ],
+                                    "answer": "9, car je divise 54 par 6 pour défaire la multiplication",
+                                    "explanation": "La division défait la multiplication : 54 ÷ 6 = 9. On vérifie en remplaçant, 6 × 9 = 54 : les deux côtés ont bien la même valeur."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pourquoi l'égalité 12 + 8 = 20 + 5 est-elle fausse ?",
+                                    "choices": [
+                                        "Parce que le côté gauche vaut 20 et le côté droit vaut 25",
+                                        "Parce qu'on ne peut pas écrire deux additions autour d'un signe égal",
+                                        "Parce qu'il faudrait ranger les nombres du plus petit au plus grand"
+                                    ],
+                                    "answer": "Parce que le côté gauche vaut 20 et le côté droit vaut 25",
+                                    "explanation": "Le signe égal exige la même valeur des deux côtés. Ici 12 + 8 font 20 et 20 + 5 font 25 : comme 20 n'est pas égal à 25, l'égalité est fausse. Écrire une addition de chaque côté est pourtant tout à fait permis."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm2-probabilites-vocabulaire",
+                            "title": "Certain, possible ou impossible",
+                            "subtitle": "Classer un événement",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_probabilites_algo_cm2.json",
+                                "category": "cm2_probabilites_vocabulaire",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-probabilites-comparer",
+                            "title": "Quel tirage est le plus probable ?",
+                            "subtitle": "Comparer des chances",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_probabilites_algo_cm2.json",
+                                "category": "cm2_probabilites_comparer",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-algorithme-executer",
+                            "title": "Exécuter un algorithme",
+                            "subtitle": "Boucles et conditions",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_probabilites_algo_cm2.json",
+                                "category": "cm2_algorithmique",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-algebre-nombre-manquant",
+                            "title": "Le nombre manquant",
+                            "subtitle": "Compléter une égalité",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_probabilites_algo_cm2.json",
+                                "category": "cm2_algebre_egalites",
+                                "questions": 8
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -3504,6 +3776,98 @@
                                     "explanation": "« Tenter » signifie essayer : il ne vient pas de tenir, il lui ressemble seulement par le début du mot, ce qui est exactement le piège. « Retenir » (tenir en arrière) et « maintenir » (tenir avec la main, maintenir en place) portent bien tous les deux l'idée de tenir. Deux mots qui commencent pareil ne sont donc pas forcément de la même famille : c'est le sens du radical qui décide."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cm2-lesson-ordre-evenements-recit",
+                            "title": "Remettre un récit dans l'ordre",
+                            "subtitle": "Suivre la chronologie",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans un récit, les événements ne sont pas toujours racontés dans l'ordre où ils se sont produits. Pour reconstituer la chronologie, on s'appuie sur les mots qui organisent le temps et sur les temps des verbes."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« Avant de partir, Léa avait fermé la fenêtre. » La fenêtre est fermée en premier, même si cette action est racontée après le départ."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les connecteurs de temps",
+                                    "items": [
+                                        "d'abord, puis, ensuite, enfin : ils marquent les étapes",
+                                        "avant, après, pendant : ils situent une action par rapport à une autre",
+                                        "soudain, tout à coup : ils signalent une rupture dans le récit"
+                                    ]
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Quand il eut fini ses devoirs, Tom alluma la télévision. » Que s'est-il passé en premier ?",
+                                    "choices": [
+                                        "Il a terminé ses devoirs, puis il a allumé la télévision",
+                                        "Il a allumé la télévision, puis il a fini ses devoirs",
+                                        "Les deux actions se sont produites exactement en même temps"
+                                    ],
+                                    "answer": "Il a terminé ses devoirs, puis il a allumé la télévision",
+                                    "explanation": "« Quand il eut fini » désigne une action déjà achevée au moment où la seconde commence. Les devoirs viennent donc avant, même si la phrase mentionne la télévision ensuite."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans un récit, à quoi sert le connecteur « soudain » ?",
+                                    "choices": [
+                                        "À marquer un événement brusque qui interrompt ce qui se passait",
+                                        "À indiquer que l'action se répète chaque jour de la semaine",
+                                        "À conclure le récit en annonçant la toute dernière action"
+                                    ],
+                                    "answer": "À marquer un événement brusque qui interrompt ce qui se passait",
+                                    "explanation": "« Soudain » signale une rupture : l'action survient sans prévenir et coupe le cours du récit. Pour conclure, on emploierait plutôt « enfin » ou « finalement »."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-reprises-texte",
+                            "title": "Les reprises dans un texte",
+                            "subtitle": "Savoir à qui renvoie un mot",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour ne pas répéter sans cesse le même nom, un texte le reprend par un autre mot : un pronom (il, elle, celui-ci) ou un groupe nominal plus général (l'animal, ce garçon). Bien lire, c'est savoir à chaque fois à quoi renvoie la reprise."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« Marie a rencontré Paul. Elle lui a offert un livre. » « Elle » reprend Marie et « lui » reprend Paul."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Quand une reprise semble ambiguë, on vérifie son genre et son nombre, puis on relit la phrase précédente : la reprise renvoie presque toujours à un nom déjà cité, jamais à quelqu'un de nouveau."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Le chat regarde les oiseaux. Ils s'envolent. » Qui désigne « Ils » ?",
+                                    "choices": [
+                                        "Les oiseaux, car le pronom est au pluriel comme eux",
+                                        "Le chat, car c'est lui le personnage principal de la phrase",
+                                        "Le chat et les oiseaux réunis, puisqu'ils sont tous présents"
+                                    ],
+                                    "answer": "Les oiseaux, car le pronom est au pluriel comme eux",
+                                    "explanation": "« Ils » est au pluriel : il ne peut pas reprendre « le chat », qui est au singulier. La seule reprise possible est « les oiseaux »."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Le loup s'approcha de la bergerie. L'animal avait faim. » Que reprend « L'animal » ?",
+                                    "choices": [
+                                        "Le loup, désigné par un mot plus général",
+                                        "La bergerie, le lieu dont on vient de parler",
+                                        "Un autre animal, qui apparaît pour la première fois"
+                                    ],
+                                    "answer": "Le loup, désigné par un mot plus général",
+                                    "explanation": "Une reprise n'est pas forcément un pronom : ici c'est un groupe nominal, « l'animal », qui désigne le loup déjà cité. La bergerie est un lieu, et rien n'annonce un nouvel animal."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -3608,6 +3972,36 @@
                             "params": {
                                 "category": "cm2_vocabulaire_polysemie",
                                 "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm2-lecture-sequence-evenements",
+                            "title": "L'ordre des événements",
+                            "subtitle": "Reconstituer la chronologie",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm2_lecture_sequence_evenements",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm2-lecture-pronoms-reprises",
+                            "title": "À qui renvoie ce mot ?",
+                            "subtitle": "Pronoms et reprises",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm2_lecture_pronoms_reprises",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cm2-vocabulaire-contexte-precis",
+                            "title": "Le sens exact en contexte",
+                            "subtitle": "Choisir le mot juste",
+                            "engine": "reading",
+                            "params": {
+                                "category": "cm2_vocabulaire_contexte_precis",
+                                "questions": 5
                             }
                         }
                     ]

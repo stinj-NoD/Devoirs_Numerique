@@ -644,6 +644,102 @@
                                 "ask": "value",
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "ce2-addition-posee-retenue",
+                            "title": "Addition posée avec retenue",
+                            "subtitle": "Des nombres à 3 chiffres",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "add",
+                                "level": 2,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-soustraction-posee-retenue",
+                            "title": "Soustraction posée avec retenue",
+                            "subtitle": "Des nombres à 3 chiffres",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "sub",
+                                "level": 2,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-multiplication-posee-un-chiffre",
+                            "title": "Multiplication posée par un chiffre",
+                            "subtitle": "Multiplier puis ajouter la retenue",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "mult",
+                                "level": 1,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-addition-posee-milliers",
+                            "title": "Addition posée jusqu’aux milliers",
+                            "subtitle": "Des nombres à 4 chiffres",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "add",
+                                "level": 3,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-soustraction-posee-milliers",
+                            "title": "Soustraction posée jusqu’aux milliers",
+                            "subtitle": "Des nombres à 4 chiffres",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "sub",
+                                "level": 3,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-problemes-deux-etapes",
+                            "title": "Problèmes en deux étapes",
+                            "subtitle": "Trouver le calcul caché",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle3.json",
+                                "category": "ce2-problemes-deux-etapes",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-calcul-durees",
+                            "title": "Calculer une durée",
+                            "subtitle": "Heures et minutes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle3.json",
+                                "category": "ce2-durees",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce2-encadrement-milliers",
+                            "title": "Encadrer entre deux milliers",
+                            "subtitle": "Sur la ligne graduée",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "number-line-frame",
+                                "dataFile": "data/board_number_line_ce2.json",
+                                "category": "ce2_number_line_frame_milliers",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -1202,6 +1298,270 @@
                                     ],
                                     "answer": "6480, car son chiffre des centaines (4) est plus grand que celui de 6079 (0)",
                                     "explanation": "Les deux nombres ont le même chiffre des milliers (6), donc on compare la position suivante : les centaines. 6480 a 4 centaines contre 0 pour 6079, donc 6480 est le plus grand. On ne compare les unités qu'en dernier recours, si toutes les autres positions sont égales."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-addition-posee-retenue",
+                            "title": "Poser une addition avec retenue",
+                            "subtitle": "Aligner les colonnes et reporter",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour poser une addition, on écrit les nombres l'un sous l'autre en alignant les unités sous les unités, les dizaines sous les dizaines et les centaines sous les centaines. On calcule ensuite colonne par colonne, en commençant toujours par la droite."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "347 + 285. Unités : 7 + 5 = 12, j'écris 2 et je retiens 1. Dizaines : 4 + 8 + 1 = 13, j'écris 3 et je retiens 1. Centaines : 3 + 2 + 1 = 6. Le résultat est 632."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Une colonne ne peut garder qu'un seul chiffre. Dès qu'elle dépasse 9, on écrit le chiffre des unités et on reporte 1 dans la colonne de gauche : c'est la retenue."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tu poses 158 + 76. Que fais-tu dans la colonne des unités ?",
+                                    "choices": [
+                                        "J'écris 4 sous les unités et je retiens 1 dizaine",
+                                        "J'écris 14 sous les unités, puisque 8 + 6 font 14",
+                                        "J'écris 1 sous les unités et je retiens 4 dizaines"
+                                    ],
+                                    "answer": "J'écris 4 sous les unités et je retiens 1 dizaine",
+                                    "explanation": "8 + 6 = 14. Une colonne ne garde qu'un seul chiffre : j'écris le 4 des unités et je reporte la dizaine, donc 1, au-dessus de la colonne des dizaines."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sacha pose 246 + 35 et aligne le 3 sous le 2. Pourquoi son résultat sera-t-il faux ?",
+                                    "choices": [
+                                        "Parce qu'il ajoute des dizaines à des centaines au lieu d'aligner les unités entre elles",
+                                        "Parce qu'il faut toujours écrire le plus grand nombre en dessous du plus petit",
+                                        "Parce qu'une addition à trois chiffres se calcule en commençant par la gauche"
+                                    ],
+                                    "answer": "Parce qu'il ajoute des dizaines à des centaines au lieu d'aligner les unités entre elles",
+                                    "explanation": "Dans une addition posée, une colonne ne doit contenir que des chiffres de même valeur. En plaçant le 3 (une dizaine) sous le 2 (une centaine), Sacha ajoute des dizaines à des centaines : le résultat ne veut plus rien dire."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-soustraction-posee-retenue",
+                            "title": "Poser une soustraction avec retenue",
+                            "subtitle": "Quand le chiffre du haut est trop petit",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "On pose la soustraction comme l'addition, en alignant les colonnes, et on commence par la droite. Quand le chiffre du haut est plus petit que celui du bas, on ne peut pas soustraire directement : il faut une retenue."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "523 - 187. Unités : 3 - 7 est impossible, j'ajoute 10 au 3 (13 - 7 = 6) et je reporte 1 sous les dizaines. Dizaines : 2 - 8 - 1 est impossible, j'ajoute 10 au 2 (12 - 9 = 3) et je reporte 1 sous les centaines. Centaines : 5 - 1 - 1 = 3. Le résultat est 336."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "On ne change jamais l'ordre des deux nombres : le nombre du haut reste en haut. C'est la retenue qui permet de calculer, pas l'inversion des chiffres."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tu poses 402 - 165. Que fais-tu dans la colonne des unités ?",
+                                    "choices": [
+                                        "2 - 5 est impossible : j'ajoute 10 au 2, je calcule 12 - 5 = 7 et je reporte 1",
+                                        "Je calcule 5 - 2 = 3, car on soustrait le plus petit chiffre du plus grand",
+                                        "J'écris 0 sous les unités, puisque 2 - 5 ne se peut pas et ne donne rien"
+                                    ],
+                                    "answer": "2 - 5 est impossible : j'ajoute 10 au 2, je calcule 12 - 5 = 7 et je reporte 1",
+                                    "explanation": "L'ordre ne change pas : c'est bien 2 - 5. Comme c'est impossible, on ajoute 10 aux unités du haut (12 - 5 = 7) et on reporte une retenue sur la colonne suivante."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour vérifier une soustraction posée, Hugo ajoute son résultat au nombre qu'il avait enlevé. Que doit-il retrouver ?",
+                                    "choices": [
+                                        "Le nombre du haut, celui dont il était parti au départ",
+                                        "Le nombre du bas, celui qu'il vient justement d'enlever",
+                                        "Zéro, puisque les deux calculs s'annulent l'un l'autre"
+                                    ],
+                                    "answer": "Le nombre du haut, celui dont il était parti au départ",
+                                    "explanation": "L'addition et la soustraction sont des opérations inverses. Si 523 - 187 = 336, alors 336 + 187 doit redonner 523 : c'est la façon la plus sûre de vérifier."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-multiplication-posee-un-chiffre",
+                            "title": "Poser une multiplication par un chiffre",
+                            "subtitle": "Multiplier puis ajouter la retenue",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour poser une multiplication par un nombre à un chiffre, on multiplie ce chiffre par chaque chiffre du grand nombre, en commençant par les unités. Comme pour l'addition, une colonne qui dépasse 9 produit une retenue."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "47 × 6. Unités : 6 × 7 = 42, j'écris 2 et je retiens 4. Dizaines : 6 × 4 = 24, puis j'ajoute la retenue : 24 + 4 = 28. Le résultat est 282."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "La retenue s'ajoute après la multiplication, jamais avant. On multiplie d'abord, on ajoute ensuite."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tu poses 53 × 4. Après avoir calculé 4 × 3 = 12, que fais-tu ?",
+                                    "choices": [
+                                        "J'écris 2 sous les unités et je retiens 1 pour les dizaines",
+                                        "J'écris 12 sous les unités, puis je passe aux dizaines",
+                                        "J'écris 1 sous les unités et je retiens 2 pour les dizaines"
+                                    ],
+                                    "answer": "J'écris 2 sous les unités et je retiens 1 pour les dizaines",
+                                    "explanation": "12 ne tient pas dans une colonne : j'écris le 2 des unités et je reporte la dizaine, 1. Ensuite 4 × 5 = 20, plus la retenue 1, soit 21. Le résultat est 212."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour 38 × 7, Yanis calcule 7 × 8 = 56, écrit 6, retient 5, puis calcule (3 + 5) × 7. Où est son erreur ?",
+                                    "choices": [
+                                        "Il ajoute la retenue avant de multiplier : il faut faire 7 × 3 puis ajouter 5",
+                                        "Il a retenu 5 alors que la retenue de 56 est 6, le chiffre des unités",
+                                        "Il devait commencer par la colonne des dizaines et non par les unités"
+                                    ],
+                                    "answer": "Il ajoute la retenue avant de multiplier : il faut faire 7 × 3 puis ajouter 5",
+                                    "explanation": "La retenue s'ajoute après la multiplication. Pour les dizaines : 7 × 3 = 21, puis 21 + 5 = 26. Le résultat est 266, alors que le calcul de Yanis donnerait 566."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-problemes-deux-etapes",
+                            "title": "Les problèmes en deux étapes",
+                            "subtitle": "Trouver le calcul caché",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Certains problèmes ne se résolvent pas en un seul calcul. Il faut d'abord trouver un résultat intermédiaire, qui n'est pas écrit dans l'énoncé, puis s'en servir pour répondre à la question posée."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une classe a 4 tables de 6 places et 3 élèves sont absents. Combien d'élèves sont présents ? Étape 1 : 4 × 6 = 24 places. Étape 2 : 24 - 3 = 21 élèves présents."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Avant de calculer, relis la question finale et demande-toi ce qu'il te manque pour y répondre. Ce qui te manque, c'est justement la première étape."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un paquet contient 8 gâteaux. Marie achète 3 paquets et en mange 2. Combien lui en reste-t-il ?",
+                                    "choices": [
+                                        "22, car 3 × 8 = 24 puis 24 - 2 = 22",
+                                        "11, car il suffit d'ajouter 8 + 3 pour trouver le total",
+                                        "24, car 3 paquets de 8 gâteaux font bien 24 gâteaux"
+                                    ],
+                                    "answer": "22, car 3 × 8 = 24 puis 24 - 2 = 22",
+                                    "explanation": "Étape 1 : 3 paquets de 8 gâteaux, soit 3 × 8 = 24. Étape 2 : elle en mange 2, donc 24 - 2 = 22. La question porte sur ce qui reste : les deux calculs sont nécessaires."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un cinéma vend 5 places à 7 € l'une. On paie avec 50 €. Pour trouver la monnaie rendue, quel calcul faire en premier ?",
+                                    "choices": [
+                                        "5 × 7, pour connaître d'abord le prix total des places",
+                                        "50 - 7, pour enlever tout de suite le prix d'une place",
+                                        "50 + 5, pour réunir l'argent et le nombre de places"
+                                    ],
+                                    "answer": "5 × 7, pour connaître d'abord le prix total des places",
+                                    "explanation": "La monnaie rendue, c'est 50 € moins le prix total. Ce prix total n'est pas donné : il faut le calculer d'abord, 5 × 7 = 35, puis faire 50 - 35 = 15 €."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-calcul-duree",
+                            "title": "Calculer une durée",
+                            "subtitle": "Compter en heures et en minutes",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une durée, c'est le temps qui s'écoule entre un moment de départ et un moment d'arrivée. Pour la calculer, on avance d'abord jusqu'à l'heure ronde, puis on compte ce qui reste."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le film commence à 14 h 20 et se termine à 16 h 50. De 14 h 20 à 16 h 20, il s'écoule 2 heures. De 16 h 20 à 16 h 50, il s'écoule 30 minutes. La durée est de 2 h 30."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Une heure vaut 60 minutes, pas 100. C'est pour cela qu'on ne peut pas poser une soustraction d'horaires comme une soustraction de nombres."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "La récréation commence à 10 h 15 et se termine à 10 h 45. Combien de temps dure-t-elle ?",
+                                    "choices": [
+                                        "30 minutes, car de 10 h 15 à 10 h 45 on avance de 30 minutes",
+                                        "60 minutes, car une récréation dure toujours une heure entière",
+                                        "1 h 30, car on additionne les horaires 10 h 15 et 10 h 45"
+                                    ],
+                                    "answer": "30 minutes, car de 10 h 15 à 10 h 45 on avance de 30 minutes",
+                                    "explanation": "L'heure ne change pas entre le début et la fin : on compte seulement les minutes, 45 - 15 = 30 minutes."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "De 9 h 40 à 10 h 10, Nina calcule 10 h 10 - 9 h 40 et trouve 70 minutes. Où est son erreur ?",
+                                    "choices": [
+                                        "Elle compte comme si une heure valait 100 minutes, alors qu'elle en vaut 60",
+                                        "Elle a oublié les 10 minutes qui suivent l'heure ronde de 10 heures",
+                                        "Elle a inversé les horaires, il fallait calculer 9 h 40 - 10 h 10"
+                                    ],
+                                    "answer": "Elle compte comme si une heure valait 100 minutes, alors qu'elle en vaut 60",
+                                    "explanation": "De 9 h 40 à 10 h, il s'écoule 20 minutes. De 10 h à 10 h 10, il s'en écoule 10. La durée vaut donc 20 + 10 = 30 minutes, et non 70."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-encadrer-milliers",
+                            "title": "Encadrer un nombre entre deux milliers",
+                            "subtitle": "Trouver le millier juste avant et juste après",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Encadrer un nombre, c'est trouver les deux nombres ronds entre lesquels il se situe. Pour encadrer entre deux milliers, on regarde le chiffre des milliers : le nombre se trouve entre ce millier et le millier suivant."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "3 472 a 3 milliers. Il est donc situé entre 3 000 et 4 000, ce qui s'écrit 3 000 < 3 472 < 4 000."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Sur une ligne graduée de 1 000 en 1 000, encadrer revient à repérer les deux graduations qui entourent le nombre, sans jamais le dépasser d'un côté ni de l'autre."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Entre quels milliers se trouve 6 805 ?",
+                                    "choices": [
+                                        "Entre 6 000 et 7 000, car son chiffre des milliers est 6",
+                                        "Entre 8 000 et 9 000, car le chiffre suivant est un 8",
+                                        "Entre 6 800 et 6 900, car il faut regarder les centaines"
+                                    ],
+                                    "answer": "Entre 6 000 et 7 000, car son chiffre des milliers est 6",
+                                    "explanation": "Encadrer entre deux milliers, c'est trouver le millier juste en dessous et celui juste au-dessus. 6 805 compte 6 milliers : il est entre 6 000 et 7 000."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur une ligne graduée de 1 000 en 1 000, où places-tu 2 150 ?",
+                                    "choices": [
+                                        "Juste après la graduation 2 000, bien avant celle de 3 000",
+                                        "Juste avant la graduation 2 000, car 150 est un petit nombre",
+                                        "Au milieu, entre les graduations 2 000 et 3 000, à cause du 150"
+                                    ],
+                                    "answer": "Juste après la graduation 2 000, bien avant celle de 3 000",
+                                    "explanation": "2 150, c'est 2 000 plus 150. Comme 150 est bien plus petit que 1 000, le nombre se place juste après la graduation 2 000, loin du milieu qui serait 2 500."
                                 }
                             ]
                         }

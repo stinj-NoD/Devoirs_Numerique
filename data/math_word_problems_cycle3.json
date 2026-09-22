@@ -1129,6 +1129,210 @@
                 "answer": "Avril (barre 4)",
                 "explanation": "La 4e barre vaut 50, c'est la plus haute."
             }
+        ],
+        "ce2-problemes-deux-etapes": [
+            {
+                "question": "Un carton contient 6 œufs. Papa achète 4 cartons et en casse 2. Combien d'œufs lui reste-t-il ?",
+                "choices": [
+                    "22",
+                    "24",
+                    "26"
+                ],
+                "answer": "22",
+                "explanation": "Étape 1 : 4 × 6 = 24 œufs achetés. Étape 2 : 24 - 2 = 22 œufs restants."
+            },
+            {
+                "question": "Lisa a 50 €. Elle achète 3 livres à 12 € l'un. Combien d'argent lui reste-t-il ?",
+                "choices": [
+                    "14 €",
+                    "38 €",
+                    "26 €"
+                ],
+                "answer": "14 €",
+                "explanation": "Étape 1 : 3 × 12 = 36 € dépensés. Étape 2 : 50 - 36 = 14 € restants."
+            },
+            {
+                "question": "Dans le bus, il y a 28 passagers. À l'arrêt, 9 descendent et 13 montent. Combien y a-t-il de passagers ?",
+                "choices": [
+                    "32",
+                    "50",
+                    "24"
+                ],
+                "answer": "32",
+                "explanation": "Étape 1 : 28 - 9 = 19 passagers après les descentes. Étape 2 : 19 + 13 = 32 passagers."
+            },
+            {
+                "question": "La maîtresse ouvre 5 boîtes de 8 crayons et en distribue 12. Combien de crayons reste-t-il ?",
+                "choices": [
+                    "28",
+                    "40",
+                    "52"
+                ],
+                "answer": "28",
+                "explanation": "Étape 1 : 5 × 8 = 40 crayons. Étape 2 : 40 - 12 = 28 crayons restants."
+            },
+            {
+                "question": "Tom court 3 tours de 250 m, puis marche encore 150 m. Quelle distance a-t-il parcourue ?",
+                "choices": [
+                    "900 m",
+                    "750 m",
+                    "400 m"
+                ],
+                "answer": "900 m",
+                "explanation": "Étape 1 : 3 × 250 = 750 m courus. Étape 2 : 750 + 150 = 900 m en tout."
+            },
+            {
+                "question": "Mamie achète 2 kg de pommes à 3 € le kilo et un melon à 4 €. Combien paie-t-elle ?",
+                "choices": [
+                    "10 €",
+                    "7 €",
+                    "14 €"
+                ],
+                "answer": "10 €",
+                "explanation": "Étape 1 : 2 × 3 = 6 € de pommes. Étape 2 : 6 + 4 = 10 € au total."
+            },
+            {
+                "question": "Un cinéma a 6 rangées de 9 fauteuils. 7 fauteuils sont cassés. Combien de fauteuils peut-on utiliser ?",
+                "choices": [
+                    "47",
+                    "54",
+                    "61"
+                ],
+                "answer": "47",
+                "explanation": "Étape 1 : 6 × 9 = 54 fauteuils en tout. Étape 2 : 54 - 7 = 47 fauteuils utilisables."
+            },
+            {
+                "question": "Léa avait 120 billes. Elle en perd 35, puis en gagne 20. Combien en a-t-elle maintenant ?",
+                "choices": [
+                    "105",
+                    "135",
+                    "65"
+                ],
+                "answer": "105",
+                "explanation": "Étape 1 : 120 - 35 = 85 billes après la perte. Étape 2 : 85 + 20 = 105 billes."
+            },
+            {
+                "question": "Un train part avec 240 passagers. 60 descendent à la première gare, 85 montent à la deuxième. Combien de passagers y a-t-il ?",
+                "choices": [
+                    "265",
+                    "180",
+                    "385"
+                ],
+                "answer": "265",
+                "explanation": "Étape 1 : 240 - 60 = 180 passagers. Étape 2 : 180 + 85 = 265 passagers."
+            },
+            {
+                "question": "Une bibliothèque range 7 étagères de 30 livres. 45 livres sont empruntés. Combien de livres restent rangés ?",
+                "choices": [
+                    "165",
+                    "210",
+                    "255"
+                ],
+                "answer": "165",
+                "explanation": "Étape 1 : 7 × 30 = 210 livres au total. Étape 2 : 210 - 45 = 165 livres encore rangés."
+            }
+        ],
+        "ce2-durees": [
+            {
+                "question": "Le film commence à 15 h 00 et se termine à 16 h 30. Combien de temps dure-t-il ?",
+                "choices": [
+                    "1 h 30",
+                    "2 h 30",
+                    "1 h 15"
+                ],
+                "answer": "1 h 30",
+                "explanation": "De 15 h à 16 h, il s'écoule 1 heure, puis 30 minutes jusqu'à 16 h 30 : la durée est de 1 h 30."
+            },
+            {
+                "question": "La récréation va de 10 h 15 à 10 h 45. Quelle est sa durée ?",
+                "choices": [
+                    "30 minutes",
+                    "1 heure",
+                    "15 minutes"
+                ],
+                "answer": "30 minutes",
+                "explanation": "L'heure ne change pas : on compte seulement les minutes, 45 - 15 = 30 minutes."
+            },
+            {
+                "question": "Un cours commence à 9 h 40 et se termine à 10 h 10. Quelle est sa durée ?",
+                "choices": [
+                    "30 minutes",
+                    "70 minutes",
+                    "50 minutes"
+                ],
+                "answer": "30 minutes",
+                "explanation": "De 9 h 40 à 10 h, il s'écoule 20 minutes, puis 10 minutes jusqu'à 10 h 10 : 20 + 10 = 30 minutes. Une heure vaut 60 minutes, pas 100."
+            },
+            {
+                "question": "Le train part à 8 h 00 et arrive à 11 h 00. Combien de temps dure le trajet ?",
+                "choices": [
+                    "3 heures",
+                    "4 heures",
+                    "2 heures"
+                ],
+                "answer": "3 heures",
+                "explanation": "De 8 h à 11 h, on compte 9 h, 10 h, 11 h : soit 3 heures."
+            },
+            {
+                "question": "Papa part de la maison à 7 h 45 et arrive au travail à 8 h 15. Combien de temps a duré le trajet ?",
+                "choices": [
+                    "30 minutes",
+                    "1 h 30",
+                    "70 minutes"
+                ],
+                "answer": "30 minutes",
+                "explanation": "De 7 h 45 à 8 h, il s'écoule 15 minutes, puis 15 minutes jusqu'à 8 h 15 : 15 + 15 = 30 minutes."
+            },
+            {
+                "question": "Un gâteau cuit de 17 h 20 à 18 h 05. Combien de temps cuit-il ?",
+                "choices": [
+                    "45 minutes",
+                    "85 minutes",
+                    "15 minutes"
+                ],
+                "answer": "45 minutes",
+                "explanation": "De 17 h 20 à 18 h, il s'écoule 40 minutes, puis 5 minutes jusqu'à 18 h 05 : 40 + 5 = 45 minutes."
+            },
+            {
+                "question": "La piscine ouvre à 14 h 00 et ferme à 18 h 30. Pendant combien de temps est-elle ouverte ?",
+                "choices": [
+                    "4 h 30",
+                    "3 h 30",
+                    "4 h 00"
+                ],
+                "answer": "4 h 30",
+                "explanation": "De 14 h à 18 h, il s'écoule 4 heures, puis 30 minutes jusqu'à 18 h 30 : la durée est de 4 h 30."
+            },
+            {
+                "question": "Un match se joue en deux mi-temps de 35 minutes, avec 15 minutes de pause. Combien de temps dure-t-il en tout ?",
+                "choices": [
+                    "1 h 25",
+                    "1 h 10",
+                    "50 minutes"
+                ],
+                "answer": "1 h 25",
+                "explanation": "35 + 35 + 15 = 85 minutes. Comme 60 minutes font 1 heure, 85 minutes valent 1 h 25."
+            },
+            {
+                "question": "Nina lit de 20 h 10 à 20 h 40. Combien de minutes lit-elle ?",
+                "choices": [
+                    "30 minutes",
+                    "50 minutes",
+                    "20 minutes"
+                ],
+                "answer": "30 minutes",
+                "explanation": "L'heure ne change pas : 40 - 10 = 30 minutes de lecture."
+            },
+            {
+                "question": "Une sortie scolaire commence à 9 h 30 et dure 2 h 15. À quelle heure se termine-t-elle ?",
+                "choices": [
+                    "11 h 45",
+                    "11 h 15",
+                    "12 h 45"
+                ],
+                "answer": "11 h 45",
+                "explanation": "9 h 30 plus 2 heures donne 11 h 30, puis on ajoute 15 minutes : la sortie se termine à 11 h 45."
+            }
         ]
     }
 }
