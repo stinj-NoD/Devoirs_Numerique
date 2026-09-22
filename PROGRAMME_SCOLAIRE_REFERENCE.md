@@ -1,6 +1,41 @@
-# Référentiel du programme scolaire (CP → CM2, France, 2025-2026)
+# Référentiel du programme scolaire (CP → CM2, France, 2026-2027)
 
 Ce document liste les compétences et attendus de fin d'année issus des programmes officiels de l'Éducation nationale (cycle 2 : CP-CE1-CE2, cycle 3 : CM1-CM2), pour les 6 matières actuellement couvertes par l'application : **Mathématiques, Français, Histoire, Géographie, Sciences (Questionner le monde / SVT-Technologie), EMC**.
+
+## État de la réforme des programmes (2024-2027) — recroisé au texte officiel 2026-09-22
+
+La réforme des programmes se déploie **par vagues successives selon la matière
+et le niveau** — ce n'est pas un « tout ou rien ». Le tableau ci-dessous a été
+**recroisé aux arrêtés et aux annexes officielles** le 2026-09-22 (les annexes
+PDF `education.gouv.fr` ont pu être extraites cette fois-ci, voir Sources), ce
+qui a corrigé une erreur de la version précédente : **la ligne EMC était fausse
+sur 4 niveaux sur 5**. L'EMC ne suit pas le calendrier histoire-géo : il relève
+d'un arrêté distinct, plus ancien (BO du 13 juin 2024), dont le déploiement est
+**déjà terminé** pour l'élémentaire à cette rentrée.
+
+| Matière | CP | CE1 | CE2 | CM1 | CM2 |
+|---|---|---|---|---|---|
+| Mathématiques | **Nouveau** (depuis 2025-2026, BO spécial n°40 du 31/10/2024) | **Nouveau** (idem) | **Nouveau** (idem) | **Nouveau** (depuis 2025-2026, BO spécial n°16 du 17/04/2025) | **Nouveau** (depuis 2026-2027, même texte que CM1) |
+| Français | **Nouveau** (idem cycle 2 ci-dessus) | **Nouveau** | **Nouveau** | **Nouveau** (idem cycle 3 ci-dessus) | **Nouveau** (depuis 2026-2027) |
+| Histoire / Géographie | **Nouveau** (depuis 2026-2027, BO n°22 du 28/05/2026) | Ancien (« Questionner le monde », 2020) | Ancien (2020) | **Nouveau** (depuis 2026-2027, même texte) | Ancien (2020), bascule prévue 2027-2028 |
+| Sciences et technologie | **Nouveau** (depuis 2026-2027) | Ancien (2020) | Ancien (2020) | **Nouveau** (depuis 2026-2027) | Ancien (2020), bascule prévue 2027-2028 |
+| EMC | **Nouveau** (depuis 2024-2025, BO du 13/06/2024) | **Nouveau** (depuis 2025-2026, même texte) | **Nouveau** (depuis 2026-2027, même texte) | **Nouveau** (depuis 2024-2025, même texte) | **Nouveau** (depuis 2025-2026, même texte) |
+| Langues vivantes | Nouveau (paliers CECRL, pré-A1 visé) | Ancien | Ancien | Nouveau (paliers CECRL) | Ancien |
+
+Langues vivantes est **hors périmètre de l'application** — non couvert par le contenu actuel, mentionné dans le tableau pour information seulement.
+
+**Ce que ça veut dire concrètement pour ce dépôt**, à la rentrée 2026-2027 :
+
+- **Mathématiques, Français, EMC** : nouveau programme sur **les 5 niveaux**, transition achevée. Le contenu de l'app se compare au texte neuf partout.
+- **Histoire / Géographie** et **Sciences et technologie** : nouveau programme sur **CP et CM1 seulement**. CE1, CE2 et CM2 restent sur « Questionner le monde » (2020) / l'ancien programme de cycle 3 jusqu'à la rentrée 2027-2028.
+
+Conséquence pour la production de contenu : sur CE1/CE2/CM2, aligner l'histoire-géo et les sciences sur le **texte 2020**, qui reste celui de la classe cette année — anticiper 2027 y serait un hors-programme pour l'élève. Sur CP et CM1, les thèmes officiels 2026 sont désormais listés **nommément** dans les sections ci-dessous (marqueur « 🆕 Programme 2026 »), repris des annexes officielles.
+
+Les sections de ce document conservent les compétences existantes **sans suppression** (beaucoup restent inchangées) ; les marqueurs 🆕 ajoutent ce que le texte neuf apporte.
+
+Sources — textes officiels et annexes (extraits et relus le 2026-09-22) : [arrêté du 22/04/2026, EPS et histoire-géographie cycles 2 et 3 (Légifrance)](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054048160), [annexe — programme d'histoire-géographie cycle 2 (PDF)](https://www.education.gouv.fr/sites/default/files/document/annexe-3-programme-d-histoire-geographie-cycle-2-516776.pdf), [annexe — programme d'histoire-géographie cycle 3 (PDF)](https://www.education.gouv.fr/sites/default/files/document/annexe-4-programme-d-histoire-geographie-cycle-3-516779.pdf), [arrêté du 05/06/2026, sciences et technologie cycles 2 et 3 (Légifrance)](https://www.legifrance.gouv.fr/loda/id/JORFTEXT000054218988/), [BO n°24 du 11/06/2026, programmes de sciences et technologie (PDF)](https://www.education.gouv.fr/sites/default/files/document/bulletin-officiel-ndeg-24-du-11-juin-2026-519026.pdf), [BO n°16 du 17/04/2025, français et mathématiques cycle 3](https://www.education.gouv.fr/bo/2025/Hebdo16/MENE2504620A).
+
+Sources secondaires (calendrier EMC, mises en perspective) : [académie de Lille — programmes d'EMC et calendrier d'application](https://pedagogie.ac-lille.fr/emc/programmes/), [Café pédagogique — histoire-géo et EPS cycles 2 et 3](https://www.cafepedagogique.net/2026/05/29/nouveaux-programmes-dhistoire-geographie-et-deps-aux-cycles-2-et-3/), [éduscol — ressources fractions cycle 2](https://eduscol.education.gouv.fr/sites/default/files/document/les-fractionsv2pdf-111831.pdf).
 
 ## Objectif
 
@@ -58,6 +93,8 @@ L'audit de couverture complet, domaine par domaine et niveau par niveau, est dis
 - Reconnaître quelques solides usuels (cube, boule, pavé)
 - Reproduire des assemblages, des figures simples sur quadrillage
 
+**🆕 Programme 2026 (nouveau programme maths cycle 2, en vigueur depuis 2025-2026)** : la méthode « en barres » (schéma en barres pour résoudre un problème) est explicitement **absente** au CP — la résolution de problèmes doit s'appuyer sur le sens du nombre et la ligne numérique, dont l'usage est renforcé (déjà présent dans la liste ci-dessus, mais désormais central plutôt qu'un outil parmi d'autres). Point de vigilance pour `exercise-author` : ne pas introduire de schéma en barres dans les exercices CP.
+
 ### Français
 
 **Lecture et compréhension**
@@ -98,6 +135,14 @@ L'audit de couverture complet, domaine par domaine et niveau par niveau, est dis
 - Identifier des traces du passé (objets, photos, témoignages)
 - Découvrir quelques personnages et monuments importants de l'histoire locale/nationale
 
+**🆕 Programme 2026 (histoire-géo cycle 2, BO n°22 du 28/05/2026, en vigueur au CP depuis 2026-2027 ; CE1/CE2 restent sur « Questionner le monde » jusqu'en 2027-2028)** — la discipline devient structurée par **thèmes annuels numérotés**, avec une progression imposée CP→CE2. Thèmes officiels d'**histoire au CP** :
+
+- **Thème 1 : Les manifestations naturelles du temps** (alternance jour/nuit, saisons, cycles observables)
+- **Thème 2 : Les représentations humaines du temps** (calendrier, semaine de 7 jours, année de 12 mois, horloge)
+- **Thème 3 : Situer des évènements dans le temps** (avant/après, frise, ordonner des évènements)
+
+Les compétences listées ci-dessus restent pertinentes ; elles se redistribuent dans ces 3 thèmes.
+
 ### Géographie / Questionner l'espace
 
 - Se repérer dans l'école, la classe (plan simple)
@@ -105,6 +150,13 @@ L'audit de couverture complet, domaine par domaine et niveau par niveau, est dis
 - Distinguer différents types de paysages (ville, campagne, mer, montagne)
 - Identifier des moyens de transport et leur usage selon les lieux
 - Repérer les lieux publics (mairie, école, bibliothèque...)
+
+**🆕 Programme 2026** — la géographie du CP porte le titre d'année **« des clés pour se repérer »** et se structure en 2 thèmes :
+
+- **Thème 1 : l'espace proche** (trois périodes) — la classe, l'école et ses environs : nommer des lieux, situer des éléments les uns par rapport aux autres, comprendre et tracer un déplacement, passer de l'espace vécu à sa représentation. Mots-clés du texte : **plan, rue, quartier/village, trajet**. *(L'intitulé exact du thème 1 n'a pas pu être extrait de l'annexe PDF — rendu graphique ; le contenu ci-dessus, lui, vient bien du texte.)*
+- **Thème 2 : Des représentations du monde** (deux périodes) — globe, planisphère, premières représentations de la Terre.
+
+**Points cardinaux** : à installer dès le CP dans le nouveau texte, absents de la liste historique ci-dessus — manque réel à couvrir.
 
 ### Sciences / Questionner le monde du vivant, de la matière et des objets
 
@@ -116,6 +168,15 @@ L'audit de couverture complet, domaine par domaine et niveau par niveau, est dis
 - Connaître les 5 sens et les organes associés
 - Identifier les besoins du corps humain (sommeil, alimentation, hygiène)
 
+**🆕 Programme 2026 (sciences et technologie, arrêté du 05/06/2026, BO n°24 du 11/06/2026 ; en vigueur au CP depuis 2026-2027, CE1/CE2 en 2027-2028)** — entrées officielles du **CP**, par domaine :
+
+- **Matière** : *Masse, volumes et mesure de température* (comparer des masses, vocabulaire associé) ; *États physiques de la matière*
+- **Le vivant** : *Unité et diversité du vivant* (trier vivant / non vivant / élaboré par des êtres vivants) ; *Observer et décrire son environnement proche*
+- **Corps humain et santé** : *Alimentation* (groupes d'aliments et origine) ; *Croissance et mouvement* ; *Santé et hygiène de vie*
+- **Objets techniques** : *La transformation par les êtres humains* — l'objet technique comme réponse à un besoin identifié
+
+Accent transversal : démarche d'investigation et langage scientifique précis dès le CP. Deux entrées sont **nouvelles par rapport à la liste historique ci-dessus** : la **mesure de température** et le **tri à trois catégories** (vivant / non vivant / élaboré par des êtres vivants, qui remplace le binaire vivant/non-vivant).
+
 ### EMC (Enseignement moral et civique)
 
 - Respecter les règles de vie collective (classe, école)
@@ -124,6 +185,8 @@ L'audit de couverture complet, domaine par domaine et niveau par niveau, est dis
 - Pratiquer l'entraide et la coopération
 - Adopter des comportements responsables (sécurité au quotidien, prudence)
 - Respecter les autres, premières notions de politesse
+
+**🆕 Correction de calendrier** : le CP est sur le **nouvel EMC (BO du 13/06/2024) depuis 2024-2025**, pas depuis 2026-2027 — l'EMC relève d'un arrêté distinct de celui d'histoire-géo. Le déploiement élémentaire est terminé : CP/CM1 en 2024-2025, CE1/CM2 en 2025-2026, CE2 en 2026-2027. Les 5 niveaux de l'app sont donc à comparer au même texte d'EMC.
 
 ---
 
@@ -153,6 +216,12 @@ L'audit de couverture complet, domaine par domaine et niveau par niveau, est dis
 - Reproduire une figure sur quadrillage ou papier pointé
 - Se repérer et se déplacer sur un quadrillage (codage de déplacements)
 - Notion de longueur de côté, de sommet
+
+**🆕 Programme 2026 (nouveau programme maths cycle 2, en vigueur depuis 2025-2026) — compétences absentes de la liste ci-dessus, à vérifier/ajouter** :
+- **Fractions simples** (dénominateurs 2, 3, 4, 5, 6, 8, 10) introduites dès la période 2 du CE1, fractions unitaires (numérateur 1) d'abord, avec leur écriture fractionnaire.
+- **Notation décimale** introduite dès le CE1 dans le contexte de la monnaie (virgule = séparateur des euros/centimes), de façon concrète, sans nommer les unités de numération — objectif : familiariser avant l'introduction plus abstraite des nombres décimaux en cycle 3.
+
+Ce sont des ajouts probables au référentiel CE1, pas des compétences déjà listées ailleurs sous un autre nom — à confirmer lors du prochain audit de couverture.
 
 ### Français
 
@@ -249,6 +318,8 @@ L'audit de couverture complet, domaine par domaine et niveau par niveau, est dis
 - Notion de symétrie axiale (compléter une figure par symétrie)
 - Se repérer sur un quadrillage (coordonnées simples)
 
+**🆕 Programme 2026** : les fractions ne sont plus une introduction inédite au CE2 mais une **poursuite** du travail commencé en CE1 (fractions unitaires posées sur une bande graduée pour construire le statut de nombre de la fraction, pas seulement moitié/quart/tiers en contexte concret) ; la notation décimale pour la monnaie, débutée au CE1, se poursuit ici sur sa deuxième année avant l'introduction plus générale des nombres décimaux au cycle 3.
+
 ### Français
 
 **Lecture et compréhension**
@@ -341,6 +412,8 @@ L'audit de couverture complet, domaine par domaine et niveau par niveau, est dis
 - Se repérer et se déplacer sur un quadrillage avec coordonnées (plan, jeu de plateau)
 - Classification des figures géométriques (quadrilatères, triangles)
 
+**🆕 Programme 2026 (nouveau programme maths cycle 3, en vigueur depuis 2025-2026 au CM1, 2026-2027 au CM2)** : quatre domaines apparaissent ou deviennent des domaines à part entière, en plus de ceux déjà listés ci-dessus — **probabilités** (introduction), **algèbre** (introduction, au-delà des simples équations à trous), **pensée informatique/algorithmique** (introduction), et **proportionnalité** désormais traitée comme domaine autonome plutôt que noyée dans « problèmes ». Le référentiel de couverture (fin de document) indique déjà que la proportionnalité est traitée en CM1/CM2 dans l'app — à vérifier si probabilités/algèbre/pensée informatique ont un équivalent, sinon ce sont des manques réels (pas de moteur `probability`/`algebra` identifié dans `data/engine-registry.json` à ce jour).
+
 ### Français
 
 **Lecture et compréhension**
@@ -379,6 +452,17 @@ L'audit de couverture complet, domaine par domaine et niveau par niveau, est dis
 - Identifier et situer des personnages et événements clés de ces périodes
 - Étudier des récits historiques fondateurs et leur portée
 
+**🆕 Programme 2026 (histoire-géo cycle 3, BO n°22 du 28/05/2026, en vigueur au CM1 depuis 2026-2027)** — intitulés officiels des 4 thèmes d'histoire du CM1, avec leur place dans l'année :
+
+- **Thème 1 : La vie quotidienne au Moyen Âge (XIe-XIIIe siècles)** — 1re et 2e périodes
+- **Thème 2 : La monarchie en France (XVIe-XVIIe siècles)** — 2e et 3e périodes (François Ier, Henri IV, Louis XIV)
+- **Thème 3 : Explorations et conquêtes par les Européens du XVe au XVIIe siècle** — 4e période
+- **Thème 4 : 1789, une année révolutionnaire en France** — 5e période
+
+Le CM1 change donc de périmètre chronologique par rapport à la liste historique ci-dessus. **Confirmé au texte officiel** : la Préhistoire et l'Antiquité/Gaule romaine ne sont plus au CM1 — elles passent au **CE2** (thèmes « La vie des femmes et des hommes au Paléolithique et au Néolithique », « Vivre à Rome et en Gaule romaine », « La construction du royaume de France »), mais **seulement à partir de 2027-2028**, puisque le CE2 reste sur « Questionner le monde » cette année. Conséquence : ce contenu CM1 existant n'est **pas** à supprimer — il n'a, cette année, aucun autre niveau où atterrir.
+
+Pour mémoire (hors application cette année) — histoire **CM2** au nouveau texte, à partir de 2027-2028 : Consulat/Empire jusqu'en 1815, IIe et IIIe Républiques (1848-1914), Première Guerre mondiale, Seconde Guerre mondiale, « la France depuis 1945 : 80 ans de transformations ».
+
 ### Géographie
 
 - Le territoire français : organisation administrative (régions, départements)
@@ -386,6 +470,15 @@ L'audit de couverture complet, domaine par domaine et niveau par niveau, est dis
 - Se déplacer en France : réseaux de transport
 - Habiter une métropole, un espace rural, un littoral, une zone de montagne
 - Identifier les activités économiques selon les territoires
+
+**🆕 Programme 2026** — la géographie du CM1 porte le titre d'année **« la diversité des modes de vie dans le monde »**. Intitulés officiels des 4 thèmes :
+
+- **Thème 1 : Se nourrir** (1 ou 2 périodes au choix)
+- **Thème 2 : Les inégalités dans le monde** (1 ou 2 périodes au choix)
+- **Thème 3 : Se déplacer** (1 période)
+- **Thème 4 : Communiquer dans le monde avec Internet** (1 période)
+
+L'entrée se fait donc par les **modes de vie** plutôt que par les types d'espaces habités. Le thème Internet, auparavant traité en CM2, est avancé au CM1.
 
 ### Sciences
 
@@ -395,6 +488,15 @@ L'audit de couverture complet, domaine par domaine et niveau par niveau, est dis
 - Les leviers et objets techniques (fonctionnement simple)
 - Hygiène et fonctionnement du corps humain (digestion, respiration, circulation - introduction)
 
+**🆕 Programme 2026 (sciences et technologie, arrêté du 05/06/2026, BO n°24 du 11/06/2026 ; en vigueur au CM1 depuis 2026-2027)** — entrées officielles du **CM1**, par domaine :
+
+- **Mouvements et signaux** : *Différents types de mouvement* ; *Signaux*
+- **Le vivant** : *Unité et diversité du vivant* ; *Reproduction, croissance et développement* ; *Les écosystèmes* ; *La Terre, une planète active*
+- **Corps humain et santé** : *Le cerveau : introduction à quelques grandes fonctions* ; *Puberté et reproduction humaine*
+- **Technologie** : *Les objets techniques en réponse aux besoins des individus et de la société*
+
+Trois entrées sont **nouvelles par rapport à la liste historique ci-dessus** : *Signaux*, *La Terre, une planète active* (volcanisme/séismes/tectonique à l'échelle de l'école élémentaire) et *Le cerveau*.
+
 ### EMC
 
 - Comprendre les notions de droits et devoirs du citoyen
@@ -402,6 +504,8 @@ L'audit de couverture complet, domaine par domaine et niveau par niveau, est dis
 - Débattre de sujets de société adaptés à l'âge (environnement, vivre ensemble)
 - Identifier et respecter les différences (lutte contre les discriminations - introduction)
 - Comprendre les valeurs de la République (liberté, égalité, fraternité, laïcité)
+
+**🆕 Correction de calendrier** : le CM1 est sur le **nouvel EMC (BO du 13/06/2024) depuis 2024-2025**, en même temps que le CP — pas depuis 2026-2027. Voir la note d'EMC au CP pour le calendrier complet.
 
 ---
 
@@ -553,3 +657,13 @@ Pour garder ce document léger :
 - Ne pas dupliquer le détail de `CONTENT_ARCHITECTURE.md` (sous-thèmes, nombre d'exercices) — n'y faire référence que pour les points non couverts.
 - Quand un point de la section "Points restants à combler" est traité, le supprimer de la liste (pas de tableau d'audit complet à maintenir).
 - Mettre à jour ce document si le programme officiel évolue (ex. nouveaux programmes 2026-2027).
+
+**Mise à jour du 2026-09-17** : titre et année passés à 2026-2027 ; ajout de la section « État de la réforme des programmes (2024-2027) » (tableau matière × niveau, nouveau/ancien programme) et de callouts « 🆕 Programme 2026 » dans les sections concernées (maths tous niveaux ; histoire/géo/sciences/EMC pour CP et CM1 uniquement, seuls niveaux avec un nouveau texte en vigueur cette année). Recherche faite via presse spécialisée et sites pédagogiques — les BO officiels n'ont pas pu être extraits automatiquement (PDF image). **Prochaine étape suggérée** : recroiser les callouts avec le texte officiel complet lors d'un futur audit, en particulier pour histoire (CM1 : périmètre chronologique très différent de l'ancien programme) et sciences/EMC (contenu non détaillé dans cette passe).
+
+**Mise à jour du 2026-09-22 — recroisement au texte officiel (la prochaine étape ci-dessus est faite)** : les annexes PDF du ministère ont cette fois été extraites et relues (histoire-géo cycles 2 et 3, sciences et technologie BO n°24), les arrêtés vérifiés sur Légifrance. Trois résultats :
+
+1. **Correction de fond — la ligne EMC du tableau était fausse sur 4 niveaux sur 5.** L'EMC ne suit pas l'arrêté histoire-géo : il vient du BO du 13/06/2024, déployé CP/CM1 en 2024-2025, CE1/CM2 en 2025-2026, CE2 en 2026-2027. Les 5 niveaux sont donc au même texte d'EMC depuis cette rentrée.
+2. **Les callouts CP et CM1 d'histoire, de géographie et de sciences portent désormais les intitulés officiels des thèmes** (et non plus une paraphrase de presse spécialisée), avec leur place dans l'année pour l'histoire.
+3. **Point tranché** : le contenu CM1 de Préhistoire / Antiquité n'est pas à retirer. Ces thèmes passent bien au CE2 dans le nouveau texte, mais le CE2 reste sur « Questionner le monde » jusqu'en 2027-2028 — les déplacer maintenant les ferait disparaître de l'app pour un an.
+
+Seul point resté non vérifié : l'intitulé exact du **thème 1 de géographie au CP** (rendu graphique dans l'annexe, non extractible) ; son contenu, lui, vient du texte.
