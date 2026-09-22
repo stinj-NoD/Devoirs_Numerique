@@ -188,6 +188,12 @@
             case 'operation-posed': {
                 const level = p.level || 1;
                 const operator = p.operator || 'add';
+                // decimals : opérandes toujours des entiers bruts (mêmes tables rnd()
+                // ci-dessous, decimals=0 ou absent = comportement historique inchangé
+                // au bit près), simplement réinterprétés comme valeur × 10^decimals au
+                // formatage (formatScaled). Jamais de flottant JS : ça évite tout
+                // risque de précision et garde add/sub/mult exacts sur des entiers.
+                const decimals = [0, 1, 2].includes(p.decimals) ? p.decimals : 0;
                 let opA, opB;
                 if (operator === 'add') {
                     if (level === 1) { opA = rnd(10, 99); opB = rnd(10, 99); }
@@ -204,18 +210,28 @@
                 }
                 const result = operator === 'add' ? opA + opB : (operator === 'sub' ? opA - opB : opA * opB);
                 const opSymbol = operator === 'add' ? '+' : (operator === 'sub' ? '-' : '×');
+                // Met une valeur entière à l'échelle en chaîne virgule (jamais un
+                // point) : indispensable pour `answer`, standardize() (engines-core.js)
+                // fait juste answer.toString() sinon un flottant produirait un point
+                // qui ne matcherait jamais une saisie clavier virgule.
+                const formatScaled = (value) => {
+                    const str = value.toString();
+                    if (decimals === 0) return str;
+                    const padded = str.padStart(decimals + 1, '0');
+                    return `${padded.slice(0, -decimals)},${padded.slice(-decimals)}`;
+                };
                 const opExplanation = operator === 'add'
-                    ? `${opA} + ${opB} = ${result} (pense aux retenues quand une colonne dépasse 9).`
+                    ? `${formatScaled(opA)} + ${formatScaled(opB)} = ${formatScaled(result)} (pense aux retenues quand une colonne dépasse 9).`
                     : operator === 'sub'
-                        ? `${opA} - ${opB} = ${result} (pense aux emprunts quand le chiffre du haut est plus petit).`
-                        : `${opA} × ${opB} = ${result}.`;
+                        ? `${formatScaled(opA)} - ${formatScaled(opB)} = ${formatScaled(result)} (pense aux emprunts quand le chiffre du haut est plus petit).`
+                        : `${formatScaled(opA)} × ${opB} = ${formatScaled(result)}.`;
                 return {
                     question: "Quel est le résultat ?",
-                    answer: result,
+                    answer: formatScaled(result),
                     isVisual: true,
                     visualType: 'operationPosed',
                     inputType: 'numeric',
-                    data: { a: opA, b: opB, operator, operatorSymbol: opSymbol },
+                    data: { a: opA, b: opB, operator, operatorSymbol: opSymbol, decimals },
                     explanation: opExplanation
                 };
             }

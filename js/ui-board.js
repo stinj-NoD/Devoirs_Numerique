@@ -109,6 +109,10 @@ const UIBoard = {
                 return this.renderAngleMeasure(problem);
             case 'construction-report':
                 return this.renderConstructionReport(problem);
+            case 'number-line-place':
+                return this.renderNumberLinePlace(problem);
+            case 'number-line-frame':
+                return this.renderNumberLineFrame(problem);
             default:
                 return `<div class="board-card"><p>Moteur interactif prêt, activité non reconnue.</p></div>`;
         }
@@ -606,6 +610,132 @@ const UIBoard = {
                         ${compassCircle}
                         ${centerMarker}
                         ${candidateNodes}
+                    </svg>
+                </div>
+            </div>
+        `;
+    },
+
+    /**
+     * Rendu commun aux 2 sous-types number-line : une ligne horizontale avec
+     * tickCount graduations régulières, seules celles listées dans
+     * board.labels affichent leur valeur (évite de surcharger visuellement
+     * une ligne à beaucoup de graduations). Les positions cliquables sont
+     * les graduations elles-mêmes (nœuds discrets), jamais un point libre le
+     * long de la ligne — même principe que renderPointOnGrid.
+     *
+     * Deux modes pour board.labels selon sa longueur :
+     * - longueur === tickCount : labels positionnels, affichés tels quels à
+     *   chaque graduation (texte libre, ex. fractions "1/8", "2/8"...) — le
+     *   seul mode qui permette d'afficher un texte non numérique, car aucune
+     *   comparaison de valeur n'est possible sur une fraction.
+     * - longueur différente : ancien mode « sous-ensemble de valeurs » —
+     *   labels est une liste de valeurs numériques à faire correspondre à la
+     *   valeur réelle (min + pas régulier) de chaque graduation ; seules les
+     *   graduations correspondantes affichent leur valeur calculée.
+     */
+    _renderNumberLineTicks(board, width, margin, y) {
+        const tickCount = Math.max(2, Number(board.tickCount) || 2);
+        const min = Number(board.min) || 0;
+        const max = Number.isFinite(Number(board.max)) ? Number(board.max) : min + tickCount - 1;
+        const rawLabels = Array.isArray(board.labels) ? board.labels : [];
+        const positional = rawLabels.length === tickCount;
+        const numericLabels = positional ? [] : rawLabels.map((value) => Number(value));
+        const step = (width - margin * 2) / (tickCount - 1);
+        const ticks = [];
+        for (let index = 0; index < tickCount; index++) {
+            const x = margin + index * step;
+            const realValue = min + (index * (max - min)) / (tickCount - 1);
+            const showLabel = positional || numericLabels.some((value) => Math.abs(value - realValue) < 1e-6);
+            const displayLabel = positional ? String(rawLabels[index]) : String(realValue);
+            ticks.push({ index, x, y, realValue, showLabel, displayLabel });
+        }
+        return { ticks, y, step };
+    },
+
+    renderNumberLinePlace(problem) {
+        const data = problem.data || {};
+        const board = data.board || { min: 0, max: 10, tickCount: 11 };
+        const task = data.task || {};
+        const tickIndex = Number.isInteger(data.userState?.tickIndex) ? data.userState.tickIndex : null;
+        const revealed = !!data.revealed;
+        const width = 320;
+        const height = 70;
+        const margin = 24;
+        const { ticks, y } = this._renderNumberLineTicks(board, width, margin, height / 2);
+
+        const line = `<line x1="${margin}" y1="${y}" x2="${width - margin}" y2="${y}" class="board-numberline-line" />`;
+        const nodes = ticks.map(({ index, x, showLabel, displayLabel }) => {
+            const isActive = tickIndex === index;
+            const interactiveAttrs = revealed ? '' : `data-val="board-place-tick:${index}" role="button" tabindex="0" aria-label="Graduation ${this._escape(displayLabel)}" aria-pressed="${isActive}"`;
+            return `
+                <g class="board-grid-node ${isActive ? 'is-active' : ''}" ${interactiveAttrs}>
+                    <circle cx="${x}" cy="${y}" r="${isActive ? 12 : 10}" class="board-grid-hit"></circle>
+                    <circle cx="${x}" cy="${y}" r="${isActive ? 6 : 3.5}" class="board-grid-dot"></circle>
+                    ${showLabel ? `<text x="${x}" y="${y + 26}" class="board-numberline-label" text-anchor="middle">${this._escape(displayLabel)}</text>` : ''}
+                </g>
+            `;
+        }).join('');
+
+        return `
+            <div class="board-card">
+                <div class="board-toolbar">
+                    <div class="board-status">${revealed
+                        ? `${this._escape(task.label || 'Nombre')} : ${tickIndex !== null ? this._escape(ticks[tickIndex]?.displayLabel ?? '') : 'non placé'}`
+                        : (tickIndex !== null ? 'Point placé — vérifie bien avant de valider !' : 'Touche une graduation de la ligne.')}</div>
+                    <div class="board-toolbar-actions">
+                        <button type="button" class="btn board-action" data-val="board-reset" ${revealed ? 'disabled' : ''}>Réinitialiser</button>
+                        <button type="button" class="btn btn--success board-action" data-val="board-submit" ${revealed ? 'disabled' : ''}>Valider</button>
+                    </div>
+                </div>
+                <div class="board-panel">
+                    <svg class="board-svg board-svg--numberline" viewBox="0 0 ${width} ${height}" role="img" aria-label="Ligne numérique graduée">
+                        ${line}
+                        ${nodes}
+                    </svg>
+                </div>
+            </div>
+        `;
+    },
+
+    renderNumberLineFrame(problem) {
+        const data = problem.data || {};
+        const board = data.board || { min: 0, max: 100, tickCount: 11 };
+        const tickIndices = Array.isArray(data.userState?.tickIndices) ? data.userState.tickIndices : [];
+        const revealed = !!data.revealed;
+        const width = 320;
+        const height = 70;
+        const margin = 24;
+        const { ticks, y } = this._renderNumberLineTicks(board, width, margin, height / 2);
+
+        const line = `<line x1="${margin}" y1="${y}" x2="${width - margin}" y2="${y}" class="board-numberline-line" />`;
+        const nodes = ticks.map(({ index, x, showLabel, displayLabel }) => {
+            const isActive = tickIndices.includes(index);
+            const interactiveAttrs = revealed ? '' : `data-val="board-toggle-tick:${index}" role="button" tabindex="0" aria-label="Graduation ${this._escape(displayLabel)}" aria-pressed="${isActive}"`;
+            return `
+                <g class="board-grid-node ${isActive ? 'is-active' : ''}" ${interactiveAttrs}>
+                    <circle cx="${x}" cy="${y}" r="${isActive ? 12 : 10}" class="board-grid-hit"></circle>
+                    <circle cx="${x}" cy="${y}" r="${isActive ? 6 : 3.5}" class="board-grid-dot"></circle>
+                    ${showLabel ? `<text x="${x}" y="${y + 26}" class="board-numberline-label" text-anchor="middle">${this._escape(displayLabel)}</text>` : ''}
+                </g>
+            `;
+        }).join('');
+
+        return `
+            <div class="board-card">
+                <div class="board-toolbar">
+                    <div class="board-status">${revealed
+                        ? `Bornes choisies : ${tickIndices.length ? tickIndices.map((i) => this._escape(ticks[i]?.displayLabel ?? '')).join(' et ') : 'aucune'}`
+                        : `Touche les 2 graduations qui encadrent le nombre (${tickIndices.length}/2 choisies).`}</div>
+                    <div class="board-toolbar-actions">
+                        <button type="button" class="btn board-action" data-val="board-reset" ${revealed ? 'disabled' : ''}>Réinitialiser</button>
+                        <button type="button" class="btn btn--success board-action" data-val="board-submit" ${revealed || tickIndices.length !== 2 ? 'disabled' : ''}>Valider</button>
+                    </div>
+                </div>
+                <div class="board-panel">
+                    <svg class="board-svg board-svg--numberline" viewBox="0 0 ${width} ${height}" role="img" aria-label="Ligne numérique graduée">
+                        ${line}
+                        ${nodes}
                     </svg>
                 </div>
             </div>

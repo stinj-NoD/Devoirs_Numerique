@@ -1,10 +1,10 @@
 {
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
-    "exercises": 1013,
-    "lessons": 367,
+    "exercises": 1031,
+    "lessons": 380,
     "levels": 5,
-    "banks": 74
+    "banks": 77
   },
   "entries": [
     {
@@ -195,6 +195,28 @@
       "contractHash": null
     },
     {
+      "id": "cp-lesson-ligne-numerique",
+      "kind": "lesson",
+      "level": "cp",
+      "subjectId": "cp-maths",
+      "subthemeId": "cp-nombres-comparaison",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cp-lesson-encadrement",
+      "kind": "lesson",
+      "level": "cp",
+      "subjectId": "cp-maths",
+      "subthemeId": "cp-nombres-comparaison",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "math-count-1",
       "kind": "exercise",
       "level": "cp",
@@ -270,6 +292,39 @@
       "paramsType": "double",
       "pool": null,
       "contractHash": "math-input|{\"max\":10,\"min\":1,\"type\":\"double\"}"
+    },
+    {
+      "id": "cp-ligne-numerique-0-10",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-maths",
+      "subthemeId": "cp-nombres-comparaison",
+      "engine": "board-interactive",
+      "paramsType": "number-line-place",
+      "pool": "data/board_number_line_cp.json::cp_number_line_0_10",
+      "contractHash": "board-interactive|{\"category\":\"cp_number_line_0_10\",\"dataFile\":\"data/board_number_line_cp.json\",\"type\":\"number-line-place\"}"
+    },
+    {
+      "id": "cp-ligne-numerique-0-100",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-maths",
+      "subthemeId": "cp-nombres-comparaison",
+      "engine": "board-interactive",
+      "paramsType": "number-line-place",
+      "pool": "data/board_number_line_cp.json::cp_number_line_0_100",
+      "contractHash": "board-interactive|{\"category\":\"cp_number_line_0_100\",\"dataFile\":\"data/board_number_line_cp.json\",\"type\":\"number-line-place\"}"
+    },
+    {
+      "id": "cp-encadrement-dizaines",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-maths",
+      "subthemeId": "cp-nombres-comparaison",
+      "engine": "board-interactive",
+      "paramsType": "number-line-frame",
+      "pool": "data/board_number_line_cp.json::cp_number_line_frame_dizaines",
+      "contractHash": "board-interactive|{\"category\":\"cp_number_line_frame_dizaines\",\"dataFile\":\"data/board_number_line_cp.json\",\"type\":\"number-line-frame\"}"
     },
     {
       "id": "cp-lesson-cibles-comprendre",
@@ -2934,6 +2989,39 @@
       "contractHash": null
     },
     {
+      "id": "ce1-lesson-fractions-simples",
+      "kind": "lesson",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce1-lesson-monnaie-decimale",
+      "kind": "lesson",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce1-lesson-encadrement-centaines",
+      "kind": "lesson",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "add-100",
       "kind": "exercise",
       "level": "ce1",
@@ -3185,6 +3273,39 @@
       "paramsType": "operation-posed",
       "pool": null,
       "contractHash": "math-input|{\"level\":1,\"operator\":\"sub\",\"type\":\"operation-posed\"}"
+    },
+    {
+      "id": "ce1-fractions-partage",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/math_word_problems_cycle2.json::ce1-fractions",
+      "contractHash": "choice-engine|{\"category\":\"ce1-fractions\",\"dataFile\":\"data/math_word_problems_cycle2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "ce1-monnaie-decimale-lecture",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/math_word_problems_cycle2.json::ce1-monnaie-decimale",
+      "contractHash": "choice-engine|{\"category\":\"ce1-monnaie-decimale\",\"dataFile\":\"data/math_word_problems_cycle2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "ce1-encadrement-centaines",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "board-interactive",
+      "paramsType": "number-line-frame",
+      "pool": "data/board_number_line_ce1.json::ce1_number_line_frame_centaines",
+      "contractHash": "board-interactive|{\"category\":\"ce1_number_line_frame_centaines\",\"dataFile\":\"data/board_number_line_ce1.json\",\"type\":\"number-line-frame\"}"
     },
     {
       "id": "ce1-lesson-formes-planes",
@@ -8412,6 +8533,17 @@
       "contractHash": null
     },
     {
+      "id": "cm1-lesson-fractions-equivalentes",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm1-lesson-decimaux-reperes",
       "kind": "lesson",
       "level": "cm1",
@@ -8531,6 +8663,17 @@
       "paramsType": "fraction-operation",
       "pool": null,
       "contractHash": "math-input|{\"level\":1,\"operator\":\"add\",\"type\":\"fraction-operation\"}"
+    },
+    {
+      "id": "cm1-fractions-droite-graduee",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": "board-interactive",
+      "paramsType": "number-line-place",
+      "pool": "data/board_number_line_cm1.json::cm1_fractions_droite_graduee",
+      "contractHash": "board-interactive|{\"category\":\"cm1_fractions_droite_graduee\",\"dataFile\":\"data/board_number_line_cm1.json\",\"type\":\"number-line-place\"}"
     },
     {
       "id": "cm1-dec-pos-1",
@@ -10227,6 +10370,39 @@
       "contractHash": null
     },
     {
+      "id": "cm1-lesson-annee-1789",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-histoire-subject",
+      "subthemeId": "cm1-histoire-periodes",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-monarchie-absolue",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-histoire-subject",
+      "subthemeId": "cm1-histoire-periodes",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-explorations",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-histoire-subject",
+      "subthemeId": "cm1-histoire-periodes",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm1-histoire-prehistoire",
       "kind": "exercise",
       "level": "cm1",
@@ -10269,6 +10445,39 @@
       "paramsType": "factual-qcm",
       "pool": "data/history_cm1.json::cm1-temps-modernes",
       "contractHash": "choice-engine|{\"category\":\"cm1-temps-modernes\",\"dataFile\":\"data/history_cm1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm1-histoire-annee-1789",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-histoire-subject",
+      "subthemeId": "cm1-histoire-periodes",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/history_cm1.json::cm1-annee-1789",
+      "contractHash": "choice-engine|{\"category\":\"cm1-annee-1789\",\"dataFile\":\"data/history_cm1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm1-histoire-monarchie-absolue",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-histoire-subject",
+      "subthemeId": "cm1-histoire-periodes",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/history_cm1.json::cm1-monarchie-absolue",
+      "contractHash": "choice-engine|{\"category\":\"cm1-monarchie-absolue\",\"dataFile\":\"data/history_cm1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm1-histoire-explorations",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-histoire-subject",
+      "subthemeId": "cm1-histoire-periodes",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/history_cm1.json::cm1-explorations",
+      "contractHash": "choice-engine|{\"category\":\"cm1-explorations\",\"dataFile\":\"data/history_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-histoire-renaissance-inventions",
@@ -10854,6 +11063,50 @@
       "contractHash": "board-interactive|{\"category\":\"cm1_map_continents_monde\",\"dataFile\":\"data/board_map_locate_world.json\",\"mapFile\":\"data/maps/world-continents.svg\",\"mapId\":\"world-continents\",\"type\":\"map-locate\"}"
     },
     {
+      "id": "cm1-lesson-communiquer-internet",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-geographie-subject",
+      "subthemeId": "cm1-geo-communiquer-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-geo-communiquer-internet",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-geographie-subject",
+      "subthemeId": "cm1-geo-communiquer-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/geography_cm1.json::cm1-communiquer-internet",
+      "contractHash": "choice-engine|{\"category\":\"cm1-communiquer-internet\",\"dataFile\":\"data/geography_cm1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm1-lesson-se-nourrir",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-geographie-subject",
+      "subthemeId": "cm1-geo-se-nourrir-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-geo-se-nourrir",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-geographie-subject",
+      "subthemeId": "cm1-geo-se-nourrir-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/geography_cm1.json::cm1-se-nourrir",
+      "contractHash": "choice-engine|{\"category\":\"cm1-se-nourrir\",\"dataFile\":\"data/geography_cm1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
       "id": "cm1-lesson-vivant",
       "kind": "lesson",
       "level": "cm1",
@@ -11314,6 +11567,94 @@
       "paramsType": "factual-qcm",
       "pool": "data/science_cm1.json::cm1-techno-objets",
       "contractHash": "choice-engine|{\"category\":\"cm1-techno-objets\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm1-lesson-trajectoire-vitesse",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-sciences-subject",
+      "subthemeId": "cm1-sciences-mouvements-signaux-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-signaux-lumineux-sonores",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-sciences-subject",
+      "subthemeId": "cm1-sciences-mouvements-signaux-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-sciences-trajectoire-vitesse",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-sciences-subject",
+      "subthemeId": "cm1-sciences-mouvements-signaux-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/science_cm1.json::cm1-mouvements-vitesse",
+      "contractHash": "choice-engine|{\"category\":\"cm1-mouvements-vitesse\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm1-sciences-comparer-vitesses",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-sciences-subject",
+      "subthemeId": "cm1-sciences-mouvements-signaux-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/science_cm1.json::cm1-mouvements-vitesse",
+      "contractHash": "choice-engine|{\"category\":\"cm1-mouvements-vitesse\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm1-sciences-signaux-lumineux",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-sciences-subject",
+      "subthemeId": "cm1-sciences-mouvements-signaux-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/science_cm1.json::cm1-signaux",
+      "contractHash": "choice-engine|{\"category\":\"cm1-signaux\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm1-sciences-signaux-sonores",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-sciences-subject",
+      "subthemeId": "cm1-sciences-mouvements-signaux-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/science_cm1.json::cm1-signaux",
+      "contractHash": "choice-engine|{\"category\":\"cm1-signaux\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm1-bonus-sciences-mouvements-defi",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-sciences-subject",
+      "subthemeId": "cm1-sciences-mouvements-signaux-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/science_cm1.json::cm1-mouvements-vitesse",
+      "contractHash": "choice-engine|{\"category\":\"cm1-mouvements-vitesse\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm1-bonus-sciences-signaux-defi",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-sciences-subject",
+      "subthemeId": "cm1-sciences-mouvements-signaux-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/science_cm1.json::cm1-signaux",
+      "contractHash": "choice-engine|{\"category\":\"cm1-signaux\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-lesson-vivre-ensemble",
@@ -15286,7 +15627,7 @@
     },
     "data/board_memory_match_ce1.json": {
       "categories": {
-        "ce1_memory_match_maths": 4,
+        "ce1_memory_match_maths": 5,
         "ce1_memory_match": 8
       }
     },
@@ -15299,6 +15640,23 @@
       "categories": {
         "cp_memory_match": 8,
         "cp_memory_match_maths": 4
+      }
+    },
+    "data/board_number_line_ce1.json": {
+      "categories": {
+        "ce1_number_line_frame_centaines": 12
+      }
+    },
+    "data/board_number_line_cm1.json": {
+      "categories": {
+        "cm1_fractions_droite_graduee": 14
+      }
+    },
+    "data/board_number_line_cp.json": {
+      "categories": {
+        "cp_number_line_0_10": 11,
+        "cp_number_line_0_100": 11,
+        "cp_number_line_frame_dizaines": 12
       }
     },
     "data/board_point_on_grid_ce2.json": {
@@ -15551,7 +15909,9 @@
         "cm1-types-territoires": 12,
         "cm1-mobilites-france": 11,
         "cm1-eaux-paysages": 24,
-        "cm1-europe-monde": 10
+        "cm1-europe-monde": 10,
+        "cm1-communiquer-internet": 14,
+        "cm1-se-nourrir": 14
       }
     },
     "data/geography_cm2.json": {
@@ -15624,9 +15984,12 @@
         "cm1-prehistoire": 16,
         "cm1-antiquite": 18,
         "cm1-moyen-age": 24,
-        "cm1-temps-modernes": 13,
-        "cm1-renaissance-inventions": 11,
-        "cm1-humanisme-imprimerie": 8
+        "cm1-temps-modernes": 9,
+        "cm1-renaissance-inventions": 10,
+        "cm1-humanisme-imprimerie": 8,
+        "cm1-annee-1789": 16,
+        "cm1-monarchie-absolue": 12,
+        "cm1-explorations": 12
       }
     },
     "data/history_cm2.json": {
@@ -15722,7 +16085,9 @@
         "cp-problemes-deux-etapes": 8,
         "ce1-problemes-additifs": 10,
         "ce1-problemes-mixtes": 20,
-        "ce2-monnaie": 10
+        "ce2-monnaie": 10,
+        "ce1-fractions": 10,
+        "ce1-monnaie-decimale": 10
       }
     },
     "data/math_word_problems_cycle3.json": {
@@ -15790,7 +16155,9 @@
         "cm1-electricite-base": 14,
         "cm1-environnement-gestes": 14,
         "cm1-techno-objets": 13,
-        "cm1-techno-fonction-usage": 13
+        "cm1-techno-fonction-usage": 13,
+        "cm1-mouvements-vitesse": 10,
+        "cm1-signaux": 10
       }
     },
     "data/science_cm2.json": {

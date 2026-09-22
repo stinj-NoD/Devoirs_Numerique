@@ -114,8 +114,8 @@ const UIVisuals = {
             const y1 = center + radius * Math.sin(a1);
             const x2 = center + radius * Math.cos(a2);
             const y2 = center + radius * Math.sin(a2);
-            const color = i < n ? 'var(--primary)' : 'white';
-            paths += `<path d="M ${center} ${center} L ${x1} ${y1} A ${radius} ${radius} 0 0 1 ${x2} ${y2} Z" fill="${color}" stroke="var(--dark)" stroke-width="2" />`;
+            const color = i < n ? 'var(--color-primary)' : 'white';
+            paths += `<path d="M ${center} ${center} L ${x1} ${y1} A ${radius} ${radius} 0 0 1 ${x2} ${y2} Z" fill="${color}" stroke="var(--color-text)" stroke-width="2" />`;
         }
         return paths;
     },
@@ -164,18 +164,18 @@ const UIVisuals = {
 
         const periodInfo = `<div class="period-badge">${d.periodIcon || '\u{1F550}'} ${d.periodText || ''}</div>`;
 
-        let svg = `<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}"><circle cx="${c}" cy="${c}" r="${r}" fill="white" stroke="var(--dark)" stroke-width="3"/>`;
+        let svg = `<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}"><circle cx="${c}" cy="${c}" r="${r}" fill="white" stroke="var(--color-text)" stroke-width="3"/>`;
 
         for (let i = 1; i <= 12; i++) {
             const a = (i * 30) * (Math.PI / 180);
             const x = c + (r - 16) * Math.sin(a);
             const y = c - (r - 16) * Math.cos(a);
-            svg += `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="12px" font-weight="bold" fill="var(--dark)">${i}</text>`;
+            svg += `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="12px" font-weight="bold" fill="var(--color-text)">${i}</text>`;
         }
 
-        svg += `<line x1="${c}" y1="${c}" x2="${c + 35 * Math.sin(ha * Math.PI / 180)}" y2="${c - 35 * Math.cos(ha * Math.PI / 180)}" stroke="var(--dark)" stroke-width="6" stroke-linecap="round"/>`;
-        svg += `<line x1="${c}" y1="${c}" x2="${c + 52 * Math.sin(ma * Math.PI / 180)}" y2="${c - 52 * Math.cos(ma * Math.PI / 180)}" stroke="var(--secondary)" stroke-width="4" stroke-linecap="round"/>`;
-        svg += `<circle cx="${c}" cy="${c}" r="4" fill="var(--dark)"/>`;
+        svg += `<line x1="${c}" y1="${c}" x2="${c + 35 * Math.sin(ha * Math.PI / 180)}" y2="${c - 35 * Math.cos(ha * Math.PI / 180)}" stroke="var(--color-text)" stroke-width="6" stroke-linecap="round"/>`;
+        svg += `<line x1="${c}" y1="${c}" x2="${c + 52 * Math.sin(ma * Math.PI / 180)}" y2="${c - 52 * Math.cos(ma * Math.PI / 180)}" stroke="var(--color-secondary)" stroke-width="4" stroke-linecap="round"/>`;
+        svg += `<circle cx="${c}" cy="${c}" r="4" fill="var(--color-text)"/>`;
         svg += `</svg>`;
 
         return `<div class="visual-card visual-card--clock clock-card">${periodInfo}${svg}</div>`;
@@ -457,22 +457,69 @@ const UIVisuals = {
         const b = d.b || 0;
         const operator = d.operator || 'add';
         const symbol = d.operatorSymbol || '+';
-        const aStr = a.toString();
-        const bStr = b.toString();
-        const width = Math.max(aStr.length, bStr.length) + (operator === 'mult' ? 1 : 0);
+        const decimals = Number(d.decimals) || 0;
+        // Colonne virgule sur les lignes d'opérande : seulement pour add/sub
+        // (les 2 opérandes partagent le même nombre de décimales, la virgule
+        // tombe donc dans la même colonne sur les deux lignes). Pour mult
+        // (décimal × entier), la convention française pose la multiplication
+        // comme si les 2 facteurs étaient entiers — virgule ignorée pendant
+        // le calcul, replacée seulement dans le résultat — donc pas de
+        // colonne virgule sur les lignes d'opérande, seulement sur celle du
+        // résultat.
+        const operandsShowComma = decimals > 0 && operator !== 'mult';
+        // padStart garantit au moins 1 chiffre avant la virgule (ex.
+        // value=7, decimals=1 → "07" → "0,7") ; jamais déclenché par les
+        // plages rnd() actuelles (toutes ≥10) mais robuste si un futur
+        // contenu combinait un niveau bas avec decimals=2.
+        const padScaled = (value, withComma) => withComma ? value.toString().padStart(decimals + 1, '0') : value.toString();
+        const aStr = padScaled(a, operandsShowComma);
+        const bStr = padScaled(b, operandsShowComma);
+        const result = operator === 'add' ? a + b : (operator === 'sub' ? a - b : a * b);
+        const resultStr = padScaled(result, decimals > 0);
+        // width couvre l'historique (opérandes + le "+1" existant pour
+        // mult) ET la vraie longueur du résultat, qui peut dépasser celle
+        // des opérandes (retenue qui crée un chiffre de plus, produit d'une
+        // multiplication) — correctif au passage, purement cosmétique
+        // (jamais lié à la validation) : la ligne de résultat n'affichait
+        // pas assez de cellules "?" dans ce cas. +1 case en plus quand une
+        // virgule doit être affichée (elle occupe sa propre colonne).
+        const legacyWidth = Math.max(aStr.length, bStr.length) + (operator === 'mult' ? 1 : 0) + (operandsShowComma ? 1 : 0);
+        const width = Math.max(legacyWidth, resultStr.length + (decimals > 0 ? 1 : 0));
+        // Colonne absolue (depuis la gauche) où la virgule tombe, commune à
+        // toutes les lignes qui en affichent une (opérandes, retenues,
+        // résultat) : `decimals` cases avant la fin de la ligne.
+        const commaCol = decimals > 0 ? width - decimals - 1 : -1;
 
-        const buildDigitRow = (value, colorClass = '') => {
-            const str = value.toString();
-            const pad = width - str.length;
-            const cells = Array.from({ length: pad }, () => '<span class="operation-cell">&nbsp;</span>').join('');
-            const digits = str.split('').map((ch) => `<span class="operation-cell${colorClass ? ' ' + colorClass : ''}">${ch}</span>`).join('');
-            return cells + digits;
+        // Construit une ligne de `width` cases en partant de la droite : les
+        // `decimals` derniers chiffres, une virgule si `showComma`, puis le
+        // reste des chiffres, puis des cases vides pour compléter à `width`.
+        const buildRow = (str, showComma, colorClass = '') => {
+            const chars = str.split('');
+            const cellsFromRight = [];
+            if (showComma) {
+                for (let k = 0; k < decimals; k++) {
+                    cellsFromRight.push(`<span class="operation-cell${colorClass ? ' ' + colorClass : ''}">${chars.pop() || ''}</span>`);
+                }
+                cellsFromRight.push('<span class="operation-cell operation-cell--comma">,</span>');
+            }
+            while (chars.length) {
+                cellsFromRight.push(`<span class="operation-cell${colorClass ? ' ' + colorClass : ''}">${chars.pop()}</span>`);
+            }
+            while (cellsFromRight.length < width) {
+                cellsFromRight.push('<span class="operation-cell">&nbsp;</span>');
+            }
+            return cellsFromRight.reverse().join('');
         };
+        const buildDigitRow = (str, colorClass = '') => buildRow(str, operandsShowComma, colorClass);
 
         // Calcule les retenues (addition) ou emprunts (soustraction) colonne
         // par colonne, de droite à gauche, pour les afficher au-dessus du
         // premier terme — c'est le repère visuel qui manque le plus aux
-        // enfants pour comprendre où "ça déborde".
+        // enfants pour comprendre où "ça déborde". Opère sur les chiffres
+        // bruts (virgule ignorée) : add/sub partagent le même nombre de
+        // décimales des deux côtés, donc une addition/soustraction chiffre
+        // à chiffre sur les entiers à l'échelle équivaut exactement à
+        // l'opération décimale alignée par la virgule.
         const carries = [];
         if (operator === 'add') {
             let carry = 0;
@@ -495,20 +542,28 @@ const UIVisuals = {
         }
         const hasCarryRow = operator !== 'mult' && carries.some((c) => c);
         const carryRowHtml = hasCarryRow
-            ? `<div class="operation-row operation-row--carry">${carries.map((c) => `<span class="operation-cell operation-cell--carry">${c ? (operator === 'add' ? '1' : '•') : '&nbsp;'}</span>`).join('')}</div>`
+            ? `<div class="operation-row operation-row--carry">${carries.map((c, i) => i === commaCol
+                ? '<span class="operation-cell">&nbsp;</span>'
+                : `<span class="operation-cell operation-cell--carry">${c ? (operator === 'add' ? '1' : '•') : '&nbsp;'}</span>`
+              ).join('')}</div>`
             : '';
+
+        const resultCells = Array.from({ length: width }, (_, i) => i === commaCol
+            ? '<span class="operation-cell operation-cell--comma">,</span>'
+            : '<span class="operation-cell operation-cell--empty">?</span>'
+        ).join('');
 
         return `
             <div class="operation-posed-card visual-card visual-card--operation-posed">
                 <div class="operation-layout" style="--operation-width:${width};">
                     ${carryRowHtml}
-                    <div class="operation-row">${buildDigitRow(a)}</div>
+                    <div class="operation-row">${buildDigitRow(aStr)}</div>
                     <div class="operation-row operation-row--operand">
                         <span class="operation-sign">${symbol}</span>
-                        ${buildDigitRow(b)}
+                        ${buildDigitRow(bStr)}
                     </div>
                     <div class="operation-line"></div>
-                    <div class="operation-row operation-row--result">${Array.from({ length: width }, () => `<span class="operation-cell operation-cell--empty">?</span>`).join('')}</div>
+                    <div class="operation-row operation-row--result">${resultCells}</div>
                 </div>
             </div>`;
     }

@@ -427,6 +427,12 @@
         if (exercise.params.dataFile && !this.isDataFilePath(exercise.params.dataFile)) {
             return { valid: false, reason: 'dataFile invalide.' };
         }
+        if (exercise.timeLimitSeconds !== undefined) {
+            const t = Number(exercise.timeLimitSeconds);
+            if (!Number.isFinite(t) || !Number.isInteger(t) || t < 5 || t > 600) {
+                return { valid: false, reason: 'timeLimitSeconds invalide (5 à 600 secondes attendues).' };
+            }
+        }
         if (exercise.params.choices && (!Array.isArray(exercise.params.choices) || exercise.params.choices.length < 2)) {
             return { valid: false, reason: 'choices doit contenir au moins 2 options.' };
         }
@@ -477,6 +483,23 @@
                 }
             }
         }
+        if (exercise.params.type === 'operation-posed') {
+            if (exercise.params.operator !== undefined && !['add', 'sub', 'mult'].includes(exercise.params.operator)) {
+                return { valid: false, reason: 'operator invalide pour operation-posed.' };
+            }
+            if (exercise.params.level !== undefined) {
+                const lvl = Number(exercise.params.level);
+                if (!Number.isFinite(lvl) || lvl < 1 || lvl > 3) {
+                    return { valid: false, reason: 'level invalide pour operation-posed (1-3 attendu).' };
+                }
+            }
+            if (exercise.params.decimals !== undefined) {
+                const dec = Number(exercise.params.decimals);
+                if (!Number.isFinite(dec) || dec < 0 || dec > 2) {
+                    return { valid: false, reason: 'decimals invalide pour operation-posed (0-2 attendu).' };
+                }
+            }
+        }
         if (exercise.engine === 'matching' && !this.isNonEmptyString(exercise.params.category)) {
             return { valid: false, reason: 'category manquante pour matching.' };
         }
@@ -487,7 +510,7 @@
             return { valid: false, reason: 'category manquante pour cloze-fill-in.' };
         }
         if (exercise.engine === 'board-interactive') {
-            if (!this.isNonEmptyString(exercise.params.type) || !['tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete', 'map-locate', 'memory-match', 'fraction-build', 'angle-classify', 'angle-measure', 'construction-report'].includes(exercise.params.type)) {
+            if (!this.isNonEmptyString(exercise.params.type) || !['tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete', 'map-locate', 'memory-match', 'fraction-build', 'angle-classify', 'angle-measure', 'construction-report', 'number-line-place', 'number-line-frame'].includes(exercise.params.type)) {
                 return { valid: false, reason: 'type board-interactive invalide.' };
             }
             if (exercise.params.type !== 'fraction-build' && !this.isNonEmptyString(exercise.params.category)) {
@@ -682,6 +705,28 @@
                 const targetPoints = Array.isArray(item.targetPoints) && item.targetPoints.length > 0;
                 if (!givenPoints || !targetPoints) {
                     return { valid: false, reason: `symmetry-complete invalide dans ${exercise.params.category}.` };
+                }
+            }
+
+            if (exercise.params.type === 'number-line-place') {
+                const tickCount = Number(item.board?.tickCount);
+                const targetIndex = Number(item.task?.targetIndex);
+                const boardValid = this.isPlainObject(item.board) && Number.isInteger(tickCount) && tickCount >= 2;
+                const targetValid = this.isPlainObject(item.task) && Number.isInteger(targetIndex) && targetIndex >= 0 && targetIndex < tickCount;
+                if (!boardValid || !targetValid) {
+                    return { valid: false, reason: `number-line-place invalide dans ${exercise.params.category}.` };
+                }
+            }
+
+            if (exercise.params.type === 'number-line-frame') {
+                const tickCount = Number(item.board?.tickCount);
+                const boardValid = this.isPlainObject(item.board) && Number.isInteger(tickCount) && tickCount >= 2;
+                const indices = Array.isArray(item.targetIndices) ? item.targetIndices.map((value) => Number(value)) : [];
+                const indicesValid = indices.length === 2
+                    && indices.every((value) => Number.isInteger(value) && value >= 0 && value < tickCount)
+                    && indices[0] !== indices[1];
+                if (!boardValid || !indicesValid) {
+                    return { valid: false, reason: `number-line-frame invalide dans ${exercise.params.category}.` };
                 }
             }
 

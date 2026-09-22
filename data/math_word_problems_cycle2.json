@@ -663,6 +663,210 @@
                 "answer": "0,40 €",
                 "explanation": "2 × 0,80 = 1,60 €. Monnaie : 2,00 - 1,60 = 0,40 €."
             }
+        ],
+        "ce1-fractions": [
+            {
+                "question": "Une pizza est partagée en 2 parts égales entre Léo et sa sœur. Quelle fraction de la pizza reçoit chacun ?",
+                "choices": [
+                    "1/2",
+                    "2/1",
+                    "1/3"
+                ],
+                "answer": "1/2",
+                "explanation": "La pizza est coupée en 2 parts égales, donc chaque part vaut la moitié de la pizza, soit 1/2."
+            },
+            {
+                "question": "Un gâteau d'anniversaire est coupé en 2 parts égales. Manon en mange une part. Quelle fraction du gâteau a-t-elle mangée ?",
+                "choices": [
+                    "1/2",
+                    "2/2",
+                    "1/4"
+                ],
+                "answer": "1/2",
+                "explanation": "Le gâteau est coupé en 2 parts égales : une seule part représente 1/2 du gâteau."
+            },
+            {
+                "question": "Une tablette de chocolat est partagée en 3 parts égales entre 3 amis. Quelle fraction de la tablette reçoit chaque ami ?",
+                "choices": [
+                    "1/3",
+                    "3/1",
+                    "1/2"
+                ],
+                "answer": "1/3",
+                "explanation": "La tablette est coupée en 3 parts égales : chaque ami reçoit un tiers, noté 1/3."
+            },
+            {
+                "question": "Noa colorie 1 part sur les 3 parts égales d'une bande de papier. Quelle fraction de la bande a-t-il coloriée ?",
+                "choices": [
+                    "1/3",
+                    "3/3",
+                    "1/4"
+                ],
+                "answer": "1/3",
+                "explanation": "La bande est partagée en 3 parts égales : colorier 1 part, c'est colorier 1/3 de la bande."
+            },
+            {
+                "question": "Trois enfants se partagent également un pain rond. Quelle fraction du pain reçoit chaque enfant ?",
+                "choices": [
+                    "1/3",
+                    "1/2",
+                    "3/1"
+                ],
+                "answer": "1/3",
+                "explanation": "Le pain est partagé en 3 parts égales entre 3 enfants : chacun reçoit 1/3 du pain."
+            },
+            {
+                "question": "Une tarte est coupée en 4 parts égales. Camille mange 1 part. Quelle fraction de la tarte a-t-elle mangée ?",
+                "choices": [
+                    "1/4",
+                    "4/1",
+                    "1/2"
+                ],
+                "answer": "1/4",
+                "explanation": "La tarte est coupée en 4 parts égales : manger 1 part, c'est manger 1/4 de la tarte."
+            },
+            {
+                "question": "Un jardin est divisé en 4 carrés égaux. Le potager occupe 1 de ces carrés. Quelle fraction du jardin représente le potager ?",
+                "choices": [
+                    "1/4",
+                    "1/3",
+                    "4/4"
+                ],
+                "answer": "1/4",
+                "explanation": "Le jardin compte 4 parts égales : le potager, qui en occupe 1, représente 1/4 du jardin."
+            },
+            {
+                "question": "Une feuille est pliée pour former 4 carreaux égaux. Léa colorie 1 carreau. Quelle fraction de la feuille a-t-elle coloriée ?",
+                "choices": [
+                    "1/4",
+                    "1/2",
+                    "4/1"
+                ],
+                "answer": "1/4",
+                "explanation": "La feuille est divisée en 4 carreaux égaux : colorier 1 carreau, c'est colorier 1/4 de la feuille."
+            },
+            {
+                "question": "Une bande de 5 cases égales est tracée au tableau. Manon colorie 1 case. Quelle fraction de la bande a-t-elle coloriée ?",
+                "choices": [
+                    "1/5",
+                    "5/1",
+                    "1/4"
+                ],
+                "answer": "1/5",
+                "explanation": "La bande compte 5 parts égales : colorier 1 case, c'est colorier 1/5 de la bande."
+            },
+            {
+                "question": "Un ruban est coupé en 5 morceaux égaux. Quelle fraction du ruban représente 1 morceau ?",
+                "choices": [
+                    "1/5",
+                    "1/10",
+                    "5/5"
+                ],
+                "answer": "1/5",
+                "explanation": "Le ruban est partagé en 5 morceaux égaux : 1 morceau représente 1/5 du ruban."
+            }
+        ],
+        "ce1-monnaie-decimale": [
+            {
+                "question": "Sur l'étiquette d'un jouet, on lit 3,50 €. Comment lit-on ce prix à voix haute ?",
+                "choices": [
+                    "trois euros et cinquante centimes",
+                    "trente euros et cinq centimes",
+                    "trois euros et cinq centimes"
+                ],
+                "answer": "trois euros et cinquante centimes",
+                "explanation": "Avant la virgule, on lit les euros (3) ; après la virgule, on lit les centimes (50) : 3,50 € se lit trois euros et cinquante centimes."
+            },
+            {
+                "question": "Un cahier coûte 2,20 €. Combien d'euros entiers cela représente-t-il ?",
+                "choices": [
+                    "2 €",
+                    "20 €",
+                    "22 €"
+                ],
+                "answer": "2 €",
+                "explanation": "Le nombre placé avant la virgule indique les euros entiers : dans 2,20 €, c'est 2."
+            },
+            {
+                "question": "Sur le prix 4,05 €, que représentent les chiffres après la virgule ?",
+                "choices": [
+                    "5 centimes",
+                    "5 euros",
+                    "50 centimes"
+                ],
+                "answer": "5 centimes",
+                "explanation": "Après la virgule, on écrit toujours deux chiffres pour les centimes : 05 s'écrit avec un zéro devant et vaut 5 centimes, pas 50."
+            },
+            {
+                "question": "Léo a un billet de 5 € et une pièce de 20 centimes dans son porte-monnaie. Comment écrit-on cette somme avec la virgule ?",
+                "choices": [
+                    "5,20 €",
+                    "5,02 €",
+                    "20,50 €"
+                ],
+                "answer": "5,20 €",
+                "explanation": "On écrit d'abord les euros entiers (5), puis une virgule, puis les centimes sur deux chiffres (20) : cela donne 5,20 €."
+            },
+            {
+                "question": "Une image montre 3 pièces de 1 € et une pièce de 50 centimes. Quel est le prix écrit avec la virgule ?",
+                "choices": [
+                    "3,50 €",
+                    "3,05 €",
+                    "35,00 €"
+                ],
+                "answer": "3,50 €",
+                "explanation": "3 pièces de 1 € font 3 euros entiers ; la pièce de 50 centimes s'écrit après la virgule : 3,50 €."
+            },
+            {
+                "question": "Sur une étiquette, on lit 0,80 €. Que signifie ce prix ?",
+                "choices": [
+                    "80 centimes, pas encore 1 euro entier",
+                    "8 euros",
+                    "80 euros"
+                ],
+                "answer": "80 centimes, pas encore 1 euro entier",
+                "explanation": "Le zéro avant la virgule signifie qu'il n'y a pas d'euro entier : 0,80 € représente seulement 80 centimes."
+            },
+            {
+                "question": "Quel prix correspond à « sept euros et dix centimes » ?",
+                "choices": [
+                    "7,10 €",
+                    "7,01 €",
+                    "71,00 €"
+                ],
+                "answer": "7,10 €",
+                "explanation": "Sept euros s'écrit avant la virgule, dix centimes s'écrit après sur deux chiffres : 7,10 €."
+            },
+            {
+                "question": "Une gomme coûte 1,05 €. Combien de centimes cela fait-il en plus de l'euro entier ?",
+                "choices": [
+                    "5 centimes",
+                    "50 centimes",
+                    "15 centimes"
+                ],
+                "answer": "5 centimes",
+                "explanation": "Après la virgule, 05 se lit cinq et pas cinquante : le zéro devant le 5 est important, cela fait donc 5 centimes."
+            },
+            {
+                "question": "Sur quelle étiquette lit-on six euros tout rond, sans aucun centime ?",
+                "choices": [
+                    "6,00 €",
+                    "6,60 €",
+                    "0,60 €"
+                ],
+                "answer": "6,00 €",
+                "explanation": "Quand il n'y a pas de centime, on écrit deux zéros après la virgule : 6,00 € représente six euros exactement."
+            },
+            {
+                "question": "Quel prix correspond à « deux euros et quatre-vingt-quinze centimes » ?",
+                "choices": [
+                    "2,95 €",
+                    "2,59 €",
+                    "29,50 €"
+                ],
+                "answer": "2,95 €",
+                "explanation": "Deux euros avant la virgule, quatre-vingt-quinze centimes après, sur deux chiffres : 2,95 €."
+            }
         ]
     }
 }

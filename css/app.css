@@ -3024,6 +3024,23 @@ button,
     stroke-width: 1;
 }
 
+.board-svg--numberline {
+    max-width: 420px;
+}
+
+.board-numberline-line {
+    stroke: rgba(100, 116, 139, 0.6);
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.board-numberline-label {
+    font-size: 13px;
+    font-weight: 700;
+    fill: var(--color-text, rgba(51, 65, 85, 0.92));
+    pointer-events: none;
+}
+
 .board-shape-line {
     stroke: rgba(30, 41, 59, 0.9);
     stroke-width: 5;
@@ -3928,6 +3945,11 @@ button,
     color: var(--subject-accent-strong);
     background: var(--subject-accent-soft);
     border-radius: 6px;
+}
+
+.operation-cell--comma {
+    color: var(--color-text);
+    font-weight: 800;
 }
 
 .answer-display.shake { animation: shake 0.4s; }

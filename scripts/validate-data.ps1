@@ -124,6 +124,13 @@ function Validate-Exercise($path, $themeId, $exercise) {
     if ($exercise.params.dataFile -and -not (Is-DataFilePath $exercise.params.dataFile)) {
         Add-Issue("${path}: dataFile invalide pour $($exercise.id)")
     }
+    if ($null -ne $exercise.timeLimitSeconds) {
+        $timeLimitVal = 0
+        $timeLimitOk = [int]::TryParse([string]$exercise.timeLimitSeconds, [ref]$timeLimitVal)
+        if (-not $timeLimitOk -or $timeLimitVal -lt 5 -or $timeLimitVal -gt 600) {
+            Add-Issue("${path}: timeLimitSeconds invalide pour $($exercise.id)")
+        }
+    }
     if ($exercise.params.choices -and ((-not ($exercise.params.choices -is [System.Collections.IList])) -or $exercise.params.choices.Count -lt 2)) {
         Add-Issue("${path}: choices invalide pour $($exercise.id)")
     }
@@ -196,6 +203,25 @@ function Validate-Exercise($path, $themeId, $exercise) {
             }
         }
     }
+    if ($exercise.params.type -eq 'operation-posed') {
+        if ($null -ne $exercise.params.operator -and $exercise.params.operator -notin @('add', 'sub', 'mult')) {
+            Add-Issue("${path}: operator invalide pour $($exercise.id)")
+        }
+        if ($null -ne $exercise.params.level) {
+            $opPosedLevelVal = 0
+            $opPosedLevelOk = [int]::TryParse([string]$exercise.params.level, [ref]$opPosedLevelVal)
+            if (-not $opPosedLevelOk -or $opPosedLevelVal -lt 1 -or $opPosedLevelVal -gt 3) {
+                Add-Issue("${path}: level invalide pour $($exercise.id)")
+            }
+        }
+        if ($null -ne $exercise.params.decimals) {
+            $opPosedDecimalsVal = 0
+            $opPosedDecimalsOk = [int]::TryParse([string]$exercise.params.decimals, [ref]$opPosedDecimalsVal)
+            if (-not $opPosedDecimalsOk -or $opPosedDecimalsVal -lt 0 -or $opPosedDecimalsVal -gt 2) {
+                Add-Issue("${path}: decimals invalide pour $($exercise.id)")
+            }
+        }
+    }
     if ($exercise.engine -eq 'matching' -and -not (Is-NonEmptyString $exercise.params.category)) {
         Add-Issue("${path}: category manquante pour matching ($($exercise.id))")
     }
@@ -206,7 +232,7 @@ function Validate-Exercise($path, $themeId, $exercise) {
         Add-Issue("${path}: category manquante pour cloze-fill-in ($($exercise.id))")
     }
     if ($exercise.engine -eq 'board-interactive') {
-        $validBoardTypes = @('tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete', 'map-locate', 'memory-match', 'fraction-build', 'angle-classify', 'angle-measure', 'construction-report')
+        $validBoardTypes = @('tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete', 'map-locate', 'memory-match', 'fraction-build', 'angle-classify', 'angle-measure', 'construction-report', 'number-line-place', 'number-line-frame')
         if (-not (Is-NonEmptyString $exercise.params.type) -or $exercise.params.type -notin $validBoardTypes) {
             Add-Issue("${path}: type board-interactive invalide pour $($exercise.id)")
         }
@@ -769,6 +795,42 @@ function Validate-BoardDataset($ref, $dataSet) {
             $targetPointsValid = ($item.targetPoints -is [System.Collections.IList]) -and $item.targetPoints.Count -gt 0
             if (-not $givenPointsValid -or -not $targetPointsValid) {
                 Add-Issue("$($ref.DataFile): symmetry-complete invalide dans $($ref.Category)")
+                break
+            }
+        }
+
+        if ($ref.Type -eq 'number-line-place') {
+            $tickCountVal = 0
+            $boardValid = (Is-PlainObject $item.board) -and [int]::TryParse([string]$item.board.tickCount, [ref]$tickCountVal) -and $tickCountVal -ge 2
+            $targetIndexVal = -1
+            $targetValid = $boardValid -and (Is-PlainObject $item.task) -and [int]::TryParse([string]$item.task.targetIndex, [ref]$targetIndexVal) -and $targetIndexVal -ge 0 -and $targetIndexVal -lt $tickCountVal
+            if (-not $boardValid -or -not $targetValid) {
+                Add-Issue("$($ref.DataFile): number-line-place invalide dans $($ref.Category)")
+                break
+            }
+        }
+
+        if ($ref.Type -eq 'number-line-frame') {
+            $tickCountVal = 0
+            $boardValid = (Is-PlainObject $item.board) -and [int]::TryParse([string]$item.board.tickCount, [ref]$tickCountVal) -and $tickCountVal -ge 2
+            $indices = $item.targetIndices
+            $indicesValid = $boardValid -and ($indices -is [System.Collections.IList]) -and $indices.Count -eq 2
+            if ($indicesValid) {
+                $parsedIndices = @()
+                foreach ($rawIndex in $indices) {
+                    $indexVal = -1
+                    if (-not [int]::TryParse([string]$rawIndex, [ref]$indexVal) -or $indexVal -lt 0 -or $indexVal -ge $tickCountVal) {
+                        $indicesValid = $false
+                        break
+                    }
+                    $parsedIndices += $indexVal
+                }
+                if ($indicesValid -and $parsedIndices[0] -eq $parsedIndices[1]) {
+                    $indicesValid = $false
+                }
+            }
+            if (-not $boardValid -or -not $indicesValid) {
+                Add-Issue("$($ref.DataFile): number-line-frame invalide dans $($ref.Category)")
                 break
             }
         }

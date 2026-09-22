@@ -4,24 +4,24 @@ Document de référence listant, pour chaque niveau, chaque matière, chaque sou
 
 Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon, sans exercice, catégories peu fournies) pour prioriser les ajouts.
 
-> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-08-01 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
+> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-09-22 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
 
 ---
 
 ## Vue d'ensemble
 
-- **1013 exercices** et **367 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1031 exercices** et **380 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
 |---|---|
-| `choice-engine` | 539 |
+| `choice-engine` | 552 |
 | `math-input` | 164 |
 | `reading` | 52 |
 | `matching` | 49 |
+| `board-interactive` | 47 |
 | `conjugation` | 47 |
 | `audio-spelling` | 44 |
-| `board-interactive` | 42 |
 | `conversion` | 28 |
 | `timeline` | 22 |
 | `word-order` | 13 |
@@ -36,9 +36,11 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 | `tap-features` | 11 |
 | `map-locate` | 10 |
 | `point-on-grid` | 6 |
+| `number-line-place` | 3 |
 | `memory-match` | 3 |
 | `symmetry-complete` | 3 |
 | `angle-measure` | 3 |
+| `number-line-frame` | 2 |
 | `fraction-build` | 2 |
 | `shape-classify` | 2 |
 | `angle-classify` | 1 |
@@ -84,11 +86,13 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Nombres & Comparaison `(cp-nombres-comparaison)`
 
-- **Leçons** (3) :
+- **Leçons** (5) :
   - Compter et comparer `(cp-lesson-compter-comparer)` — blocs: paragraph, example, bullets, tip, check, check
   - Plus, moins, autant `(cp-lesson-plus-moins-autant)` — blocs: paragraph, example, bullets, tip, check, check
   - Doubles et moitiés `(cp-lesson-doubles-moities)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (7) :
+  - La ligne numérique `(cp-lesson-ligne-numerique)` — blocs: paragraph, example, bullets, tip, check, check
+  - Encadrer un nombre `(cp-lesson-encadrement)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (10) :
   - Compter `(math-count-1)` — engine: `counting`, min=1, max=20, questions=5
   - Compter plus loin `(math-count-2)` — engine: `counting`, min=20, max=99, questions=5
   - Comparer jusqu'à 10 `(comp-1)` — engine: `choice-engine`, range=10, questions=5
@@ -96,6 +100,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Comparer jusqu'à 50 `(comp-3)` — engine: `choice-engine`, range=50, questions=5
   - Défi : grands nombres `(cp-bonus-comparaison-defi)` — engine: `choice-engine`, range=99, questions=8, bonus (seuil=2)
   - Doubles et moitiés `(cp-doubles-moities)` — engine: `math-input`, type=double, min=1, max=10, questions=5
+  - La ligne numérique (0 à 10) `(cp-ligne-numerique-0-10)` — engine: `board-interactive`, type=number-line-place, dataFile=data/board_number_line_cp.json, category=cp_number_line_0_10, questions=6
+  - La ligne numérique (0 à 100) `(cp-ligne-numerique-0-100)` — engine: `board-interactive`, type=number-line-place, dataFile=data/board_number_line_cp.json, category=cp_number_line_0_100, questions=6
+  - Encadrer entre deux dizaines `(cp-encadrement-dizaines)` — engine: `board-interactive`, type=number-line-frame, dataFile=data/board_number_line_cp.json, category=cp_number_line_frame_dizaines, questions=6
 
 #### Cibles & Monnaie `(cp-cibles-monnaie)`
 
@@ -527,13 +534,16 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Nombres & Calculs `(ce1-nombres-calculs)`
 
-- **Leçons** (5) :
+- **Leçons** (8) :
   - Compléter jusqu'à 20 `(ce1-lesson-complements-20)` — blocs: paragraph, example, bullets, tip, check, check
   - Doubles et moitiés `(ce1-lesson-doubles-moities)` — blocs: paragraph, example, bullets, tip, check, check
   - Additionner jusqu'à 100 `(ce1-lesson-additionner-100)` — blocs: paragraph, example, bullets, tip, check, check
   - Soustraire sans se tromper `(ce1-lesson-soustraire)` — blocs: paragraph, example, bullets, tip, check, check
   - Les nombres jusqu'à 1000 `(ce1-lesson-nombres-jusqu-1000)` — blocs: paragraph, example, mini-table, bullets, tip, check, check
-- **Exercices** (23) :
+  - Les fractions simples `(ce1-lesson-fractions-simples)` — blocs: paragraph, example, bullets, tip, check, check
+  - Lire un prix avec une virgule `(ce1-lesson-monnaie-decimale)` — blocs: paragraph, example, mini-table, tip, bullets, check, check
+  - Encadrer un nombre entre deux centaines `(ce1-lesson-encadrement-centaines)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (26) :
   - Compléments à 100 `(add-100)` — engine: `math-input`, type=add-trou, min=10, max=100, questions=10
   - Calcul rapide `(add-chrono)` — engine: `math-input`, type=oiseau-math, min=10, max=30, vitesse=5, questions=10
   - Comparer jusqu'à 100 `(comp-ce1-1)` — engine: `choice-engine`, range=100, questions=10
@@ -544,7 +554,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Additions jusqu'à 50 `(ce1-additions-50)` — engine: `math-input`, type=add-simple, min=5, maxSum=50, questions=10
   - Comparer jusqu'à 200 `(ce1-comp-200)` — engine: `choice-engine`, range=200, questions=10
   - Nombres et opérations `(ce1-maths-appariement)` — engine: `matching`, category=matching_math_ce1, dataFile=data/math_matching.json, questions=3
-  - Jeu de mémoire `(ce1-maths-memoire)` — engine: `board-interactive`, type=memory-match, dataFile=data/board_memory_match_ce1.json, category=ce1_memory_match_maths, questions=4
+  - Jeu de mémoire `(ce1-maths-memoire)` — engine: `board-interactive`, type=memory-match, dataFile=data/board_memory_match_ce1.json, category=ce1_memory_match_maths, questions=5
   - Défi : additions jusqu'à 150 `(ce1-bonus-additions-100)` — engine: `math-input`, type=add-simple, min=10, maxSum=150, questions=12, bonus (seuil=2)
   - Défi : additions jusqu'à 999 `(ce1-bonus-additions-999)` — engine: `math-input`, type=add-simple, min=100, maxSum=999, questions=10, bonus (seuil=2)
   - Défi : soustractions jusqu'à 999 `(ce1-bonus-soustractions-999)` — engine: `math-input`, type=sub-simple, min=100, max=999, questions=10, bonus (seuil=2)
@@ -557,6 +567,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Défi : compléments à 100 `(ce1-bonus-complements-100)` — engine: `math-input`, type=complement, target=100, questions=8, bonus (seuil=2)
   - Addition posée en colonnes `(ce1-addition-posee-colonnes)` — engine: `math-input`, type=operation-posed, operator=add, level=1, questions=6
   - Soustraction posée en colonnes `(ce1-soustraction-posee-colonnes)` — engine: `math-input`, type=operation-posed, operator=sub, level=1, questions=6
+  - Partager en parts égales `(ce1-fractions-partage)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=ce1-fractions, questions=8
+  - Lire un prix avec une virgule `(ce1-monnaie-decimale-lecture)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=ce1-monnaie-decimale, questions=8
+  - Encadrer entre deux centaines `(ce1-encadrement-centaines)` — engine: `board-interactive`, type=number-line-frame, dataFile=data/board_number_line_ce1.json, category=ce1_number_line_frame_centaines, questions=6
 
 #### Géométrie et mesures `(ce1-geometrie-mesures-subtheme)`
 
@@ -1320,9 +1333,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Nombres et calculs `(cm1-nombres-calculs)`
 
-- **Leçons** (9) :
+- **Leçons** (10) :
   - Lire une fraction `(cm1-lesson-fractions)` — blocs: paragraph, example, bullets, tip, check, check
   - Additionner des fractions de même dénominateur `(cm1-lesson-fractions-addition)` — blocs: paragraph, example, bullets, tip, check, check
+  - Des fractions équivalentes `(cm1-lesson-fractions-equivalentes)` — blocs: paragraph, example, bullets, tip, check, check
   - Repérer les décimaux `(cm1-lesson-decimaux-reperes)` — blocs: paragraph, example, bullets, tip, check, check
   - Résoudre un problème `(cm1-lesson-problemes-calcul)` — blocs: paragraph, example, bullets, tip, check, check
   - Résoudre un problème `(cm1-lesson-resoudre-probleme)` — blocs: paragraph, example, bullets, tip, check, check
@@ -1330,11 +1344,12 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Addition et soustraction posées `(cm1-lesson-addition-soustraction-posees)` — blocs: paragraph, example, example, bullets, tip, check, check
   - Multiplication posée par un nombre à 2 chiffres `(cm1-lesson-multiplication-posee-2-chiffres)` — blocs: paragraph, example, bullets, tip, check, check
   - La position d'un chiffre dans un grand nombre `(cm1-lesson-position-valeur-grands-nombres)` — blocs: paragraph, example, mini-table, tip, check, check
-- **Exercices** (29) :
+- **Exercices** (30) :
   - Grands Nombres `(cm1-m-big)` — engine: `math-input`, type=dictée-nombres, max=1000000, questions=5
   - Fractions `(cm1-frac-1)` — engine: `math-input`, type=fraction-view, maxDenom=8, questions=10
   - Construis la fraction `(cm1-frac-build)` — engine: `board-interactive`, type=fraction-build, minDenom=2, maxDenom=8, questions=8
   - Additionne des fractions `(cm1-frac-addition)` — engine: `math-input`, type=fraction-operation, operator=add, level=1, questions=8
+  - Fractions sur la ligne graduée `(cm1-fractions-droite-graduee)` — engine: `board-interactive`, type=number-line-place, dataFile=data/board_number_line_cm1.json, category=cm1_fractions_droite_graduee, questions=8
   - Décimaux : Positions (1) `(cm1-dec-pos-1)` — engine: `math-input`, type=decimal-place, trap=false, questions=10
   - Décimaux : Positions (2) `(cm1-dec-pos-2)` — engine: `math-input`, type=decimal-place, trap=true, questions=10
   - La Moitié `(cm1-div-1)` — engine: `math-input`, type=half, questions=10
@@ -1536,17 +1551,23 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Grandes périodes `(cm1-histoire-periodes)`
 
-- **Leçons** (5) :
+- **Leçons** (8) :
   - La Préhistoire `(cm1-lesson-prehistoire)` — blocs: paragraph, example, bullets, tip, check, check
   - Antiquité, Moyen Âge, Temps modernes `(cm1-lesson-periodes)` — blocs: paragraph, bullets, example, tip, check, check
   - La vie au Moyen Âge `(cm1-lesson-vie-moyen-age)` — blocs: paragraph, example, bullets, tip, check, check
   - La Gaule romaine `(cm1-lesson-gaule-romaine)` — blocs: paragraph, example, bullets, tip, check, check
   - La société féodale `(cm1-lesson-vivre-moyen-age)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (8) :
+  - 1789 : la fin de la monarchie absolue `(cm1-lesson-annee-1789)` — blocs: paragraph, example, bullets, tip, check, check
+  - La monarchie absolue en France `(cm1-lesson-monarchie-absolue)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les grandes explorations `(cm1-lesson-explorations)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (11) :
   - Préhistoire `(cm1-histoire-prehistoire)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm1.json, category=cm1-prehistoire, questions=8
   - Antiquité `(cm1-histoire-antiquite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm1.json, category=cm1-antiquite, questions=8
   - Moyen Âge `(cm1-histoire-moyen-age)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm1.json, category=cm1-moyen-age, questions=8
   - Temps modernes `(cm1-histoire-temps-modernes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm1.json, category=cm1-temps-modernes, questions=6
+  - L'année 1789 `(cm1-histoire-annee-1789)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm1.json, category=cm1-annee-1789, questions=8
+  - La monarchie absolue `(cm1-histoire-monarchie-absolue)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm1.json, category=cm1-monarchie-absolue, questions=8
+  - Les grandes explorations `(cm1-histoire-explorations)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm1.json, category=cm1-explorations, questions=8
   - Renaissance et inventions `(cm1-histoire-renaissance-inventions)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm1.json, category=cm1-renaissance-inventions, questions=6
   - Humanisme et imprimerie `(cm1-histoire-humanisme-imprimerie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm1.json, category=cm1-humanisme-imprimerie, questions=6
   - Périodes et civilisations `(cm1-histoire-appariement)` — engine: `matching`, category=matching_histoire_cm1, dataFile=data/history_matching.json, questions=2
@@ -1628,6 +1649,20 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Capitales d'Amérique du Sud `(cm1-geo-capitales-amerique-sud)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_capitals_cm1.json, category=cm1-capitales-amerique-sud, questions=6
   - Défi : carte du monde `(cm1-bonus-geo-carte-monde-expert)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_world.json, mapFile=data/maps/world-continents.svg, mapId=world-continents, category=cm1_map_continents_monde, questions=12, bonus (seuil=2)
 
+#### Communiquer `(cm1-geo-communiquer-subtheme)`
+
+- **Leçons** (1) :
+  - Communiquer grâce à Internet `(cm1-lesson-communiquer-internet)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (1) :
+  - Communiquer grâce à Internet `(cm1-geo-communiquer-internet)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-communiquer-internet, questions=6
+
+#### Se nourrir `(cm1-geo-se-nourrir-subtheme)`
+
+- **Leçons** (1) :
+  - Se nourrir : d'où vient notre alimentation ? `(cm1-lesson-se-nourrir)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (1) :
+  - Se nourrir `(cm1-geo-se-nourrir)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-se-nourrir, questions=8
+
 ### Sciences (cm1-sciences-subject)
 
 #### Le vivant `(cm1-sciences-vivant-subtheme)`
@@ -1701,6 +1736,19 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Mécanismes en action `(cm1-sciences-techno-energie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-techno-objets, questions=6
   - Les objets techniques `(cm1-sciences-techno-fonction)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-techno-fonction-usage, questions=8
   - Défi : machines et objets `(cm1-bonus-sciences-techno-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-techno-objets, questions=10, bonus (seuil=2)
+
+#### Mouvements et signaux `(cm1-sciences-mouvements-signaux-subtheme)`
+
+- **Leçons** (2) :
+  - Trajectoire et vitesse d'un objet `(cm1-lesson-trajectoire-vitesse)` — blocs: paragraph, example, bullets, example, tip, check, check
+  - Les signaux lumineux et sonores `(cm1-lesson-signaux-lumineux-sonores)` — blocs: paragraph, example, bullets, example, tip, check, check
+- **Exercices** (6) :
+  - Trajectoire et vitesse `(cm1-sciences-trajectoire-vitesse)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-mouvements-vitesse, questions=6
+  - Comparer des vitesses `(cm1-sciences-comparer-vitesses)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-mouvements-vitesse, questions=6
+  - Les signaux lumineux `(cm1-sciences-signaux-lumineux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-signaux, questions=6
+  - Les signaux sonores `(cm1-sciences-signaux-sonores)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-signaux, questions=6
+  - Défi : trajectoires et vitesses `(cm1-bonus-sciences-mouvements-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-mouvements-vitesse, questions=10, bonus (seuil=2)
+  - Défi : signaux du quotidien `(cm1-bonus-sciences-signaux-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-signaux, questions=10, bonus (seuil=2)
 
 ### EMC (cm1-emc-subject)
 

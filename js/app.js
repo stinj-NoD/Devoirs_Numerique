@@ -2393,7 +2393,9 @@ const App = {
                 'fraction-build': { selectedSlices: [] },
                 'angle-classify': { selectedId: null },
                 'angle-measure': { selectedDegrees: null },
-                'construction-report': { selectedIndex: null }
+                'construction-report': { selectedIndex: null },
+                'number-line-place': { tickIndex: null },
+                'number-line-frame': { tickIndices: [] }
             };
             if (resetStates[d.boardKind]) d.userState = resetStates[d.boardKind];
             d.revealed = false;
@@ -2422,6 +2424,11 @@ const App = {
                 const index = d.userState?.selectedIndex;
                 const point = Number.isInteger(index) && Array.isArray(d.candidates) ? d.candidates[index] : null;
                 this.state.userInput = EnginesBoard.canonicalizePoint(point);
+            } else if (d.boardKind === 'number-line-place') {
+                this.state.userInput = EnginesBoard.canonicalizeTick(d.userState?.tickIndex);
+            } else if (d.boardKind === 'number-line-frame') {
+                const indices = Array.isArray(d.userState?.tickIndices) ? d.userState.tickIndices : [];
+                this.state.userInput = EnginesBoard.canonicalizeTicks(indices);
             }
             d.revealed = true;
             this.refreshUI();
@@ -2521,6 +2528,36 @@ const App = {
             if (idx > -1) d.userState.placedPoints.splice(idx, 1);
             else d.userState.placedPoints.push([x, y]);
             this.state.userInput = EnginesBoard.canonicalizePoints(d.userState.placedPoints);
+            this.refreshUI();
+            return;
+        }
+
+        if (val.startsWith('board-place-tick:') && d.boardKind === 'number-line-place') {
+            const index = parseInt(val.replace('board-place-tick:', ''), 10);
+            if (isNaN(index)) return;
+            if (!d.userState) d.userState = { tickIndex: null };
+            d.userState.tickIndex = index;
+            this.state.userInput = EnginesBoard.canonicalizeTick(index);
+            this.refreshUI();
+            return;
+        }
+
+        if (val.startsWith('board-toggle-tick:') && d.boardKind === 'number-line-frame') {
+            const index = parseInt(val.replace('board-toggle-tick:', ''), 10);
+            if (isNaN(index)) return;
+            if (!d.userState) d.userState = { tickIndices: [] };
+            if (!Array.isArray(d.userState.tickIndices)) d.userState.tickIndices = [];
+            const existingIdx = d.userState.tickIndices.indexOf(index);
+            if (existingIdx > -1) {
+                d.userState.tickIndices.splice(existingIdx, 1);
+            } else {
+                // Une seule paire de bornes à la fois : un 3e clic remplace la
+                // plus ancienne sélection plutôt que d'être ignoré ou de
+                // bloquer, pour rester fluide au tactile.
+                if (d.userState.tickIndices.length >= 2) d.userState.tickIndices.shift();
+                d.userState.tickIndices.push(index);
+            }
+            this.state.userInput = EnginesBoard.canonicalizeTicks(d.userState.tickIndices);
             this.refreshUI();
             return;
         }

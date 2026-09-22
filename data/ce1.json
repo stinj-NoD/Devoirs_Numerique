@@ -382,7 +382,7 @@
                                 "type": "memory-match",
                                 "dataFile": "data/board_memory_match_ce1.json",
                                 "category": "ce1_memory_match_maths",
-                                "questions": 4
+                                "questions": 5
                             }
                         },
                         {
@@ -532,6 +532,42 @@
                                 "type": "operation-posed",
                                 "operator": "sub",
                                 "level": 1,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-fractions-partage",
+                            "title": "Partager en parts égales",
+                            "subtitle": "Reconnaître une fraction simple",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle2.json",
+                                "category": "ce1-fractions",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce1-monnaie-decimale-lecture",
+                            "title": "Lire un prix avec une virgule",
+                            "subtitle": "Euros et centimes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle2.json",
+                                "category": "ce1-monnaie-decimale",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce1-encadrement-centaines",
+                            "title": "Encadrer entre deux centaines",
+                            "subtitle": "Trouve les deux centaines qui entourent un nombre",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "number-line-frame",
+                                "dataFile": "data/board_number_line_ce1.json",
+                                "category": "ce1_number_line_frame_centaines",
                                 "questions": 6
                             }
                         }
@@ -821,6 +857,186 @@
                                     ],
                                     "answer": "492",
                                     "explanation": "Je place chaque valeur à sa position : 4 centaines s'écrit en premier, puis 9 dizaines, puis 2 unités : 400 + 90 + 2 = 492."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-fractions-simples",
+                            "title": "Les fractions simples",
+                            "subtitle": "Partager un tout en parts égales",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un tout peut se partager en plusieurs parts égales. Une fraction indique combien de parts on a prises parmi le nombre total de parts égales : le nombre du bas (le dénominateur) donne le nombre de parts égales, le nombre du haut (le numérateur) donne le nombre de parts prises."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une pizza est coupée en 4 parts égales. Léo mange 1 part : il a mangé 1/4 de la pizza, ce qui se lit « un quart »."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "1/2 se lit « un demi »",
+                                        "1/3 se lit « un tiers »",
+                                        "1/4 se lit « un quart »",
+                                        "1/5 se lit « un cinquième »"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour qu'une fraction soit correcte, les parts doivent être exactement égales : si un morceau est plus grand qu'un autre, on ne peut plus parler de quarts ou de tiers."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un gâteau est partagé en 3 parts égales pour 3 amis. Quelle fraction représente la part de chacun ?",
+                                    "choices": [
+                                        "1/3",
+                                        "3/1",
+                                        "1/2"
+                                    ],
+                                    "answer": "1/3",
+                                    "explanation": "Le gâteau est coupé en 3 parts égales, donc chaque part vaut un tiers du gâteau, soit 1/3."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une tarte est coupée en 4 morceaux, mais un morceau est beaucoup plus grand que les 3 autres. Peut-on dire que chaque morceau représente un quart de la tarte ?",
+                                    "choices": [
+                                        "Non, car les parts ne sont pas toutes égales",
+                                        "Oui, car la tarte est coupée en 4 morceaux",
+                                        "Oui, car il reste un morceau pour chaque personne"
+                                    ],
+                                    "answer": "Non, car les parts ne sont pas toutes égales",
+                                    "explanation": "Une fraction comme 1/4 suppose des parts strictement égales : ici, les morceaux ayant des tailles différentes, on ne peut pas parler de quarts, même s'il y en a 4."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-monnaie-decimale",
+                            "title": "Lire un prix avec une virgule",
+                            "subtitle": "Euros et centimes",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour écrire un prix en euros, on utilise parfois une virgule. Elle sépare deux parties : les euros entiers, écrits avant la virgule, et les centimes, écrits juste après, toujours avec deux chiffres."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un jeu de cartes coûte 4,20 €. Le 4, avant la virgule, représente 4 euros entiers. Le 20, après la virgule, représente 20 centimes."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "headers": [
+                                        "Prix écrit",
+                                        "Ce qu'il signifie"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "1,00 €",
+                                            "1 euro entier, aucun centime"
+                                        ],
+                                        [
+                                            "0,45 €",
+                                            "aucun euro entier, 45 centimes"
+                                        ],
+                                        [
+                                            "6,05 €",
+                                            "6 euros entiers, et seulement 5 centimes (le zéro compte)"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Après la virgule, on écrit toujours deux chiffres pour les centimes, même s'il n'y a qu'un seul chiffre à dire : dans 3,05 €, le zéro devant le 5 est indispensable, sinon on lirait 3,50 € par erreur."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Avant la virgule : les euros entiers.",
+                                        "Après la virgule : les centimes, toujours sur deux chiffres.",
+                                        "0,90 € veut dire 90 centimes : ce n'est pas encore 1 euro entier."
+                                    ]
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur une étiquette, on lit 5,30 €. Combien d'euros entiers cela représente-t-il ?",
+                                    "choices": [
+                                        "5 €",
+                                        "30 €",
+                                        "53 €"
+                                    ],
+                                    "answer": "5 €",
+                                    "explanation": "Le nombre placé avant la virgule indique les euros entiers : dans 5,30 €, c'est 5."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léo lit un prix écrit 2,08 €. Que représentent les deux chiffres après la virgule ?",
+                                    "choices": [
+                                        "8 centimes",
+                                        "80 centimes",
+                                        "20 centimes"
+                                    ],
+                                    "answer": "8 centimes",
+                                    "explanation": "Après la virgule, on lit toujours deux chiffres : 08 vaut 8 et non 80, car le zéro placé devant indique qu'il n'y a pas de dizaine de centimes."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-encadrement-centaines",
+                            "title": "Encadrer un nombre entre deux centaines",
+                            "subtitle": "Trouver la centaine juste avant et juste après",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Encadrer un nombre entre deux centaines, c'est trouver la centaine qui vient juste avant lui et la centaine qui vient juste après lui. Le nombre se trouve toujours strictement entre les deux, jamais collé sur l'une d'elles."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le nombre 230 est encadré par 200 et 300 : 200 est juste avant, 300 est juste après. On peut écrire 200 < 230 < 300."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "Je cherche d'abord la centaine juste en dessous du nombre",
+                                        "Je cherche ensuite la centaine juste au-dessus",
+                                        "Les deux centaines choisies ne sont jamais le nombre lui-même"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour trouver vite les deux centaines, je regarde le chiffre des centaines du nombre : pour 560, ce chiffre est 5, donc les bornes sont 500 et 600."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Entre quelles deux centaines se trouve le nombre 780 ?",
+                                    "choices": [
+                                        "700 et 800",
+                                        "800 et 900",
+                                        "600 et 700"
+                                    ],
+                                    "answer": "700 et 800",
+                                    "explanation": "780 est plus grand que 700 et plus petit que 800 : il est donc encadré par 700 et 800."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Nora doit encadrer le nombre 650. Laquelle de ces réponses est correcte ?",
+                                    "choices": [
+                                        "650 est entre 600 et 700",
+                                        "650 est entre 500 et 600",
+                                        "650 est entre 700 et 800"
+                                    ],
+                                    "answer": "650 est entre 600 et 700",
+                                    "explanation": "Le chiffre des centaines de 650 est 6 : la centaine juste avant est 600 et celle juste après est 700."
                                 }
                             ]
                         }

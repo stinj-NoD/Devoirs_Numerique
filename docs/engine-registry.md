@@ -4,7 +4,8 @@ Référence lisible des 13 moteurs (`engine`) et de leurs sous-types (`params.ty
 Version humaine de **`data/engine-registry.json`**, la source machine-lisible.
 
 > **Ces deux fichiers sont de l'OUTILLAGE.** Ils ne sont pas embarqués dans
-> `js/data-bundle.js` et ne sont jamais lus au runtime — ils servent à l'agent
+> les bundles (`js/data-bundle-common.js`/`data-bundle-<niveau>.js`) et ne
+> sont jamais lus au runtime — ils servent à l'agent
 > `exercise-author` et au garde-fou de cohérence de `scripts/build-content-index.js`.
 > Ils n'ont **aucun** impact sur le poids servi ni sur le mode `file://`.
 
@@ -50,9 +51,9 @@ signal fort d'habillage redondant. Pour `library`/`generator`, un même contrat
 
 | `engine` | Nature | `params.type` | Ex. dans les données |
 |---|---|---|---|
-| `math-input` | generator | `add-simple`, `add-trou`, `sub-simple`, `mult`, `complement`, `decimal-place`, `dictée-nombres`, `calc-mental`, `oiseau-math`, `cibles`, `half`, `double`, `division-simple`, `division-reste`, `division-posed`, `operation-posed`, `place-value`, `proportionnalite`, `pourcentage`, `aire-rectangle`, `volume-pave`, `echelle`, `vitesse`, `bar-chart-read`, `data-table-read`, `pie-chart-read`, `average-compute`, `spelling`¹, `clock`, `fraction-view`, `fraction-operation`³, `number-spelling`, `carre-somme` | ~164 |
+| `math-input` | generator | `add-simple`, `add-trou`, `sub-simple`, `mult`, `complement`, `decimal-place`, `dictée-nombres`, `calc-mental`, `oiseau-math`, `cibles`, `half`, `double`, `division-simple`, `division-reste`, `division-posed`, `operation-posed`⁶, `place-value`, `proportionnalite`, `pourcentage`, `aire-rectangle`, `volume-pave`, `echelle`, `vitesse`, `bar-chart-read`, `data-table-read`, `pie-chart-read`, `average-compute`, `spelling`¹, `clock`, `fraction-view`, `fraction-operation`³, `number-spelling`, `carre-somme` | ~164 |
 | `choice-engine` | mixed | `factual-qcm` (**pool**), `gender-articles`, `article-choice`, `plural-choice`, `word-class-choice`, `grammar-cloze`, `homophone-duel` (library), `compare-decimals`, *(défaut)* `compare` | ~539 |
-| `board-interactive` | pool | `tap-features`, `shape-classify`, `point-on-grid`, `symmetry-complete`, `map-locate`, `memory-match`, `angle-classify`, `angle-measure`, `construction-report`, `fraction-build`² | ~42 |
+| `board-interactive` | pool | `tap-features`, `shape-classify`, `point-on-grid`, `symmetry-complete`, `map-locate`, `memory-match`, `angle-classify`, `angle-measure`, `construction-report`, `fraction-build`², `number-line-place`⁵, `number-line-frame`⁵ | ~42 |
 | `conversion` | generator | — (`modes`, `memo`), `metric-area`⁴ | ~28 |
 | `conjugation` | library | — | ~47 |
 | `reading` | library | — | ~51 |
@@ -75,6 +76,20 @@ donné dans l'énoncé, pas de PPCM demandé à l'élève ; cas général hors s
 ⁴ `metric-area` convertit cm²/dm²/m²/mm² avec une progression **x100** par
 palier, contrairement au subtype `metric` existant (x10) — tableau d'unités
 et facteurs dédiés dans `js/engines-math.js`.
+⁵ `number-line-place`/`number-line-frame` (ligne numérique graduée) n'acceptent
+que des graduations **discrètes indexées** (`board.tickCount`), jamais un
+placement continu avec marge d'erreur — le seul mode de validation réellement
+câblé par `App.validateAnswer()` est une égalité stricte de chaîne canonique.
+`number-line-place` : `task.targetIndex` (un point). `number-line-frame` :
+`targetIndices` (exactement 2, encadrement). La conversion valeur réelle
+(nombre entier, fraction...) → index de graduation se fait à l'écriture du
+contenu, jamais au runtime.
+⁶ `operation-posed` accepte un paramètre optionnel `decimals` (0-2, défaut 0)
+pour poser des opérations avec des nombres décimaux — implémenté en entiers
+mis à l'échelle (jamais de flottant JS), formaté en chaîne virgule côté
+moteur avant `standardize()`. `mult` + `decimals>0` est restreint à
+décimal × entier (le second opérande reste toujours un entier), jamais
+décimal × décimal.
 
 **Alias normalisés en entrée** (`js/engines.js`) : `compare`/`choice` → `choice-engine` ;
 `oiseau` → `math-input` + `type:oiseau-math`.

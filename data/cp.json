@@ -432,6 +432,42 @@
                                 "max": 10,
                                 "questions": 5
                             }
+                        },
+                        {
+                            "id": "cp-ligne-numerique-0-10",
+                            "title": "La ligne numérique (0 à 10)",
+                            "subtitle": "Place le nombre au bon endroit",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "number-line-place",
+                                "dataFile": "data/board_number_line_cp.json",
+                                "category": "cp_number_line_0_10",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-ligne-numerique-0-100",
+                            "title": "La ligne numérique (0 à 100)",
+                            "subtitle": "Place la dizaine au bon endroit",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "number-line-place",
+                                "dataFile": "data/board_number_line_cp.json",
+                                "category": "cp_number_line_0_100",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-encadrement-dizaines",
+                            "title": "Encadrer entre deux dizaines",
+                            "subtitle": "Trouve les deux dizaines qui entourent un nombre",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "number-line-frame",
+                                "dataFile": "data/board_number_line_cp.json",
+                                "category": "cp_number_line_frame_dizaines",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -588,6 +624,110 @@
                                     ],
                                     "answer": "3 bonbons",
                                     "explanation": "Je cherche la moitié de 6 : deux parts égales de 3, car 3 et 3 font 6."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-ligne-numerique",
+                            "title": "La ligne numérique",
+                            "subtitle": "Repérer et placer un nombre",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une ligne numérique graduée est une droite sur laquelle des marques régulières, appelées graduations, représentent les nombres dans l'ordre, de gauche à droite."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Sur une ligne graduée de 0 à 10, le nombre 7 se trouve en comptant 7 graduations à partir du 0."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "Les graduations sont toutes à la même distance les unes des autres",
+                                        "Le 0 est toujours tout à gauche de la ligne",
+                                        "Plus un nombre est grand, plus il est placé loin vers la droite"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour placer un nombre, je pars du 0 et je compte le bon nombre de graduations vers la droite."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur une ligne graduée régulière de 0 à 10, où se trouve le nombre 4 ?",
+                                    "choices": [
+                                        "À 4 graduations du 0",
+                                        "À 4 graduations du 10",
+                                        "Au milieu de la ligne"
+                                    ],
+                                    "answer": "À 4 graduations du 0",
+                                    "explanation": "Comme pour tout nombre sur la ligne, je compte à partir du 0 : 4 graduations plus loin, j'arrive sur le nombre 4."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur une ligne numérique, le nombre 9 est-il plus près ou plus loin du 0 que le nombre 3 ?",
+                                    "choices": [
+                                        "Plus loin, car 9 est plus grand que 3",
+                                        "Plus près, car 9 est plus petit que 3",
+                                        "Ils sont à la même distance du 0"
+                                    ],
+                                    "answer": "Plus loin, car 9 est plus grand que 3",
+                                    "explanation": "Plus un nombre est grand, plus il est placé loin vers la droite : 9 est donc plus loin du 0 que 3."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-encadrement",
+                            "title": "Encadrer un nombre",
+                            "subtitle": "Trouver la dizaine juste avant et juste après",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Encadrer un nombre, c'est trouver la dizaine qui vient juste avant lui et la dizaine qui vient juste après lui. Le nombre se trouve toujours entre les deux, jamais collé sur l'une d'elles."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le nombre 23 est encadré par 20 et 30 : 20 est juste avant, 30 est juste après. On peut écrire 20 < 23 < 30."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "Je cherche d'abord la dizaine juste en dessous du nombre",
+                                        "Je cherche ensuite la dizaine juste au-dessus",
+                                        "Les deux dizaines choisies ne sont jamais le nombre lui-même"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour trouver vite les deux dizaines, je regarde le chiffre des dizaines du nombre : pour 56, ce chiffre est 5, donc les bornes sont 50 et 60."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Entre quelles deux dizaines se trouve le nombre 78 ?",
+                                    "choices": [
+                                        "70 et 80",
+                                        "80 et 90",
+                                        "60 et 70"
+                                    ],
+                                    "answer": "70 et 80",
+                                    "explanation": "78 est plus grand que 70 et plus petit que 80 : il est donc encadré par 70 et 80."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Nora doit encadrer le nombre 65. Laquelle de ces réponses est correcte ?",
+                                    "choices": [
+                                        "65 est entre 60 et 70",
+                                        "65 est entre 50 et 60",
+                                        "65 est entre 70 et 80"
+                                    ],
+                                    "answer": "65 est entre 60 et 70",
+                                    "explanation": "Le chiffre des dizaines de 65 est 6 : la dizaine juste avant est 60 et celle juste après est 70."
                                 }
                             ]
                         }

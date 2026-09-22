@@ -22,7 +22,7 @@
         "division-simple": { "params": ["max"] },
         "division-reste": { "params": ["max"] },
         "division-posed": { "params": ["min", "max"] },
-        "operation-posed": { "params": ["operator", "level"], "note": "operator='add'|'sub'|'mult' ; level 1-3 borne la difficulté ; rendu par ui-visuals.js::drawOperationPosedCard (visualType 'operationPosed')" },
+        "operation-posed": { "params": ["operator", "level", "decimals"], "note": "operator='add'|'sub'|'mult' ; level 1-3 borne la difficulté ; decimals=0|1|2 (défaut 0) pose l'opération avec des opérandes décimaux — toujours des entiers mis à l'échelle en interne (jamais de flottant JS), formatés en chaîne virgule côté moteur avant standardize() ; mult+decimals>0 restreint à décimal×entier (le second opérande reste toujours un entier simple) ; rendu par ui-visuals.js::drawOperationPosedCard (visualType 'operationPosed')" },
         "place-value": { "params": ["digitCount", "ask"], "note": "digitCount = nombre de chiffres généré (défaut 4) ; ask='digit'|'value' (défaut 'digit') ; pas de rendu visuel dédié, pattern textuel comme decimal-place" },
         "proportionnalite": { "params": [] },
         "pourcentage": { "params": [] },
@@ -73,7 +73,9 @@
         "angle-classify": { "sourceKind": "pool", "params": ["dataFile", "category"] },
         "angle-measure": { "sourceKind": "pool", "params": ["dataFile", "category"], "note": "answerDegrees 0-360, choices contient la réponse" },
         "construction-report": { "sourceKind": "pool", "params": ["dataFile", "category"] },
-        "fraction-build": { "sourceKind": "generator", "params": [], "note": "seul type board sans dataFile" }
+        "fraction-build": { "sourceKind": "generator", "params": [], "note": "seul type board sans dataFile" },
+        "number-line-place": { "sourceKind": "pool", "params": ["dataFile", "category"], "note": "graduations discrètes indexées (board.tickCount), pas de placement continu ; task.targetIndex" },
+        "number-line-frame": { "sourceKind": "pool", "params": ["dataFile", "category"], "note": "encadrement : 2 graduations attendues dans targetIndices" }
       }
     },
     "conversion": {

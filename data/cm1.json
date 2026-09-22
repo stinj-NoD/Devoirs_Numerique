@@ -59,6 +59,18 @@
                             }
                         },
                         {
+                            "id": "cm1-fractions-droite-graduee",
+                            "title": "Fractions sur la ligne graduée",
+                            "subtitle": "Équivalences en huitièmes",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "number-line-place",
+                                "dataFile": "data/board_number_line_cm1.json",
+                                "category": "cm1_fractions_droite_graduee",
+                                "questions": 8
+                            }
+                        },
+                        {
                             "id": "cm1-dec-pos-1",
                             "title": "Décimaux : Positions (1)",
                             "subtitle": "Dixièmes et Centièmes",
@@ -461,6 +473,59 @@
                             "format": "lesson-card",
                             "id": "cm1-lesson-fractions-addition",
                             "subtitle": "Additionner les numérateurs"
+                        },
+                        {
+                            "blocks": [
+                                {
+                                    "text": "Deux fractions qui représentent la même quantité, même si elles s'écrivent différemment, sont dites équivalentes.",
+                                    "type": "paragraph"
+                                },
+                                {
+                                    "label": "Exemple",
+                                    "content": "1/2 et 4/8 représentent la même moitié d'une tablette de chocolat. Sur une ligne graduée en huitièmes, 1/2 tombe exactement sur la 4e graduation, à la même place que 4/8.",
+                                    "type": "example"
+                                },
+                                {
+                                    "label": "Repères",
+                                    "items": [
+                                        "Pour trouver une fraction équivalente en huitièmes, je multiplie le numérateur et le dénominateur par le même nombre.",
+                                        "1/2 devient 4/8 (numérateur et dénominateur multipliés par 4).",
+                                        "1/4 devient 2/8 (numérateur et dénominateur multipliés par 2)."
+                                    ],
+                                    "type": "bullets"
+                                },
+                                {
+                                    "label": "À retenir",
+                                    "content": "Deux fractions équivalentes tombent toujours sur la même graduation d'une ligne numérique.",
+                                    "type": "tip"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur une ligne graduée en huitièmes, à quelle graduation tombe la fraction 3/4 ?",
+                                    "choices": [
+                                        "La 6e graduation, car 3/4 équivaut à 6/8",
+                                        "La 3e graduation, en lisant juste le 3 de 3/4",
+                                        "La 4e graduation, en lisant juste le 4 de 3/4"
+                                    ],
+                                    "answer": "La 6e graduation, car 3/4 équivaut à 6/8",
+                                    "explanation": "3/4 est équivalente à 6/8 (numérateur et dénominateur multipliés par 2) : elle tombe donc sur la 6e graduation, pas sur la 3e ni la 4e qui viennent d'une lecture directe et fausse des chiffres de 3/4."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léa place 1/2 sur la 4e graduation d'une ligne en huitièmes. Manon place 4/8 sur la 5e graduation. Qui a raison ?",
+                                    "choices": [
+                                        "Léa, car 1/2 = 4/8 et cela tombe sur la 4e graduation",
+                                        "Manon, car 4/8 est plus grand que 1/2",
+                                        "Les deux ont raison, chacun a sa propre graduation"
+                                    ],
+                                    "answer": "Léa, car 1/2 = 4/8 et cela tombe sur la 4e graduation",
+                                    "explanation": "1/2 et 4/8 sont deux écritures de la même quantité : elles tombent donc exactement sur la même graduation, la 4e sur une ligne en huitièmes. Manon s'est trompée de graduation."
+                                }
+                            ],
+                            "title": "Des fractions équivalentes",
+                            "format": "lesson-card",
+                            "id": "cm1-lesson-fractions-equivalentes",
+                            "subtitle": "Même valeur, deux écritures"
                         },
                         {
                             "blocks": [
@@ -4274,6 +4339,168 @@
                                     "explanation": "On naissait dans un ordre et on y restait : être nombreux ne donnait aucun pouvoir. Les paysans ne dirigeaient rien, et ils étaient les plus pauvres alors même qu'ils nourrissaient toute la société."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cm1-lesson-annee-1789",
+                            "title": "1789 : la fin de la monarchie absolue",
+                            "subtitle": "États généraux, Bastille et Déclaration des droits",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "En 1789, la France traverse une grave crise financière : l'État est ruiné. Le roi Louis XVI convoque les états généraux, une assemblée qui réunit les représentants des trois ordres du royaume : le clergé, la noblesse et le tiers état."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le tiers état représente à lui seul l'immense majorité des Français, mais chaque ordre ne compte que pour une seule voix au moment du vote : le 17 juin 1789, ses députés se proclament seuls « Assemblée nationale » pour représenter la nation tout entière."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "20 juin 1789 : serment du Jeu de paume",
+                                        "14 juillet 1789 : prise de la Bastille",
+                                        "4 août 1789 : abolition des privilèges",
+                                        "26 août 1789 : Déclaration des droits de l'Homme et du Citoyen"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "En 1789, Louis XVI demeure roi, mais il perd son pouvoir absolu : les états généraux, la Bastille et la Déclaration des droits l'obligent à composer avec de nouvelles règles. C'est la fin de la monarchie absolue et le début de la Révolution française."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "En 1789, chaque ordre (clergé, noblesse, tiers état) ne compte que pour une seule voix au moment du vote, même si le tiers état a beaucoup plus de députés que les deux autres réunis. Pourquoi les députés du tiers état réclament-ils de voter « par tête » plutôt que « par ordre » ?",
+                                    "choices": [
+                                        "Parce qu'être plus nombreux compterait enfin davantage dans le résultat du vote",
+                                        "Parce qu'ils veulent que le clergé et la noblesse votent à leur place",
+                                        "Parce que le roi le leur avait promis avant la réunion des états généraux"
+                                    ],
+                                    "answer": "Parce qu'être plus nombreux compterait enfin davantage dans le résultat du vote",
+                                    "explanation": "Avec un vote par ordre, le tiers état perd presque toujours face au clergé et à la noblesse réunis, même s'il représente la majorité des Français. En votant par tête, être plus nombreux ferait enfin la différence. Le roi n'avait rien promis de tel, et il ne s'agit pas de voter à la place d'un autre ordre."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Après 1789, Louis XVI reste roi de France : il n'est pas chassé du trône. Pourtant, on dit que 1789 marque « la fin de la monarchie absolue ». Comment expliquer cela ?",
+                                    "choices": [
+                                        "Le roi doit désormais accepter de nouveaux droits et ne gouverne plus seul",
+                                        "Le roi a totalement disparu et la France n'a plus aucun souverain",
+                                        "Rien ne change vraiment pour le roi avant longtemps"
+                                    ],
+                                    "answer": "Le roi doit désormais accepter de nouveaux droits et ne gouverne plus seul",
+                                    "explanation": "En 1789, le roi reste sur le trône, mais les états généraux, la prise de la Bastille et la Déclaration des droits l'obligent à composer avec de nouvelles règles : il ne gouverne plus seul comme avant. Ce n'est donc pas la disparition du roi, et beaucoup de choses changent bel et bien dès 1789."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-monarchie-absolue",
+                            "title": "La monarchie absolue en France",
+                            "subtitle": "Louis XIV, Versailles et le pouvoir du roi",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Aux XVIe et XVIIe siècles, les rois de France gouvernent seuls : on parle de monarchie absolue. Le roi fait les lois, décide de la guerre et de la paix, et fixe les impôts, sans avoir de compte à rendre à une assemblée élue par le peuple."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Louis XIV, roi de 1643 à 1715, incarne cette puissance royale. Il fait agrandir l'immense château de Versailles et y installe sa cour : des milliers de nobles vivent près de lui, ce qui lui permet de mieux les surveiller tout en montrant la grandeur du royaume."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Le roi gouverne seul : il ne partage pas son pouvoir avec une assemblée.",
+                                        "Louis XIV, surnommé le Roi-Soleil, incarne le sommet de la monarchie absolue.",
+                                        "En 1598, Henri IV avait signé l'édit de Nantes, qui accordait une tolérance religieuse aux protestants.",
+                                        "La cour de Versailles rassemble la noblesse autour du roi et affiche sa puissance."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "La monarchie absolue repose sur un roi qui détient tous les pouvoirs du royaume et sur un lieu qui montre sa grandeur : Versailles. Même une décision religieuse comme l'édit de Nantes dépend alors de la seule volonté du roi."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un roi absolu comme Louis XIV veut faire construire une nouvelle route royale à travers le pays. Qui doit donner son accord pour que les travaux commencent ?",
+                                    "choices": [
+                                        "Le roi seul décide, sans l'accord d'une assemblée",
+                                        "Les nobles réunis à Versailles votent la décision",
+                                        "Le peuple est consulté par un vote"
+                                    ],
+                                    "answer": "Le roi seul décide, sans l'accord d'une assemblée",
+                                    "explanation": "Dans une monarchie absolue, le roi détient tous les pouvoirs : il n'a besoin ni du vote des nobles ni de l'avis du peuple pour lancer de grands travaux."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "L'édit de Nantes, signé par Henri IV, autorise les protestants à pratiquer leur religion partout en France. Qu'est-ce que cette décision montre à propos du pouvoir du roi ?",
+                                    "choices": [
+                                        "Que le roi peut, seul, imposer une règle religieuse à tout le royaume",
+                                        "Que ce sont les évêques qui décidaient de la tolérance religieuse à sa place",
+                                        "Que cette règle avait été votée par les protestants eux-mêmes"
+                                    ],
+                                    "answer": "Que le roi peut, seul, imposer une règle religieuse à tout le royaume",
+                                    "explanation": "Même en matière religieuse, c'est le roi seul qui décide dans une monarchie absolue : ni les évêques ni les protestants n'ont voté cette règle, c'est Henri IV qui l'impose par sa seule autorité."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-explorations",
+                            "title": "Les grandes explorations",
+                            "subtitle": "Nouvelles routes, navigateurs et rencontres inattendues",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "À la fin du Moyen Âge, les marchands européens veulent acheter des épices d'Asie comme le poivre ou la cannelle, mais la route terrestre est longue, dangereuse et traverse de nombreux intermédiaires qui augmentent les prix. Les royaumes d'Europe cherchent alors de nouvelles routes maritimes pour atteindre l'Asie directement par la mer."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "En 1492, Christophe Colomb quitte l'Espagne avec trois caravelles pour rejoindre l'Asie en traversant l'Atlantique vers l'ouest. Il pense y être parvenu, alors qu'il vient en réalité de découvrir, pour les Européens, un continent qu'ils ne connaissaient pas encore : l'Amérique."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Les Européens cherchent de nouvelles routes maritimes pour commercer directement avec l'Asie.",
+                                        "1492 : Christophe Colomb traverse l'Atlantique et atteint l'Amérique.",
+                                        "Peu après, Vasco de Gama rejoint l'Inde en contournant l'Afrique, et l'expédition de Magellan fait le premier tour du monde.",
+                                        "Ces voyages ouvrent de nouvelles routes maritimes, mais conduisent aussi à la conquête de territoires déjà habités."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Les grandes explorations élargissent la connaissance du monde par les Européens et ouvrent de nouvelles routes commerciales. Mais ce sont aussi des conquêtes : elles bouleversent la vie des peuples qui habitaient déjà ces terres."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un armateur du XVe siècle veut rapporter des épices d'Asie sans dépendre des marchands qui contrôlent la route terrestre et en augmentent le prix à chaque étape. Que peut-il tenter, à cette époque, pour résoudre ce problème ?",
+                                    "choices": [
+                                        "Financer un voyage par bateau qui évite complètement la route terrestre",
+                                        "Construire une route terrestre parallèle, encore plus surveillée",
+                                        "Payer plus cher les mêmes intermédiaires pour aller plus vite"
+                                    ],
+                                    "answer": "Financer un voyage par bateau qui évite complètement la route terrestre",
+                                    "explanation": "C'est justement l'idée des grandes explorations : en finançant un voyage maritime, on espère atteindre l'Asie sans dépendre de la route terrestre ni de ses intermédiaires."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Après l'arrivée de Christophe Colomb en Amérique, des colons européens s'y installent dans les années qui suivent. Pourquoi peut-on dire que cette arrivée n'est pas seulement une découverte, mais aussi le début d'une conquête ?",
+                                    "choices": [
+                                        "Parce que les Européens s'emparent de territoires déjà habités par d'autres peuples",
+                                        "Parce que l'Amérique était un continent totalement vide avant 1492",
+                                        "Parce que les Européens repartent aussitôt sans jamais s'y installer"
+                                    ],
+                                    "answer": "Parce que les Européens s'emparent de territoires déjà habités par d'autres peuples",
+                                    "explanation": "Découvrir une terre pour les Européens ne veut pas dire qu'elle était inhabitée : les colons européens s'installent et prennent peu à peu le contrôle de territoires où vivaient déjà d'autres peuples, ce qui en fait aussi une conquête."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -4323,6 +4550,42 @@
                                 "dataFile": "data/history_cm1.json",
                                 "category": "cm1-temps-modernes",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-histoire-annee-1789",
+                            "title": "L'année 1789",
+                            "subtitle": "États généraux, Bastille, Déclaration des droits",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm1.json",
+                                "category": "cm1-annee-1789",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-histoire-monarchie-absolue",
+                            "title": "La monarchie absolue",
+                            "subtitle": "Louis XIV, Versailles et l'édit de Nantes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm1.json",
+                                "category": "cm1-monarchie-absolue",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-histoire-explorations",
+                            "title": "Les grandes explorations",
+                            "subtitle": "Colomb, Vasco de Gama et Magellan",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cm1.json",
+                                "category": "cm1-explorations",
+                                "questions": 8
                             }
                         },
                         {
@@ -5444,6 +5707,157 @@
                             }
                         }
                     ]
+                },
+                {
+                    "id": "cm1-geo-communiquer-subtheme",
+                    "title": "Communiquer",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-communiquer-internet",
+                            "title": "Communiquer grâce à Internet",
+                            "subtitle": "Avant et aujourd'hui",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Autrefois, communiquer avec une personne éloignée prenait du temps : on écrivait une lettre qui mettait plusieurs jours à arriver, ou on téléphonait depuis un poste fixe installé à la maison. Aujourd'hui, grâce à Internet, on peut échanger avec quelqu'un situé très loin presque instantanément, où que l'on soit."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Pour donner de ses nouvelles à un cousin qui vit à l'étranger, on pouvait autrefois lui envoyer une lettre et attendre sa réponse pendant une semaine. Aujourd'hui, un appel vidéo permet de le voir et de lui parler en direct, en quelques secondes."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Grâce à Internet, on peut",
+                                    "items": [
+                                        "communiquer par message ou en appel vidéo",
+                                        "s'informer sur l'actualité",
+                                        "apprendre de nouvelles choses",
+                                        "se divertir avec des vidéos ou des jeux",
+                                        "faire des achats en ligne"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Internet relie des milliards d'ordinateurs et d'appareils entre eux à travers le monde. Mais cet accès n'est pas le même pour tous : dans certaines régions isolées ou certains pays pauvres, se connecter reste difficile, lent ou très coûteux."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léa habite en France et veut montrer aujourd'hui même un dessin à sa correspondante qui vit au Japon, très loin. Que peut-elle faire de plus efficace ?",
+                                    "choices": [
+                                        "Envoyer une photo du dessin par message, grâce à Internet",
+                                        "Envoyer le dessin par la poste, dans une lettre",
+                                        "Décrire le dessin à l'oral, par un appel sur un poste fixe"
+                                    ],
+                                    "answer": "Envoyer une photo du dessin par message, grâce à Internet",
+                                    "explanation": "Une photo envoyée par Internet arrive en quelques secondes, même au Japon. Une lettre postée le jour même mettrait des jours, voire des semaines, à traverser les continents. Et un appel sur poste fixe permettrait de parler, mais pas de montrer réellement le dessin."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans un village isolé de montagne, la connexion Internet est très lente, alors qu'en ville, on peut regarder des vidéos ou passer des appels vidéo sans problème. Que montre cette différence ?",
+                                    "choices": [
+                                        "Tous les lieux du monde n'ont pas un accès identique à Internet",
+                                        "Les habitants de ce village n'aiment pas utiliser Internet",
+                                        "Il n'y a pas d'électricité dans les villages de montagne"
+                                    ],
+                                    "answer": "Tous les lieux du monde n'ont pas un accès identique à Internet",
+                                    "explanation": "Certaines régions, comme des villages isolés ou des pays pauvres, ont un accès à Internet plus difficile, plus lent ou plus cher que dans les grandes villes : c'est une inégalité d'accès. Ce n'est pas une question de goût : les habitants n'ont simplement pas les mêmes moyens techniques. Et l'électricité existe bien dans la plupart des villages, même quand la connexion Internet y est mauvaise."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-geo-communiquer-internet",
+                            "title": "Communiquer grâce à Internet",
+                            "subtitle": "Avant, aujourd'hui et dans le monde",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-communiquer-internet",
+                                "questions": 6
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-geo-se-nourrir-subtheme",
+                    "title": "Se nourrir",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-se-nourrir",
+                            "title": "Se nourrir : d'où vient notre alimentation ?",
+                            "subtitle": "Du champ à l'assiette",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le pain, le lait, les fruits ou la viande que nous mangeons ne poussent pas dans les rayons du magasin : ils viennent de l'agriculture. Selon la région et le climat, les agriculteurs cultivent des céréales comme le blé ou le maïs, élèvent des animaux pour la viande, le lait ou les œufs, ou font pousser des fruits et légumes dans des vergers et des maraîchages."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une tomate cultivée dans un champ voisin peut être vendue directement sur le marché du village le lendemain de sa récolte : c'est un circuit court. À l'inverse, une mangue récoltée à des milliers de kilomètres doit être transportée par bateau ou par avion, puis stockée avant d'arriver dans les magasins : c'est un circuit long."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Le chemin d'un aliment, du champ à l'assiette",
+                                    "items": [
+                                        "la production, dans un champ, un élevage ou un verger",
+                                        "le transport, parfois sur quelques kilomètres, parfois à travers le monde",
+                                        "la distribution, sur un marché ou dans un magasin",
+                                        "la consommation, enfin, dans notre assiette"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Manger des fruits et légumes de saison, cultivés près de chez soi, limite le transport. Manger toute l'année les mêmes produits, même hors saison, suppose souvent de les faire venir de loin. Cette organisation n'est pas la même partout dans le monde : certaines régions produisent une grande quantité de nourriture, tandis que d'autres manquent de terres cultivables ou d'eau pour cultiver suffisamment."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Théo achète des cerises récoltées la veille dans un verger situé à seulement 10 km de chez lui, vendues directement par le producteur sur le marché du village. Que peut-on dire du trajet de ces cerises ?",
+                                    "choices": [
+                                        "Elles ont parcouru une très courte distance avant d'arriver dans son assiette",
+                                        "Elles ont traversé plusieurs pays avant d'arriver dans son assiette",
+                                        "Elles ont poussé directement dans le jardin de Théo"
+                                    ],
+                                    "answer": "Elles ont parcouru une très courte distance avant d'arriver dans son assiette",
+                                    "explanation": "Un aliment produit tout près de chez soi et vendu presque directement par le producteur, avec peu de transport, correspond à un circuit court : c'est le cas ici, avec un verger situé à seulement 10 km du village."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans une région où il pleut très peu et où les terres sont difficiles à cultiver, les récoltes sont souvent insuffisantes pour nourrir tous les habitants. Dans une grande plaine fertile bien arrosée, au contraire, les récoltes sont abondantes. Que montre cette différence ?",
+                                    "choices": [
+                                        "Toutes les régions du monde ne produisent pas la même quantité de nourriture",
+                                        "Les habitants de la région sèche ne savent pas cultiver la terre",
+                                        "Il n'existe aucune agriculture dans les régions peu arrosées"
+                                    ],
+                                    "answer": "Toutes les régions du monde ne produisent pas la même quantité de nourriture",
+                                    "explanation": "Certains territoires disposent de terres fertiles et d'un climat favorable pour produire beaucoup de nourriture, alors que d'autres, plus secs ou moins fertiles, ont plus de mal à cultiver suffisamment : ce n'est pas un manque de savoir-faire, mais une différence géographique et climatique."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-geo-se-nourrir",
+                            "title": "Se nourrir",
+                            "subtitle": "D'où vient ce que nous mangeons ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cm1.json",
+                                "category": "cm1-se-nourrir",
+                                "questions": 8
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -6511,6 +6925,209 @@
                                     "explanation": "Les roues et les matériaux ne sont que des solutions techniques différentes. Le service rendu, lui, est le même : déplacer une charge. Deux objets très différents peuvent partager la même fonction d'usage."
                                 }
                             ]
+                        }
+                    ]
+                },
+                {
+                    "id": "cm1-sciences-mouvements-signaux-subtheme",
+                    "title": "Mouvements et signaux",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-trajectoire-vitesse",
+                            "title": "Trajectoire et vitesse d'un objet",
+                            "subtitle": "Le chemin suivi et la rapidité d'un déplacement",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Quand un objet se déplace, il suit un chemin appelé trajectoire. Cette trajectoire peut être une ligne droite, une courbe, ou même une chute verticale vers le sol."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une bille qui roule tout droit sur une table se déplace en ligne droite. Une balle lancée en l'air puis qui retombe suit, elle, un chemin arrondi : ce n'est pas la même trajectoire."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "la trajectoire est le chemin suivi par un objet qui se déplace",
+                                        "elle peut être droite, courbe ou verticale (une chute)",
+                                        "la vitesse compare la distance parcourue et le temps mis pour la parcourir",
+                                        "un objet peut se déplacer plus vite ou moins vite qu'un autre"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Autre exemple",
+                                    "content": "Un cycliste parcourt la même route qu'un piéton, mais en beaucoup moins de temps : il va donc plus vite. Comparer deux vitesses ne demande pas de calcul, juste d'observer qui met le moins de temps."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "On peut comparer des vitesses sans calculer un nombre : il suffit de regarder qui va plus vite ou moins vite. Le calcul d'une vitesse en kilomètres par heure viendra plus tard."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un piéton et un chien courent la même distance. Le chien arrive avant le piéton. Que peut-on en conclure ?",
+                                    "choices": [
+                                        "Le chien s'est déplacé plus vite que le piéton",
+                                        "Le chien a suivi une trajectoire plus courte",
+                                        "Le piéton s'est arrêté en cours de route"
+                                    ],
+                                    "answer": "Le chien s'est déplacé plus vite que le piéton",
+                                    "explanation": "Les deux ont parcouru la même distance : celui qui arrive en premier a donc mis moins de temps, il s'est déplacé plus vite. Rien n'indique un arrêt du piéton, et la trajectoire suivie n'entre pas en jeu ici."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un vélo roule sur une route qui fait plusieurs virages, sans jamais s'arrêter. Quelle trajectoire suit-il ?",
+                                    "choices": [
+                                        "Une trajectoire courbe",
+                                        "Une trajectoire rectiligne (en ligne droite)",
+                                        "Une trajectoire verticale, comme une chute"
+                                    ],
+                                    "answer": "Une trajectoire courbe",
+                                    "explanation": "Le vélo change plusieurs fois de direction à cause des virages : son chemin n'est ni une ligne droite, ni une chute verticale, mais une trajectoire courbe. Tout objet qui se déplace suit une trajectoire, même quand elle change de forme."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-signaux-lumineux-sonores",
+                            "title": "Les signaux lumineux et sonores",
+                            "subtitle": "Communiquer une information à distance",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un signal permet de transmettre une information à distance, sans contact direct avec la personne qui le reçoit. Il peut être lumineux (une lumière que l'on voit) ou sonore (un son que l'on entend)."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le feu tricolore utilise trois couleurs de lumière pour donner une consigne aux piétons et aux voitures : rouge pour s'arrêter, orange pour ralentir, vert pour avancer."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "un signal lumineux se voit : feu tricolore, phares de voiture, gyrophare d'un véhicule de secours",
+                                        "un signal sonore s'entend : sirène, alarme, klaxon, sonnette",
+                                        "un signal transmet une information sans contact direct",
+                                        "il peut prévenir d'un danger, donner une consigne ou alerter à distance"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Autre exemple",
+                                    "content": "Quand une ambulance actionne sa sirène et son gyrophare bleu, elle prévient les autres véhicules de son passage pour qu'ils se rangent et la laissent passer rapidement."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Lumineux ou sonore, un signal sert toujours à faire passer une information importante, souvent une consigne ou une alerte, sans avoir besoin de parler directement à la personne."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une sonnerie retentit dans la cour pour annoncer la fin de la récréation. Par quel sens perçoit-on ce signal ?",
+                                    "choices": [
+                                        "Par l'ouïe : on l'entend",
+                                        "Par la vue : on le voit",
+                                        "Par le toucher : on le sent vibrer"
+                                    ],
+                                    "answer": "Par l'ouïe : on l'entend",
+                                    "explanation": "Une sonnerie est un son : elle se perçoit avec les oreilles. C'est donc un signal sonore, comme une sirène, une alarme ou un klaxon."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un gyrophare orange clignote sur un camion de travaux arrêté sur le bord de la route. À quoi sert-il ?",
+                                    "choices": [
+                                        "À prévenir d'un danger et inciter à la prudence",
+                                        "À éclairer la route la nuit, comme des phares",
+                                        "À indiquer que le camion est en panne d'essence"
+                                    ],
+                                    "answer": "À prévenir d'un danger et inciter à la prudence",
+                                    "explanation": "Le gyrophare orange n'éclaire pas la route, contrairement aux phares : il attire l'attention pour prévenir d'un danger et inciter les autres véhicules à ralentir et rester prudents."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-sciences-trajectoire-vitesse",
+                            "title": "Trajectoire et vitesse",
+                            "subtitle": "Le chemin suivi et la rapidité d'un déplacement",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-mouvements-vitesse",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-comparer-vitesses",
+                            "title": "Comparer des vitesses",
+                            "subtitle": "Plus vite, moins vite, à la même vitesse",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-mouvements-vitesse",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-signaux-lumineux",
+                            "title": "Les signaux lumineux",
+                            "subtitle": "Feu tricolore, phares, gyrophare",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-signaux",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-sciences-signaux-sonores",
+                            "title": "Les signaux sonores",
+                            "subtitle": "Sirène, alarme, klaxon, sonnette",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-signaux",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-sciences-mouvements-defi",
+                            "title": "Défi : trajectoires et vitesses",
+                            "subtitle": "Mouvement des objets en série longue",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-mouvements-vitesse",
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-bonus-sciences-signaux-defi",
+                            "title": "Défi : signaux du quotidien",
+                            "subtitle": "Lumineux et sonores en série longue",
+                            "engine": "choice-engine",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm1.json",
+                                "category": "cm1-signaux",
+                                "questions": 10
+                            }
                         }
                     ]
                 }
