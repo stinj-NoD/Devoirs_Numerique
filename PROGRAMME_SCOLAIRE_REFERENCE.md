@@ -188,6 +188,20 @@ Accent transversal : démarche d'investigation et langage scientifique précis d
 
 **🆕 Correction de calendrier** : le CP est sur le **nouvel EMC (BO du 13/06/2024) depuis 2024-2025**, pas depuis 2026-2027 — l'EMC relève d'un arrêté distinct de celui d'histoire-géo. Le déploiement élémentaire est terminé : CP/CM1 en 2024-2025, CE1/CM2 en 2025-2026, CE2 en 2026-2027. Les 5 niveaux de l'app sont donc à comparer au même texte d'EMC.
 
+**🆕 Structure officielle du texte 2024 (annexe extraite et relue le 2026-09-22)** — le programme d'EMC n'est plus organisé par « domaines » transversaux mais par **titre d'année**, un par niveau, décliné en entrées :
+
+| Niveau | Titre de l'année | Entrées |
+|---|---|---|
+| CP | Se reconnaitre comme individu et élève | Connaissance et maîtrise de soi ; Règles |
+| CE1 | Respecter les autres | Altérité et sociabilité ; Règles ; Principes et symboles de la République |
+| CE2 | Apprendre ensemble et vivre ensemble | La République et son fonctionnement |
+| CM1 | Faire société | Civisme et citoyenneté ; Comment faire société (dont **civisme numérique**) |
+| CM2 | Vivre en République | Citoyenneté et nationalité ; Libertés et droits fondamentaux ; Respecter les droits de tous |
+
+Trois fils traversent tout le texte et doivent se retrouver dans le contenu : la **laïcité**, la lutte contre les **discriminations** et la lutte contre le **harcèlement**.
+
+**Attendus du CP** (entrée *Connaissance et maîtrise de soi*) : comprendre ses émotions et ses sentiments — origine et manifestations ; travailler les **six émotions de base** (joie, tristesse, peur, colère, dégoût, surprise), savoir les identifier, les distinguer les unes des autres et les exprimer avec un vocabulaire adapté ; consolider sa confiance en soi, acquérir une estime de soi. Entrée *Règles* : première approche des notions de **liberté** et de respect, compréhension des règles collectives.
+
 ---
 
 ## CE1
@@ -289,6 +303,14 @@ Ce sont des ajouts probables au référentiel CE1, pas des compétences déjà l
 - Identifier ce qu'est être un citoyen à l'échelle de l'école
 - Reconnaître et respecter les émotions (les siennes et celles des autres)
 
+**🆕 Texte 2024, en vigueur au CE1 depuis 2025-2026** — titre de l'année : **« Respecter les autres »**. Entrées et notions nommées par le texte :
+
+- *Altérité et sociabilité* — **fraternité, solidarité, dignité de la personne humaine, stéréotype, préjugé** : reconnaître et prendre en compte les émotions et les sentiments **des autres**, développer un regard positif sur les différences.
+- *Règles* — poursuite du travail du CP.
+- *Principes et symboles de la République* — **première approche des symboles** (drapeau, devise, Marseillaise, Marianne).
+
+Par rapport à la liste historique ci-dessus, le texte neuf nomme explicitement **stéréotype** et **préjugé**, qui n'y figurent pas.
+
 ---
 
 ## CE2
@@ -381,6 +403,12 @@ Ce sont des ajouts probables au référentiel CE1, pas des compétences déjà l
 - Identifier des symboles de la République (drapeau, devise, hymne) - sensibilisation
 - Pratiquer l'entraide, la coopération, la médiation de conflits simples
 - Respecter l'environnement et adopter des écogestes
+
+**🆕 Texte 2024, en vigueur au CE2 depuis cette rentrée (2026-2027)** — c'est le **seul niveau élémentaire qui change d'EMC cette année**. Titre de l'année : **« Apprendre ensemble et vivre ensemble »**. Entrée unique, très institutionnelle :
+
+- *La République et son fonctionnement* — notion de **République** ; savoir que le **président de la République est élu** et comprendre les règles d'une élection ; savoir que le **maire est un élu local**, représentant de l'État dans la commune, et connaître son rôle à la tête de la collectivité (**état civil, école, environnement**) ; notion d'**intérêt général** ; l'élection du délégué de classe comme situation d'entrée concrète.
+
+Ce virage institutionnel est le vrai enjeu du CE2 : la liste historique ci-dessus est centrée sur la vie de classe et les écogestes, alors que le texte neuf attend une **première connaissance du fonctionnement des institutions** (élection, président, maire, commune).
 
 ---
 
@@ -506,6 +534,14 @@ Trois entrées sont **nouvelles par rapport à la liste historique ci-dessus** :
 - Comprendre les valeurs de la République (liberté, égalité, fraternité, laïcité)
 
 **🆕 Correction de calendrier** : le CM1 est sur le **nouvel EMC (BO du 13/06/2024) depuis 2024-2025**, en même temps que le CP — pas depuis 2026-2027. Voir la note d'EMC au CP pour le calendrier complet.
+
+**🆕 Texte 2024 — titre de l'année : « Faire société »**. Entrées et notions nommées par le texte :
+
+- *Civisme et citoyenneté* — définir le **civisme** (agir en fonction du bien public, dans le respect des règles) ; prendre en charge des aspects de la vie collective, notamment le partage harmonieux des lieux de vie ; **reconnaître une situation de danger, alerter, se mettre en sécurité** (dispositifs APS et APER).
+- *Comment faire société*.
+- **Civisme numérique** — c'est la nouveauté la plus marquée du niveau : recherche d'information en ligne (**appréhender le lien entre image et texte, distinguer émetteur et récepteur**), production et diffusion de contenus, **cyberviolence**, **sobriété numérique**. Le texte rattache explicitement ce travail à l'éducation aux médias et à l'information (EMI) et à l'éducation au développement durable (EDD).
+
+Le civisme numérique est **absent de la liste historique ci-dessus** : c'est un manque réel à couvrir au CM1.
 
 ---
 
@@ -637,6 +673,14 @@ Trois entrées sont **nouvelles par rapport à la liste historique ci-dessus** :
 - Connaître les grandes institutions françaises (gouvernement, parlement, justice - repères simples)
 - Pratiquer le débat argumenté sur des sujets de société (laïcité, égalité, environnement)
 
+**🆕 Texte 2024, en vigueur au CM2 depuis 2025-2026** (l'audit précédent le croyait à tort resté sur l'ancien programme jusqu'en 2027) — titre de l'année : **« Vivre en République »**. Entrées nommées par le texte :
+
+- *Citoyenneté et nationalité* — distinguer les deux notions, ce que la **nationalité** emporte de droits et de devoirs.
+- *Libertés et droits fondamentaux*.
+- *Respecter les droits de tous* — dont la **Convention internationale des droits de l'enfant (CIDE)** et la notion de **devoir civique**.
+
+Par rapport à la liste historique ci-dessus, deux points du texte neuf n'y figurent pas : le couple **citoyenneté / nationalité** (traité comme une distinction explicite, pas seulement « le rôle du citoyen ») et la **CIDE** nommément.
+
 ---
 
 ## État de la couverture (résumé)
@@ -667,3 +711,12 @@ Pour garder ce document léger :
 3. **Point tranché** : le contenu CM1 de Préhistoire / Antiquité n'est pas à retirer. Ces thèmes passent bien au CE2 dans le nouveau texte, mais le CE2 reste sur « Questionner le monde » jusqu'en 2027-2028 — les déplacer maintenant les ferait disparaître de l'app pour un an.
 
 Seul point resté non vérifié : l'intitulé exact du **thème 1 de géographie au CP** (rendu graphique dans l'annexe, non extractible) ; son contenu, lui, vient du texte.
+
+**Complément du 2026-09-22 — l'EMC est détaillé sur les 5 niveaux.** Les audits CE2 et CM2 ont remonté le même angle mort : le tableau de réforme avait bien été corrigé, mais aucune section ne portait les **attendus** du texte d'EMC 2024, si bien qu'un manque y serait resté invisible. L'annexe officielle a été extraite et relue : le programme est organisé par **titre d'année** (un par niveau), et chaque section de niveau porte maintenant son titre, ses entrées et les notions nommées par le texte. Trois manques ressortent immédiatement de cette comparaison, à traiter comme du contenu à produire :
+
+- **CE1** : *stéréotype* et *préjugé*, nommés par le texte, absents de la liste historique.
+- **CE2** : le virage **institutionnel** (élection, président élu, maire et rôle de la commune, intérêt général) — la liste historique restait sur la vie de classe et les écogestes. C'est le seul niveau qui change d'EMC cette année.
+- **CM1** : le **civisme numérique** (recherche en ligne, lien image/texte, émetteur/récepteur, cyberviolence, sobriété numérique), entièrement absent.
+- **CM2** : la distinction **citoyenneté / nationalité** et la **CIDE** nommément.
+
+Source : [annexe du programme d'EMC, BO n°24 du 13/06/2024 (PDF)](https://www.education.gouv.fr/sites/default/files/ensel934_annexe_ok.pdf) ; [arrêté du 29/05/2024 (Légifrance)](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000049694961) ; calendrier d'application recoupé sur [l'académie de Lille](https://pedagogie.ac-lille.fr/emc/programmes/).
