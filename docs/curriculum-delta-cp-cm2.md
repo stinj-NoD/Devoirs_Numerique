@@ -33,7 +33,7 @@ Histoire, géographie et sciences sont évalués contre le texte **en vigueur po
 ## Ce qui est déjà solide
 
 - structure CP-CM2 cohérente, bibliothèque de leçons en place sur les 5 niveaux
-- corpus de **1082 exercices et 414 leçons**, dont 414/414 leçons équipées d'un quiz d'ancrage conforme aux 5 règles éditoriales, **sans aucun avertissement**
+- corpus de **1100 exercices et 428 leçons**, dont 428/428 leçons équipées d'un quiz d'ancrage conforme aux 5 règles éditoriales, **sans aucun avertissement**
 - un filet anti-régression sur la totalité du contenu (`scripts/smoke-exercises.js`) : les 1082 exercices sont démarrés en navigateur, 1082/1082 au vert
 - CM2 n'a plus aucun manque structurel hérité (les 9 points de l'audit du 2026-08-01 sont tous comblés)
 - proportionnalité, pourcentages, échelle et vitesse en CM1/CM2 ; opérations posées (add/sub/mult) disponibles comme moteur générique déjà exploité à plusieurs niveaux
@@ -77,7 +77,9 @@ Le contenu CM1 reste à produire une fois ces décisions actées (année 1789, m
 
 Les audits CM1 et CM2 ont trouvé, indépendamment, **6 catégories de lecture de 100 items chacune** dans `data/french/reading.json` qu'aucun exercice ne référençait : `cm1_lecture_synonymes`, `cm1_lecture_antonymes`, `cm1_lecture_ordre_evenements`, `cm2_lecture_sequence_evenements`, `cm2_lecture_pronoms_reprises`, `cm2_vocabulaire_contexte_precis`. Soit ~600 items rédigés, validés, embarqués dans le bundle, précachés — et jamais joués. Les six sont câblées depuis la v4.47.0, sans écrire un seul item.
 
-**Réflexe à garder pour les prochains audits** : avant de produire du contenu neuf, vérifier les banques orphelines. Le même motif existe encore sur les cartes : `board_map_locate_ce1.json` et `board_map_locate_ce2.json` (régions de France) restent référencées par aucun exercice — `node scripts/validate-maps.js` les signale. La banque CP équivalente, elle, a été câblée dans cette vague.
+**Réflexe à garder pour les prochains audits** : avant de produire du contenu neuf, vérifier les banques orphelines. `node scripts/validate-maps.js` ne signale plus aucune carte orpheline depuis la v4.48.0.
+
+**Et une raison de plus de le faire : une banque orpheline n'a jamais été vue à l'écran.** Câbler les deux cartes des régions a révélé que `data/maps/france-regions.svg` était **cassé** — 44 commandes `l` parasites réparties sur 6 régions (Normandie, Centre-Val de Loire, Occitanie, Grand Est, Bourgogne-Franche-Comté, Corse). En SVG, un `l` sans coordonnées interrompt l'analyse du chemin : ces 6 régions ne dessinaient rien, et l'exercice demandait « Touche l'Occitanie » sur une région invisible. Le défaut a survécu parce que cette carte était la seule du projet affichée nulle part. Les 6 autres SVG sont sains, vérifié. Réparé en v4.48.0, coordonnées préservées.
 
 ## Priorisation
 
@@ -92,14 +94,16 @@ Les audits CM1 et CM2 ont trouvé, indépendamment, **6 catégories de lecture d
 - ~~Ligne/droite numérique graduée (CP + CM1)~~ **moteur livré** (v1.9.0), étendu au CE2 (encadrement jusqu'à 10 000) et au CE1 (fractions) en v4.47.0
 - ~~`operation-posed` avec décimaux (CM1/CM2)~~ **livré et utilisé** (paramètre `decimals`, contenu CM1 et CM2 en v4.47.0)
 - Probabilités / algèbre / pensée informatique : **socle QCM livré au CM2** (v4.47.0). Reste le volet *interactif* — simulation de tirages, exécution pas à pas d'un programme sur quadrillage — et la déclinaison CM1. À cadrer avant de s'engager.
+- ~~`place-value` plafonné aux centaines de milliers~~ **levé** (v4.48.0) : 4 rangs ajoutés jusqu'au milliard. Au passage, ce moteur n'était validé **dans aucun des deux validateurs** — `digitCount` est désormais borné 2-10 et `ask` restreint, en miroir.
+- **`calc-mental` ne sait ni additionner ni soustraire** : il traite `operator: "/"`, sinon il multiplie. C'est le prochain chantier moteur à traiter, parce qu'il bloque deux manques de contenu déjà identifiés — le calcul mental additif/soustractif au CM2 et le ×/÷ par 10, 100, 1000 au CM1. Petit chantier, à faire **avant** la vague qui en dépend (protocole moteur : test en isolation d'abord). Noter au passage l'incohérence de convention à ne pas propager : `calc-mental` attend `operator: "x"` là où `operation-posed` attend `"mult"`.
 
 ### P3 — contenu ponctuel, gain rapide
 - ~~CE2 `operation-posed`~~ **fait** (v4.47.0 : add/sub niveaux 2 et 3, mult niveau 1)
 - CM2 homophones lexicaux
 - ~~CP points cardinaux~~ **fait** (v4.47.0, avec la rose des vents) ; repères temporels CP : alternance jour/nuit et les 12 mois restent à produire
-- ~~CE1 `point-on-grid`~~ **fait** (v4.47.0, quadrillage 6×6, maillon manquant entre le 5×5 du CP et le 8×8 du CE2) ; **la carte des régions CE1 déjà écrite reste à brancher**
+- ~~CE1 `point-on-grid`~~ **fait** (v4.47.0) ; ~~carte des régions CE1 et CE2 à brancher~~ **fait** (v4.48.0, et voir §5 : le câblage a révélé un SVG cassé)
 - CM2 : la Renaissance en histoire (1 seule occurrence du mot dans `data/history_cm2.json`, comme distracteur), digestion/circulation en sciences, cycle de l'eau
-- EMC, issu du détail du texte 2024 ajouté au référentiel : **civisme numérique au CM1** (recherche en ligne, émetteur/récepteur, cyberviolence, sobriété numérique) et **responsabilité numérique au CM2** ; stéréotype/préjugé au CE1 ; virage institutionnel du CE2 (élection, président, maire, intérêt général)
+- ~~EMC, issu du détail du texte 2024 ajouté au référentiel~~ **fait** (v4.48.0) : civisme numérique au CM1, responsabilité numérique au CM2, stéréotype/préjugé au CE1, virage institutionnel du CE2. Les 4 manques identifiés en détaillant le texte 2024 sont comblés, chacun en binôme leçon + exercice.
 - ~~Ligne numérique graduée : encadrement CP/CE1 et équivalence de fractions CM1~~ **fait** (v1.9.2-1.9.3, `cp-encadrement-dizaines`/`ce1-encadrement-centaines`/`cm1-fractions-droite-graduee`) — chantier clos
 - ~~CM1 géographie « se nourrir »~~ **fait** (lot 15, vague 6)
 - ~~CM1 sciences « mouvements et signaux »~~ **fait** (lot 15, vague 7)
