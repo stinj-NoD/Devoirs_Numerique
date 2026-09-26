@@ -16,15 +16,15 @@ Sources officielles principales :
 
 Le delta compare le contenu actuel de l'application aux attentes du programme du `CP` au `CM2`, en synthétisant les 5 audits de couverture par niveau (source de vérité détaillée — ce document n'en est qu'un résumé transverse, ne pas le laisser diverger sans re-régénérer depuis les audits).
 
-## Diagnostic transverse (mis à jour 2026-09-22, après la vague v4.47.0)
+## Diagnostic transverse (mis à jour 2026-09-26, après les vagues v4.47.0 à v4.49.0)
 
 | Niveau | Maths | Français | Histoire | Géographie | Sciences | EMC |
 |---|---|---|---|---|---|---|
 | CP | Partiel | Partiel | Partiel | Couvert | Couvert | Couvert |
 | CE1 | Couvert | Partiel | Couvert | Couvert | Couvert | Couvert |
 | CE2 | Couvert | Couvert | Couvert | Couvert | Couvert | Couvert |
-| CM1 | Couvert | Partiel | Couvert | Couvert | Couvert | Partiel (civisme numérique) |
-| CM2 | Couvert | Partiel | Partiel (Renaissance) | Couvert | Partiel | Partiel (numérique) |
+| CM1 | Couvert | Partiel | Couvert | Couvert | Couvert | Couvert |
+| CM2 | Couvert | Partiel | Partiel (Renaissance) | Couvert | Partiel | Couvert |
 
 Histoire, géographie et sciences sont évalués contre le texte **en vigueur pour le niveau cette année** (2026 au CP et au CM1, 2020 ailleurs), jamais contre le texte de 2027.
 
@@ -33,8 +33,8 @@ Histoire, géographie et sciences sont évalués contre le texte **en vigueur po
 ## Ce qui est déjà solide
 
 - structure CP-CM2 cohérente, bibliothèque de leçons en place sur les 5 niveaux
-- corpus de **1100 exercices et 428 leçons**, dont 428/428 leçons équipées d'un quiz d'ancrage conforme aux 5 règles éditoriales, **sans aucun avertissement**
-- un filet anti-régression sur la totalité du contenu (`scripts/smoke-exercises.js`) : les 1082 exercices sont démarrés en navigateur, 1082/1082 au vert
+- corpus de **1104 exercices et 430 leçons**, dont 430/430 leçons équipées d'un quiz d'ancrage conforme aux 5 règles éditoriales, **sans aucun avertissement**
+- un filet anti-régression sur la totalité du contenu (`scripts/smoke-exercises.js`) : les 1104 exercices sont démarrés en navigateur, 1104/1104 au vert
 - CM2 n'a plus aucun manque structurel hérité (les 9 points de l'audit du 2026-08-01 sont tous comblés)
 - proportionnalité, pourcentages, échelle et vitesse en CM1/CM2 ; opérations posées (add/sub/mult) disponibles comme moteur générique déjà exploité à plusieurs niveaux
 - activités interactives non-QCM (cartes, classement, mémoire, fractions) disponibles à plusieurs niveaux
@@ -95,13 +95,16 @@ Les audits CM1 et CM2 ont trouvé, indépendamment, **6 catégories de lecture d
 - ~~`operation-posed` avec décimaux (CM1/CM2)~~ **livré et utilisé** (paramètre `decimals`, contenu CM1 et CM2 en v4.47.0)
 - Probabilités / algèbre / pensée informatique : **socle QCM livré au CM2** (v4.47.0). Reste le volet *interactif* — simulation de tirages, exécution pas à pas d'un programme sur quadrillage — et la déclinaison CM1. À cadrer avant de s'engager.
 - ~~`place-value` plafonné aux centaines de milliers~~ **levé** (v4.48.0) : 4 rangs ajoutés jusqu'au milliard. Au passage, ce moteur n'était validé **dans aucun des deux validateurs** — `digitCount` est désormais borné 2-10 et `ask` restreint, en miroir.
-- **`calc-mental` ne sait ni additionner ni soustraire** : il traite `operator: "/"`, sinon il multiplie. C'est le prochain chantier moteur à traiter, parce qu'il bloque deux manques de contenu déjà identifiés — le calcul mental additif/soustractif au CM2 et le ×/÷ par 10, 100, 1000 au CM1. Petit chantier, à faire **avant** la vague qui en dépend (protocole moteur : test en isolation d'abord). Noter au passage l'incohérence de convention à ne pas propager : `calc-mental` attend `operator: "x"` là où `operation-posed` attend `"mult"`.
+- ~~`calc-mental` ne sait ni additionner ni soustraire~~ **fait** (v4.49.0), avec une **correction de diagnostic à retenir** : cette ligne affirmait que le moteur *bloquait* deux manques de contenu. C'était faux — le calcul mental additif du CM2 était atteignable par `add-simple`/`sub-simple` (qui existent et servent déjà au CP et au CE1), et le ×/÷ par 10-100-1000 du CM1 par la branche division de `calc-mental`. **Vérifier qu'un moteur bloque vraiment avant de l'écrire ici** : une limite réelle n'est pas forcément un blocage.
+
+  Ce qui justifiait le chantier était mesurable, pas supposé : aux bornes du CM2, `add-simple` produit ~20 % de tirages triviaux (un opérande ≤ 5, parce qu'il tire une somme puis la découpe) et `sub-simple` ~12 %. Le moteur accepte désormais `+` et `-` avec les deux opérandes tirés dans `range` (0 % de trivial), `operands` comme liste de multiplicateurs pour `×`, et `range` sur `/` (le quotient était tiré en dur entre 5 et 50, ce qui interdisait de calibrer une division par niveau). Convention assumée : `calc-mental` emploie des opérateurs symboliques (`x`, `/`, `+`, `-`) là où `operation-posed` attend `add`/`sub`/`mult` — les deux coexistent dans `math-input`, aligner l'une sur l'autre casserait des ids publiés.
 
 ### P3 — contenu ponctuel, gain rapide
 - ~~CE2 `operation-posed`~~ **fait** (v4.47.0 : add/sub niveaux 2 et 3, mult niveau 1)
 - CM2 homophones lexicaux
 - ~~CP points cardinaux~~ **fait** (v4.47.0, avec la rose des vents) ; repères temporels CP : alternance jour/nuit et les 12 mois restent à produire
 - ~~CE1 `point-on-grid`~~ **fait** (v4.47.0) ; ~~carte des régions CE1 et CE2 à brancher~~ **fait** (v4.48.0, et voir §5 : le câblage a révélé un SVG cassé)
+- ~~CM2 calcul mental additif~~ **fait** (v4.49.0) ; ~~CM1 ×/÷ par 10, 100, 1000~~ **fait** (v4.49.0)
 - CM2 : la Renaissance en histoire (1 seule occurrence du mot dans `data/history_cm2.json`, comme distracteur), digestion/circulation en sciences, cycle de l'eau
 - ~~EMC, issu du détail du texte 2024 ajouté au référentiel~~ **fait** (v4.48.0) : civisme numérique au CM1, responsabilité numérique au CM2, stéréotype/préjugé au CE1, virage institutionnel du CE2. Les 4 manques identifiés en détaillant le texte 2024 sont comblés, chacun en binôme leçon + exercice.
 - ~~Ligne numérique graduée : encadrement CP/CE1 et équivalence de fractions CM1~~ **fait** (v1.9.2-1.9.3, `cp-encadrement-dizaines`/`ce1-encadrement-centaines`/`cm1-fractions-droite-graduee`) — chantier clos
