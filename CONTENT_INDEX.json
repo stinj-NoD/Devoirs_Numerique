@@ -1,8 +1,8 @@
 {
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
-    "exercises": 1082,
-    "lessons": 414,
+    "exercises": 1100,
+    "lessons": 428,
     "levels": 5,
     "banks": 80
   },
@@ -325,6 +325,17 @@
       "paramsType": "number-line-frame",
       "pool": "data/board_number_line_cp.json::cp_number_line_frame_dizaines",
       "contractHash": "board-interactive|{\"category\":\"cp_number_line_frame_dizaines\",\"dataFile\":\"data/board_number_line_cp.json\",\"type\":\"number-line-frame\"}"
+    },
+    {
+      "id": "cp-moities",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-maths",
+      "subthemeId": "cp-nombres-comparaison",
+      "engine": "math-input",
+      "paramsType": "half",
+      "pool": null,
+      "contractHash": "math-input|{\"max\":10,\"min\":1,\"type\":\"half\"}"
     },
     {
       "id": "cp-lesson-cibles-comprendre",
@@ -5200,6 +5211,17 @@
       "contractHash": "choice-engine|{\"category\":\"ce1-trajets-quotidiens\",\"dataFile\":\"data/geography_ce1.json\",\"type\":\"factual-qcm\"}"
     },
     {
+      "id": "ce1-geo-carte-regions",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-geographie-subject",
+      "subthemeId": "ce1-geo-transports-subtheme",
+      "engine": "board-interactive",
+      "paramsType": "map-locate",
+      "pool": "data/board_map_locate_ce1.json::ce1_map_regions_france",
+      "contractHash": "board-interactive|{\"category\":\"ce1_map_regions_france\",\"dataFile\":\"data/board_map_locate_ce1.json\",\"mapFile\":\"data/maps/france-regions.svg\",\"mapId\":\"france-regions\",\"type\":\"map-locate\"}"
+    },
+    {
       "id": "ce1-lesson-vivant-besoins",
       "kind": "lesson",
       "level": "ce1",
@@ -5891,6 +5913,50 @@
       "paramsType": "factual-qcm",
       "pool": "data/emc_ce1.json::ce1-respect-differences",
       "contractHash": "choice-engine|{\"category\":\"ce1-respect-differences\",\"dataFile\":\"data/emc_ce1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "ce1-lesson-stereotype",
+      "kind": "lesson",
+      "level": "ce1",
+      "subjectId": "ce1-emc-subject",
+      "subthemeId": "ce1-emc-stereotypes-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce1-lesson-prejuge",
+      "kind": "lesson",
+      "level": "ce1",
+      "subjectId": "ce1-emc-subject",
+      "subthemeId": "ce1-emc-stereotypes-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce1-emc-stereotypes",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-emc-subject",
+      "subthemeId": "ce1-emc-stereotypes-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/emc_ce1.json::ce1-stereotypes",
+      "contractHash": "choice-engine|{\"category\":\"ce1-stereotypes\",\"dataFile\":\"data/emc_ce1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "ce1-emc-prejuges",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-emc-subject",
+      "subthemeId": "ce1-emc-stereotypes-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/emc_ce1.json::ce1-prejuges",
+      "contractHash": "choice-engine|{\"category\":\"ce1-prejuges\",\"dataFile\":\"data/emc_ce1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce2-lesson-comprendre-multiplication",
@@ -8060,6 +8126,17 @@
       "contractHash": "choice-engine|{\"category\":\"ce2-fleuves-mers-voisins\",\"dataFile\":\"data/geography_ce2.json\",\"type\":\"factual-qcm\"}"
     },
     {
+      "id": "ce2-geo-carte-regions",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-geographie-subject",
+      "subthemeId": "ce2-geo-france-subtheme",
+      "engine": "board-interactive",
+      "paramsType": "map-locate",
+      "pool": "data/board_map_locate_ce2.json::ce2_map_regions_france",
+      "contractHash": "board-interactive|{\"category\":\"ce2_map_regions_france\",\"dataFile\":\"data/board_map_locate_ce2.json\",\"mapFile\":\"data/maps/france-regions.svg\",\"mapId\":\"france-regions\",\"type\":\"map-locate\"}"
+    },
+    {
       "id": "ce2-lesson-lire-carte-simple",
       "kind": "lesson",
       "level": "ce2",
@@ -8960,6 +9037,94 @@
       "paramsType": "factual-qcm",
       "pool": "data/emc_ce2.json::ce2-symboles-republique",
       "contractHash": "choice-engine|{\"category\":\"ce2-symboles-republique\",\"dataFile\":\"data/emc_ce2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "ce2-lesson-republique",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-emc-subject",
+      "subthemeId": "ce2-emc-republique-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce2-lesson-president-republique",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-emc-subject",
+      "subthemeId": "ce2-emc-republique-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce2-lesson-maire-commune",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-emc-subject",
+      "subthemeId": "ce2-emc-republique-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce2-lesson-interet-general",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-emc-subject",
+      "subthemeId": "ce2-emc-republique-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce2-emc-republique",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-emc-subject",
+      "subthemeId": "ce2-emc-republique-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/emc_ce2.json::ce2-republique",
+      "contractHash": "choice-engine|{\"category\":\"ce2-republique\",\"dataFile\":\"data/emc_ce2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "ce2-emc-president-election",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-emc-subject",
+      "subthemeId": "ce2-emc-republique-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/emc_ce2.json::ce2-president-election",
+      "contractHash": "choice-engine|{\"category\":\"ce2-president-election\",\"dataFile\":\"data/emc_ce2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "ce2-emc-maire-commune",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-emc-subject",
+      "subthemeId": "ce2-emc-republique-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/emc_ce2.json::ce2-maire-commune",
+      "contractHash": "choice-engine|{\"category\":\"ce2-maire-commune\",\"dataFile\":\"data/emc_ce2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "ce2-emc-interet-general",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-emc-subject",
+      "subthemeId": "ce2-emc-republique-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/emc_ce2.json::ce2-interet-general",
+      "contractHash": "choice-engine|{\"category\":\"ce2-interet-general\",\"dataFile\":\"data/emc_ce2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-lesson-fractions",
@@ -12680,6 +12845,116 @@
       "contractHash": "choice-engine|{\"category\":\"cm1-debat-cooperation\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
+      "id": "cm1-lesson-numerique-emetteur-recepteur",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-emc-subject",
+      "subthemeId": "cm1-emc-civisme-numerique-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-numerique-image-texte",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-emc-subject",
+      "subthemeId": "cm1-emc-civisme-numerique-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-numerique-publier-diffuser",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-emc-subject",
+      "subthemeId": "cm1-emc-civisme-numerique-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-numerique-cyberviolence",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-emc-subject",
+      "subthemeId": "cm1-emc-civisme-numerique-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-numerique-sobriete",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-emc-subject",
+      "subthemeId": "cm1-emc-civisme-numerique-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-emc-numerique-emetteur-recepteur",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-emc-subject",
+      "subthemeId": "cm1-emc-civisme-numerique-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/emc_cm1.json::cm1-numerique-emetteur-recepteur",
+      "contractHash": "choice-engine|{\"category\":\"cm1-numerique-emetteur-recepteur\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm1-emc-numerique-image-texte",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-emc-subject",
+      "subthemeId": "cm1-emc-civisme-numerique-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/emc_cm1.json::cm1-numerique-image-texte",
+      "contractHash": "choice-engine|{\"category\":\"cm1-numerique-image-texte\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm1-emc-numerique-diffusion",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-emc-subject",
+      "subthemeId": "cm1-emc-civisme-numerique-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/emc_cm1.json::cm1-numerique-diffusion",
+      "contractHash": "choice-engine|{\"category\":\"cm1-numerique-diffusion\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm1-emc-numerique-cyberviolence",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-emc-subject",
+      "subthemeId": "cm1-emc-civisme-numerique-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/emc_cm1.json::cm1-numerique-cyberviolence",
+      "contractHash": "choice-engine|{\"category\":\"cm1-numerique-cyberviolence\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm1-emc-numerique-sobriete",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-emc-subject",
+      "subthemeId": "cm1-emc-civisme-numerique-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/emc_cm1.json::cm1-numerique-sobriete",
+      "contractHash": "choice-engine|{\"category\":\"cm1-numerique-sobriete\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
       "id": "cm2-lesson-grands-nombres",
       "kind": "lesson",
       "level": "cm2",
@@ -12854,6 +13129,17 @@
       "paramsType": "operation-posed",
       "pool": null,
       "contractHash": "math-input|{\"level\":3,\"operator\":\"mult\",\"type\":\"operation-posed\"}"
+    },
+    {
+      "id": "cm2-place-value-milliards",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-nombres-calcul-mental",
+      "engine": "math-input",
+      "paramsType": "place-value",
+      "pool": null,
+      "contractHash": "math-input|{\"ask\":\"digit\",\"digitCount\":10,\"type\":\"place-value\"}"
     },
     {
       "id": "cm2-lesson-decimaux-comparer",
@@ -16365,6 +16651,39 @@
       "contractHash": null
     },
     {
+      "id": "cm2-lesson-droit-image",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-emc-subject",
+      "subthemeId": "cm2-emc-responsabilites-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm2-lesson-trace-numerique",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-emc-subject",
+      "subthemeId": "cm2-emc-responsabilites-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm2-lesson-relayer-responsable",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-emc-subject",
+      "subthemeId": "cm2-emc-responsabilites-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm2-emc-responsabilites",
       "kind": "exercise",
       "level": "cm2",
@@ -16396,6 +16715,39 @@
       "paramsType": "factual-qcm",
       "pool": "data/emc_cm2.json::cm2-liberte-justice",
       "contractHash": "choice-engine|{\"category\":\"cm2-liberte-justice\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm2-emc-droit-image",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-emc-subject",
+      "subthemeId": "cm2-emc-responsabilites-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/emc_cm2.json::cm2-droit-image",
+      "contractHash": "choice-engine|{\"category\":\"cm2-droit-image\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm2-emc-trace-numerique",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-emc-subject",
+      "subthemeId": "cm2-emc-responsabilites-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/emc_cm2.json::cm2-trace-numerique",
+      "contractHash": "choice-engine|{\"category\":\"cm2-trace-numerique\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cm2-emc-relayer-responsable",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-emc-subject",
+      "subthemeId": "cm2-emc-responsabilites-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/emc_cm2.json::cm2-relayer-responsable",
+      "contractHash": "choice-engine|{\"category\":\"cm2-relayer-responsable\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-lesson-egalite-dignite",
@@ -16679,7 +17031,9 @@
         "ce1-roles-classe": 16,
         "ce1-dialogue-politesse": 8,
         "ce1-respect-differences": 16,
-        "ce1-securite-urgence": 8
+        "ce1-securite-urgence": 8,
+        "ce1-stereotypes": 12,
+        "ce1-prejuges": 12
       }
     },
     "data/emc_ce2.json": {
@@ -16693,7 +17047,11 @@
         "ce2-decisions-collectives": 16,
         "ce2-parole-ecoute": 8,
         "ce2-esprit-critique": 11,
-        "ce2-symboles-republique": 14
+        "ce2-symboles-republique": 14,
+        "ce2-republique": 12,
+        "ce2-president-election": 13,
+        "ce2-maire-commune": 14,
+        "ce2-interet-general": 12
       }
     },
     "data/emc_cm1.json": {
@@ -16705,7 +17063,12 @@
         "cm1-parole-citoyenne": 11,
         "cm1-engagement-classe": 11,
         "cm1-egalite-respect": 16,
-        "cm1-alerte-secours": 8
+        "cm1-alerte-secours": 8,
+        "cm1-numerique-emetteur-recepteur": 12,
+        "cm1-numerique-image-texte": 12,
+        "cm1-numerique-diffusion": 12,
+        "cm1-numerique-cyberviolence": 12,
+        "cm1-numerique-sobriete": 12
       }
     },
     "data/emc_cm2.json": {
@@ -16717,7 +17080,10 @@
         "cm2-responsabilites": 11,
         "cm2-solidarite-quotidienne": 20,
         "cm2-projet-collectif": 11,
-        "cm2-liberte-justice": 11
+        "cm2-liberte-justice": 11,
+        "cm2-droit-image": 12,
+        "cm2-trace-numerique": 12,
+        "cm2-relayer-responsable": 12
       }
     },
     "data/emc_cp.json": {

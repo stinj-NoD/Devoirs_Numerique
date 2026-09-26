@@ -1329,7 +1329,14 @@ const App = {
         { version: 1, icon: '🖼️', text: "Tes cartes en avatar : choisis ta préférée avec le bouton ✏️ de ton profil." },
         { version: 1, icon: '🧠', text: "Le Grand Quiz : 900 questions de culture générale — défie toute ta famille !" },
         { version: 1, icon: '📚', text: "Des centaines de nouvelles questions et leçons dans toutes les matières." },
-        { version: 1, icon: '✍️', text: "En CM : le passé simple et l'atelier d'écriture font leur entrée !" }
+        { version: 1, icon: '✍️', text: "En CM : le passé simple et l'atelier d'écriture font leur entrée !" },
+        { version: 2, icon: '📏', text: "La ligne graduée : place un nombre ou une fraction au bon endroit, du CP au CM1." },
+        { version: 2, icon: '🔢', text: "Les opérations à virgule : pose-les comme les grands, virgules bien alignées." },
+        { version: 2, icon: '🎲', text: "En CM2 : les probabilités, les algorithmes et le nombre manquant arrivent." },
+        { version: 2, icon: '➗', text: "En CE2 : additions, soustractions et multiplications posées, enfin au complet." },
+        { version: 2, icon: '🗺️', text: "La carte des régions de France arrive en CE1 et en CE2 : à toi de les retrouver !" },
+        { version: 2, icon: '🤝', text: "En EMC : stéréotypes et préjugés au CE1, la République et le maire au CE2." },
+        { version: 2, icon: '💻', text: "En CM : bien se comporter en ligne, et comprendre les traces qu'on y laisse." }
     ],
 
     get latestNewsVersion() {

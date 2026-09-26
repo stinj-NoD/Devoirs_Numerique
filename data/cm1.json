@@ -8609,6 +8609,353 @@
                             }
                         }
                     ]
+                },
+                {
+                    "id": "cm1-emc-civisme-numerique-subtheme",
+                    "title": "Civisme numérique",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "cm1-lesson-numerique-emetteur-recepteur",
+                            "title": "Qui parle, à qui ?",
+                            "subtitle": "Émetteur et récepteur d'un message en ligne",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Tout message a un auteur qui l'envoie et un public qui le reçoit. On appelle l'auteur l'émetteur, et le public le récepteur. Sur Internet, l'émetteur est parfois difficile à identifier : il faut le chercher avant de croire ce qu'on lit."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une association de protection des abeilles publie une page sur son site. L'émetteur est l'association ; les récepteurs sont tous les internautes qui ouvrent la page, dont une classe de CM1 qui prépare un exposé."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Le vocabulaire",
+                                    "items": [
+                                        "émetteur : celui qui produit et envoie le message",
+                                        "récepteur : celui qui le lit, l'écoute ou le regarde",
+                                        "source : l'origine du message, c'est-à-dire son auteur, son support et sa date",
+                                        "un émetteur peut vouloir informer, convaincre ou vendre"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Chercher l'émetteur, c'est se demander qui parle et dans quel but. Sans réponse à cette question, une information reste douteuse."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un site de jeux affirme que sa console est la meilleure du monde. Que peut-on en déduire ?",
+                                    "choices": [
+                                        "Il veut vendre sa console : son avis n'est pas neutre.",
+                                        "Il a comparé toutes les consoles dans un laboratoire.",
+                                        "Il publie une enquête de journaliste indépendant."
+                                    ],
+                                    "answer": "Il veut vendre sa console : son avis n'est pas neutre.",
+                                    "explanation": "L'émetteur vend le produit dont il parle : son message est publicitaire. Une comparaison en laboratoire ou une enquête indépendante viendrait d'un autre émetteur, sans intérêt à vendre."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tu lis un texte en ligne sans nom d'auteur ni date. Quelle attitude est la bonne ?",
+                                    "choices": [
+                                        "Rester prudent et chercher la même information ailleurs.",
+                                        "Le recopier dans ton exposé puisqu'il est bien écrit.",
+                                        "Le partager aussitôt à la classe pour rendre service."
+                                    ],
+                                    "answer": "Rester prudent et chercher la même information ailleurs.",
+                                    "explanation": "Sans auteur ni date, on ne peut pas remonter à la source : l'information n'est pas vérifiable. La qualité de l'écriture ne prouve rien, et partager avant de vérifier diffuse peut-être une erreur."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-numerique-image-texte",
+                            "title": "Une image, un texte",
+                            "subtitle": "Ce que la légende fait dire à une photo",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une image ne parle jamais toute seule. C'est le texte qui l'accompagne, la légende, qui indique où, quand et de quoi il s'agit. Changer la légende suffit à changer ce que la photo semble prouver."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "La photo d'une rue sous l'eau peut illustrer un article sur un orage d'été en France, ou un article sur une inondation à l'autre bout du monde. Une seule image, deux histoires différentes."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Mes réflexes",
+                                    "items": [
+                                        "une légende répond à quatre questions : où, quand, qui, quoi",
+                                        "une photo peut être ancienne, recadrée ou retouchée",
+                                        "vérifier une image, c'est retrouver son origine",
+                                        "un dessin ou un montage ne prouve aucun fait"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Devant une image en ligne, on lit toujours le texte qui l'entoure et on cherche d'où elle vient."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un article sur les incendies de cette année utilise une photo prise en 2015. Quel est le problème ?",
+                                    "choices": [
+                                        "La photo ne montre pas les incendies dont parle l'article.",
+                                        "La photo est trop ancienne pour être encore en couleurs.",
+                                        "La photo appartient pour toujours au premier journal."
+                                    ],
+                                    "answer": "La photo ne montre pas les incendies dont parle l'article.",
+                                    "explanation": "Une image d'archive présentée comme actuelle trompe le lecteur sur les faits : elle raconte un autre événement. L'âge d'une photo ne change ni ses couleurs ni son propriétaire."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tu prépares un exposé sur les volcans. Quelle image choisis-tu ?",
+                                    "choices": [
+                                        "Une photo dont on connaît le lieu et la date de prise.",
+                                        "La plus grande image proposée par le moteur de recherche.",
+                                        "Un dessin animé de volcan qui fera rire la classe."
+                                    ],
+                                    "answer": "Une photo dont on connaît le lieu et la date de prise.",
+                                    "explanation": "Une image utile éclaire le sujet et son origine est connue. La taille de l'image ne dit rien de son sérieux, et un dessin représente une idée, pas un volcan réel."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-numerique-publier-diffuser",
+                            "title": "Publier, c'est diffuser",
+                            "subtitle": "Ce qu'un contenu mis en ligne engage",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Produire un contenu est une chose, le publier en est une autre. Publier, c'est rendre un texte, une photo ou une vidéo visibles par des personnes qu'on ne connaît pas, et souvent pour longtemps."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Léa filme une chorégraphie avec deux camarades et la met en ligne. Le lendemain, la vidéo a déjà été copiée par des inconnus : Léa ne décide plus qui la regarde."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Avant de publier",
+                                    "items": [
+                                        "demander l'accord des personnes qui apparaissent",
+                                        "se relire : un écrit n'a pas le ton de la voix",
+                                        "citer l'auteur d'une image ou d'un texte repris",
+                                        "ne jamais publier son adresse ni le nom de son école"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Celui qui publie répond de ce qu'il diffuse. La bonne question est : qui va le voir, et que se passe-t-il si cela reste en ligne des années ?"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tom veut mettre en ligne une photo de son équipe de football. Que fait-il d'abord ?",
+                                    "choices": [
+                                        "Il demande leur accord aux joueurs photographiés.",
+                                        "Il publie vite, avant que le match soit oublié.",
+                                        "Il choisit un pseudonyme pour rester anonyme."
+                                    ],
+                                    "answer": "Il demande leur accord aux joueurs photographiés.",
+                                    "explanation": "On ne diffuse pas l'image d'autrui sans son accord. Se dépêcher ne change rien à cette obligation, et un pseudonyme cache le nom de l'auteur, pas le visage des joueurs."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sami publie un message qu'il regrette et le supprime une heure plus tard. Pourquoi cela ne suffit-il pas ?",
+                                    "choices": [
+                                        "D'autres ont pu le copier avant la suppression.",
+                                        "Un message supprimé revient toujours le lendemain.",
+                                        "La suppression est interdite avant l'âge de seize ans."
+                                    ],
+                                    "answer": "D'autres ont pu le copier avant la suppression.",
+                                    "explanation": "En une heure, un message public a pu être recopié : la suppression n'agit que sur l'original. Rien ne le fait réapparaître tout seul, et supprimer sa propre publication est toujours permis."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-numerique-cyberviolence",
+                            "title": "La cyberviolence",
+                            "subtitle": "La reconnaître et savoir quoi faire",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "On appelle cyberviolence le fait de blesser quelqu'un avec des messages, des images ou des commentaires envoyés en ligne. C'est une violence, interdite par la loi comme celle commise dans la cour."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "On la reconnaît à ses effets : des moqueries qui se répètent, un groupe qui met une personne à l'écart, une image partagée pour se moquer. Celui qui la subit n'en est jamais responsable."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les gestes utiles",
+                                    "items": [
+                                        "ne pas répondre : une réponse nourrit le conflit",
+                                        "ne pas relayer : partager, c'est participer",
+                                        "garder une trace, par exemple une capture d'écran",
+                                        "en parler à un adulte de confiance, ou appeler le 3018"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans un groupe de messages, un élève reçoit des moqueries. Un camarade ne renvoie rien, conserve une capture d'écran et en parle au professeur : les adultes peuvent alors intervenir."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Témoin ou destinataire, on alerte un adulte. Se taire laisse la violence continuer."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans un groupe de discussion, plusieurs élèves se moquent d'un camarade. Tu es témoin. Que fais-tu ?",
+                                    "choices": [
+                                        "Je ne renvoie rien et j'avertis un adulte de l'école.",
+                                        "Je réponds une insulte à celui qui a commencé.",
+                                        "J'attends que le camarade visé se défende seul."
+                                    ],
+                                    "answer": "Je ne renvoie rien et j'avertis un adulte de l'école.",
+                                    "explanation": "Un témoin qui refuse de diffuser et qui alerte fait cesser la situation. Répondre par une insulte ajoute de la violence, et laisser la personne seule prolonge ce qu'elle subit."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève transfère à toute la classe une photo qui se moque d'un camarade. Que peut-on dire de lui ?",
+                                    "choices": [
+                                        "Il prend part à la violence en l'élargissant.",
+                                        "Il reste neutre puisqu'il n'a pas pris la photo.",
+                                        "Il rend service en montrant ce qui se passe."
+                                    ],
+                                    "answer": "Il prend part à la violence en l'élargissant.",
+                                    "explanation": "Chaque transfert élargit le public de la moquerie : celui qui relaie y participe. Pour faire connaître les faits, on les montre à un adulte, pas à toute la classe."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-numerique-sobriete",
+                            "title": "La sobriété numérique",
+                            "subtitle": "Utiliser le numérique sans gaspiller",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Chaque usage du numérique consomme de l'énergie : l'appareil, le réseau et les centres de données qui conservent nos fichiers. La sobriété numérique consiste à en tenir compte pour limiter cette consommation."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "La plus grande part de cet impact vient de la fabrication des appareils. Produire un téléphone demande beaucoup d'eau, d'énergie et de métaux rares extraits de mines lointaines."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les bons gestes",
+                                    "items": [
+                                        "garder ses appareils longtemps et les faire réparer",
+                                        "déposer un appareil hors d'usage dans un point de collecte",
+                                        "supprimer les fichiers en ligne devenus inutiles",
+                                        "éteindre les écrans quand personne ne s'en sert"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans une classe, garder les tablettes cinq ans au lieu de deux divise par deux le nombre d'appareils à fabriquer pour les mêmes élèves."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Être sobre ne veut pas dire tout arrêter : c'est choisir des usages utiles et faire durer le matériel."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Deux familles veulent réduire l'impact de leur téléphone. Laquelle agit le plus efficacement ?",
+                                    "choices": [
+                                        "Celle qui conserve le même téléphone cinq ans et le répare.",
+                                        "Celle qui éteint son téléphone une heure chaque dimanche.",
+                                        "Celle qui achète le modèle le plus récent chaque année."
+                                    ],
+                                    "answer": "Celle qui conserve le même téléphone cinq ans et le répare.",
+                                    "explanation": "Puisque la fabrication pèse le plus lourd, allonger la durée de vie de l'appareil est le geste le plus utile. Une heure d'extinction par semaine change peu, et acheter chaque année fait fabriquer davantage."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Où sont réellement stockées les photos que l'on met « dans le nuage » ?",
+                                    "choices": [
+                                        "Dans des ordinateurs installés dans de grands bâtiments.",
+                                        "Dans les nuages, au-dessus des grandes villes.",
+                                        "Uniquement dans la mémoire de son propre téléphone."
+                                    ],
+                                    "answer": "Dans des ordinateurs installés dans de grands bâtiments.",
+                                    "explanation": "Le nuage est bien matériel : ce sont des serveurs allumés en permanence dans des bâtiments. S'ils étaient seulement dans le téléphone, les photos disparaîtraient avec lui."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "cm1-emc-numerique-emetteur-recepteur",
+                            "title": "Émetteur et récepteur",
+                            "subtitle": "Qui parle, à qui, dans quel but",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-numerique-emetteur-recepteur",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-emc-numerique-image-texte",
+                            "title": "Image et texte",
+                            "subtitle": "Légende, origine et sens d'une image",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-numerique-image-texte",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-emc-numerique-diffusion",
+                            "title": "Publier et diffuser",
+                            "subtitle": "Ce qu'un contenu mis en ligne engage",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-numerique-diffusion",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-emc-numerique-cyberviolence",
+                            "title": "Face à la cyberviolence",
+                            "subtitle": "Reconnaître, ne pas relayer, alerter",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-numerique-cyberviolence",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-emc-numerique-sobriete",
+                            "title": "Sobriété numérique",
+                            "subtitle": "Énergie, appareils et bons gestes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm1.json",
+                                "category": "cm1-numerique-sobriete",
+                                "questions": 8
+                            }
+                        }
+                    ]
                 }
             ]
         }

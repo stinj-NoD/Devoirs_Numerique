@@ -423,8 +423,8 @@
                         },
                         {
                             "id": "cp-doubles-moities",
-                            "title": "Doubles et moitiés",
-                            "subtitle": "Deux fois plus, deux fois moins",
+                            "title": "Les doubles",
+                            "subtitle": "Deux fois plus",
                             "engine": "math-input",
                             "params": {
                                 "type": "double",
@@ -467,6 +467,18 @@
                                 "dataFile": "data/board_number_line_cp.json",
                                 "category": "cp_number_line_frame_dizaines",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-moities",
+                            "title": "Les moitiés",
+                            "subtitle": "Deux fois moins",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "half",
+                                "min": 1,
+                                "max": 10,
+                                "questions": 5
                             }
                         }
                     ],

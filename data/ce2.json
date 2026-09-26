@@ -4748,6 +4748,20 @@
                                 "category": "ce2-fleuves-mers-voisins",
                                 "questions": 8
                             }
+                        },
+                        {
+                            "id": "ce2-geo-carte-regions",
+                            "title": "Carte des régions de France",
+                            "subtitle": "Touche la région demandée",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "map-locate",
+                                "dataFile": "data/board_map_locate_ce2.json",
+                                "mapFile": "data/maps/france-regions.svg",
+                                "mapId": "france-regions",
+                                "category": "ce2_map_regions_france",
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
@@ -7097,6 +7111,281 @@
                                 "dataFile": "data/emc_ce2.json",
                                 "category": "ce2-symboles-republique",
                                 "questions": 7
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "ce2-emc-republique-subtheme",
+                    "title": "La République et son fonctionnement",
+                    "icon": "📘",
+                    "lessons": [
+                        {
+                            "id": "ce2-lesson-republique",
+                            "title": "La République",
+                            "subtitle": "Un pays où le pouvoir vient des citoyens",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La France est une République. Cela veut dire que personne ne dirige le pays parce qu'il est né dans une famille de rois : ceux qui gouvernent sont choisis par les citoyens, lors d'élections, et pour une durée limitée."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Autrefois, la France avait un roi : son fils devenait roi après lui, sans que personne ne le choisisse. Aujourd'hui, les Français élisent leur président, et ils peuvent en élire un autre quelques années plus tard."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Les dirigeants sont élus, jamais désignés par leur naissance.",
+                                        "Les lois sont votées par des élus : les députés et les sénateurs.",
+                                        "La même loi s'applique à tous les habitants du pays.",
+                                        "Personne n'est au-dessus de la loi, pas même celui qui dirige."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "Le mot",
+                                    "content": "République vient du latin res publica, « la chose publique ». Ce qui est public appartient à tous, donc à personne en particulier."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans un pays voisin, le roi vient de mourir et son fils prend sa place. Ce pays est-il une République ?",
+                                    "choices": [
+                                        "Non, car le pouvoir se transmet dans la famille",
+                                        "Oui, puisque le pays a bien un chef reconnu",
+                                        "Oui, si le nouveau chef respecte les lois"
+                                    ],
+                                    "answer": "Non, car le pouvoir se transmet dans la famille",
+                                    "explanation": "Dans une République, on dirige parce que les citoyens ont voté, pas parce qu'on est le fils du précédent. Avoir un chef ou respecter les lois ne suffit pas à faire une République."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Le président d'une République roule trop vite et reçoit une amende. Que se passe-t-il ?",
+                                    "choices": [
+                                        "Il la paie comme n'importe quel habitant",
+                                        "Il en est dispensé, car il dirige le pays",
+                                        "Il choisit lui-même le montant à payer"
+                                    ],
+                                    "answer": "Il la paie comme n'importe quel habitant",
+                                    "explanation": "La loi vaut pour tout le monde, y compris pour celui qui gouverne. S'il pouvait s'en dispenser ou fixer son propre prix, il agirait comme un roi et non comme un élu."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-president-republique",
+                            "title": "Le président de la République",
+                            "subtitle": "Élu par les citoyens pour cinq ans",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le président de la République est le chef de l'État français. Il n'hérite pas de sa place : les citoyens la lui confient en votant. Son mandat dure cinq ans ; ensuite, une nouvelle élection a lieu et il peut être remplacé."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "L'élection présidentielle se déroule en deux tours. Au premier tour, il y a souvent plus de dix candidats. Si aucun n'obtient plus de la moitié des voix, les deux premiers s'affrontent quinze jours plus tard, au second tour."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Ce que fait le président",
+                                    "items": [
+                                        "Il travaille au palais de l'Élysée, à Paris.",
+                                        "Il nomme le Premier ministre et les ministres.",
+                                        "Il représente la France auprès des autres pays.",
+                                        "Il est le chef des armées."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "Attention",
+                                    "content": "Le président ne décide pas tout seul : les lois sont votées par les députés et les sénateurs, eux aussi élus par les citoyens."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Au premier tour, madame Roux obtient 28 % des voix et monsieur Vidal 31 %. Que se passe-t-il ?",
+                                    "choices": [
+                                        "Ils s'affrontent tous les deux quinze jours après",
+                                        "Monsieur Vidal devient président le soir même",
+                                        "L'élection recommence entièrement plus tard"
+                                    ],
+                                    "answer": "Ils s'affrontent tous les deux quinze jours après",
+                                    "explanation": "Ni 28 % ni 31 % ne dépassent la moitié des voix : les deux premiers vont donc au second tour. Arriver devant au premier tour ne suffit pas pour être élu."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève affirme : « le président reste en place toute sa vie ». Que peux-tu lui répondre ?",
+                                    "choices": [
+                                        "Les citoyens revotent au bout de cinq ans",
+                                        "Il s'en va quand le Premier ministre le veut",
+                                        "Il reste jusqu'à ses soixante-cinq ans"
+                                    ],
+                                    "answer": "Les citoyens revotent au bout de cinq ans",
+                                    "explanation": "Le mandat a une durée fixée, puis une nouvelle élection est organisée : c'est le vote des citoyens qui décide de la suite, pas le Premier ministre ni l'âge du président."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-maire-commune",
+                            "title": "Le maire et la commune",
+                            "subtitle": "Un élu local au service des habitants",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Chaque commune, village ou grande ville, a un maire. Les habitants élisent d'abord les conseillers municipaux ; le conseil municipal choisit ensuite le maire parmi ses membres, pour six ans."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le maire travaille à la mairie. Il y tient les registres de l'état civil : il inscrit les naissances, célèbre les mariages, enregistre les décès. Il s'occupe aussi de l'école de la commune et de l'environnement du quartier."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les missions de la commune",
+                                    "items": [
+                                        "L'état civil : naissances, mariages, décès.",
+                                        "Les écoles : bâtiments, cour, cantine.",
+                                        "L'environnement : déchets, espaces verts, propreté des rues.",
+                                        "La vie locale : salles, marchés, fêtes du village."
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Quand la cour de l'école a besoin d'un nouveau préau, c'est la commune qui paie les travaux. En revanche, le maire ne choisit pas ce que l'on apprend en classe : les programmes sont fixés par l'État."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "Le savais-tu ?",
+                                    "content": "Ton acte de naissance est conservé à la mairie de la ville où tu es né : c'est le document qui prouve ta date et ton lieu de naissance."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Les parents de Naïm veulent l'inscrire à l'école du village. Où doivent-ils s'adresser ?",
+                                    "choices": [
+                                        "À la mairie de la commune",
+                                        "Au ministère, à Paris",
+                                        "Chez le préfet du département"
+                                    ],
+                                    "answer": "À la mairie de la commune",
+                                    "explanation": "L'école primaire dépend de la commune : l'inscription se fait à la mairie. Le ministère fixe les programmes et le préfet représente l'État, mais ni l'un ni l'autre n'inscrit les élèves."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Des habitants réclament des poubelles de tri au square du quartier. Qui peut décider de les installer ?",
+                                    "choices": [
+                                        "Le maire, avec son conseil municipal",
+                                        "Le président de la République",
+                                        "Le directeur de l'école du square"
+                                    ],
+                                    "answer": "Le maire, avec son conseil municipal",
+                                    "explanation": "La propreté et les déchets font partie des missions de la commune. Le président s'occupe du pays entier, et un directeur n'a autorité que dans son école."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-interet-general",
+                            "title": "L'intérêt général",
+                            "subtitle": "Décider pour tous, pas seulement pour soi",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Quand une décision concerne tout un groupe, on peut penser à soi ou penser à tous. L'intérêt général, c'est ce qui est utile à l'ensemble des habitants, même à ceux qu'on ne connaît pas. Les élus doivent décider dans cet esprit."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une commune possède un grand terrain libre. Un habitant voudrait y garer sa voiture tout seul ; le conseil municipal décide d'y construire un terrain de sport ouvert à tous. C'est la deuxième solution qui sert l'intérêt général."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Comment je le reconnais",
+                                    "items": [
+                                        "La décision profite à beaucoup de monde, pas à une seule personne.",
+                                        "Elle reste utile à ceux qui n'ont pas voté pour elle.",
+                                        "Elle peut demander un effort à chacun : payer, attendre, partager."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Une bibliothèque, une piscine, un trottoir large coûtent de l'argent à la commune, mais ils servent à tous les habitants, tous les jours."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Deux projets pour la place du village : un parking réservé à trois familles, ou une fontaine d'eau potable. Lequel sert l'intérêt général ?",
+                                    "choices": [
+                                        "La fontaine, car elle sert à tous les habitants",
+                                        "Le parking, car il coûte moins cher à construire",
+                                        "Aucun des deux, car la place doit rester vide"
+                                    ],
+                                    "answer": "La fontaine, car elle sert à tous les habitants",
+                                    "explanation": "Trois familles seulement profiteraient du parking, alors que la fontaine est ouverte à chacun. Le prix ne décide pas de l'intérêt général, et une place peut très bien être aménagée."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "La commune installe un feu piéton devant l'école. Un habitant sans enfant dit que cela ne lui sert à rien. A-t-il raison ?",
+                                    "choices": [
+                                        "Non, une rue plus sûre profite à tous",
+                                        "Oui, il peut demander à être remboursé",
+                                        "Oui, seuls les parents devraient payer"
+                                    ],
+                                    "answer": "Non, une rue plus sûre profite à tous",
+                                    "explanation": "Cet habitant traverse aussi cette rue, et une circulation plus calme protège tout le quartier. Les équipements publics ne sont pas payés seulement par ceux qui s'en servent le plus."
+                                }
+                            ]
+                        }
+                    ],
+                    "exercises": [
+                        {
+                            "id": "ce2-emc-republique",
+                            "title": "Qu'est-ce qu'une République ?",
+                            "subtitle": "Élus, lois et égalité",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce2.json",
+                                "category": "ce2-republique",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-emc-president-election",
+                            "title": "Le président est élu",
+                            "subtitle": "Les règles de l'élection présidentielle",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce2.json",
+                                "category": "ce2-president-election",
+                                "questions": 7
+                            }
+                        },
+                        {
+                            "id": "ce2-emc-maire-commune",
+                            "title": "Le maire et sa commune",
+                            "subtitle": "État civil, école, environnement",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce2.json",
+                                "category": "ce2-maire-commune",
+                                "questions": 7
+                            }
+                        },
+                        {
+                            "id": "ce2-emc-interet-general",
+                            "title": "L'intérêt général",
+                            "subtitle": "Ce qui sert à tous les habitants",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce2.json",
+                                "category": "ce2-interet-general",
+                                "questions": 6
                             }
                         }
                     ]

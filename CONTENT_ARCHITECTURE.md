@@ -4,21 +4,21 @@ Document de référence listant, pour chaque niveau, chaque matière, chaque sou
 
 Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon, sans exercice, catégories peu fournies) pour prioriser les ajouts.
 
-> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-09-22 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
+> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-09-26 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
 
 ---
 
 ## Vue d'ensemble
 
-- **1082 exercices** et **414 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1100 exercices** et **428 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
 |---|---|
-| `choice-engine` | 575 |
-| `math-input` | 180 |
+| `choice-engine` | 589 |
+| `math-input` | 182 |
 | `reading` | 58 |
-| `board-interactive` | 53 |
+| `board-interactive` | 55 |
 | `matching` | 49 |
 | `conjugation` | 47 |
 | `audio-spelling` | 44 |
@@ -33,8 +33,8 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 
 | Type board-interactive | Nombre d'exercices |
 |---|---|
+| `map-locate` | 13 |
 | `tap-features` | 12 |
-| `map-locate` | 11 |
 | `point-on-grid` | 7 |
 | `number-line-place` | 4 |
 | `memory-match` | 4 |
@@ -92,17 +92,18 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Doubles et moitiés `(cp-lesson-doubles-moities)` — blocs: paragraph, example, bullets, tip, check, check
   - La ligne numérique `(cp-lesson-ligne-numerique)` — blocs: paragraph, example, bullets, tip, check, check
   - Encadrer un nombre `(cp-lesson-encadrement)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (10) :
+- **Exercices** (11) :
   - Compter `(math-count-1)` — engine: `counting`, min=1, max=20, questions=5
   - Compter plus loin `(math-count-2)` — engine: `counting`, min=20, max=99, questions=5
   - Comparer jusqu'à 10 `(comp-1)` — engine: `choice-engine`, range=10, questions=5
   - Comparer jusqu'à 20 `(comp-2)` — engine: `choice-engine`, range=20, questions=5
   - Comparer jusqu'à 50 `(comp-3)` — engine: `choice-engine`, range=50, questions=5
   - Défi : grands nombres `(cp-bonus-comparaison-defi)` — engine: `choice-engine`, range=99, questions=8, bonus (seuil=2)
-  - Doubles et moitiés `(cp-doubles-moities)` — engine: `math-input`, type=double, min=1, max=10, questions=5
+  - Les doubles `(cp-doubles-moities)` — engine: `math-input`, type=double, min=1, max=10, questions=5
   - La ligne numérique (0 à 10) `(cp-ligne-numerique-0-10)` — engine: `board-interactive`, type=number-line-place, dataFile=data/board_number_line_cp.json, category=cp_number_line_0_10, questions=6
   - La ligne numérique (0 à 100) `(cp-ligne-numerique-0-100)` — engine: `board-interactive`, type=number-line-place, dataFile=data/board_number_line_cp.json, category=cp_number_line_0_100, questions=6
   - Encadrer entre deux dizaines `(cp-encadrement-dizaines)` — engine: `board-interactive`, type=number-line-frame, dataFile=data/board_number_line_cp.json, category=cp_number_line_frame_dizaines, questions=6
+  - Les moitiés `(cp-moities)` — engine: `math-input`, type=half, min=1, max=10, questions=5
 
 #### Cibles & Monnaie `(cp-cibles-monnaie)`
 
@@ -725,7 +726,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Exercices** (14) :
   - Un ou Une? `(ce1-gram-un-une)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_classe, questions=8
   - Le, La ou L'? `(ce1-gram-le-la)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_maison, questions=8
-  - Les noms de la nature `(ce1-gram-nature)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_nature, questions=8
+  - Masculin ou féminin ? `(ce1-gram-nature)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_nature, questions=8
   - Le bon déterminant `(ce1-gram-cloze-det)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_cloze_ce1, questions=8
   - Écris le bon mot `(ce1-gram-cloze-ecrit)` — engine: `cloze-fill-in`, category=grammar_cloze_ce1, questions=6
   - Singulier ou pluriel `(ce1-gram-pluriel)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_plural_ce1, questions=8
@@ -834,10 +835,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Se déplacer en France `(ce1-lesson-transports-france)` — blocs: paragraph, example, bullets, tip, check, check
   - À chaque trajet son transport `(ce1-lesson-choisir-transport)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (3) :
+- **Exercices** (4) :
   - France et transports `(ce1-geo-transports)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce1.json, category=ce1-transports-france, questions=6
   - Se déplacer en France `(ce1-geo-se-deplacer-france)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_ce1.json, category=ce1-transports-france
   - Trajets du quotidien `(ce1-geo-trajets-quotidiens)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_ce1.json, category=ce1-trajets-quotidiens
+  - Carte des régions de France `(ce1-geo-carte-regions)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_ce1.json, mapFile=data/maps/france-regions.svg, mapId=france-regions, category=ce1_map_regions_france, questions=5
 
 ### Questionner le vivant et la matière (ce1-sciences-subject)
 
@@ -950,6 +952,15 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Dialogue et politesse `(ce1-emc-entraide-dialogue)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-dialogue-politesse, questions=6
   - Tous différents, tous ensemble `(ce1-emc-respect-differences)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-respect-differences, questions=6
   - Défi : vivre ensemble `(ce1-bonus-differences-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-respect-differences, questions=8, bonus (seuil=2)
+
+#### Stéréotypes et préjugés `(ce1-emc-stereotypes-subtheme)`
+
+- **Leçons** (2) :
+  - Le stéréotype `(ce1-lesson-stereotype)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le préjugé `(ce1-lesson-prejuge)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (2) :
+  - Vrai pour tout le monde ? `(ce1-emc-stereotypes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-stereotypes, questions=6
+  - Juger trop vite `(ce1-emc-prejuges)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-prejuges, questions=6
 
 ---
 
@@ -1224,11 +1235,12 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Lire une carte de France `(ce2-lesson-lire-carte-france)` — blocs: paragraph, example, bullets, tip, check, check
   - La France en relief `(ce2-lesson-france-releifs-fleuves)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (4) :
+- **Exercices** (5) :
   - La France `(ce2-geo-france)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce2.json, category=ce2-france, questions=8
   - Reliefs simples `(ce2-geo-reliefs)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce2.json, category=ce2-reliefs-simples, questions=6
   - Les grandes villes `(ce2-geo-grandes-villes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce2.json, category=ce2-grandes-villes, questions=8
   - Fleuves, mers et pays voisins `(ce2-geo-fleuves-mers-voisins)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce2.json, category=ce2-fleuves-mers-voisins, questions=8
+  - Carte des régions de France `(ce2-geo-carte-regions)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_ce2.json, mapFile=data/maps/france-regions.svg, mapId=france-regions, category=ce2_map_regions_france, questions=8
 
 #### Se repérer `(ce2-geo-reperage-subtheme)`
 
@@ -1375,6 +1387,19 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Info fiable ou pas ? `(ce2-emc-esprit-critique)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-esprit-critique, questions=6
   - Défi : esprit critique `(ce2-bonus-emc-esprit-critique-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-esprit-critique, questions=9, bonus (seuil=2)
   - Les symboles de la République `(ce2-emc-symboles-republique)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-symboles-republique, questions=7
+
+#### La République et son fonctionnement `(ce2-emc-republique-subtheme)`
+
+- **Leçons** (4) :
+  - La République `(ce2-lesson-republique)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le président de la République `(ce2-lesson-president-republique)` — blocs: paragraph, paragraph, bullets, tip, check, check
+  - Le maire et la commune `(ce2-lesson-maire-commune)` — blocs: paragraph, paragraph, bullets, example, tip, check, check
+  - L'intérêt général `(ce2-lesson-interet-general)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (4) :
+  - Qu'est-ce qu'une République ? `(ce2-emc-republique)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-republique, questions=6
+  - Le président est élu `(ce2-emc-president-election)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-president-election, questions=7
+  - Le maire et sa commune `(ce2-emc-maire-commune)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-maire-commune, questions=7
+  - L'intérêt général `(ce2-emc-interet-general)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-interet-general, questions=6
 
 ---
 
@@ -1885,6 +1910,21 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Engagement dans la classe `(cm1-emc-engagement-classe)` — engine: `choice-engine`, type=factual-qcm, questions=6, dataFile=data/emc_cm1.json, category=cm1-engagement-classe
   - Défi : citoyen engagé `(cm1-bonus-emc-citoyennete-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-debat-cooperation, questions=12, bonus (seuil=2)
 
+#### Civisme numérique `(cm1-emc-civisme-numerique-subtheme)`
+
+- **Leçons** (5) :
+  - Qui parle, à qui ? `(cm1-lesson-numerique-emetteur-recepteur)` — blocs: paragraph, example, bullets, tip, check, check
+  - Une image, un texte `(cm1-lesson-numerique-image-texte)` — blocs: paragraph, example, bullets, tip, check, check
+  - Publier, c'est diffuser `(cm1-lesson-numerique-publier-diffuser)` — blocs: paragraph, example, bullets, tip, check, check
+  - La cyberviolence `(cm1-lesson-numerique-cyberviolence)` — blocs: paragraph, paragraph, bullets, example, tip, check, check
+  - La sobriété numérique `(cm1-lesson-numerique-sobriete)` — blocs: paragraph, paragraph, bullets, example, tip, check, check
+- **Exercices** (5) :
+  - Émetteur et récepteur `(cm1-emc-numerique-emetteur-recepteur)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-numerique-emetteur-recepteur, questions=8
+  - Image et texte `(cm1-emc-numerique-image-texte)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-numerique-image-texte, questions=8
+  - Publier et diffuser `(cm1-emc-numerique-diffusion)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-numerique-diffusion, questions=8
+  - Face à la cyberviolence `(cm1-emc-numerique-cyberviolence)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-numerique-cyberviolence, questions=8
+  - Sobriété numérique `(cm1-emc-numerique-sobriete)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-numerique-sobriete, questions=8
+
 ---
 
 ## CM2
@@ -1895,7 +1935,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 - **Leçons** (1) :
   - Lire et écrire les grands nombres `(cm2-lesson-grands-nombres)` — blocs: paragraph, example, mini-table, tip, check, check
-- **Exercices** (15) :
+- **Exercices** (16) :
   - Les Milliards `(cm2_grands_nombres)` — engine: `math-input`, type=dictée-nombres, min=1000000, max=9999999999, questions=10
   - Division Mentale `(cm2_division_mentale)` — engine: `math-input`, type=calc-mental, operator=/, questions=10
   - Multiplier par 11 à 15 `(cm2_tables_x)` — engine: `math-input`, type=calc-mental, operator=x, questions=10
@@ -1911,6 +1951,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Addition posée niveau expert `(cm2-m-addition-posee-experte)` — engine: `math-input`, type=operation-posed, operator=add, level=3, questions=6
   - Soustraction posée niveau expert `(cm2-m-soustraction-posee-experte)` — engine: `math-input`, type=operation-posed, operator=sub, level=3, questions=6
   - Multiplication posée niveau expert `(cm2-m-multiplication-posee-experte)` — engine: `math-input`, type=operation-posed, operator=mult, level=3, questions=6
+  - Jusqu’au milliard `(cm2-place-value-milliards)` — engine: `math-input`, type=place-value, digitCount=10, ask=digit, questions=8
 
 #### Fractions & décimaux `(cm2-fractions-decimaux)`
 
@@ -2386,13 +2427,19 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Responsabilités `(cm2-emc-responsabilites-subtheme)`
 
-- **Leçons** (2) :
+- **Leçons** (5) :
   - Assumer ses responsabilités `(cm2-lesson-responsabilites-justice)` — blocs: paragraph, bullets, tip, check, check
   - La loi et la justice `(cm2-lesson-loi-justice)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (3) :
+  - Le droit à l'image `(cm2-lesson-droit-image)` — blocs: paragraph, paragraph, bullets, example, tip, check, check
+  - Les traces numériques `(cm2-lesson-trace-numerique)` — blocs: paragraph, paragraph, bullets, example, tip, check, check
+  - Relayer engage sa responsabilité `(cm2-lesson-relayer-responsable)` — blocs: paragraph, paragraph, bullets, example, tip, check, check
+- **Exercices** (6) :
   - Responsabilités `(cm2-emc-responsabilites)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-responsabilites, questions=6
   - Assumer ses responsabilités `(cm2-emc-assumer-responsabilites)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cm2.json, category=cm2-responsabilites
   - Liberté et justice `(cm2-emc-liberte-justice)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cm2.json, category=cm2-liberte-justice
+  - Le droit à l'image `(cm2-emc-droit-image)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-droit-image, questions=8
+  - Traces et données personnelles `(cm2-emc-trace-numerique)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-trace-numerique, questions=8
+  - Relayer avec responsabilité `(cm2-emc-relayer-responsable)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-relayer-responsable, questions=8
 
 #### Institutions et débat `(cm2-emc-institutions-debat-subtheme)`
 

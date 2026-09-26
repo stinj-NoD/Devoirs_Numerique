@@ -274,6 +274,18 @@
                                 "level": 3,
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "cm2-place-value-milliards",
+                            "title": "Jusqu’au milliard",
+                            "subtitle": "Repérer un rang dans un très grand nombre",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "place-value",
+                                "digitCount": 10,
+                                "ask": "digit",
+                                "questions": 8
+                            }
                         }
                     ]
                 },
@@ -8161,6 +8173,180 @@
                                     "explanation": "Quand un conflit ne trouve pas de solution entre les personnes, la justice décide à partir de la loi, la même pour les deux. L'âge n'est pas un argument juridique, et se disputer n'est pas une infraction : la justice règle le litige, elle ne punit pas le désaccord."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cm2-lesson-droit-image",
+                            "title": "Le droit à l'image",
+                            "subtitle": "Diffuser la photo d'une personne suppose son accord",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "En France, chacun garde la maîtrise de son image : personne ne peut la diffuser sans son accord. C'est le droit à l'image, qui découle du droit au respect de la vie privée, protégé par la loi."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "Quand la personne est mineure, l'autorisation doit venir de ses parents ou de ses responsables légaux. La Convention internationale des droits de l'enfant reconnaît d'ailleurs à tout enfant le droit au respect de sa vie privée."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les règles",
+                                    "items": [
+                                        "demander l'autorisation avant de photographier, puis avant de publier",
+                                        "une autorisation peut être retirée : la photo doit alors disparaître",
+                                        "diffuser une scène humiliante est une faute grave",
+                                        "ce devoir vaut pour tous, y compris envers les personnes connues"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une école veut publier la photo de classe sur son site. Elle fait signer une autorisation à chaque famille ; l'élève dont les parents refusent n'apparaît pas sur la version mise en ligne."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Respecter l'image d'autrui est un devoir civique, pas une simple politesse : la loi le prévoit."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève de CM2 accepte que sa photo soit publiée sur un site. Est-ce suffisant ?",
+                                    "choices": [
+                                        "Non : l'accord de ses parents est nécessaire.",
+                                        "Oui : dès dix ans, chacun décide seul pour lui.",
+                                        "Oui, si la photo a été prise dans la cour de l'école."
+                                    ],
+                                    "answer": "Non : l'accord de ses parents est nécessaire.",
+                                    "explanation": "Pour un mineur, ce sont les responsables légaux qui autorisent la diffusion. L'âge de dix ans ne change rien, et le lieu de la prise de vue ne donne aucun droit de publier."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Camille demande à Hugo de retirer une photo d'elle qu'il a publiée. Que doit faire Hugo ?",
+                                    "choices": [
+                                        "La retirer : Camille garde le contrôle de son image.",
+                                        "La garder : c'est lui qui a pris la photographie.",
+                                        "Attendre un an, le délai prévu avant un retrait."
+                                    ],
+                                    "answer": "La retirer : Camille garde le contrôle de son image.",
+                                    "explanation": "L'accord donné pour une image peut être retiré à tout moment. Avoir appuyé sur le déclencheur ne donne pas de droit sur le visage d'autrui, et aucun délai d'attente n'existe."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-trace-numerique",
+                            "title": "Les traces numériques",
+                            "subtitle": "Ce que nos activités en ligne laissent derrière elles",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Chaque activité en ligne laisse une trace : un message publié, un commentaire, une photo, une recherche. L'ensemble de ces traces forme notre empreinte numérique, et elle dure bien plus longtemps qu'on ne l'imagine."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "Ces traces contiennent souvent des données personnelles, c'est-à-dire des informations qui permettent d'identifier quelqu'un : nom, âge, école, adresse, photographie."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Mes protections",
+                                    "items": [
+                                        "ne transmettre que les informations strictement nécessaires",
+                                        "protéger ses comptes par un mot de passe long et unique",
+                                        "supprimer une publication n'efface pas les copies des autres",
+                                        "la loi permet de demander l'effacement de certaines données"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un collégien cherche son propre nom dans un moteur de recherche. Il retrouve un commentaire écrit deux ans plus tôt, que d'autres personnes avaient recopié ailleurs."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Avant de publier, on se demande si l'on accepterait de relire ce contenu dans dix ans."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léna supprime de son compte une publication gênante. Pourquoi la trace peut-elle rester ?",
+                                    "choices": [
+                                        "D'autres personnes ont pu la copier avant l'effacement.",
+                                        "Les comptes conservent toutes les publications un an.",
+                                        "Une publication ne peut jamais être retirée d'un compte."
+                                    ],
+                                    "answer": "D'autres personnes ont pu la copier avant l'effacement.",
+                                    "explanation": "La suppression n'agit que sur l'original : les copies faites par d'autres échappent à leur auteur. Aucune règle d'un an n'existe, et retirer sa propre publication est toujours possible."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Parmi ces informations, laquelle est une donnée personnelle ?",
+                                    "choices": [
+                                        "Le nom de l'établissement que l'on fréquente.",
+                                        "La météo annoncée pour demain dans la région.",
+                                        "Le titre d'un film qui sort au cinéma vendredi."
+                                    ],
+                                    "answer": "Le nom de l'établissement que l'on fréquente.",
+                                    "explanation": "Une donnée personnelle permet d'identifier quelqu'un : savoir où une personne étudie mène jusqu'à elle. La météo et les sorties de films ne désignent personne en particulier."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-relayer-responsable",
+                            "title": "Relayer engage sa responsabilité",
+                            "subtitle": "Partager un contenu, c'est en répondre",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Relayer, c'est transmettre à d'autres un contenu qu'on n'a pas écrit soi-même. Celui qui relaie n'est pas un simple spectateur : il élargit le public du message et répond en partie de ce qu'il diffuse."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une information fausse se répand surtout par les partages. C'est pourquoi la vérification vient avant : qui l'a publiée, à quelle date, et une autre source sérieuse dit-elle la même chose ?"
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Mes règles",
+                                    "items": [
+                                        "vérifier la source avant de partager, jamais après",
+                                        "se méfier d'un titre qui presse de diffuser très vite",
+                                        "ne pas relayer une image qui humilie quelqu'un",
+                                        "signaler un contenu choquant plutôt que le rediffuser"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un message annonce la fermeture du collège le lendemain. Avant de le transférer, un élève consulte le site du collège : l'information est fausse, et la chaîne s'arrête avec lui."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Relayer est un acte : ne pas nuire avec ce qu'on partage fait partie des devoirs du citoyen."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un message alarmant circule et demande de le diffuser immédiatement. Quel réflexe adopter ?",
+                                    "choices": [
+                                        "Chercher une source sérieuse avant tout partage.",
+                                        "Le transférer pour que d'autres le vérifient.",
+                                        "Le diffuser seulement aux adultes, sans vérifier."
+                                    ],
+                                    "answer": "Chercher une source sérieuse avant tout partage.",
+                                    "explanation": "L'urgence affichée sert justement à empêcher la vérification : on cherche d'abord une source fiable. Faire vérifier par les autres après l'envoi, c'est déjà avoir répandu l'information."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sofia a partagé une information qu'elle découvre fausse le soir. Que fait une personne responsable ?",
+                                    "choices": [
+                                        "Elle prévient ceux à qui elle l'a transmise.",
+                                        "Elle se tait : le message est déjà parti.",
+                                        "Elle partage une autre nouvelle pour compenser."
+                                    ],
+                                    "answer": "Elle prévient ceux à qui elle l'a transmise.",
+                                    "explanation": "Assumer sa responsabilité, c'est corriger auprès des personnes que l'on a informées. Se taire laisse l'erreur circuler, et ajouter un autre message ne l'annule pas."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -8199,6 +8385,42 @@
                             "engine": "choice-engine",
                             "id": "cm2-emc-liberte-justice",
                             "subtitle": "Droits, loi et respect"
+                        },
+                        {
+                            "id": "cm2-emc-droit-image",
+                            "title": "Le droit à l'image",
+                            "subtitle": "Accord, vie privée et respect d'autrui",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm2.json",
+                                "category": "cm2-droit-image",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-emc-trace-numerique",
+                            "title": "Traces et données personnelles",
+                            "subtitle": "Ce que l'on laisse derrière soi en ligne",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm2.json",
+                                "category": "cm2-trace-numerique",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-emc-relayer-responsable",
+                            "title": "Relayer avec responsabilité",
+                            "subtitle": "Vérifier, ne pas nuire, assumer",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cm2.json",
+                                "category": "cm2-relayer-responsable",
+                                "questions": 8
+                            }
                         }
                     ]
                 },

@@ -3153,8 +3153,8 @@
                         },
                         {
                             "id": "ce1-gram-nature",
-                            "title": "Les noms de la nature",
-                            "subtitle": "Choisir le bon article",
+                            "title": "Masculin ou féminin ?",
+                            "subtitle": "Trouver le genre du mot : le, la ou l'",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "gender-articles",
@@ -4689,6 +4689,20 @@
                             "engine": "choice-engine",
                             "id": "ce1-geo-trajets-quotidiens",
                             "subtitle": "Quartier, école et transports"
+                        },
+                        {
+                            "id": "ce1-geo-carte-regions",
+                            "title": "Carte des régions de France",
+                            "subtitle": "Touche la région demandée",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "map-locate",
+                                "dataFile": "data/board_map_locate_ce1.json",
+                                "mapFile": "data/maps/france-regions.svg",
+                                "mapId": "france-regions",
+                                "category": "ce1_map_regions_france",
+                                "questions": 5
+                            }
                         }
                     ],
                     "lessons": [
@@ -6455,6 +6469,145 @@
                                     ],
                                     "answer": "L'inviter dans ton jeu et prévenir un adulte",
                                     "explanation": "Un rejet qui dure une semaine ne s'arrête pas tout seul : l'inviter rompt son isolement, et l'adulte peut agir sur le groupe. Attendre laisse la situation durer, et lui demander de se justifier reviendrait à lui reprocher d'être rejetée."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "ce1-emc-stereotypes-subtheme",
+                    "title": "Stéréotypes et préjugés",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "ce1-emc-stereotypes",
+                            "title": "Vrai pour tout le monde ?",
+                            "subtitle": "Repérer une idée toute faite",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce1.json",
+                                "category": "ce1-stereotypes",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-emc-prejuges",
+                            "title": "Juger trop vite",
+                            "subtitle": "Reconnaître un préjugé",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce1.json",
+                                "category": "ce1-prejuges",
+                                "questions": 6
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "ce1-lesson-stereotype",
+                            "title": "Le stéréotype",
+                            "subtitle": "Une phrase qui range tout le monde dans la même case",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans la cour, on entend parfois : « les filles n'aiment pas le foot », « les garçons ne pleurent pas ». Ces phrases parlent de tout un groupe d'un seul coup, comme si chaque personne du groupe était pareille. On appelle cela un stéréotype."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Sacha dit : « le foot, c'est pour les garçons ». Mais Inès joue au foot à chaque récréation, et Tom préfère la corde à sauter. La phrase de Sacha est donc fausse."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Comment je le repère",
+                                    "items": [
+                                        "La phrase parle d'un groupe entier : les filles, les garçons, les grands.",
+                                        "Elle décide ce que chacun aime ou sait faire, sans connaître personne.",
+                                        "Elle tombe dès qu'on regarde vraiment autour de soi."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "Mon test",
+                                    "content": "Je cherche une seule personne de la classe qui ne ressemble pas à la phrase. Si je la trouve, la phrase ne tient plus."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève affirme : « la danse, c'est pour les filles ». Comment montrer que c'est faux ?",
+                                    "choices": [
+                                        "En pensant à Nino, qui va au cours de danse",
+                                        "En demandant aux filles si la phrase leur plaît",
+                                        "En comptant les filles qui dansent en classe"
+                                    ],
+                                    "answer": "En pensant à Nino, qui va au cours de danse",
+                                    "explanation": "Un seul garçon qui danse suffit à faire tomber la phrase. Savoir si elle plaît ne dit pas si elle est vraie, et compter les filles n'apprend rien sur les garçons."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Laquelle de ces trois phrases est un stéréotype ?",
+                                    "choices": [
+                                        "Les garçons courent tous plus vite que les filles",
+                                        "Léo court plus vite que moi dans la cour de récré",
+                                        "Ma cousine court plus vite que son frère au parc"
+                                    ],
+                                    "answer": "Les garçons courent tous plus vite que les filles",
+                                    "explanation": "Seule la première phrase met tous les garçons et toutes les filles dans la même case. Les deux autres parlent d'une personne que l'on connaît : ce sont des faits observés."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-prejuge",
+                            "title": "Le préjugé",
+                            "subtitle": "Décider comment est quelqu'un avant de le connaître",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un préjugé, c'est une idée que l'on se fait sur une personne avant de l'avoir connue. On regarde ses lunettes, ses habits ou sa taille, et on croit déjà savoir ce qu'elle aime ou ce qu'elle sait faire. Pourtant, on ne lui a même pas parlé."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un nouvel élève arrive avec des lunettes. Avant la course, Maya se dit : « il va finir dernier ». Le jour de la course, il arrive dans les premiers. Maya s'était trompée."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Deux mots à ne pas mélanger",
+                                    "items": [
+                                        "Le stéréotype parle d'un groupe entier : les filles, les grands.",
+                                        "Le préjugé s'attaque à une seule personne, encore inconnue.",
+                                        "Dans les deux cas, on croit savoir sans avoir regardé."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "Mon réflexe",
+                                    "content": "Quand une idée me vient sur quelqu'un que je ne connais pas, je la garde pour moi et je vais lui parler d'abord."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un nouvel élève parle une autre langue avec sa maman. Ilyas décide qu'il ne comprendra rien en classe. Que fait Ilyas ?",
+                                    "choices": [
+                                        "Il juge son camarade avant de lui avoir parlé",
+                                        "Il remarque que son camarade parle deux langues",
+                                        "Il aide son camarade à suivre la leçon du jour"
+                                    ],
+                                    "answer": "Il juge son camarade avant de lui avoir parlé",
+                                    "explanation": "Ilyas décide tout seul, sans avoir échangé un mot avec lui. Parler deux langues est un fait vrai, mais ce n'est pas ce que fait Ilyas, et il ne propose aucune aide."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans la cour, tu entends : « elle est petite, elle ne saura pas attraper le ballon ». Que faut-il faire ?",
+                                    "choices": [
+                                        "Lui lancer le ballon et voir ce qu'elle sait faire",
+                                        "Lui confier un rôle plus facile dans le jeu",
+                                        "Choisir un autre jeu pour éviter le problème"
+                                    ],
+                                    "answer": "Lui lancer le ballon et voir ce qu'elle sait faire",
+                                    "explanation": "Tant qu'on n'a pas essayé, on ne sait rien : le ballon lancé donne la réponse. Lui donner un rôle plus facile ou changer de jeu, c'est croire le préjugé sans l'avoir vérifié."
                                 }
                             ]
                         }
