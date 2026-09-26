@@ -222,6 +222,19 @@ function Validate-Exercise($path, $themeId, $exercise) {
             }
         }
     }
+    if ($exercise.params.type -eq 'place-value') {
+        # 10 = nombre de rangs nommes par le moteur (unites -> milliards).
+        if ($null -ne $exercise.params.digitCount) {
+            $placeDigitsVal = 0
+            $placeDigitsOk = [int]::TryParse([string]$exercise.params.digitCount, [ref]$placeDigitsVal)
+            if (-not $placeDigitsOk -or $placeDigitsVal -lt 2 -or $placeDigitsVal -gt 10) {
+                Add-Issue("${path}: digitCount invalide pour $($exercise.id)")
+            }
+        }
+        if ($null -ne $exercise.params.ask -and $exercise.params.ask -notin @('digit', 'value')) {
+            Add-Issue("${path}: ask invalide pour $($exercise.id)")
+        }
+    }
     if ($exercise.engine -eq 'matching' -and -not (Is-NonEmptyString $exercise.params.category)) {
         Add-Issue("${path}: category manquante pour matching ($($exercise.id))")
     }

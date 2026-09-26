@@ -241,7 +241,11 @@
                 const maxValue = Math.pow(10, digitCount) - 1;
                 const value = rnd(p.min || minValue, p.max || maxValue);
                 const valueStr = value.toString();
-                const placeNames = ['unités', 'dizaines', 'centaines', 'milliers', 'dizaines de milliers', 'centaines de milliers'];
+                // Couvre jusqu'au milliard (10 rangs, digitCount max borné à 10
+                // par les 2 validateurs). Au-delà, le repli `position N` ci-dessous
+                // afficherait un libellé non pédagogique : il ne doit jamais être
+                // atteint par du contenu valide, il ne reste que par prudence.
+                const placeNames = ['unités', 'dizaines', 'centaines', 'milliers', 'dizaines de milliers', 'centaines de milliers', 'millions', 'dizaines de millions', 'centaines de millions', 'milliards'];
                 const askMode = p.ask || 'digit';
                 const positionsAvailable = valueStr.length;
                 const posFromRight = rnd(0, positionsAvailable - 1);

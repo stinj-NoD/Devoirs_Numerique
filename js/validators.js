@@ -500,6 +500,19 @@
                 }
             }
         }
+        if (exercise.params.type === 'place-value') {
+            // 10 = nombre de rangs nommés par le moteur (unités → milliards).
+            // Au-delà, il afficherait « position N » au lieu d'un nom de rang.
+            if (exercise.params.digitCount !== undefined) {
+                const digits = Number(exercise.params.digitCount);
+                if (!Number.isInteger(digits) || digits < 2 || digits > 10) {
+                    return { valid: false, reason: 'digitCount invalide pour place-value (2 à 10 attendu).' };
+                }
+            }
+            if (exercise.params.ask !== undefined && !['digit', 'value'].includes(exercise.params.ask)) {
+                return { valid: false, reason: 'ask invalide pour place-value (digit ou value attendu).' };
+            }
+        }
         if (exercise.engine === 'matching' && !this.isNonEmptyString(exercise.params.category)) {
             return { valid: false, reason: 'category manquante pour matching.' };
         }
