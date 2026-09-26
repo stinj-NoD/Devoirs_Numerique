@@ -1,0 +1,570 @@
+const UIVisuals = {
+    drawSvgTarget(p) {
+        const d = p.data || {};
+        const s = 200;
+        const c = s / 2;
+        const sortedZones = [...(d.zonesDefinitions || [])].sort((a, b) => b - a);
+        const colors = ['#4A90E2', '#FF6B6B', '#FFD700', '#48bb78', '#9F7AEA'];
+
+        let svg = `<svg viewBox="0 0 ${s} ${s}" width="180" height="180">`;
+
+        if (sortedZones.length === 0) return svg + `<text x="100" y="100">Erreur Zone</text></svg>`;
+
+        sortedZones.forEach((val, i) => {
+            const r = 90 - (i * (90 / sortedZones.length));
+            svg += `<circle cx="${c}" cy="${c}" r="${r}" fill="${colors[i % colors.length]}" stroke="white" stroke-width="2"/>`;
+            svg += `<text x="${c}" y="${c - r + 15}" text-anchor="middle" font-size="12" font-weight="bold" fill="white" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5)">${val}</text>`;
+        });
+
+        (d.hits || []).forEach(h => {
+            const zoneIdx = sortedZones.indexOf(h.val);
+            if (zoneIdx === -1) return;
+
+            const rHit = 90 - (zoneIdx * (90 / sortedZones.length)) - 10;
+            const tx = c + rHit * Math.cos(h.angle);
+            const ty = c + rHit * Math.sin(h.angle);
+            svg += `<circle cx="${tx}" cy="${ty}" r="6" fill="black" stroke="white" stroke-width="2"/>`;
+        });
+
+        return `<div class="visual-card visual-card--target">${svg}</svg></div>`;
+    },
+
+    getDivisionSteps(dividend, divisor) {
+        const dividendStr = dividend.toString();
+        const steps = [];
+        let currentPart = "";
+
+        for (let i = 0; i < dividendStr.length; i++) {
+            currentPart += dividendStr[i];
+            const currentVal = parseInt(currentPart, 10);
+            const q = Math.floor(currentVal / divisor);
+
+            if (q > 0 || i === dividendStr.length - 1) {
+                const sub = q * divisor;
+                const remainder = currentVal - sub;
+
+                steps.push({
+                    sub: sub,
+                    rem: remainder,
+                    nextDigit: dividendStr[i + 1] || "",
+                    endIndex: i,
+                    partLength: currentPart.length
+                });
+
+                currentPart = remainder.toString();
+                if (remainder === 0) currentPart = "";
+            }
+        }
+
+        return steps;
+    },
+
+    drawSquare(p) {
+        const d = p.data || {};
+        const nums = d.numbers || [];
+        const gridSize = Math.sqrt(nums.length || 9);
+        const selected = d.selectedIndices || [];
+        const solutionCount = d.solutionCount || 3;
+
+        return `<div class="square-container">
+            <div class="target-badge">CIBLE : ${d.target || "?"}</div>
+            <div class="square-hint">Touche ${solutionCount} nombres dont la somme fait ${d.target || "?"}</div>
+            <div class="square-grid" style="--square-cols:${gridSize}">
+                ${nums.map((n, idx) => {
+                    const isSelected = selected.includes(idx);
+                    return `<div class="number-card ${isSelected ? 'selected' : ''}" data-idx="${idx}">${n}</div>`;
+                }).join('')}
+            </div>
+        </div>`;
+    },
+
+    drawBird(p) {
+        const d = p.data || {};
+        const duration = d.duration || 8;
+        // Plus la traversée est rapide (vitesse/duration faible), plus le
+        // ciel est chargé en nuages : le décor reflète visuellement la
+        // difficulté plutôt que de rester identique à tous les niveaux.
+        const cloudCount = duration <= 4 ? 5 : (duration <= 6 ? 4 : 3);
+        const cloudsHtml = Array.from({ length: cloudCount }, (_, i) => {
+            const layer = (i % 3) + 1;
+            const topPercent = 8 + ((i * 37) % 70);
+            const delay = (i * (duration / cloudCount)).toFixed(1);
+            return `<div class="sky-cloud sky-cloud--layer${layer}" style="--cloud-top:${topPercent}%; --cloud-delay:-${delay}s; --cloud-duration:${duration * (1.4 + layer * 0.3)}s;"></div>`;
+        }).join('');
+
+        return `<div class="sky-container visual-card visual-card--bird">
+            ${cloudsHtml}
+            <div class="bird-container" style="--bird-duration:${duration}s;">
+                <div class="bird-bubble">${d.question || "?"}</div>
+                <div class="bird-sprite">
+                    <span class="bird-sprite-wing bird-sprite-wing--back"></span>
+                    <span class="bird-sprite-body"></span>
+                    <span class="bird-sprite-wing bird-sprite-wing--front"></span>
+                </div>
+            </div>
+        </div>`;
+    },
+
+    drawFractionWedges(n, d, radius, center) {
+        let paths = "";
+        for (let i = 0; i < d; i++) {
+            const a1 = (i * 2 * Math.PI) / d - Math.PI / 2;
+            const a2 = ((i + 1) * 2 * Math.PI) / d - Math.PI / 2;
+            const x1 = center + radius * Math.cos(a1);
+            const y1 = center + radius * Math.sin(a1);
+            const x2 = center + radius * Math.cos(a2);
+            const y2 = center + radius * Math.sin(a2);
+            const color = i < n ? 'var(--color-primary)' : 'white';
+            paths += `<path d="M ${center} ${center} L ${x1} ${y1} A ${radius} ${radius} 0 0 1 ${x2} ${y2} Z" fill="${color}" stroke="var(--color-text)" stroke-width="2" />`;
+        }
+        return paths;
+    },
+
+    drawFraction(p) {
+        const d = p.data || {};
+        const denom = d.d || 1;
+        const num = d.n || 0;
+        const paths = this.drawFractionWedges(num, denom, 60, 80);
+        return `<div class="fraction-display visual-card visual-card--fraction"><svg viewBox="0 0 160 160" width="140" height="140">${paths}</svg></div>`;
+    },
+
+    drawFractionOperation(p) {
+        const d = p.data || {};
+        const radius = 45, center = 55, size = 110;
+        const pie1 = this.drawFractionWedges(d.n1 || 0, d.d1 || 1, radius, center);
+        const pie2 = this.drawFractionWedges(d.n2 || 0, d.d2 || 1, radius, center);
+        const opSymbol = d.operatorSymbol || '+';
+
+        return `
+            <div class="fraction-op-display visual-card visual-card--fraction-op">
+                <div class="fraction-op-row">
+                    <svg viewBox="0 0 ${size} ${size}" width="100" height="100">${pie1}</svg>
+                    <span class="fraction-op-symbol">${opSymbol}</span>
+                    <svg viewBox="0 0 ${size} ${size}" width="100" height="100">${pie2}</svg>
+                    <span class="fraction-op-symbol">=</span>
+                    <span class="fraction-op-result-placeholder">?/${d.commonD || '?'}</span>
+                </div>
+                <div class="fraction-op-labels">
+                    <span>${d.n1}/${d.d1}</span>
+                    <span class="fraction-op-symbol-label">${opSymbol}</span>
+                    <span>${d.n2}/${d.d2}</span>
+                </div>
+            </div>`;
+    },
+
+    drawClockCard(p) {
+        const d = p.data || {};
+        const mins = d.minutes || 0;
+        const hours = d.hours || 0;
+        const s = 160;
+        const c = s / 2;
+        const r = 70;
+        const ma = (mins / 60) * 360;
+        const ha = ((hours % 12) / 12) * 360 + (mins / 60) * 30;
+
+        const periodInfo = `<div class="period-badge">${d.periodIcon || '\u{1F550}'} ${d.periodText || ''}</div>`;
+
+        let svg = `<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}"><circle cx="${c}" cy="${c}" r="${r}" fill="white" stroke="var(--color-text)" stroke-width="3"/>`;
+
+        for (let i = 1; i <= 12; i++) {
+            const a = (i * 30) * (Math.PI / 180);
+            const x = c + (r - 16) * Math.sin(a);
+            const y = c - (r - 16) * Math.cos(a);
+            svg += `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="12px" font-weight="bold" fill="var(--color-text)">${i}</text>`;
+        }
+
+        svg += `<line x1="${c}" y1="${c}" x2="${c + 35 * Math.sin(ha * Math.PI / 180)}" y2="${c - 35 * Math.cos(ha * Math.PI / 180)}" stroke="var(--color-text)" stroke-width="6" stroke-linecap="round"/>`;
+        svg += `<line x1="${c}" y1="${c}" x2="${c + 52 * Math.sin(ma * Math.PI / 180)}" y2="${c - 52 * Math.cos(ma * Math.PI / 180)}" stroke="var(--color-secondary)" stroke-width="4" stroke-linecap="round"/>`;
+        svg += `<circle cx="${c}" cy="${c}" r="4" fill="var(--color-text)"/>`;
+        svg += `</svg>`;
+
+        return `<div class="visual-card visual-card--clock clock-card">${periodInfo}${svg}</div>`;
+    },
+
+    drawTimeMemoCard(p) {
+        const d = p.data || {};
+        const text = d.memoText || "1 h = 60 min";
+
+        const memoHtml = d.showMemo ? `
+            <div class="time-memo-badge">
+                RAPPEL : ${text}
+            </div>` : '';
+
+        return `
+            <div class="time-memo-card visual-card visual-card--time">
+                ${memoHtml}
+                <div class="time-memo-question">${p.question}</div>
+                <div class="time-memo-spacer"></div>
+            </div>`;
+    },
+
+    drawMoneyCard(p) {
+        const d = p.data || {};
+        const specs = { 1: { kind: 'coin', tone: 'bronze' }, 2: { kind: 'coin', tone: 'silver' }, 5: { kind: 'bill', tone: 'green' }, 10: { kind: 'bill', tone: 'red' }, 20: { kind: 'bill', tone: 'blue' }, 50: { kind: 'bill', tone: 'gold' } };
+        const hits = d.hits || [];
+
+        const items = hits.map((item) => {
+            const val = (typeof item === 'object') ? item.val : item;
+            const spec = specs[val] || specs[1];
+            const isBill = spec.kind === 'bill';
+            const billExtras = isBill
+                ? '<span class="money-token-stars">★ ★ ★</span><span class="money-token-window"></span><span class="money-token-serial">EU' + val + '00000</span>'
+                : '';
+            return `
+                <div class="money-token money-token--${spec.kind} money-token--${spec.tone}">
+                    ${billExtras}
+                    <span class="money-token-value">${val}</span>
+                    <span class="money-token-currency">EUR</span>
+                </div>`;
+        }).join('');
+
+        return `
+            <div class="money-card visual-card visual-card--money">
+                <div class="money-stage">
+                    ${items || '<div class="money-empty-state">Aucune piece a afficher</div>'}
+                </div>
+            </div>`;
+    },
+
+    drawBarChart(p) {
+        const d = p.data || {};
+        const bars = Array.isArray(d.bars) ? d.bars : [];
+        const tones = ['blue', 'red', 'green', 'gold', 'silver'];
+        const maxVal = Math.max(1, ...bars.map((b) => Number(b.value) || 0));
+
+        const barsHtml = bars.map((bar, i) => {
+            const heightPercent = Math.max(6, Math.round((Number(bar.value) / maxVal) * 100));
+            const tone = tones[i % tones.length];
+            return `
+                <div class="bar-chart-col">
+                    <div class="bar-chart-value">${SecurityUtils.escapeHtml(String(bar.value))}</div>
+                    <div class="bar-chart-bar bar-chart-bar--${tone}" style="--bar-height:${heightPercent}%"></div>
+                    <div class="bar-chart-label">${SecurityUtils.escapeHtml(String(bar.label))}</div>
+                </div>`;
+        }).join('');
+
+        return `
+            <div class="bar-chart-card visual-card visual-card--barchart">
+                ${d.unit ? `<div class="bar-chart-unit">${SecurityUtils.escapeHtml(String(d.unit))}</div>` : ''}
+                <div class="bar-chart-grid">
+                    ${barsHtml}
+                </div>
+            </div>`;
+    },
+
+    drawDataTable(p) {
+        const d = p.data || {};
+        const rowLabels = Array.isArray(d.rowLabels) ? d.rowLabels : [];
+        const colLabels = Array.isArray(d.colLabels) ? d.colLabels : [];
+        const grid = Array.isArray(d.grid) ? d.grid : [];
+
+        const headHtml = colLabels.map((c) => `<th>${SecurityUtils.escapeHtml(String(c))}</th>`).join('');
+        const rowsHtml = rowLabels.map((rowLabel, r) => {
+            const cellsHtml = (grid[r] || []).map((val) => `<td>${SecurityUtils.escapeHtml(String(val))}</td>`).join('');
+            return `<tr><th scope="row">${SecurityUtils.escapeHtml(String(rowLabel))}</th>${cellsHtml}</tr>`;
+        }).join('');
+
+        return `
+            <div class="data-table-card visual-card visual-card--datatable">
+                ${d.unit ? `<div class="bar-chart-unit">${SecurityUtils.escapeHtml(String(d.unit))}</div>` : ''}
+                <div class="data-table-scroll">
+                    <table class="data-table-grid">
+                        <thead><tr><th>&nbsp;</th>${headHtml}</tr></thead>
+                        <tbody>${rowsHtml}</tbody>
+                    </table>
+                </div>
+            </div>`;
+    },
+
+    drawPieChart(p) {
+        const d = p.data || {};
+        const slices = Array.isArray(d.slices) ? d.slices : [];
+        const tones = ['blue', 'red', 'green', 'gold', 'silver'];
+        const size = 160;
+        const radius = size / 2;
+        const cx = radius;
+        const cy = radius;
+
+        let cumulativePct = 0;
+        const paths = slices.map((slice, i) => {
+            const startAngle = (cumulativePct / 100) * 2 * Math.PI - Math.PI / 2;
+            cumulativePct += Number(slice.pct) || 0;
+            const endAngle = (cumulativePct / 100) * 2 * Math.PI - Math.PI / 2;
+            const largeArc = (Number(slice.pct) || 0) > 50 ? 1 : 0;
+            const x1 = cx + radius * Math.cos(startAngle);
+            const y1 = cy + radius * Math.sin(startAngle);
+            const x2 = cx + radius * Math.cos(endAngle);
+            const y2 = cy + radius * Math.sin(endAngle);
+            const tone = tones[i % tones.length];
+            const d_attr = `M ${cx} ${cy} L ${x1.toFixed(2)} ${y1.toFixed(2)} A ${radius} ${radius} 0 ${largeArc} 1 ${x2.toFixed(2)} ${y2.toFixed(2)} Z`;
+            return `<path d="${d_attr}" class="pie-chart-slice pie-chart-slice--${tone}"></path>`;
+        }).join('');
+
+        const legendHtml = slices.map((slice, i) => {
+            const tone = tones[i % tones.length];
+            return `
+                <div class="pie-chart-legend-item">
+                    <span class="pie-chart-legend-swatch pie-chart-legend-swatch--${tone}"></span>
+                    <span class="pie-chart-legend-label">${SecurityUtils.escapeHtml(String(slice.label))}</span>
+                </div>`;
+        }).join('');
+
+        return `
+            <div class="pie-chart-card visual-card visual-card--piechart">
+                ${d.unit ? `<div class="bar-chart-unit">${SecurityUtils.escapeHtml(String(d.unit))}</div>` : ''}
+                <div class="pie-chart-body">
+                    <svg viewBox="0 0 ${size} ${size}" width="150" height="150" class="pie-chart-svg">${paths}</svg>
+                    <div class="pie-chart-legend">${legendHtml}</div>
+                </div>
+            </div>`;
+    },
+
+    drawCountingCard(p) {
+        const d = p.data || {};
+        const tens = d.tens || 0;
+        const units = d.units || 0;
+
+        const tensHtml = Array.from({ length: tens }, () => `
+            <div class="ten-stack">
+                ${Array.from({ length: 10 }, () => '<div class="ten-stack-cube"></div>').join('')}
+            </div>
+        `).join('');
+
+        const unitsHtml = Array.from({ length: units }, () => '<div class="unit-cube"></div>').join('');
+
+        return `
+            <div class="counting-card visual-card visual-card--counting">
+                <div class="counting-stage">
+                    ${tensHtml}
+                    ${units > 0 ? `<div class="units-grid">${unitsHtml}</div>` : ''}
+                </div>
+            </div>`;
+    },
+
+    drawConversionCard(p) {
+        const d = p.data || {};
+        let cols = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
+        if (d.type === 'masse') cols = ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'];
+        if (d.type === 'capacite') cols = ['kL', 'hL', 'daL', 'L', 'dL', 'cL', 'mL'];
+        if (d.type === 'aire') cols = ['m²', 'dm²', 'cm²', 'mm²'];
+
+        const headerHtml = cols.map((unit) => {
+            const isHighlight = unit === d.u1 || unit === d.u2;
+            return `<div class="conversion-unit ${isHighlight ? 'conversion-unit--active' : ''}">${unit}</div>`;
+        }).join('');
+
+        return `
+            <div class="conversion-card visual-card visual-card--conversion">
+                <div class="conversion-prompt">
+                    <span class="conversion-value">${d.val}</span>
+                    <span class="conversion-source">${d.u1}</span>
+                    <span class="conversion-arrow">-&gt;</span>
+                    <span class="conversion-target-value">?</span>
+                    <span class="conversion-target">${d.u2}</span>
+                </div>
+                <div class="conversion-grid">
+                    ${headerHtml}
+                </div>
+                <div class="conversion-hint">Utilise le tableau pour t'aider.</div>
+            </div>`;
+    },
+
+    drawDivisionCard(p, input) {
+        const d = p.data || {};
+        const dividend = d.dividend || 0;
+        const divisor = d.divisor || 1;
+        const resultLabel = d.askRemainder ? 'Reste' : 'Quotient';
+        const divStr = dividend.toString();
+        const width = divStr.length;
+        const steps = this.getDivisionSteps(dividend, divisor);
+        const buildDigits = (value, startIndex, colorLast = false, maskLast = false) => {
+            const str = value.toString();
+            const cells = Array.from({ length: width }, () => '&nbsp;');
+            str.split('').forEach((char, offset) => {
+                const targetIndex = startIndex + offset;
+                if (targetIndex >= 0 && targetIndex < width) cells[targetIndex] = char;
+            });
+
+            return cells.map((char, idx) => {
+                const filledChars = str.length;
+                const isLast = idx === (startIndex + filledChars - 1) && char.trim() !== '';
+                if (maskLast && isLast) {
+                    const displayValue = (input !== undefined && input !== null && input !== '') ? input : '?';
+                    return `<span class="division-cell division-cell-masked">${displayValue}</span>`;
+                }
+                const cls = (colorLast && isLast) ? 'division-cell division-cell-next' : 'division-cell';
+                return `<span class="${cls}">${char}</span>`;
+            }).join('');
+        };
+        const buildRow = (sign, value, startIndex, variant = '', underlineLength = 0, colorLast = false, maskLast = false) => {
+            const rowClass = variant ? ` division-row--${variant}` : '';
+            const lineStart = underlineLength > 0 ? 2 + startIndex : 0;
+            const lineEnd = underlineLength > 0 ? lineStart + underlineLength : 0;
+            const lineHtml = underlineLength > 0
+                ? `<span class="division-row-line" style="grid-column:${lineStart} / ${lineEnd};"></span>`
+                : '';
+            return `
+                <div class="division-row${rowClass}">
+                    <span class="division-sign">${sign || '&nbsp;'}</span>
+                    ${buildDigits(value, startIndex, colorLast, maskLast)}
+                    ${lineHtml}
+                </div>`;
+        };
+
+        // En mode "Reste", le dernier reste ne doit pas apparaître en clair
+        // dans le calcul : c'est justement la valeur demandée. Le quotient,
+        // lui, n'apparaît déjà jamais dans la grille (il n'est affiché que
+        // dans le panneau latéral) — on applique la même règle au reste.
+        let workRows = buildRow('', divStr, 0);
+        steps.forEach((step, stepIndex) => {
+            const subStr = step.sub.toString();
+            const subStart = step.endIndex - subStr.length + 1;
+            const fullRemStr = `${step.rem}${step.nextDigit || ''}`;
+            const remEnd = step.nextDigit ? step.endIndex + 1 : step.endIndex;
+            const remStart = remEnd - fullRemStr.length + 1;
+            const isFinalRemainder = d.askRemainder && stepIndex === steps.length - 1 && !step.nextDigit;
+            workRows += buildRow('-', subStr, subStart, 'sub', subStr.length);
+            workRows += buildRow('', fullRemStr, remStart, 'result', 0, !!step.nextDigit, isFinalRemainder);
+        });
+
+        // En mode "Reste", la saisie se fait directement dans le calcul (case
+        // masquée ci-dessus, à la place géométrique réelle du reste) : le
+        // panneau latéral n'affiche alors que le diviseur, sans dupliquer une
+        // seconde zone de saisie/deuxième "?" pour la même réponse.
+        const quotientPanelHtml = d.askRemainder ? '' : `
+                        <div class="division-quotient-panel">
+                            <div class="division-quotient-value">${input || '?'}</div>
+                            <div class="division-quotient-label">${resultLabel}</div>
+                        </div>`;
+
+        return `
+            <div class="division-card visual-card visual-card--division">
+                <div class="division-layout">
+                    <div class="division-work" style="--division-width:${width};">
+                        ${workRows}
+                    </div>
+                    <div class="division-side">
+                        <div class="division-divisor">${divisor}</div>
+                        ${quotientPanelHtml}
+                    </div>
+                </div>
+            </div>`;
+    },
+
+    drawOperationPosedCard(p) {
+        const d = p.data || {};
+        const a = d.a || 0;
+        const b = d.b || 0;
+        const operator = d.operator || 'add';
+        const symbol = d.operatorSymbol || '+';
+        const decimals = Number(d.decimals) || 0;
+        // Colonne virgule sur les lignes d'opérande : seulement pour add/sub
+        // (les 2 opérandes partagent le même nombre de décimales, la virgule
+        // tombe donc dans la même colonne sur les deux lignes). Pour mult
+        // (décimal × entier), la convention française pose la multiplication
+        // comme si les 2 facteurs étaient entiers — virgule ignorée pendant
+        // le calcul, replacée seulement dans le résultat — donc pas de
+        // colonne virgule sur les lignes d'opérande, seulement sur celle du
+        // résultat.
+        const operandsShowComma = decimals > 0 && operator !== 'mult';
+        // padStart garantit au moins 1 chiffre avant la virgule (ex.
+        // value=7, decimals=1 → "07" → "0,7") ; jamais déclenché par les
+        // plages rnd() actuelles (toutes ≥10) mais robuste si un futur
+        // contenu combinait un niveau bas avec decimals=2.
+        const padScaled = (value, withComma) => withComma ? value.toString().padStart(decimals + 1, '0') : value.toString();
+        const aStr = padScaled(a, operandsShowComma);
+        const bStr = padScaled(b, operandsShowComma);
+        const result = operator === 'add' ? a + b : (operator === 'sub' ? a - b : a * b);
+        const resultStr = padScaled(result, decimals > 0);
+        // width couvre l'historique (opérandes + le "+1" existant pour
+        // mult) ET la vraie longueur du résultat, qui peut dépasser celle
+        // des opérandes (retenue qui crée un chiffre de plus, produit d'une
+        // multiplication) — correctif au passage, purement cosmétique
+        // (jamais lié à la validation) : la ligne de résultat n'affichait
+        // pas assez de cellules "?" dans ce cas. +1 case en plus quand une
+        // virgule doit être affichée (elle occupe sa propre colonne).
+        const legacyWidth = Math.max(aStr.length, bStr.length) + (operator === 'mult' ? 1 : 0) + (operandsShowComma ? 1 : 0);
+        const width = Math.max(legacyWidth, resultStr.length + (decimals > 0 ? 1 : 0));
+        // Colonne absolue (depuis la gauche) où la virgule tombe, commune à
+        // toutes les lignes qui en affichent une (opérandes, retenues,
+        // résultat) : `decimals` cases avant la fin de la ligne.
+        const commaCol = decimals > 0 ? width - decimals - 1 : -1;
+
+        // Construit une ligne de `width` cases en partant de la droite : les
+        // `decimals` derniers chiffres, une virgule si `showComma`, puis le
+        // reste des chiffres, puis des cases vides pour compléter à `width`.
+        const buildRow = (str, showComma, colorClass = '') => {
+            const chars = str.split('');
+            const cellsFromRight = [];
+            if (showComma) {
+                for (let k = 0; k < decimals; k++) {
+                    cellsFromRight.push(`<span class="operation-cell${colorClass ? ' ' + colorClass : ''}">${chars.pop() || ''}</span>`);
+                }
+                cellsFromRight.push('<span class="operation-cell operation-cell--comma">,</span>');
+            }
+            while (chars.length) {
+                cellsFromRight.push(`<span class="operation-cell${colorClass ? ' ' + colorClass : ''}">${chars.pop()}</span>`);
+            }
+            while (cellsFromRight.length < width) {
+                cellsFromRight.push('<span class="operation-cell">&nbsp;</span>');
+            }
+            return cellsFromRight.reverse().join('');
+        };
+        const buildDigitRow = (str, colorClass = '') => buildRow(str, operandsShowComma, colorClass);
+
+        // Calcule les retenues (addition) ou emprunts (soustraction) colonne
+        // par colonne, de droite à gauche, pour les afficher au-dessus du
+        // premier terme — c'est le repère visuel qui manque le plus aux
+        // enfants pour comprendre où "ça déborde". Opère sur les chiffres
+        // bruts (virgule ignorée) : add/sub partagent le même nombre de
+        // décimales des deux côtés, donc une addition/soustraction chiffre
+        // à chiffre sur les entiers à l'échelle équivaut exactement à
+        // l'opération décimale alignée par la virgule.
+        const carries = [];
+        if (operator === 'add') {
+            let carry = 0;
+            const aDigits = aStr.split('').reverse().map(Number);
+            const bDigits = bStr.split('').reverse().map(Number);
+            for (let i = 0; i < width; i++) {
+                const sum = (aDigits[i] || 0) + (bDigits[i] || 0) + carry;
+                carry = sum >= 10 ? 1 : 0;
+                carries.unshift(i < width - 1 ? carry : 0);
+            }
+        } else if (operator === 'sub') {
+            let borrow = 0;
+            const aDigits = aStr.split('').reverse().map(Number);
+            const bDigits = bStr.split('').reverse().map(Number);
+            for (let i = 0; i < width; i++) {
+                const need = (aDigits[i] || 0) - borrow < (bDigits[i] || 0);
+                carries.unshift(need ? 1 : 0);
+                borrow = need ? 1 : 0;
+            }
+        }
+        const hasCarryRow = operator !== 'mult' && carries.some((c) => c);
+        const carryRowHtml = hasCarryRow
+            ? `<div class="operation-row operation-row--carry">${carries.map((c, i) => i === commaCol
+                ? '<span class="operation-cell">&nbsp;</span>'
+                : `<span class="operation-cell operation-cell--carry">${c ? (operator === 'add' ? '1' : '•') : '&nbsp;'}</span>`
+              ).join('')}</div>`
+            : '';
+
+        const resultCells = Array.from({ length: width }, (_, i) => i === commaCol
+            ? '<span class="operation-cell operation-cell--comma">,</span>'
+            : '<span class="operation-cell operation-cell--empty">?</span>'
+        ).join('');
+
+        return `
+            <div class="operation-posed-card visual-card visual-card--operation-posed">
+                <div class="operation-layout" style="--operation-width:${width};">
+                    ${carryRowHtml}
+                    <div class="operation-row">${buildDigitRow(aStr)}</div>
+                    <div class="operation-row operation-row--operand">
+                        <span class="operation-sign">${symbol}</span>
+                        ${buildDigitRow(bStr)}
+                    </div>
+                    <div class="operation-line"></div>
+                    <div class="operation-row operation-row--result">${resultCells}</div>
+                </div>
+            </div>`;
+    }
+};
