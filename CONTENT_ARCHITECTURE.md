@@ -10,13 +10,13 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 
 ## Vue d'ensemble
 
-- **1100 exercices** et **428 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1104 exercices** et **430 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
 |---|---|
 | `choice-engine` | 589 |
-| `math-input` | 182 |
+| `math-input` | 186 |
 | `reading` | 58 |
 | `board-interactive` | 55 |
 | `matching` | 49 |
@@ -1409,7 +1409,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Nombres et calculs `(cm1-nombres-calculs)`
 
-- **Leçons** (11) :
+- **Leçons** (12) :
   - Lire une fraction `(cm1-lesson-fractions)` — blocs: paragraph, example, bullets, tip, check, check
   - Additionner des fractions de même dénominateur `(cm1-lesson-fractions-addition)` — blocs: paragraph, example, bullets, tip, check, check
   - Des fractions équivalentes `(cm1-lesson-fractions-equivalentes)` — blocs: paragraph, example, bullets, tip, check, check
@@ -1421,7 +1421,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Multiplication posée par un nombre à 2 chiffres `(cm1-lesson-multiplication-posee-2-chiffres)` — blocs: paragraph, example, bullets, tip, check, check
   - La position d'un chiffre dans un grand nombre `(cm1-lesson-position-valeur-grands-nombres)` — blocs: paragraph, example, mini-table, tip, check, check
   - Poser une addition ou une soustraction de décimaux `(cm1-lesson-decimaux-operations-posees)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (34) :
+  - Multiplier et diviser par 10, 100, 1000 `(cm1-lesson-multiplier-diviser-10-100-1000)` — blocs: paragraph, example, tip, check, check
+- **Exercices** (36) :
   - Grands Nombres `(cm1-m-big)` — engine: `math-input`, type=dictée-nombres, max=1000000, questions=5
   - Fractions `(cm1-frac-1)` — engine: `math-input`, type=fraction-view, maxDenom=8, questions=10
   - Construis la fraction `(cm1-frac-build)` — engine: `board-interactive`, type=fraction-build, minDenom=2, maxDenom=8, questions=8
@@ -1456,6 +1457,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Soustraction posée de décimaux `(cm1-m-soustraction-posee-decimaux-dixiemes)` — engine: `math-input`, type=operation-posed, operator=sub, level=2, decimals=1, questions=6
   - Addition posée de décimaux (centièmes) `(cm1-m-addition-posee-decimaux-centiemes)` — engine: `math-input`, type=operation-posed, operator=add, level=3, decimals=2, questions=6
   - Soustraction posée de décimaux (centièmes) `(cm1-m-soustraction-posee-decimaux-centiemes)` — engine: `math-input`, type=operation-posed, operator=sub, level=3, decimals=2, questions=6
+  - Multiplier par 10, 100, 1000 `(cm1-m-multiplier-10-100-1000)` — engine: `math-input`, type=calc-mental, operator=x, questions=10
+  - Diviser par 10, 100, 1000 `(cm1-m-diviser-10-100-1000)` — engine: `math-input`, type=calc-mental, operator=/, questions=10
 
 #### Grandeurs et mesures `(cm1-grandeurs-mesures)`
 
@@ -1933,9 +1936,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Nombres & calcul mental `(cm2-nombres-calcul-mental)`
 
-- **Leçons** (1) :
+- **Leçons** (2) :
   - Lire et écrire les grands nombres `(cm2-lesson-grands-nombres)` — blocs: paragraph, example, mini-table, tip, check, check
-- **Exercices** (16) :
+  - Calculer de tête en passant par un nombre rond `(cm2-lesson-calcul-mental-additif)` — blocs: paragraph, example, tip, check, check
+- **Exercices** (18) :
   - Les Milliards `(cm2_grands_nombres)` — engine: `math-input`, type=dictée-nombres, min=1000000, max=9999999999, questions=10
   - Division Mentale `(cm2_division_mentale)` — engine: `math-input`, type=calc-mental, operator=/, questions=10
   - Multiplier par 11 à 15 `(cm2_tables_x)` — engine: `math-input`, type=calc-mental, operator=x, questions=10
@@ -1952,6 +1956,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Soustraction posée niveau expert `(cm2-m-soustraction-posee-experte)` — engine: `math-input`, type=operation-posed, operator=sub, level=3, questions=6
   - Multiplication posée niveau expert `(cm2-m-multiplication-posee-experte)` — engine: `math-input`, type=operation-posed, operator=mult, level=3, questions=6
   - Jusqu’au milliard `(cm2-place-value-milliards)` — engine: `math-input`, type=place-value, digitCount=10, ask=digit, questions=8
+  - Additions de tête `(cm2-calcul-mental-additif)` — engine: `math-input`, type=calc-mental, operator=+, questions=10
+  - Soustractions de tête `(cm2-calcul-mental-soustractif)` — engine: `math-input`, type=calc-mental, operator=-, questions=10
 
 #### Fractions & décimaux `(cm2-fractions-decimaux)`
 

@@ -222,6 +222,41 @@ function Validate-Exercise($path, $themeId, $exercise) {
             }
         }
     }
+    if ($exercise.params.type -eq 'calc-mental') {
+        # Convention propre a ce type : operateurs symboliques (x / + -),
+        # la ou operation-posed attend add/sub/mult. Absent = multiplication.
+        if ($null -ne $exercise.params.operator -and $exercise.params.operator -notin @('x', '/', '+', '-')) {
+            Add-Issue("${path}: operator invalide pour $($exercise.id)")
+        }
+        if ($null -ne $exercise.params.range) {
+            $calcRange = $exercise.params.range
+            $rangeOk = ($calcRange -is [System.Collections.IList]) -and $calcRange.Count -eq 2
+            if ($rangeOk) {
+                $r0 = 0; $r1 = 0
+                $rangeOk = [int]::TryParse([string]$calcRange[0], [ref]$r0) -and [int]::TryParse([string]$calcRange[1], [ref]$r1) `
+                    -and $r0 -ge 0 -and $r1 -ge $r0
+            }
+            if (-not $rangeOk) {
+                Add-Issue("${path}: range invalide pour $($exercise.id)")
+            }
+        }
+        if ($null -ne $exercise.params.operands) {
+            $calcOperands = $exercise.params.operands
+            $operandsOk = ($calcOperands -is [System.Collections.IList]) -and $calcOperands.Count -ge 1
+            if ($operandsOk) {
+                foreach ($rawOperand in $calcOperands) {
+                    $operandVal = 0
+                    if (-not [int]::TryParse([string]$rawOperand, [ref]$operandVal) -or $operandVal -le 0) {
+                        $operandsOk = $false
+                        break
+                    }
+                }
+            }
+            if (-not $operandsOk) {
+                Add-Issue("${path}: operands invalide pour $($exercise.id)")
+            }
+        }
+    }
     if ($exercise.params.type -eq 'place-value') {
         # 10 = nombre de rangs nommes par le moteur (unites -> milliards).
         if ($null -ne $exercise.params.digitCount) {

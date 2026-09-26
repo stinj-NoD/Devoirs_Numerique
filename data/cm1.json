@@ -417,6 +417,46 @@
                                 "decimals": 2,
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "cm1-m-multiplier-10-100-1000",
+                            "title": "Multiplier par 10, 100, 1000",
+                            "subtitle": "De tête, sans poser",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "calc-mental",
+                                "operator": "x",
+                                "operands": [
+                                    10,
+                                    100,
+                                    1000
+                                ],
+                                "range": [
+                                    2,
+                                    99
+                                ],
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-m-diviser-10-100-1000",
+                            "title": "Diviser par 10, 100, 1000",
+                            "subtitle": "De tête, sans poser",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "calc-mental",
+                                "operator": "/",
+                                "operands": [
+                                    10,
+                                    100,
+                                    1000
+                                ],
+                                "range": [
+                                    2,
+                                    20
+                                ],
+                                "questions": 10
+                            }
                         }
                     ],
                     "lessons": [
@@ -1034,6 +1074,50 @@
                                     ],
                                     "answer": "Il soustraira des dixièmes à des centièmes et se trompera",
                                     "explanation": "En alignant par la droite, le 4 (des dixièmes) tombe sous le 5 (des centièmes) : les rangs ne se correspondent plus. Il faut écrire 6,40 et aligner les virgules."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-multiplier-diviser-10-100-1000",
+                            "title": "Multiplier et diviser par 10, 100, 1000",
+                            "subtitle": "Les chiffres changent de rang",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Multiplier par 10, 100 ou 1000 ne change pas les chiffres d'un nombre : cela change leur valeur. Chaque chiffre glisse vers la gauche, d'un rang pour 10, de deux rangs pour 100, de trois rangs pour 1000."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "37 × 100 = 3 700. Le 3 et le 7 sont toujours là, mais le 3 ne vaut plus 3 dizaines : il vaut 3 milliers. Les deux zéros marquent les rangs libérés."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Diviser fait exactement l'inverse : les chiffres glissent vers la droite et le nombre devient plus petit. 4 500 : 100 = 45."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Combien font 58 × 1000 ?",
+                                    "choices": [
+                                        "58 000 : chaque chiffre prend une valeur mille fois plus grande",
+                                        "5 800 : on ajoute deux zéros comme pour multiplier par 100",
+                                        "581 000 : on écrit 1000 juste à la suite du nombre 58"
+                                    ],
+                                    "answer": "58 000 : chaque chiffre prend une valeur mille fois plus grande",
+                                    "explanation": "Multiplier par 1000 fait glisser chaque chiffre de trois rangs : le 5 passe des dizaines aux dizaines de mille. Trois rangs se libèrent, on les marque par trois zéros : 58 000."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pourquoi 2 300 : 100 ne donne-t-il pas 23 000 ?",
+                                    "choices": [
+                                        "Parce que diviser rend le nombre plus petit : le résultat est 23",
+                                        "Parce qu'il faut enlever un seul zéro, donc le résultat est 230",
+                                        "Parce qu'un nombre qui finit par deux zéros ne se divise pas"
+                                    ],
+                                    "answer": "Parce que diviser rend le nombre plus petit : le résultat est 23",
+                                    "explanation": "Diviser par 100 fait glisser les chiffres de deux rangs vers la droite, donc vers un nombre plus petit : 2 300 : 100 = 23. N'enlever qu'un seul zéro reviendrait à diviser par 10."
                                 }
                             ]
                         }

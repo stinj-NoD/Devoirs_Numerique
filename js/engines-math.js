@@ -55,11 +55,36 @@
                 if (p.operator === "/") {
                     const ops = p.operands?.length ? p.operands : [2, 5, 10];
                     const diviseur = pick(ops);
-                    const ans = rnd(5, 50);
+                    // `range` borne le QUOTIENT, donc indirectement la taille du
+                    // dividende : c'est ce qui permet de calibrer un même
+                    // exercice de division par niveau. Défaut 5-50 inchangé.
+                    const ans = rnd(p.range?.[0] || 5, p.range?.[1] || 50);
                     return { question: `${ans * diviseur} : ${diviseur} = ?`, answer: ans, explanation: `${ans * diviseur} : ${diviseur} = ${ans}` };
                 }
+                // + et - tirent LES DEUX opérandes dans `range`, contrairement à
+                // add-simple (qui tire une somme puis la découpe, d'où ~20 % de
+                // tirages triviaux du type « 3 + 74 » sur des bornes CM2) et à
+                // sub-simple (dont le second opérande descend jusqu'à 0).
+                if (p.operator === "+") {
+                    a = rnd(p.range?.[0] || 2, p.range?.[1] || 10);
+                    b = rnd(p.range?.[0] || 2, p.range?.[1] || 10);
+                    return { question: `${a} + ${b} = ?`, answer: a + b, explanation: `${a} + ${b} = ${a + b}` };
+                }
+                if (p.operator === "-") {
+                    const x = rnd(p.range?.[0] || 2, p.range?.[1] || 10);
+                    const y = rnd(p.range?.[0] || 2, p.range?.[1] || 10);
+                    // Le plus grand passe devant : jamais de résultat négatif,
+                    // hors programme à l'école élémentaire.
+                    a = Math.max(x, y);
+                    b = Math.min(x, y);
+                    return { question: `${a} - ${b} = ?`, answer: a - b, explanation: `${a} - ${b} = ${a - b}` };
+                }
                 a = rnd(p.range?.[0] || 2, p.range?.[1] || 10);
-                b = rnd(2, 10);
+                // `operands` fournit les multiplicateurs quand ils doivent être
+                // choisis dans une liste (×10, ×100, ×1000) plutôt que tirés
+                // entre 2 et 10 — même rôle que pour la division. Absent, le
+                // comportement historique est inchangé.
+                b = p.operands?.length ? pick(p.operands) : rnd(2, 10);
                 return { question: `${a} × ${b} = ?`, answer: a * b, explanation: `${a} × ${b} = ${a * b}` };
             case 'oiseau-math': {
                 a = rnd(p.min || 1, p.max || 10);

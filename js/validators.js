@@ -500,6 +500,26 @@
                 }
             }
         }
+        if (exercise.params.type === 'calc-mental') {
+            // Convention propre à ce type : les opérateurs sont des symboles
+            // ('x', '/', '+', '-'), là où operation-posed attend 'add'/'sub'/'mult'.
+            // Opérateur absent = multiplication, comportement historique.
+            if (exercise.params.operator !== undefined && !['x', '/', '+', '-'].includes(exercise.params.operator)) {
+                return { valid: false, reason: "operator invalide pour calc-mental (x, /, + ou - attendu)." };
+            }
+            if (exercise.params.range !== undefined) {
+                const r = exercise.params.range;
+                if (!Array.isArray(r) || r.length !== 2 || !r.every((v) => Number.isInteger(v) && v >= 0) || r[0] > r[1]) {
+                    return { valid: false, reason: 'range invalide pour calc-mental (2 entiers croissants attendus).' };
+                }
+            }
+            if (exercise.params.operands !== undefined) {
+                const ops = exercise.params.operands;
+                if (!Array.isArray(ops) || !ops.length || !ops.every((v) => Number.isInteger(v) && v > 0)) {
+                    return { valid: false, reason: 'operands invalide pour calc-mental (entiers strictement positifs attendus).' };
+                }
+            }
+        }
         if (exercise.params.type === 'place-value') {
             // 10 = nombre de rangs nommés par le moteur (unités → milliards).
             // Au-delà, il afficherait « position N » au lieu d'un nom de rang.

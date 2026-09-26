@@ -14,7 +14,7 @@
         "complement": { "params": ["target"] },
         "decimal-place": { "params": ["trap"] },
         "dictée-nombres": { "params": ["max"] },
-        "calc-mental": { "params": ["operator", "operands", "range"] },
+        "calc-mental": { "params": ["operator", "operands", "range"], "note": "operator symbolique 'x'|'/'|'+'|'-' (absent = multiplication) ; attention, operation-posed attend add|sub|mult : les 2 conventions coexistent dans le meme engine math-input. range=[min,max] borne les 2 operandes pour + et -, et seulement le premier facteur pour x. operands = liste de multiplicateurs (x) ou de diviseurs (/), ex. [10,100,1000]. Le cas - permute les operandes pour ne jamais produire de resultat negatif. + et - tirent les 2 operandes dans range, contrairement a add-simple (qui decoupe une somme) et sub-simple (dont le 2e operande descend a 0) : ~20 % et ~12 % de tirages triviaux sur des bornes CM2." },
         "oiseau-math": { "params": ["min", "max", "vitesse"] },
         "cibles": { "params": ["zones", "nbFleches", "skin"] },
         "half": { "params": ["max"] },

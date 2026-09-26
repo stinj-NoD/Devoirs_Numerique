@@ -77,6 +77,50 @@
                                     "explanation": "Il faut 3 chiffres pour la classe des unités et 3 pour celle des milliers, soit 6 ; le 7e chiffre ouvre la classe des millions. 1 000 000 en compte bien 7. Avec 6 chiffres, on plafonne à 999 999 : on reste dans les milliers. Et 9 chiffres, ce n'est pas le minimum : on serait déjà rendu aux milliards."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cm2-lesson-calcul-mental-additif",
+                            "title": "Calculer de tête en passant par un nombre rond",
+                            "subtitle": "Additionner et soustraire sans poser",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour additionner ou soustraire de tête, on ne pose pas l'opération. On s'appuie sur un nombre rond, plus facile à manipuler, puis on ajuste le résultat de ce qu'on a ajouté ou enlevé en trop."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "47 + 38. Je vois 38 comme 40 moins 2. Je calcule 47 + 40 = 87, puis j'enlève les 2 ajoutés en trop : 85."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "Autre méthode",
+                                    "content": "Quand les deux nombres sont proches, on cherche l'écart en avançant du plus petit vers le plus grand, au lieu de retirer. C'est bien plus rapide."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tu calcules 56 + 29 de tête en passant par un nombre rond. Que fais-tu ?",
+                                    "choices": [
+                                        "J'ajoute 30, puis j'enlève 1 : j'obtiens 85",
+                                        "J'ajoute 30, puis j'ajoute 1 : j'obtiens 87",
+                                        "J'ajoute 20, puis j'enlève 9 : j'obtiens 67"
+                                    ],
+                                    "answer": "J'ajoute 30, puis j'enlève 1 : j'obtiens 85",
+                                    "explanation": "29, c'est 30 moins 1. J'ajoute donc 30 (56 + 30 = 86), puis j'enlève le 1 ajouté en trop : 85. Ajouter ce 1 au lieu de l'enlever ferait compter 2 de trop."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quelle est la façon la plus rapide de calculer 83 - 79 de tête ?",
+                                    "choices": [
+                                        "Partir de 79 et compter jusqu'à 83, soit 4",
+                                        "Enlever 79 unités une par une à partir de 83",
+                                        "Poser la soustraction en colonnes avec la retenue"
+                                    ],
+                                    "answer": "Partir de 79 et compter jusqu'à 83, soit 4",
+                                    "explanation": "Les deux nombres sont très proches : l'écart n'est que de 4. Les deux autres méthodes donnent le même résultat, mais demandent beaucoup plus de temps pour rien."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -285,6 +329,36 @@
                                 "digitCount": 10,
                                 "ask": "digit",
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm2-calcul-mental-additif",
+                            "title": "Additions de tête",
+                            "subtitle": "Deux nombres à deux chiffres",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "calc-mental",
+                                "operator": "+",
+                                "range": [
+                                    10,
+                                    99
+                                ],
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm2-calcul-mental-soustractif",
+                            "title": "Soustractions de tête",
+                            "subtitle": "Deux nombres à deux chiffres",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "calc-mental",
+                                "operator": "-",
+                                "range": [
+                                    10,
+                                    99
+                                ],
+                                "questions": 10
                             }
                         }
                     ]
