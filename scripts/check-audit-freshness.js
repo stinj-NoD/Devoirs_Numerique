@@ -37,14 +37,32 @@ function inventaireReel(index) {
     return parNiveau;
 }
 
-// L'audit écrit son propre décompte en prose, du type
-// « 68 leçons, 186 exercices ». On prend la première occurrence.
-function inventaireAnnonce(texte) {
-    const m = texte.match(/(\d+)\s*le[çc]ons?[^0-9]{0,15}?(\d+)\s*exercices?/i);
-    if (m) return { lessons: Number(m[1]), exercises: Number(m[2]) };
-    const inverse = texte.match(/(\d+)\s*exercices?[^0-9]{0,15}?(\d+)\s*le[çc]ons?/i);
+// L'audit écrit son propre décompte en prose, du type « 83 leçons, 206
+// exercices ». Prendre la PREMIÈRE occurrence du fichier est un piège vécu :
+// un audit qui rappelle l'ancien décompte avant d'annoncer le nouveau était
+// lu comme périmé alors qu'il venait d'être régénéré. On cherche donc
+// d'abord le décompte porté par le bloc de relecture (la ligne datée et les
+// quelques lignes qui la suivent), et on ne retombe sur la première
+// occurrence qu'à défaut.
+function chercherPaire(fragment) {
+    const direct = fragment.match(/(\d+)\s*le[çc]ons?[^0-9]{0,15}?(\d+)\s*exercices?/i);
+    if (direct) return { lessons: Number(direct[1]), exercises: Number(direct[2]) };
+    const inverse = fragment.match(/(\d+)\s*exercices?[^0-9]{0,15}?(\d+)\s*le[çc]ons?/i);
     if (inverse) return { lessons: Number(inverse[2]), exercises: Number(inverse[1]) };
     return null;
+}
+
+function inventaireAnnonce(texte) {
+    const lignes = texte.split(/\r?\n/);
+    const iRelecture = lignes.findIndex(
+        (l) => /(relu|régénéré|regenere|mis à jour|mise à jour)/i.test(l) && /20\d{2}-\d{2}-\d{2}/.test(l)
+    );
+    if (iRelecture >= 0) {
+        const bloc = lignes.slice(iRelecture, iRelecture + 4).join(' ');
+        const paire = chercherPaire(bloc);
+        if (paire) return paire;
+    }
+    return chercherPaire(texte);
 }
 
 // La date à afficher est celle de la RELECTURE de l'audit, pas la première du
