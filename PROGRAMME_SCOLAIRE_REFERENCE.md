@@ -691,7 +691,9 @@ Légende : ✅ couvert · ⚠️ partiel/faible volume · ❌ absent (aucun exer
 
 **Points restants à combler**, par ordre de priorité :
 
-1. **Compétences transversales "introduction"** non prioritaires (cohérentes avec leur statut) : conditionnel/impératif CM2, multiplication décimal×entier CM2, fonctions COD/COI/CC (CM1/CM2), sous-thème "Oral" (CE2+). Symétrie centrale CM2 comblée (session 2026-08-01, `cm2-lesson-symetrie-centrale` + `cm2-geo-symetrie-centrale`).
+1. **Compétences transversales "introduction"** non prioritaires (cohérentes avec leur statut) : conditionnel/impératif CM2, fonctions COD/COI/CC **au CM1 seulement**, sous-thème "Oral" (CE2+).
+
+   *Corrigé le 2026-09-27, à la suite de l'audit CM2* : cette ligne portait « fonctions COD/COI/CC (CM1/CM2) » et « multiplication décimal×entier CM2 », deux mentions devenues fausses. Vérification faite dans les données : `data/french/grammar.json::nature_fonction_cm2` compte 14 items dont 6 sur le COD, 2 sur le COI, 1 sur le complément circonstanciel de temps et 1 sur celui de lieu — **le CM2 couvre ces fonctions**. Le CM1, lui, est bien à zéro (aucune occurrence de COD ni de COI dans `data/cm1.json`, pas de banque `nature_fonction_cm1`) : le manque est réel, mais sur ce seul niveau. La multiplication décimal × entier est couverte depuis la v4.47.0 (`cm2-multiplication-posee-decimaux`). Symétrie centrale CM2 comblée (session 2026-08-01, `cm2-lesson-symetrie-centrale` + `cm2-geo-symetrie-centrale`).
 
 ---
 
