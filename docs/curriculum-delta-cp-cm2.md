@@ -20,8 +20,8 @@ Le delta compare le contenu actuel de l'application aux attentes du programme du
 
 | Niveau | Maths | Français | Histoire | Géographie | Sciences | EMC |
 |---|---|---|---|---|---|---|
-| CP | Partiel | Partiel | Partiel | Couvert | Couvert | Couvert |
-| CE1 | Couvert | Partiel | Couvert | Couvert | Couvert | Couvert |
+| CP | Couvert | Partiel | Couvert | Couvert | Couvert | Couvert |
+| CE1 | Couvert | Couvert | Couvert | Couvert | Couvert | Couvert |
 | CE2 | Couvert | Couvert | Couvert | Couvert | Couvert | Couvert |
 | CM1 | Couvert | Partiel | Couvert | Couvert | Couvert | Couvert |
 | CM2 | Couvert | Partiel | Partiel (Renaissance) | Couvert | Partiel | Couvert |
@@ -33,8 +33,8 @@ Histoire, géographie et sciences sont évalués contre le texte **en vigueur po
 ## Ce qui est déjà solide
 
 - structure CP-CM2 cohérente, bibliothèque de leçons en place sur les 5 niveaux
-- corpus de **1104 exercices et 430 leçons**, dont 430/430 leçons équipées d'un quiz d'ancrage conforme aux 5 règles éditoriales, **sans aucun avertissement**
-- un filet anti-régression sur la totalité du contenu (`scripts/smoke-exercises.js`) : les 1104 exercices sont démarrés en navigateur, 1104/1104 au vert
+- corpus de **1118 exercices et 438 leçons**, dont 438/438 leçons équipées d'un quiz d'ancrage conforme aux 5 règles éditoriales, **sans aucun avertissement**
+- un filet anti-régression sur la totalité du contenu (`scripts/smoke-exercises.js`) : les 1118 exercices sont démarrés en navigateur, 1118/1118 au vert
 - CM2 n'a plus aucun manque structurel hérité (les 9 points de l'audit du 2026-08-01 sont tous comblés)
 - proportionnalité, pourcentages, échelle et vitesse en CM1/CM2 ; opérations posées (add/sub/mult) disponibles comme moteur générique déjà exploité à plusieurs niveaux
 - activités interactives non-QCM (cartes, classement, mémoire, fractions) disponibles à plusieurs niveaux
@@ -102,7 +102,9 @@ Les audits CM1 et CM2 ont trouvé, indépendamment, **6 catégories de lecture d
 ### P3 — contenu ponctuel, gain rapide
 - ~~CE2 `operation-posed`~~ **fait** (v4.47.0 : add/sub niveaux 2 et 3, mult niveau 1)
 - CM2 homophones lexicaux
-- ~~CP points cardinaux~~ **fait** (v4.47.0, avec la rose des vents) ; repères temporels CP : alternance jour/nuit et les 12 mois restent à produire
+- ~~CP points cardinaux~~ **fait** (v4.47.0) ; ~~repères temporels CP : alternance jour/nuit et les 12 mois~~ **fait** (v4.50.0), avec l'ordonnancement d'évènements — le moteur `timeline` étant inutilisable au CP (`history_chrono.json` n'a que des repères CM1/CM2 datés en années), tout passe par `word-order`
+- ~~CP décomposition d/u, rangement d'une série, singulier/pluriel, dictée de syllabes et de phrase~~ **fait** (v4.50.0). **Restent ouverts au CP** : la copie d'un texte court et la compréhension d'un texte suivi — d'où le `Partiel` maintenu en français.
+- ~~CE1 sommets d'un polygone, cinq sens en QCM, fractions 6/8/10, vocabulaire décrire-raconter, volume des textes suivis~~ **fait** (v4.50.0). Le manque « sommets » était un manque de **vocabulaire** : la leçon disait « coins » là où le programme attend « sommets ».
 - ~~CE1 `point-on-grid`~~ **fait** (v4.47.0) ; ~~carte des régions CE1 et CE2 à brancher~~ **fait** (v4.48.0, et voir §5 : le câblage a révélé un SVG cassé)
 - ~~CM2 calcul mental additif~~ **fait** (v4.49.0) ; ~~CM1 ×/÷ par 10, 100, 1000~~ **fait** (v4.49.0)
 - CM2 : la Renaissance en histoire (1 seule occurrence du mot dans `data/history_cm2.json`, comme distracteur), digestion/circulation en sciences, cycle de l'eau
