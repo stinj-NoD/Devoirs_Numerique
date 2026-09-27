@@ -159,7 +159,17 @@ const UIDocumentary = {
                 return `<button class="${cls}" ${interactive}>${this._escape(w.label)}</button>`;
             }).join(joiner);
         } else {
-            pickedHtml = `<span class="word-order-placeholder">${isStorySequence ? 'Touche les phrases ci-dessous pour reconstituer le récit&hellip;' : 'Touche les mots ci-dessous pour former la phrase&hellip;'}</span>`;
+            // Le placeholder suivait l'énoncé de la phrase à reconstituer, ce
+            // qui devenait faux dès qu'on range des nombres ou des mois (CP).
+            // On regarde les jetons : tous numériques => on range, sinon on
+            // forme une phrase.
+            const tousNumeriques = words.length > 0 && words.every((w) => /^\d+$/.test(String(w.label).trim()));
+            const amorce = isStorySequence
+                ? 'Touche les phrases ci-dessous pour reconstituer le récit&hellip;'
+                : (tousNumeriques
+                    ? 'Touche les nombres ci-dessous pour les ranger&hellip;'
+                    : 'Touche les mots ci-dessous dans le bon ordre&hellip;');
+            pickedHtml = `<span class="word-order-placeholder">${amorce}</span>`;
         }
 
         const availableHtml = available.map((w) => `

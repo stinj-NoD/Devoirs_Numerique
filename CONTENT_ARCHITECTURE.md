@@ -4,29 +4,29 @@ Document de référence listant, pour chaque niveau, chaque matière, chaque sou
 
 Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon, sans exercice, catégories peu fournies) pour prioriser les ajouts.
 
-> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-09-26 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
+> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-09-27 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
 
 ---
 
 ## Vue d'ensemble
 
-- **1104 exercices** et **430 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1118 exercices** et **438 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
 |---|---|
-| `choice-engine` | 589 |
-| `math-input` | 186 |
+| `choice-engine` | 593 |
+| `math-input` | 189 |
 | `reading` | 58 |
 | `board-interactive` | 55 |
 | `matching` | 49 |
 | `conjugation` | 47 |
-| `audio-spelling` | 44 |
+| `audio-spelling` | 46 |
 | `conversion` | 28 |
 | `timeline` | 22 |
-| `word-order` | 13 |
+| `word-order` | 17 |
 | `clock` | 6 |
-| `cloze-fill-in` | 5 |
+| `cloze-fill-in` | 6 |
 | `counting` | 2 |
 
 - Types `board-interactive` utilisés :
@@ -86,13 +86,14 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Nombres & Comparaison `(cp-nombres-comparaison)`
 
-- **Leçons** (5) :
+- **Leçons** (6) :
   - Compter et comparer `(cp-lesson-compter-comparer)` — blocs: paragraph, example, bullets, tip, check, check
   - Plus, moins, autant `(cp-lesson-plus-moins-autant)` — blocs: paragraph, example, bullets, tip, check, check
   - Doubles et moitiés `(cp-lesson-doubles-moities)` — blocs: paragraph, example, bullets, tip, check, check
   - La ligne numérique `(cp-lesson-ligne-numerique)` — blocs: paragraph, example, bullets, tip, check, check
   - Encadrer un nombre `(cp-lesson-encadrement)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (11) :
+  - Ranger des nombres `(cp-lesson-ranger-nombres)` — blocs: paragraph, paragraph, example, bullets, tip, check, check
+- **Exercices** (13) :
   - Compter `(math-count-1)` — engine: `counting`, min=1, max=20, questions=5
   - Compter plus loin `(math-count-2)` — engine: `counting`, min=20, max=99, questions=5
   - Comparer jusqu'à 10 `(comp-1)` — engine: `choice-engine`, range=10, questions=5
@@ -104,6 +105,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - La ligne numérique (0 à 100) `(cp-ligne-numerique-0-100)` — engine: `board-interactive`, type=number-line-place, dataFile=data/board_number_line_cp.json, category=cp_number_line_0_100, questions=6
   - Encadrer entre deux dizaines `(cp-encadrement-dizaines)` — engine: `board-interactive`, type=number-line-frame, dataFile=data/board_number_line_cp.json, category=cp_number_line_frame_dizaines, questions=6
   - Les moitiés `(cp-moities)` — engine: `math-input`, type=half, min=1, max=10, questions=5
+  - Du plus petit au plus grand `(cp-ranger-croissant)` — engine: `word-order`, dataFile=data/math_geometry_cp.json, category=cp-ranger-croissant, questions=5
+  - Du plus grand au plus petit `(cp-ranger-decroissant)` — engine: `word-order`, dataFile=data/math_geometry_cp.json, category=cp-ranger-decroissant, questions=5
 
 #### Cibles & Monnaie `(cp-cibles-monnaie)`
 
@@ -156,10 +159,12 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Lire et écrire les nombres `(cp-lesson-lire-ecrire-nombre)` — blocs: paragraph, example, bullets, tip, check, check
   - Dizaines et unités `(cp-lesson-dizaines-unites)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (4) :
+- **Exercices** (6) :
   - Petits Nombres `(cp-dictee-0-10)` — engine: `math-input`, type=number-spelling, min=0, max=10, questions=5
   - Nombres de 10 à 20 `(cp-dictee-10-20)` — engine: `math-input`, type=number-spelling, min=10, max=20, questions=5
   - Nombres de 20 à 99 `(cp-dictee-20-69)` — engine: `math-input`, type=number-spelling, min=20, max=99, questions=5
+  - Dizaines et unités `(cp-decomposition-dizaines-unites)` — engine: `math-input`, type=place-value, digitCount=2, ask=digit, questions=6
+  - La valeur d'un chiffre `(cp-valeur-chiffre-dizaines-unites)` — engine: `math-input`, type=place-value, digitCount=2, ask=value, questions=6
   - Défi : écrire les nombres `(cp-bonus-dictee-nombres-defi)` — engine: `math-input`, type=number-spelling, min=0, max=69, questions=8, bonus (seuil=2)
 
 #### Problèmes `(cp-problemes-subtheme)`
@@ -191,14 +196,18 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Dictée audio `(cp-dictee-audio)`
 
-- **Leçons** (1) :
+- **Leçons** (3) :
   - Écouter pour écrire un mot `(cp-lesson-ecouter-ecrire-mot)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (6) :
+  - Écrire une syllabe `(cp-lesson-ecrire-syllabe-dictee)` — blocs: paragraph, example, bullets, tip, check, check
+  - Écrire une phrase dictée `(cp-lesson-ecrire-phrase-dictee)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (8) :
   - L'École `(cp-audio-ecole)` — engine: `audio-spelling`, category=school, speechRate=0.78, questions=5
   - La Maison `(cp-audio-maison)` — engine: `audio-spelling`, category=house, speechRate=0.78, questions=5
   - Les Aliments `(cp-audio-aliments)` — engine: `audio-spelling`, category=food, speechRate=0.78, questions=5
   - Les Animaux `(cp-audio-animaux)` — engine: `audio-spelling`, category=animals, speechRate=0.78, questions=5
   - Les Transports `(cp-audio-transports)` — engine: `audio-spelling`, category=transport, speechRate=0.78, questions=5
+  - Les syllabes `(cp-audio-syllabes)` — engine: `audio-spelling`, category=cp_syllabes_dictee, speechRate=0.7, questions=6
+  - Une petite phrase `(cp-audio-phrase-courte)` — engine: `audio-spelling`, category=cp_phrases_courtes_dictee, speechRate=0.7, questions=5
   - Défi : super dictée audio `(cp-bonus-dictee-audio-defi)` — engine: `audio-spelling`, category=animals, speechRate=0.78, questions=8, bonus (seuil=2)
 
 #### Dictée audio mots outils `(cp-dictee-mots-outils-audio)`
@@ -280,12 +289,14 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Grammaire : nom, verbe et déterminants `(cp-gram-avance)`
 
-- **Leçons** (1) :
+- **Leçons** (2) :
   - La phrase `(cp-lesson-la-phrase)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (3) :
+  - Un seul ou plusieurs ? `(cp-lesson-singulier-pluriel)` — blocs: paragraph, example, tip, check, check
+- **Exercices** (4) :
   - Les déterminants `(cp-gram-determinants)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/french_cp_grammar.json, category=cp-determinants, questions=6
   - Nom ou verbe ? `(cp-gram-nom-verbe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/french_cp_grammar.json, category=cp-nom-verbe, questions=6
   - Ordre des mots `(cp-francais-ordre-mots)` — engine: `word-order`, dataFile=data/french_word_order.json, category=word_order_cp, questions=4
+  - Un seul ou plusieurs ? `(cp-gram-singulier-pluriel)` — engine: `choice-engine`, type=plural-choice, category=plural_choice_cp, questions=8
 
 #### Conjugaison `(cp-conjugaison)`
 
@@ -300,16 +311,23 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Avant et après `(cp-histoire-temps)`
 
-- **Leçons** (2) :
+- **Leçons** (5) :
   - Repères du temps `(cp-lesson-temps-qui-passe)` — blocs: paragraph, example, bullets, tip, check, check
   - Les jours de la semaine `(cp-lesson-jours-semaine)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (6) :
+  - Le jour et la nuit `(cp-lesson-jour-nuit)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les mois de l'année `(cp-lesson-mois-annee)` — blocs: paragraph, example, bullets, tip, check, check
+  - Raconter dans le bon ordre `(cp-lesson-ordonner-evenements)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (10) :
   - Avant et après `(cp-histoire-avant-apres)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cp.json, category=cp-avant-apres, questions=6
   - Repérer le temps `(cp-histoire-ordre-temps)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_cp.json, category=cp-avant-apres
   - Jours et saisons `(cp-histoire-jours-saisons)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_cp.json, category=cp-jours-saisons
   - Défi : jours et saisons `(cp-bonus-jours-saisons-defi)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/history_cp.json, category=cp-jours-saisons, bonus (seuil=2)
   - Les générations `(cp-histoire-generations)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cp.json, category=cp-generations, questions=6
   - Défi : la famille dans le temps `(cp-bonus-generations-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cp.json, category=cp-generations, questions=8, bonus (seuil=2)
+  - Le jour et la nuit `(cp-histoire-jour-nuit)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cp.json, category=cp-jour-nuit, questions=6
+  - Les mois de l'année `(cp-histoire-mois-annee)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cp.json, category=cp-mois-annee, questions=6
+  - Ranger les mois `(cp-histoire-mois-ordre)` — engine: `word-order`, dataFile=data/history_cp.json, category=cp-mois-ordre, questions=5
+  - Raconter dans le bon ordre `(cp-histoire-ordonner-evenements)` — engine: `word-order`, dataFile=data/history_cp.json, category=cp-evenements-ordre, questions=5
 
 #### Vivre autrefois `(cp-histoire-vie)`
 
@@ -571,7 +589,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Lire un prix avec une virgule `(ce1-lesson-monnaie-decimale)` — blocs: paragraph, example, mini-table, tip, bullets, check, check
   - Encadrer un nombre entre deux centaines `(ce1-lesson-encadrement-centaines)` — blocs: paragraph, example, bullets, tip, check, check
   - La fraction est un nombre `(ce1-lesson-fraction-sur-ligne)` — blocs: paragraph, example, tip, check, check
-- **Exercices** (32) :
+- **Exercices** (33) :
   - Compléments à 100 `(add-100)` — engine: `math-input`, type=add-trou, min=10, max=100, questions=10
   - Calcul rapide `(add-chrono)` — engine: `math-input`, type=oiseau-math, min=10, max=30, vitesse=5, questions=10
   - Comparer jusqu'à 100 `(comp-ce1-1)` — engine: `choice-engine`, range=100, questions=10
@@ -604,6 +622,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Centaines, dizaines, unités `(ce1-decomposition-cdu)` — engine: `math-input`, type=place-value, digitCount=3, ask=digit, questions=6
   - La valeur d’un chiffre `(ce1-valeur-chiffre-cdu)` — engine: `math-input`, type=place-value, digitCount=3, ask=value, questions=6
   - Comparer jusqu’à 1000 `(ce1-comparer-1000)` — engine: `choice-engine`, range=1000, questions=10
+  - Lire une fraction `(ce1-fractions-visuel)` — engine: `math-input`, type=fraction-view, maxDenom=4, questions=8
 
 #### Géométrie et mesures `(ce1-geometrie-mesures-subtheme)`
 
@@ -701,12 +720,13 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Vocabulaire `(ce1-vocabulaire-subtheme)`
 
-- **Leçons** (4) :
+- **Leçons** (5) :
   - Les familles de mots `(ce1-lesson-vocabulaire-ranger-mots)` — blocs: paragraph, example, bullets, tip, check, check
   - Ranger les mots par thème `(ce1-lesson-vocabulaire-theme)` — blocs: paragraph, example, bullets, tip, check, check
   - Les contraires `(ce1-lesson-vocabulaire-contraires)` — blocs: paragraph, example, bullets, tip, check, check
   - L'ordre alphabétique `(ce1-lesson-ordre-alphabetique)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (7) :
+  - Décrire et raconter `(ce1-lesson-decrire-raconter)` — blocs: paragraph, example, bullets, check, check
+- **Exercices** (8) :
   - Mots de sens proche `(ce1-vocab-synonymes)` — engine: `reading`, category=ce1_vocabulaire_synonymes, questions=5
   - Ranger les mots `(ce1-vocab-familles)` — engine: `reading`, category=ce1_vocabulaire_champs, questions=5
   - Mots contraires `(ce1-vocab-antonymes)` — engine: `reading`, category=ce1_vocabulaire_antonymes, questions=6
@@ -714,6 +734,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Ordre alphabétique `(ce1-vocab-ordre-alpha)` — engine: `word-order`, category=alpha_order_ce1, dataFile=data/french_word_order.json, questions=5
   - Le dictionnaire `(ce1-vocab-dictionnaire)` — engine: `matching`, category=matching_alphabet_ce1, dataFile=data/french/matching.json, questions=3
   - Défi : super contraires `(ce1-bonus-vocab-antonymes-expert)` — engine: `reading`, category=ce1_vocabulaire_antonymes, questions=10, bonus (seuil=2)
+  - Décrire et raconter `(ce1-vocab-decrire-raconter)` — engine: `cloze-fill-in`, category=vocabulaire_ce1_decrire, questions=8
 
 #### Grammaire `(ce1-grammaire-subject)`
 
@@ -873,13 +894,14 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Prendre soin de son corps `(ce1-lesson-prendre-soin-corps)` — blocs: paragraph, example, bullets, tip, check, check
   - Les cinq sens `(ce1-lesson-cinq-sens)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (6) :
+- **Exercices** (7) :
   - Corps et hygiène `(ce1-sciences-corps)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-corps-hygiene, questions=6
   - Prendre soin de son corps `(ce1-sciences-prendre-soin-corps)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_ce1.json, category=ce1-corps-hygiene
   - Sommeil et alimentation `(ce1-sciences-sommeil-alimentation)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_ce1.json, category=ce1-sommeil-alimentation
   - Hygiène quotidienne `(ce1-sciences-hygiene-quotidienne)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-hygiene-quotidienne, questions=6
   - Objets de la maison `(ce1-sciences-objets-maison)` — engine: `choice-engine`, type=factual-qcm, questions=6, dataFile=data/science_ce1.json, category=ce1-objets-maison
   - Défi : super hygiène `(ce1-bonus-sciences-corps-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-corps-hygiene, questions=10, bonus (seuil=2)
+  - Les cinq sens `(ce1-sciences-cinq-sens)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-cinq-sens, questions=8
 
 #### Saisons et météo `(ce1-sciences-saisons-subtheme)`
 

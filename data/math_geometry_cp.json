@@ -610,6 +610,110 @@
                 "answer": "moins qu'un verre plein",
                 "explanation": "À moitié plein, c'est moins que plein. Il y a de la place pour encore plus de liquide !"
             }
+        ],
+        "cp-ranger-croissant": [
+            {
+                "sentence": "3 5 8 9",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "Le plus petit est 3, puis vient 5, puis 8, et 9 est le plus grand."
+            },
+            {
+                "sentence": "1 4 6 10",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "Je commence par 1, puis 4, puis 6, et je termine par 10."
+            },
+            {
+                "sentence": "0 3 6 9",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "0 est le plus petit de tous, ensuite vient 3, puis 6, puis 9."
+            },
+            {
+                "sentence": "7 12 15 18",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "7 est plus petit que 12, qui est plus petit que 15, lui-même plus petit que 18."
+            },
+            {
+                "sentence": "11 13 17 20",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "En comptant, 11 arrive avant 13, puis 17, puis 20."
+            },
+            {
+                "sentence": "5 14 26 38",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "Je regarde les dizaines : 5, puis 14, puis 26, puis 38."
+            },
+            {
+                "sentence": "20 40 60 80",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "Ce sont des dizaines entières : 2 dizaines, 4 dizaines, 6 dizaines, 8 dizaines."
+            },
+            {
+                "sentence": "9 19 29 39",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "Ils finissent tous par 9 : je compare alors les dizaines, de 0 à 3 dizaines."
+            },
+            {
+                "sentence": "12 21 34 43",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "1 dizaine pour 12, 2 dizaines pour 21, 3 dizaines pour 34, 4 dizaines pour 43."
+            },
+            {
+                "sentence": "6 16 61 66",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "6 n'a aucune dizaine, 16 en a une, puis viennent 61 et 66 qui en ont six."
+            }
+        ],
+        "cp-ranger-decroissant": [
+            {
+                "sentence": "9 8 5 3",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "Je commence par le plus grand, 9, puis 8, puis 5, et 3 termine."
+            },
+            {
+                "sentence": "10 6 4 1",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "10 est le plus grand, ensuite 6, puis 4, et 1 est le plus petit."
+            },
+            {
+                "sentence": "15 10 5 0",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "Je descends de 5 en 5 : 15, puis 10, puis 5, puis 0."
+            },
+            {
+                "sentence": "18 15 12 7",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "18 est le plus grand, puis 15, puis 12, et 7 est le plus petit."
+            },
+            {
+                "sentence": "20 17 13 11",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "En reculant dans la suite des nombres : 20, 17, 13, 11."
+            },
+            {
+                "sentence": "38 26 14 5",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "3 dizaines pour 38, 2 dizaines pour 26, 1 dizaine pour 14, et 5 n'a aucune dizaine."
+            },
+            {
+                "sentence": "80 60 40 20",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "8 dizaines, puis 6 dizaines, puis 4 dizaines, puis 2 dizaines."
+            },
+            {
+                "sentence": "39 29 19 9",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "Ils finissent tous par 9 : je compare les dizaines, de 3 dizaines à aucune."
+            },
+            {
+                "sentence": "43 34 21 12",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "43 a 4 dizaines, 34 en a 3, 21 en a 2, et 12 en a 1."
+            },
+            {
+                "sentence": "66 61 16 6",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "66 et 61 ont six dizaines, mais 66 a plus d'unités ; ensuite viennent 16, puis 6."
+            }
         ]
     }
 }

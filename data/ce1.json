@@ -640,6 +640,17 @@
                                 "range": 1000,
                                 "questions": 10
                             }
+                        },
+                        {
+                            "id": "ce1-fractions-visuel",
+                            "title": "Lire une fraction",
+                            "subtitle": "Sur un dessin partagé",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "fraction-view",
+                                "maxDenom": 4,
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
@@ -1168,7 +1179,7 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "On reconnaît une forme en regardant son contour, ses côtés et ses coins."
+                                    "text": "On reconnaît une forme en regardant son contour, ses côtés et ses sommets. Un sommet, c'est un coin : l'endroit précis où deux côtés se rejoignent."
                                 },
                                 {
                                     "type": "example",
@@ -2775,6 +2786,55 @@
                                     "explanation": "« ballon » et « bateau » partagent le b et le a. La troisième lettre les sépare : l est avant t, donc « bateau » est plus loin."
                                 }
                             ]
+                        },
+                        {
+                            "id": "ce1-lesson-decrire-raconter",
+                            "title": "Décrire et raconter",
+                            "subtitle": "Les mots qui montrent et ceux qui ordonnent",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour qu'on imagine bien ce qu'on écrit, on ajoute des mots qui décrivent : ils disent comment sont les choses. Pour qu'on comprenne dans quel ordre tout se passe, on ajoute des mots qui organisent le temps."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« Le chat monte sur le toit » devient « D'abord, le vieux chat noir monte lentement sur le toit brûlant ». On voit mieux la scène et on sait que c'est le début."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les mots qui ordonnent",
+                                    "items": [
+                                        "d'abord : ce qui se passe en premier",
+                                        "ensuite, puis : ce qui vient après",
+                                        "soudain : ce qui arrive sans prévenir",
+                                        "enfin : ce qui termine"
+                                    ]
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Le gros chien dort », quel mot sert à décrire ?",
+                                    "choices": [
+                                        "gros, parce qu'il dit comment est le chien",
+                                        "chien, parce que c'est l'animal de la phrase",
+                                        "dort, parce qu'il dit ce que fait le chien"
+                                    ],
+                                    "answer": "gros, parce qu'il dit comment est le chien",
+                                    "explanation": "« Gros » renseigne sur le chien : c'est un mot qui décrit. « Chien » nomme l'animal et « dort » dit ce qu'il fait."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tu racontes une histoire et tu veux annoncer la toute dernière action. Quel mot choisis-tu ?",
+                                    "choices": [
+                                        "Enfin",
+                                        "D'abord",
+                                        "Soudain"
+                                    ],
+                                    "answer": "Enfin",
+                                    "explanation": "« Enfin » marque la fin du récit. « D'abord » annoncerait le début, et « soudain » une surprise au milieu."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -2851,6 +2911,16 @@
                             "params": {
                                 "category": "ce1_vocabulaire_antonymes",
                                 "questions": 10
+                            }
+                        },
+                        {
+                            "id": "ce1-vocab-decrire-raconter",
+                            "title": "Décrire et raconter",
+                            "subtitle": "Compléter une histoire",
+                            "engine": "cloze-fill-in",
+                            "params": {
+                                "category": "vocabulaire_ce1_decrire",
+                                "questions": 8
                             }
                         }
                     ]
@@ -5311,6 +5381,18 @@
                                 "dataFile": "data/science_ce1.json",
                                 "category": "ce1-corps-hygiene",
                                 "questions": 10
+                            }
+                        },
+                        {
+                            "id": "ce1-sciences-cinq-sens",
+                            "title": "Les cinq sens",
+                            "subtitle": "Quel organe pour quel sens ?",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-cinq-sens",
+                                "questions": 8
                             }
                         }
                     ],

@@ -1,8 +1,8 @@
 {
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
-    "exercises": 1104,
-    "lessons": 430,
+    "exercises": 1118,
+    "lessons": 438,
     "levels": 5,
     "banks": 80
   },
@@ -217,6 +217,17 @@
       "contractHash": null
     },
     {
+      "id": "cp-lesson-ranger-nombres",
+      "kind": "lesson",
+      "level": "cp",
+      "subjectId": "cp-maths",
+      "subthemeId": "cp-nombres-comparaison",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "math-count-1",
       "kind": "exercise",
       "level": "cp",
@@ -336,6 +347,28 @@
       "paramsType": "half",
       "pool": null,
       "contractHash": "math-input|{\"max\":10,\"min\":1,\"type\":\"half\"}"
+    },
+    {
+      "id": "cp-ranger-croissant",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-maths",
+      "subthemeId": "cp-nombres-comparaison",
+      "engine": "word-order",
+      "paramsType": null,
+      "pool": "data/math_geometry_cp.json::cp-ranger-croissant",
+      "contractHash": "word-order|{\"category\":\"cp-ranger-croissant\",\"dataFile\":\"data/math_geometry_cp.json\"}"
+    },
+    {
+      "id": "cp-ranger-decroissant",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-maths",
+      "subthemeId": "cp-nombres-comparaison",
+      "engine": "word-order",
+      "paramsType": null,
+      "pool": "data/math_geometry_cp.json::cp-ranger-decroissant",
+      "contractHash": "word-order|{\"category\":\"cp-ranger-decroissant\",\"dataFile\":\"data/math_geometry_cp.json\"}"
     },
     {
       "id": "cp-lesson-cibles-comprendre",
@@ -734,6 +767,28 @@
       "contractHash": "math-input|{\"max\":99,\"min\":20,\"type\":\"number-spelling\"}"
     },
     {
+      "id": "cp-decomposition-dizaines-unites",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-maths",
+      "subthemeId": "cp-ecriture-nombres",
+      "engine": "math-input",
+      "paramsType": "place-value",
+      "pool": null,
+      "contractHash": "math-input|{\"ask\":\"digit\",\"digitCount\":2,\"type\":\"place-value\"}"
+    },
+    {
+      "id": "cp-valeur-chiffre-dizaines-unites",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-maths",
+      "subthemeId": "cp-ecriture-nombres",
+      "engine": "math-input",
+      "paramsType": "place-value",
+      "pool": null,
+      "contractHash": "math-input|{\"ask\":\"value\",\"digitCount\":2,\"type\":\"place-value\"}"
+    },
+    {
       "id": "cp-bonus-dictee-nombres-defi",
       "kind": "exercise",
       "level": "cp",
@@ -921,6 +976,28 @@
       "contractHash": null
     },
     {
+      "id": "cp-lesson-ecrire-syllabe-dictee",
+      "kind": "lesson",
+      "level": "cp",
+      "subjectId": "cp-francais",
+      "subthemeId": "cp-dictee-audio",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cp-lesson-ecrire-phrase-dictee",
+      "kind": "lesson",
+      "level": "cp",
+      "subjectId": "cp-francais",
+      "subthemeId": "cp-dictee-audio",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cp-audio-ecole",
       "kind": "exercise",
       "level": "cp",
@@ -974,6 +1051,28 @@
       "paramsType": null,
       "pool": null,
       "contractHash": "audio-spelling|{\"category\":\"transport\",\"speechRate\":0.78}"
+    },
+    {
+      "id": "cp-audio-syllabes",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-francais",
+      "subthemeId": "cp-dictee-audio",
+      "engine": "audio-spelling",
+      "paramsType": null,
+      "pool": null,
+      "contractHash": "audio-spelling|{\"category\":\"cp_syllabes_dictee\",\"speechRate\":0.7}"
+    },
+    {
+      "id": "cp-audio-phrase-courte",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-francais",
+      "subthemeId": "cp-dictee-audio",
+      "engine": "audio-spelling",
+      "paramsType": null,
+      "pool": null,
+      "contractHash": "audio-spelling|{\"category\":\"cp_phrases_courtes_dictee\",\"speechRate\":0.7}"
     },
     {
       "id": "cp-bonus-dictee-audio-defi",
@@ -1515,6 +1614,17 @@
       "contractHash": null
     },
     {
+      "id": "cp-lesson-singulier-pluriel",
+      "kind": "lesson",
+      "level": "cp",
+      "subjectId": "cp-francais",
+      "subthemeId": "cp-gram-avance",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cp-gram-determinants",
       "kind": "exercise",
       "level": "cp",
@@ -1546,6 +1656,17 @@
       "paramsType": null,
       "pool": "data/french_word_order.json::word_order_cp",
       "contractHash": "word-order|{\"category\":\"word_order_cp\",\"dataFile\":\"data/french_word_order.json\"}"
+    },
+    {
+      "id": "cp-gram-singulier-pluriel",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-francais",
+      "subthemeId": "cp-gram-avance",
+      "engine": "choice-engine",
+      "paramsType": "plural-choice",
+      "pool": null,
+      "contractHash": "choice-engine|{\"category\":\"plural_choice_cp\",\"type\":\"plural-choice\"}"
     },
     {
       "id": "cp-lesson-etre-avoir",
@@ -1604,6 +1725,39 @@
     },
     {
       "id": "cp-lesson-jours-semaine",
+      "kind": "lesson",
+      "level": "cp",
+      "subjectId": "cp-histoire-subject",
+      "subthemeId": "cp-histoire-temps",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cp-lesson-jour-nuit",
+      "kind": "lesson",
+      "level": "cp",
+      "subjectId": "cp-histoire-subject",
+      "subthemeId": "cp-histoire-temps",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cp-lesson-mois-annee",
+      "kind": "lesson",
+      "level": "cp",
+      "subjectId": "cp-histoire-subject",
+      "subthemeId": "cp-histoire-temps",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cp-lesson-ordonner-evenements",
       "kind": "lesson",
       "level": "cp",
       "subjectId": "cp-histoire-subject",
@@ -1678,6 +1832,50 @@
       "paramsType": "factual-qcm",
       "pool": "data/history_cp.json::cp-generations",
       "contractHash": "choice-engine|{\"category\":\"cp-generations\",\"dataFile\":\"data/history_cp.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cp-histoire-jour-nuit",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-histoire-subject",
+      "subthemeId": "cp-histoire-temps",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/history_cp.json::cp-jour-nuit",
+      "contractHash": "choice-engine|{\"category\":\"cp-jour-nuit\",\"dataFile\":\"data/history_cp.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cp-histoire-mois-annee",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-histoire-subject",
+      "subthemeId": "cp-histoire-temps",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/history_cp.json::cp-mois-annee",
+      "contractHash": "choice-engine|{\"category\":\"cp-mois-annee\",\"dataFile\":\"data/history_cp.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cp-histoire-mois-ordre",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-histoire-subject",
+      "subthemeId": "cp-histoire-temps",
+      "engine": "word-order",
+      "paramsType": null,
+      "pool": "data/history_cp.json::cp-mois-ordre",
+      "contractHash": "word-order|{\"category\":\"cp-mois-ordre\",\"dataFile\":\"data/history_cp.json\"}"
+    },
+    {
+      "id": "cp-histoire-ordonner-evenements",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-histoire-subject",
+      "subthemeId": "cp-histoire-temps",
+      "engine": "word-order",
+      "paramsType": null,
+      "pool": "data/history_cp.json::cp-evenements-ordre",
+      "contractHash": "word-order|{\"category\":\"cp-evenements-ordre\",\"dataFile\":\"data/history_cp.json\"}"
     },
     {
       "id": "cp-lesson-vivre-autrefois",
@@ -3572,6 +3770,17 @@
       "contractHash": "choice-engine|{\"range\":1000}"
     },
     {
+      "id": "ce1-fractions-visuel",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "fraction-view",
+      "pool": null,
+      "contractHash": "math-input|{\"maxDenom\":4,\"type\":\"fraction-view\"}"
+    },
+    {
       "id": "ce1-lesson-formes-planes",
       "kind": "lesson",
       "level": "ce1",
@@ -4298,6 +4507,17 @@
       "contractHash": null
     },
     {
+      "id": "ce1-lesson-decrire-raconter",
+      "kind": "lesson",
+      "level": "ce1",
+      "subjectId": "ce1-francais",
+      "subthemeId": "ce1-vocabulaire-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "ce1-vocab-synonymes",
       "kind": "exercise",
       "level": "ce1",
@@ -4373,6 +4593,17 @@
       "paramsType": null,
       "pool": null,
       "contractHash": "reading|{\"category\":\"ce1_vocabulaire_antonymes\"}"
+    },
+    {
+      "id": "ce1-vocab-decrire-raconter",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-francais",
+      "subthemeId": "ce1-vocabulaire-subtheme",
+      "engine": "cloze-fill-in",
+      "paramsType": null,
+      "pool": null,
+      "contractHash": "cloze-fill-in|{\"category\":\"vocabulaire_ce1_decrire\"}"
     },
     {
       "id": "ce1-lesson-determinants",
@@ -5473,6 +5704,17 @@
       "paramsType": "factual-qcm",
       "pool": "data/science_ce1.json::ce1-corps-hygiene",
       "contractHash": "choice-engine|{\"category\":\"ce1-corps-hygiene\",\"dataFile\":\"data/science_ce1.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "ce1-sciences-cinq-sens",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-sciences-subject",
+      "subthemeId": "ce1-sciences-corps-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/science_ce1.json::ce1-cinq-sens",
+      "contractHash": "choice-engine|{\"category\":\"ce1-cinq-sens\",\"dataFile\":\"data/science_ce1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce1-lesson-quatre-saisons",
@@ -17403,7 +17645,11 @@
         "cp-photos-souvenirs": 10,
         "cp-objets-anciens": 10,
         "cp-generations": 16,
-        "cp-metiers-autrefois": 8
+        "cp-metiers-autrefois": 8,
+        "cp-jour-nuit": 12,
+        "cp-mois-annee": 14,
+        "cp-mois-ordre": 10,
+        "cp-evenements-ordre": 10
       }
     },
     "data/history_matching.json": {
@@ -17416,7 +17662,7 @@
     },
     "data/math_geometry_ce1.json": {
       "categories": {
-        "ce1-formes-solides-planes": 19,
+        "ce1-formes-solides-planes": 23,
         "ce1-longueurs-mesures": 16,
         "ce1-reperes-journee": 16,
         "ce1-masses-contenances": 16
@@ -17454,7 +17700,9 @@
         "cp-formes-reconnaissance": 20,
         "cp-longueurs-comparaison": 16,
         "cp-moments-journee": 16,
-        "cp-masses-contenances": 8
+        "cp-masses-contenances": 8,
+        "cp-ranger-croissant": 10,
+        "cp-ranger-decroissant": 10
       }
     },
     "data/math_matching.json": {
@@ -17481,7 +17729,7 @@
         "ce1-problemes-additifs": 10,
         "ce1-problemes-mixtes": 20,
         "ce2-monnaie": 10,
-        "ce1-fractions": 10,
+        "ce1-fractions": 16,
         "ce1-monnaie-decimale": 10
       }
     },
@@ -17518,7 +17766,8 @@
         "ce1-melanges-simples": 19,
         "ce1-saisons-meteo": 16,
         "ce1-milieux-vie": 16,
-        "ce1-objets-materiaux": 15
+        "ce1-objets-materiaux": 15,
+        "ce1-cinq-sens": 12
       }
     },
     "data/science_ce2.json": {

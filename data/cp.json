@@ -480,6 +480,28 @@
                                 "max": 10,
                                 "questions": 5
                             }
+                        },
+                        {
+                            "id": "cp-ranger-croissant",
+                            "title": "Du plus petit au plus grand",
+                            "subtitle": "Ranger une série de nombres",
+                            "engine": "word-order",
+                            "params": {
+                                "dataFile": "data/math_geometry_cp.json",
+                                "category": "cp-ranger-croissant",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cp-ranger-decroissant",
+                            "title": "Du plus grand au plus petit",
+                            "subtitle": "Ranger une série de nombres",
+                            "engine": "word-order",
+                            "params": {
+                                "dataFile": "data/math_geometry_cp.json",
+                                "category": "cp-ranger-decroissant",
+                                "questions": 5
+                            }
                         }
                     ],
                     "lessons": [
@@ -740,6 +762,62 @@
                                     ],
                                     "answer": "65 est entre 60 et 70",
                                     "explanation": "Le chiffre des dizaines de 65 est 6 : la dizaine juste avant est 60 et celle juste après est 70."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-ranger-nombres",
+                            "title": "Ranger des nombres",
+                            "subtitle": "Ordre croissant, ordre décroissant",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Ranger des nombres, c'est les écrire l'un après l'autre en suivant leur taille."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans l'ordre croissant, je vais du plus petit au plus grand. Dans l'ordre décroissant, je fais l'inverse."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Avec 8, 3 et 5 : dans l'ordre croissant, j'écris 3, 5, 8."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "je cherche le plus petit et je l'écris",
+                                        "je recommence avec les nombres qui restent",
+                                        "croissant = je monte ; décroissant = je descends"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Sur la ligne numérique, les nombres croissants se lisent de gauche à droite."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Range 12, 7 et 20 dans l'ordre croissant.",
+                                    "choices": [
+                                        "7, 12, 20",
+                                        "20, 12, 7",
+                                        "12, 7, 20"
+                                    ],
+                                    "answer": "7, 12, 20",
+                                    "explanation": "Le plus petit est 7, puis vient 12, puis 20. La suite 20, 12, 7 descend au lieu de monter."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Chloé doit ranger 4, 9 et 6 dans l'ordre décroissant. Par quel nombre commence-t-elle ?",
+                                    "choices": [
+                                        "Par 9",
+                                        "Par 4",
+                                        "Par 6"
+                                    ],
+                                    "answer": "Par 9",
+                                    "explanation": "Dans l'ordre décroissant, on part du plus grand de tous, donc de 9. Chloé écrira ensuite 6, puis 4."
                                 }
                             ]
                         }
@@ -1643,6 +1721,32 @@
                             }
                         },
                         {
+                            "id": "cp-decomposition-dizaines-unites",
+                            "title": "Dizaines et unités",
+                            "icon": "📘",
+                            "subtitle": "Trouver le chiffre demandé",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "place-value",
+                                "digitCount": 2,
+                                "ask": "digit",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-valeur-chiffre-dizaines-unites",
+                            "title": "La valeur d'un chiffre",
+                            "icon": "📘",
+                            "subtitle": "Combien vaut ce chiffre ?",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "place-value",
+                                "digitCount": 2,
+                                "ask": "value",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "cp-bonus-dictee-nombres-defi",
                             "title": "Défi : écrire les nombres",
                             "subtitle": "De 0 à 69, sans erreur",
@@ -2152,6 +2256,28 @@
                             }
                         },
                         {
+                            "id": "cp-audio-syllabes",
+                            "title": "Les syllabes",
+                            "subtitle": "Écoute la syllabe et écris-la",
+                            "engine": "audio-spelling",
+                            "params": {
+                                "category": "cp_syllabes_dictee",
+                                "speechRate": 0.7,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-audio-phrase-courte",
+                            "title": "Une petite phrase",
+                            "subtitle": "Écoute la phrase et écris-la",
+                            "engine": "audio-spelling",
+                            "params": {
+                                "category": "cp_phrases_courtes_dictee",
+                                "speechRate": 0.7,
+                                "questions": 5
+                            }
+                        },
+                        {
                             "id": "cp-bonus-dictee-audio-defi",
                             "title": "Défi : super dictée audio",
                             "subtitle": "Écoute et écris, version longue",
@@ -2215,6 +2341,111 @@
                                     ],
                                     "answer": "ph",
                                     "explanation": "Dans « photo », le son [f] s'écrit avec deux lettres : p et h. Un son peut s'écrire avec plusieurs lettres."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-ecrire-syllabe-dictee",
+                            "title": "Écrire une syllabe",
+                            "subtitle": "Une consonne, puis une voyelle",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une syllabe est un petit morceau de mot que je dis d'un seul coup. Le plus souvent, elle est faite d'une consonne suivie d'une voyelle."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "J'entends la syllabe « mu ». J'écris la consonne m, puis la voyelle u : mu."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "je dis la syllabe tout doucement",
+                                        "j'entends la consonne du début",
+                                        "j'entends la voyelle qui suit",
+                                        "j'écris les deux lettres dans cet ordre"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Quand j'écris toutes les syllabes à la suite, j'écris le mot entier."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "J'entends la syllabe « ri ». Quelle lettre est-ce que j'écris en premier ?",
+                                    "choices": [
+                                        "La lettre r",
+                                        "La lettre i",
+                                        "La lettre e"
+                                    ],
+                                    "answer": "La lettre r",
+                                    "explanation": "Dans « ri », j'entends d'abord la consonne r, puis la voyelle i. J'écris donc r avant i, sinon j'obtiens « ir »."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans lequel de ces mots est-ce que j'entends la syllabe « cha » ?",
+                                    "choices": [
+                                        "Chapeau",
+                                        "Cheval",
+                                        "Bateau"
+                                    ],
+                                    "answer": "Chapeau",
+                                    "explanation": "« Chapeau » commence bien par cha. « Cheval » commence par che, et « bateau » ne contient pas du tout cette syllabe."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-ecrire-phrase-dictee",
+                            "title": "Écrire une phrase dictée",
+                            "subtitle": "Des mots séparés par des espaces",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Quand on me dicte une phrase, j'écris plusieurs mots à la suite. Je laisse un espace entre deux mots pour bien les séparer."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "J'entends « le chat dort ». J'écris trois mots : le, chat, dort."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "j'écoute la phrase en entier",
+                                        "je compte les mots dans ma tête",
+                                        "j'écris un mot, un espace, puis le mot suivant"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Une phrase dictée peut être courte : trois ou quatre mots suffisent souvent."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "J'entends la phrase « la lune est ronde ». Combien de mots est-ce que j'écris ?",
+                                    "choices": [
+                                        "4 mots",
+                                        "2 mots",
+                                        "14 mots"
+                                    ],
+                                    "answer": "4 mots",
+                                    "explanation": "Je compte chaque mot : la, lune, est, ronde. Cela fait 4 mots, même si la phrase contient 14 lettres."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tom a écrit « lechiencourt » d'un seul morceau. Que doit-il changer ?",
+                                    "choices": [
+                                        "Séparer les trois mots par des espaces",
+                                        "Écrire la phrase encore plus vite",
+                                        "Remplacer les lettres par des chiffres"
+                                    ],
+                                    "answer": "Séparer les trois mots par des espaces",
+                                    "explanation": "Il a bien entendu les lettres, mais il a tout collé. Il faut un espace entre chaque mot : le chien court."
                                 }
                             ]
                         }
@@ -3168,6 +3399,17 @@
                                 "category": "word_order_cp",
                                 "questions": 4
                             }
+                        },
+                        {
+                            "id": "cp-gram-singulier-pluriel",
+                            "title": "Un seul ou plusieurs ?",
+                            "subtitle": "Choisir le bon petit mot",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "plural-choice",
+                                "category": "plural_choice_cp",
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
@@ -3220,6 +3462,50 @@
                                     ],
                                     "answer": "Cela ne dit pas une idée complète",
                                     "explanation": "On ne sait pas qui fait quoi dans le jardin. « Le chien court dans le jardin. » dit une idée complète : c'est une phrase."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-singulier-pluriel",
+                            "title": "Un seul ou plusieurs ?",
+                            "subtitle": "Le singulier et le pluriel",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Quand on parle d'une seule chose, on est au singulier. Quand on parle de plusieurs, on est au pluriel. Le petit mot placé devant le nom change : le, la ou l' pour un seul, les pour plusieurs."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« le chat » : il y en a un seul. « les chats » : il y en a plusieurs. Le nom prend souvent un s à la fin quand il y en a plusieurs."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "Astuce",
+                                    "content": "Avant d'écrire, je compte. Un seul, j'écris le, la ou l'. Plusieurs, j'écris les."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tu vois trois ballons. Pourquoi écrit-on « les ballons » et non « le ballon » ?",
+                                    "choices": [
+                                        "Parce qu'on regarde combien il y en a, pas le genre du mot",
+                                        "Parce que ballon est un mot masculin, comme le mot le",
+                                        "Parce que le mot ballon se termine par les lettres -on"
+                                    ],
+                                    "answer": "Parce qu'on regarde combien il y en a, pas le genre du mot",
+                                    "explanation": "Le choix entre « le » et « les » dépend du nombre : un seul ou plusieurs. Masculin ou féminin ne sert qu'à choisir entre « le » et « la », quand il n'y en a qu'un."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans la phrase « Les fleurs sont jolies », combien y a-t-il de fleurs ?",
+                                    "choices": [
+                                        "Plusieurs : le mot « les » le montre",
+                                        "Une seule : le mot fleur est au singulier",
+                                        "On ne peut pas le savoir sans voir l'image"
+                                    ],
+                                    "answer": "Plusieurs : le mot « les » le montre",
+                                    "explanation": "« Les » annonce toujours plusieurs. S'il n'y en avait qu'une, on écrirait « la fleur est jolie »."
                                 }
                             ]
                         }
@@ -3427,6 +3713,52 @@
                             },
                             "isBonus": true,
                             "bonusThreshold": 2
+                        },
+                        {
+                            "id": "cp-histoire-jour-nuit",
+                            "title": "Le jour et la nuit",
+                            "subtitle": "Un cycle qui revient toujours",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cp.json",
+                                "category": "cp-jour-nuit",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-histoire-mois-annee",
+                            "title": "Les mois de l'année",
+                            "subtitle": "12 mois du plus tôt au plus tard",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cp.json",
+                                "category": "cp-mois-annee",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-histoire-mois-ordre",
+                            "title": "Ranger les mois",
+                            "subtitle": "Remets les mois dans l'ordre",
+                            "engine": "word-order",
+                            "params": {
+                                "dataFile": "data/history_cp.json",
+                                "category": "cp-mois-ordre",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cp-histoire-ordonner-evenements",
+                            "title": "Raconter dans le bon ordre",
+                            "subtitle": "D'abord, ensuite, enfin",
+                            "engine": "word-order",
+                            "params": {
+                                "dataFile": "data/history_cp.json",
+                                "category": "cp-evenements-ordre",
+                                "questions": 5
+                            }
                         }
                     ],
                     "lessons": [
@@ -3532,6 +3864,162 @@
                                     ],
                                     "answer": "Une nouvelle semaine recommence par lundi",
                                     "explanation": "Les jours tournent sans jamais s'arrêter : après dimanche, une semaine neuve démarre à lundi. On n'attend pas, et on ne revient pas en arrière vers samedi, qui est déjà passé."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-jour-nuit",
+                            "title": "Le jour et la nuit",
+                            "subtitle": "Un cycle qui revient toujours",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le jour et la nuit se suivent sans arrêt. Il fait jour quand le Soleil éclaire notre ciel, et il fait nuit quand sa lumière ne nous arrive plus."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le matin, le Soleil se lève et il fait jour. Le soir, il se couche et la nuit arrive."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "le jour : le Soleil éclaire notre ciel",
+                                        "la nuit : on voit la Lune et les étoiles",
+                                        "le jour et la nuit forment une journée"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Ce cycle se répète sans fin : après chaque nuit, un nouveau jour arrive."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "En hiver, à 6 heures du soir, Tom voit qu'il fait déjà tout noir dehors. Pourquoi ?",
+                                    "choices": [
+                                        "Le Soleil est déjà couché",
+                                        "Le Soleil s'est éteint pour de bon",
+                                        "Les nuages ont caché le Soleil toute la journée"
+                                    ],
+                                    "answer": "Le Soleil est déjà couché",
+                                    "explanation": "En hiver, le Soleil se couche très tôt : la nuit commence plus tôt qu'en été. Le Soleil ne s'éteint jamais, et des nuages laisseraient quand même passer un peu de lumière."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Papi se lève très tôt : le ciel devient clair et le Soleil apparaît à l'horizon. Comment appelle-t-on ce moment ?",
+                                    "choices": [
+                                        "Le lever du Soleil",
+                                        "Le coucher du Soleil",
+                                        "Le milieu de la nuit"
+                                    ],
+                                    "answer": "Le lever du Soleil",
+                                    "explanation": "Quand le Soleil apparaît et que le ciel s'éclaire, on dit qu'il se lève : c'est le lever du Soleil. Le soir, c'est l'inverse, il se couche."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-mois-annee",
+                            "title": "Les mois de l'année",
+                            "subtitle": "12 mois qui se suivent",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une année compte 12 mois. Ils se suivent toujours dans le même ordre, de janvier jusqu'à décembre."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Après septembre vient octobre, puis novembre, puis décembre."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "janvier, février, mars, avril",
+                                        "mai, juin, juillet, août",
+                                        "septembre, octobre, novembre, décembre"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le calendrier montre tous les mois : il aide à repérer les fêtes, les vacances et les anniversaires."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léa fête son anniversaire le mois qui vient juste avant janvier. Quel mois est-ce ?",
+                                    "choices": [
+                                        "Décembre",
+                                        "Février",
+                                        "Novembre"
+                                    ],
+                                    "answer": "Décembre",
+                                    "explanation": "Janvier est le premier mois de l'année : le mois juste avant est donc le dernier, décembre. Février vient après janvier, et novembre est encore plus tôt."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur son calendrier, Hugo compte : il reste 2 mois avant les vacances de Noël, en décembre. En quel mois est-il ?",
+                                    "choices": [
+                                        "Octobre",
+                                        "Février",
+                                        "Janvier"
+                                    ],
+                                    "answer": "Octobre",
+                                    "explanation": "Je recule de 2 mois depuis décembre : novembre, puis octobre. Hugo est donc en octobre. Février et janvier viennent après décembre, pas avant."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-ordonner-evenements",
+                            "title": "Raconter dans le bon ordre",
+                            "subtitle": "D'abord, ensuite, enfin",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour raconter, je dis les évènements dans l'ordre où ils se sont passés. Des petits mots m'aident à relier ces moments."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "D'abord je mets mes chaussures, ensuite j'ouvre la porte, enfin je sors dans la rue."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "d'abord = le tout premier moment",
+                                        "ensuite = ce qui vient après",
+                                        "enfin = le dernier moment"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Si je change l'ordre, mon histoire ne veut plus rien dire."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Lou raconte : « Enfin, j'ai plongé dans l'eau. Ensuite, j'ai mis mon maillot. D'abord, je suis arrivée à la piscine. » Qu'est-ce qui ne va pas ?",
+                                    "choices": [
+                                        "Elle raconte les moments à l'envers",
+                                        "Elle a oublié de dire son âge",
+                                        "Elle a employé trois fois le même petit mot"
+                                    ],
+                                    "answer": "Elle raconte les moments à l'envers",
+                                    "explanation": "Lou commence par la fin et termine par le début. Dans l'ordre : elle arrive à la piscine, elle met son maillot, puis elle plonge."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour préparer un gâteau, que fait-on en premier ?",
+                                    "choices": [
+                                        "On sort les ingrédients",
+                                        "On mange le gâteau",
+                                        "On sort le gâteau du four"
+                                    ],
+                                    "answer": "On sort les ingrédients",
+                                    "explanation": "On prépare toujours avant de cuire, et on cuit avant de manger. Manger le gâteau est le tout dernier moment de la recette."
                                 }
                             ]
                         }

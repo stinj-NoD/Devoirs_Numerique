@@ -111,7 +111,11 @@
             isVisual: true,
             visualType: "audioSpelling",
             inputType: "alpha",
-            question: `<span class="small-question">Écoute le mot puis écris-le.</span>`,
+            // La consigne suit ce qui est réellement dicté : une dictée de
+            // phrase courte (CP) annonçait « le mot » pour cinq mots.
+            question: `<span class="small-question">${/\s/.test(answer.trim())
+                ? 'Écoute la phrase puis écris-la.'
+                : 'Écoute le mot puis écris-le.'}</span>`,
             answer: answer.toLowerCase(),
             data: {
                 audioText,
