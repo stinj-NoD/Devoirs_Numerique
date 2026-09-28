@@ -1336,7 +1336,8 @@ const App = {
         { version: 2, icon: '➗', text: "En CE2 : additions, soustractions et multiplications posées, enfin au complet." },
         { version: 2, icon: '🗺️', text: "La carte des régions de France arrive en CE1 et en CE2 : à toi de les retrouver !" },
         { version: 2, icon: '🤝', text: "En EMC : stéréotypes et préjugés au CE1, la République et le maire au CE2." },
-        { version: 2, icon: '💻', text: "En CM : bien se comporter en ligne, et comprendre les traces qu'on y laisse." }
+        { version: 2, icon: '💻', text: "En CM : bien se comporter en ligne, et comprendre les traces qu'on y laisse." },
+        { version: 3, icon: '🔟', text: "En CM1 : les grands nombres jusqu'aux millions, la soustraction de fractions et la symétrie, chacun avec sa leçon." }
     ],
 
     get latestNewsVersion() {

@@ -4,21 +4,21 @@ Document de référence listant, pour chaque niveau, chaque matière, chaque sou
 
 Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon, sans exercice, catégories peu fournies) pour prioriser les ajouts.
 
-> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-09-27 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
+> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-09-28 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
 
 ---
 
 ## Vue d'ensemble
 
-- **1118 exercices** et **438 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1123 exercices** et **442 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
 |---|---|
 | `choice-engine` | 593 |
-| `math-input` | 189 |
+| `math-input` | 193 |
 | `reading` | 58 |
-| `board-interactive` | 55 |
+| `board-interactive` | 56 |
 | `matching` | 49 |
 | `conjugation` | 47 |
 | `audio-spelling` | 46 |
@@ -36,7 +36,7 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 | `map-locate` | 13 |
 | `tap-features` | 12 |
 | `point-on-grid` | 7 |
-| `number-line-place` | 4 |
+| `number-line-place` | 5 |
 | `memory-match` | 4 |
 | `number-line-frame` | 3 |
 | `symmetry-complete` | 3 |
@@ -1431,7 +1431,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Nombres et calculs `(cm1-nombres-calculs)`
 
-- **Leçons** (12) :
+- **Leçons** (14) :
   - Lire une fraction `(cm1-lesson-fractions)` — blocs: paragraph, example, bullets, tip, check, check
   - Additionner des fractions de même dénominateur `(cm1-lesson-fractions-addition)` — blocs: paragraph, example, bullets, tip, check, check
   - Des fractions équivalentes `(cm1-lesson-fractions-equivalentes)` — blocs: paragraph, example, bullets, tip, check, check
@@ -1444,7 +1444,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - La position d'un chiffre dans un grand nombre `(cm1-lesson-position-valeur-grands-nombres)` — blocs: paragraph, example, mini-table, tip, check, check
   - Poser une addition ou une soustraction de décimaux `(cm1-lesson-decimaux-operations-posees)` — blocs: paragraph, example, bullets, tip, check, check
   - Multiplier et diviser par 10, 100, 1000 `(cm1-lesson-multiplier-diviser-10-100-1000)` — blocs: paragraph, example, tip, check, check
-- **Exercices** (36) :
+  - La classe des millions `(cm1-lesson-classe-millions)` — blocs: paragraph, example, mini-table, tip, check, check
+  - Soustraire des fractions de même dénominateur `(cm1-lesson-fractions-soustraction)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (40) :
   - Grands Nombres `(cm1-m-big)` — engine: `math-input`, type=dictée-nombres, max=1000000, questions=5
   - Fractions `(cm1-frac-1)` — engine: `math-input`, type=fraction-view, maxDenom=8, questions=10
   - Construis la fraction `(cm1-frac-build)` — engine: `board-interactive`, type=fraction-build, minDenom=2, maxDenom=8, questions=8
@@ -1474,13 +1476,17 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Soustraction posée avec emprunt `(cm1-m-soustraction-posee-emprunt)` — engine: `math-input`, type=operation-posed, operator=sub, level=2, questions=6
   - Multiplication posée par un nombre à 2 chiffres `(cm1-m-multiplication-posee-2-chiffres)` — engine: `math-input`, type=operation-posed, operator=mult, level=2, questions=6
   - Le chiffre à sa place `(cm1-m-position-chiffre-million)` — engine: `math-input`, type=place-value, digitCount=6, ask=digit, questions=6
-  - La valeur d'un chiffre `(cm1-m-valeur-chiffre-million)` — engine: `math-input`, type=place-value, digitCount=5, ask=value, questions=6
+  - La valeur d'un chiffre `(cm1-m-valeur-chiffre-million)` — engine: `math-input`, type=place-value, digitCount=6, ask=value, questions=6
   - Addition posée de décimaux `(cm1-m-addition-posee-decimaux-dixiemes)` — engine: `math-input`, type=operation-posed, operator=add, level=2, decimals=1, questions=6
   - Soustraction posée de décimaux `(cm1-m-soustraction-posee-decimaux-dixiemes)` — engine: `math-input`, type=operation-posed, operator=sub, level=2, decimals=1, questions=6
   - Addition posée de décimaux (centièmes) `(cm1-m-addition-posee-decimaux-centiemes)` — engine: `math-input`, type=operation-posed, operator=add, level=3, decimals=2, questions=6
   - Soustraction posée de décimaux (centièmes) `(cm1-m-soustraction-posee-decimaux-centiemes)` — engine: `math-input`, type=operation-posed, operator=sub, level=3, decimals=2, questions=6
   - Multiplier par 10, 100, 1000 `(cm1-m-multiplier-10-100-1000)` — engine: `math-input`, type=calc-mental, operator=x, questions=10
   - Diviser par 10, 100, 1000 `(cm1-m-diviser-10-100-1000)` — engine: `math-input`, type=calc-mental, operator=/, questions=10
+  - Grands nombres : le chiffre à sa place `(cm1-m-chiffre-classe-millions)` — engine: `math-input`, type=place-value, digitCount=7, ask=digit, questions=6
+  - Grands nombres : la valeur d'un chiffre `(cm1-m-valeur-classe-millions)` — engine: `math-input`, type=place-value, digitCount=7, ask=value, questions=6
+  - Soustrais des fractions `(cm1-frac-soustraction)` — engine: `math-input`, type=fraction-operation, operator=sub, level=1, questions=8
+  - Fractions équivalentes sur la ligne `(cm1-fractions-equivalentes-droite)` — engine: `board-interactive`, type=number-line-place, dataFile=data/board_number_line_cm1.json, category=cm1_fractions_equivalentes, questions=6
 
 #### Grandeurs et mesures `(cm1-grandeurs-mesures)`
 
@@ -1508,7 +1514,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Géométrie `(cm1-geometrie-subtheme)`
 
-- **Leçons** (9) :
+- **Leçons** (11) :
   - Reconnaître les polygones `(cm1-lesson-polygones)` — blocs: paragraph, example, bullets, tip, check, check
   - L'angle droit `(cm1-lesson-angles-droits)` — blocs: paragraph, example, bullets, tip, check, check
   - Les familles d'angles `(cm1-lesson-familles-angles)` — blocs: paragraph, example, bullets, tip, check, check
@@ -1518,6 +1524,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - L'aire du rectangle `(cm1-lesson-aire-rectangle)` — blocs: paragraph, example, bullets, tip, check, check
   - Découvrir le volume `(cm1-lesson-volume-pave)` — blocs: paragraph, example, bullets, tip, check, check
   - Décrire un solide `(cm1-lesson-solides-patron)` — blocs: paragraph, example, mini-table, tip, check, check
+  - La symétrie axiale `(cm1-lesson-symetrie-axiale)` — blocs: paragraph, example, bullets, tip, check, check
+  - Se repérer sur un quadrillage `(cm1-lesson-reperage-quadrillage)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (18) :
   - Reconnaître les polygones `(cm1-geo-polygones)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm1.json, category=cm1-polygones, questions=8
   - Périmètre et angle droit `(cm1-geo-perimetre-angles)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm1.json, category=cm1-perimetre-angles, questions=8
@@ -1543,10 +1551,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Lire un diagramme en barres `(cm1-lesson-lire-graphique)` — blocs: paragraph, example, bullets, tip, check, check
   - Calculer une moyenne `(cm1-lesson-moyenne)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (3) :
+- **Exercices** (4) :
   - Lire un diagramme en barres `(cm1-graphique-lecture)` — engine: `math-input`, type=bar-chart-read, maxBars=4, maxValue=20, questions=6
   - Lire un tableau de données `(cm1-donnees-tableaux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=cm1-donnees-tableaux, questions=6
   - Défi : graphiques en rafale `(cm1-bonus-graphique-expert)` — engine: `math-input`, type=bar-chart-read, maxBars=5, maxValue=25, questions=8, bonus (seuil=2)
+  - Calculer une moyenne `(cm1-graphique-moyenne)` — engine: `math-input`, type=average-compute, length=4, maxValue=20, questions=6
 
 ### Français (cm1-francais-subject)
 
