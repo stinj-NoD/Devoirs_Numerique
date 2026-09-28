@@ -2685,9 +2685,13 @@ const App = {
             // pas la compétence testée (c'est l'orthographe des lettres) —
             // on accepte "sous-marin", "sous marin" et "sousmarin" comme
             // équivalents, dans les deux sens (saisie et réponse attendue).
+            // Même logique pour « œ » : ce sont les lettres o et e, liées par
+            // la typographie. Un clavier physique AZERTY n'a pas de touche œ,
+            // donc « oeil » est accepté pour « œil », et inversement.
             if (!isCorrect && ['spelling', 'audioSpelling'].includes(problemData.visualType)) {
-                const collapse = s => s.replace(/[-\s]+/g, " ").trim();
-                const strip = s => s.replace(/[-\s]/g, "");
+                const lig = s => s.replace(/œ/g, "oe").replace(/æ/g, "ae");
+                const collapse = s => lig(s).replace(/[-\s]+/g, " ").trim();
+                const strip = s => lig(s).replace(/[-\s]/g, "");
                 isCorrect = collapse(uInput) === collapse(tAnswer) || strip(uInput) === strip(tAnswer);
             }
             // Tolérance horloge : accepte "1h30" écrit "130" sans le zéro initial (heures 1-9)

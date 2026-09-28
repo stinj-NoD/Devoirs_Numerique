@@ -102,7 +102,9 @@ const UIKeyboards = {
 
         let html = '<div class="alpha-keyboard">';
 
-        html += `<div class="kb-row accent-row">` + "\u00e9\u00e8\u00ea\u00eb\u00e0\u00e2\u00e7\u00ee\u00ef\u00f4\u00fb\u00f9-'".split('').map(a =>
+        // \u00ab \u0153 \u00bb (\u0153) : sans lui, \u0152IL et C\u0152UR \u00e9taient impossibles \u00e0 taper
+        // en dict\u00e9e, alors que la r\u00e9ponse attendue les contient.
+        html += `<div class="kb-row accent-row">` + "\u00e9\u00e8\u00ea\u00eb\u00e0\u00e2\u00e7\u00ee\u00ef\u00f4\u0153\u00fb\u00f9-'".split('').map(a =>
             `<button class="btn key letter-key" data-val="${this._safeAttr(a)}">${this._escape(a)}</button>`
         ).join('') + `</div>`;
 

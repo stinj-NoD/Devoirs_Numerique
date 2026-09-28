@@ -219,7 +219,15 @@ function numberToFrench(n) {
             else {
                 let t = Math.floor(r / 10);
                 let u = r % 10;
-                if (t === 7 || t === 9) res += tens[t - 1] + (u === 1 ? "-et-" : "-") + teens[u];
+                // 70-79 : « soixante-dix », « soixante-et-onze ».
+                // 80-99 : « quatre-vingts » ne prend son « s » que seul (80), et
+                // 81 et 91 n'ont pas de « et » : « quatre-vingt-un »,
+                // « quatre-vingt-onze ». L'ancienne branche commune 7/9 (et 8 via
+                // `tens`) écrivait « quatre-vingts-cinq », « quatre-vingts-et-un » :
+                // un enfant qui écrivait juste était compté faux.
+                if (t === 7) res += "soixante" + (u === 1 ? "-et-" : "-") + teens[u];
+                else if (t === 8) res += u === 0 ? "quatre-vingts" : "quatre-vingt-" + units[u];
+                else if (t === 9) res += "quatre-vingt-" + teens[u];
                 else res += tens[t] + (u === 1 ? "-et-" : (u > 0 ? "-" : "")) + units[u];
             }
         }
@@ -233,7 +241,10 @@ function numberToFrench(n) {
 
     if (b > 0) result += getBelowThousand(b) + " milliard" + (b > 1 ? "s" : "") + " ";
     if (m > 0) result += getBelowThousand(m) + " million" + (m > 1 ? "s" : "") + " ";
-    if (k > 0) result += (k === 1 ? "" : getBelowThousand(k) + " ") + "mille ";
+    // « cent » et « vingt » perdent leur « s » devant « mille », qui est un
+    // adjectif numéral (« deux cent mille », « quatre-vingt mille ») ; devant
+    // « million » et « milliard », qui sont des noms, ils le gardent.
+    if (k > 0) result += (k === 1 ? "" : getBelowThousand(k).replace(/(cent|vingt)s$/, "$1") + " ") + "mille ";
     if (r > 0) result += getBelowThousand(r);
 
     return result.trim();

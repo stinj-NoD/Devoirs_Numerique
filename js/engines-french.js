@@ -254,9 +254,33 @@
         const item = Engines.utils.pickUnused(cat, params.usedSet);
         if (!item || !item.word) return { question: "Erreur Lib", answer: "ok" };
         let expected;
-        const choices = [...(params.options || ["un", "une"])];
-        const voyelles = ["a", "e", "i", "o", "u", "y", "h", "à", "â", "é", "è", "ê", "ë", "î", "ï", "ô", "ù", "û", "ü"];
-        const needsElision = voyelles.includes(item.word[0].toLowerCase());
+        const options = params.options || ["un", "une"];
+        // Défi « mélange » (options un/une ET le/la) : pour un même nom, les
+        // deux familles donnent chacune une bonne réponse — « un chat » comme
+        // « le chat » — alors que le QCM n'en accepte qu'une. L'ancien code
+        // attendait toujours l'indéfini et comptait « le chat » faux. On tire
+        // donc UNE famille par question et on ne propose que ses articles :
+        // le mélange se fait d'une question à l'autre, jamais dans les choix.
+        const definis = options.filter((o) => ["le", "la", "l'"].includes(o));
+        const indefinis = options.filter((o) => ["un", "une"].includes(o));
+        const famille = definis.length && indefinis.length
+            ? (Math.random() < 0.5 ? indefinis : definis)
+            : options;
+        const choices = [...famille];
+        // Le « h » ne s'élide que s'il est muet (« l'horloge », « l'hôpital ») ;
+        // devant un h aspiré on garde l'article plein (« le hibou », « le
+        // hérisson », « la hache »). L'ancienne liste de voyelles contenait
+        // « h » et attendait « l'hibou ». Par défaut un h initial est muet
+        // (cas le plus fréquent dans les banques) : tout mot à h aspiré doit
+        // figurer ici. Comparaison sans accents, en majuscules.
+        const H_ASPIRE = new Set(["HACHE", "HACHOIR", "HAIE", "HAILLON", "HAINE", "HALL", "HALLE", "HALTE", "HAMAC",
+            "HAMBURGER", "HAMEAU", "HAMSTER", "HANCHE", "HANDBALL", "HANGAR", "HARENG", "HARICOT", "HARNAIS", "HARPE",
+            "HASARD", "HAUTEUR", "HERISSON", "HERON", "HEROS", "HIBOU", "HOCKEY", "HOMARD", "HONTE", "HOQUET", "HOTTE",
+            "HOUX", "HUBLOT", "HUTTE"]);
+        const motNormalise = item.word.normalize("NFD").replace(/[̀-ͯ]/g, "").toUpperCase();
+        const voyelles = ["a", "e", "i", "o", "u", "y", "à", "â", "é", "è", "ê", "ë", "î", "ï", "ô", "ù", "û", "ü"];
+        const initiale = item.word[0].toLowerCase();
+        const needsElision = voyelles.includes(initiale) || (initiale === "h" && !H_ASPIRE.has(motNormalise));
         if (choices.includes("un") || choices.includes("une")) {
             expected = item.article;
         } else if (choices.includes("mon") || choices.includes("ma")) {

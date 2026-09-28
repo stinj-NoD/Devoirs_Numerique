@@ -12,7 +12,7 @@
 
 | Sévérité | Maths | Français | Histoire | Géographie | Sciences | EMC | Total |
 |---|---|---|---|---|---|---|---|
-| Bloquant | 1 | 3 | 0 | 0 | 0 | 0 | **4** |
+| Bloquant | 1 | 3 | 0 | 0 | 0 | 0 | **4** — tous corrigés en v4.52.0 |
 | Majeur | 5 | 5 | 1 | 4 | 2 | 2 | **19** |
 | Mineur | 15 | 16 | 9 | 8 | 7 | 5 | **60** |
 | Suggestion | 3 | 2 | 2 | 2 | 2 | 2 | **13** |
@@ -69,6 +69,8 @@ Le niveau a été profondément enrichi depuis le 2026-07-24 (vagues v4.47.0 à 
 **Suggestion — heure en notation 24 h dans un quiz de CP** — leçon `cp-lesson-heures-journee`, 1er `check` — « récréation de 15 h » : au CP, l'heure se lit sur le cadran à aiguilles ; « 15 h » n'est ni enseigné ni exercé. Correction suggérée : « récréation de l'après-midi ».
 
 ### Exercices
+
+**✅ Corrigé en v4.52.0 (2026-09-28).** `numberToFrench` écrit désormais « quatre-vingt-cinq », « quatre-vingt-un », « quatre-vingt-onze », et « quatre-vingts » seul pour 80 ; au passage, « cent » et « vingt » perdent leur « s » devant « mille » (« deux cent mille »). Mesuré : 35 200 nombres mal écrits entre 0 et 100 000 avant le correctif, 0 après — le défaut touchait tous les niveaux, pas seulement le CP. Constat d'origine conservé ci-dessous. 
 
 **Bloquant — orthographe fausse des nombres de 81 à 99, exigée comme bonne réponse** — `data/cp.json`, exercice `cp-dictee-20-69` (« Nombres de 20 à 99 », `math-input` type `number-spelling`, `min: 20, max: 99`) ; moteur `js/engines.js::numberToFrench` — la table `tens` contient « quatre-vingts » (avec s) et elle sert aux décennies 80 et 90. Le moteur produit « quatre-vingts-et-un », « quatre-vingts-cinq », « quatre-vingts-dix », « quatre-vingts-et-onze », « quatre-vingts-dix-neuf » (confirmé par appel direct du moteur). Or « vingt » ne prend le s que lorsqu'il termine le nombre (80 = « quatre-vingts », 85 = « quatre-vingt-cinq ») et il n'y a **jamais** de « et » dans 81 et 91 (« quatre-vingt-un », « quatre-vingt-onze »), en orthographe traditionnelle comme rectifiée. Sonde : **7 tirages sur 40** ; en théorie 19 nombres sur 80 (24 % des questions). Double effet : dans le sens « lettres → chiffres », l'enfant lit une orthographe fausse ; dans le sens « chiffres → lettres », l'orthographe **juste** qu'il tape est refusée (comparaison stricte dans `App.validateAnswer`). Correction suggérée : « quatre-vingt » dès qu'une unité suit, pas de « -et- » pour 81 et 91 ; vérifier les exercices des autres niveaux qui utilisent ce moteur.
 
@@ -130,9 +132,15 @@ Le niveau a été profondément enrichi depuis le 2026-07-24 (vagues v4.47.0 à 
 
 ### Exercices
 
+**✅ Corrigé en v4.52.0 (2026-09-28).** Touche « œ » ajoutée au clavier virtuel, et « oe » accepté pour « œ » dans les dictées (comme les tirets des mots composés : un clavier physique AZERTY n'a pas de touche œ). Vérifié en navigateur au CP et au CE1, qui utilise aussi la catégorie `corps` : « cœur » et « coeur » acceptés, « cour » refusé. La rangée d'accents passe à 15 touches et tient sur une ligne dès 320 px de large. 
+
 **Bloquant — deux mots impossibles à taper** — `data/french/spelling.json`, cat. `corps`, items « ŒIL » et « CŒUR » (exercice `fr-corps`, dictée d'images) — le clavier virtuel (`js/ui-keyboards.js::renderAlphaKeyboard`) propose é è ê ë à â ç î ï ô û ù - ' et l'espace, **pas « œ »** (touches relevées dans le rendu de la sonde) ; il n'existe pas de saisie au clavier physique ; `App.validateAnswer` compare en strict, donc « oeil » est refusé. Ces 2 items sur 15 sont perdus d'avance, et 57 % des séries de 5 en contiennent au moins un. Correction suggérée : touche « œ », ou équivalence « oe » = « œ » à la validation, ou retrait de ces mots de la dictée d'images.
 
+**✅ Corrigé en v4.52.0 (2026-09-28).** Le moteur tire une famille d'articles par question (un/une, ou le/la/l') et ne propose qu'elle : il n'y a plus qu'une bonne réponse dans les choix, et le mélange se fait d'une question à l'autre. Aucun autre exercice ne mêlait les deux familles. 
+
 **Bloquant — « Défi genre : un, une, le, la » : deux bonnes réponses, une seule acceptée** — exercice `cp-bonus-genre-mixte` (`gender-articles`, `options: ["le","la","un","une"]`) ; `js/engines-french.js::genderArticles` — dès que « un » ou « une » figure dans les options, la réponse attendue est l'article indéfini (sonde : 40 réponses attendues sur 40 sont « un » ou « une » ; appel direct : CHAT → « un » seul). Pour les 63 mots de `gender_cp` à consonne initiale (et pour HIBOU), « le chat » et « un chat » sont justes tous les deux, mais « le » est compté faux. Correction suggérée : une consigne qui désigne l'article attendu, ou accepter les deux articles du bon genre.
+
+**✅ Corrigé en v4.52.0 (2026-09-28).** Le « h » ne s'élide plus que s'il est muet : liste des h aspirés dans `genderArticles`. Vérifié sur tous les niveaux : « le hibou » (CP) et **« le hérisson » (CM1, `cm1-g-le-la`, même défaut, non signalé jusqu'ici)** ; les 7 mots à h muet des banques restent élidés (l'horloge, l'hôpital, l'hôtel, l'histoire, l'héritage, l'humanité ; « un honneur »). 
 
 **Bloquant — « l'hibou » attendu** — exercice `cp-le-la` (options `["le","la"]`) sur `data/french/grammar.json::gender_cp`, item « HIBOU » ; `js/engines-french.js::genderArticles` range « h » parmi les voyelles et impose l'élision — la réponse attendue est « l' » (confirmé par appel direct du moteur), alors que « hibou » a un h aspiré : **le hibou** (TLFi). La bonne réponse de l'enfant est refusée. « HORLOGE » (h muet, « l'horloge », « mon horloge ») est juste. Correction suggérée : liste des h aspirés dans le moteur, ou champ `elision: false` sur l'item.
 
