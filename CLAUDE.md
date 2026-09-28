@@ -104,18 +104,17 @@ Pas de backend, donc la sécurité porte sur la robustesse des données et l'abs
 - Préférer plusieurs petits lots de contenu cohérents à une grosse vague instable ; épaissir une catégorie trop faible avant d'ouvrir une nouvelle surface visible dessus.
 - Toute évolution significative doit être répercutée dans la doc concernée (`README.md`, `technicalaspect.md`, `SECURITY.md`, `docs/curriculum-delta-cp-cm2.md`).
 
-## Agents : un à la fois
+## Agents : deux au plus en même temps
 
-**Un seul agent tourne à la fois, sur un seul niveau.** Si un agent travaille sur le CP, aucun autre ne tourne en parallèle sur le CE1, le CE2 ou un autre niveau. La règle vaut pour les audits (`curriculum-auditor`, `content-quality-auditor`), pour la production (`exercise-author`, `curriculum-lead`) et pour tout autre agent.
+**Au plus 2 agents tournent en même temps, délégations comprises** (`curriculum-lead` qui confie un lot à `exercise-author`, cela fait 2). La règle vaut pour les audits (`curriculum-auditor`, `content-quality-auditor`), pour la production (`exercise-author`, `curriculum-lead`) et pour tout autre agent. *Limite passée de 1 à 2 le 2026-09-28, à la demande de l'utilisateur.*
 
-- **Pas de déploiement en masse sur tous les niveaux sans contrôle réel.** Le cycle est : un niveau → rapport de l'agent → vérification de ses affirmations **dans les données** (jamais sur parole) → commit → niveau suivant. Une demande du type « rafraîchis les quatre autres audits » se traite en séquence, niveau par niveau.
-- **Lancer plusieurs agents simultanément exige une validation explicite de l'utilisateur**, qui ne peut pas être contournée par le mode auto ni par `bypassPermissions`. Ce n'est pas qu'une consigne, c'est appliqué par `.claude/hooks/agent-concurrency-guard.js`, branché dans `.claude/settings.json` :
-  - `PreToolUse` sur `Agent` : **refus** (`deny`) tant qu'un autre agent tourne. Un `deny` de hook est respecté dans tous les modes, contrairement à un `ask`, que le classifieur du mode auto peut trancher seul ;
+- **Pas de déploiement en masse sur tous les niveaux sans contrôle réel.** Le cycle est : rapport de l'agent → vérification de ses affirmations **dans les données** (jamais sur parole) → commit → lot suivant. Une demande du type « rafraîchis les quatre autres audits » se traite par lots de 2 au plus, jamais d'un seul coup.
+- **Au-delà de 2 agents simultanés, une validation explicite de l'utilisateur est obligatoire**, et elle ne peut pas être contournée par le mode auto ni par `bypassPermissions`. Ce n'est pas qu'une consigne, c'est appliqué par `.claude/hooks/agent-concurrency-guard.js`, branché dans `.claude/settings.json` :
+  - `PreToolUse` sur `Agent` : **refus** (`deny`) dès que 2 agents tournent déjà. Un `deny` de hook est respecté dans tous les modes, contrairement à un `ask`, que le classifieur du mode auto peut trancher seul ;
   - seul l'utilisateur lève le refus, en écrivant **`#agents-simultanes-ok`** dans son propre message (hook `UserPromptSubmit`) : autorisation valable 10 minutes. **`#agents-reinitialiser`** vide le registre si un agent est mort sans signal de fin (sinon, péremption automatique au bout de 3 h) ;
-  - le registre des agents en cours est tenu par `SubagentStart` / `SubagentStop` dans `.claude/.etat-agents/` (ignoré par git, journal dans `journal.log`). Un hook anti-falsification refuse tout outil d'écriture ou toute commande shell qui y touche : l'assistant ne peut pas se fabriquer une autorisation ;
-  - un agent qui délègue lui-même (`curriculum-lead` → `exercise-author`) ne se compte pas, mais ne peut pas lancer deux sous-lots en parallèle.
-- **Ne jamais contourner, désactiver ou modifier ce garde-fou** (script, `settings.json`, `disableAllHooks`) sans demande explicite de l'utilisateur. Face au refus : attendre la fin de l'agent en cours, ou expliquer à l'utilisateur pourquoi des agents simultanés seraient nécessaires et le laisser décider.
-- **Pourquoi** : garder un contrôle réel niveau par niveau. Et l'expérience l'a montré deux fois : 8 puis 5 agents lancés ensemble sont tous tombés sur la limite de session, et une partie du travail a été perdue. Exiger aussi de chaque agent qu'il **écrive son livrable tôt**, quitte à l'affiner ensuite.
+  - le registre des agents en cours est tenu par `SubagentStart` / `SubagentStop` dans `.claude/.etat-agents/` (ignoré par git, journal dans `journal.log`). Un hook anti-falsification refuse tout outil d'écriture ou toute commande shell qui y touche : l'assistant ne peut pas se fabriquer une autorisation.
+- **Ne jamais contourner, désactiver ou modifier ce garde-fou** (script, `settings.json`, `disableAllHooks`) sans demande explicite de l'utilisateur. Face au refus : attendre la fin d'un agent en cours, ou expliquer à l'utilisateur pourquoi davantage d'agents simultanés seraient nécessaires et le laisser décider.
+- **Pourquoi** : garder un contrôle réel. L'expérience l'a montré deux fois : 8 puis 5 agents lancés ensemble sont tous tombés sur la limite de session, et une partie du travail a été perdue. Exiger aussi de chaque agent qu'il **écrive son livrable tôt**, quitte à l'affiner ensuite.
 
 ## Attente d'une réponse de l'utilisateur
 

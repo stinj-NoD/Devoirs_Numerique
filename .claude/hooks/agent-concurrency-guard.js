@@ -1,10 +1,11 @@
 /*
- * agent-concurrency-guard.js — un seul agent à la fois sur ce projet.
+ * agent-concurrency-guard.js — au plus 2 agents en même temps sur ce projet.
  *
- * Règle du projet (CLAUDE.md, « Agents : un à la fois ») : on ne fait tourner
- * qu'un agent à la fois, un niveau à la fois. Lancer plusieurs agents
- * simultanément exige une validation EXPLICITE de l'utilisateur, qui ne doit
- * pas pouvoir être contournée par le mode auto ni par bypassPermissions.
+ * Règle du projet (CLAUDE.md, « Agents : deux au plus en même temps ») : au
+ * plus MAX_AGENTS_SIMULTANES agents tournent ensemble. En lancer davantage
+ * exige une validation EXPLICITE de l'utilisateur, qui ne doit pas pouvoir
+ * être contournée par le mode auto ni par bypassPermissions.
+ * (Limite passée de 1 à 2 le 2026-09-28, à la demande de l'utilisateur.)
  *
  * Pourquoi ce mécanisme et pas un simple « ask » :
  *   - une décision `ask` peut être tranchée par le classifieur en mode auto ;
@@ -17,7 +18,7 @@
  *     l'assistant ne peut pas se fabriquer une autorisation.
  *
  * Modes (argv[2]) :
- *   pre-agent          PreToolUse sur Agent|Task : refuse si un autre agent tourne
+ *   pre-agent          PreToolUse sur Agent|Task : refuse si la limite est atteinte
  *   start / stop       SubagentStart / SubagentStop : tient le registre à jour
  *   prompt             UserPromptSubmit : mots-clés de l'utilisateur
  *   anti-falsification PreToolUse sur les outils d'écriture
@@ -42,6 +43,10 @@ const JOURNAL = path.join(DIR, 'journal.log');
 const MOT_CLE_AUTORISER = /#agents-simultanes-ok\b/i;
 const MOT_CLE_REINITIALISER = /#agents-reinitialiser\b/i;
 const DUREE_AUTORISATION_MS = 10 * 60 * 1000;
+// Nombre total d'agents autorisés à tourner ensemble sans validation de
+// l'utilisateur, délégations comprises : curriculum-lead qui confie un lot à
+// exercise-author, cela fait 2.
+const MAX_AGENTS_SIMULTANES = 2;
 // Un agent qui meurt sans SubagentStop (limite de session, crash) ne doit pas
 // verrouiller le projet indéfiniment. Les audits les plus longs ont duré ~35 min.
 const PEREMPTION_AGENT_MS = 3 * 60 * 60 * 1000;
@@ -118,16 +123,19 @@ try {
     if (mode === 'pre-agent') {
         const registre = registrePurge();
         const appelant = entree.agent_id || null;
-        const autres = Object.entries(registre).filter(([cle]) => cle !== appelant);
+        // Tous les agents en cours comptent, y compris celui qui délègue : la
+        // limite porte sur le nombre total d'agents qui tournent.
+        const autres = Object.entries(registre);
         const type = (entree.tool_input && entree.tool_input.subagent_type) || 'general-purpose';
         journal(`pre-agent type=${type} appelant=${appelant || 'principal'} autres=${autres.length} cles=${Object.keys(entree).join(',')}`);
 
-        if (autres.length && !autorisationValide()) {
+        const limiteAtteinte = autres.length >= MAX_AGENTS_SIMULTANES;
+        if (limiteAtteinte && !autorisationValide()) {
             const liste = autres.map(([cle, e]) => `- ${e.type || '?'} (${e.provisoire ? 'en démarrage' : 'depuis ' + e.depuis}) [${cle}]`).join('\n');
             refuser('PreToolUse',
-                'Garde-fou du projet : un agent tourne déjà, et la règle est UN SEUL agent à la fois (CLAUDE.md, « Agents : un à la fois »).\n'
+                `Garde-fou du projet : ${autres.length} agents tournent déjà, et la règle est ${MAX_AGENTS_SIMULTANES} agents au plus en même temps (CLAUDE.md, « Agents : deux au plus en même temps »).\n`
                 + 'Agents en cours :\n' + liste + '\n'
-                + 'Attends la fin de cet agent avant d\'en lancer un autre. Si des agents simultanés sont réellement nécessaires, '
+                + 'Attends la fin de l\'un d\'eux avant d\'en lancer un autre. Si davantage d\'agents simultanés sont réellement nécessaires, '
                 + 'demande-le à l\'utilisateur en expliquant pourquoi : il doit écrire lui-même « #agents-simultanes-ok » dans son message '
                 + '(autorisation valable 10 minutes). Ne tente pas de contourner ce refus. '
                 + 'Si le registre est faux (agent mort sans signal de fin), c\'est aussi à l\'utilisateur d\'écrire « #agents-reinitialiser ».');
@@ -138,9 +146,9 @@ try {
             type, depuis: new Date().toISOString(), provisoire: true, parent: appelant
         };
         ecrireJson(EN_COURS, registre);
-        if (autres.length) {
-            journal(`lancement simultané AUTORISÉ par l'utilisateur (type=${type})`);
-            sortir({ systemMessage: `Agent « ${type} » lancé en parallèle d'un autre, sur autorisation #agents-simultanes-ok.` });
+        if (limiteAtteinte) {
+            journal(`lancement au-delà de la limite AUTORISÉ par l'utilisateur (type=${type}, ${autres.length} déjà en cours)`);
+            sortir({ systemMessage: `Agent « ${type} » lancé au-delà de la limite de ${MAX_AGENTS_SIMULTANES}, sur autorisation #agents-simultanes-ok.` });
         }
         sortir(null);
     }
