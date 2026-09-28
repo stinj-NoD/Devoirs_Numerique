@@ -117,6 +117,13 @@ Pas de backend, donc la sécurité porte sur la robustesse des données et l'abs
 - **Ne jamais contourner, désactiver ou modifier ce garde-fou** (script, `settings.json`, `disableAllHooks`) sans demande explicite de l'utilisateur. Face au refus : attendre la fin de l'agent en cours, ou expliquer à l'utilisateur pourquoi des agents simultanés seraient nécessaires et le laisser décider.
 - **Pourquoi** : garder un contrôle réel niveau par niveau. Et l'expérience l'a montré deux fois : 8 puis 5 agents lancés ensemble sont tous tombés sur la limite de session, et une partie du travail a été perdue. Exiger aussi de chaque agent qu'il **écrive son livrable tôt**, quitte à l'affiner ensuite.
 
+## Attente d'une réponse de l'utilisateur
+
+**Quand le traitement est fait et qu'une réponse de l'utilisateur est attendue, on s'arrête jusqu'à son retour. Point.** On le dit une seule fois (ce qui est fait, ce qui est attendu, les options), puis plus aucun message : pas de relance, pas de « j'attends toujours », pas de reformulation.
+
+- Aucun hook `Stop` (ni objectif `/goal`) ne doit forcer la reprise quand la suite dépend d'une décision de l'utilisateur. Un tel mécanisme a produit une trentaine de messages identiques en boucle le 2026-09-28. Il n'y a volontairement aucun hook `Stop` dans `.claude/settings.json`, et il ne faut pas en ajouter.
+- Les hooks du projet (garde-fou des agents, voir ci-dessus) ne relancent jamais la conversation : ils ne font que refuser ou enregistrer.
+
 ## Documentation existante (à consulter selon le sujet touché)
 
 - `README.md` — vue d'ensemble produit et fonctionnement général
