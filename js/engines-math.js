@@ -266,6 +266,19 @@
                 const maxValue = Math.pow(10, digitCount) - 1;
                 const value = rnd(p.min || minValue, p.max || maxValue);
                 const valueStr = value.toString();
+                // Groupage par classes de trois chiffres, séparées d'une espace
+                // insécable : c'est la convention scolaire française, et c'est
+                // déjà celle des leçons (cm1-lesson-position-valeur-grands-nombres
+                // écrit « 452 318 », cm1-lesson-classe-millions « 4 235 178 »).
+                // Sans ça l'exercice affichait « 452318 », en contradiction avec
+                // sa propre leçon — et illisible à 7 rangs ou plus. Seul
+                // l'AFFICHAGE est groupé : `answer` reste un nombre nu, comparé
+                // tel quel par App.validateAnswer.
+                const groupDigits = (n) => {
+                    const s = n.toString();
+                    return s.length >= 5 ? s.replace(/\B(?=(\d{3})+$)/g, ' ') : s;
+                };
+                const shown = groupDigits(value);
                 // Couvre jusqu'au milliard (10 rangs, digitCount max borné à 10
                 // par les 2 validateurs). Au-delà, le repli `position N` ci-dessous
                 // afficherait un libellé non pédagogique : il ne doit jamais être
@@ -279,14 +292,15 @@
                 const placeName = placeNames[posFromRight] || `position ${posFromRight}`;
                 const placeVal = digit * Math.pow(10, posFromRight);
                 const askValue = askMode === 'value';
-                const pvQuestion = askValue
-                    ? `Dans <b>${value}</b>, quelle est la valeur du chiffre des <b style="color:#e91e63">${placeName}</b> ?`
-                    : `Dans <b>${value}</b>, quel est le chiffre des <b style="color:#e91e63">${placeName}</b> ?`;
+                // `pvQuestion` a été retiré : il construisait une seconde version
+                // de l'énoncé (« Dans <b>452318</b>, ... ») que rien ne lisait —
+                // vérifié, une seule occurrence dans tout js/. La laisser aurait
+                // signifié maintenir deux formats d'affichage divergents.
                 const pvExplanation = askValue
-                    ? `Dans ${value}, le chiffre des ${placeName} est ${digit}, ce qui représente ${placeVal}.`
-                    : `Dans ${value}, le chiffre des ${placeName} est ${digit}.`;
+                    ? `Dans ${shown}, le chiffre des ${placeName} est ${digit}, ce qui représente ${groupDigits(placeVal)}.`
+                    : `Dans ${shown}, le chiffre des ${placeName} est ${digit}.`;
                 return {
-                    question: `<div style="font-size:2.6rem; font-weight:bold; letter-spacing:2px;">${value}</div><div class="small-question" style="margin-top:10px;">${askValue ? `Quelle est la valeur du chiffre des ${placeName} ?` : `Quel est le chiffre des ${placeName} ?`}</div>`,
+                    question: `<div style="font-size:2.6rem; font-weight:bold; letter-spacing:2px;">${shown}</div><div class="small-question" style="margin-top:10px;">${askValue ? `Quelle est la valeur du chiffre des ${placeName} ?` : `Quel est le chiffre des ${placeName} ?`}</div>`,
                     answer: askValue ? placeVal : digit,
                     inputType: 'numeric',
                     explanation: pvExplanation
@@ -724,28 +738,47 @@
         const level = p.level || 1;
         const operator = p.operator || 'add';
 
+        // En soustraction, deux numérateurs égaux donnent « 3/6 - 3/6 = 0 » :
+        // une question sans calcul. Avec un tirage libre, c'était le cas de
+        // près d'une question sur deux au level 1 (mesuré : 20 tirages sur 40),
+        // le dénominateur 2 n'offrant qu'un seul numérateur possible. En mode
+        // `sub`, on exige donc un dénominateur d'au moins 3 et on tire n2
+        // parmi les valeurs différentes de n1 (tirage uniforme, sans boucle).
+        // Le mode `add` garde exactement son tirage d'origine.
+        const isSub = operator === 'sub';
+        const drawOther = (max, avoid) => {
+            const v = rnd(1, max - 1);
+            return v >= avoid ? v + 1 : v;
+        };
+
         let d1, d2, n1, n2, commonD;
         if (level === 1) {
-            d1 = d2 = commonD = rnd(2, p.maxDenom || 6);
+            const minD = isSub ? 3 : 2;
+            d1 = d2 = commonD = rnd(minD, Math.max(minD, p.maxDenom || 6));
             n1 = rnd(1, commonD - 1);
-            n2 = rnd(1, commonD - 1);
+            n2 = isSub ? drawOther(commonD - 1, n1) : rnd(1, commonD - 1);
         } else if (level === 2) {
             d1 = d2 = commonD = rnd(4, p.maxDenom || 10);
             n1 = rnd(1, commonD - 1);
-            n2 = rnd(1, commonD - 1);
+            n2 = isSub ? drawOther(commonD - 1, n1) : rnd(1, commonD - 1);
         } else {
             // level 3 : dénominateurs différents mais d2 multiple de d1 ; le
             // dénominateur commun (le plus grand des deux) est donné dans la
-            // question, on ne demande pas à l'élève de le trouver (aucune
-            // notion d'équivalence de fractions n'est enseignée dans l'appli
-            // à ce jour). Le cas général (dénominateurs non multiples,
-            // nécessitant un vrai PPCM) est volontairement hors scope.
+            // question, on ne demande pas à l'élève de le trouver.
+            // L'équivalence de fractions est désormais enseignée
+            // (cm1-lesson-fractions-equivalentes, exercée par
+            // cm1-fractions-equivalentes-droite), mais sur ligne graduée :
+            // aucun contenu ne demande encore de convertir avant de calculer.
+            // Le cas général (dénominateurs non multiples, nécessitant un
+            // vrai PPCM) est volontairement hors scope.
             d1 = rnd(2, p.maxDenom ? Math.floor(p.maxDenom / 2) : 5);
             const multiplier = rnd(2, 3);
             d2 = d1 * multiplier;
             commonD = d2;
             n1 = rnd(1, d1 - 1);
-            n2 = rnd(1, d2 - 1);
+            // Ici l'égalité se joue après mise au même dénominateur :
+            // n2 / d2 vaut n1 / d1 quand n2 = n1 × multiplier.
+            n2 = isSub ? drawOther(d2 - 1, n1 * multiplier) : rnd(1, d2 - 1);
         }
 
         const scaledN1 = level === 3 ? n1 * (commonD / d1) : n1;

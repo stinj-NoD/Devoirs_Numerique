@@ -361,7 +361,7 @@
                             "engine": "math-input",
                             "params": {
                                 "type": "place-value",
-                                "digitCount": 5,
+                                "digitCount": 6,
                                 "ask": "value",
                                 "questions": 6
                             }
@@ -456,6 +456,54 @@
                                     20
                                 ],
                                 "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cm1-m-chiffre-classe-millions",
+                            "title": "Grands nombres : le chiffre à sa place",
+                            "subtitle": "Nombres à 7 chiffres, jusqu'aux millions",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "place-value",
+                                "digitCount": 7,
+                                "ask": "digit",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-m-valeur-classe-millions",
+                            "title": "Grands nombres : la valeur d'un chiffre",
+                            "subtitle": "Nombres à 7 chiffres, jusqu'aux millions",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "place-value",
+                                "digitCount": 7,
+                                "ask": "value",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-frac-soustraction",
+                            "title": "Soustrais des fractions",
+                            "subtitle": "Même dénominateur",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "fraction-operation",
+                                "operator": "sub",
+                                "level": 1,
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-fractions-equivalentes-droite",
+                            "title": "Fractions équivalentes sur la ligne",
+                            "subtitle": "Même point, deux écritures",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "number-line-place",
+                                "dataFile": "data/board_number_line_cm1.json",
+                                "category": "cm1_fractions_equivalentes",
+                                "questions": 6
                             }
                         }
                     ],
@@ -1118,6 +1166,149 @@
                                     ],
                                     "answer": "Parce que diviser rend le nombre plus petit : le résultat est 23",
                                     "explanation": "Diviser par 100 fait glisser les chiffres de deux rangs vers la droite, donc vers un nombre plus petit : 2 300 : 100 = 23. N'enlever qu'un seul zéro reviendrait à diviser par 10."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-classe-millions",
+                            "title": "La classe des millions",
+                            "subtitle": "Lire un nombre au-delà de 999 999",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Au-delà de 999 999, on ouvre une nouvelle classe : la classe des millions. Le nombre s'écrit alors en groupes de trois chiffres séparés par une espace, en partant de la droite."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans 4 235 178, le groupe de gauche ne contient qu'un chiffre, le 4 : c'est la classe des millions. On lit « quatre millions deux cent trente-cinq mille cent soixante-dix-huit »."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "label": "Décomposition de 4 235 178",
+                                    "headers": [
+                                        "Rang",
+                                        "Chiffre",
+                                        "Valeur"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "millions",
+                                            "4",
+                                            "4 000 000"
+                                        ],
+                                        [
+                                            "centaines de mille",
+                                            "2",
+                                            "200 000"
+                                        ],
+                                        [
+                                            "dizaines de mille",
+                                            "3",
+                                            "30 000"
+                                        ],
+                                        [
+                                            "milliers",
+                                            "5",
+                                            "5 000"
+                                        ],
+                                        [
+                                            "centaines",
+                                            "1",
+                                            "100"
+                                        ],
+                                        [
+                                            "dizaines",
+                                            "7",
+                                            "70"
+                                        ],
+                                        [
+                                            "unités",
+                                            "8",
+                                            "8"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Je groupe les chiffres par trois en partant de la droite : le groupe le plus à gauche me donne les millions."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans le nombre 6 040 927, quel est le chiffre des millions ?",
+                                    "choices": [
+                                        "6",
+                                        "4",
+                                        "9"
+                                    ],
+                                    "answer": "6",
+                                    "explanation": "En groupant par trois depuis la droite, on lit 6 | 040 | 927 : le groupe de gauche est celui des millions, il contient le 6. Le 4 est au rang des dizaines de mille et le 9 à celui des centaines."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève affirme que dans 3 502 000 le chiffre 5 vaut 5 000. Où se trompe-t-il ?",
+                                    "choices": [
+                                        "Le 5 est au rang des centaines de mille : il vaut 500 000",
+                                        "Le 5 est au rang des milliers : il vaut bien 5 000 comme il l'écrit",
+                                        "Le 5 est au rang des millions : il vaut donc 5 000 000"
+                                    ],
+                                    "answer": "Le 5 est au rang des centaines de mille : il vaut 500 000",
+                                    "explanation": "On compte les rangs depuis la droite : unités, dizaines, centaines, milliers, dizaines de mille, centaines de mille. Le 5 occupe ce dernier rang, il représente donc 500 000. Le rang des millions, lui, est occupé par le 3."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-fractions-soustraction",
+                            "title": "Soustraire des fractions de même dénominateur",
+                            "subtitle": "Soustraire les numérateurs",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour soustraire deux fractions qui ont le même dénominateur, on soustrait seulement les numérateurs. Le dénominateur, lui, ne change pas."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une tablette est coupée en 8 carrés égaux. Il en reste 7/8. Tom en mange 3/8 : il reste 7/8 - 3/8 = 4/8 de la tablette, car on garde le dénominateur 8 et on calcule 7 - 3."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Repères",
+                                    "items": [
+                                        "Le dénominateur indique la taille des parts : il reste identique dans la soustraction.",
+                                        "On soustrait uniquement les numérateurs, qui comptent les parts.",
+                                        "J'écris la plus grande fraction en premier, sinon le résultat n'existe pas encore au CM1."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Même dénominateur : je soustrais les numérateurs et je garde le dénominateur commun."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel est le résultat de 9/10 - 4/10 ?",
+                                    "choices": [
+                                        "5/10",
+                                        "13/10",
+                                        "5"
+                                    ],
+                                    "answer": "5/10",
+                                    "explanation": "Le dénominateur 10 ne change pas : on soustrait seulement les numérateurs, 9 - 4 = 5, ce qui donne 5/10. 13/10 serait le résultat d'une addition, et 5 tout seul n'indique plus la taille des parts."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour calculer 5/6 - 2/6, un élève écrit 3/0 en soustrayant aussi les dénominateurs. Que doit-il corriger ?",
+                                    "choices": [
+                                        "Il doit garder 6 comme dénominateur et ne pas le soustraire",
+                                        "Il doit soustraire les numérateurs dans l’autre sens, 2 - 5",
+                                        "Il doit transformer les deux fractions avant de soustraire"
+                                    ],
+                                    "answer": "Il doit garder 6 comme dénominateur et ne pas le soustraire",
+                                    "explanation": "Le dénominateur dit en combien de parts la tablette est coupée : il ne se soustrait jamais. Ici il reste 6, et seuls les numérateurs se soustraient, 5 - 2 = 3, donc 3/6. Les deux fractions ont déjà le même dénominateur, il n'y a rien à transformer."
                                 }
                             ]
                         }
@@ -2124,6 +2315,112 @@
                                     "explanation": "Le carré central devient la base, et chaque triangle se relève pour former une face qui rejoint la pointe : c'est le patron de la pyramide à base carrée, pas celui du cube (6 carrés) ni du pavé droit (6 rectangles)."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cm1-lesson-symetrie-axiale",
+                            "title": "La symétrie axiale",
+                            "subtitle": "L'axe agit comme un miroir",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une figure est symétrique par rapport à un axe si, en pliant la feuille le long de cet axe, les deux parties se superposent exactement."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Chez un papillon, l'axe de symétrie passe entre les deux ailes. Un point situé à 2 carreaux de l'axe a son image à 2 carreaux de l'axe, mais de l'autre côté."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Repères",
+                                    "items": [
+                                        "L'axe de symétrie se comporte comme un miroir posé sur la figure.",
+                                        "Un point et son image sont toujours à la même distance de l'axe.",
+                                        "Le segment qui relie un point à son image coupe l'axe perpendiculairement."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour vérifier une symétrie, je plie mentalement la figure le long de l'axe : les deux moitiés doivent se recouvrir."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur un quadrillage, un point se trouve à 3 carreaux à gauche de l'axe. Où est son image ?",
+                                    "choices": [
+                                        "À 3 carreaux à droite de l'axe",
+                                        "À 6 carreaux à droite de l'axe",
+                                        "À 3 carreaux plus haut, sur l'axe"
+                                    ],
+                                    "answer": "À 3 carreaux à droite de l'axe",
+                                    "explanation": "L'image garde la même distance à l'axe et change de côté : 3 carreaux à gauche donnent 3 carreaux à droite. Les 6 carreaux correspondent à l'écart entre le point et son image, pas à la position de l'image."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève trace l'image d'un carré en le recopiant à l'identique plus loin, du même côté. Pourquoi ce n'est pas une symétrie axiale ?",
+                                    "choices": [
+                                        "Parce que l'image doit être retournée, comme dans un miroir",
+                                        "Parce que le carré ne possède aucun axe de symétrie",
+                                        "Parce que l'image doit être plus petite que la figure"
+                                    ],
+                                    "answer": "Parce que l'image doit être retournée, comme dans un miroir",
+                                    "explanation": "Recopier une figure en la faisant glisser est un déplacement, pas une symétrie : la symétrie retourne la figure de l'autre côté de l'axe. Le carré possède bien des axes de symétrie, et l'image garde exactement la même taille."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-reperage-quadrillage",
+                            "title": "Se repérer sur un quadrillage",
+                            "subtitle": "Colonne d'abord, ligne ensuite",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Sur un quadrillage, un point se repère par deux nombres appelés coordonnées : d'abord la colonne, puis la ligne. On les écrit entre parenthèses, séparés par un point-virgule."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le point (6 ; 3) se trouve au croisement de la colonne 6 et de la ligne 3. Je me déplace d'abord horizontalement jusqu'à la colonne 6, puis verticalement jusqu'à la ligne 3."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Repères",
+                                    "items": [
+                                        "On lit toujours la colonne en premier, puis la ligne.",
+                                        "Deux points différents ne peuvent pas avoir les mêmes coordonnées.",
+                                        "Inverser les deux nombres désigne un autre point du quadrillage."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Colonne puis ligne : (colonne ; ligne). L'ordre fait partie de la réponse."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un trésor est au croisement de la colonne 5 et de la ligne 1. Quelles sont ses coordonnées ?",
+                                    "choices": [
+                                        "(5 ; 1)",
+                                        "(1 ; 5)",
+                                        "(5 ; 5)"
+                                    ],
+                                    "answer": "(5 ; 1)",
+                                    "explanation": "La colonne s'écrit en premier, la ligne ensuite : colonne 5 et ligne 1 donnent (5 ; 1). (1 ; 5) désigne le point de la colonne 1 et de la ligne 5, situé ailleurs sur le quadrillage."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Deux élèves placent un point : l'un en (2 ; 6), l'autre en (6 ; 2). Ont-ils placé le même point ?",
+                                    "choices": [
+                                        "Non, car l'ordre des deux nombres change le point",
+                                        "Oui, car ce sont les deux mêmes nombres",
+                                        "Oui, car on peut lire les coordonnées dans les deux sens"
+                                    ],
+                                    "answer": "Non, car l'ordre des deux nombres change le point",
+                                    "explanation": "Les coordonnées se lisent dans un ordre fixe : (2 ; 6) est dans la colonne 2 et la ligne 6, alors que (6 ; 2) est dans la colonne 6 et la ligne 2. Ce sont deux points bien distincts."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -2387,6 +2684,18 @@
                                 "maxBars": 5,
                                 "maxValue": 25,
                                 "questions": 8
+                            }
+                        },
+                        {
+                            "id": "cm1-graphique-moyenne",
+                            "title": "Calculer une moyenne",
+                            "subtitle": "Additionner puis diviser",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "average-compute",
+                                "length": 4,
+                                "maxValue": 20,
+                                "questions": 6
                             }
                         }
                     ],

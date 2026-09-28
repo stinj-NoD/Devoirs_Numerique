@@ -1,8 +1,8 @@
 {
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
-    "exercises": 1118,
-    "lessons": 438,
+    "exercises": 1123,
+    "lessons": 442,
     "levels": 5,
     "banks": 80
   },
@@ -9501,6 +9501,28 @@
       "contractHash": null
     },
     {
+      "id": "cm1-lesson-classe-millions",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-fractions-soustraction",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm1-m-big",
       "kind": "exercise",
       "level": "cm1",
@@ -9828,7 +9850,7 @@
       "engine": "math-input",
       "paramsType": "place-value",
       "pool": null,
-      "contractHash": "math-input|{\"ask\":\"value\",\"digitCount\":5,\"type\":\"place-value\"}"
+      "contractHash": "math-input|{\"ask\":\"value\",\"digitCount\":6,\"type\":\"place-value\"}"
     },
     {
       "id": "cm1-m-addition-posee-decimaux-dixiemes",
@@ -9895,6 +9917,50 @@
       "paramsType": "calc-mental",
       "pool": null,
       "contractHash": "math-input|{\"operands\":[10,100,1000],\"operator\":\"/\",\"range\":[2,20],\"type\":\"calc-mental\"}"
+    },
+    {
+      "id": "cm1-m-chiffre-classe-millions",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "place-value",
+      "pool": null,
+      "contractHash": "math-input|{\"ask\":\"digit\",\"digitCount\":7,\"type\":\"place-value\"}"
+    },
+    {
+      "id": "cm1-m-valeur-classe-millions",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "place-value",
+      "pool": null,
+      "contractHash": "math-input|{\"ask\":\"value\",\"digitCount\":7,\"type\":\"place-value\"}"
+    },
+    {
+      "id": "cm1-frac-soustraction",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "fraction-operation",
+      "pool": null,
+      "contractHash": "math-input|{\"level\":1,\"operator\":\"sub\",\"type\":\"fraction-operation\"}"
+    },
+    {
+      "id": "cm1-fractions-equivalentes-droite",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": "board-interactive",
+      "paramsType": "number-line-place",
+      "pool": "data/board_number_line_cm1.json::cm1_fractions_equivalentes",
+      "contractHash": "board-interactive|{\"category\":\"cm1_fractions_equivalentes\",\"dataFile\":\"data/board_number_line_cm1.json\",\"type\":\"number-line-place\"}"
     },
     {
       "id": "cm1-lesson-conversions-mesures",
@@ -10205,6 +10271,28 @@
       "contractHash": null
     },
     {
+      "id": "cm1-lesson-symetrie-axiale",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-geometrie-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-reperage-quadrillage",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-geometrie-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm1-geo-polygones",
       "kind": "exercise",
       "level": "cm1",
@@ -10456,6 +10544,17 @@
       "paramsType": "bar-chart-read",
       "pool": null,
       "contractHash": "math-input|{\"maxBars\":5,\"maxValue\":25,\"type\":\"bar-chart-read\"}"
+    },
+    {
+      "id": "cm1-graphique-moyenne",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-graphiques-subtheme",
+      "engine": "math-input",
+      "paramsType": "average-compute",
+      "pool": null,
+      "contractHash": "math-input|{\"length\":4,\"maxValue\":20,\"type\":\"average-compute\"}"
     },
     {
       "id": "cm1-lesson-homophones-strategie",
@@ -17252,7 +17351,8 @@
     },
     "data/board_number_line_cm1.json": {
       "categories": {
-        "cm1_fractions_droite_graduee": 14
+        "cm1_fractions_droite_graduee": 14,
+        "cm1_fractions_equivalentes": 11
       }
     },
     "data/board_number_line_cp.json": {
