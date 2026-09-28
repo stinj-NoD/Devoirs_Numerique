@@ -216,3 +216,12 @@ C'est le bloc neuf de cette passe : l'EMC était déclaré sans manque, il en a 
 17. **Banques orphelines** : brancher ou retirer `cp_map_regions_france` (8 items — les régions ne sont pas au programme du CP : décision de niveau) et `cp_memory_match` (8 planches, contenu générique déjà couvert ailleurs).
 18. **Volumes minces à épaissir avant d'ouvrir de nouvelles surfaces** : `cp-masses-contenances` (8 items), `cp-metiers-autrefois` (8), et les pools de 10 items réutilisés par 3 ou 4 exercices (`cp-emotions`, `cp-corps-sens`, `cp-transports-lieux`, `cp-vie-autrefois`, `cp-se-reperer`, `cp-paysages`).
 19. **À maintenir** : régénérer cet audit après chaque vague CP. Le niveau n'a plus de manque structurel — les 11 points des rangs 1 et 2 représentent au total une seule vague de taille moyenne, après quoi le CP sera aligné sur l'intégralité du programme 2026 et du texte d'EMC 2024.
+
+## Renvois croisés avec l'audit qualité (2026-09-28)
+
+L'audit qualité du CP (`docs/content-quality-audit-cp.md`, même jour) renvoie une liste de points à la couverture. Tous figurent déjà dans le présent audit — pavé droit, suites et régularités, frise, émotions (dégoût, surprise), confiance en soi, liberté, groupes d'aliments, texte suivi en compréhension, gauche/droite, continents — **sauf deux, qui ne sont pas des manques mais des fuites de niveau vers le haut** :
+
+- **Conjugaison** : le sous-thème `cp-conjugaison` fait conjuguer être et avoir aux six personnes (`cp-conj-etre-avoir`, `cp-bonus-conj-etre-avoir`, `cp-conj-verbes-simples`, leçon `cp-lesson-etre-avoir`). La section CP de `PROGRAMME_SCOLAIRE_REFERENCE.md` ne cite aucune conjugaison.
+- **État gazeux** : la leçon `cp-lesson-matiere-etat`, sous-titrée « Solide, liquide, gaz », et l'item 10 de `data/science_cp.json::cp-matiere` dépassent le référentiel du CP, qui cite « solide, liquide ».
+
+Les deux sont à arbitrer (garder comme ouverture assumée ou alléger), et en aucun cas à étendre. Lors du prochain passage, ne pas les compter comme une couverture acquise à conserver telle quelle.
