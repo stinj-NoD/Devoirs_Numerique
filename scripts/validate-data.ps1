@@ -214,6 +214,13 @@ function Validate-Exercise($path, $themeId, $exercise) {
                 Add-Issue("${path}: level invalide pour $($exercise.id)")
             }
         }
+        if ($null -ne $exercise.params.maxResult) {
+            $opPosedMaxResultVal = 0
+            $opPosedMaxResultOk = [int]::TryParse([string]$exercise.params.maxResult, [ref]$opPosedMaxResultVal)
+            if (-not $opPosedMaxResultOk -or $opPosedMaxResultVal -lt 20 -or $opPosedMaxResultVal -gt 20000) {
+                Add-Issue("${path}: maxResult invalide pour $($exercise.id)")
+            }
+        }
         if ($null -ne $exercise.params.decimals) {
             $opPosedDecimalsVal = 0
             $opPosedDecimalsOk = [int]::TryParse([string]$exercise.params.decimals, [ref]$opPosedDecimalsVal)

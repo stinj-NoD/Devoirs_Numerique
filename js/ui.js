@@ -1841,7 +1841,7 @@ const UI = {
                 <div class="verb-machine">
                     <div class="verb-infinitive">${this._escapeText(infinitif)}</div>
                     <div class="verb-body">
-                        <span class="pronoun-tag">${pronom}</span>
+                        <span class="pronoun-tag">${this._escapeText(pronom)}</span>
                         <span class="verb-input-zone">${saisie}</span>
                     </div>
 	                    </div>

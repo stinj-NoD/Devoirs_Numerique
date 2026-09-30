@@ -224,6 +224,20 @@
                     if (level === 1) { opA = rnd(10, 99); opB = rnd(10, 99); }
                     else if (level === 2) { opA = rnd(100, 999); opB = rnd(100, 999); }
                     else { opA = rnd(1000, 9999); opB = rnd(1000, 9999); }
+                    // `maxResult` (optionnel) plafonne la SOMME : « Addition posée
+                    // jusqu'à 1000 » tirait deux nombres de 100 à 999, donc la
+                    // moitié des sommes dépassaient 1000 (jusqu'à 1 998). On garde
+                    // les bornes du niveau pour chaque opérande et on resserre
+                    // seulement le second. Sans ce paramètre, rien ne change au
+                    // bit près (CE2 et CM1 utilisent ce même niveau 2). Ignoré s'il
+                    // est trop petit pour laisser un choix au niveau demandé.
+                    const minOp = [10, 100, 1000][level - 1] || 1000;
+                    const maxOp = [99, 999, 9999][level - 1] || 9999;
+                    const maxResult = Number(p.maxResult);
+                    if (Number.isInteger(maxResult) && maxResult >= 2 * minOp) {
+                        opA = rnd(minOp, Math.min(maxOp, maxResult - minOp));
+                        opB = rnd(minOp, Math.min(maxOp, maxResult - opA));
+                    }
                 } else if (operator === 'sub') {
                     if (level === 1) { opA = rnd(20, 99); opB = rnd(10, opA - 1); }
                     else if (level === 2) { opA = rnd(200, 999); opB = rnd(100, opA - 1); }

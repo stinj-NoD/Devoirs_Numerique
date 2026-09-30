@@ -73,13 +73,23 @@
             }
         }
 
+        // « Je » devant une voyelle ou un h muet s'écrit « J' » : l'écran
+        // affichait « Je ai » et « Je aime ». Le pronom est seulement un repère
+        // visuel (la saisie attendue reste le verbe, « ai »), donc rien d'autre
+        // ne change. Un h aspiré (hurler, heurter...) garde « Je ».
+        const H_ASPIRE_VERBES = ["hurler", "heurter", "hausser", "hisser", "hacher", "hanter", "harceler", "hocher", "haïr", "hennir"];
+        const premiereLettre = answer.trim().charAt(0).toLowerCase();
+        const voyelleInitiale = /[aeiouyàâäéèêëîïôöûùüœ]/.test(premiereLettre);
+        const hMuet = premiereLettre === "h" && !H_ASPIRE_VERBES.includes((verb.infinitive || "").toLowerCase());
+        const pronom = (pronouns[pIdx] === "Je" && (voyelleInitiale || hMuet)) ? "J'" : pronouns[pIdx];
+
         return {
             isVisual: true,
             visualType: "conjugation",
             inputType: "alpha",
             answer: answer.toLowerCase().trim(),
             data: {
-                pronoun: pronouns[pIdx],
+                pronoun: pronom,
                 infinitive: (verb.infinitive || "").toUpperCase(),
                 tense: selectedTense.toUpperCase(),
                 isCompound

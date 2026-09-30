@@ -3034,6 +3034,15 @@ button,
     stroke-linecap: round;
 }
 
+/* Numéros des colonnes (en haut) et des lignes (à gauche) du quadrillage :
+   sans eux, « colonne 3, ligne 2 » obligeait à compter les intersections. */
+.board-axis-label {
+    font-size: 11px;
+    font-weight: 700;
+    fill: var(--color-text, rgba(51, 65, 85, 0.92));
+    pointer-events: none;
+}
+
 .board-numberline-label {
     font-size: 13px;
     font-weight: 700;

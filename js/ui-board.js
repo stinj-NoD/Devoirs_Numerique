@@ -474,6 +474,15 @@ const UIBoard = {
             return `<line x1="${margin}" y1="${y}" x2="${size - margin}" y2="${y}" class="board-grid-line" />`;
         }).join('');
 
+        // Numéros des axes, à partir de 0 comme les cibles des banques : le coin
+        // en haut à gauche est (0 ; 0). `board.axisLabels: false` les masque.
+        const axisLabels = board.axisLabels === false ? '' : [
+            ...Array.from({ length: cols }, (_, index) =>
+                `<text x="${margin + index * stepX}" y="${margin - 10}" class="board-axis-label" text-anchor="middle">${index}</text>`),
+            ...Array.from({ length: rows }, (_, index) =>
+                `<text x="${margin - 11}" y="${margin + index * stepY + 4}" class="board-axis-label" text-anchor="end">${index}</text>`)
+        ].join('');
+
         const points = [];
         for (let y = 0; y < rows; y++) {
             for (let x = 0; x < cols; x++) {
@@ -505,6 +514,7 @@ const UIBoard = {
                     <svg class="board-svg" viewBox="0 0 ${size} ${size}" role="img" aria-label="Quadrillage interactif">
                         ${verticals}
                         ${horizontals}
+                        ${axisLabels}
                         ${points.join('')}
                     </svg>
                 </div>

@@ -84,7 +84,7 @@ câblé par `App.validateAnswer()` est une égalité stricte de chaîne canoniqu
 `targetIndices` (exactement 2, encadrement). La conversion valeur réelle
 (nombre entier, fraction...) → index de graduation se fait à l'écriture du
 contenu, jamais au runtime.
-⁶ `operation-posed` accepte un paramètre optionnel `decimals` (0-2, défaut 0)
+⁶ `operation-posed` accepte un paramètre optionnel `decimals` (0-2, défaut 0) et un paramètre optionnel `maxResult` (entier 20-20000, addition seulement) qui plafonne la somme : `ce1-addition-posee-centaines` l'emploie (`maxResult: 1000`) pour tenir son titre « jusqu'à 1000 ». Absent, comportement historique inchangé (CE2 et CM1 partagent le niveau 2).
 pour poser des opérations avec des nombres décimaux — implémenté en entiers
 mis à l'échelle (jamais de flottant JS), formaté en chaîne virgule côté
 moteur avant `standardize()`. `mult` + `decimals>0` est restreint à

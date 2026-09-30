@@ -493,6 +493,12 @@
                     return { valid: false, reason: 'level invalide pour operation-posed (1-3 attendu).' };
                 }
             }
+            if (exercise.params.maxResult !== undefined) {
+                const mr = Number(exercise.params.maxResult);
+                if (!Number.isInteger(mr) || mr < 20 || mr > 20000) {
+                    return { valid: false, reason: 'maxResult invalide pour operation-posed (entier 20-20000 attendu).' };
+                }
+            }
             if (exercise.params.decimals !== undefined) {
                 const dec = Number(exercise.params.decimals);
                 if (!Number.isFinite(dec) || dec < 0 || dec > 2) {
