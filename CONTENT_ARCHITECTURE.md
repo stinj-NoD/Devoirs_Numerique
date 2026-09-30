@@ -4,18 +4,18 @@ Document de référence listant, pour chaque niveau, chaque matière, chaque sou
 
 Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon, sans exercice, catégories peu fournies) pour prioriser les ajouts.
 
-> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-09-28 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
+> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-09-30 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
 
 ---
 
 ## Vue d'ensemble
 
-- **1123 exercices** et **442 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1119 exercices** et **445 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
 |---|---|
-| `choice-engine` | 593 |
+| `choice-engine` | 589 |
 | `math-input` | 193 |
 | `reading` | 58 |
 | `board-interactive` | 56 |
@@ -579,18 +579,21 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Nombres & Calculs `(ce1-nombres-calculs)`
 
-- **Leçons** (9) :
+- **Leçons** (12) :
   - Compléter jusqu'à 20 `(ce1-lesson-complements-20)` — blocs: paragraph, example, bullets, tip, check, check
   - Doubles et moitiés `(ce1-lesson-doubles-moities)` — blocs: paragraph, example, bullets, tip, check, check
   - Additionner jusqu'à 100 `(ce1-lesson-additionner-100)` — blocs: paragraph, example, bullets, tip, check, check
   - Soustraire sans se tromper `(ce1-lesson-soustraire)` — blocs: paragraph, example, bullets, tip, check, check
+  - Poser une addition `(ce1-lesson-poser-addition)` — blocs: paragraph, example, bullets, tip, check, check
+  - Poser une soustraction `(ce1-lesson-poser-soustraction)` — blocs: paragraph, example, bullets, tip, check, check
   - Les nombres jusqu'à 1000 `(ce1-lesson-nombres-jusqu-1000)` — blocs: paragraph, example, mini-table, bullets, tip, check, check
   - Les fractions simples `(ce1-lesson-fractions-simples)` — blocs: paragraph, example, bullets, tip, check, check
   - Lire un prix avec une virgule `(ce1-lesson-monnaie-decimale)` — blocs: paragraph, example, mini-table, tip, bullets, check, check
+  - Comparer avec <, = et > `(ce1-lesson-signes-comparaison)` — blocs: paragraph, example, bullets, tip, check, check
   - Encadrer un nombre entre deux centaines `(ce1-lesson-encadrement-centaines)` — blocs: paragraph, example, bullets, tip, check, check
   - La fraction est un nombre `(ce1-lesson-fraction-sur-ligne)` — blocs: paragraph, example, tip, check, check
 - **Exercices** (33) :
-  - Compléments à 100 `(add-100)` — engine: `math-input`, type=add-trou, min=10, max=100, questions=10
+  - Additions à trou jusqu'à 100 `(add-100)` — engine: `math-input`, type=add-trou, min=10, max=100, questions=10
   - Calcul rapide `(add-chrono)` — engine: `math-input`, type=oiseau-math, min=10, max=30, vitesse=5, questions=10
   - Comparer jusqu'à 100 `(comp-ce1-1)` — engine: `choice-engine`, range=100, questions=10
   - Le Marché `(bank-ce1-1)` — engine: `math-input`, type=cibles, skin=money, nbFleches=5, questions=5
@@ -617,7 +620,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Lire un prix avec une virgule `(ce1-monnaie-decimale-lecture)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=ce1-monnaie-decimale, questions=8
   - Encadrer entre deux centaines `(ce1-encadrement-centaines)` — engine: `board-interactive`, type=number-line-frame, dataFile=data/board_number_line_ce1.json, category=ce1_number_line_frame_centaines, questions=6
   - Placer une fraction `(ce1-fractions-ligne-graduee)` — engine: `board-interactive`, type=number-line-place, dataFile=data/board_number_line_ce1.json, category=ce1_fractions_ligne_graduee, questions=6
-  - Addition posée jusqu’à 1000 `(ce1-addition-posee-centaines)` — engine: `math-input`, type=operation-posed, operator=add, level=2, questions=6
+  - Addition posée jusqu’à 1000 `(ce1-addition-posee-centaines)` — engine: `math-input`, type=operation-posed, operator=add, level=2, questions=6, maxResult=1000
   - Soustraction posée jusqu’à 1000 `(ce1-soustraction-posee-centaines)` — engine: `math-input`, type=operation-posed, operator=sub, level=2, questions=6
   - Centaines, dizaines, unités `(ce1-decomposition-cdu)` — engine: `math-input`, type=place-value, digitCount=3, ask=digit, questions=6
   - La valeur d’un chiffre `(ce1-valeur-chiffre-cdu)` — engine: `math-input`, type=place-value, digitCount=3, ask=value, questions=6
@@ -700,7 +703,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Période 3 `(ce1-audio-mots-frequents-p3)` — engine: `audio-spelling`, category=ce1_mots_frequents_p3, speechRate=0.73, questions=8
   - Période 4 `(ce1-audio-mots-frequents-p4)` — engine: `audio-spelling`, category=ce1_mots_frequents_p4, speechRate=0.73, questions=8
   - Période 5 `(ce1-audio-mots-frequents-p5)` — engine: `audio-spelling`, category=ce1_mots_frequents_p5, speechRate=0.73, questions=8
-  - Défi : révision des mots fréquents `(ce1-bonus-mots-frequents-revision)` — engine: `audio-spelling`, category=ce1_mots_frequents_p5, speechRate=0.73, questions=12, bonus (seuil=2)
+  - Défi : révision des mots fréquents `(ce1-bonus-mots-frequents-revision)` — engine: `audio-spelling`, category=ce1_mots_frequents_revision, speechRate=0.73, questions=12, bonus (seuil=2)
 
 #### Lecture `(ce1-lecture-subtheme)`
 
@@ -743,7 +746,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Le nom et le verbe `(ce1-lesson-nom-verbe)` — blocs: paragraph, example, bullets, tip, check, check
   - Une phrase bien construite `(ce1-lesson-phrase)` — blocs: paragraph, example, bullets, tip, check, check
   - L'accord déterminant-nom `(ce1-lesson-accord-det-nom)` — blocs: paragraph, example, bullets, tip, check, check
-  - L'adjectif `(ce1-lesson-adjectif)` — blocs: paragraph, example, tip, check, check
+  - L'adjectif `(ce1-lesson-adjectif)` — blocs: paragraph, example, tip, bullets, check, check
 - **Exercices** (14) :
   - Un ou Une? `(ce1-gram-un-une)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_classe, questions=8
   - Le, La ou L'? `(ce1-gram-le-la)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_maison, questions=8
@@ -792,21 +795,21 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - L'école d'autrefois `(ce1-lesson-ecole-autrefois)` — blocs: paragraph, example, bullets, tip, check, check
   - La vie quotidienne d'autrefois `(ce1-lesson-vie-quotidienne-autrefois)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (3) :
+- **Exercices** (5) :
   - Vivre autrefois `(ce1-histoire-vie-autrefois)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-vie-autrefois, questions=6
   - Défi : vivre autrefois `(ce1-bonus-histoire-vie-autrefois-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-vie-autrefois, questions=9, bonus (seuil=2)
   - L'école d'autrefois `(ce1-histoire-ecole-autrefois)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-ecole-autrefois, questions=6
+  - Souvenirs de famille `(ce1-histoire-souvenirs-famille)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-souvenirs-famille, questions=6
+  - Mémoire de famille `(ce1-histoire-memoire-famille)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-memoire-famille, questions=6
 
 #### Monuments et personnages `(ce1-histoire-monuments-subtheme)`
 
 - **Leçons** (2) :
   - Les monuments et les personnages `(ce1-lesson-monuments-personnages)` — blocs: paragraph, example, bullets, tip, check, check
   - Les traces du passé `(ce1-lesson-traces-passe)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (5) :
+- **Exercices** (3) :
   - Monuments et personnages `(ce1-histoire-monuments)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-monuments-personnages, questions=6
   - Monuments du passé `(ce1-histoire-monuments-passe)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_ce1.json, category=ce1-monuments-personnages
-  - L'école autrefois `(ce1-histoire-monuments-ecole)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-ecole-autrefois, questions=6
-  - Objets d'autrefois `(ce1-histoire-monuments-objets)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-objets-passe, questions=6
   - Défi : monuments et personnages `(ce1-bonus-histoire-monuments-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-monuments-personnages, questions=8, bonus (seuil=2)
 
 #### Objets du passé `(ce1-histoire-objets-subtheme)`
@@ -814,11 +817,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Les objets du passé `(ce1-lesson-objets-passe)` — blocs: paragraph, example, bullets, tip, check, check
   - Du lavoir au lave-linge `(ce1-lesson-inventions-quotidien)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (6) :
+- **Exercices** (4) :
   - Objets du passé `(ce1-histoire-objets-passe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-objets-passe, questions=6
   - Comparer les objets `(ce1-histoire-comparer-objets)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_ce1.json, category=ce1-objets-passe
-  - Souvenirs de famille `(ce1-histoire-souvenirs-famille)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-souvenirs-famille, questions=6
-  - Mémoire de famille `(ce1-histoire-memoire-famille)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-memoire-famille, questions=6
   - Objets et usages d'autrefois `(ce1-histoire-appariement)` — engine: `matching`, category=matching_histoire_ce1, dataFile=data/history_matching.json, questions=2
   - Défi : objets du passé en détail `(ce1-bonus-histoire-objets-passe-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-objets-passe, questions=10, bonus (seuil=2)
 
@@ -875,7 +876,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Besoins du vivant `(ce1-sciences-besoins-vivant)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-besoins-vivant, questions=6
   - Cycle de vie simple `(ce1-sciences-cycle-vie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-cycle-vie-simple, questions=6
   - Les parties de la plante `(ce1-sciences-tap-plante)` — engine: `board-interactive`, type=tap-features, dataFile=data/board_tap_features_science.json, category=ce1_tap_plante, questions=4
-  - Êtres vivants et besoins `(ce1-sciences-appariement)` — engine: `matching`, category=matching_sciences_ce1, dataFile=data/science_matching.json, questions=2
+  - Relier en sciences `(ce1-sciences-appariement)` — engine: `matching`, category=matching_sciences_ce1, dataFile=data/science_matching.json, questions=2
   - Défi : le vivant en détail `(ce1-bonus-sciences-vivant-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-vivant, questions=10, bonus (seuil=2)
 
 #### Matière `(ce1-sciences-matiere-subtheme)`
@@ -894,12 +895,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Prendre soin de son corps `(ce1-lesson-prendre-soin-corps)` — blocs: paragraph, example, bullets, tip, check, check
   - Les cinq sens `(ce1-lesson-cinq-sens)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (7) :
+- **Exercices** (6) :
   - Corps et hygiène `(ce1-sciences-corps)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-corps-hygiene, questions=6
   - Prendre soin de son corps `(ce1-sciences-prendre-soin-corps)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_ce1.json, category=ce1-corps-hygiene
   - Sommeil et alimentation `(ce1-sciences-sommeil-alimentation)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_ce1.json, category=ce1-sommeil-alimentation
   - Hygiène quotidienne `(ce1-sciences-hygiene-quotidienne)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-hygiene-quotidienne, questions=6
-  - Objets de la maison `(ce1-sciences-objets-maison)` — engine: `choice-engine`, type=factual-qcm, questions=6, dataFile=data/science_ce1.json, category=ce1-objets-maison
   - Défi : super hygiène `(ce1-bonus-sciences-corps-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-corps-hygiene, questions=10, bonus (seuil=2)
   - Les cinq sens `(ce1-sciences-cinq-sens)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-cinq-sens, questions=8
 
@@ -911,7 +911,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Exercices** (4) :
   - Les saisons de l'année `(ce1-sciences-saisons-annee)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-saisons-meteo, questions=6
   - Observer la météo `(ce1-sciences-observer-meteo)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-saisons-meteo, questions=8
-  - Climat et activités `(ce1-sciences-climat-activites)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-saisons-meteo, questions=6
+  - Saisons et météo : le mélange `(ce1-sciences-climat-activites)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-saisons-meteo, questions=6
   - Défi : super saisons et météo `(ce1-bonus-sciences-saisons-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-saisons-meteo, questions=10, bonus (seuil=2)
 
 #### Les milieux de vie `(ce1-sciences-milieux-subtheme)`
@@ -922,7 +922,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Exercices** (4) :
   - Les milieux de vie `(ce1-sciences-milieux-vie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-milieux-vie, questions=6
   - Qui vit où ? `(ce1-sciences-qui-vit-ou)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-milieux-vie, questions=8
-  - S'adapter à son milieu `(ce1-sciences-sadapter-milieu)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-milieux-vie, questions=6
+  - Milieux de vie : le mélange `(ce1-sciences-sadapter-milieu)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-milieux-vie, questions=6
   - Défi : super milieux de vie `(ce1-bonus-sciences-milieux-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-milieux-vie, questions=10, bonus (seuil=2)
 
 #### Objets et matériaux `(ce1-sciences-objets-subtheme)`
@@ -930,10 +930,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Les objets techniques simples `(ce1-lesson-objets-techniques)` — blocs: paragraph, example, bullets, tip, check, check
   - Les propriétés des matériaux `(ce1-lesson-proprietes-materiaux)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (3) :
-  - Les objets techniques `(ce1-sciences-objets-techniques)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-objets-materiaux, questions=6
+- **Exercices** (4) :
+  - Objets et matériaux `(ce1-sciences-objets-techniques)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-objets-materiaux, questions=6
   - Propriétés des matériaux `(ce1-sciences-proprietes-materiaux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-objets-materiaux, questions=8
   - Bien choisir son matériau `(ce1-sciences-choisir-materiau)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce1.json, category=ce1-objets-materiaux, questions=6
+  - Objets de la maison `(ce1-sciences-objets-maison)` — engine: `choice-engine`, type=factual-qcm, questions=6, dataFile=data/science_ce1.json, category=ce1-objets-maison
 
 ### EMC (ce1-emc-subject)
 
@@ -955,11 +956,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Être citoyen `(ce1-lesson-citoyen-honnetete)` — blocs: paragraph, example, bullets, tip, check, check
   - Les numéros qui sauvent `(ce1-lesson-numeros-urgence)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (5) :
+- **Exercices** (3) :
   - Être citoyen `(ce1-emc-citoyen)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-citoyen, questions=6
   - Défi : être citoyen `(ce1-bonus-emc-citoyen-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-citoyen, questions=9, bonus (seuil=2)
-  - Émotions et respect `(ce1-emc-emotions-respect)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-emotions-respect, questions=6
-  - Dialogue et politesse `(ce1-emc-dialogue-politesse)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-dialogue-politesse, questions=6
   - Les bons réflexes `(ce1-emc-securite-urgence)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-securite-urgence, questions=6
 
 #### Entraide et respect `(ce1-emc-entraide-subtheme)`
@@ -970,10 +969,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Exercices** (6) :
   - Entraide et respect `(ce1-emc-entraide)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-entraide-respect, questions=6
   - S'entraider au quotidien `(ce1-emc-sentraider-quotidien)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_ce1.json, category=ce1-entraide-respect
-  - Emotions et respect `(ce1-emc-entraide-emotions)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-emotions-respect, questions=6
-  - Dialogue et politesse `(ce1-emc-entraide-dialogue)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-dialogue-politesse, questions=6
   - Tous différents, tous ensemble `(ce1-emc-respect-differences)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-respect-differences, questions=6
   - Défi : vivre ensemble `(ce1-bonus-differences-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-respect-differences, questions=8, bonus (seuil=2)
+  - Émotions et respect `(ce1-emc-emotions-respect)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-emotions-respect, questions=6
+  - Dialogue et politesse `(ce1-emc-dialogue-politesse)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-dialogue-politesse, questions=6
 
 #### Stéréotypes et préjugés `(ce1-emc-stereotypes-subtheme)`
 

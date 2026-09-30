@@ -250,8 +250,8 @@
                     "exercises": [
                         {
                             "id": "add-100",
-                            "title": "Compléments à 100",
-                            "subtitle": "Dizaines entières",
+                            "title": "Additions à trou jusqu'à 100",
+                            "subtitle": "Trouve le nombre qui manque",
                             "engine": "math-input",
                             "params": {
                                 "type": "add-trou",
@@ -592,7 +592,8 @@
                                 "type": "operation-posed",
                                 "operator": "add",
                                 "level": 2,
-                                "questions": 6
+                                "questions": 6,
+                                "maxResult": 1000
                             }
                         },
                         {
@@ -868,6 +869,112 @@
                             ]
                         },
                         {
+                            "id": "ce1-lesson-poser-addition",
+                            "title": "Poser une addition",
+                            "subtitle": "Les unités d'abord, puis la retenue",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour poser une addition, j'écris les nombres l'un sous l'autre : les unités sous les unités, les dizaines sous les dizaines. Je calcule ensuite colonne par colonne, en commençant par la droite, les unités."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple avec retenue",
+                                    "content": "Pour 47 + 35 : aux unités, 7 + 5 = 12. J'écris 2 et je retiens 1 dizaine. Aux dizaines, 4 + 3 + 1 (la retenue) = 8. Le résultat est 82."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Je commence toujours par les unités, à droite.",
+                                        "Si une colonne donne 10 ou plus, j'écris le chiffre des unités et je retiens le reste : c'est la retenue.",
+                                        "La retenue s'ajoute à la colonne d'à côté, à gauche."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "On additionne colonne par colonne, de la droite vers la gauche, sans oublier la retenue."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour poser 58 + 27, que fait-on à la colonne des unités ?",
+                                    "choices": [
+                                        "J'écris 5 et je retiens 1",
+                                        "J'écris 15 et je ne retiens rien",
+                                        "J'écris 1 et je retiens 5"
+                                    ],
+                                    "answer": "J'écris 5 et je retiens 1",
+                                    "explanation": "Aux unités, 8 + 7 = 15. Je ne peux écrire qu'un seul chiffre par colonne : j'écris 5 et je retiens 1 dizaine, que j'ajoute ensuite aux dizaines."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel est le résultat de 36 + 45 ?",
+                                    "choices": [
+                                        "81",
+                                        "71",
+                                        "711"
+                                    ],
+                                    "answer": "81",
+                                    "explanation": "Aux unités, 6 + 5 = 11 : j'écris 1 et je retiens 1. Aux dizaines, 3 + 4 + 1 = 8. Le résultat est 81. On trouve 71 quand on oublie la retenue, et 711 quand on écrit 11 en entier."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-poser-soustraction",
+                            "title": "Poser une soustraction",
+                            "subtitle": "Quand le chiffre du haut est trop petit",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour poser une soustraction, j'écris le plus grand nombre en haut et le plus petit en dessous, unités sous unités. Je calcule colonne par colonne, en commençant par les unités, à droite."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple avec emprunt",
+                                    "content": "Pour 52 - 27 : aux unités, 2 - 7 est impossible. J'emprunte une dizaine : elle vaut 10 unités, et 12 - 7 = 5. Aux dizaines, il ne reste que 4 dizaines, et 4 - 2 = 2. Le résultat est 25."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Je commence toujours par les unités, à droite.",
+                                        "Si le chiffre du haut est plus petit que celui du bas, j'emprunte une dizaine à la colonne de gauche : elle vaut 10 unités.",
+                                        "La colonne de gauche a alors une dizaine de moins : j'en tiens compte."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Quand je ne peux pas soustraire, j'emprunte une dizaine à gauche : elle vaut 10 unités, et la colonne de gauche en perd une."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour poser 63 - 28, que fait-on à la colonne des unités ?",
+                                    "choices": [
+                                        "J'emprunte une dizaine : 13 - 8 = 5",
+                                        "Je calcule 8 - 3 = 5 pour éviter le problème",
+                                        "J'écris 0 car 3 - 8 est impossible"
+                                    ],
+                                    "answer": "J'emprunte une dizaine : 13 - 8 = 5",
+                                    "explanation": "Aux unités, 3 est plus petit que 8 : j'emprunte une dizaine, qui vaut 10 unités, et je calcule 13 - 8 = 5. Retourner le calcul en 8 - 3 est l'erreur classique : on retire toujours le nombre du bas du nombre du haut."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel est le résultat de 75 - 38 ?",
+                                    "choices": [
+                                        "37",
+                                        "43",
+                                        "47"
+                                    ],
+                                    "answer": "37",
+                                    "explanation": "Aux unités, 5 - 8 est impossible : j'emprunte une dizaine et je calcule 15 - 8 = 7. Aux dizaines, il reste 6 dizaines : 6 - 3 = 3. Le résultat est 37. On trouve 47 quand on oublie que la colonne des dizaines a perdu une dizaine."
+                                }
+                            ]
+                        },
+                        {
                             "id": "ce1-lesson-nombres-jusqu-1000",
                             "title": "Les nombres jusqu'à 1000",
                             "subtitle": "Centaines, dizaines et unités",
@@ -1066,6 +1173,59 @@
                                     ],
                                     "answer": "8 centimes",
                                     "explanation": "Après la virgule, on lit toujours deux chiffres : 08 vaut 8 et non 80, car le zéro placé devant indique qu'il n'y a pas de dizaine de centimes."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce1-lesson-signes-comparaison",
+                            "title": "Comparer avec <, = et >",
+                            "subtitle": "Le signe s'ouvre du côté du plus grand",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour comparer deux nombres, on utilise trois signes. Le signe < veut dire « plus petit que », le signe > veut dire « plus grand que », et le signe = veut dire « égal à »."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "5 < 8, car 5 est plus petit que 8. 12 > 9, car 12 est plus grand que 9. 7 = 7, car c'est le même nombre."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Pour ne plus se tromper",
+                                    "items": [
+                                        "La pointe du signe regarde le plus petit nombre.",
+                                        "La grande ouverture regarde le plus grand nombre : le signe est comme un bec qui veut manger le plus gros.",
+                                        "Le signe = relie deux nombres qui valent exactement la même chose."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le signe s'ouvre toujours du côté du plus grand nombre."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel est le bon calcul pour comparer 34 et 43 ?",
+                                    "choices": [
+                                        "34 < 43",
+                                        "34 > 43",
+                                        "34 = 43"
+                                    ],
+                                    "answer": "34 < 43",
+                                    "explanation": "34 a 3 dizaines et 43 en a 4 : 34 est plus petit que 43. La pointe du signe regarde 34, donc on écrit 34 < 43. Écrire 34 > 43 revient à retourner le signe."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léa a 27 billes et Tom en a 18. Quelle phrase est juste ?",
+                                    "choices": [
+                                        "27 > 18, car Léa en a plus",
+                                        "27 < 18, car Léa en a plus",
+                                        "27 = 18, car ils en ont déjà beaucoup"
+                                    ],
+                                    "answer": "27 > 18, car Léa en a plus",
+                                    "explanation": "Léa a plus de billes que Tom : 27 est plus grand que 18. Le signe s'ouvre du côté de 27, donc 27 > 18. Avec < on lirait « 27 est plus petit que 18 », ce qui est faux."
                                 }
                             ]
                         },
@@ -1459,7 +1619,7 @@
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "On annonce toujours la colonne d'abord, la ligne ensuite. Si on inverse les deux, on ne tombe pas sur le même point du quadrillage."
+                                    "content": "On annonce toujours la colonne d'abord, la ligne ensuite. Les numéros commencent à 0 : la colonne 0 et la ligne 0 sont au bord, en haut à gauche. Si on inverse les deux, on ne tombe pas sur le même point du quadrillage."
                                 },
                                 {
                                     "type": "check",
@@ -2086,11 +2246,11 @@
                                     "question": "Quel mot aide à trouver la lettre muette de « lourd » ?",
                                     "choices": [
                                         "lourde",
-                                        "lourdement",
+                                        "lentement",
                                         "beaucoup"
                                     ],
                                     "answer": "lourde",
-                                    "explanation": "Au féminin, « lourde » fait entendre le d. « beaucoup » n'est pas de la même famille et n'aide pas."
+                                    "explanation": "Au féminin, « lourde » fait entendre le d. « lentement » et « beaucoup » ne sont pas de la famille de « lourd » : ils n'aident pas."
                                 },
                                 {
                                     "type": "check",
@@ -2307,7 +2467,7 @@
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
-                                "category": "ce1_mots_frequents_p5",
+                                "category": "ce1_mots_frequents_revision",
                                 "speechRate": 0.73,
                                 "questions": 12
                             }
@@ -3133,7 +3293,7 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Alice écrit « les cahier ». Que doit-elle changer ?",
+                                    "question": "Alice veut parler de plusieurs cahiers et écrit « les cahier ». Que doit-elle changer ?",
                                     "choices": [
                                         "Ajouter un s à « cahier »",
                                         "Remplacer « les » par « le »",
@@ -3163,6 +3323,15 @@
                                     "type": "tip",
                                     "label": "Astuce",
                                     "content": "Pour reconnaître un adjectif, on essaie de l'enlever : la phrase reste correcte, mais on en sait moins. « Un gros camion passe » devient « Un camion passe »."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "L'adjectif s'accorde",
+                                    "items": [
+                                        "Il prend le genre et le nombre du nom : une bille bleue, des pommes mûres.",
+                                        "Au féminin, on ajoute souvent un e : un chat noir, une robe noire.",
+                                        "Au pluriel, on ajoute souvent un s : un camion rouge, des camions rouges."
+                                    ]
                                 },
                                 {
                                     "type": "check",
@@ -3550,7 +3719,7 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Au présent, tous les verbes en -er se conjuguent de la même façon. Il suffit d'apprendre une seule chanson de terminaisons : e, es, e, ons, ez, ent."
+                                    "text": "Au présent, presque tous les verbes en -er se conjuguent de la même façon. Il suffit d'apprendre une seule chanson de terminaisons : e, es, e, ons, ez, ent."
                                 },
                                 {
                                     "type": "example",
@@ -3565,7 +3734,9 @@
                                         "tu → es : tu chantes.",
                                         "il/elle → e : elle danse.",
                                         "nous → ons, vous → ez, ils/elles → ent.",
-                                        "« ent » à la fin ne s'entend pas : ils jouent se prononce comme il joue !"
+                                        "« ent » à la fin ne s'entend pas : ils jouent se prononce comme il joue !",
+                                        "Un verbe fait exception : aller (je vais, tu vas, il va, nous allons, vous allez, ils vont).",
+                                        "Avec nous, manger et lancer gardent leur e et leur ç : nous mangeons, nous lançons."
                                     ]
                                 },
                                 {
@@ -3800,6 +3971,30 @@
                                 "category": "ce1-ecole-autrefois",
                                 "questions": 6
                             }
+                        },
+                        {
+                            "id": "ce1-histoire-souvenirs-famille",
+                            "title": "Souvenirs de famille",
+                            "subtitle": "Photos et mémoire du passé",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce1.json",
+                                "category": "ce1-souvenirs-famille",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-histoire-memoire-famille",
+                            "title": "Mémoire de famille",
+                            "subtitle": "Albums, objets et temps qui passe",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_ce1.json",
+                                "category": "ce1-memoire-famille",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -3941,30 +4136,6 @@
                             "engine": "choice-engine",
                             "id": "ce1-histoire-monuments-passe",
                             "subtitle": "Observer des traces historiques"
-                        },
-                        {
-                            "id": "ce1-histoire-monuments-ecole",
-                            "title": "L'école autrefois",
-                            "subtitle": "La classe d'il y a 100 ans",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/history_ce1.json",
-                                "category": "ce1-ecole-autrefois",
-                                "questions": 6
-                            }
-                        },
-                        {
-                            "id": "ce1-histoire-monuments-objets",
-                            "title": "Objets d'autrefois",
-                            "subtitle": "Reconnaître et dater un objet ancien",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/history_ce1.json",
-                                "category": "ce1-objets-passe",
-                                "questions": 6
-                            }
                         },
                         {
                             "id": "ce1-bonus-histoire-monuments-defi",
@@ -4120,30 +4291,6 @@
                             "engine": "choice-engine",
                             "id": "ce1-histoire-comparer-objets",
                             "subtitle": "Hier et aujourd'hui"
-                        },
-                        {
-                            "id": "ce1-histoire-souvenirs-famille",
-                            "title": "Souvenirs de famille",
-                            "subtitle": "Photos et mémoire du passé",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/history_ce1.json",
-                                "category": "ce1-souvenirs-famille",
-                                "questions": 6
-                            }
-                        },
-                        {
-                            "id": "ce1-histoire-memoire-famille",
-                            "title": "Mémoire de famille",
-                            "subtitle": "Albums, objets et temps qui passe",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/history_ce1.json",
-                                "category": "ce1-memoire-famille",
-                                "questions": 6
-                            }
                         },
                         {
                             "id": "ce1-histoire-appariement",
@@ -4400,25 +4547,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un nouvel élève demande où sont les toilettes. Quelle réponse l'aidera vraiment à les trouver tout seul ?",
+                                    "question": "Un nouvel élève cherche les toilettes. Quelle réponse l'aide le mieux ?",
                                     "choices": [
-                                        "Traverse la cour, elles sont au fond, après le préau",
-                                        "C'est un peu plus loin par là, tu vas bien voir",
-                                        "Elles sont à l'endroit habituel, là où tout le monde va"
+                                        "Traverse la cour, elles sont après le préau",
+                                        "C'est un peu plus loin, par là, tu verras bien",
+                                        "Elles sont à l'endroit habituel, comme toujours"
                                     ],
-                                    "answer": "Traverse la cour, elles sont au fond, après le préau",
-                                    "explanation": "Cette réponse donne un trajet et des repères visibles (la cour, le préau) : l'élève peut les suivre des yeux. « Par là » ne s'appuie sur aucun repère et dépend de qui parle. « L'endroit habituel » ne veut rien dire pour quelqu'un qui vient d'arriver."
+                                    "answer": "Traverse la cour, elles sont après le préau",
+                                    "explanation": "Cette réponse donne un trajet avec des repères qu'on voit : la cour, le préau. « Par là » et « l'endroit habituel » ne donnent aucun repère."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pourquoi les repères choisis pour expliquer un trajet doivent-ils être des choses comme un bâtiment ou un portail, plutôt qu'une voiture garée ?",
+                                    "question": "Pourquoi choisir un bâtiment comme repère, plutôt qu'une voiture garée ?",
                                     "choices": [
-                                        "Parce qu'une voiture peut partir, alors qu'un bâtiment reste en place",
-                                        "Parce qu'une voiture est trop petite pour être vue",
-                                        "Parce qu'on n'a pas le droit de regarder les voitures"
+                                        "Une voiture peut partir, un bâtiment reste en place",
+                                        "Une voiture est trop petite pour qu'on la voie",
+                                        "On n'a pas le droit de regarder les voitures"
                                     ],
-                                    "answer": "Parce qu'une voiture peut partir, alors qu'un bâtiment reste en place",
-                                    "explanation": "Un bon repère doit être encore là demain : une voiture peut avoir disparu, et le trajet ne fonctionne plus. La taille n'est pas le problème, une voiture se voit très bien. Et rien n'interdit de la regarder : elle est simplement trop changeante pour servir de repère."
+                                    "answer": "Une voiture peut partir, un bâtiment reste en place",
+                                    "explanation": "Un bon repère est encore là demain. Une voiture se voit très bien, mais elle peut partir : le trajet ne marcherait plus."
                                 }
                             ]
                         },
@@ -4452,25 +4599,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Les parents d'Inès vont inscrire son petit frère à l'école. Où doivent-ils faire cette démarche ?",
+                                    "question": "Où les parents d'Inès inscrivent-ils son petit frère à l'école ?",
                                     "choices": [
                                         "À la mairie",
                                         "À la poste",
                                         "Dans un magasin"
                                     ],
                                     "answer": "À la mairie",
-                                    "explanation": "La mairie s'occupe des affaires de la commune, dont les écoles : c'est là qu'on inscrit un enfant. La poste sert à envoyer et recevoir le courrier. Un magasin est un commerce : il vend, il ne gère pas la commune."
+                                    "explanation": "La mairie s'occupe des écoles de la commune : on y inscrit les enfants. La poste sert au courrier, le magasin vend des produits."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Deux enfants habitent des rues éloignées, mais vont à la même école publique et leurs parents votent au même endroit. Que peut-on en conclure ?",
+                                    "question": "Deux enfants de rues éloignées ont la même école et la même mairie. Que sait-on ?",
                                     "choices": [
                                         "Ils habitent la même commune",
                                         "Ils habitent la même maison",
-                                        "Ils habitent deux pays différents"
+                                        "Ils habitent dans deux pays"
                                     ],
                                     "answer": "Ils habitent la même commune",
-                                    "explanation": "Une commune peut être grande : deux rues éloignées en font partie, et elle organise l'école et le vote de ses habitants. Ils n'habitent pas la même maison, puisque leurs rues sont différentes. Et deux pays différents auraient chacun leurs propres écoles et leurs propres votes."
+                                    "explanation": "Une commune peut être grande : plusieurs rues éloignées en font partie, avec une même école et une même mairie. Les rues sont différentes, donc ce n'est pas la même maison."
                                 }
                             ]
                         }
@@ -4588,25 +4735,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur une photo de bord de mer, on voit de gros galets tout près, puis des baigneurs, et tout au fond une falaise. Que faut-il décrire en dernier ?",
+                                    "question": "Sur une photo : des galets tout près, des baigneurs, une falaise au fond. Que décrit-on en dernier ?",
                                     "choices": [
                                         "La falaise",
                                         "Les galets",
                                         "Les baigneurs"
                                     ],
                                     "answer": "La falaise",
-                                    "explanation": "On décrit du plus proche au plus lointain : la falaise est tout au fond, elle vient donc à la fin. Les galets sont juste devant nous : ils viennent en premier. Les baigneurs sont entre les deux, donc au milieu."
+                                    "explanation": "On décrit du plus proche au plus lointain. La falaise est tout au fond : elle vient en dernier."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur un paysage, un élève ne veut noter que « les arbres et la colline » car, dit-il, « les routes ne font pas partie du paysage ». Pourquoi a-t-il tort ?",
+                                    "question": "Un élève dit : « Les routes ne font pas partie du paysage. » Pourquoi a-t-il tort ?",
                                     "choices": [
-                                        "Parce que les traces laissées par les habitants font aussi partie de ce qu'on voit",
-                                        "Parce qu'une route est bien plus jolie à regarder qu'un arbre",
-                                        "Parce qu'il n'y a jamais d'arbres dans un paysage, seulement des routes"
+                                        "Les traces des habitants font aussi partie du paysage",
+                                        "Une route est plus jolie à regarder qu'un arbre",
+                                        "Il n'y a jamais d'arbres dans un paysage"
                                     ],
-                                    "answer": "Parce que les traces laissées par les habitants font aussi partie de ce qu'on voit",
-                                    "explanation": "Un paysage, c'est tout ce que l'œil voit : la nature, mais aussi ce que les habitants ont construit, comme les routes. Ce n'est pas une question de beauté, on ne choisit pas ce qui est joli. Et les arbres y ont bien leur place : il faut simplement ne rien laisser de côté."
+                                    "answer": "Les traces des habitants font aussi partie du paysage",
+                                    "explanation": "Un paysage, c'est tout ce qu'on voit : la nature, mais aussi les routes et les maisons des habitants. Ce n'est pas une question de beauté."
                                 }
                             ]
                         },
@@ -4642,25 +4789,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "En été, une famille monte tout en haut d'un sommet des Alpes et trouve encore de la neige. Comment l'expliquer ?",
+                                    "question": "En été, il reste de la neige en haut d'une montagne. Pourquoi ?",
                                     "choices": [
                                         "Plus on monte haut, plus il fait froid",
-                                        "En France, il neige toute l'année partout",
-                                        "La neige est tombée pendant la nuit précédente"
+                                        "Il neige toute l'année partout en France",
+                                        "La neige est tombée la nuit dernière"
                                     ],
                                     "answer": "Plus on monte haut, plus il fait froid",
-                                    "explanation": "En altitude, la température baisse : sur les sommets, la neige tient même quand il fait chaud en bas. Il ne neige pas toute l'année partout : dans les plaines, la neige fond vite. Et une chute de neige d'une nuit d'été aurait fondu dès le matin en plein soleil."
+                                    "explanation": "Plus on monte, plus il fait froid : en haut, la neige tient même en été. En bas, dans les plaines, elle fond vite."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un berger surveille son troupeau sur de grandes pentes d'herbe, loin des villages. Pourquoi ce métier ne peut-il pas s'exercer en plein centre-ville ?",
+                                    "question": "Pourquoi un berger ne peut-il pas garder ses moutons en plein centre-ville ?",
                                     "choices": [
-                                        "Il faut de vastes espaces d'herbe, et la place manque en ville",
+                                        "Il faut beaucoup d'herbe, et la ville n'en a pas",
                                         "Les moutons n'aiment pas le bruit des voitures",
                                         "Les bergers préfèrent vivre loin des gens"
                                     ],
-                                    "answer": "Il faut de vastes espaces d'herbe, et la place manque en ville",
-                                    "explanation": "Un troupeau a besoin de grandes étendues d'herbe pour se nourrir : en ville, tout l'espace est occupé par les immeubles et les rues. Le bruit n'est pas la vraie raison : c'est la nourriture et la place qui manquent. Et ce n'est pas un choix de caractère : le métier suit le paysage qui le rend possible."
+                                    "answer": "Il faut beaucoup d'herbe, et la ville n'en a pas",
+                                    "explanation": "Un troupeau se nourrit d'herbe et a besoin de place : en ville, tout est occupé par les immeubles et les rues."
                                 }
                             ]
                         },
@@ -4695,25 +4842,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Une commune vient d'accueillir beaucoup de nouvelles familles. Qu'est-ce qui risque de lui manquer en premier ?",
+                                    "question": "Une commune accueille beaucoup de nouvelles familles. Qu'est-ce qui risque de manquer ?",
                                     "choices": [
                                         "Des places dans les écoles",
                                         "Des champs autour des maisons",
                                         "Un maire pour la diriger"
                                     ],
                                     "answer": "Des places dans les écoles",
-                                    "explanation": "Plus il y a d'habitants, plus il faut d'écoles, de magasins et de transports : les classes se remplissent d'abord. Les champs autour ne disparaissent pas parce que des familles arrivent. Et il y a déjà un maire : chaque commune en a un, petite ou grande."
+                                    "explanation": "Plus il y a d'habitants, plus il faut d'écoles : les classes se remplissent d'abord. Les champs ne disparaissent pas, et la commune a déjà son maire."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un élève dit : « Ma commune est un village, alors elle n'a pas de maire. » Que faut-il lui répondre ?",
+                                    "question": "Un élève dit : « Mon village est trop petit pour avoir un maire. » Que lui répondre ?",
                                     "choices": [
                                         "Toute commune a un maire, même la plus petite",
                                         "C'est vrai, seules les villes ont un maire",
-                                        "C'est vrai, le village est dirigé par la ville voisine"
+                                        "C'est vrai, le village voisin le dirige"
                                     ],
                                     "answer": "Toute commune a un maire, même la plus petite",
-                                    "explanation": "Un village est une commune : il a donc son maire, qui la dirige comme dans une grande ville. Le maire ne dépend pas du nombre d'habitants. Et une commune n'est pas dirigée par sa voisine : chacune s'administre elle-même."
+                                    "explanation": "Un village est une commune : il a son maire, comme une grande ville. Le nombre d'habitants n'y change rien."
                                 }
                             ]
                         }
@@ -4808,25 +4955,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur une carte, une ville est le point de départ de nombreuses routes et voies ferrées qui partent dans toutes les directions. Que peut-on en déduire ?",
+                                    "question": "Sur une carte, beaucoup de routes et de trains partent d'une même ville. Que peut-on penser ?",
                                     "choices": [
-                                        "C'est une grande ville, reliée à beaucoup d'autres lieux",
-                                        "C'est un petit village isolé, loin de tout le reste",
-                                        "C'est forcément un port installé au bord de la mer"
+                                        "C'est une grande ville reliée à beaucoup de lieux",
+                                        "C'est un petit village loin de tout",
+                                        "C'est forcément un port au bord de la mer"
                                     ],
-                                    "answer": "C'est une grande ville, reliée à beaucoup d'autres lieux",
-                                    "explanation": "Quand beaucoup de lignes convergent vers un même point, c'est que le lieu est important et relié à tout le pays : c'est une grande ville. Un village isolé n'aurait qu'une ou deux petites routes. Un port se reconnaît à la mer et aux bateaux, pas au nombre de routes."
+                                    "answer": "C'est une grande ville reliée à beaucoup de lieux",
+                                    "explanation": "Quand beaucoup de lignes arrivent au même point, c'est une grande ville, reliée à tout le pays. Un village isolé n'a qu'une ou deux petites routes."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pourquoi construit-on encore des lignes de TGV alors que les autoroutes existent déjà entre les mêmes villes ?",
+                                    "question": "Pourquoi construit-on des lignes de TGV alors qu'il y a déjà des autoroutes ?",
                                     "choices": [
-                                        "Parce que le train va plus vite et transporte beaucoup de voyageurs à la fois",
-                                        "Parce que les autoroutes ne relient pas les villes entre elles",
-                                        "Parce que les trains n'ont pas besoin de rails pour rouler"
+                                        "Le train va plus vite et emmène beaucoup de monde",
+                                        "Les autoroutes ne relient pas les villes",
+                                        "Les trains roulent sans rails"
                                     ],
-                                    "answer": "Parce que le train va plus vite et transporte beaucoup de voyageurs à la fois",
-                                    "explanation": "Le TGV file à 300 km/h et emmène des centaines de personnes d'un coup : il fait mieux que la voiture sur ces trajets. Les autoroutes relient bien les villes, c'est justement leur rôle. Et les trains roulent sur des rails : c'est pour cela qu'il faut construire la ligne."
+                                    "answer": "Le train va plus vite et emmène beaucoup de monde",
+                                    "explanation": "Le TGV va très vite et emmène des centaines de personnes d'un coup. Les autoroutes relient bien les villes, mais les trains ont besoin de rails."
                                 }
                             ]
                         },
@@ -4861,25 +5008,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Chaque matin, un habitant traverse le centre-ville aux heures où tout est bloqué par les embouteillages. Quel transport lui fera gagner du temps ?",
+                                    "question": "Le matin, le centre-ville est bloqué par les embouteillages. Quel transport gagne du temps ?",
                                     "choices": [
                                         "Le métro",
                                         "La voiture",
                                         "L'avion"
                                     ],
                                     "answer": "Le métro",
-                                    "explanation": "Le métro roule sous terre : les embouteillages ne le ralentissent pas, il traverse la ville sans s'arrêter aux feux. La voiture est justement ce qui est bloqué dans les bouchons. Et l'avion sert aux voyages très lointains, pas à traverser un centre-ville."
+                                    "explanation": "Le métro roule sous terre : les embouteillages ne le ralentissent pas. La voiture reste bloquée, et l'avion sert aux voyages lointains."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un élève affirme : « Aller à l'école en voiture ne pollue pas, c'est un tout petit trajet. » Que peut-on lui répondre ?",
+                                    "question": "Un élève dit : « Aller à l'école en voiture ne pollue pas, c'est court. » Que répondre ?",
                                     "choices": [
-                                        "Un moteur pollue dès qu'il tourne, même brièvement",
-                                        "C'est vrai, la voiture ne pollue qu'après une heure de route",
-                                        "C'est vrai, seuls les avions polluent vraiment le climat"
+                                        "Un moteur pollue dès qu'il tourne, même un peu",
+                                        "C'est vrai, la voiture ne pollue qu'après une heure",
+                                        "C'est vrai, seuls les avions polluent"
                                     ],
-                                    "answer": "Un moteur pollue dès qu'il tourne, même brièvement",
-                                    "explanation": "Dès qu'un moteur tourne, il rejette des gaz : la distance change la quantité, pas le fait de polluer. Il n'existe aucune durée en dessous de laquelle une voiture serait propre. Et l'avion n'est pas seul en cause : voitures et camions polluent aussi."
+                                    "answer": "Un moteur pollue dès qu'il tourne, même un peu",
+                                    "explanation": "Dès qu'un moteur tourne, il rejette des gaz : un trajet court pollue moins, mais il pollue quand même. Les voitures et les camions polluent aussi."
                                 }
                             ],
                             "format": "lesson-card"
@@ -4948,8 +5095,8 @@
                         },
                         {
                             "id": "ce1-sciences-appariement",
-                            "title": "Êtres vivants et besoins",
-                            "subtitle": "Relie chaque être vivant à son besoin",
+                            "title": "Relier en sciences",
+                            "subtitle": "Le vivant, l'eau, le corps, la matière",
                             "engine": "matching",
                             "params": {
                                 "category": "matching_sciences_ce1",
@@ -5358,18 +5505,6 @@
                             }
                         },
                         {
-                            "params": {
-                                "questions": 6,
-                                "dataFile": "data/science_ce1.json",
-                                "category": "ce1-objets-maison",
-                                "type": "factual-qcm"
-                            },
-                            "title": "Objets de la maison",
-                            "engine": "choice-engine",
-                            "id": "ce1-sciences-objets-maison",
-                            "subtitle": "Usages et objets techniques"
-                        },
-                        {
                             "id": "ce1-bonus-sciences-corps-expert",
                             "title": "Défi : super hygiène",
                             "subtitle": "Corps, santé et habitudes en rafale",
@@ -5539,8 +5674,8 @@
                         },
                         {
                             "id": "ce1-sciences-climat-activites",
-                            "title": "Climat et activités",
-                            "subtitle": "S'adapter aux saisons",
+                            "title": "Saisons et météo : le mélange",
+                            "subtitle": "Un peu de tout sur le temps et les saisons",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -5707,8 +5842,8 @@
                         },
                         {
                             "id": "ce1-sciences-sadapter-milieu",
-                            "title": "S'adapter à son milieu",
-                            "subtitle": "Vivre dans l'eau, sur terre, dans les airs",
+                            "title": "Milieux de vie : le mélange",
+                            "subtitle": "Eau, terre, air : qui vit où ?",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -5849,8 +5984,8 @@
                     "exercises": [
                         {
                             "id": "ce1-sciences-objets-techniques",
-                            "title": "Les objets techniques",
-                            "subtitle": "Un objet pour répondre à un besoin",
+                            "title": "Objets et matériaux",
+                            "subtitle": "Quel objet pour quel usage ?",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -5882,6 +6017,18 @@
                                 "category": "ce1-objets-materiaux",
                                 "questions": 6
                             }
+                        },
+                        {
+                            "params": {
+                                "questions": 6,
+                                "dataFile": "data/science_ce1.json",
+                                "category": "ce1-objets-maison",
+                                "type": "factual-qcm"
+                            },
+                            "title": "Objets de la maison",
+                            "engine": "choice-engine",
+                            "id": "ce1-sciences-objets-maison",
+                            "subtitle": "Usages et objets techniques"
                         }
                     ],
                     "lessons": [
@@ -6219,30 +6366,6 @@
                             }
                         },
                         {
-                            "id": "ce1-emc-emotions-respect",
-                            "title": "Émotions et respect",
-                            "subtitle": "Écouter, rassurer, répondre calmement",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/emc_ce1.json",
-                                "category": "ce1-emotions-respect",
-                                "questions": 6
-                            }
-                        },
-                        {
-                            "id": "ce1-emc-dialogue-politesse",
-                            "title": "Dialogue et politesse",
-                            "subtitle": "Bonjour, merci, écouter",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/emc_ce1.json",
-                                "category": "ce1-dialogue-politesse",
-                                "questions": 6
-                            }
-                        },
-                        {
                             "id": "ce1-emc-securite-urgence",
                             "title": "Les bons réflexes",
                             "subtitle": "Numéros d'urgence et sécurité",
@@ -6395,30 +6518,6 @@
                             "subtitle": "Aider, rassurer, partager"
                         },
                         {
-                            "id": "ce1-emc-entraide-emotions",
-                            "title": "Emotions et respect",
-                            "subtitle": "Comprendre les emotions pour mieux s'entendre",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/emc_ce1.json",
-                                "category": "ce1-emotions-respect",
-                                "questions": 6
-                            }
-                        },
-                        {
-                            "id": "ce1-emc-entraide-dialogue",
-                            "title": "Dialogue et politesse",
-                            "subtitle": "S'exprimer avec respect",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/emc_ce1.json",
-                                "category": "ce1-dialogue-politesse",
-                                "questions": 6
-                            }
-                        },
-                        {
                             "id": "ce1-emc-respect-differences",
                             "title": "Tous différents, tous ensemble",
                             "subtitle": "Respecter les différences",
@@ -6443,6 +6542,30 @@
                             },
                             "isBonus": true,
                             "bonusThreshold": 2
+                        },
+                        {
+                            "id": "ce1-emc-emotions-respect",
+                            "title": "Émotions et respect",
+                            "subtitle": "Écouter, rassurer, répondre calmement",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce1.json",
+                                "category": "ce1-emotions-respect",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-emc-dialogue-politesse",
+                            "title": "Dialogue et politesse",
+                            "subtitle": "Bonjour, merci, écouter",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_ce1.json",
+                                "category": "ce1-dialogue-politesse",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -6659,8 +6782,8 @@
                                     "type": "bullets",
                                     "label": "Deux mots à ne pas mélanger",
                                     "items": [
-                                        "Le stéréotype parle d'un groupe entier : les filles, les grands.",
-                                        "Le préjugé s'attaque à une seule personne, encore inconnue.",
+                                        "Le stéréotype est une image toute faite sur un groupe entier : les filles, les grands.",
+                                        "Le préjugé, c'est juger quelqu'un avant de le connaître, sans l'avoir écouté.",
                                         "Dans les deux cas, on croit savoir sans avoir regardé."
                                     ]
                                 },
