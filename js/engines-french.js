@@ -222,9 +222,20 @@
 
     /**
      * Variante saisie libre de grammarCloze : la même phrase à trou, mais
-     * l'enfant tape la réponse au clavier au lieu de choisir parmi des
-     * propositions — réutilise les mêmes données grammar_cloze_* déjà
-     * présentes dans la bibliothèque française, juste un autre inputType.
+     * l'enfant tape la réponse au clavier — réutilise les mêmes données
+     * grammar_cloze_* déjà présentes dans la bibliothèque française, juste un
+     * autre inputType.
+     *
+     * Les `choices` de l'élément sont AFFICHÉES sous la phrase (mélangées),
+     * et l'enfant tape le bon mot parmi elles. Ce n'est pas un détail : ces
+     * banques ont été écrites pour un QCM, donc la plupart des phrases
+     * admettent plusieurs mots justes dans l'absolu (« Le / Un / Ce chat »,
+     * « un tronc large / gros / épais ») et un seul est accepté. Sans les
+     * propositions, l'enfant ne peut pas deviner lequel, et sa bonne réponse
+     * est comptée fausse. Avec elles, une seule convient : c'est la consigne.
+     * Un élément sans `choices`, ou dont les `choices` ne contiennent pas la
+     * réponse (donnée défectueuse : on ne montre jamais une liste fausse),
+     * garde l'ancien comportement sans propositions.
      */
     clozeFillIn(params, lib) {
         const pool = lib?.grammar?.[params.category];
@@ -239,8 +250,18 @@
         const prompt = escapedSentence.includes("___")
             ? escapedSentence.replace(/___/g, '<span style="color:var(--primary); font-weight:800;">_____</span>')
             : `${escapedSentence} <span style="color:var(--primary); font-weight:800;">_____</span>`;
+        const norm = (s) => s.toString().trim().toLowerCase();
+        const proposals = Array.isArray(picked.choices)
+            ? picked.choices.map((c) => (c == null ? "" : c).toString().trim()).filter(Boolean)
+            : [];
+        const showProposals = proposals.length > 1 && proposals.some((c) => norm(c) === norm(answer));
+        const proposalsHtml = showProposals
+            ? `<br><span style="display:inline-block; margin-top:8px; font-weight:700;">Propositions : ${
+                Engines.utils.shuffle([...proposals]).map((c) => `<b>${SecurityUtils.escapeHtml(c)}</b>`).join(" · ")
+            }</span>`
+            : "";
         return {
-            question: `<span class="small-question">${prompt}</span>`,
+            question: `<span class="small-question">${prompt}${proposalsHtml}</span>`,
             answer,
             inputType: "alpha",
             isVisual: false,
