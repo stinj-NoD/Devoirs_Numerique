@@ -39,8 +39,8 @@ Histoire, géographie et sciences sont évalués contre le texte **en vigueur po
 ## Ce qui est déjà solide
 
 - structure CP-CM2 cohérente, bibliothèque de leçons en place sur les 5 niveaux
-- corpus de **1123 exercices et 442 leçons**, dont 442/442 leçons équipées d'un quiz d'ancrage conforme aux 5 règles éditoriales, **sans aucun avertissement**
-- un filet anti-régression sur la totalité du contenu (`scripts/smoke-exercises.js`) : les 1123 exercices sont démarrés en navigateur, 1123/1123 au vert
+- corpus de **1119 exercices et 445 leçons**, dont 445/445 leçons équipées d'un quiz d'ancrage conforme aux 5 règles éditoriales, **sans aucun avertissement**
+- un filet anti-régression sur la totalité du contenu (`scripts/smoke-exercises.js`) : les 1119 exercices sont démarrés en navigateur, 1119/1119 au vert
 - CM2 n'a plus aucun manque structurel hérité (les 9 points de l'audit du 2026-08-01 sont tous comblés)
 - proportionnalité, pourcentages, échelle et vitesse en CM1/CM2 ; opérations posées (add/sub/mult) disponibles comme moteur générique déjà exploité à plusieurs niveaux
 - activités interactives non-QCM (cartes, classement, mémoire, fractions) disponibles à plusieurs niveaux
@@ -99,7 +99,10 @@ Manques **vérifiés dans les données** par les audits, non encore traités. D�
 - **CM1** : problèmes à plusieurs étapes (absent — la banque « multi » n'en contient aucun) ; probabilités, algèbre et pensée informatique (patron CM2 réutilisable tel quel) ; puberté et reproduction humaine ; phrase simple et phrase complexe ; comparaison de fractions.
 - **CM2** : les banques de futur `future_2` et `future_3_freq` ne sont exposées qu'au CM1 — deux exercices disponibles sans écrire un item.
 - **Gisement dormant, mesuré le 2026-09-28** : **81 frises chronologiques écrites et jamais jouées** (38 sur 45 au CM1, 43 sur 51 au CM2), recensées par extraction des `timelineId` réellement référencés. À brancher **avec discernement** : 81 exercices d'histoire d'un coup déséquilibreraient les niveaux ; choisir celles qui servent une compétence `Partiel`.
-- **Chantier de moteur réel** : `operation-posed` en `level: 2` peut produire 876 + 954 = 1 830 au CE1, hors du domaine numérique du niveau, et n'accepte aucune borne (`max`, `maxSum`). Seule fuite de bornes détectée.
+- ~~**Chantier de moteur réel** : `operation-posed` en `level: 2` peut produire 876 + 954 = 1 830 au CE1~~ **fait (v4.54.0)** : paramètre optionnel `maxResult` (validé dans les deux validateurs), `maxResult: 1000` sur `ce1-addition-posee-centaines`. CE2 et CM1 partagent le niveau 2 sans ce paramètre et sont inchangés (mesuré). Reste, sans moteur : lire une mesure sur une règle graduée, reproduire une figure, coder un déplacement sur quadrillage.
+
+- **Qualité du CE1 (audit du 2026-09-30) : 27 Majeurs sur 28 corrigés en v4.54.0.** Trois leçons ajoutées (signes <, = et >, addition posée, soustraction posée), 14 quiz de géographie raccourcis, une banque de vocabulaire réécrite, 4 copies exactes retirées. Détail dans `docs/content-quality-audit-ce1.md`.
+- **⏸ Arbitrage en attente — la carte des régions de France au CE1** (`ce1-geo-carte-regions`). Les deux audits se contredisent : la couverture du 2026-09-27 la juge « conforme au programme 2020 », la qualité la classe en fuite de niveau (région = CE2, organisation administrative = CM1 dans le référentiel). L'exercice est publié, sans leçon ni étiquettes, avec 6 cibles pour 5 questions. Options : le garder tel quel, y ajouter une leçon et des étiquettes, ou le reporter au CE2. **Décision à prendre par l'utilisateur** : aucun des deux audits ne suffit à trancher, et le supprimer serait un recul.
 
 ## Priorisation
 
