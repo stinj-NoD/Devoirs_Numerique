@@ -12,8 +12,14 @@
                 a = rnd(1, total - 1);
                 return { question: `${a} + ? = ${total}`, answer: total - a, explanation: `${a} + ${total - a} = ${total}, donc il manque ${total - a}.` };
             case 'sub-simple':
-                a = rnd(p.min || 5, p.max || 20);
-                b = rnd(0, a);
+                // Le second terme était tiré dans [0, a] : « 1 - 0 », « 2 - 2 », « 9 - 9 »
+                // sortaient dans 40 % des cas sur « Retirer jusqu'à 10 » (21 tirages sur
+                // 40 mesurés), des questions sans aucun calcul. On tire maintenant b dans
+                // [1, a - 1], donc ni « - 0 » ni « a - a », et un résultat toujours
+                // positif. Un premier terme de 1 n'a pas de soustraction utile : on part
+                // de 2 (les bornes `min`/`max` de chaque exercice sont conservées).
+                a = rnd(Math.max(2, p.min || 5), Math.max(2, p.max || 20));
+                b = rnd(1, a - 1);
                 return { question: `${a} - ${b} = ?`, answer: a - b, explanation: `${a} - ${b} = ${a - b}` };
             case 'mult':
                 a = p.table === 'mix' ? rnd(2, 12) : (p.table || 2);
