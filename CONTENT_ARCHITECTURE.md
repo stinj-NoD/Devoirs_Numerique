@@ -4,7 +4,7 @@ Document de référence listant, pour chaque niveau, chaque matière, chaque sou
 
 Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon, sans exercice, catégories peu fournies) pour prioriser les ajouts.
 
-> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-09-30 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
+> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-10-03 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
 
 ---
 
