@@ -39,8 +39,8 @@ Histoire, géographie et sciences sont évalués contre le texte **en vigueur po
 ## Ce qui est déjà solide
 
 - structure CP-CM2 cohérente, bibliothèque de leçons en place sur les 5 niveaux
-- corpus de **1119 exercices et 445 leçons**, dont 445/445 leçons équipées d'un quiz d'ancrage conforme aux 5 règles éditoriales, **sans aucun avertissement**
-- un filet anti-régression sur la totalité du contenu (`scripts/smoke-exercises.js`) : les 1119 exercices sont démarrés en navigateur, 1119/1119 au vert
+- corpus de **1117 exercices et 447 leçons**, dont 447/447 leçons équipées d'un quiz d'ancrage conforme aux 5 règles éditoriales, **sans aucun avertissement**
+- un filet anti-régression sur la totalité du contenu (`scripts/smoke-exercises.js`) : les 1117 exercices sont démarrés en navigateur, 1117/1117 au vert
 - CM2 n'a plus aucun manque structurel hérité (les 9 points de l'audit du 2026-08-01 sont tous comblés)
 - proportionnalité, pourcentages, échelle et vitesse en CM1/CM2 ; opérations posées (add/sub/mult) disponibles comme moteur générique déjà exploité à plusieurs niveaux
 - activités interactives non-QCM (cartes, classement, mémoire, fractions) disponibles à plusieurs niveaux
