@@ -10,12 +10,12 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 
 ## Vue d'ensemble
 
-- **1119 exercices** et **445 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1117 exercices** et **447 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
 |---|---|
-| `choice-engine` | 589 |
+| `choice-engine` | 587 |
 | `math-input` | 193 |
 | `reading` | 58 |
 | `board-interactive` | 56 |
@@ -86,11 +86,12 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Nombres & Comparaison `(cp-nombres-comparaison)`
 
-- **Leçons** (6) :
+- **Leçons** (7) :
   - Compter et comparer `(cp-lesson-compter-comparer)` — blocs: paragraph, example, bullets, tip, check, check
   - Plus, moins, autant `(cp-lesson-plus-moins-autant)` — blocs: paragraph, example, bullets, tip, check, check
   - Doubles et moitiés `(cp-lesson-doubles-moities)` — blocs: paragraph, example, bullets, tip, check, check
   - La ligne numérique `(cp-lesson-ligne-numerique)` — blocs: paragraph, example, bullets, tip, check, check
+  - Comparer avec <, = et > `(cp-lesson-signes-comparer)` — blocs: paragraph, example, bullets, tip, check, check
   - Encadrer un nombre `(cp-lesson-encadrement)` — blocs: paragraph, example, bullets, tip, check, check
   - Ranger des nombres `(cp-lesson-ranger-nombres)` — blocs: paragraph, paragraph, example, bullets, tip, check, check
 - **Exercices** (13) :
@@ -220,7 +221,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Période 3 `(cp-audio-mots-outils-p3)` — engine: `audio-spelling`, category=cp_mots_outils_p3, speechRate=0.72, questions=6
   - Période 4 `(cp-audio-mots-outils-p4)` — engine: `audio-spelling`, category=cp_mots_outils_p4, speechRate=0.72, questions=6
   - Période 5 `(cp-audio-mots-outils-p5)` — engine: `audio-spelling`, category=cp_mots_outils_p5, speechRate=0.72, questions=6
-  - Défi : tous les mots outils `(cp-bonus-mots-outils-defi)` — engine: `audio-spelling`, category=cp_mots_outils_p5, speechRate=0.72, questions=9, bonus (seuil=2)
+  - Défi : tous les mots outils `(cp-bonus-mots-outils-defi)` — engine: `audio-spelling`, category=cp_mots_outils_revision, speechRate=0.72, questions=9, bonus (seuil=2)
 
 #### Mots outils par niveaux `(cp-mots-outils-niveaux-subtheme)`
 
@@ -346,12 +347,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Les traces du passé `(cp-lesson-traces-passe)` — blocs: paragraph, example, bullets, tip, check, check
   - Les objets du passé `(cp-lesson-objets-passe)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (6) :
+- **Exercices** (5) :
   - Traces du passé `(cp-histoire-traces)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cp.json, category=cp-personnages-traces, questions=6
   - Observer les traces `(cp-histoire-observer-traces)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_cp.json, category=cp-personnages-traces
   - Photos et souvenirs `(cp-histoire-photos-souvenirs)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cp.json, category=cp-photos-souvenirs, questions=6
   - Objets anciens `(cp-histoire-objets-anciens)` — engine: `choice-engine`, type=factual-qcm, questions=6, dataFile=data/history_cp.json, category=cp-objets-anciens
-  - Partager le matériel `(cp-emc-partager-materiel)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-partager-materiel, questions=6
   - Défi : grand musée du passé `(cp-bonus-traces-passe-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cp.json, category=cp-personnages-traces, questions=10, bonus (seuil=2)
 
 ### Questionner l'espace (cp-geographie-subject)
@@ -374,23 +374,23 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Ma gauche, ma droite `(cp-lesson-gauche-droite)` — blocs: paragraph, example, bullets, tip, check, check
   - Les quatre points cardinaux `(cp-lesson-points-cardinaux)` — blocs: paragraph, example, bullets, tip, check, check
   - La rose des vents `(cp-lesson-rose-des-vents)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (6) :
+- **Exercices** (7) :
   - Se repérer `(cp-geo-reperer)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-se-reperer, questions=6
   - Se repérer à l'école `(cp-geo-ecole-trajets)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cp.json, category=cp-se-reperer
   - Les lieux de l'école `(cp-geo-lieux-ecole)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cp.json, category=cp-lieux-ecole
   - Les points cardinaux `(cp-geo-points-cardinaux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-points-cardinaux, questions=6
   - La rose des vents `(cp-geo-rose-des-vents)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-rose-des-vents, questions=6
   - Défi : se repérer `(cp-bonus-reperage-defi)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/geography_cp.json, category=cp-lieux-ecole, bonus (seuil=2)
+  - Gauche ou droite ? `(cp-geo-gauche-droite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-gauche-droite, questions=6
 
 #### Paysages `(cp-geo-paysages-subtheme)`
 
 - **Leçons** (1) :
   - Reconnaître des paysages `(cp-lesson-paysages-reperes)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (4) :
+- **Exercices** (3) :
   - Paysages `(cp-geo-paysages)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-paysages, questions=6
   - Reconnaître les paysages `(cp-geo-reconnaitre-paysages)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cp.json, category=cp-paysages
-  - Transports et lieux `(cp-geo-transports-lieux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-transports-lieux, questions=6
-  - Defi : paysages et deplacements `(cp-bonus-geo-paysages-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-paysages, questions=8, bonus (seuil=2)
+  - Défi : les paysages `(cp-bonus-geo-paysages-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-paysages, questions=8, bonus (seuil=2)
 
 #### Transports et lieux `(cp-geo-transports-subtheme)`
 
@@ -405,9 +405,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Des représentations du monde `(cp-geo-representations-monde-subtheme)`
 
-- **Leçons** (2) :
+- **Leçons** (3) :
   - Le globe et le planisphère `(cp-lesson-globe-planisphere)` — blocs: paragraph, paragraph, example, tip, check, check
   - La terre et les océans `(cp-lesson-terre-mer-ocean)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les continents `(cp-lesson-continents)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Le globe et le planisphère `(cp-geo-globe-planisphere)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-representations-monde, questions=6
   - La terre et les océans `(cp-geo-terre-mer-ocean)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-terre-mer-ocean, questions=6
@@ -433,9 +434,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 - **Leçons** (1) :
   - La matière et ses états `(cp-lesson-matiere-etat)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (3) :
+- **Exercices** (2) :
   - Matière et lumière `(cp-sciences-matiere)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-matiere, questions=6
-  - Objets et usages `(cp-sciences-objets-usages)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-objets-usages, questions=6
   - Défi : matière et lumière `(cp-bonus-sciences-matiere-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-matiere, questions=9, bonus (seuil=2)
 
 #### Corps et sens `(cp-sciences-corps-subtheme)`
@@ -443,12 +443,13 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Les cinq sens `(cp-lesson-corps-sens)` — blocs: paragraph, example, bullets, tip, check, check
   - Les organes des sens `(cp-lesson-organes-sens)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (5) :
+- **Exercices** (6) :
   - Corps et sens `(cp-sciences-corps)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-corps-sens, questions=6
-  - Les cinq sens `(cp-sciences-cinq-sens)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cp.json, category=cp-corps-sens
+  - Le corps et les sens `(cp-sciences-cinq-sens)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cp.json, category=cp-corps-sens
   - Les besoins du corps `(cp-sciences-besoins-corps)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cp.json, category=cp-besoins-corps
   - Hygiène quotidienne `(cp-sciences-hygiene-quotidienne)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-hygiene-quotidienne, questions=6
   - Défi : grand expert du corps `(cp-bonus-corps-sens-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-corps-sens, questions=10, bonus (seuil=2)
+  - Révision : le corps et les sens `(cp-sciences-corps-sens)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-corps-sens, questions=6
 
 #### Saisons et météo `(cp-sciences-saisons-subtheme)`
 
@@ -458,29 +459,27 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Exercices** (3) :
   - Les quatre saisons `(cp-sciences-saisons)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-saisons-meteo, questions=6
   - Le temps qu'il fait `(cp-sciences-meteo)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-saisons-meteo, questions=6
-  - S'habiller selon la saison `(cp-sciences-habits-saison)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-saisons-meteo, questions=6
+  - Les saisons : le mélange `(cp-sciences-habits-saison)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-saisons-meteo, questions=6
 
 #### Où vivent les animaux ? `(cp-sciences-milieux-subtheme)`
 
 - **Leçons** (2) :
   - Près de chez nous `(cp-lesson-milieux-proches)` — blocs: paragraph, example, bullets, tip, check, check
   - La forêt, la mare et la mer `(cp-lesson-foret-mare-mer)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (4) :
+- **Exercices** (3) :
   - Où vivent les animaux ? `(cp-sciences-milieux-vie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-milieux-vie, questions=6
-  - La maison et le jardin `(cp-sciences-maison-jardin)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-milieux-vie, questions=6
-  - Révision : les cinq sens `(cp-sciences-corps-sens)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-corps-sens, questions=6
-  - Défi : milieux et sens `(cp-bonus-sciences-milieux-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-milieux-vie, questions=8, bonus (seuil=2)
+  - Les milieux de vie : le mélange `(cp-sciences-maison-jardin)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-milieux-vie, questions=6
+  - Défi : les milieux de vie `(cp-bonus-sciences-milieux-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-milieux-vie, questions=8, bonus (seuil=2)
 
 #### Objets du quotidien `(cp-sciences-objets-subtheme)`
 
 - **Leçons** (2) :
   - À quoi servent les objets ? `(cp-lesson-fonction-objets)` — blocs: paragraph, example, bullets, tip, check, check
   - En quoi sont faits les objets ? `(cp-lesson-materiaux-simples)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (5) :
+- **Exercices** (4) :
   - À quoi ça sert ? `(cp-sciences-objets-fonction)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-objets-quotidien, questions=6
-  - En quoi c'est fait ? `(cp-sciences-objets-materiaux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-objets-quotidien, questions=6
+  - Objets : usage et matière `(cp-sciences-objets-materiaux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-objets-quotidien, questions=6
   - L'utilité des objets `(cp-sciences-objets-usages-quotidien)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-objets-usages, questions=6
-  - L'hygiène au quotidien `(cp-sciences-hygiene)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-hygiene-quotidienne, questions=6
   - Défi : objets et matériaux `(cp-bonus-sciences-objets-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-objets-quotidien, questions=8, bonus (seuil=2)
 
 #### Chaud, froid et température `(cp-sciences-temperature-subtheme)`
@@ -501,29 +500,30 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Les règles de la classe `(cp-lesson-regles-classe)` — blocs: paragraph, example, bullets, tip, check, check
   - Les droits et les devoirs `(cp-lesson-droits-devoirs)` — blocs: paragraph, example, bullets, tip, check, check
   - Respecter le matériel `(cp-lesson-respect-materiel)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (4) :
+- **Exercices** (5) :
   - Vivre ensemble `(cp-emc-vivre-ensemble)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-vivre-ensemble, questions=6
   - Respecter les autres `(cp-emc-respecter-autres)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cp.json, category=cp-vivre-ensemble
   - Politesse en classe `(cp-emc-politesse-classe)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cp.json, category=cp-politesse-classe
   - Politesse et émotions `(cp-emc-appariement)` — engine: `matching`, category=matching_emc_cp, dataFile=data/emc_matching.json, questions=3
+  - Les mots de politesse `(cp-emc-sec-politesse)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-politesse-classe, questions=6
 
 #### Sécurité `(cp-emc-securite-subtheme)`
 
 - **Leçons** (1) :
   - Être prudent au quotidien `(cp-lesson-securite-quotidienne)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (3) :
+- **Exercices** (2) :
   - Sécurité `(cp-emc-securite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-securite, questions=6
   - Être prudent `(cp-emc-etre-prudent)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cp.json, category=cp-securite
-  - Politesse en classe `(cp-emc-sec-politesse)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-politesse-classe, questions=6
 
 #### Entraide `(cp-emc-entraide-subtheme)`
 
 - **Leçons** (1) :
   - Entraide et respect `(cp-lesson-entraide-respect)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (3) :
+- **Exercices** (4) :
   - Entraide `(cp-emc-entraide)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-entraide, questions=6
   - Aider un camarade `(cp-emc-aider-camarade)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cp.json, category=cp-entraide
   - Partager à l'école `(cp-emc-partager-classe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-partager-materiel, questions=5
+  - Prêter et rendre `(cp-emc-partager-materiel)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-partager-materiel, questions=6
 
 #### Les émotions `(cp-emc-emotions-subtheme)`
 
@@ -532,8 +532,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Exprimer ses émotions `(cp-lesson-exprimer-emotions)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Mes émotions `(cp-emc-emotions)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-emotions, questions=6
-  - Exprimer ses émotions `(cp-emc-exprimer-emotions)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-emotions, questions=8
-  - Reconnaître les émotions `(cp-emc-reconnaitre-emotions)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-emotions, questions=6
+  - Exprimer ses émotions `(cp-emc-exprimer-emotions)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-emotions-exprimer, questions=8
+  - Reconnaître les émotions `(cp-emc-reconnaitre-emotions)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-emotions-reconnaitre, questions=6
   - Défi : émotions et réactions `(cp-bonus-emc-emotions-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-emotions, questions=8, bonus (seuil=2)
 
 #### Décider ensemble `(cp-emc-vote-subtheme)`
@@ -542,7 +542,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Décider ensemble `(cp-lesson-vote)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
   - Le vote en classe `(cp-emc-vote)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-vote, questions=5
-  - Voter ensemble `(cp-emc-vote-vivre-ensemble)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-vivre-ensemble, questions=5
+  - Voter ensemble `(cp-emc-vote-vivre-ensemble)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-vote, questions=5
   - Défi : vote et règles `(cp-bonus-emc-vote-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cp.json, category=cp-vote, questions=6, bonus (seuil=2)
 
 #### Respecter l'environnement `(cp-emc-environnement-subtheme)`

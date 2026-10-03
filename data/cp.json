@@ -714,6 +714,59 @@
                             ]
                         },
                         {
+                            "id": "cp-lesson-signes-comparer",
+                            "title": "Comparer avec <, = et >",
+                            "subtitle": "Le signe s'ouvre vers le plus grand",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour comparer deux nombres, on utilise des signes. Le signe < veut dire « plus petit que ». Le signe > veut dire « plus grand que ». Le signe = veut dire « égal »."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "3 < 7 : 3 est plus petit que 7. 9 > 4 : 9 est plus grand que 4. 5 = 5 : c'est le même nombre."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Pour ne pas se tromper",
+                                    "items": [
+                                        "La pointe du signe regarde le plus petit nombre.",
+                                        "L'ouverture du signe regarde le plus grand nombre.",
+                                        "Le signe = est entre deux nombres égaux."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le signe s'ouvre toujours vers le plus grand nombre."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel est le bon signe pour comparer 12 et 9 ?",
+                                    "choices": [
+                                        "12 > 9",
+                                        "12 < 9",
+                                        "12 = 9"
+                                    ],
+                                    "answer": "12 > 9",
+                                    "explanation": "12 est plus grand que 9. Le signe s'ouvre vers 12, donc on écrit 12 > 9."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léa a 8 billes. Tom a 14 billes. Quelle phrase est juste ?",
+                                    "choices": [
+                                        "8 < 14, car Léa en a moins",
+                                        "8 > 14, car Léa en a moins",
+                                        "8 = 14, car ils ont des billes"
+                                    ],
+                                    "answer": "8 < 14, car Léa en a moins",
+                                    "explanation": "Léa a moins de billes que Tom : 8 est plus petit que 14. La pointe du signe < regarde 8."
+                                }
+                            ]
+                        },
+                        {
                             "id": "cp-lesson-encadrement",
                             "title": "Encadrer un nombre",
                             "subtitle": "Trouver la dizaine juste avant et juste après",
@@ -1507,7 +1560,7 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Un quadrillage est fait de cases. On peut repérer un endroit en comptant les colonnes (de gauche à droite) puis les lignes (de haut en bas)."
+                                    "text": "Un quadrillage est fait de cases. On peut repérer un endroit en comptant les colonnes (de gauche à droite) puis les lignes (de haut en bas). Les numéros commencent à 0, tout en haut à gauche."
                                 },
                                 {
                                     "type": "example",
@@ -1547,7 +1600,7 @@
                                         "Oui, car ce sont les mêmes nombres"
                                     ],
                                     "answer": "Non, ce sont deux cases différentes",
-                                    "explanation": "L'ordre compte : la première case est loin à droite et tout en haut, la seconde est à gauche et plus bas."
+                                    "explanation": "Colonne 4 ligne 1 est loin à droite, près du haut. Colonne 1 ligne 4 est près de la gauche, plus bas. L'ordre compte : la colonne se dit avant la ligne."
                                 }
                             ]
                         }
@@ -2514,12 +2567,12 @@
                         {
                             "id": "cp-bonus-mots-outils-defi",
                             "title": "Défi : tous les mots outils",
-                            "subtitle": "Révision générale, version longue",
+                            "subtitle": "Les 30 mots des cinq périodes",
                             "engine": "audio-spelling",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
-                                "category": "cp_mots_outils_p5",
+                                "category": "cp_mots_outils_revision",
                                 "speechRate": 0.72,
                                 "questions": 9
                             }
@@ -4254,18 +4307,6 @@
                             "subtitle": "Traces de la vie d'autrefois"
                         },
                         {
-                            "id": "cp-emc-partager-materiel",
-                            "title": "Partager le matériel",
-                            "subtitle": "Prêter, rendre, aider",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/emc_cp.json",
-                                "category": "cp-partager-materiel",
-                                "questions": 6
-                            }
-                        },
-                        {
                             "id": "cp-bonus-traces-passe-defi",
                             "title": "Défi : grand musée du passé",
                             "subtitle": "Traces et objets anciens, version longue",
@@ -4430,25 +4471,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Léa veut montrer à un nouvel élève où se trouve le toboggan dans la cour. Elle hésite entre le plan de l'école et une photo prise depuis la porte. Pourquoi le plan l'aide-t-il mieux ?",
+                                    "question": "Léa montre le toboggan. Pourquoi un plan aide-t-il mieux qu'une photo ?",
                                     "choices": [
-                                        "Rien ne peut se cacher derrière un mur",
-                                        "La photo montre de plus jolies couleurs",
-                                        "Le plan tient sur une plus grande feuille"
+                                        "On voit tout d'en haut",
+                                        "Les couleurs sont plus jolies",
+                                        "La feuille est plus grande"
                                     ],
-                                    "answer": "Rien ne peut se cacher derrière un mur",
-                                    "explanation": "Vu d'en haut, aucun mur ni arbre ne masque quoi que ce soit : on voit toute la cour d'un coup. La couleur ne change rien, une photo en a aussi. Et la taille de la feuille ne compte pas : un petit plan montre déjà tout l'espace."
+                                    "answer": "On voit tout d'en haut",
+                                    "explanation": "Vu d'en haut, aucun mur ne cache rien : on voit toute la cour. Les couleurs et la taille de la feuille ne changent rien."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Tom dessine le plan de sa chambre. Il dessine son lit comme il le voit quand il est debout devant, avec le dossier bien droit. Que doit-il changer ?",
+                                    "question": "Tom dessine son lit de face, avec le dossier. Que doit-il changer ?",
                                     "choices": [
-                                        "Le regarder depuis le plafond",
-                                        "Le dessiner beaucoup plus petit",
-                                        "Écrire le mot « lit » à côté"
+                                        "Le dessiner vu d'en haut",
+                                        "Le dessiner plus petit",
+                                        "Écrire « lit » à côté"
                                     ],
-                                    "answer": "Le regarder depuis le plafond",
-                                    "explanation": "Sur un plan, on regarde toujours d'en haut : le lit devient un rectangle vu du dessus. Le dessiner plus petit ne corrigerait pas le point de vue, qui reste faux. Écrire le mot aide un peu, mais le dessin serait encore vu de face."
+                                    "answer": "Le dessiner vu d'en haut",
+                                    "explanation": "Sur un plan, on regarde toujours d'en haut : le lit devient un rectangle. Plus petit ou avec un mot, il resterait vu de face."
                                 }
                             ]
                         },
@@ -4482,25 +4523,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Papa dit : « Je descends acheter le pain, je reviens dans cinq minutes à pied. » Qu'est-ce que cela nous apprend sur la boulangerie ?",
+                                    "question": "Papa va chercher le pain à pied et revient en cinq minutes. Où est la boulangerie ?",
                                     "choices": [
-                                        "Elle est dans le quartier",
-                                        "Elle est dans une autre ville",
-                                        "Elle est très loin de la maison"
+                                        "Dans le quartier",
+                                        "Dans une autre ville",
+                                        "Très loin de la maison"
                                     ],
-                                    "answer": "Elle est dans le quartier",
-                                    "explanation": "Cinq minutes à pied, c'est tout près de la maison : c'est l'espace proche, donc le quartier. Une autre ville demanderait un long trajet en voiture ou en train. Et un lieu très loin ne se ferait pas à pied en cinq minutes."
+                                    "answer": "Dans le quartier",
+                                    "explanation": "Cinq minutes à pied, c'est tout près : c'est dans le quartier. Une autre ville est trop loin pour y aller à pied."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur quoi peut-on se mettre d'accord quand on parle d'un quartier ?",
+                                    "question": "Que peut-on faire dans un quartier ?",
                                     "choices": [
-                                        "On peut en faire le tour à pied",
-                                        "Il y a toujours exactement dix rues",
-                                        "Tous les habitants s'y connaissent"
+                                        "Le parcourir à pied",
+                                        "Y compter toujours dix rues",
+                                        "Y connaître tous les habitants"
                                     ],
-                                    "answer": "On peut en faire le tour à pied",
-                                    "explanation": "Un quartier est une petite partie de la ville : on le parcourt à pied. Le nombre de rues change d'un quartier à l'autre, il n'y a pas de règle. Et dans un quartier, beaucoup d'habitants ne se connaissent pas du tout."
+                                    "answer": "Le parcourir à pied",
+                                    "explanation": "Un quartier est petit : on peut le parcourir à pied. Le nombre de rues change, et on ne connaît pas tous les habitants."
                                 }
                             ]
                         }
@@ -4635,6 +4676,18 @@
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "id": "cp-bonus-reperage-defi"
+                        },
+                        {
+                            "id": "cp-geo-gauche-droite",
+                            "title": "Gauche ou droite ?",
+                            "subtitle": "Je me repère avec mes mains",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cp.json",
+                                "category": "cp-gauche-droite",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -4666,25 +4719,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Deux élèves se font face. Nino dit : « Le tableau est à ma droite. » Sa camarade en face répond : « Non, il est à ma gauche ! » Qui a raison ?",
+                                    "question": "Face à face, Nino dit « à ma droite », sa camarade « à ma gauche ». Qui a raison ?",
                                     "choices": [
-                                        "Les deux : ils ne sont pas placés du même côté",
-                                        "Nino, parce qu'il a parlé le premier",
-                                        "Sa camarade, parce qu'elle est en face du tableau"
+                                        "Les deux, ils ne sont pas du même côté",
+                                        "Nino, car il parle le premier",
+                                        "Sa camarade, car elle est en face"
                                     ],
-                                    "answer": "Les deux : ils ne sont pas placés du même côté",
-                                    "explanation": "Quand on se fait face, la droite de l'un est la gauche de l'autre : chacun décrit depuis sa place. L'ordre dans lequel on parle ne rend personne plus juste. Et être en face du tableau ne donne pas raison non plus : les deux disent vrai depuis leur position."
+                                    "answer": "Les deux, ils ne sont pas du même côté",
+                                    "explanation": "Quand on se fait face, la droite de l'un est la gauche de l'autre. Chacun décrit depuis sa place."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Une maîtresse veut dire où est rangé le ballon sans qu'aucun élève ne se trompe. Quelle phrase est la plus sûre ?",
+                                    "question": "Quelle phrase aide le mieux à trouver le ballon ?",
                                     "choices": [
-                                        "Dans le placard, près de la porte de la cour",
-                                        "Juste derrière, tout au fond de la salle",
-                                        "Là-bas, à gauche, vers le grand mur"
+                                        "Dans le placard, près de la porte",
+                                        "Là-bas, à gauche, vers le mur",
+                                        "Juste derrière, tout au fond"
                                     ],
-                                    "answer": "Dans le placard, près de la porte de la cour",
-                                    "explanation": "Cette phrase s'appuie sur un repère que tous voient pareil : la porte de la cour ne bouge pas. « Derrière » dépend de la personne qui parle et d'où elle est tournée. « À gauche » change aussi selon la place de chacun dans la classe."
+                                    "answer": "Dans le placard, près de la porte",
+                                    "explanation": "La porte ne bouge pas : tout le monde la voit pareil. « Derrière » et « à gauche » changent selon la place de chacun."
                                 }
                             ],
                             "title": "Se repérer à l'école",
@@ -4723,25 +4776,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Zoé écrit avec sa main gauche. Que peut-on dire de sa main droite ?",
+                                    "question": "Zoé écrit de la main gauche. Quelle main tient sa feuille ?",
                                     "choices": [
-                                        "C'est celle qui tient la feuille pendant qu'elle écrit",
-                                        "C'est celle qui tient le crayon pour former les lettres",
-                                        "Elle n'a pas de main droite, elle n'a qu'une seule main"
+                                        "La main droite",
+                                        "La main gauche",
+                                        "Aucune main"
                                     ],
-                                    "answer": "C'est celle qui tient la feuille pendant qu'elle écrit",
-                                    "explanation": "Zoé est gauchère : elle écrit de la main gauche, donc c'est l'autre main, la droite, qui tient la feuille. Elle n'écrit pas de la main droite, puisqu'elle écrit de la gauche. Et tout le monde a une main droite et une main gauche, gaucher ou droitier."
+                                    "answer": "La main droite",
+                                    "explanation": "Zoé écrit de la main gauche : c'est sa main droite qui tient la feuille."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un enfant lève son bras gauche. Sans bouger, il pose son autre main sur son épaule. Sur quelle épaule sa main s'est-elle posée ?",
+                                    "question": "Léo lève le bras gauche. Sur quelle épaule pose-t-il son autre main ?",
                                     "choices": [
-                                        "Son épaule droite",
-                                        "Son épaule gauche",
-                                        "On ne peut pas le savoir"
+                                        "Sur l'épaule droite",
+                                        "Sur l'épaule gauche",
+                                        "On ne peut pas savoir"
                                     ],
-                                    "answer": "Son épaule droite",
-                                    "explanation": "Le bras gauche est levé, donc la main qui reste libre est la main droite, et elle se pose du même côté : l'épaule droite. Ce n'est pas l'épaule gauche, car de ce côté le bras est en l'air. On peut donc bien le savoir : chaque main va avec son côté."
+                                    "answer": "Sur l'épaule droite",
+                                    "explanation": "Le bras gauche est levé : l'autre main est la droite. Elle se pose sur l'épaule droite."
                                 }
                             ]
                         },
@@ -4776,25 +4829,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Camille marche vers l'est. Elle fait demi-tour et repart dans l'autre sens. Vers quelle direction marche-t-elle maintenant ?",
+                                    "question": "Camille marche vers l'est, puis fait demi-tour. Vers où marche-t-elle ?",
                                     "choices": [
                                         "Vers l'ouest",
                                         "Vers le nord",
                                         "Vers l'est, comme avant"
                                     ],
                                     "answer": "Vers l'ouest",
-                                    "explanation": "Faire demi-tour, c'est partir dans la direction opposée : l'opposé de l'est est l'ouest. Le nord est une autre direction, et ce n'est plus l'est puisqu'elle a changé de sens."
+                                    "explanation": "Faire demi-tour, c'est partir dans la direction opposée : l'opposé de l'est est l'ouest."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur une carte, le nord est dessiné tout en haut. Où se trouve alors le sud ?",
+                                    "question": "Sur une carte, le nord est en haut. Où est le sud ?",
                                     "choices": [
-                                        "Tout en bas de la carte",
-                                        "Tout en haut, lui aussi",
+                                        "Tout en bas",
+                                        "Tout en haut aussi",
                                         "Sur le côté droit"
                                     ],
-                                    "answer": "Tout en bas de la carte",
-                                    "explanation": "Le sud est la direction opposée au nord : si le nord est en haut, le sud est forcément en bas. Deux directions opposées ne peuvent pas être au même endroit, et sur les côtés on trouve l'est et l'ouest."
+                                    "answer": "Tout en bas",
+                                    "explanation": "Le sud est l'opposé du nord : si le nord est en haut, le sud est en bas. Les côtés sont pour l'est et l'ouest."
                                 }
                             ]
                         },
@@ -4883,21 +4936,9 @@
                             "subtitle": "Mer, ville, campagne, montagne"
                         },
                         {
-                            "id": "cp-geo-transports-lieux",
-                            "title": "Transports et lieux",
-                            "subtitle": "Bus, velo, voiture, pieton...",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/geography_cp.json",
-                                "category": "cp-transports-lieux",
-                                "questions": 6
-                            }
-                        },
-                        {
                             "id": "cp-bonus-geo-paysages-defi",
-                            "title": "Defi : paysages et deplacements",
-                            "subtitle": "Reconnaitre et decrire son environnement",
+                            "title": "Défi : les paysages",
+                            "subtitle": "Reconnaître et décrire son environnement",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -4941,25 +4982,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur une photo, on voit des bateaux amarrés, du sable et de l'eau salée à perte de vue. Quel indice prouve que l'on est au bord de la mer, et pas à la campagne ?",
+                                    "question": "Une photo montre des bateaux, du sable et de l'eau à perte de vue. Quel paysage est-ce ?",
                                     "choices": [
-                                        "L'eau salée à perte de vue",
-                                        "La présence de sable jaune",
-                                        "Le ciel bleu au-dessus"
+                                        "Le bord de la mer",
+                                        "La montagne",
+                                        "La campagne"
                                     ],
-                                    "answer": "L'eau salée à perte de vue",
-                                    "explanation": "Seule la mer forme une étendue d'eau salée si grande qu'on n'en voit pas le bout : c'est le signe sûr du littoral. Du sable, on en trouve aussi dans un bac à sable ou une carrière, loin de la mer. Et le ciel bleu se voit partout, dans tous les paysages."
+                                    "answer": "Le bord de la mer",
+                                    "explanation": "Des bateaux et de l'eau à perte de vue : c'est la mer. La montagne et la campagne n'ont pas de bateaux."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Malo affirme : « Il y a des arbres sur la photo, donc c'est la campagne. » Pourquoi peut-il se tromper ?",
+                                    "question": "Malo dit : « Il y a des arbres, donc c'est la campagne. » A-t-il raison ?",
                                     "choices": [
-                                        "Parce qu'il y a aussi des arbres en ville, en montagne et au bord de la mer",
-                                        "Parce qu'à la campagne il n'y a jamais d'arbres, seulement des champs vides",
-                                        "Parce qu'on ne voit jamais bien les arbres quand ils sont pris en photo"
+                                        "Non, il y a aussi des arbres en ville",
+                                        "Oui, il n'y a d'arbres qu'à la campagne",
+                                        "Oui, les arbres sont toujours en forêt"
                                     ],
-                                    "answer": "Parce qu'il y a aussi des arbres en ville, en montagne et au bord de la mer",
-                                    "explanation": "Un arbre tout seul ne dit pas quel paysage on regarde : il en pousse partout, même dans les rues des villes. Il y a bien des arbres à la campagne, mais ils n'y sont pas réservés. Et la photo montre très bien les arbres : le problème est qu'ils ne suffisent pas comme indice."
+                                    "answer": "Non, il y a aussi des arbres en ville",
+                                    "explanation": "Il y a des arbres partout : en ville, en montagne, au bord de la mer. Un arbre ne suffit pas pour reconnaître un paysage."
                                 }
                             ]
                         }
@@ -5065,25 +5106,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "La famille de Sacha part en vacances à l'autre bout de la France, avec de grosses valises. Quel transport est le plus adapté ?",
+                                    "question": "Sacha part à l'autre bout de la France avec de grosses valises. Quel transport choisir ?",
                                     "choices": [
                                         "Le train",
                                         "Le vélo",
                                         "La trottinette"
                                     ],
                                     "answer": "Le train",
-                                    "explanation": "Pour une très longue distance avec des bagages lourds, le train avance vite et porte les valises. À vélo, il faudrait des jours et on ne pourrait pas emporter de grosses valises. La trottinette sert aux tout petits trajets, pas à traverser le pays."
+                                    "explanation": "Le train va vite sur une longue distance et porte les valises. À vélo ou en trottinette, ce serait trop long et trop lourd."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un élève dit : « La voiture est le meilleur transport, c'est le plus rapide. » Que peut-on lui répondre ?",
+                                    "question": "Léa dit : « La voiture est toujours la plus rapide. » Que lui répondre ?",
                                     "choices": [
-                                        "Pour aller à l'école d'à côté, marcher est souvent plus rapide",
-                                        "C'est vrai, la voiture est toujours la plus rapide",
-                                        "Il faut prendre la voiture même pour traverser la rue"
+                                        "Pour aller tout près, marcher va souvent plus vite",
+                                        "Oui, la voiture est toujours la plus rapide",
+                                        "Il faut la prendre même pour traverser la rue"
                                     ],
-                                    "answer": "Pour aller à l'école d'à côté, marcher est souvent plus rapide",
-                                    "explanation": "Sur un trajet très court, le temps de sortir la voiture et de se garer, on est déjà arrivé à pied. La voiture n'est donc pas toujours la plus rapide : cela dépend du trajet. Et la prendre pour traverser la rue n'aurait aucun intérêt."
+                                    "answer": "Pour aller tout près, marcher va souvent plus vite",
+                                    "explanation": "Sur un tout petit trajet, on est arrivé à pied avant d'avoir garé la voiture. Cela dépend donc du trajet."
                                 }
                             ]
                         }
@@ -5231,6 +5272,59 @@
                                     ],
                                     "answer": "Parce que l'eau y occupe une très grande place",
                                     "explanation": "Vue de l'espace, la Terre paraît bleue car les océans recouvrent une part énorme de sa surface. Ce n'est pas la couleur du ciel qui compte, ni celle de l'encre des cartes."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-continents",
+                            "title": "Les continents",
+                            "subtitle": "Les très grandes terres de la Terre",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Sur la Terre, il y a de très grandes terres : ce sont les continents. Chaque continent a un nom. On les voit tous sur un planisphère."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "La France est en Europe. Les éléphants et les girafes vivent en Afrique. Le Canada est tout en haut, à gauche du planisphère."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les sept continents",
+                                    "items": [
+                                        "L'Europe, l'Afrique et l'Asie, le plus grand.",
+                                        "L'Amérique du Nord (le Canada) et l'Amérique du Sud (le Brésil).",
+                                        "L'Océanie (l'Australie) et l'Antarctique, tout en bas, couvert de glace."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour retrouver un continent, je pense à un pays ou à un animal que je connais."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Les kangourous vivent en Australie. Sur quel continent les trouve-t-on ?",
+                                    "choices": [
+                                        "En Océanie",
+                                        "En Afrique",
+                                        "En Europe"
+                                    ],
+                                    "answer": "En Océanie",
+                                    "explanation": "L'Australie fait partie de l'Océanie. L'Afrique est le continent des éléphants et des girafes, et l'Europe celui de la France."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Le Canada et le Brésil sont sur deux continents différents. Lesquels ?",
+                                    "choices": [
+                                        "Le Nord et le Sud de l'Amérique",
+                                        "L'Europe et l'Asie ensemble",
+                                        "L'Afrique et l'Océanie ensemble"
+                                    ],
+                                    "answer": "Le Nord et le Sud de l'Amérique",
+                                    "explanation": "Le Canada est en Amérique du Nord et le Brésil en Amérique du Sud : ce sont deux continents. Les autres paires ne contiennent ni l'un ni l'autre."
                                 }
                             ]
                         }
@@ -5565,18 +5659,6 @@
                             }
                         },
                         {
-                            "id": "cp-sciences-objets-usages",
-                            "title": "Objets et usages",
-                            "subtitle": "À quoi servent les objets ?",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/science_cp.json",
-                                "category": "cp-objets-usages",
-                                "questions": 6
-                            }
-                        },
-                        {
                             "id": "cp-bonus-sciences-matiere-defi",
                             "title": "Défi : matière et lumière",
                             "subtitle": "Sans erreur",
@@ -5671,10 +5753,10 @@
                                 "category": "cp-corps-sens",
                                 "type": "factual-qcm"
                             },
-                            "title": "Les cinq sens",
+                            "title": "Le corps et les sens",
                             "engine": "choice-engine",
                             "id": "cp-sciences-cinq-sens",
-                            "subtitle": "Voir, toucher, sentir"
+                            "subtitle": "Les sens, le sommeil, le sport"
                         },
                         {
                             "params": {
@@ -5712,6 +5794,18 @@
                                 "dataFile": "data/science_cp.json",
                                 "category": "cp-corps-sens",
                                 "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cp-sciences-corps-sens",
+                            "title": "Révision : le corps et les sens",
+                            "subtitle": "Voir, entendre, toucher, goûter, sentir et prendre soin de soi",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cp.json",
+                                "category": "cp-corps-sens",
+                                "questions": 6
                             }
                         }
                     ],
@@ -5857,8 +5951,8 @@
                         },
                         {
                             "id": "cp-sciences-habits-saison",
-                            "title": "S'habiller selon la saison",
-                            "subtitle": "Choisir les bons vêtements",
+                            "title": "Les saisons : le mélange",
+                            "subtitle": "Un peu de tout sur les saisons",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -5997,8 +6091,8 @@
                         },
                         {
                             "id": "cp-sciences-maison-jardin",
-                            "title": "La maison et le jardin",
-                            "subtitle": "Les petites bêtes autour de nous",
+                            "title": "Les milieux de vie : le mélange",
+                            "subtitle": "Forêt, mare, jardin, bord de mer",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -6008,21 +6102,9 @@
                             }
                         },
                         {
-                            "id": "cp-sciences-corps-sens",
-                            "title": "Révision : les cinq sens",
-                            "subtitle": "Voir, entendre, toucher, goûter, sentir",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/science_cp.json",
-                                "category": "cp-corps-sens",
-                                "questions": 6
-                            }
-                        },
-                        {
                             "id": "cp-bonus-sciences-milieux-defi",
-                            "title": "Défi : milieux et sens",
-                            "subtitle": "Animal dans son milieu et organes des sens",
+                            "title": "Défi : les milieux de vie",
+                            "subtitle": "Encore plus de questions sur les milieux de vie",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -6161,8 +6243,8 @@
                         },
                         {
                             "id": "cp-sciences-objets-materiaux",
-                            "title": "En quoi c'est fait ?",
-                            "subtitle": "Bois, plastique, métal, papier, tissu",
+                            "title": "Objets : usage et matière",
+                            "subtitle": "À quoi ça sert, en quoi c'est fait",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -6180,18 +6262,6 @@
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cp.json",
                                 "category": "cp-objets-usages",
-                                "questions": 6
-                            }
-                        },
-                        {
-                            "id": "cp-sciences-hygiene",
-                            "title": "L'hygiène au quotidien",
-                            "subtitle": "Prendre soin de son corps",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/science_cp.json",
-                                "category": "cp-hygiene-quotidienne",
                                 "questions": 6
                             }
                         },
@@ -6522,6 +6592,18 @@
                                 "dataFile": "data/emc_matching.json",
                                 "questions": 3
                             }
+                        },
+                        {
+                            "id": "cp-emc-sec-politesse",
+                            "title": "Les mots de politesse",
+                            "subtitle": "Les mots de politesse au quotidien",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cp.json",
+                                "category": "cp-politesse-classe",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -6766,18 +6848,6 @@
                             "engine": "choice-engine",
                             "id": "cp-emc-etre-prudent",
                             "subtitle": "Règles et sécurité"
-                        },
-                        {
-                            "id": "cp-emc-sec-politesse",
-                            "title": "Politesse en classe",
-                            "subtitle": "Les mots de politesse au quotidien",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/emc_cp.json",
-                                "category": "cp-politesse-classe",
-                                "questions": 6
-                            }
                         }
                     ],
                     "lessons": [
@@ -6875,6 +6945,18 @@
                                 "category": "cp-partager-materiel",
                                 "questions": 5
                             }
+                        },
+                        {
+                            "id": "cp-emc-partager-materiel",
+                            "title": "Prêter et rendre",
+                            "subtitle": "Prêter, rendre, aider",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cp.json",
+                                "category": "cp-partager-materiel",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -6958,7 +7040,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/emc_cp.json",
-                                "category": "cp-emotions",
+                                "category": "cp-emotions-exprimer",
                                 "questions": 8
                             }
                         },
@@ -6970,7 +7052,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/emc_cp.json",
-                                "category": "cp-emotions",
+                                "category": "cp-emotions-reconnaitre",
                                 "questions": 6
                             }
                         },
@@ -7117,12 +7199,12 @@
                         {
                             "id": "cp-emc-vote-vivre-ensemble",
                             "title": "Voter ensemble",
-                            "subtitle": "Les règles pour bien vivre en groupe",
+                            "subtitle": "Décider ensemble par un vote",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/emc_cp.json",
-                                "category": "cp-vivre-ensemble",
+                                "category": "cp-vote",
                                 "questions": 5
                             }
                         },

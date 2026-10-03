@@ -1,8 +1,8 @@
 {
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
-    "exercises": 1119,
-    "lessons": 445,
+    "exercises": 1117,
+    "lessons": 447,
     "levels": 5,
     "banks": 80
   },
@@ -196,6 +196,17 @@
     },
     {
       "id": "cp-lesson-ligne-numerique",
+      "kind": "lesson",
+      "level": "cp",
+      "subjectId": "cp-maths",
+      "subthemeId": "cp-nombres-comparaison",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cp-lesson-signes-comparer",
       "kind": "lesson",
       "level": "cp",
       "subjectId": "cp-maths",
@@ -1160,7 +1171,7 @@
       "engine": "audio-spelling",
       "paramsType": null,
       "pool": null,
-      "contractHash": "audio-spelling|{\"category\":\"cp_mots_outils_p5\",\"speechRate\":0.72}"
+      "contractHash": "audio-spelling|{\"category\":\"cp_mots_outils_revision\",\"speechRate\":0.72}"
     },
     {
       "id": "cp-lesson-mots-outils-niveaux",
@@ -2021,17 +2032,6 @@
       "contractHash": "choice-engine|{\"category\":\"cp-objets-anciens\",\"dataFile\":\"data/history_cp.json\",\"type\":\"factual-qcm\"}"
     },
     {
-      "id": "cp-emc-partager-materiel",
-      "kind": "exercise",
-      "level": "cp",
-      "subjectId": "cp-histoire-subject",
-      "subthemeId": "cp-histoire-traces-subtheme",
-      "engine": "choice-engine",
-      "paramsType": "factual-qcm",
-      "pool": "data/emc_cp.json::cp-partager-materiel",
-      "contractHash": "choice-engine|{\"category\":\"cp-partager-materiel\",\"dataFile\":\"data/emc_cp.json\",\"type\":\"factual-qcm\"}"
-    },
-    {
       "id": "cp-bonus-traces-passe-defi",
       "kind": "exercise",
       "level": "cp",
@@ -2219,6 +2219,17 @@
       "contractHash": "choice-engine|{\"category\":\"cp-lieux-ecole\",\"dataFile\":\"data/geography_cp.json\",\"type\":\"factual-qcm\"}"
     },
     {
+      "id": "cp-geo-gauche-droite",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-geographie-subject",
+      "subthemeId": "cp-geo-reperage-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/geography_cp.json::cp-gauche-droite",
+      "contractHash": "choice-engine|{\"category\":\"cp-gauche-droite\",\"dataFile\":\"data/geography_cp.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
       "id": "cp-lesson-paysages-reperes",
       "kind": "lesson",
       "level": "cp",
@@ -2250,17 +2261,6 @@
       "paramsType": "factual-qcm",
       "pool": "data/geography_cp.json::cp-paysages",
       "contractHash": "choice-engine|{\"category\":\"cp-paysages\",\"dataFile\":\"data/geography_cp.json\",\"type\":\"factual-qcm\"}"
-    },
-    {
-      "id": "cp-geo-transports-lieux",
-      "kind": "exercise",
-      "level": "cp",
-      "subjectId": "cp-geographie-subject",
-      "subthemeId": "cp-geo-paysages-subtheme",
-      "engine": "choice-engine",
-      "paramsType": "factual-qcm",
-      "pool": "data/geography_cp.json::cp-transports-lieux",
-      "contractHash": "choice-engine|{\"category\":\"cp-transports-lieux\",\"dataFile\":\"data/geography_cp.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cp-bonus-geo-paysages-defi",
@@ -2352,6 +2352,17 @@
     },
     {
       "id": "cp-lesson-terre-mer-ocean",
+      "kind": "lesson",
+      "level": "cp",
+      "subjectId": "cp-geographie-subject",
+      "subthemeId": "cp-geo-representations-monde-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cp-lesson-continents",
       "kind": "lesson",
       "level": "cp",
       "subjectId": "cp-geographie-subject",
@@ -2516,17 +2527,6 @@
       "contractHash": "choice-engine|{\"category\":\"cp-matiere\",\"dataFile\":\"data/science_cp.json\",\"type\":\"factual-qcm\"}"
     },
     {
-      "id": "cp-sciences-objets-usages",
-      "kind": "exercise",
-      "level": "cp",
-      "subjectId": "cp-sciences-subject",
-      "subthemeId": "cp-sciences-matiere-subtheme",
-      "engine": "choice-engine",
-      "paramsType": "factual-qcm",
-      "pool": "data/science_cp.json::cp-objets-usages",
-      "contractHash": "choice-engine|{\"category\":\"cp-objets-usages\",\"dataFile\":\"data/science_cp.json\",\"type\":\"factual-qcm\"}"
-    },
-    {
       "id": "cp-bonus-sciences-matiere-defi",
       "kind": "exercise",
       "level": "cp",
@@ -2605,6 +2605,17 @@
     },
     {
       "id": "cp-bonus-corps-sens-defi",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-sciences-subject",
+      "subthemeId": "cp-sciences-corps-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/science_cp.json::cp-corps-sens",
+      "contractHash": "choice-engine|{\"category\":\"cp-corps-sens\",\"dataFile\":\"data/science_cp.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cp-sciences-corps-sens",
       "kind": "exercise",
       "level": "cp",
       "subjectId": "cp-sciences-subject",
@@ -2714,17 +2725,6 @@
       "contractHash": "choice-engine|{\"category\":\"cp-milieux-vie\",\"dataFile\":\"data/science_cp.json\",\"type\":\"factual-qcm\"}"
     },
     {
-      "id": "cp-sciences-corps-sens",
-      "kind": "exercise",
-      "level": "cp",
-      "subjectId": "cp-sciences-subject",
-      "subthemeId": "cp-sciences-milieux-subtheme",
-      "engine": "choice-engine",
-      "paramsType": "factual-qcm",
-      "pool": "data/science_cp.json::cp-corps-sens",
-      "contractHash": "choice-engine|{\"category\":\"cp-corps-sens\",\"dataFile\":\"data/science_cp.json\",\"type\":\"factual-qcm\"}"
-    },
-    {
       "id": "cp-bonus-sciences-milieux-defi",
       "kind": "exercise",
       "level": "cp",
@@ -2789,17 +2789,6 @@
       "paramsType": "factual-qcm",
       "pool": "data/science_cp.json::cp-objets-usages",
       "contractHash": "choice-engine|{\"category\":\"cp-objets-usages\",\"dataFile\":\"data/science_cp.json\",\"type\":\"factual-qcm\"}"
-    },
-    {
-      "id": "cp-sciences-hygiene",
-      "kind": "exercise",
-      "level": "cp",
-      "subjectId": "cp-sciences-subject",
-      "subthemeId": "cp-sciences-objets-subtheme",
-      "engine": "choice-engine",
-      "paramsType": "factual-qcm",
-      "pool": "data/science_cp.json::cp-hygiene-quotidienne",
-      "contractHash": "choice-engine|{\"category\":\"cp-hygiene-quotidienne\",\"dataFile\":\"data/science_cp.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cp-bonus-sciences-objets-defi",
@@ -2945,6 +2934,17 @@
       "contractHash": "matching|{\"category\":\"matching_emc_cp\",\"dataFile\":\"data/emc_matching.json\"}"
     },
     {
+      "id": "cp-emc-sec-politesse",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-emc-subject",
+      "subthemeId": "cp-emc-vivre-ensemble-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/emc_cp.json::cp-politesse-classe",
+      "contractHash": "choice-engine|{\"category\":\"cp-politesse-classe\",\"dataFile\":\"data/emc_cp.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
       "id": "cp-lesson-securite-quotidienne",
       "kind": "lesson",
       "level": "cp",
@@ -2976,17 +2976,6 @@
       "paramsType": "factual-qcm",
       "pool": "data/emc_cp.json::cp-securite",
       "contractHash": "choice-engine|{\"category\":\"cp-securite\",\"dataFile\":\"data/emc_cp.json\",\"type\":\"factual-qcm\"}"
-    },
-    {
-      "id": "cp-emc-sec-politesse",
-      "kind": "exercise",
-      "level": "cp",
-      "subjectId": "cp-emc-subject",
-      "subthemeId": "cp-emc-securite-subtheme",
-      "engine": "choice-engine",
-      "paramsType": "factual-qcm",
-      "pool": "data/emc_cp.json::cp-politesse-classe",
-      "contractHash": "choice-engine|{\"category\":\"cp-politesse-classe\",\"dataFile\":\"data/emc_cp.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cp-lesson-entraide-respect",
@@ -3023,6 +3012,17 @@
     },
     {
       "id": "cp-emc-partager-classe",
+      "kind": "exercise",
+      "level": "cp",
+      "subjectId": "cp-emc-subject",
+      "subthemeId": "cp-emc-entraide-subtheme",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/emc_cp.json::cp-partager-materiel",
+      "contractHash": "choice-engine|{\"category\":\"cp-partager-materiel\",\"dataFile\":\"data/emc_cp.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "cp-emc-partager-materiel",
       "kind": "exercise",
       "level": "cp",
       "subjectId": "cp-emc-subject",
@@ -3073,8 +3073,8 @@
       "subthemeId": "cp-emc-emotions-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cp.json::cp-emotions",
-      "contractHash": "choice-engine|{\"category\":\"cp-emotions\",\"dataFile\":\"data/emc_cp.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cp.json::cp-emotions-exprimer",
+      "contractHash": "choice-engine|{\"category\":\"cp-emotions-exprimer\",\"dataFile\":\"data/emc_cp.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cp-emc-reconnaitre-emotions",
@@ -3084,8 +3084,8 @@
       "subthemeId": "cp-emc-emotions-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cp.json::cp-emotions",
-      "contractHash": "choice-engine|{\"category\":\"cp-emotions\",\"dataFile\":\"data/emc_cp.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cp.json::cp-emotions-reconnaitre",
+      "contractHash": "choice-engine|{\"category\":\"cp-emotions-reconnaitre\",\"dataFile\":\"data/emc_cp.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cp-bonus-emc-emotions-defi",
@@ -3128,8 +3128,8 @@
       "subthemeId": "cp-emc-vote-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cp.json::cp-vivre-ensemble",
-      "contractHash": "choice-engine|{\"category\":\"cp-vivre-ensemble\",\"dataFile\":\"data/emc_cp.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cp.json::cp-vote",
+      "contractHash": "choice-engine|{\"category\":\"cp-vote\",\"dataFile\":\"data/emc_cp.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cp-bonus-emc-vote-defi",
@@ -17347,7 +17347,7 @@
     "data/board_number_line_cp.json": {
       "categories": {
         "cp_number_line_0_10": 11,
-        "cp_number_line_0_100": 11,
+        "cp_number_line_0_100": 17,
         "cp_number_line_frame_dizaines": 12
       }
     },
@@ -17492,7 +17492,9 @@
         "cp-partager-materiel": 10,
         "cp-emotions": 10,
         "cp-vote": 12,
-        "cp-environnement": 12
+        "cp-environnement": 12,
+        "cp-emotions-reconnaitre": 9,
+        "cp-emotions-exprimer": 9
       }
     },
     "data/emc_matching.json": {
@@ -17658,7 +17660,8 @@
         "cp-points-cardinaux": 12,
         "cp-rose-des-vents": 10,
         "cp-representations-monde": 12,
-        "cp-terre-mer-ocean": 10
+        "cp-terre-mer-ocean": 10,
+        "cp-gauche-droite": 10
       }
     },
     "data/geography_matching.json": {
