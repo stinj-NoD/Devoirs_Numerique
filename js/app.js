@@ -2682,6 +2682,20 @@ const App = {
         let isCorrect = false;
         if (hasAnswered) {
             isCorrect = (uInput === tAnswer);
+            // Remise en ordre : la réponse est une suite de POSITIONS (« 0,1,2,3 »).
+            // Quand une phrase contient deux mots identiques (« le chien de la
+            // voisine de Léa »), permuter les deux « de » donne exactement la même
+            // phrase, mais une autre suite de positions : elle était comptée fausse.
+            // On compare donc les mots eux-mêmes, en plus des positions. Cela
+            // n'accepte jamais plus qu'une phrase identique mot pour mot.
+            if (!isCorrect && problemData.visualType === 'wordOrder' && Array.isArray(problemData.data?.sentence) && String(userInput || '').trim() !== '') {
+                const unites = problemData.data.sentence;
+                const enMots = (suite) => String(suite).split(',').map((i) => unites[Number(i)]);
+                const saisis = enMots(userInput);
+                const attendus = enMots(targetAnswer);
+                isCorrect = saisis.length === attendus.length
+                    && saisis.every((mot, i) => mot !== undefined && mot === attendus[i]);
+            }
             // Mots composés (spelling/audioSpelling) : le tiret/espace n'est
             // pas la compétence testée (c'est l'orthographe des lettres) —
             // on accepte "sous-marin", "sous marin" et "sousmarin" comme
