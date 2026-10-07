@@ -3093,6 +3093,12 @@ button,
     stroke-linecap: round;
 }
 
+/* Thème sombre : le trait foncé (contraste ~1,1:1 sur le panneau) rendait les figures
+   des plateaux invisibles (angles, récipients, volcan, figures « touche les angles droits »). */
+#app.theme-dark .board-shape-line {
+    stroke: rgba(226, 232, 240, 0.92);
+}
+
 .board-right-angle-marker {
     fill: none;
     stroke: rgba(59, 130, 246, 0.95);
