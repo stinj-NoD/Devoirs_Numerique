@@ -4,7 +4,7 @@
     "categories": {
         "ce2_tap_angle_droit": [
             {
-                "prompt": "Ce rectangle a 4 sommets. Touche tous les sommets où il y a un angle droit.",
+                "prompt": "Touche tous les angles droits de la figure. S'il n'y en a aucun, valide sans rien toucher.",
                 "board": {
                     "width": 10,
                     "height": 6,
@@ -58,7 +58,8 @@
                             "x": 2,
                             "y": 5
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
@@ -88,7 +89,7 @@
                 ]
             },
             {
-                "prompt": "Ce triangle n'a qu'un seul angle droit. Touche le sommet où il se trouve.",
+                "prompt": "Touche tous les angles droits de la figure. S'il n'y en a aucun, valide sans rien toucher.",
                 "board": {
                     "width": 10,
                     "height": 6,
@@ -121,7 +122,8 @@
                             "x": 2,
                             "y": 5
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
@@ -145,7 +147,7 @@
                 ]
             },
             {
-                "prompt": "Cette figure a 2 angles droits. Touche les sommets concernés.",
+                "prompt": "Touche tous les angles droits de la figure. S'il n'y en a aucun, valide sans rien toucher.",
                 "board": {
                     "width": 10,
                     "height": 6,
@@ -194,8 +196,14 @@
                             "type": "right-angle",
                             "x": 6,
                             "y": 1
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 2,
+                            "y": 5
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
@@ -226,12 +234,12 @@
                         "id": "s5",
                         "x": 2,
                         "y": 5,
-                        "correct": false
+                        "correct": true
                     }
                 ]
             },
             {
-                "prompt": "Ce carré a 4 angles droits. Touche tous les sommets.",
+                "prompt": "Touche tous les angles droits de la figure. S'il n'y en a aucun, valide sans rien toucher.",
                 "board": {
                     "width": 10,
                     "height": 6,
@@ -285,7 +293,8 @@
                             "x": 3,
                             "y": 5
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
@@ -315,7 +324,7 @@
                 ]
             },
             {
-                "prompt": "Touche tous les angles droits de la figure.",
+                "prompt": "Touche tous les angles droits de la figure. S'il n'y en a aucun, valide sans rien toucher.",
                 "board": {
                     "width": 10,
                     "height": 6,
@@ -324,133 +333,142 @@
                 "drawing": {
                     "lines": [
                         {
-                            "x1": 2,
-                            "y1": 1,
-                            "x2": 8,
-                            "y2": 1
-                        },
-                        {
-                            "x1": 8,
-                            "y1": 1,
-                            "x2": 8,
+                            "x1": 3,
+                            "y1": 5,
+                            "x2": 7,
                             "y2": 5
                         },
                         {
-                            "x1": 8,
+                            "x1": 7,
                             "y1": 5,
-                            "x2": 2,
-                            "y2": 5
+                            "x2": 7,
+                            "y2": 3
                         },
                         {
-                            "x1": 2,
-                            "y1": 5,
-                            "x2": 2,
+                            "x1": 7,
+                            "y1": 3,
+                            "x2": 5,
                             "y2": 1
+                        },
+                        {
+                            "x1": 5,
+                            "y1": 1,
+                            "x2": 3,
+                            "y2": 3
+                        },
+                        {
+                            "x1": 3,
+                            "y1": 3,
+                            "x2": 3,
+                            "y2": 5
                         }
                     ],
                     "markers": [
                         {
                             "type": "right-angle",
-                            "x": 2,
-                            "y": 1
-                        },
-                        {
-                            "type": "right-angle",
-                            "x": 8,
-                            "y": 1
-                        },
-                        {
-                            "type": "right-angle",
-                            "x": 8,
+                            "x": 3,
                             "y": 5
                         },
                         {
                             "type": "right-angle",
-                            "x": 2,
+                            "x": 7,
                             "y": 5
+                        },
+                        {
+                            "type": "right-angle",
+                            "x": 5,
+                            "y": 1
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
                         "id": "s1",
-                        "x": 2,
-                        "y": 1,
+                        "x": 3,
+                        "y": 5,
                         "correct": true
                     },
                     {
                         "id": "s2",
-                        "x": 8,
-                        "y": 1,
+                        "x": 7,
+                        "y": 5,
                         "correct": true
                     },
                     {
                         "id": "s3",
-                        "x": 8,
-                        "y": 5,
-                        "correct": true
-                    },
-                    {
-                        "id": "s4",
-                        "x": 2,
-                        "y": 5,
-                        "correct": true
-                    }
-                ]
-            },
-            {
-                "prompt": "Touche tous les angles droits de la figure.",
-                "board": {
-                    "width": 10,
-                    "height": 6,
-                    "grid": false
-                },
-                "drawing": {
-                    "lines": [
-                        {
-                            "x1": 2,
-                            "y1": 5,
-                            "x2": 8,
-                            "y2": 5
-                        },
-                        {
-                            "x1": 8,
-                            "y1": 5,
-                            "x2": 2,
-                            "y2": 1
-                        },
-                        {
-                            "x1": 2,
-                            "y1": 1,
-                            "x2": 2,
-                            "y2": 5
-                        }
-                    ],
-                    "markers": [
-                        {
-                            "type": "right-angle",
-                            "x": 2,
-                            "y": 5
-                        }
-                    ]
-                },
-                "features": [
-                    {
-                        "id": "s1",
-                        "x": 2,
-                        "y": 5,
-                        "correct": true
-                    },
-                    {
-                        "id": "s2",
-                        "x": 8,
-                        "y": 5,
+                        "x": 7,
+                        "y": 3,
                         "correct": false
                     },
                     {
-                        "id": "s3",
-                        "x": 2,
+                        "id": "s4",
+                        "x": 5,
                         "y": 1,
+                        "correct": true
+                    },
+                    {
+                        "id": "s5",
+                        "x": 3,
+                        "y": 3,
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "prompt": "Touche tous les angles droits de la figure. S'il n'y en a aucun, valide sans rien toucher.",
+                "board": {
+                    "width": 10,
+                    "height": 6,
+                    "grid": false
+                },
+                "drawing": {
+                    "lines": [
+                        {
+                            "x1": 3,
+                            "y1": 1,
+                            "x2": 8,
+                            "y2": 1
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 1,
+                            "x2": 8,
+                            "y2": 5
+                        },
+                        {
+                            "x1": 8,
+                            "y1": 5,
+                            "x2": 3,
+                            "y2": 1
+                        }
+                    ],
+                    "markers": [
+                        {
+                            "type": "right-angle",
+                            "x": 8,
+                            "y": 1
+                        }
+                    ],
+                    "markersOnReveal": true
+                },
+                "features": [
+                    {
+                        "id": "s1",
+                        "x": 3,
+                        "y": 1,
+                        "correct": false
+                    },
+                    {
+                        "id": "s2",
+                        "x": 8,
+                        "y": 1,
+                        "correct": true
+                    },
+                    {
+                        "id": "s3",
+                        "x": 8,
+                        "y": 5,
                         "correct": false
                     }
                 ]
@@ -527,7 +545,8 @@
                             "x": 2,
                             "y": 5
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
@@ -569,7 +588,7 @@
                 ]
             },
             {
-                "prompt": "Touche tous les angles droits de la figure.",
+                "prompt": "Touche tous les angles droits de la figure. S'il n'y en a aucun, valide sans rien toucher.",
                 "board": {
                     "width": 10,
                     "height": 6,
@@ -613,7 +632,8 @@
                             "x": 1.5,
                             "y": 1
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
@@ -705,7 +725,7 @@
                 ]
             },
             {
-                "prompt": "Touche tous les angles droits de la figure.",
+                "prompt": "Touche tous les angles droits de la figure. S'il n'y en a aucun, valide sans rien toucher.",
                 "board": {
                     "width": 10,
                     "height": 6,
@@ -756,7 +776,8 @@
                             "x": 4.5,
                             "y": 4.5
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {

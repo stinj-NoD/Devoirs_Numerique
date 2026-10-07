@@ -116,16 +116,6 @@
                 "explanation": "Le relief désigne les différentes formes du terrain."
             },
             {
-                "title": "Relie chaque point cardinal à sa position.",
-                "pairs": [
-                    ["le nord", "en haut de la carte"],
-                    ["le sud", "en bas de la carte"],
-                    ["l'est", "à droite de la carte"],
-                    ["l'ouest", "à gauche de la carte"]
-                ],
-                "explanation": "Les points cardinaux permettent de se repérer sur une carte."
-            },
-            {
                 "title": "Relie chaque moyen de transport à son usage.",
                 "pairs": [
                     ["le bus", "se déplacer en ville"],
@@ -146,16 +136,6 @@
                 "explanation": "Une commune propose des services pour répondre aux besoins des habitants."
             },
             {
-                "title": "Relie chaque symbole de carte à sa légende.",
-                "pairs": [
-                    ["un rond rouge", "une ville importante"],
-                    ["une ligne pointillée", "une frontière"],
-                    ["un losange bleu", "un lac"],
-                    ["une étoile", "une capitale"]
-                ],
-                "explanation": "La légende d'une carte explique ce que représente chaque symbole."
-            },
-            {
                 "title": "Relie chaque échelle d'observation à son exemple.",
                 "pairs": [
                     ["le quartier", "les rues proches de l'école"],
@@ -174,16 +154,6 @@
                     ["un espace de montagne", "situé en altitude, avec des sommets"]
                 ],
                 "explanation": "Les espaces se distinguent par leur population, leur relief et leur emplacement."
-            },
-            {
-                "title": "Relie chaque document à son usage en géographie.",
-                "pairs": [
-                    ["une carte", "représenter un territoire vu du dessus"],
-                    ["une photographie aérienne", "montrer un paysage vu d'en haut"],
-                    ["un plan", "représenter un espace précis comme une ville"],
-                    ["une légende", "expliquer les symboles utilisés sur une carte"]
-                ],
-                "explanation": "Ces documents permettent d'étudier et de représenter un territoire."
             }
         ],
         "matching_geo_cm1": [
@@ -348,6 +318,48 @@
                     ["réduire les inégalités", "permettre à chacun d'accéder aux ressources essentielles"]
                 ],
                 "explanation": "Le développement durable cherche à répondre aux besoins actuels sans nuire aux générations futures."
+            }
+        ],
+        "matching_geo_ce2_reperage": [
+            {
+                "title": "Relie chaque point cardinal à sa position.",
+                "pairs": [
+                    ["le nord", "en haut de la carte"],
+                    ["le sud", "en bas de la carte"],
+                    ["l'est", "à droite de la carte"],
+                    ["l'ouest", "à gauche de la carte"]
+                ],
+                "explanation": "Les points cardinaux permettent de se repérer sur une carte."
+            },
+            {
+                "title": "Relie chaque question à l'endroit de la carte où chercher la réponse.",
+                "pairs": [
+                    ["Que veut dire ce signe inconnu ?", "je lis la légende"],
+                    ["De quel lieu parle la carte ?", "je lis le titre"],
+                    ["Où est le nord ?", "je cherche l'orientation"],
+                    ["Où se trouve l'école ?", "je cherche le symbole de l'école"]
+                ],
+                "explanation": "Avant de lire une carte, on regarde son titre, sa légende, ses symboles et son orientation."
+            },
+            {
+                "title": "Relie chaque document à son usage en géographie.",
+                "pairs": [
+                    ["une carte", "dessiner un grand territoire avec des symboles"],
+                    ["un plan", "dessiner en détail un petit espace : rues, bâtiments"],
+                    ["une photographie aérienne", "montrer le vrai paysage, pris depuis un avion ou un drone"],
+                    ["une légende", "expliquer les symboles utilisés sur une carte"]
+                ],
+                "explanation": "Ces documents permettent d'étudier et de représenter un territoire, chacun à sa façon."
+            },
+            {
+                "title": "Relie chaque outil à ce qu'il permet.",
+                "pairs": [
+                    ["la boussole", "s'orienter sur le terrain avec une aiguille"],
+                    ["la rose des vents", "afficher les quatre directions sur la carte"],
+                    ["la légende", "expliquer les signes de la carte"],
+                    ["le titre", "dire quel lieu la carte montre"]
+                ],
+                "explanation": "Pour se repérer, on utilise des outils sur le terrain et des indications sur la carte."
             }
         ]
     }

@@ -1,8 +1,8 @@
 {
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
-    "exercises": 1117,
-    "lessons": 447,
+    "exercises": 1112,
+    "lessons": 457,
     "levels": 5,
     "banks": 80
   },
@@ -6388,6 +6388,17 @@
       "contractHash": null
     },
     {
+      "id": "ce2-lesson-fractions-numerateur",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-maths",
+      "subthemeId": "ce2-calculs-logique",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "ce2-lesson-complements-1000",
       "kind": "lesson",
       "level": "ce2",
@@ -6400,6 +6411,17 @@
     },
     {
       "id": "ce2-lesson-lire-horloge",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-maths",
+      "subthemeId": "ce2-calculs-logique",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce2-lesson-heure-24h",
       "kind": "lesson",
       "level": "ce2",
       "subjectId": "ce2-maths",
@@ -6704,7 +6726,7 @@
       "engine": "conversion",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conversion|{\"range\":[0,3],\"subtype\":\"metric\",\"unitType\":\"masse\"}"
+      "contractHash": "conversion|{\"subtype\":\"metric\",\"unitType\":\"masse\",\"units\":[\"kg\",\"g\"]}"
     },
     {
       "id": "ce2-conversions-contenances",
@@ -6715,7 +6737,18 @@
       "engine": "conversion",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conversion|{\"range\":[0,3],\"subtype\":\"metric\",\"unitType\":\"capacite\"}"
+      "contractHash": "conversion|{\"subtype\":\"metric\",\"unitType\":\"capacite\",\"units\":[\"L\",\"mL\"]}"
+    },
+    {
+      "id": "ce2-conversions-longueurs",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-maths",
+      "subthemeId": "ce2-calculs-logique",
+      "engine": "conversion",
+      "paramsType": null,
+      "pool": null,
+      "contractHash": "conversion|{\"subtype\":\"metric\",\"unitType\":\"longueur\",\"units\":[\"km\",\"m\",\"cm\",\"mm\"]}"
     },
     {
       "id": "ce2-division-posee",
@@ -6748,7 +6781,7 @@
       "engine": "math-input",
       "paramsType": "fraction-view",
       "pool": null,
-      "contractHash": "math-input|{\"maxDenom\":4,\"type\":\"fraction-view\"}"
+      "contractHash": "math-input|{\"maxDenom\":6,\"type\":\"fraction-view\"}"
     },
     {
       "id": "ce2-bonus-comp-5000",
@@ -6869,7 +6902,7 @@
       "engine": "math-input",
       "paramsType": "operation-posed",
       "pool": null,
-      "contractHash": "math-input|{\"level\":3,\"operator\":\"add\",\"type\":\"operation-posed\"}"
+      "contractHash": "math-input|{\"level\":3,\"maxResult\":9999,\"operator\":\"add\",\"type\":\"operation-posed\"}"
     },
     {
       "id": "ce2-soustraction-posee-milliers",
@@ -6914,6 +6947,17 @@
       "paramsType": "number-line-frame",
       "pool": "data/board_number_line_ce2.json::ce2_number_line_frame_milliers",
       "contractHash": "board-interactive|{\"category\":\"ce2_number_line_frame_milliers\",\"dataFile\":\"data/board_number_line_ce2.json\",\"type\":\"number-line-frame\"}"
+    },
+    {
+      "id": "ce2-maths-memoire",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-maths",
+      "subthemeId": "ce2-calculs-logique",
+      "engine": "board-interactive",
+      "paramsType": "memory-match",
+      "pool": "data/board_memory_match_ce2.json::ce2_memory_match",
+      "contractHash": "board-interactive|{\"category\":\"ce2_memory_match\",\"dataFile\":\"data/board_memory_match_ce2.json\",\"type\":\"memory-match\"}"
     },
     {
       "id": "ce2-lesson-figures-solides",
@@ -7022,19 +7066,8 @@
       "subthemeId": "ce2-geometrie-subtheme",
       "engine": "matching",
       "paramsType": null,
-      "pool": "data/math_matching.json::matching_math_ce2",
-      "contractHash": "matching|{\"category\":\"matching_math_ce2\",\"dataFile\":\"data/math_matching.json\"}"
-    },
-    {
-      "id": "ce2-maths-memoire",
-      "kind": "exercise",
-      "level": "ce2",
-      "subjectId": "ce2-maths",
-      "subthemeId": "ce2-geometrie-subtheme",
-      "engine": "board-interactive",
-      "paramsType": "memory-match",
-      "pool": "data/board_memory_match_ce2.json::ce2_memory_match",
-      "contractHash": "board-interactive|{\"category\":\"ce2_memory_match\",\"dataFile\":\"data/board_memory_match_ce2.json\",\"type\":\"memory-match\"}"
+      "pool": "data/math_matching.json::matching_geo_math_ce2",
+      "contractHash": "matching|{\"category\":\"matching_geo_math_ce2\",\"dataFile\":\"data/math_matching.json\"}"
     },
     {
       "id": "ce2-bonus-geo-symetrie",
@@ -7060,6 +7093,17 @@
     },
     {
       "id": "ce2-lesson-accord-groupe-nominal",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-francais",
+      "subthemeId": "ce2-orthographe-grammaire",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce2-lesson-accord-adjectif",
       "kind": "lesson",
       "level": "ce2",
       "subjectId": "ce2-francais",
@@ -7115,6 +7159,28 @@
     },
     {
       "id": "ce2-lesson-a-accent-ou-pas",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-francais",
+      "subthemeId": "ce2-orthographe-grammaire",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce2-lesson-son-sont-ou-ou",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-francais",
+      "subthemeId": "ce2-orthographe-grammaire",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce2-lesson-ce-se-ces-ses",
       "kind": "lesson",
       "level": "ce2",
       "subjectId": "ce2-francais",
@@ -7422,6 +7488,28 @@
       "contractHash": null
     },
     {
+      "id": "ce2-lesson-futur-simple",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-francais",
+      "subthemeId": "ce2-conjugaison-subject",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce2-lesson-imparfait",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-francais",
+      "subthemeId": "ce2-conjugaison-subject",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "ce2-lesson-passe-compose",
       "kind": "lesson",
       "level": "ce2",
@@ -7434,6 +7522,28 @@
     },
     {
       "id": "ce2-lesson-trouver-infinitif",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-francais",
+      "subthemeId": "ce2-conjugaison-subject",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce2-lesson-verbes-2e-groupe",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-francais",
+      "subthemeId": "ce2-conjugaison-subject",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "ce2-lesson-verbes-3e-groupe",
       "kind": "lesson",
       "level": "ce2",
       "subjectId": "ce2-francais",
@@ -7826,7 +7936,7 @@
       "engine": "audio-spelling",
       "paramsType": null,
       "pool": null,
-      "contractHash": "audio-spelling|{\"category\":\"animals\",\"speechRate\":0.8}"
+      "contractHash": "audio-spelling|{\"category\":\"animals_ce2\",\"speechRate\":0.8}"
     },
     {
       "id": "ce2-audio-ecole",
@@ -7837,7 +7947,7 @@
       "engine": "audio-spelling",
       "paramsType": null,
       "pool": null,
-      "contractHash": "audio-spelling|{\"category\":\"school\",\"speechRate\":0.8}"
+      "contractHash": "audio-spelling|{\"category\":\"school_ce2\",\"speechRate\":0.8}"
     },
     {
       "id": "ce2-audio-maison",
@@ -7848,7 +7958,7 @@
       "engine": "audio-spelling",
       "paramsType": null,
       "pool": null,
-      "contractHash": "audio-spelling|{\"category\":\"house\",\"speechRate\":0.8}"
+      "contractHash": "audio-spelling|{\"category\":\"house_ce2\",\"speechRate\":0.8}"
     },
     {
       "id": "ce2-lesson-situer-temps",
@@ -7959,17 +8069,6 @@
       "paramsType": "factual-qcm",
       "pool": "data/history_ce2.json::ce2-vie-autrefois",
       "contractHash": "choice-engine|{\"category\":\"ce2-vie-autrefois\",\"dataFile\":\"data/history_ce2.json\",\"type\":\"factual-qcm\"}"
-    },
-    {
-      "id": "ce2-histoire-personnages-vie-autrefois",
-      "kind": "exercise",
-      "level": "ce2",
-      "subjectId": "ce2-histoire-subject",
-      "subthemeId": "ce2-histoire-vie-subtheme",
-      "engine": "choice-engine",
-      "paramsType": "factual-qcm",
-      "pool": "data/history_ce2.json::ce2-personnages-celebres",
-      "contractHash": "choice-engine|{\"category\":\"ce2-personnages-celebres\",\"dataFile\":\"data/history_ce2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce2-bonus-histoire-vie-defi",
@@ -8102,28 +8201,6 @@
       "paramsType": "factual-qcm",
       "pool": "data/history_ce2.json::ce2-ecole-autrefois",
       "contractHash": "choice-engine|{\"category\":\"ce2-ecole-autrefois\",\"dataFile\":\"data/history_ce2.json\",\"type\":\"factual-qcm\"}"
-    },
-    {
-      "id": "ce2-histoire-frise-vie-famille",
-      "kind": "exercise",
-      "level": "ce2",
-      "subjectId": "ce2-histoire-subject",
-      "subthemeId": "ce2-histoire-ecole-subtheme",
-      "engine": "choice-engine",
-      "paramsType": "factual-qcm",
-      "pool": "data/history_ce2.json::ce2-frise-vie-famille",
-      "contractHash": "choice-engine|{\"category\":\"ce2-frise-vie-famille\",\"dataFile\":\"data/history_ce2.json\",\"type\":\"factual-qcm\"}"
-    },
-    {
-      "id": "ce2-histoire-ecole-appariement",
-      "kind": "exercise",
-      "level": "ce2",
-      "subjectId": "ce2-histoire-subject",
-      "subthemeId": "ce2-histoire-ecole-subtheme",
-      "engine": "matching",
-      "paramsType": null,
-      "pool": "data/history_matching.json::matching_histoire_ce2",
-      "contractHash": "matching|{\"category\":\"matching_histoire_ce2\",\"dataFile\":\"data/history_matching.json\"}"
     },
     {
       "id": "ce2-bonus-histoire-ecole",
@@ -8313,6 +8390,17 @@
       "contractHash": null
     },
     {
+      "id": "ce2-lesson-regions-france",
+      "kind": "lesson",
+      "level": "ce2",
+      "subjectId": "ce2-geographie-subject",
+      "subthemeId": "ce2-geo-france-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "ce2-geo-france",
       "kind": "exercise",
       "level": "ce2",
@@ -8430,8 +8518,8 @@
       "subthemeId": "ce2-geo-reperage-subtheme",
       "engine": "matching",
       "paramsType": null,
-      "pool": "data/geography_matching.json::matching_geo_ce2",
-      "contractHash": "matching|{\"category\":\"matching_geo_ce2\",\"dataFile\":\"data/geography_matching.json\"}"
+      "pool": "data/geography_matching.json::matching_geo_ce2_reperage",
+      "contractHash": "matching|{\"category\":\"matching_geo_ce2_reperage\",\"dataFile\":\"data/geography_matching.json\"}"
     },
     {
       "id": "ce2-bonus-geo-reperage",
@@ -8487,17 +8575,6 @@
       "paramsType": "factual-qcm",
       "pool": "data/geography_ce2.json::ce2-transports",
       "contractHash": "choice-engine|{\"category\":\"ce2-transports\",\"dataFile\":\"data/geography_ce2.json\",\"type\":\"factual-qcm\"}"
-    },
-    {
-      "id": "ce2-geo-transports-cartes",
-      "kind": "exercise",
-      "level": "ce2",
-      "subjectId": "ce2-geographie-subject",
-      "subthemeId": "ce2-geo-transports-subtheme",
-      "engine": "choice-engine",
-      "paramsType": "factual-qcm",
-      "pool": "data/geography_ce2.json::ce2-cartes-symboles",
-      "contractHash": "choice-engine|{\"category\":\"ce2-cartes-symboles\",\"dataFile\":\"data/geography_ce2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce2-bonus-geo-transports-defi",
@@ -8562,8 +8639,8 @@
       "subthemeId": "ce2-sciences-vivant-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_ce2.json::ce2-vivant",
-      "contractHash": "choice-engine|{\"category\":\"ce2-vivant\",\"dataFile\":\"data/science_ce2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_ce2.json::ce2-vivant-besoins",
+      "contractHash": "choice-engine|{\"category\":\"ce2-vivant-besoins\",\"dataFile\":\"data/science_ce2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce2-sciences-chaines-alimentaires",
@@ -8815,8 +8892,8 @@
       "subthemeId": "ce2-sciences-saisons-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_ce2.json::ce2-saisons-meteo",
-      "contractHash": "choice-engine|{\"category\":\"ce2-saisons-meteo\",\"dataFile\":\"data/science_ce2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_ce2.json::ce2-saisons-cycle",
+      "contractHash": "choice-engine|{\"category\":\"ce2-saisons-cycle\",\"dataFile\":\"data/science_ce2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce2-sciences-mesurer-meteo",
@@ -8826,8 +8903,8 @@
       "subthemeId": "ce2-sciences-saisons-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_ce2.json::ce2-saisons-meteo",
-      "contractHash": "choice-engine|{\"category\":\"ce2-saisons-meteo\",\"dataFile\":\"data/science_ce2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_ce2.json::ce2-meteo-mesures",
+      "contractHash": "choice-engine|{\"category\":\"ce2-meteo-mesures\",\"dataFile\":\"data/science_ce2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce2-sciences-climat-environnement",
@@ -8837,8 +8914,8 @@
       "subthemeId": "ce2-sciences-saisons-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_ce2.json::ce2-saisons-meteo",
-      "contractHash": "choice-engine|{\"category\":\"ce2-saisons-meteo\",\"dataFile\":\"data/science_ce2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_ce2.json::ce2-saisons-vivants",
+      "contractHash": "choice-engine|{\"category\":\"ce2-saisons-vivants\",\"dataFile\":\"data/science_ce2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce2-bonus-sciences-saisons",
@@ -8881,8 +8958,8 @@
       "subthemeId": "ce2-sciences-milieux-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_ce2.json::ce2-milieux-vie",
-      "contractHash": "choice-engine|{\"category\":\"ce2-milieux-vie\",\"dataFile\":\"data/science_ce2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_ce2.json::ce2-milieux-ecosystemes",
+      "contractHash": "choice-engine|{\"category\":\"ce2-milieux-ecosystemes\",\"dataFile\":\"data/science_ce2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce2-sciences-biodiversite",
@@ -8892,8 +8969,8 @@
       "subthemeId": "ce2-sciences-milieux-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_ce2.json::ce2-milieux-vie",
-      "contractHash": "choice-engine|{\"category\":\"ce2-milieux-vie\",\"dataFile\":\"data/science_ce2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_ce2.json::ce2-milieux-biodiversite",
+      "contractHash": "choice-engine|{\"category\":\"ce2-milieux-biodiversite\",\"dataFile\":\"data/science_ce2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce2-sciences-proteger-milieux",
@@ -8903,8 +8980,8 @@
       "subthemeId": "ce2-sciences-milieux-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_ce2.json::ce2-milieux-vie",
-      "contractHash": "choice-engine|{\"category\":\"ce2-milieux-vie\",\"dataFile\":\"data/science_ce2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_ce2.json::ce2-milieux-protection",
+      "contractHash": "choice-engine|{\"category\":\"ce2-milieux-protection\",\"dataFile\":\"data/science_ce2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce2-bonus-sciences-milieux",
@@ -8985,17 +9062,6 @@
     },
     {
       "id": "ce2-emc-appariement",
-      "kind": "exercise",
-      "level": "ce2",
-      "subjectId": "ce2-emc-subject",
-      "subthemeId": "ce2-emc-regles-subtheme",
-      "engine": "matching",
-      "paramsType": null,
-      "pool": "data/emc_matching.json::matching_emc_ce2",
-      "contractHash": "matching|{\"category\":\"matching_emc_ce2\",\"dataFile\":\"data/emc_matching.json\"}"
-    },
-    {
-      "id": "ce2-emc-appariement-2",
       "kind": "exercise",
       "level": "ce2",
       "subjectId": "ce2-emc-subject",
@@ -9127,17 +9193,6 @@
       "contractHash": "choice-engine|{\"category\":\"ce2-entraide\",\"dataFile\":\"data/emc_ce2.json\",\"type\":\"factual-qcm\"}"
     },
     {
-      "id": "ce2-emc-cooperation-classe",
-      "kind": "exercise",
-      "level": "ce2",
-      "subjectId": "ce2-emc-subject",
-      "subthemeId": "ce2-emc-entraide-subtheme",
-      "engine": "choice-engine",
-      "paramsType": "factual-qcm",
-      "pool": "data/emc_ce2.json::ce2-cooperation",
-      "contractHash": "choice-engine|{\"category\":\"ce2-cooperation\",\"dataFile\":\"data/emc_ce2.json\",\"type\":\"factual-qcm\"}"
-    },
-    {
       "id": "ce2-bonus-emc-entraide-defi",
       "kind": "exercise",
       "level": "ce2",
@@ -9191,17 +9246,6 @@
       "paramsType": "factual-qcm",
       "pool": "data/emc_ce2.json::ce2-responsabilite",
       "contractHash": "choice-engine|{\"category\":\"ce2-responsabilite\",\"dataFile\":\"data/emc_ce2.json\",\"type\":\"factual-qcm\"}"
-    },
-    {
-      "id": "ce2-emc-parole-ecoute-responsable",
-      "kind": "exercise",
-      "level": "ce2",
-      "subjectId": "ce2-emc-subject",
-      "subthemeId": "ce2-emc-responsabilite-subtheme",
-      "engine": "choice-engine",
-      "paramsType": "factual-qcm",
-      "pool": "data/emc_ce2.json::ce2-parole-ecoute",
-      "contractHash": "choice-engine|{\"category\":\"ce2-parole-ecoute\",\"dataFile\":\"data/emc_ce2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce2-bonus-emc-responsabilite-defi",
@@ -9268,6 +9312,17 @@
       "paramsType": "factual-qcm",
       "pool": "data/emc_ce2.json::ce2-symboles-republique",
       "contractHash": "choice-engine|{\"category\":\"ce2-symboles-republique\",\"dataFile\":\"data/emc_ce2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "ce2-emc-appariement-2",
+      "kind": "exercise",
+      "level": "ce2",
+      "subjectId": "ce2-emc-subject",
+      "subthemeId": "ce2-emc-esprit-critique-subtheme",
+      "engine": "matching",
+      "paramsType": null,
+      "pool": "data/emc_matching.json::matching_emc_ce2_symboles",
+      "contractHash": "matching|{\"category\":\"matching_emc_ce2_symboles\",\"dataFile\":\"data/emc_matching.json\"}"
     },
     {
       "id": "ce2-lesson-republique",
@@ -17501,9 +17556,10 @@
       "categories": {
         "matching_emc_cp": 8,
         "matching_emc_ce1": 8,
-        "matching_emc_ce2": 8,
+        "matching_emc_ce2": 6,
         "matching_emc_cm1": 8,
-        "matching_emc_cm2": 9
+        "matching_emc_cm2": 9,
+        "matching_emc_ce2_symboles": 3
       }
     },
     "data/french_ce1_comprehension.json": {
@@ -17667,9 +17723,10 @@
     "data/geography_matching.json": {
       "categories": {
         "matching_geo_ce1": 9,
-        "matching_geo_ce2": 9,
+        "matching_geo_ce2": 6,
         "matching_geo_cm1": 7,
-        "matching_geo_cm2": 9
+        "matching_geo_cm2": 9,
+        "matching_geo_ce2_reperage": 4
       }
     },
     "data/history_ce1.json": {
@@ -17801,9 +17858,10 @@
       "categories": {
         "matching_math_cp": 8,
         "matching_math_ce1": 10,
-        "matching_math_ce2": 8,
+        "matching_math_ce2": 5,
         "matching_math_cm1": 7,
-        "matching_math_cm2": 8
+        "matching_math_cm2": 8,
+        "matching_geo_math_ce2": 5
       }
     },
     "data/math_probabilites_algo_cm2.json": {
@@ -17876,7 +17934,14 @@
         "ce2-saisons-meteo": 18,
         "ce2-milieux-vie": 20,
         "ce2-corps-fonctions": 12,
-        "ce2-classification-vivant": 10
+        "ce2-classification-vivant": 10,
+        "ce2-saisons-cycle": 8,
+        "ce2-meteo-mesures": 7,
+        "ce2-saisons-vivants": 8,
+        "ce2-milieux-ecosystemes": 8,
+        "ce2-milieux-biodiversite": 8,
+        "ce2-milieux-protection": 7,
+        "ce2-vivant-besoins": 8
       }
     },
     "data/science_cm1.json": {

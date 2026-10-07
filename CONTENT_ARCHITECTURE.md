@@ -4,25 +4,25 @@ Document de référence listant, pour chaque niveau, chaque matière, chaque sou
 
 Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon, sans exercice, catégories peu fournies) pour prioriser les ajouts.
 
-> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-10-03 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
+> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-10-07 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
 
 ---
 
 ## Vue d'ensemble
 
-- **1117 exercices** et **447 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1112 exercices** et **457 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
 |---|---|
-| `choice-engine` | 587 |
+| `choice-engine` | 582 |
 | `math-input` | 193 |
 | `reading` | 58 |
 | `board-interactive` | 56 |
-| `matching` | 49 |
+| `matching` | 48 |
 | `conjugation` | 47 |
 | `audio-spelling` | 46 |
-| `conversion` | 28 |
+| `conversion` | 29 |
 | `timeline` | 22 |
 | `word-order` | 17 |
 | `clock` | 6 |
@@ -1012,11 +1012,13 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Calculs & Logique `(ce2-calculs-logique)`
 
-- **Leçons** (16) :
+- **Leçons** (18) :
   - Poser une division `(ce2-lesson-division-posee)` — blocs: paragraph, example, tip, check, check
   - Les fractions simples `(ce2-lesson-fractions-simples)` — blocs: paragraph, bullets, tip, check, check
+  - Numérateur et dénominateur `(ce2-lesson-fractions-numerateur)` — blocs: paragraph, example, bullets, tip, check, check
   - Chercher le complément `(ce2-lesson-complements-1000)` — blocs: paragraph, example, bullets, tip, check, check
   - Lire l'heure `(ce2-lesson-lire-horloge)` — blocs: paragraph, example, mini-table, tip, check, check
+  - L'heure sur 24 heures `(ce2-lesson-heure-24h)` — blocs: paragraph, example, mini-table, tip, check, check
   - Partager en parts égales `(ce2-lesson-partages-egaux)` — blocs: paragraph, example, bullets, tip, check, check
   - Doubles et moitiés `(ce2-lesson-doubles-moities)` — blocs: paragraph, example, bullets, tip, check, check
   - Les longueurs `(ce2-lesson-longueurs)` — blocs: paragraph, example, bullets, tip, check, check
@@ -1029,26 +1031,27 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Les problèmes en deux étapes `(ce2-lesson-problemes-deux-etapes)` — blocs: paragraph, example, tip, check, check
   - Calculer une durée `(ce2-lesson-calcul-duree)` — blocs: paragraph, example, tip, check, check
   - Encadrer un nombre entre deux milliers `(ce2-lesson-encadrer-milliers)` — blocs: paragraph, example, tip, check, check
-- **Exercices** (34) :
+- **Exercices** (36) :
   - Le Compte est bon `(ce2-cible-1)` — engine: `math-input`, type=cibles, nbFleches=5, questions=5
   - Carré Magique `(ce2-carre-magique-1)` — engine: `math-input`, type=carre-somme, solutionCount=3, targetMin=15, targetMax=25, gridSize=9, questions=6
   - Défi : Carré Magique Expert `(ce2-bonus-carre-magique-defi)` — engine: `math-input`, type=carre-somme, solutionCount=3, targetMin=25, targetMax=35, gridSize=9, questions=6, bonus (seuil=2)
   - Compléments à 100 `(ce2-comp-100)` — engine: `math-input`, type=complement, target=100, questions=10
-  - L'Horloge `(ce2-clock)` — engine: `clock`, questions=5
+  - L'horloge `(ce2-clock)` — engine: `clock`, questions=5
   - Compléments à 1000 `(ce2-comp-1000)` — engine: `math-input`, type=complement, target=1000, questions=10
   - Comparer < 1000 `(ce2-comp-1000-compare)` — engine: `choice-engine`, range=1000, questions=10
   - Compléments à 500 `(ce2-comp-500)` — engine: `math-input`, type=complement, questions=10, target=500
   - Compléments à 2000 `(ce2-comp-2000)` — engine: `math-input`, type=complement, target=2000, questions=10
-  - L'horloge (2) `(ce2-clock-2)` — engine: `clock`, questions=8
+  - L'horloge : la série longue `(ce2-clock-2)` — engine: `clock`, questions=8
   - Problèmes additifs `(ce2-problemes-additifs)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=ce2-problemes-additifs, questions=8
   - Problèmes multiplicatifs `(ce2-problemes-multiplicatifs)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=ce2-problemes-multiplicatifs, questions=8
   - Monnaie et rendu de monnaie `(ce2-maths-monnaie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=ce2-monnaie, questions=8
   - Défi : problèmes en rafale `(ce2-bonus-problemes-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=ce2-problemes-multiplicatifs, questions=10, bonus (seuil=2)
   - Convertir des masses `(ce2-conversions-masses)` — engine: `conversion`, subtype=metric, unitType=masse, questions=6
   - Convertir des contenances `(ce2-conversions-contenances)` — engine: `conversion`, subtype=metric, unitType=capacite, questions=6
+  - Convertir des longueurs `(ce2-conversions-longueurs)` — engine: `conversion`, subtype=metric, unitType=longueur, questions=6
   - Division posée `(ce2-division-posee)` — engine: `math-input`, type=division-posed, level=1, questions=5
   - Division posée avec reste `(ce2-division-posee-reste)` — engine: `math-input`, type=division-posed, level=1, ask=reste, questions=5
-  - Lire des fractions simples `(ce2-fractions-simples)` — engine: `math-input`, type=fraction-view, maxDenom=4, questions=8
+  - Lire des fractions simples `(ce2-fractions-simples)` — engine: `math-input`, type=fraction-view, maxDenom=6, questions=8
   - Défi : anticipation CM1 `(ce2-bonus-comp-5000)` — engine: `math-input`, type=complement, target=5000, questions=12, bonus (seuil=2)
   - Lire et écrire les grands nombres `(ce2-nb-lecture-ecriture)` — engine: `math-input`, type=dictée-nombres, max=10000, questions=8
   - Comparer jusqu'à 10 000 `(ce2-nb-comparer-10000)` — engine: `choice-engine`, range=10000, questions=10
@@ -1059,11 +1062,12 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Addition posée avec retenue `(ce2-addition-posee-retenue)` — engine: `math-input`, type=operation-posed, operator=add, level=2, questions=6
   - Soustraction posée avec retenue `(ce2-soustraction-posee-retenue)` — engine: `math-input`, type=operation-posed, operator=sub, level=2, questions=6
   - Multiplication posée par un chiffre `(ce2-multiplication-posee-un-chiffre)` — engine: `math-input`, type=operation-posed, operator=mult, level=1, questions=6
-  - Addition posée jusqu’aux milliers `(ce2-addition-posee-milliers)` — engine: `math-input`, type=operation-posed, operator=add, level=3, questions=6
+  - Addition posée jusqu’aux milliers `(ce2-addition-posee-milliers)` — engine: `math-input`, type=operation-posed, operator=add, level=3, questions=6, maxResult=9999
   - Soustraction posée jusqu’aux milliers `(ce2-soustraction-posee-milliers)` — engine: `math-input`, type=operation-posed, operator=sub, level=3, questions=6
   - Problèmes en deux étapes `(ce2-problemes-deux-etapes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=ce2-problemes-deux-etapes, questions=8
   - Calculer une durée `(ce2-calcul-durees)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=ce2-durees, questions=8
   - Encadrer entre deux milliers `(ce2-encadrement-milliers)` — engine: `board-interactive`, type=number-line-frame, dataFile=data/board_number_line_ce2.json, category=ce2_number_line_frame_milliers, questions=6
+  - Jeu de mémoire `(ce2-maths-memoire)` — engine: `board-interactive`, type=memory-match, dataFile=data/board_memory_match_ce2.json, category=ce2_memory_match, questions=5
 
 #### Géométrie `(ce2-geometrie-subtheme)`
 
@@ -1071,29 +1075,31 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Figures planes et solides `(ce2-lesson-figures-solides)` — blocs: paragraph, example, bullets, tip, check, check
   - L'angle droit et l'équerre `(ce2-lesson-angle-droit-equerre)` — blocs: paragraph, example, bullets, tip, check, check
   - Symétrie et quadrillage `(ce2-lesson-symetrie-quadrillage)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (9) :
+- **Exercices** (8) :
   - Figures et solides `(ce2-geo-figures-solides)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_ce2.json, category=ce2-figures-proprietes, questions=8
   - L'angle droit `(ce2-geo-angle-droit)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_ce2.json, category=ce2-angle-droit-equerre, questions=8
   - Touche les angles droits `(ce2-geo-angle-droit-pratique)` — engine: `board-interactive`, type=tap-features, dataFile=data/board_tap_features_ce2.json, category=ce2_tap_angle_droit, questions=4
   - Symétrie et quadrillage `(ce2-geo-symetrie-quadrillage)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_ce2.json, category=ce2-symetrie-quadrillage, questions=8
   - Complète la figure symétrique `(ce2-geo-symetrie-pratique)` — engine: `board-interactive`, type=symmetry-complete, dataFile=data/board_symmetry_complete_ce2.json, category=ce2_symmetry_complete, questions=4
   - Place le point sur le quadrillage `(ce2-geo-reperage-pratique)` — engine: `board-interactive`, type=point-on-grid, dataFile=data/board_point_on_grid_ce2.json, category=ce2_point_on_grid, questions=6
-  - Notions de maths mélangées `(ce2-maths-geo-appariement)` — engine: `matching`, category=matching_math_ce2, dataFile=data/math_matching.json, questions=3
-  - Jeu de mémoire `(ce2-maths-memoire)` — engine: `board-interactive`, type=memory-match, dataFile=data/board_memory_match_ce2.json, category=ce2_memory_match, questions=5
+  - Figures, solides et mesures `(ce2-maths-geo-appariement)` — engine: `matching`, category=matching_geo_math_ce2, dataFile=data/math_matching.json, questions=3
   - Défi : symétrie et quadrillage `(ce2-bonus-geo-symetrie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_ce2.json, category=ce2-symetrie-quadrillage, questions=12, bonus (seuil=2)
 
 ### Français (ce2-francais)
 
 #### Orthographe & Grammaire `(ce2-orthographe-grammaire)`
 
-- **Leçons** (7) :
+- **Leçons** (10) :
   - Choisir le bon homophone `(ce2-lesson-homophones-reperes)` — blocs: paragraph, example, bullets, tip, check, check
   - Accorder le groupe nominal `(ce2-lesson-accord-groupe-nominal)` — blocs: paragraph, example, bullets, tip, check, check
+  - L'adjectif s'accorde `(ce2-lesson-accord-adjectif)` — blocs: paragraph, example, bullets, tip, check, check
   - La phrase et la ponctuation `(ce2-lesson-phrase-ponctuation)` — blocs: paragraph, example, bullets, tip, check, check
   - Le pluriel des noms `(ce2-lesson-pluriel-noms)` — blocs: paragraph, example, bullets, tip, check, check
   - Sujet, verbe, complément `(ce2-lesson-sujet-verbe-complement)` — blocs: paragraph, example, bullets, tip, check, check
   - Phrase simple ou phrase complexe ? `(ce2-lesson-phrase-simple-complexe)` — blocs: paragraph, example, bullets, tip, check, check
   - a ou à ? et ou est ? `(ce2-lesson-a-accent-ou-pas)` — blocs: paragraph, example, bullets, tip, check, check
+  - son ou sont ? ou ou où ? `(ce2-lesson-son-sont-ou-ou)` — blocs: paragraph, example, bullets, tip, check, check
+  - ce ou se ? ces ou ses ? `(ce2-lesson-ce-se-ces-ses)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (25) :
   - Et ou Est ? `(ce2-h-et)` — engine: `choice-engine`, type=homophone-duel, category=et_est, questions=8
   - A ou à ? `(ce2-h-a)` — engine: `choice-engine`, type=homophone-duel, category=a_à, questions=8
@@ -1123,11 +1129,15 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Conjugaison `(ce2-conjugaison-subject)`
 
-- **Leçons** (4) :
+- **Leçons** (8) :
   - Le verbe aller au présent `(ce2-lesson-se-deplacer)` — blocs: paragraph, mini-table, example, tip, check, check
   - Être et avoir au présent `(ce2-lesson-etre-avoir-present)` — blocs: paragraph, mini-table, example, tip, check, check
+  - Le futur simple `(ce2-lesson-futur-simple)` — blocs: paragraph, example, bullets, tip, check, check
+  - L'imparfait `(ce2-lesson-imparfait)` — blocs: paragraph, example, bullets, tip, check, check
   - Le passé composé `(ce2-lesson-passe-compose)` — blocs: paragraph, example, bullets, tip, check, check
   - Trouver l'infinitif d'un verbe `(ce2-lesson-trouver-infinitif)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les verbes comme finir `(ce2-lesson-verbes-2e-groupe)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les verbes du 3e groupe très utilisés `(ce2-lesson-verbes-3e-groupe)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (13) :
   - Rappel : Le Présent `(ce2-conj-pres-all)` — engine: `conjugation`, category=present_1, tenses=présent, questions=10
   - Futur : Être et Avoir `(ce2-conj-etre-avoir-futur)` — engine: `conjugation`, category=etre_avoir_f, tenses=futur, questions=6
@@ -1173,9 +1183,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Bien écouter pour bien écrire `(ce2-lesson-ecoute-attentive)` — blocs: paragraph, example, bullets, tip, check, check
   - Se relire comme un détective `(ce2-lesson-relire-dictee)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
-  - Les animaux `(ce2-audio-animaux)` — engine: `audio-spelling`, category=animals, speechRate=0.8, questions=6
-  - L'école `(ce2-audio-ecole)` — engine: `audio-spelling`, category=school, speechRate=0.8, questions=6
-  - La maison `(ce2-audio-maison)` — engine: `audio-spelling`, category=house, speechRate=0.8, questions=6
+  - Les animaux `(ce2-audio-animaux)` — engine: `audio-spelling`, category=animals_ce2, speechRate=0.8, questions=6
+  - L'école `(ce2-audio-ecole)` — engine: `audio-spelling`, category=school_ce2, speechRate=0.8, questions=6
+  - La maison `(ce2-audio-maison)` — engine: `audio-spelling`, category=house_ce2, speechRate=0.8, questions=6
 
 ### Questionner le temps (ce2-histoire-subject)
 
@@ -1195,10 +1205,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Comparer autrefois et aujourd'hui `(ce2-lesson-comparer-autrefois)` — blocs: paragraph, example, bullets, tip, check, check
   - Les objets du passé `(ce2-lesson-objets-passe)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (4) :
+- **Exercices** (3) :
   - Autrefois `(ce2-histoire-vie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce2.json, category=ce2-vie-autrefois, questions=8
   - Comparer la vie d'autrefois `(ce2-histoire-comparer-autrefois)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_ce2.json, category=ce2-vie-autrefois
-  - Personnages célèbres de notre histoire `(ce2-histoire-personnages-vie-autrefois)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce2.json, category=ce2-personnages-celebres, questions=6
   - Défi : vie autrefois et personnages `(ce2-bonus-histoire-vie-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce2.json, category=ce2-vie-autrefois, questions=8, bonus (seuil=2)
 
 #### Monuments et personnages `(ce2-histoire-monuments-subtheme)`
@@ -1218,11 +1227,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - L'école d'autrefois `(ce2-lesson-ecole-autrefois)` — blocs: paragraph, example, bullets, tip, check, check
   - L'école pour tous `(ce2-lesson-jules-ferry)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (5) :
+- **Exercices** (3) :
   - L'école d'autrefois `(ce2-histoire-ecole-autrefois)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce2.json, category=ce2-ecole-autrefois, questions=6
   - Écrire et apprendre autrefois `(ce2-histoire-apprendre-autrefois)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_ce2.json, category=ce2-ecole-autrefois
-  - Frise de vie `(ce2-histoire-frise-vie-famille)` — engine: `choice-engine`, type=factual-qcm, questions=6, dataFile=data/history_ce2.json, category=ce2-frise-vie-famille
-  - Repères d'histoire mélangés `(ce2-histoire-ecole-appariement)` — engine: `matching`, category=matching_histoire_ce2, dataFile=data/history_matching.json, questions=2
   - Défi : l'école autrefois `(ce2-bonus-histoire-ecole)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce2.json, category=ce2-ecole-autrefois, questions=10, bonus (seuil=2)
 
 #### Grandes périodes et récits fondateurs `(ce2-histoire-grandes-periodes-subtheme)`
@@ -1253,9 +1260,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### La France `(ce2-geo-france-subtheme)`
 
-- **Leçons** (2) :
+- **Leçons** (3) :
   - Lire une carte de France `(ce2-lesson-lire-carte-france)` — blocs: paragraph, example, bullets, tip, check, check
   - La France en relief `(ce2-lesson-france-releifs-fleuves)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les régions de la France `(ce2-lesson-regions-france)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - La France `(ce2-geo-france)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce2.json, category=ce2-france, questions=8
   - Reliefs simples `(ce2-geo-reliefs)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce2.json, category=ce2-reliefs-simples, questions=6
@@ -1272,7 +1280,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Se repérer `(ce2-geo-reperage)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce2.json, category=ce2-se-reperer, questions=6
   - Plan et repères `(ce2-geo-plan-reperes)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_ce2.json, category=ce2-se-reperer
   - Cartes et symboles `(ce2-geo-cartes-symboles)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_ce2.json, category=ce2-cartes-symboles
-  - Symboles et légendes `(ce2-geo-reperage-appariement)` — engine: `matching`, category=matching_geo_ce2, dataFile=data/geography_matching.json, questions=2
+  - Se repérer et lire une carte `(ce2-geo-reperage-appariement)` — engine: `matching`, category=matching_geo_ce2_reperage, dataFile=data/geography_matching.json, questions=2
   - Défi : super cartographe `(ce2-bonus-geo-reperage)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce2.json, category=ce2-se-reperer, questions=12, bonus (seuil=2)
 
 #### Transports `(ce2-geo-transports-subtheme)`
@@ -1280,10 +1288,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Se déplacer selon les lieux `(ce2-lesson-choisir-transport)` — blocs: paragraph, example, bullets, tip, check, check
   - Comparer les transports `(ce2-lesson-transports-comparer)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (4) :
+- **Exercices** (3) :
   - Transports `(ce2-geo-transports)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce2.json, category=ce2-transports, questions=6
   - Voyager et se déplacer `(ce2-geo-voyager-deplacer)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_ce2.json, category=ce2-transports
-  - Lire une carte `(ce2-geo-transports-cartes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce2.json, category=ce2-cartes-symboles, questions=6
   - Défi : trajets et transports `(ce2-bonus-geo-transports-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce2.json, category=ce2-transports, questions=8, bonus (seuil=2)
 
 ### Questionner le vivant et la matière (ce2-sciences-subject)
@@ -1296,7 +1303,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Mon corps bouge, respire et digère `(ce2-lesson-corps-hygiene)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (7) :
   - Le vivant `(ce2-sciences-vivant)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-vivant, questions=8
-  - Grandir et se nourrir `(ce2-sciences-grandir-nourrir)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_ce2.json, category=ce2-vivant
+  - Grandir et se nourrir `(ce2-sciences-grandir-nourrir)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_ce2.json, category=ce2-vivant-besoins
   - Chaînes alimentaires simples `(ce2-sciences-chaines-alimentaires)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-chaines-alimentaires-simples, questions=6
   - Défi : chaînes alimentaires `(ce2-bonus-sciences-chaines-alimentaires-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-chaines-alimentaires-simples, questions=9, bonus (seuil=2)
   - Les parties du corps `(ce2-sciences-tap-corps)` — engine: `board-interactive`, type=tap-features, dataFile=data/board_tap_features_science.json, category=ce2_tap_corps_humain, questions=4
@@ -1334,9 +1341,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Le cycle des saisons `(ce2-lesson-cycle-saisons)` — blocs: paragraph, example, bullets, tip, check, check
   - Les instruments de la météo `(ce2-lesson-instruments-meteo)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (4) :
-  - Le cycle des saisons `(ce2-sciences-cycle-saisons)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-saisons-meteo, questions=8
-  - Mesurer la météo `(ce2-sciences-mesurer-meteo)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-saisons-meteo, questions=6
-  - Climat et environnement `(ce2-sciences-climat-environnement)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-saisons-meteo, questions=6
+  - Le cycle des saisons `(ce2-sciences-cycle-saisons)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-saisons-cycle, questions=8
+  - Mesurer la météo `(ce2-sciences-mesurer-meteo)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-meteo-mesures, questions=6
+  - Climat et environnement `(ce2-sciences-climat-environnement)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-saisons-vivants, questions=6
   - Défi : saisons et météo `(ce2-bonus-sciences-saisons)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-saisons-meteo, questions=10, bonus (seuil=2)
 
 #### Les milieux de vie `(ce2-sciences-milieux-subtheme)`
@@ -1345,9 +1352,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Qu'est-ce qu'un milieu de vie ? `(ce2-lesson-ecosysteme-simple)` — blocs: paragraph, example, bullets, tip, check, check
   - La biodiversité d'un milieu `(ce2-lesson-biodiversite-milieux)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (4) :
-  - Les écosystèmes simples `(ce2-sciences-ecosystemes-simples)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-milieux-vie, questions=8
-  - La biodiversité autour de nous `(ce2-sciences-biodiversite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-milieux-vie, questions=6
-  - Protéger les milieux `(ce2-sciences-proteger-milieux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-milieux-vie, questions=6
+  - Les écosystèmes simples `(ce2-sciences-ecosystemes-simples)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-milieux-ecosystemes, questions=8
+  - La biodiversité autour de nous `(ce2-sciences-biodiversite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-milieux-biodiversite, questions=6
+  - Protéger les milieux `(ce2-sciences-proteger-milieux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-milieux-protection, questions=6
   - Défi : les milieux de vie `(ce2-bonus-sciences-milieux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_ce2.json, category=ce2-milieux-vie, questions=10, bonus (seuil=2)
 
 ### EMC (ce2-emc-subject)
@@ -1358,12 +1365,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Respecter les règles `(ce2-lesson-regles)` — blocs: paragraph, example, bullets, tip, check, check
   - Les droits et les devoirs `(ce2-lesson-droits-devoirs)` — blocs: paragraph, example, bullets, tip, check, check
   - Parler et écouter avec respect `(ce2-lesson-dialogue-respectueux)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (5) :
+- **Exercices** (4) :
   - Règles `(ce2-emc-regles)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-regles, questions=8
   - Lieux et objets communs `(ce2-emc-lieux-communs)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-lieux-objets-communs, questions=6
   - Défi : règles communes `(ce2-bonus-emc-regles-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-lieux-objets-communs, questions=9, bonus (seuil=2)
   - Droits et devoirs `(ce2-emc-appariement)` — engine: `matching`, category=matching_emc_ce2, dataFile=data/emc_matching.json, questions=3
-  - Symboles et valeurs de la République `(ce2-emc-appariement-2)` — engine: `matching`, category=matching_emc_ce2, dataFile=data/emc_matching.json, questions=3
 
 #### Citoyen `(ce2-emc-citoyen-subtheme)`
 
@@ -1382,10 +1388,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Aider un camarade `(ce2-lesson-entraide)` — blocs: paragraph, example, bullets, tip, check, check
   - La solidarité au quotidien `(ce2-lesson-solidarite-quotidien)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (4) :
+- **Exercices** (3) :
   - Entraide `(ce2-emc-entraide)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-entraide, questions=6
-  - Aider et coopérer `(ce2-emc-aider-cooperer)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_ce2.json, category=ce2-entraide
-  - Coopérer en classe `(ce2-emc-cooperation-classe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-cooperation, questions=6
+  - Entraide : la série longue `(ce2-emc-aider-cooperer)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_ce2.json, category=ce2-entraide
   - Défi : entraide et coopération `(ce2-bonus-emc-entraide-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-entraide, questions=8, bonus (seuil=2)
 
 #### Responsabilité `(ce2-emc-responsabilite-subtheme)`
@@ -1393,10 +1398,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Être responsable `(ce2-lesson-responsable)` — blocs: paragraph, example, bullets, tip, check, check
   - Responsable à l'école et à la maison `(ce2-lesson-responsable-partout)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (4) :
+- **Exercices** (3) :
   - Responsabilité `(ce2-emc-responsabilite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-responsabilite, questions=6
-  - Être responsable `(ce2-emc-etre-responsable)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_ce2.json, category=ce2-responsabilite
-  - Parole et écoute `(ce2-emc-parole-ecoute-responsable)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-parole-ecoute, questions=6
+  - Responsabilité : la série longue `(ce2-emc-etre-responsable)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_ce2.json, category=ce2-responsabilite
   - Défi : responsabilité et engagement `(ce2-bonus-emc-responsabilite-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-responsabilite, questions=8, bonus (seuil=2)
 
 #### Esprit critique et symboles `(ce2-emc-esprit-critique-subtheme)`
@@ -1404,10 +1408,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Vérifier une information `(ce2-lesson-esprit-critique)` — blocs: paragraph, example, bullets, tip, check, check
   - Les symboles de la République `(ce2-lesson-symboles-republique)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (3) :
+- **Exercices** (4) :
   - Info fiable ou pas ? `(ce2-emc-esprit-critique)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-esprit-critique, questions=6
   - Défi : esprit critique `(ce2-bonus-emc-esprit-critique-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-esprit-critique, questions=9, bonus (seuil=2)
   - Les symboles de la République `(ce2-emc-symboles-republique)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce2.json, category=ce2-symboles-republique, questions=7
+  - Symboles et valeurs de la République `(ce2-emc-appariement-2)` — engine: `matching`, category=matching_emc_ce2_symboles, dataFile=data/emc_matching.json, questions=2
 
 #### La République et son fonctionnement `(ce2-emc-republique-subtheme)`
 

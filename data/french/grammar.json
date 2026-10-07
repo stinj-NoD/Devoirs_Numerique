@@ -695,22 +695,16 @@
             "icon": "🏫"
         },
         {
-            "word": "OURS",
-            "gender": "masculin",
-            "article": "un",
-            "icon": "🐻"
-        },
-        {
-            "word": "ÎLE",
-            "gender": "féminin",
-            "article": "une",
-            "icon": "🏝️"
-        },
-        {
             "word": "HORLOGE",
             "gender": "féminin",
             "article": "une",
             "icon": "🕒"
+        },
+        {
+            "word": "HÔPITAL",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "🏥"
         },
         {
             "word": "ESCARGOT",
@@ -725,10 +719,34 @@
             "icon": "💡"
         },
         {
-            "word": "ÉLÉPHANT",
+            "word": "HIBOU",
             "gender": "masculin",
             "article": "un",
-            "icon": "🐘"
+            "icon": "🦉"
+        },
+        {
+            "word": "HARICOT",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "🫘"
+        },
+        {
+            "word": "HÉRISSON",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "🦔"
+        },
+        {
+            "word": "HACHE",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "🪓"
+        },
+        {
+            "word": "HAIE",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "🌿"
         }
     ],
     "gender_ce2_objets_2": [
@@ -783,10 +801,10 @@
     ],
     "gender_ce2_elision_2": [
         {
-            "word": "AVION",
-            "gender": "masculin",
-            "article": "un",
-            "icon": "✈️"
+            "word": "ÎLE",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "🏝️"
         },
         {
             "word": "USINE",
@@ -795,10 +813,22 @@
             "icon": "🏭"
         },
         {
-            "word": "HÔPITAL",
+            "word": "OURS",
             "gender": "masculin",
             "article": "un",
-            "icon": "🏥"
+            "icon": "🐻"
+        },
+        {
+            "word": "ÉLÉPHANT",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "🐘"
+        },
+        {
+            "word": "AVION",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "✈️"
         },
         {
             "word": "ÉCHELLE",
@@ -807,28 +837,40 @@
             "icon": "🪜"
         },
         {
-            "word": "HÔTEL",
-            "gender": "masculin",
-            "article": "un",
-            "icon": "🏨"
-        },
-        {
-            "word": "ARAIGNÉE",
+            "word": "TABLE",
             "gender": "féminin",
             "article": "une",
-            "icon": "🕷️"
+            "icon": "🪑"
         },
         {
-            "word": "ORDINATEUR",
+            "word": "CAHIER",
             "gender": "masculin",
             "article": "un",
-            "icon": "💻"
+            "icon": "📓"
         },
         {
-            "word": "AUTOROUTE",
+            "word": "VOITURE",
             "gender": "féminin",
             "article": "une",
-            "icon": "🛣️"
+            "icon": "🚗"
+        },
+        {
+            "word": "JARDIN",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "🏡"
+        },
+        {
+            "word": "LIVRE",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "📘"
+        },
+        {
+            "word": "PORTE",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "🚪"
         }
     ],
     "gender_ce2_mixte": [
@@ -879,6 +921,18 @@
             "gender": "féminin",
             "article": "une",
             "icon": "🍊"
+        },
+        {
+            "word": "FORÊT",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "🌲"
+        },
+        {
+            "word": "RIVIÈRE",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "🏞️"
         }
     ],
     "gender_cm1_scolaire": [
@@ -2348,7 +2402,7 @@
             "answer": "chats"
         },
         {
-            "sentence": "Une robe rouge sèche au soleil.",
+            "sentence": "Une robe ___ sèche au soleil.",
             "choices": [
                 "rouge",
                 "rouges",
@@ -2393,13 +2447,13 @@
             "answer": "gris"
         },
         {
-            "sentence": "Des billes ___ roulent sous la chaise.",
+            "sentence": "Des chaussettes ___ sèchent sur le fil.",
             "choices": [
-                "bleue",
-                "bleus",
-                "bleues"
+                "jaune",
+                "jaunes",
+                "jaunis"
             ],
-            "answer": "bleues"
+            "answer": "jaunes"
         },
         {
             "sentence": "Le grand chêne garde ses feuilles ___.",
@@ -2411,16 +2465,16 @@
             "answer": "vertes"
         },
         {
-            "sentence": "Une robe ___",
-            "answer": "rouge",
+            "sentence": "Mon frère lit des livres ___.",
+            "answer": "amusants",
             "choices": [
-                "rouge",
-                "rouges",
-                "rouger"
+                "amusant",
+                "amusants",
+                "amusante"
             ]
         },
         {
-            "sentence": "Des chats ___",
+            "sentence": "Des chats ___ dorment sur le canapé.",
             "answer": "noirs",
             "choices": [
                 "noir",

@@ -390,8 +390,8 @@
                         },
                         {
                             "id": "ce2-clock",
-                            "title": "L'Horloge",
-                            "subtitle": "Lire l'heure",
+                            "title": "L'horloge",
+                            "subtitle": "Écrire l'heure sur 24 heures",
                             "engine": "clock",
                             "params": {
                                 "questions": 5
@@ -442,8 +442,8 @@
                         },
                         {
                             "id": "ce2-clock-2",
-                            "title": "L'horloge (2)",
-                            "subtitle": "Lire plus vite",
+                            "title": "L'horloge : la série longue",
+                            "subtitle": "Huit horloges pour s'entraîner davantage",
                             "engine": "clock",
                             "params": {
                                 "questions": 8
@@ -507,9 +507,9 @@
                             "params": {
                                 "subtype": "metric",
                                 "unitType": "masse",
-                                "range": [
-                                    0,
-                                    3
+                                "units": [
+                                    "kg",
+                                    "g"
                                 ],
                                 "questions": 6
                             }
@@ -522,9 +522,26 @@
                             "params": {
                                 "subtype": "metric",
                                 "unitType": "capacite",
-                                "range": [
-                                    0,
-                                    3
+                                "units": [
+                                    "L",
+                                    "mL"
+                                ],
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-conversions-longueurs",
+                            "title": "Convertir des longueurs",
+                            "subtitle": "Kilomètres, mètres, centimètres et millimètres",
+                            "engine": "conversion",
+                            "params": {
+                                "subtype": "metric",
+                                "unitType": "longueur",
+                                "units": [
+                                    "km",
+                                    "m",
+                                    "cm",
+                                    "mm"
                                 ],
                                 "questions": 6
                             }
@@ -555,11 +572,11 @@
                         {
                             "id": "ce2-fractions-simples",
                             "title": "Lire des fractions simples",
-                            "subtitle": "Demi, tiers, quart",
+                            "subtitle": "Compter les parts coloriées",
                             "engine": "math-input",
                             "params": {
                                 "type": "fraction-view",
-                                "maxDenom": 4,
+                                "maxDenom": 6,
                                 "questions": 8
                             }
                         },
@@ -690,7 +707,8 @@
                                 "type": "operation-posed",
                                 "operator": "add",
                                 "level": 3,
-                                "questions": 6
+                                "questions": 6,
+                                "maxResult": 9999
                             }
                         },
                         {
@@ -739,6 +757,18 @@
                                 "dataFile": "data/board_number_line_ce2.json",
                                 "category": "ce2_number_line_frame_milliers",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce2-maths-memoire",
+                            "title": "Jeu de mémoire",
+                            "subtitle": "Retrouve toutes les paires",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "memory-match",
+                                "dataFile": "data/board_memory_match_ce2.json",
+                                "category": "ce2_memory_match",
+                                "questions": 5
                             }
                         }
                     ],
@@ -832,6 +862,59 @@
                                     ],
                                     "answer": "Non, car les parts doivent toutes être égales",
                                     "explanation": "Une fraction ne décrit un partage que si toutes les parts ont la même taille. Ici les morceaux sont inégaux : compter les morceaux ne suffit pas, aucun ne vaut exactement 1/4."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-fractions-numerateur",
+                            "title": "Numérateur et dénominateur",
+                            "subtitle": "Compter les parts coloriées",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une fraction s'écrit avec deux nombres. Le nombre du bas, le dénominateur, dit en combien de parts égales on coupe le tout. Le nombre du haut, le numérateur, dit combien de parts on prend."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Une pizza est coupée en 4 parts égales et on en mange 3 : on écrit 3/4. Le 4 compte toutes les parts, le 3 compte les parts mangées."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "en bas : le dénominateur, le nombre de parts égales du tout",
+                                        "en haut : le numérateur, le nombre de parts prises",
+                                        "2/3 se lit « deux tiers » et 3/4 se lit « trois quarts »"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le numérateur compte les parts coloriées, le dénominateur compte toutes les parts."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans la fraction 2/5, que dit le nombre 5 ?",
+                                    "choices": [
+                                        "Le tout est coupé en 5 parts égales",
+                                        "On colorie 5 parts sur le dessin, pas plus",
+                                        "Il y a 5 parts de plus que de parts blanches"
+                                    ],
+                                    "answer": "Le tout est coupé en 5 parts égales",
+                                    "explanation": "Le nombre du bas, le dénominateur, donne le nombre de parts égales du tout : ici 5. Le 2 du haut, lui, compte les parts coloriées."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un chocolat est cassé en 6 carrés égaux et Léa en mange 5. Quelle fraction du chocolat a-t-elle mangée ?",
+                                    "choices": [
+                                        "5/6",
+                                        "6/5",
+                                        "1/6"
+                                    ],
+                                    "answer": "5/6",
+                                    "explanation": "Le chocolat a 6 parts égales : le dénominateur est 6. Léa en prend 5 : le numérateur est 5. Elle a mangé 5/6. Écrire 6/5 inverse les deux nombres."
                                 }
                             ]
                         },
@@ -954,6 +1037,75 @@
                             ]
                         },
                         {
+                            "id": "ce2-lesson-heure-24h",
+                            "title": "L'heure sur 24 heures",
+                            "subtitle": "Après midi, on ajoute 12",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une journée dure 24 heures, mais l'horloge n'a que 12 chiffres. Le matin, on lit l'heure telle quelle ; l'après-midi et le soir, on ajoute 12 pour écrire l'heure sur 24 heures."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Il est 3 h de l'après-midi : 3 + 12 = 15, on écrit 15 h. À 8 h du soir : 8 + 12 = 20, on écrit 20 h."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "headers": [
+                                        "Sur l'horloge",
+                                        "Sur 24 heures"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "9 h du matin",
+                                            "9 h"
+                                        ],
+                                        [
+                                            "midi",
+                                            "12 h"
+                                        ],
+                                        [
+                                            "4 h de l'après-midi",
+                                            "16 h"
+                                        ],
+                                        [
+                                            "minuit",
+                                            "0 h"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Après midi, j'ajoute 12 à l'heure de l'horloge. Pour revenir en arrière, je retire 12."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Le film commence à 9 h du soir. Comment écrit-on cette heure sur 24 heures ?",
+                                    "choices": [
+                                        "21 h",
+                                        "19 h",
+                                        "9 h"
+                                    ],
+                                    "answer": "21 h",
+                                    "explanation": "Le soir, on ajoute 12 : 9 + 12 = 21, on écrit donc 21 h. Écrire 9 h, c'est l'heure du matin ; 19 h serait 7 h du soir."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur un horaire de train, on lit 17 h 30. Quelle heure est-ce dans la vie de tous les jours ?",
+                                    "choices": [
+                                        "5 h 30 de l'après-midi, en fin de journée",
+                                        "7 h 30 du soir, à la nuit tombée",
+                                        "5 h 30 du matin, très tôt le matin"
+                                    ],
+                                    "answer": "5 h 30 de l'après-midi, en fin de journée",
+                                    "explanation": "17 est plus grand que 12 : c'est l'après-midi. On retire 12 : 17 - 12 = 5, donc 5 h 30 de l'après-midi."
+                                }
+                            ]
+                        },
+                        {
                             "id": "ce2-lesson-partages-egaux",
                             "title": "Partager en parts égales",
                             "subtitle": "Comprendre la division",
@@ -1064,32 +1216,31 @@
                         {
                             "id": "ce2-lesson-longueurs",
                             "title": "Les longueurs",
-                            "subtitle": "Comparer et mesurer",
+                            "subtitle": "Comparer, mesurer et convertir",
                             "format": "lesson-card",
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Une longueur se compare ou se mesure avec une règle. On utilise souvent le centimètre pour les petits objets."
+                                    "text": "Pour mesurer une longueur, on choisit l'unité selon la taille de ce qu'on mesure : le millimètre (mm) pour les très petites choses, le centimètre (cm) pour un crayon, le mètre (m) pour une pièce et le kilomètre (km) pour une distance."
                                 },
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "On peut comparer un crayon et une gomme pour savoir lequel est le plus long. Avec une règle, on peut mesurer en centimètres."
+                                    "content": "Un crayon mesure environ 15 cm, une salle de classe 8 m, et la distance de la maison à l'école peut être de 2 km."
                                 },
                                 {
                                     "type": "bullets",
                                     "label": "Je retiens",
                                     "items": [
-                                        "longueur",
-                                        "règle",
-                                        "centimètre",
-                                        "plus long / plus court"
+                                        "1 cm = 10 mm",
+                                        "1 m = 100 cm",
+                                        "1 km = 1 000 m"
                                     ]
                                 },
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "Comparer avant de mesurer aide à mieux lire une longueur."
+                                    "content": "Pour passer d'une grande unité à une petite, on multiplie ; dans l'autre sens, on divise."
                                 },
                                 {
                                     "type": "check",
@@ -1104,14 +1255,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Avec quelle unité vaut-il mieux exprimer la longueur d'un terrain de football ?",
+                                    "question": "Léo mesure un couloir : il fait 4 m. Combien cela fait-il de centimètres ?",
                                     "choices": [
-                                        "En mètres, car l'objet est bien trop grand pour la règle",
-                                        "En centimètres, car c'est l'unité vue en classe",
-                                        "En kilogrammes, car le terrain est très lourd"
+                                        "400 cm",
+                                        "40 cm",
+                                        "4 000 cm"
                                     ],
-                                    "answer": "En mètres, car l'objet est bien trop grand pour la règle",
-                                    "explanation": "Le centimètre convient aux petits objets comme un crayon. Pour un terrain, on obtiendrait des milliers de centimètres : on utilise le mètre. Le kilogramme ne mesure pas une longueur mais une masse."
+                                    "answer": "400 cm",
+                                    "explanation": "1 m = 100 cm, donc 4 m = 4 × 100 = 400 cm. « 40 cm » oublie un zéro et « 4 000 cm » en ajoute un de trop."
                                 }
                             ]
                         },
@@ -1699,7 +1850,7 @@
                                     "items": [
                                         "axe de symétrie : partage la figure en deux parties identiques en miroir",
                                         "le symétrique d'un point est à la même distance de l'axe",
-                                        "sur un quadrillage, on compte les cases vers la droite et vers le haut"
+                                        "sur un quadrillage numéroté, on part du coin en haut à gauche : on compte les colonnes vers la droite, puis les lignes vers le bas"
                                     ]
                                 },
                                 {
@@ -1807,25 +1958,13 @@
                         },
                         {
                             "id": "ce2-maths-geo-appariement",
-                            "title": "Notions de maths mélangées",
+                            "title": "Figures, solides et mesures",
                             "subtitle": "Relie chaque notion à sa réponse",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_math_ce2",
+                                "category": "matching_geo_math_ce2",
                                 "dataFile": "data/math_matching.json",
                                 "questions": 3
-                            }
-                        },
-                        {
-                            "id": "ce2-maths-memoire",
-                            "title": "Jeu de mémoire",
-                            "subtitle": "Retrouve toutes les paires",
-                            "engine": "board-interactive",
-                            "params": {
-                                "type": "memory-match",
-                                "dataFile": "data/board_memory_match_ce2.json",
-                                "category": "ce2_memory_match",
-                                "questions": 5
                             }
                         },
                         {
@@ -2227,14 +2366,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sami écrit : « Le chien court et le jardin. » Où est son erreur ?",
+                                    "question": "Sami écrit : « Le chien va et la niche. » Où est son erreur ?",
                                     "choices": [
                                         "Il indique un lieu, il fallait donc écrire à",
-                                        "Il relie deux mots, son et est correct",
+                                        "Il relie deux mots, donc et est correct",
                                         "Il parle d'un seul chien, il fallait écrire a"
                                     ],
                                     "answer": "Il indique un lieu, il fallait donc écrire à",
-                                    "explanation": "Le chien court quelque part : « dans le jardin ». Ce petit mot indique le lieu, on écrit « à » avec un accent. « et » servirait à relier deux choses : « le chien et le chat »."
+                                    "explanation": "On dit « le chien va à la niche » : le petit mot indique l'endroit où va le chien, on écrit « à » avec un accent. « et » servirait à relier deux choses : « le chien et le chat »."
                                 }
                             ]
                         },
@@ -2288,6 +2427,59 @@
                                     ],
                                     "answer": "Les",
                                     "explanation": "« Voitures » porte un s : il y en a plusieurs. Le déterminant doit donc aussi être au pluriel. « Une » et « Ma » annoncent une seule voiture : ils ne s'accordent pas avec ce nom."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-accord-adjectif",
+                            "title": "L'adjectif s'accorde",
+                            "subtitle": "Il prend le genre et le nombre du nom",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "L'adjectif décrit un nom et s'accorde avec lui. Si le nom est féminin, on ajoute souvent un e ; si le nom est pluriel, on ajoute souvent un s."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "un chat noir ; une robe verte ; des chats noirs ; des robes vertes."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "féminin : on ajoute un e (vert devient verte)",
+                                        "pluriel : on ajoute un s (vert devient verts, verte devient vertes)",
+                                        "un adjectif qui finit déjà par e ne change pas au féminin : une robe rouge, une jupe jaune"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Je cherche d'abord le nom, puis j'accorde l'adjectif avec lui."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Des voitures ___ roulent vite. Quelle forme de l'adjectif « bleu » complète la phrase ?",
+                                    "choices": [
+                                        "bleues",
+                                        "bleu",
+                                        "bleus"
+                                    ],
+                                    "answer": "bleues",
+                                    "explanation": "« Voitures » est féminin et pluriel : l'adjectif prend un e et un s, ce qui donne « bleues ». « bleus » oublie le féminin et « bleu » oublie les deux."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quelle phrase est correcte ?",
+                                    "choices": [
+                                        "Les nuages gris cachent le soleil.",
+                                        "Les nuages griss cachent le soleil.",
+                                        "Les nuages grises cachent le soleil."
+                                    ],
+                                    "answer": "Les nuages gris cachent le soleil.",
+                                    "explanation": "Gris finit déjà par s : au masculin pluriel, il ne change pas. « Nuages » est masculin, donc pas de e : « grises » est faux, et « griss » aussi."
                                 }
                             ]
                         },
@@ -2559,6 +2751,111 @@
                                 }
                             ],
                             "format": "lesson-card"
+                        },
+                        {
+                            "id": "ce2-lesson-son-sont-ou-ou",
+                            "title": "son ou sont ? ou ou où ?",
+                            "subtitle": "Deux tests pour choisir",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Certains petits mots se prononcent pareil mais n'ont pas le même sens. Pour choisir, on remplace le mot par un autre : si la phrase garde son sens, c'est le bon."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« Ils sont contents » → « ils étaient contents » : c'est sont. « Son chien » → « mon chien » : c'est son. « Du thé ou du café » → « ou bien » : c'est ou. « Où est mon cahier ? » cherche un lieu : c'est où."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "sont = étaient (le verbe être) ; son = mon (il appartient à quelqu'un)",
+                                        "ou = ou bien (un choix) ; où = un lieu ou un moment, avec un accent grave"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Un doute ? Je remplace : sont par étaient, son par mon, ou par ou bien."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Les élèves ___ en récréation. » Quel mot faut-il écrire, et pourquoi ?",
+                                    "choices": [
+                                        "sont, car « étaient » garde le sens de la phrase",
+                                        "son, car « mon » garde le sens de la phrase",
+                                        "sont, car le mot suivant commence par une voyelle"
+                                    ],
+                                    "answer": "sont, car « étaient » garde le sens de la phrase",
+                                    "explanation": "On peut dire « les élèves étaient en récréation » : c'est le verbe être, donc sont. On ne peut pas dire « les élèves mon en récréation »."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Tu veux du riz ___ des pâtes ? » Quel mot faut-il écrire, et pourquoi ?",
+                                    "choices": [
+                                        "ou, car on peut dire « ou bien »",
+                                        "où, car la phrase pose une question",
+                                        "ou, car on cherche un lieu"
+                                    ],
+                                    "answer": "ou, car on peut dire « ou bien »",
+                                    "explanation": "On peut dire « du riz ou bien des pâtes » : c'est un choix, donc ou sans accent. Où avec un accent s'emploie pour un lieu : « Où vas-tu ? »."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-ce-se-ces-ses",
+                            "title": "ce ou se ? ces ou ses ?",
+                            "subtitle": "Montrer, se laver, posséder",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "« Ce » et « ces » montrent quelque chose : ce chat, ces chats. « Se » est un petit mot placé devant un verbe : il se lave. « Ses » dit à qui appartiennent les choses : ses livres sont ceux de lui ou d'elle."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Ce garçon se lave les mains. Léa range ses crayons, puis elle regarde ces fleurs-là."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "ces : on peut ajouter -ci ou -là après le nom (ces fleurs-là)",
+                                        "se : devant un verbe, on peut dire « me » ou « te » à la place (je me lave)",
+                                        "ses : on peut dire « mes » à la place (mes livres, ses livres)"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Un doute ? Je remplace : ses par mes, se par me, ces par ces...-là."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Hugo range ___ dessins dans sa chambre », Inès hésite entre ces et ses. Quelle question l'aide à trancher ?",
+                                    "choices": [
+                                        "Les dessins sont-ils à Hugo ?",
+                                        "Les dessins sont-ils beaux ?",
+                                        "Y a-t-il plusieurs dessins ?"
+                                    ],
+                                    "answer": "Les dessins sont-ils à Hugo ?",
+                                    "explanation": "Ses dit à qui appartiennent les dessins : on peut le remplacer par « mes ». Que les dessins soient beaux ou nombreux ne change rien au choix entre ces et ses."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Tom ___ lave les mains avant le repas. » Quel mot faut-il écrire, et pourquoi ?",
+                                    "choices": [
+                                        "se, car « je me lave » est possible",
+                                        "ce, car un nom vient juste après",
+                                        "ses, car « mes mains » est possible"
+                                    ],
+                                    "answer": "se, car « je me lave » est possible",
+                                    "explanation": "Le mot est devant le verbe laver : on peut dire « je me lave les mains », donc se. Ce se place devant un nom, pas devant un verbe."
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2729,6 +3026,110 @@
                             ]
                         },
                         {
+                            "id": "ce2-lesson-futur-simple",
+                            "title": "Le futur simple",
+                            "subtitle": "Demain, je chanterai",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le futur parle de ce qui va se passer plus tard. Pour les verbes en -er, on garde l'infinitif et on ajoute les terminaisons -ai, -as, -a, -ons, -ez, -ont."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "chanter : je chanterai, tu chanteras, il chantera, nous chanterons, vous chanterez, ils chanteront."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Deux verbes très utiles",
+                                    "items": [
+                                        "être : je serai, tu seras, il sera, nous serons, vous serez, ils seront",
+                                        "avoir : j'aurai, tu auras, il aura, nous aurons, vous aurez, ils auront"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Au futur, la lettre r vient juste avant la terminaison : chanterai, jouera, seront."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Demain, Nina ___ au parc avec sa sœur. Quelle forme du verbe jouer complète la phrase ?",
+                                    "choices": [
+                                        "jouera",
+                                        "joue",
+                                        "jouait"
+                                    ],
+                                    "answer": "jouera",
+                                    "explanation": "« Demain » annonce le futur : on garde l'infinitif jouer et on ajoute -a pour elle, ce qui donne jouera. « joue » est le présent et « jouait » raconte le passé."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Demain, vous ___ en sortie scolaire. Quelle forme du verbe être au futur complète la phrase ?",
+                                    "choices": [
+                                        "serez",
+                                        "êtes",
+                                        "étiez"
+                                    ],
+                                    "answer": "serez",
+                                    "explanation": "Le mot « demain » demande le futur. Au futur, être donne « vous serez ». « êtes » est le présent et « étiez » le passé."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-imparfait",
+                            "title": "L'imparfait",
+                            "subtitle": "Hier, je chantais",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "L'imparfait raconte ce qui se passait ou ce qu'on faisait souvent dans le passé. On part du radical du verbe (chant-) et on ajoute -ais, -ais, -ait, -ions, -iez, -aient."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "chanter : je chantais, tu chantais, il chantait, nous chantions, vous chantiez, ils chantaient."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je fais attention",
+                                    "items": [
+                                        "manger garde son e devant a : je mangeais, il mangeait",
+                                        "lancer garde sa cédille devant a : je lançais, il lançait"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "À l'imparfait, nous se termine par -ions et ils ou elles par -aient."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quand elle était petite, Zoé ___ tous les jours dans le jardin. Quelle forme de jouer à l'imparfait complète la phrase ?",
+                                    "choices": [
+                                        "jouait",
+                                        "jouera",
+                                        "joue"
+                                    ],
+                                    "answer": "jouait",
+                                    "explanation": "« Quand elle était petite » parle du passé et d'une habitude : on emploie l'imparfait, « jouait ». « jouera » est le futur et « joue » le présent."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour « tu nages » à l'imparfait, quelle forme est correcte ?",
+                                    "choices": [
+                                        "tu nageais",
+                                        "tu nagais",
+                                        "tu nageait"
+                                    ],
+                                    "answer": "tu nageais",
+                                    "explanation": "Devant -ais, le g de nager reste doux grâce au e : « tu nageais ». Sans e, « nagais » se lirait avec un g dur. Et -ait va avec il ou elle, pas avec tu."
+                                }
+                            ]
+                        },
+                        {
                             "id": "ce2-lesson-passe-compose",
                             "title": "Le passé composé",
                             "subtitle": "Raconter ce qui s'est déjà passé",
@@ -2835,6 +3236,150 @@
                                 }
                             ],
                             "format": "lesson-card"
+                        },
+                        {
+                            "id": "ce2-lesson-verbes-2e-groupe",
+                            "title": "Les verbes comme finir",
+                            "subtitle": "Le 2e groupe au présent",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Les verbes du 2e groupe se terminent par -ir et font -issons avec nous : finir, choisir, grandir. Au présent, leurs terminaisons sont -is, -is, -it, -issons, -issez, -issent."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "finir : je finis, tu finis, il finit, nous finissons, vous finissez, ils finissent."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "choisir : je choisis, nous choisissons",
+                                        "grandir : tu grandis, ils grandissent",
+                                        "pour reconnaître le 2e groupe, je conjugue avec nous et j'écoute -issons"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Au 2e groupe, on entend -iss- à nous, vous et ils : finissons, finissez, finissent."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Les enfants ___ vite. Quelle forme du verbe grandir au présent complète la phrase ?",
+                                    "choices": [
+                                        "grandissent",
+                                        "grandisent",
+                                        "grandissons"
+                                    ],
+                                    "answer": "grandissent",
+                                    "explanation": "Avec ils ou les enfants, grandir fait -issent : « grandissent », avec deux s. « grandissons » va avec nous, et « grandisent » n'a qu'un s."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Je conjugue avec nous pour trouver le groupe. Quel verbe donne « nous ...issons » ?",
+                                    "choices": [
+                                        "finir",
+                                        "partir",
+                                        "chanter"
+                                    ],
+                                    "answer": "finir",
+                                    "explanation": "On dit « nous finissons » : finir est du 2e groupe. On dit « nous partons » et « nous chantons » : ces verbes ne font pas -issons."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ce2-lesson-verbes-3e-groupe",
+                            "title": "Les verbes du 3e groupe très utilisés",
+                            "subtitle": "Faire, dire, venir, prendre, pouvoir, vouloir",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Les verbes du 3e groupe n'ont pas de règle unique : il faut apprendre leurs formes. Les plus utiles au présent sont faire, dire, venir, prendre, pouvoir et vouloir."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le soir, nous faisons nos devoirs. Les enfants disent bonjour, puis ils prennent leur goûter."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "headers": [
+                                        "Verbe",
+                                        "je / il",
+                                        "nous",
+                                        "ils"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "faire",
+                                            "fais / fait",
+                                            "faisons",
+                                            "font"
+                                        ],
+                                        [
+                                            "dire",
+                                            "dis / dit",
+                                            "disons",
+                                            "disent"
+                                        ],
+                                        [
+                                            "venir",
+                                            "viens / vient",
+                                            "venons",
+                                            "viennent"
+                                        ],
+                                        [
+                                            "prendre",
+                                            "prends / prend",
+                                            "prenons",
+                                            "prennent"
+                                        ],
+                                        [
+                                            "pouvoir",
+                                            "peux / peut",
+                                            "pouvons",
+                                            "peuvent"
+                                        ],
+                                        [
+                                            "vouloir",
+                                            "veux / veut",
+                                            "voulons",
+                                            "veulent"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Avec vous, dire et faire sont des exceptions : vous dites, vous faites."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Mes cousins ___ le train pour venir. Quelle forme du verbe prendre complète la phrase ?",
+                                    "choices": [
+                                        "prennent",
+                                        "prend",
+                                        "prenent"
+                                    ],
+                                    "answer": "prennent",
+                                    "explanation": "Avec « mes cousins », le sujet est pluriel : prendre fait « prennent », avec deux n. « prend » va avec un seul sujet, et « prenent » est mal écrit."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quelle phrase est correcte ?",
+                                    "choices": [
+                                        "Vous faites un gâteau.",
+                                        "Vous faisez un gâteau.",
+                                        "Vous fait un gâteau."
+                                    ],
+                                    "answer": "Vous faites un gâteau.",
+                                    "explanation": "Avec vous, faire donne « faites » : c'est une exception à -ez. « faisez » n'existe pas et « fait » s'emploie avec il ou elle."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -2980,7 +3525,7 @@
                         {
                             "id": "ce2-conj-pc-etre",
                             "title": "Passé composé : être",
-                            "subtitle": "Je suis tombé, elle est arrivée...",
+                            "subtitle": "Il est tombé, elle est arrivée...",
                             "engine": "conjugation",
                             "params": {
                                 "category": "pc_1",
@@ -3449,7 +3994,7 @@
                             "subtitle": "Écoute et écris",
                             "engine": "audio-spelling",
                             "params": {
-                                "category": "animals",
+                                "category": "animals_ce2",
                                 "speechRate": 0.8,
                                 "questions": 6
                             }
@@ -3460,7 +4005,7 @@
                             "subtitle": "Écoute et écris",
                             "engine": "audio-spelling",
                             "params": {
-                                "category": "school",
+                                "category": "school_ce2",
                                 "speechRate": 0.8,
                                 "questions": 6
                             }
@@ -3471,7 +4016,7 @@
                             "subtitle": "Écoute et écris",
                             "engine": "audio-spelling",
                             "params": {
-                                "category": "house",
+                                "category": "house_ce2",
                                 "speechRate": 0.8,
                                 "questions": 6
                             }
@@ -3792,18 +4337,6 @@
                             "engine": "choice-engine",
                             "id": "ce2-histoire-comparer-autrefois",
                             "subtitle": "Maison, école et objets"
-                        },
-                        {
-                            "id": "ce2-histoire-personnages-vie-autrefois",
-                            "title": "Personnages célèbres de notre histoire",
-                            "subtitle": "Des gens qui ont marqué leur époque",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/history_ce2.json",
-                                "category": "ce2-personnages-celebres",
-                                "questions": 6
-                            }
                         },
                         {
                             "id": "ce2-bonus-histoire-vie-defi",
@@ -4138,29 +4671,6 @@
                             "engine": "choice-engine",
                             "id": "ce2-histoire-apprendre-autrefois",
                             "subtitle": "Cahiers, plumes et règles"
-                        },
-                        {
-                            "params": {
-                                "questions": 6,
-                                "dataFile": "data/history_ce2.json",
-                                "category": "ce2-frise-vie-famille",
-                                "type": "factual-qcm"
-                            },
-                            "title": "Frise de vie",
-                            "engine": "choice-engine",
-                            "id": "ce2-histoire-frise-vie-famille",
-                            "subtitle": "Souvenirs, dates et générations"
-                        },
-                        {
-                            "id": "ce2-histoire-ecole-appariement",
-                            "title": "Repères d'histoire mélangés",
-                            "subtitle": "Relie chaque repère à sa correspondance",
-                            "engine": "matching",
-                            "params": {
-                                "category": "matching_histoire_ce2",
-                                "dataFile": "data/history_matching.json",
-                                "questions": 2
-                            }
                         },
                         {
                             "id": "ce2-bonus-histoire-ecole",
@@ -4565,25 +5075,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans un même quartier, on trouve une station de tramway, une pharmacie, un collège et un cinéma, tous à moins de dix minutes à pied. Quel espace est décrit ?",
+                                    "question": "Près de chez Inès : tramway, pharmacie, collège et cinéma, tous à pied. Quel espace est décrit ?",
                                     "choices": [
-                                        "Un espace urbain",
+                                        "Un espace urbain, en ville",
                                         "Un espace de montagne",
-                                        "Un espace agricole"
+                                        "Un espace agricole, rural"
                                     ],
-                                    "answer": "Un espace urbain",
-                                    "explanation": "Autant de services et de transports serrés sur si peu de place, c'est la marque de la ville. En montagne, les pentes éloignent les habitations et les services sont rares. Dans un espace agricole, ce sont les champs qui occupent l'espace, pas les commerces."
+                                    "answer": "Un espace urbain, en ville",
+                                    "explanation": "Autant de services et de transports proches, c'est la marque d'une ville. En montagne ou dans un espace agricole, les services sont plus rares."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pourquoi construit-on des ports de plaisance sur le littoral plutôt qu'à la campagne ?",
+                                    "question": "Pourquoi construit-on des ports de plaisance sur le littoral et pas à la campagne ?",
                                     "choices": [
-                                        "Parce que les activités dépendent de ce que le lieu permet de faire",
-                                        "Parce que les habitants du littoral sont plus nombreux",
+                                        "Parce qu'un port a besoin de la mer à côté",
+                                        "Parce que le littoral a beaucoup plus d'habitants",
                                         "Parce que la campagne n'a pas d'habitants"
                                     ],
-                                    "answer": "Parce que les activités dépendent de ce que le lieu permet de faire",
-                                    "explanation": "Un port a besoin de la mer : c'est le paysage qui rend l'activité possible, et chaque espace a donc les siennes. Le nombre d'habitants n'y change rien : une commune du littoral peut être petite. Et la campagne a bien des habitants, qui y mènent d'autres activités, comme l'agriculture."
+                                    "answer": "Parce qu'un port a besoin de la mer à côté",
+                                    "explanation": "Un port a besoin de la mer : le paysage rend l'activité possible. Chaque espace a donc des activités propres."
                                 }
                             ]
                         },
@@ -4618,25 +5128,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Une commune décide d'ouvrir une médiathèque gratuite pour tous ses habitants. Pourquoi n'est-ce pas un commerce ?",
+                                    "question": "Une commune ouvre une médiathèque gratuite. Pourquoi n'est-ce pas un commerce ?",
                                     "choices": [
-                                        "Parce qu'elle rend un service à tous sans rien vendre",
-                                        "Parce qu'elle est ouverte seulement le matin",
-                                        "Parce qu'elle se trouve à côté de la mairie"
+                                        "Parce qu'elle rend service à tous sans rien vendre",
+                                        "Parce qu'elle ouvre seulement le matin et le samedi",
+                                        "Parce qu'elle se trouve juste à côté de la mairie"
                                     ],
-                                    "answer": "Parce qu'elle rend un service à tous sans rien vendre",
-                                    "explanation": "Un service public est offert à tous les habitants, sans achat : la commune le finance pour tout le monde. Les horaires ne changent rien : un magasin aussi peut fermer l'après-midi. Et son emplacement ne décide de rien : un commerce peut être voisin de la mairie."
+                                    "answer": "Parce qu'elle rend service à tous sans rien vendre",
+                                    "explanation": "Un service public est offert à tous les habitants, sans achat. Les horaires ou l'emplacement ne changent pas sa nature."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans un village, la dernière boulangerie ferme. Quelle conséquence directe pour les habitants ?",
+                                    "question": "La dernière boulangerie du village ferme. Quelle conséquence directe pour les habitants ?",
                                     "choices": [
-                                        "Ils iront chercher leur pain dans une autre commune",
-                                        "Le village perdra le maire qu'il avait élu",
-                                        "Le village se transformera peu à peu en ville"
+                                        "Ils doivent faire plus de route pour acheter du pain",
+                                        "Le village perd le maire que les habitants ont élu",
+                                        "Le village devient peu à peu une petite ville"
                                     ],
-                                    "answer": "Ils iront chercher leur pain dans une autre commune",
-                                    "explanation": "Quand un service disparaît, il faut aller le chercher ailleurs : les trajets s'allongent pour les habitants. Le maire est élu par les habitants : la fermeture d'un commerce ne le concerne pas. Et un village ne devient pas une ville : il en perd même de l'attrait."
+                                    "answer": "Ils doivent faire plus de route pour acheter du pain",
+                                    "explanation": "Quand un service disparaît, il faut aller le chercher plus loin. Le maire et la taille du village n'en dépendent pas."
                                 }
                             ]
                         },
@@ -4671,25 +5181,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Chaque matin, des milliers de voitures entrent dans la grande ville, et chaque soir elles en ressortent. Comment expliquer ces trajets ?",
+                                    "question": "Le matin, des milliers de voitures entrent dans la ville ; le soir, elles en sortent. Pourquoi ?",
                                     "choices": [
-                                        "Des habitants vivent autour de la ville mais y travaillent",
-                                        "Les habitants de la ville partent travailler à la campagne",
-                                        "Ce sont des touristes qui visitent la ville chaque jour"
+                                        "Des gens habitent autour de la ville mais y travaillent",
+                                        "Les habitants de la ville vont travailler à la campagne",
+                                        "Des touristes viennent visiter la ville chaque jour"
                                     ],
-                                    "answer": "Des habitants vivent autour de la ville mais y travaillent",
-                                    "explanation": "Le sens des trajets le dit : on entre le matin, on sort le soir, donc les logements sont à l'extérieur et les emplois dedans. Si les citadins partaient travailler à la campagne, le flux serait inversé le matin. Et des touristes ne reviendraient pas tous les jours au même rythme."
+                                    "answer": "Des gens habitent autour de la ville mais y travaillent",
+                                    "explanation": "On entre le matin et on sort le soir : les logements sont autour de la ville et les emplois dedans. Des touristes ou des citadins partant vers la campagne ne feraient pas ce trajet."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un élève dit : « Il vaut mieux habiter en ville, c'est mieux que la campagne. » Pourquoi un géographe ne dirait-il pas cela ?",
+                                    "question": "Un élève dit : « Habiter en ville, c'est mieux que la campagne. » Que répond un géographe ?",
                                     "choices": [
-                                        "Parce que chaque espace a ses avantages et ses inconvénients",
-                                        "Parce que la campagne est toujours plus agréable",
-                                        "Parce que personne ne choisit où il habite"
+                                        "Chaque espace a ses avantages et ses inconvénients",
+                                        "La campagne est toujours plus agréable que la ville",
+                                        "Les habitants n'ont jamais le choix de leur lieu de vie"
                                     ],
-                                    "answer": "Parce que chaque espace a ses avantages et ses inconvénients",
-                                    "explanation": "La ville offre les services tout près, la campagne offre l'espace : aucun des deux n'est meilleur, ils se complètent. Dire que la campagne est toujours plus agréable, c'est le même jugement à l'envers. Et beaucoup de gens choisissent bien leur lieu de vie, selon leur travail ou leurs goûts."
+                                    "answer": "Chaque espace a ses avantages et ses inconvénients",
+                                    "explanation": "La ville offre les services tout près, la campagne offre l'espace : aucun n'est meilleur. Dire le contraire est le même jugement à l'envers."
                                 }
                             ],
                             "format": "lesson-card"
@@ -4798,25 +5308,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Deux cartes montrent la France : l'une s'intitule « Les fleuves », l'autre « Les autoroutes ». Elles n'affichent pas les mêmes traits. Pourquoi ?",
+                                    "question": "Deux cartes de France, « Les fleuves » et « Les autoroutes », n'ont pas les mêmes traits. Pourquoi ?",
                                     "choices": [
-                                        "Parce qu'une carte ne montre que ce qu'annonce son titre",
-                                        "Parce que l'une des deux cartes est fausse",
-                                        "Parce que les autoroutes suivent toujours les fleuves"
+                                        "Chaque carte montre seulement ce que dit son titre",
+                                        "L'une des deux cartes contient une erreur de dessin",
+                                        "Les autoroutes sont toujours tracées le long des fleuves"
                                     ],
-                                    "answer": "Parce qu'une carte ne montre que ce qu'annonce son titre",
-                                    "explanation": "Chaque carte choisit un sujet, indiqué par son titre : elle ne dessine que cela, c'est pourquoi on le lit en premier. Aucune n'est fausse : elles répondent simplement à deux questions différentes. Et les autoroutes ne suivent pas les fleuves : ce sont bien deux tracés distincts."
+                                    "answer": "Chaque carte montre seulement ce que dit son titre",
+                                    "explanation": "Chaque carte choisit un sujet, annoncé par son titre : on le lit donc en premier. Aucune des deux n'est fausse : elles répondent à des questions différentes."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur une carte de France, un élève trouve une grande étendue bleue qui borde le sud du pays. De quoi s'agit-il ?",
+                                    "question": "Sur une carte de France, une grande étendue bleue borde le sud du pays. De quoi s'agit-il ?",
                                     "choices": [
                                         "De la mer Méditerranée",
                                         "Du massif des Alpes",
                                         "De la ville de Paris"
                                     ],
                                     "answer": "De la mer Méditerranée",
-                                    "explanation": "Le bleu représente l'eau, et la mer qui borde la France au sud est la Méditerranée. Les Alpes sont un relief, dessiné en marron ou en gris, à l'est. Et Paris est une ville : elle apparaît comme un point ou un symbole, pas comme une étendue."
+                                    "explanation": "Le bleu représente l'eau : au sud de la France, c'est la mer Méditerranée. Les Alpes sont un relief et Paris une ville, pas des étendues d'eau."
                                 }
                             ]
                         },
@@ -4832,7 +5342,7 @@
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "La Loire, le plus long fleuve français, traverse le pays d'est en ouest jusqu'à l'océan Atlantique."
+                                    "content": "La Loire, le plus long fleuve français, naît dans le Massif central et se jette dans l'océan Atlantique."
                                 },
                                 {
                                     "type": "bullets",
@@ -4853,28 +5363,84 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un élève suit du doigt un cours d'eau sur la carte, depuis sa source jusqu'à la mer du Nord, aux Pays-Bas. Pourquoi ne peut-il pas le classer parmi les fleuves français ?",
+                                    "question": "Un cours d'eau longe l'est de la France et finit aux Pays-Bas. Pourquoi n'est-il pas français ?",
                                     "choices": [
-                                        "Parce qu'il ne se jette pas dans une mer qui borde la France",
-                                        "Parce qu'il est trop court pour être un fleuve",
+                                        "Parce qu'il se jette dans la mer dans un autre pays",
+                                        "Parce qu'il est bien trop court pour être un fleuve",
                                         "Parce qu'il n'est pas dessiné en bleu sur la carte"
                                     ],
-                                    "answer": "Parce qu'il ne se jette pas dans une mer qui borde la France",
-                                    "explanation": "C'est le Rhin : il longe l'est du pays mais finit sa course aux Pays-Bas, il n'est donc pas un fleuve français. Sa longueur n'a rien à voir : le Rhin est très long. Et il est bien tracé en bleu comme toute eau : la couleur ne dit pas la nationalité."
+                                    "answer": "Parce qu'il se jette dans la mer dans un autre pays",
+                                    "explanation": "C'est le Rhin : il longe l'est de la France mais se jette dans la mer aux Pays-Bas. Sa longueur et sa couleur sur la carte n'ont rien à voir."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur une carte de France, une large bande marron s'étire tout le long de la frontière avec l'Espagne. Que peut-on en conclure ?",
+                                    "question": "Une large bande marron longe la frontière entre la France et l'Espagne. Que peut-on en conclure ?",
                                     "choices": [
                                         "Une chaîne de montagnes sépare les deux pays",
-                                        "Une grande plaine agricole s'étend entre les deux pays",
-                                        "Un fleuve marque la frontière entre les deux pays"
+                                        "Une plaine cultivée s'étend entre les deux pays",
+                                        "Un fleuve forme la frontière entre les deux pays"
                                     ],
                                     "answer": "Une chaîne de montagnes sépare les deux pays",
-                                    "explanation": "Le marron signale le relief élevé : ce sont les Pyrénées, qui forment la frontière avec l'Espagne. Une plaine serait dessinée en vert, pas en marron. Et un fleuve apparaîtrait comme un trait bleu fin, pas comme une large bande."
+                                    "explanation": "Le marron signale un relief élevé : ce sont les Pyrénées. Une plaine serait dessinée en vert et un fleuve par un trait bleu fin."
                                 }
                             ],
                             "format": "lesson-card"
+                        },
+                        {
+                            "id": "ce2-lesson-regions-france",
+                            "title": "Les régions de la France",
+                            "subtitle": "Treize régions en métropole",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La France métropolitaine est partagée en 13 régions. Chaque région a un nom et une place sur la carte."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "La Bretagne est à l'ouest, au bord de l'océan Atlantique. Paris se trouve dans l'Île-de-France, dans le nord du pays."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Où les chercher ?",
+                                    "items": [
+                                        "au nord : Hauts-de-France, Normandie et Île-de-France (autour de Paris)",
+                                        "au centre : Centre-Val de Loire",
+                                        "à l'ouest : Bretagne, Pays de la Loire et Nouvelle-Aquitaine",
+                                        "à l'est : Grand Est et Bourgogne-Franche-Comté",
+                                        "au sud et au sud-est : Occitanie, Auvergne-Rhône-Alpes et Provence-Alpes-Côte d'Azur",
+                                        "et une île de la mer Méditerranée : la Corse"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour retenir les régions, je les range par place sur la carte : nord, centre, ouest, est et sud."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Combien de régions compte la France métropolitaine ?",
+                                    "choices": [
+                                        "13",
+                                        "22",
+                                        "8"
+                                    ],
+                                    "answer": "13",
+                                    "explanation": "La France métropolitaine compte 13 régions. Le nombre 22 est l'ancien nombre de régions, avant que certaines soient réunies."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur une carte, où cherche-t-on la région des Pays de la Loire ?",
+                                    "choices": [
+                                        "à l'ouest de la France",
+                                        "à l'est de la France",
+                                        "au nord de la France"
+                                    ],
+                                    "answer": "à l'ouest de la France",
+                                    "explanation": "Les Pays de la Loire sont à l'ouest, entre la Bretagne et la Nouvelle-Aquitaine. Les régions de l'est sont, elles, le Grand Est et la Bourgogne-Franche-Comté."
+                                }
+                            ]
                         }
                     ]
                 },
@@ -4921,11 +5487,11 @@
                         },
                         {
                             "id": "ce2-geo-reperage-appariement",
-                            "title": "Symboles et légendes",
-                            "subtitle": "Relie chaque symbole de carte à ce qu'il représente",
+                            "title": "Se repérer et lire une carte",
+                            "subtitle": "Points cardinaux, légende, plan, boussole",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_geo_ce2",
+                                "category": "matching_geo_ce2_reperage",
                                 "dataFile": "data/geography_matching.json",
                                 "questions": 2
                             }
@@ -4974,25 +5540,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur une carte, un élève voit plusieurs petits triangles verts mais ne sait pas ce qu'ils représentent. Où doit-il chercher ?",
+                                    "question": "Sur une carte, un élève voit des triangles verts et ne sait pas ce qu'ils représentent. Où chercher ?",
                                     "choices": [
-                                        "Dans la légende",
-                                        "Dans le titre",
+                                        "Dans la légende de la carte",
+                                        "Dans le titre de la carte",
                                         "Sur les bords de la carte"
                                     ],
-                                    "answer": "Dans la légende",
-                                    "explanation": "La légende associe chaque symbole à sa signification : c'est là que le triangle vert est expliqué. Le titre annonce le sujet général de la carte, pas le sens de chaque signe. Et les bords ne donnent aucune explication des symboles."
+                                    "answer": "Dans la légende de la carte",
+                                    "explanation": "La légende associe chaque symbole à sa signification. Le titre donne le sujet de la carte, pas le sens de chaque signe."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Deux cartes du même village utilisent un rond rouge : sur l'une il signale une école, sur l'autre une boulangerie. Est-ce une erreur ?",
+                                    "question": "Sur deux cartes du village, un rond rouge désigne l'école, puis la boulangerie. Est-ce une erreur ?",
                                     "choices": [
-                                        "Non, chaque carte choisit ses symboles et les explique dans sa légende",
-                                        "Oui, un rond rouge veut toujours dire la même chose partout",
-                                        "Oui, il faudrait une couleur différente sur chaque carte"
+                                        "Non, chaque carte explique ses symboles dans sa légende",
+                                        "Oui, un rond rouge a toujours le même sens partout",
+                                        "Oui, il faut une couleur différente sur chaque carte"
                                     ],
-                                    "answer": "Non, chaque carte choisit ses symboles et les explique dans sa légende",
-                                    "explanation": "Un symbole n'a pas de sens universel : il vaut ce que sa légende dit, c'est pour cela qu'on la lit d'abord. Le rond rouge ne signifie donc pas la même chose partout. Et rien n'oblige à changer de couleur : deux cartes peuvent réutiliser le même signe pour d'autres choses."
+                                    "answer": "Non, chaque carte explique ses symboles dans sa légende",
+                                    "explanation": "Un symbole n'a pas de sens universel : il vaut ce que dit la légende de sa carte. C'est pourquoi on la lit d'abord."
                                 }
                             ],
                             "title": "Lire une carte simple",
@@ -5032,25 +5598,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur le plan du quartier, l'immeuble le plus haut n'est pas plus grand que les autres dessins. Pourquoi ?",
+                                    "question": "Sur un plan, l'immeuble le plus haut n'est pas plus grand que les autres. Pourquoi ?",
                                     "choices": [
-                                        "Parce que vu d'en haut, on voit la place occupée au sol, pas la hauteur",
-                                        "Parce que le dessinateur a fait une erreur",
-                                        "Parce que les immeubles hauts ne se dessinent pas sur un plan"
+                                        "Vu d'en haut, on voit sa place au sol, pas sa hauteur",
+                                        "Le dessinateur s'est trompé en traçant le plan",
+                                        "Les immeubles hauts ne figurent jamais sur un plan"
                                     ],
-                                    "answer": "Parce que vu d'en haut, on voit la place occupée au sol, pas la hauteur",
-                                    "explanation": "Un plan regarde depuis le ciel : il montre l'emprise au sol, et un immeuble haut mais étroit occupe peu de place. Ce n'est pas une erreur, c'est le principe même du plan. Et les immeubles hauts y figurent bien : simplement vus du dessus."
+                                    "answer": "Vu d'en haut, on voit sa place au sol, pas sa hauteur",
+                                    "explanation": "Un plan montre l'espace vu du ciel : on voit la place occupée au sol, pas la hauteur. Ce n'est pas une erreur, c'est le principe du plan."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur un plan, un élève trace un trajet de l'école à la mairie en ligne droite, en traversant tout droit les maisons. Que doit-il corriger ?",
+                                    "question": "Sur un plan, un élève trace un trajet en ligne droite à travers les maisons. Que doit-il corriger ?",
                                     "choices": [
                                         "Suivre les rues, car on ne traverse pas les bâtiments",
                                         "Rien, un trajet est toujours la ligne la plus courte",
-                                        "Effacer la mairie de son plan"
+                                        "Effacer la mairie et l'école de son plan"
                                     ],
                                     "answer": "Suivre les rues, car on ne traverse pas les bâtiments",
-                                    "explanation": "Un trajet réel emprunte les rues : c'est justement à cela que le plan sert, montrer par où passer. La ligne droite est la plus courte sur le papier, mais impossible à parcourir. Et effacer la mairie ne changerait rien : c'est le trajet, pas le plan, qui est faux."
+                                    "explanation": "Un trajet réel suit les rues : c'est ce que le plan permet de repérer. La ligne droite est la plus courte sur le papier, mais impossible à parcourir."
                                 }
                             ]
                         }
@@ -5094,25 +5660,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Une classe doit visiter un musée à 400 km, en arrivant le matin et en repartant le soir. Pourquoi le vélo est-il à écarter tout de suite ?",
+                                    "question": "Une classe va au musée à 400 km et rentre le soir. Pourquoi écarter le vélo tout de suite ?",
                                     "choices": [
-                                        "400 km à vélo demanderaient plusieurs jours dans chaque sens",
-                                        "Le vélo pollue trop pour un aussi long trajet",
-                                        "Le vélo est interdit aux enfants sur les routes"
+                                        "À vélo, 400 km prendraient bien plus d'une journée",
+                                        "Le vélo pollue trop pour un si long trajet",
+                                        "Le vélo est interdit aux enfants sur la route"
                                     ],
-                                    "answer": "400 km à vélo demanderaient plusieurs jours dans chaque sens",
-                                    "explanation": "Le temps disponible décide ici : l'aller-retour doit tenir dans une journée, or 400 km à vélo prendraient des jours. Le vélo ne pollue pas, c'est même son grand atout : ce n'est pas le problème. Et il n'est pas interdit aux enfants : il est simplement bien trop lent pour cette distance."
+                                    "answer": "À vélo, 400 km prendraient bien plus d'une journée",
+                                    "explanation": "Il faut tenir dans une journée : 400 km à vélo prendraient des jours. Le vélo ne pollue pas et n'est pas interdit aux enfants."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pour un même trajet, un adulte prend certains jours le bus et d'autres jours le vélo. Comment expliquer ce choix qui change ?",
+                                    "question": "Un adulte prend le bus certains jours et le vélo d'autres jours, pour le même trajet. Pourquoi ?",
                                     "choices": [
-                                        "La météo et le temps disponible varient chaque jour",
-                                        "Il ne connaît pas encore très bien son trajet",
+                                        "La météo et le temps dont il dispose changent chaque jour",
+                                        "Il ne connaît pas encore bien le chemin à suivre",
                                         "Le bus et le vélo mettent exactement le même temps"
                                     ],
-                                    "answer": "La météo et le temps disponible varient chaque jour",
-                                    "explanation": "Le bon transport dépend de la situation du jour : pressé ou sous la pluie, on ne choisit pas comme un matin calme et ensoleillé. Il connaît très bien son trajet, puisqu'il le fait souvent. Et les deux ne mettent pas le même temps : c'est justement un critère du choix."
+                                    "answer": "La météo et le temps dont il dispose changent chaque jour",
+                                    "explanation": "Le bon transport dépend de la situation du jour : pluie, retard, temps disponible. Il connaît son trajet puisqu'il le fait souvent."
                                 }
                             ]
                         },
@@ -5147,25 +5713,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un car emmène 50 personnes de Lyon à Grenoble. Ces 50 personnes auraient pu faire le trajet en 40 voitures. Que peut-on dire de la pollution ?",
+                                    "question": "50 personnes voyagent dans un car au lieu de 40 voitures. Que dire de la pollution ?",
                                     "choices": [
                                         "Le car pollue moins, car il remplace beaucoup de voitures",
                                         "Le car pollue plus, car il est plus gros qu'une voiture",
-                                        "C'est pareil, chaque véhicule pollue autant"
+                                        "C'est pareil : tous les véhicules polluent autant"
                                     ],
                                     "answer": "Le car pollue moins, car il remplace beaucoup de voitures",
-                                    "explanation": "Ce qui compte, c'est la pollution par voyageur : un seul moteur pour 50 personnes fait bien mieux que 40 moteurs. La taille du véhicule ne suffit pas à juger, puisqu'il transporte 50 fois plus de monde. Et non, tous les véhicules ne se valent pas : le nombre de passagers change tout."
+                                    "explanation": "Ce qui compte, c'est la pollution par voyageur : un seul moteur pour 50 personnes fait mieux que 40 moteurs. La taille du véhicule ne suffit pas pour juger."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un adulte doit aller de Paris à Marseille. Il hésite entre l'avion et le train. Quel argument penche pour le train ?",
+                                    "question": "Paris-Marseille : quel argument penche pour le train plutôt que pour l'avion ?",
                                     "choices": [
-                                        "Il pollue beaucoup moins pour un temps de trajet comparable",
-                                        "Il est le seul à pouvoir faire ce trajet",
-                                        "Il permet d'éviter tous les autres voyageurs"
+                                        "Il pollue beaucoup moins pour un trajet de durée proche",
+                                        "C'est le seul moyen de faire ce trajet en France",
+                                        "Il permet de voyager sans croiser les autres voyageurs"
                                     ],
-                                    "answer": "Il pollue beaucoup moins pour un temps de trajet comparable",
-                                    "explanation": "Sur cette distance, le TGV met environ 3 h, presque comme l'avion une fois les aéroports comptés, en rejetant bien moins de gaz. L'avion peut évidemment faire ce trajet : le train n'est pas le seul. Et le train est justement rempli de voyageurs : ce n'est pas un argument."
+                                    "answer": "Il pollue beaucoup moins pour un trajet de durée proche",
+                                    "explanation": "Le TGV met environ 3 h, presque autant que l'avion une fois les aéroports comptés, et il rejette bien moins de gaz. Le train n'est pas le seul moyen de faire ce trajet."
                                 }
                             ],
                             "format": "lesson-card"
@@ -5195,18 +5761,6 @@
                             "engine": "choice-engine",
                             "id": "ce2-geo-voyager-deplacer",
                             "subtitle": "Train, bus, port, gare"
-                        },
-                        {
-                            "id": "ce2-geo-transports-cartes",
-                            "title": "Lire une carte",
-                            "subtitle": "Légende et symboles",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/geography_ce2.json",
-                                "category": "ce2-cartes-symboles",
-                                "questions": 6
-                            }
                         },
                         {
                             "id": "ce2-bonus-geo-transports-defi",
@@ -5252,7 +5806,7 @@
                             "params": {
                                 "questions": 8,
                                 "dataFile": "data/science_ce2.json",
-                                "category": "ce2-vivant",
+                                "category": "ce2-vivant-besoins",
                                 "type": "factual-qcm"
                             },
                             "title": "Grandir et se nourrir",
@@ -5868,19 +6422,19 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_ce2.json",
-                                "category": "ce2-saisons-meteo",
+                                "category": "ce2-saisons-cycle",
                                 "questions": 8
                             }
                         },
                         {
                             "id": "ce2-sciences-mesurer-meteo",
                             "title": "Mesurer la météo",
-                            "subtitle": "Thermomètre, girouette, pluviomètre",
+                            "subtitle": "Thermomètre, girouette, pluviomètre et météo du jour",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_ce2.json",
-                                "category": "ce2-saisons-meteo",
+                                "category": "ce2-meteo-mesures",
                                 "questions": 6
                             }
                         },
@@ -5892,7 +6446,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_ce2.json",
-                                "category": "ce2-saisons-meteo",
+                                "category": "ce2-saisons-vivants",
                                 "questions": 6
                             }
                         },
@@ -6050,7 +6604,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_ce2.json",
-                                "category": "ce2-milieux-vie",
+                                "category": "ce2-milieux-ecosystemes",
                                 "questions": 8
                             }
                         },
@@ -6062,7 +6616,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_ce2.json",
-                                "category": "ce2-milieux-vie",
+                                "category": "ce2-milieux-biodiversite",
                                 "questions": 6
                             }
                         },
@@ -6074,7 +6628,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_ce2.json",
-                                "category": "ce2-milieux-vie",
+                                "category": "ce2-milieux-protection",
                                 "questions": 6
                             }
                         },
@@ -6265,17 +6819,6 @@
                             "id": "ce2-emc-appariement",
                             "title": "Droits et devoirs",
                             "subtitle": "Relie chaque droit à son devoir",
-                            "engine": "matching",
-                            "params": {
-                                "category": "matching_emc_ce2",
-                                "dataFile": "data/emc_matching.json",
-                                "questions": 3
-                            }
-                        },
-                        {
-                            "id": "ce2-emc-appariement-2",
-                            "title": "Symboles et valeurs de la République",
-                            "subtitle": "Relie chaque symbole à sa signification",
                             "engine": "matching",
                             "params": {
                                 "category": "matching_emc_ce2",
@@ -6652,22 +7195,10 @@
                                 "category": "ce2-entraide",
                                 "type": "factual-qcm"
                             },
-                            "title": "Aider et coopérer",
+                            "title": "Entraide : la série longue",
                             "engine": "choice-engine",
                             "id": "ce2-emc-aider-cooperer",
-                            "subtitle": "Soutenir et agir ensemble"
-                        },
-                        {
-                            "id": "ce2-emc-cooperation-classe",
-                            "title": "Coopérer en classe",
-                            "subtitle": "Travailler ensemble vers un but commun",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/emc_ce2.json",
-                                "category": "ce2-cooperation",
-                                "questions": 6
-                            }
+                            "subtitle": "Huit questions pour s'entraîner davantage"
                         },
                         {
                             "id": "ce2-bonus-emc-entraide-defi",
@@ -6819,22 +7350,10 @@
                                 "category": "ce2-responsabilite",
                                 "type": "factual-qcm"
                             },
-                            "title": "Être responsable",
+                            "title": "Responsabilité : la série longue",
                             "engine": "choice-engine",
                             "id": "ce2-emc-etre-responsable",
-                            "subtitle": "Choix, autonomie, sécurité"
-                        },
-                        {
-                            "id": "ce2-emc-parole-ecoute-responsable",
-                            "title": "Parole et écoute",
-                            "subtitle": "S'exprimer et écouter les autres",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/emc_ce2.json",
-                                "category": "ce2-parole-ecoute",
-                                "questions": 6
-                            }
+                            "subtitle": "Huit questions pour s'entraîner davantage"
                         },
                         {
                             "id": "ce2-bonus-emc-responsabilite-defi",
@@ -7111,6 +7630,17 @@
                                 "dataFile": "data/emc_ce2.json",
                                 "category": "ce2-symboles-republique",
                                 "questions": 7
+                            }
+                        },
+                        {
+                            "id": "ce2-emc-appariement-2",
+                            "title": "Symboles et valeurs de la République",
+                            "subtitle": "Relie chaque symbole à sa signification",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_emc_ce2_symboles",
+                                "dataFile": "data/emc_matching.json",
+                                "questions": 2
                             }
                         }
                     ]

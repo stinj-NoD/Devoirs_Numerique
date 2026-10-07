@@ -218,26 +218,6 @@
                 "explanation": "La table de 5 est reconnaissable : les résultats finissent toujours par 0 ou 5."
             },
             {
-                "title": "Relie chaque figure géométrique à sa propriété.",
-                "pairs": [
-                    ["le carré", "4 côtés égaux et 4 angles droits"],
-                    ["le rectangle", "4 angles droits, côtés opposés égaux"],
-                    ["le triangle rectangle", "un angle droit"],
-                    ["le losange", "4 côtés égaux"]
-                ],
-                "explanation": "Chaque figure géométrique possède des propriétés précises qui permettent de l'identifier."
-            },
-            {
-                "title": "Relie chaque unité à son équivalence.",
-                "pairs": [
-                    ["1 km", "1 000 m"],
-                    ["1 m", "100 cm"],
-                    ["1 kg", "1 000 g"],
-                    ["1 heure", "60 minutes"]
-                ],
-                "explanation": "Connaître les conversions simples est indispensable pour résoudre des problèmes de mesure."
-            },
-            {
                 "title": "Relie chaque nombre à son écriture en lettres.",
                 "pairs": [
                     ["40", "quarante"],
@@ -256,16 +236,6 @@
                     ["12 ÷ 4 = 3", "une division"]
                 ],
                 "explanation": "Connaître le nom des opérations aide à comprendre les consignes en mathématiques."
-            },
-            {
-                "title": "Relie chaque mesure de longueur à un exemple concret.",
-                "pairs": [
-                    ["1 cm", "la largeur d'un ongle"],
-                    ["1 m", "la largeur d'une porte"],
-                    ["1 km", "environ 15 minutes à pied"],
-                    ["10 cm", "la longueur d'un crayon"]
-                ],
-                "explanation": "Associer une unité à un exemple du quotidien aide à comprendre son ordre de grandeur."
             }
         ],
         "matching_math_cm1": [
@@ -420,6 +390,58 @@
                     ["84 ÷ ? = 12", "7"]
                 ],
                 "explanation": "Trouver le terme manquant d'une opération développe le raisonnement algébrique."
+            }
+        ],
+        "matching_geo_math_ce2": [
+            {
+                "title": "Relie chaque figure géométrique à sa propriété.",
+                "pairs": [
+                    ["le carré", "4 côtés égaux et 4 angles droits"],
+                    ["le rectangle", "4 angles droits, mais une longueur et une largeur différentes"],
+                    ["le triangle rectangle", "3 côtés dont un angle droit"],
+                    ["le losange", "4 côtés égaux, mais pas d'angle droit"]
+                ],
+                "explanation": "Chaque figure a une propriété qui permet de la reconnaître : seul le carré a à la fois 4 côtés égaux et 4 angles droits."
+            },
+            {
+                "title": "Relie chaque unité à son équivalence.",
+                "pairs": [
+                    ["1 km", "1 000 m"],
+                    ["1 m", "100 cm"],
+                    ["1 kg", "1 000 g"],
+                    ["1 heure", "60 minutes"]
+                ],
+                "explanation": "Connaître les conversions simples est indispensable pour résoudre des problèmes de mesure."
+            },
+            {
+                "title": "Relie chaque mesure de longueur à un exemple concret.",
+                "pairs": [
+                    ["1 cm", "la largeur d'un ongle"],
+                    ["1 m", "la largeur d'une porte"],
+                    ["1 km", "environ 15 minutes à pied"],
+                    ["10 cm", "la longueur d'un crayon"]
+                ],
+                "explanation": "Associer une unité à un exemple du quotidien aide à comprendre son ordre de grandeur."
+            },
+            {
+                "title": "Relie chaque solide à sa description.",
+                "pairs": [
+                    ["le cube", "6 faces carrées"],
+                    ["la pyramide", "des faces triangulaires qui se rejoignent en un sommet"],
+                    ["la boule", "aucune face plane, tout est arrondi"],
+                    ["le cylindre", "2 disques reliés par une surface courbe"]
+                ],
+                "explanation": "Chaque solide se reconnaît à la forme de ses faces."
+            },
+            {
+                "title": "Relie chaque mesure à l'unité qui convient.",
+                "pairs": [
+                    ["la distance entre deux villes", "le kilomètre"],
+                    ["la longueur d'une cour d'école", "le mètre"],
+                    ["la largeur d'un cahier", "le centimètre"],
+                    ["l'épaisseur d'une pièce de monnaie", "le millimètre"]
+                ],
+                "explanation": "On choisit l'unité selon la taille de ce qu'on mesure : du millimètre pour les très petites choses au kilomètre pour les grandes distances."
             }
         ]
     }
