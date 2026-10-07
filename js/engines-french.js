@@ -57,7 +57,14 @@
         // qu'il est juste). On ne tire donc que les sujets dont le genre et le nombre se lisent :
         // il, elle, ils, elles.
         const accordeAvecSujet = isCompound && normalizeToken(verb.aux) === "etre";
-        const pIdx = accordeAvecSujet ? Engines.utils.pick([2, 3, 7, 8]) : Engines.utils.rnd(0, 8);
+        // `persons` restreint les sujets tirés (ex. ["Je", "Tu", "Il", "Elle"] au CP : les six
+        // personnes d'être et d'avoir sont un attendu de CE1). Sans lui, les neuf sujets.
+        const sujetsAutorises = Array.isArray(p.persons)
+            ? p.persons.map((x) => pronouns.findIndex((y) => normalizeToken(y) === normalizeToken(x))).filter((i) => i >= 0)
+            : [];
+        const sujets = sujetsAutorises.length ? sujetsAutorises : [0, 1, 2, 3, 4, 5, 6, 7, 8];
+        const sujetsLisibles = accordeAvecSujet ? sujets.filter((i) => [2, 3, 7, 8].includes(i)) : sujets;
+        const pIdx = Engines.utils.pick(sujetsLisibles.length ? sujetsLisibles : sujets);
         const cIdx = [0, 1, 2, 2, 2, 3, 4, 5, 5][pIdx];
         let answer = "";
 

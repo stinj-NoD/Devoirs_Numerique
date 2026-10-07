@@ -375,6 +375,19 @@ function Validate-Exercise($path, $themeId, $exercise) {
             }
         }
     }
+    if ($exercise.engine -eq 'conjugation' -and $null -ne $exercise.params.persons) {
+        $validPersons = @('Je', 'Tu', 'Il', 'Elle', 'On', 'Nous', 'Vous', 'Ils', 'Elles')
+        $personsOk = ($exercise.params.persons -is [System.Collections.IList]) -and $exercise.params.persons.Count -ge 1
+        if ($personsOk) {
+            foreach ($pr in $exercise.params.persons) {
+                # -ccontains : sensible à la casse (« Je » et « je » ne sont pas la même valeur déclarée)
+                if (-not ($validPersons -ccontains [string]$pr)) { $personsOk = $false }
+            }
+        }
+        if (-not $personsOk) {
+            Add-Issue("${path}: persons invalide pour conjugation (liste non vide parmi Je, Tu, Il, Elle, On, Nous, Vous, Ils, Elles) ($($exercise.id))")
+        }
+    }
 
     if ($exercise.params.dataFile) {
         $script:ExerciseRefs += [pscustomobject]@{

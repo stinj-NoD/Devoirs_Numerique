@@ -90,8 +90,8 @@
     "conjugation": {
       "label": "Conjugaison",
       "sourceKind": "library",
-      "commonParams": ["questions"],
-      "note": "s'appuie sur data/french/conjugation.json",
+      "commonParams": ["questions", "persons"],
+      "note": "s'appuie sur data/french/conjugation.json ; persons (optionnel) restreint les sujets tirés parmi Je, Tu, Il, Elle, On, Nous, Vous, Ils, Elles (ex. [Je, Tu, Il, Elle] au CP) ; passé composé avec être : seuls il, elle, ils, elles sont tirés",
       "paramsTypes": {}
     },
     "reading": {

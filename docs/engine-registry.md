@@ -55,7 +55,7 @@ signal fort d'habillage redondant. Pour `library`/`generator`, un même contrat
 | `choice-engine` | mixed | `factual-qcm` (**pool**), `gender-articles`, `article-choice`, `plural-choice`, `word-class-choice`, `grammar-cloze`, `homophone-duel` (library), `compare-decimals`, *(défaut)* `compare` | ~539 |
 | `board-interactive` | pool | `tap-features`, `shape-classify`, `point-on-grid`, `symmetry-complete`, `map-locate`, `memory-match`, `angle-classify`, `angle-measure`, `construction-report`, `fraction-build`², `number-line-place`⁵, `number-line-frame`⁵ | ~42 |
 | `conversion` | generator | — (`modes`, `memo`, `units`), `metric-area`⁴ | ~29 |
-| `conjugation` | library | — | ~47 |
+| `conjugation` | library | — (`persons`) | ~47 |
 | `reading` | library | — | ~51 |
 | `audio-spelling` | library | — | ~44 |
 | `cloze-fill-in` | library | — | ~5 |

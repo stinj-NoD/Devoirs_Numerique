@@ -616,6 +616,14 @@
             }
         }
 
+        if (exercise.engine === 'conjugation' && exercise.params.persons !== undefined) {
+            const validPersons = ['Je', 'Tu', 'Il', 'Elle', 'On', 'Nous', 'Vous', 'Ils', 'Elles'];
+            const pr = exercise.params.persons;
+            if (!Array.isArray(pr) || pr.length === 0 || pr.some((x) => !validPersons.includes(x))) {
+                return { valid: false, reason: 'persons invalide pour conjugation (liste non vide parmi Je, Tu, Il, Elle, On, Nous, Vous, Ils, Elles).' };
+            }
+        }
+
         return { valid: true };
     },
 
