@@ -41,7 +41,9 @@ js/app-grimoire.js → mapCollectionDefinitions   la Collection "Cartes du monde
   les tracés régionaux contiennent les frontières départementales). Sans trait
   entre les régions, deux voisines de même couleur se confondent : `css/app.css`
   colore donc chaque région par son nom (`[data-zone-name="…"]`, 5 couleurs,
-  voisines toujours différentes — vérifié sur les 23 paires de voisines) ;
+  voisines toujours différentes — vérifié sur les 23 paires de voisines, dans
+  les thèmes clair ET sombre : les règles `#app.theme-dark` ont leur propre
+  jeu, à tenir à jour en même temps) ;
   l'alternance `nth-of-type(6n+k)` ne reste que comme repli pour une autre
   carte « flat ». Une région ajoutée ou renommée doit être ajoutée à cette liste.
 - **Ajout d'une carte** (checklist) :

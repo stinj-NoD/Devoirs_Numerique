@@ -3018,6 +3018,23 @@ button,
 #app.theme-dark .board-map-svg--flat .board-map-zone:nth-of-type(6n+5) { fill: #8a4d5c; }
 #app.theme-dark .board-map-svg--flat .board-map-zone:nth-of-type(6n+6) { fill: #3d7a72; }
 
+/* Régions de France en thème sombre : même répartition par nom que le thème clair
+   (voisines toujours de couleurs différentes) ; l'alternance ci-dessus ne reste que
+   comme repli pour une autre carte « flat ». */
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Bretagne"],
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Hauts-de-France"],
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Centre-Val de Loire"],
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Occitanie"] { fill: #3d5a80; }
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Normandie"],
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Grand Est"],
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Auvergne-Rhône-Alpes"] { fill: #3f6b47; }
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Pays de la Loire"],
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Île-de-France"],
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Provence-Alpes-Côte d'Azur"] { fill: #8a6d3b; }
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Nouvelle-Aquitaine"],
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Bourgogne-Franche-Comté"] { fill: #6b4d8a; }
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Corse"] { fill: #8a4d5c; }
+
 #app.theme-dark .board-map-svg--flat .board-map-zone:hover {
     fill: rgba(96, 165, 250, 0.6);
 }
