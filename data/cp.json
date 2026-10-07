@@ -3572,7 +3572,7 @@
                         {
                             "id": "cp-conj-etre-avoir",
                             "title": "Être et avoir au présent",
-                            "subtitle": "Conjuguer être et avoir",
+                            "subtitle": "Je, tu, il, elle",
                             "engine": "conjugation",
                             "params": {
                                 "category": "etre_avoir_p",
@@ -3581,13 +3581,19 @@
                                     "avoir"
                                 ],
                                 "tenses": "présent",
+                                "persons": [
+                                    "Je",
+                                    "Tu",
+                                    "Il",
+                                    "Elle"
+                                ],
                                 "questions": 5
                             }
                         },
                         {
                             "id": "cp-conj-verbes-simples",
                             "title": "Verbes en -er au présent",
-                            "subtitle": "Manger, chanter, jouer...",
+                            "subtitle": "Je, tu, il, elle : manger, chanter, jouer...",
                             "engine": "conjugation",
                             "params": {
                                 "category": "present_1",
@@ -3598,13 +3604,19 @@
                                     "aimer"
                                 ],
                                 "tenses": "présent",
+                                "persons": [
+                                    "Je",
+                                    "Tu",
+                                    "Il",
+                                    "Elle"
+                                ],
                                 "questions": 5
                             }
                         },
                         {
                             "id": "cp-bonus-conj-etre-avoir",
                             "title": "Défi : être et avoir",
-                            "subtitle": "Toutes les personnes",
+                            "subtitle": "Je, tu, il, elle : la série longue",
                             "engine": "conjugation",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -3615,6 +3627,12 @@
                                     "avoir"
                                 ],
                                 "tenses": "présent",
+                                "persons": [
+                                    "Je",
+                                    "Tu",
+                                    "Il",
+                                    "Elle"
+                                ],
                                 "questions": 8
                             }
                         }
@@ -3632,19 +3650,19 @@
                                 },
                                 {
                                     "label": "Être au présent",
-                                    "content": "je suis — tu es — il/elle est — nous sommes — vous êtes — ils/elles sont",
+                                    "content": "je suis — tu es — il/elle est",
                                     "type": "example"
                                 },
                                 {
                                     "label": "Avoir au présent",
-                                    "content": "j'ai — tu as — il/elle a — nous avons — vous avez — ils/elles ont",
+                                    "content": "j'ai — tu as — il/elle a",
                                     "type": "example"
                                 },
                                 {
                                     "items": [
                                         "être : je suis, tu es, il est...",
                                         "avoir : j'ai, tu as, il a...",
-                                        "ces verbes changent beaucoup : il faut les apprendre par coeur"
+                                        "ces verbes changent beaucoup : il faut les apprendre par cœur"
                                     ],
                                     "type": "bullets"
                                 },
@@ -3655,25 +3673,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Complète : « Nous ... un chien à la maison. »",
+                                    "question": "Complète : « Tu ... un chien à la maison. »",
                                     "choices": [
-                                        "avons",
-                                        "sommes",
-                                        "avez"
+                                        "as",
+                                        "es",
+                                        "a"
                                     ],
-                                    "answer": "avons",
-                                    "explanation": "Le chien nous appartient : c'est le verbe avoir. Avec « nous », on dit nous avons."
+                                    "answer": "as",
+                                    "explanation": "Le chien t'appartient : c'est le verbe avoir. Avec « tu », on dit tu as."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Malo écrit : « Ils sont trois ans. » Quelle est son erreur ?",
+                                    "question": "Malo écrit : « Elle est sept ans. » Quelle est son erreur ?",
                                     "choices": [
-                                        "Il fallait écrire « Ils ont trois ans. »",
-                                        "Il fallait écrire « Ils es trois ans. »",
-                                        "Il fallait écrire « Ils est trois ans. »"
+                                        "Il fallait écrire « Elle a sept ans. »",
+                                        "Il fallait écrire « Elle es sept ans. »",
+                                        "Il fallait écrire « Elle ai sept ans. »"
                                     ],
-                                    "answer": "Il fallait écrire « Ils ont trois ans. »",
-                                    "explanation": "Pour l'âge, le français utilise avoir : ils ont trois ans. « sont » vient du verbe être."
+                                    "answer": "Il fallait écrire « Elle a sept ans. »",
+                                    "explanation": "Pour l'âge, le français utilise avoir : elle a sept ans. « est » vient du verbe être."
                                 }
                             ]
                         }
