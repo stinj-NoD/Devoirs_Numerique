@@ -779,6 +779,148 @@
                 "answer": "triangulaires, qui se rejoignent en un même sommet",
                 "explanation": "Autour de la base carrée, 4 triangles se relèvent et se rencontrent tous en la pointe du haut."
             }
+        ],
+        "cm1-aires-formules": [
+            {
+                "question": "Quelle est l'aire d'un rectangle de 6 cm de long et 4 cm de large ?",
+                "choices": [
+                    "24 cm²",
+                    "20 cm",
+                    "10 cm²"
+                ],
+                "answer": "24 cm²",
+                "explanation": "L'aire se calcule en multipliant : 6 × 4 = 24, en cm². 20 cm est le périmètre du rectangle, pas son aire."
+            },
+            {
+                "question": "Quel est le périmètre d'un carré de 7 cm de côté ?",
+                "choices": [
+                    "28 cm",
+                    "49 cm²",
+                    "14 cm"
+                ],
+                "answer": "28 cm",
+                "explanation": "Le périmètre est le tour : 4 × 7 = 28 cm. 49 cm² est l'aire (7 × 7) et 14 ne compte que deux côtés."
+            },
+            {
+                "question": "Quelle unité convient pour mesurer l'aire d'une feuille de papier ?",
+                "choices": [
+                    "le centimètre carré",
+                    "le centimètre",
+                    "le litre"
+                ],
+                "answer": "le centimètre carré",
+                "explanation": "Une aire se mesure en unités carrées : cm², m²... Le centimètre mesure une longueur et le litre une contenance."
+            },
+            {
+                "question": "Un jardin rectangulaire mesure 10 m sur 5 m. Quelle est son aire ?",
+                "choices": [
+                    "50 m²",
+                    "30 m",
+                    "15 m²"
+                ],
+                "answer": "50 m²",
+                "explanation": "10 × 5 = 50, en m². 30 m est le périmètre (2 × (10 + 5)) et 15 est la somme des deux côtés."
+            },
+            {
+                "question": "Pour poser une clôture autour de ce jardin de 10 m sur 5 m, que cherche-t-on ?",
+                "choices": [
+                    "son périmètre",
+                    "son aire",
+                    "sa hauteur"
+                ],
+                "answer": "son périmètre",
+                "explanation": "Une clôture fait le tour du jardin : c'est le périmètre, 2 × (10 + 5) = 30 m. L'aire mesure la surface à l'intérieur."
+            },
+            {
+                "question": "Pour recouvrir tout le sol d'une salle avec du carrelage, que cherche-t-on ?",
+                "choices": [
+                    "son aire",
+                    "son périmètre",
+                    "sa longueur"
+                ],
+                "answer": "son aire",
+                "explanation": "Le carrelage couvre toute la surface : on calcule l'aire. Le périmètre servirait pour une plinthe tout autour."
+            },
+            {
+                "question": "Un carré a une aire de 36 cm². Combien mesure son côté ?",
+                "choices": [
+                    "6 cm",
+                    "18 cm",
+                    "9 cm"
+                ],
+                "answer": "6 cm",
+                "explanation": "6 × 6 = 36 : le côté mesure 6 cm. 9 vient de 36 ÷ 4 et 18 de 36 ÷ 2, ce qui ne donne pas un côté."
+            },
+            {
+                "question": "Deux rectangles ont le même périmètre. Ont-ils forcément la même aire ?",
+                "choices": [
+                    "Non, leurs aires peuvent différer",
+                    "Oui, c'est toujours la même",
+                    "Oui, si leurs côtés sont des nombres entiers"
+                ],
+                "answer": "Non, leurs aires peuvent différer",
+                "explanation": "Un rectangle de 8 cm sur 2 cm et un carré de 5 cm de côté ont le même périmètre (20 cm), mais des aires différentes (16 cm² et 25 cm²)."
+            },
+            {
+                "question": "Quelle écriture est correcte pour l'aire d'un rectangle de 3 cm sur 2 cm ?",
+                "choices": [
+                    "3 × 2 = 6 cm²",
+                    "3 + 2 = 5 cm",
+                    "3 × 2 = 6 cm"
+                ],
+                "answer": "3 × 2 = 6 cm²",
+                "explanation": "L'aire est un produit, et son unité est carrée : 6 cm². Une longueur en cm ne convient pas à une aire."
+            },
+            {
+                "question": "Quelle est l'aire d'un rectangle de 12 m sur 3 m ?",
+                "choices": [
+                    "36 m²",
+                    "15 m²",
+                    "24 m²"
+                ],
+                "answer": "36 m²",
+                "explanation": "12 × 3 = 36, en m². 15 est la somme 12 + 3, et 24 le résultat de 12 × 2."
+            },
+            {
+                "question": "Un rectangle a une aire de 40 cm² et une largeur de 5 cm. Quelle est sa longueur ?",
+                "choices": [
+                    "8 cm",
+                    "45 cm",
+                    "200 cm"
+                ],
+                "answer": "8 cm",
+                "explanation": "On cherche le nombre qui, multiplié par 5, donne 40 : 40 ÷ 5 = 8. 45 vient de 40 + 5 et 200 de 40 × 5."
+            },
+            {
+                "question": "Quel calcul donne le périmètre d'un rectangle de 9 cm sur 4 cm ?",
+                "choices": [
+                    "2 × (9 + 4)",
+                    "9 × 4",
+                    "9 + 4"
+                ],
+                "answer": "2 × (9 + 4)",
+                "explanation": "Le périmètre est le tour : 2 × (9 + 4) = 26 cm. 9 × 4 donne l'aire, et 9 + 4 ne compte que la moitié du tour."
+            },
+            {
+                "question": "Combien de carrés de 1 cm de côté faut-il pour couvrir un rectangle de 5 cm sur 3 cm ?",
+                "choices": [
+                    "15 carrés",
+                    "8 carrés",
+                    "16 carrés"
+                ],
+                "answer": "15 carrés",
+                "explanation": "Il y a 3 rangées de 5 carrés : 5 × 3 = 15 carrés, c'est-à-dire 15 cm². 16 serait le périmètre et 8 la somme 5 + 3."
+            },
+            {
+                "question": "On double le côté d'un carré. Que devient son périmètre ?",
+                "choices": [
+                    "Il est multiplié par 2",
+                    "Il est multiplié par 4",
+                    "Il reste le même"
+                ],
+                "answer": "Il est multiplié par 2",
+                "explanation": "Le périmètre vaut 4 fois le côté : si le côté double, le périmètre double. C'est l'aire qui est multipliée par 4."
+            }
         ]
     },
     "subjectId": "math"

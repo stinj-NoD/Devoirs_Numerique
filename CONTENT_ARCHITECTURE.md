@@ -10,7 +10,7 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 
 ## Vue d'ensemble
 
-- **1112 exercices** et **457 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1113 exercices** et **457 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
@@ -19,7 +19,7 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 | `math-input` | 193 |
 | `reading` | 58 |
 | `board-interactive` | 56 |
-| `matching` | 48 |
+| `matching` | 49 |
 | `conjugation` | 47 |
 | `audio-spelling` | 46 |
 | `conversion` | 29 |
@@ -1450,7 +1450,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Multiplier et diviser par 10, 100, 1000 `(cm1-lesson-multiplier-diviser-10-100-1000)` — blocs: paragraph, example, tip, check, check
   - La classe des millions `(cm1-lesson-classe-millions)` — blocs: paragraph, example, mini-table, tip, check, check
   - Soustraire des fractions de même dénominateur `(cm1-lesson-fractions-soustraction)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (40) :
+- **Exercices** (41) :
   - Grands Nombres `(cm1-m-big)` — engine: `math-input`, type=dictée-nombres, max=1000000, questions=5
   - Fractions `(cm1-frac-1)` — engine: `math-input`, type=fraction-view, maxDenom=8, questions=10
   - Construis la fraction `(cm1-frac-build)` — engine: `board-interactive`, type=fraction-build, minDenom=2, maxDenom=8, questions=8
@@ -1464,7 +1464,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Division posée `(cm1-div-posed-1)` — engine: `math-input`, type=division-posed, level=1, questions=5
   - Comparer des décimaux `(cm1-dec-compare)` — engine: `choice-engine`, type=compare-decimals, questions=10
   - Division posée avec reste `(cm1-div-reste)` — engine: `math-input`, type=division-posed, level=1, ask=reste, questions=5
-  - Lire des fractions `(cm1-frac-2)` — engine: `math-input`, type=fraction-view, maxDenom=12, questions=10
+  - Lire des fractions `(cm1-frac-2)` — engine: `math-input`, type=fraction-view, maxDenom=8, questions=10
   - Grands nombres `(cm1-m-big-2)` — engine: `math-input`, type=dictée-nombres, max=100000, questions=5
   - Fractions plus précises `(cm1-frac-3)` — engine: `math-input`, type=fraction-view, maxDenom=12, questions=10
   - Grands nombres (3) `(cm1-m-big-3)` — engine: `math-input`, type=dictée-nombres, max=999999, questions=5
@@ -1491,6 +1491,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Grands nombres : la valeur d'un chiffre `(cm1-m-valeur-classe-millions)` — engine: `math-input`, type=place-value, digitCount=7, ask=value, questions=6
   - Soustrais des fractions `(cm1-frac-soustraction)` — engine: `math-input`, type=fraction-operation, operator=sub, level=1, questions=8
   - Fractions équivalentes sur la ligne `(cm1-fractions-equivalentes-droite)` — engine: `board-interactive`, type=number-line-place, dataFile=data/board_number_line_cm1.json, category=cm1_fractions_equivalentes, questions=6
+  - Nombres et divisions `(cm1-maths-nombres-appariement)` — engine: `matching`, category=matching_math_cm1_nombres, dataFile=data/math_matching.json, questions=2
 
 #### Grandeurs et mesures `(cm1-grandeurs-mesures)`
 
@@ -1513,7 +1514,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Heures et minutes (2) `(cm1-time-hard-2)` — engine: `conversion`, subtype=time, modes=hmin_to_min, memo=false, randomMinutes=true, questions=10
   - Convertir des masses `(cm1-conversions-masses)` — engine: `conversion`, subtype=metric, unitType=masse, questions=6
   - Convertir des contenances `(cm1-conversions-contenances)` — engine: `conversion`, subtype=metric, unitType=capacite, questions=6
-  - Mesures et conversions `(cm1-maths-mesures-appariement)` — engine: `matching`, category=matching_math_cm1, dataFile=data/math_matching.json, questions=3
+  - Mesures et conversions `(cm1-maths-mesures-appariement)` — engine: `matching`, category=matching_math_cm1_mesures, dataFile=data/math_matching.json, questions=3
   - Défi : conversions express `(cm1-bonus-conversions-expert)` — engine: `conversion`, subtype=time, memo=false, randomMinutes=true, questions=12, bonus (seuil=2)
 
 #### Géométrie `(cm1-geometrie-subtheme)`
@@ -1537,7 +1538,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Aigu, droit ou obtus ? `(cm1-geo-angle-classify)` — engine: `board-interactive`, type=angle-classify, dataFile=data/board_angle_classify_cm1.json, category=cm1_angle_classify, questions=6
   - Mesure l'angle au rapporteur `(cm1-geo-angle-measure)` — engine: `board-interactive`, type=angle-measure, dataFile=data/board_angle_measure_cm1.json, category=cm1_angle_measure, questions=6
   - Le geste du compas `(cm1-geo-construction-compas)` — engine: `board-interactive`, type=construction-report, dataFile=data/board_construction_cm1.json, category=cm1_construction_report, questions=5
-  - Défi : le maître des angles `(cm1-bonus-geo-angles-expert)` — engine: `board-interactive`, type=angle-measure, dataFile=data/board_angle_measure_cm1.json, category=cm1_angle_measure, questions=9, bonus (seuil=2)
+  - Défi : le maître des angles `(cm1-bonus-geo-angles-expert)` — engine: `board-interactive`, type=angle-measure, dataFile=data/board_angle_measure_cm1.json, category=cm1_angle_measure_expert, questions=9, bonus (seuil=2)
   - Droites perpendiculaires `(cm1-geo-perpendiculaires-pratique)` — engine: `board-interactive`, type=tap-features, dataFile=data/board_geometry_cm1.json, category=cm1_perpendiculaires_tap, questions=3
   - Symétrie et repérage `(cm1-geo-symetrie-reperage)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm1.json, category=cm1-symetrie-reperage, questions=8
   - Place le point sur le quadrillage `(cm1-geo-reperage-pratique)` — engine: `board-interactive`, type=point-on-grid, dataFile=data/board_point_on_grid_cm1.json, category=cm1_point_on_grid, questions=7
@@ -1546,9 +1547,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Calculer une aire `(cm1-geo-aire-rectangle)` — engine: `math-input`, type=aire-rectangle, max=12, questions=6
   - Calculer un volume `(cm1-geo-volume-pave)` — engine: `math-input`, type=volume-pave, max=6, questions=5
   - Décrire un solide `(cm1-geo-solides-patron)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm1.json, category=cm1-solides-patron, questions=8
-  - Figures et formules `(cm1-maths-geo-appariement)` — engine: `matching`, category=matching_math_cm1, dataFile=data/math_matching.json, questions=3
+  - Figures, formules et outils `(cm1-maths-geo-appariement)` — engine: `matching`, category=matching_math_cm1, dataFile=data/math_matching.json, questions=3
   - Classer les formes géométriques `(cm1-geo-classement-formes)` — engine: `board-interactive`, type=shape-classify, dataFile=data/board_shape_classify_cm1.json, category=cm1_shape_classify, questions=6
-  - Défi : figures et formules `(cm1-bonus-geo-figures-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm1.json, category=cm1-perimetre-angles, questions=12, bonus (seuil=2)
+  - Défi : aires et périmètres `(cm1-bonus-geo-figures-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm1.json, category=cm1-aires-formules, questions=12, bonus (seuil=2)
 
 #### Lire un graphique `(cm1-graphiques-subtheme)`
 
@@ -1579,7 +1580,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Ou ou Où ? `(cm1-h-ou)` — engine: `choice-engine`, type=homophone-duel, category=ou_où, questions=10
   - Leur ou Leurs ? `(cm1-h-leur)` — engine: `choice-engine`, type=homophone-duel, category=leur_leurs, questions=10
   - C'est ou S'est ? `(cm1-h-cest)` — engine: `choice-engine`, type=homophone-duel, category=c_est_s_est, questions=10
-  - Défi : tous les homophones `(cm1-bonus-homophones-mix)` — engine: `choice-engine`, type=homophone-duel, category=on_ont, questions=16, bonus (seuil=2)
+  - Défi : tous les homophones `(cm1-bonus-homophones-mix)` — engine: `choice-engine`, type=homophone-duel, category=mix_all, questions=16, bonus (seuil=2)
 
 #### Conjugaison `(cm1-francais-conjugaison)`
 
@@ -1601,7 +1602,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Futur : 2e groupe `(cm1-c-futur-2g)` — engine: `conjugation`, category=future_2, tenses=futur, questions=8
   - Futur : 3e groupe `(cm1-c-futur-3g)` — engine: `conjugation`, category=future_3_freq, tenses=futur, questions=10
   - Être et avoir à l'imparfait `(cm1-c-ea-imp)` — engine: `conjugation`, category=etre_avoir_imp, tenses=imparfait, questions=8
-  - Passé Composé avec être `(cm1-c-pc-3-etre)` — engine: `conjugation`, category=pc_3_freq, tenses=passé composé, questions=8
+  - Passé Composé avec être `(cm1-c-pc-3-etre)` — engine: `conjugation`, category=pc_3_etre, tenses=passé composé, questions=8
   - Défi : passé composé expert `(cm1-bonus-conjugaison-passe-compose)` — engine: `conjugation`, category=pc_3_cm1, tenses=passé composé, questions=14, bonus (seuil=2)
   - Reconnaître le passé simple `(cm1-conj-passe-simple-reco)` — engine: `choice-engine`, type=word-class-choice, category=passe_simple_recognition_cm1, questions=6
 
@@ -1807,9 +1808,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - La chaîne alimentaire `(cm1-lesson-chaine-alimentaire)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Le vivant `(cm1-sciences-vivant)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-vivant, questions=8
-  - Classer le vivant `(cm1-sciences-classer-vivant)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/science_cm1.json, category=cm1-vivant
-  - Écosystèmes et adaptation `(cm1-sciences-ecosystemes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-vivant, questions=10
-  - Défi : le vivant `(cm1-bonus-sciences-vivant-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-vivant, questions=12, bonus (seuil=2)
+  - Classer le vivant `(cm1-sciences-classer-vivant)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/science_cm1.json, category=cm1-vivant-classer
+  - Écosystèmes et adaptation `(cm1-sciences-ecosystemes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-vivant-ecosystemes, questions=10
+  - Défi : le vivant `(cm1-bonus-sciences-vivant-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-vivant-defi, questions=10, bonus (seuil=2)
 
 #### Matière et énergie `(cm1-sciences-matiere-subtheme)`
 
@@ -1823,8 +1824,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Énergie au quotidien `(cm1-sciences-energie-quotidien)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-energie-quotidien, questions=6
   - L'eau au quotidien `(cm1-sciences-eau-quotidien)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-eau-quotidien, questions=6
   - Objets et mesures `(cm1-sciences-objets-mesures)` — engine: `choice-engine`, type=factual-qcm, questions=6, dataFile=data/science_cm1.json, category=cm1-objets-mesures
-  - Énergies et organes `(cm1-sciences-appariement)` — engine: `matching`, category=matching_sciences_cm1, dataFile=data/science_matching.json, questions=2
-  - Défi : matière et énergie `(cm1-bonus-sciences-matiere-energie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-transformations-simples, questions=12, bonus (seuil=2)
+  - Énergies, matière et mesures `(cm1-sciences-appariement)` — engine: `matching`, category=matching_sciences_cm1, dataFile=data/science_matching.json, questions=2
+  - Défi : matière et énergie `(cm1-bonus-sciences-matiere-energie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-matiere-defi, questions=8, bonus (seuil=2)
 
 #### Corps et hygiène `(cm1-sciences-corps-subtheme)`
 
@@ -1832,11 +1833,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Prendre soin de son corps `(cm1-lesson-corps-hygiene)` — blocs: paragraph, example, bullets, tip, check, check
   - Les cinq sens `(cm1-lesson-cinq-sens)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
-  - Corps et hygiène `(cm1-sciences-corps)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-corps-hygiene, questions=6
+  - Le corps humain `(cm1-sciences-corps)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-corps-organes, questions=6
   - Hygiène et santé `(cm1-sciences-hygiene-sante)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cm1.json, category=cm1-corps-hygiene
   - Alimentation et corps `(cm1-sciences-alimentation-corps)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cm1.json, category=cm1-alimentation-corps
-  - Organes et fonctions du corps `(cm1-sciences-corps-appariement)` — engine: `matching`, category=matching_sciences_cm1, dataFile=data/science_matching.json, questions=2
-  - Défi : corps et hygiène `(cm1-bonus-sciences-corps-hygiene)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-alimentation-corps, questions=12, bonus (seuil=2)
+  - Corps, santé et alimentation `(cm1-sciences-corps-appariement)` — engine: `matching`, category=matching_sciences_cm1_corps, dataFile=data/science_matching.json, questions=2
+  - Défi : corps et santé `(cm1-bonus-sciences-corps-hygiene)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-corps-defi, questions=8, bonus (seuil=2)
 
 #### Électricité `(cm1-sciences-electricite-subtheme)`
 
@@ -1845,9 +1846,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - La sécurité électrique de base `(cm1-lesson-securite-electrique-base)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Le circuit électrique `(cm1-sciences-circuit-electrique)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-electricite-base, questions=6
-  - Piles et appareils `(cm1-sciences-piles-appareils)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-electricite-base, questions=6
-  - Sécurité électrique `(cm1-sciences-securite-electrique)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-electricite-base, questions=6
-  - Défi : électricité et sécurité `(cm1-bonus-sciences-electricite-base)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-electricite-base, questions=10, bonus (seuil=2)
+  - Piles et appareils `(cm1-sciences-piles-appareils)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-electricite-piles, questions=6
+  - Sécurité électrique `(cm1-sciences-securite-electrique)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-electricite-securite, questions=6
+  - Défi : électricité et sécurité `(cm1-bonus-sciences-electricite-base)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-electricite-defi, questions=8, bonus (seuil=2)
 
 #### Environnement `(cm1-sciences-environnement-subtheme)`
 
@@ -1856,9 +1857,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Des gestes simples pour la nature `(cm1-lesson-gestes-environnement-simples)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Trier ses déchets `(cm1-sciences-trier-dechets)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-environnement-gestes, questions=6
-  - Économiser les ressources `(cm1-sciences-economiser-ressources)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-environnement-gestes, questions=6
-  - Protéger la nature `(cm1-sciences-proteger-nature)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-environnement-gestes, questions=6
-  - Défi : gestes pour l'environnement `(cm1-bonus-sciences-environnement-gestes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-environnement-gestes, questions=10, bonus (seuil=2)
+  - Économiser les ressources `(cm1-sciences-economiser-ressources)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-environnement-economies, questions=6
+  - Protéger la nature `(cm1-sciences-proteger-nature)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-environnement-nature, questions=6
+  - Défi : gestes pour l'environnement `(cm1-bonus-sciences-environnement-gestes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-environnement-defi, questions=8, bonus (seuil=2)
 
 #### Objets techniques `(cm1-sciences-techno-subtheme)`
 
@@ -1867,9 +1868,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Les objets techniques `(cm1-lesson-objets-techniques-fonction)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Machines simples `(cm1-sciences-techno-objets)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-techno-objets, questions=8
-  - Mécanismes en action `(cm1-sciences-techno-energie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-techno-objets, questions=6
+  - Mécanismes en action `(cm1-sciences-techno-energie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-techno-mecanismes, questions=6
   - Les objets techniques `(cm1-sciences-techno-fonction)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-techno-fonction-usage, questions=8
-  - Défi : machines et objets `(cm1-bonus-sciences-techno-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-techno-objets, questions=10, bonus (seuil=2)
+  - Défi : machines et objets `(cm1-bonus-sciences-techno-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-techno-defi, questions=8, bonus (seuil=2)
 
 #### Mouvements et signaux `(cm1-sciences-mouvements-signaux-subtheme)`
 
@@ -1877,12 +1878,12 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Trajectoire et vitesse d'un objet `(cm1-lesson-trajectoire-vitesse)` — blocs: paragraph, example, bullets, example, tip, check, check
   - Les signaux lumineux et sonores `(cm1-lesson-signaux-lumineux-sonores)` — blocs: paragraph, example, bullets, example, tip, check, check
 - **Exercices** (6) :
-  - Trajectoire et vitesse `(cm1-sciences-trajectoire-vitesse)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-mouvements-vitesse, questions=6
+  - Trajectoire et vitesse `(cm1-sciences-trajectoire-vitesse)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-mouvements-trajectoires, questions=6
   - Comparer des vitesses `(cm1-sciences-comparer-vitesses)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-mouvements-vitesse, questions=6
   - Les signaux lumineux `(cm1-sciences-signaux-lumineux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-signaux, questions=6
-  - Les signaux sonores `(cm1-sciences-signaux-sonores)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-signaux, questions=6
-  - Défi : trajectoires et vitesses `(cm1-bonus-sciences-mouvements-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-mouvements-vitesse, questions=10, bonus (seuil=2)
-  - Défi : signaux du quotidien `(cm1-bonus-sciences-signaux-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-signaux, questions=10, bonus (seuil=2)
+  - Les signaux sonores `(cm1-sciences-signaux-sonores)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-signaux-sonores, questions=6
+  - Défi : trajectoires et vitesses `(cm1-bonus-sciences-mouvements-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-mouvements-defi, questions=8, bonus (seuil=2)
+  - Défi : signaux du quotidien `(cm1-bonus-sciences-signaux-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-signaux-defi, questions=8, bonus (seuil=2)
 
 #### La Terre, une planète active `(cm1-sciences-terre-active-subtheme)`
 

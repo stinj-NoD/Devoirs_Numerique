@@ -61,7 +61,7 @@
                         {
                             "id": "cm1-fractions-droite-graduee",
                             "title": "Fractions sur la ligne graduée",
-                            "subtitle": "Équivalences en huitièmes",
+                            "subtitle": "Huitièmes et fractions équivalentes",
                             "engine": "board-interactive",
                             "params": {
                                 "type": "number-line-place",
@@ -158,11 +158,11 @@
                         {
                             "id": "cm1-frac-2",
                             "title": "Lire des fractions",
-                            "subtitle": "Parts jusqu'à 12",
+                            "subtitle": "Parts jusqu'à 8",
                             "engine": "math-input",
                             "params": {
                                 "type": "fraction-view",
-                                "maxDenom": 12,
+                                "maxDenom": 8,
                                 "questions": 10
                             }
                         },
@@ -504,6 +504,17 @@
                                 "dataFile": "data/board_number_line_cm1.json",
                                 "category": "cm1_fractions_equivalentes",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm1-maths-nombres-appariement",
+                            "title": "Nombres et divisions",
+                            "subtitle": "Relie chaque notion à sa définition",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_math_cm1_nombres",
+                                "dataFile": "data/math_matching.json",
+                                "questions": 2
                             }
                         }
                     ],
@@ -1481,10 +1492,10 @@
                         {
                             "id": "cm1-maths-mesures-appariement",
                             "title": "Mesures et conversions",
-                            "subtitle": "Relie chaque unité ou terme à sa définition",
+                            "subtitle": "Relie chaque grandeur à son unité ou sa conversion",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_math_cm1",
+                                "category": "matching_math_cm1_mesures",
                                 "dataFile": "data/math_matching.json",
                                 "questions": 3
                             }
@@ -2499,14 +2510,14 @@
                         {
                             "id": "cm1-bonus-geo-angles-expert",
                             "title": "Défi : le maître des angles",
-                            "subtitle": "Mesures au rapporteur sans filet",
+                            "subtitle": "Angles de 5 en 5, sans filet",
                             "engine": "board-interactive",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "angle-measure",
                                 "dataFile": "data/board_angle_measure_cm1.json",
-                                "category": "cm1_angle_measure",
+                                "category": "cm1_angle_measure_expert",
                                 "questions": 9
                             }
                         },
@@ -2606,8 +2617,8 @@
                         },
                         {
                             "id": "cm1-maths-geo-appariement",
-                            "title": "Figures et formules",
-                            "subtitle": "Relie chaque figure à sa formule ou propriété",
+                            "title": "Figures, formules et outils",
+                            "subtitle": "Relie chaque notion à sa définition",
                             "engine": "matching",
                             "params": {
                                 "category": "matching_math_cm1",
@@ -2629,15 +2640,15 @@
                         },
                         {
                             "id": "cm1-bonus-geo-figures-expert",
-                            "title": "Défi : figures et formules",
-                            "subtitle": "Aires, volumes et vocabulaire en mode expert",
+                            "title": "Défi : aires et périmètres",
+                            "subtitle": "Calculs et unités, sans aide",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/math_geometry_cm1.json",
-                                "category": "cm1-perimetre-angles",
+                                "category": "cm1-aires-formules",
                                 "questions": 12
                             }
                         }
@@ -2943,17 +2954,13 @@
                         {
                             "id": "cm1-bonus-homophones-mix",
                             "title": "Défi : tous les homophones",
-                            "subtitle": "On/ont, a/à, ce/se... sans filet",
+                            "subtitle": "On/ont, a/à, ce/se... mélangés, sans filet",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "homophone-duel",
-                                "category": "on_ont",
-                                "choices": [
-                                    "on",
-                                    "ont"
-                                ],
+                                "category": "mix_all",
                                 "questions": 16
                             }
                         }
@@ -3331,7 +3338,7 @@
                             "subtitle": "Aller, venir, partir, sortir...",
                             "engine": "conjugation",
                             "params": {
-                                "category": "pc_3_freq",
+                                "category": "pc_3_etre",
                                 "tenses": "passé composé",
                                 "questions": 8
                             }
@@ -3875,7 +3882,7 @@
                         {
                             "id": "cm1-bonus-grammaire-accords",
                             "title": "Défi : accords sans filet",
-                            "subtitle": "Nom, adjectif et déterminants en rafale",
+                            "subtitle": "Adjectifs, participes et verbes en rafale",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -6877,7 +6884,7 @@
                             "params": {
                                 "questions": 10,
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-vivant",
+                                "category": "cm1-vivant-classer",
                                 "type": "factual-qcm"
                             },
                             "title": "Classer le vivant",
@@ -6893,7 +6900,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-vivant",
+                                "category": "cm1-vivant-ecosystemes",
                                 "questions": 10
                             }
                         },
@@ -6907,8 +6914,8 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-vivant",
-                                "questions": 12
+                                "category": "cm1-vivant-defi",
+                                "questions": 10
                             }
                         }
                     ]
@@ -6977,7 +6984,7 @@
                         {
                             "id": "cm1-sciences-matiere",
                             "title": "Matière et énergie",
-                            "subtitle": "Eau, chaleur et objets",
+                            "subtitle": "Eau, lumière, aimants et énergie",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -7060,8 +7067,8 @@
                         },
                         {
                             "id": "cm1-sciences-appariement",
-                            "title": "Énergies et organes",
-                            "subtitle": "Relie chaque source d'énergie ou organe à son rôle",
+                            "title": "Énergies, matière et mesures",
+                            "subtitle": "Relie chaque notion à sa définition",
                             "engine": "matching",
                             "params": {
                                 "category": "matching_sciences_cm1",
@@ -7072,15 +7079,15 @@
                         {
                             "id": "cm1-bonus-sciences-matiere-energie",
                             "title": "Défi : matière et énergie",
-                            "subtitle": "Transformations et sources en série longue",
+                            "subtitle": "Matière, mélanges et sources d'énergie",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-transformations-simples",
-                                "questions": 12
+                                "category": "cm1-matiere-defi",
+                                "questions": 8
                             }
                         }
                     ]
@@ -7203,13 +7210,13 @@
                     "exercises": [
                         {
                             "id": "cm1-sciences-corps",
-                            "title": "Corps et hygiène",
-                            "subtitle": "Santé au quotidien",
+                            "title": "Le corps humain",
+                            "subtitle": "Squelette, muscles, cœur et poumons",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-corps-hygiene",
+                                "category": "cm1-corps-organes",
                                 "questions": 6
                             }
                         },
@@ -7239,27 +7246,27 @@
                         },
                         {
                             "id": "cm1-sciences-corps-appariement",
-                            "title": "Organes et fonctions du corps",
-                            "subtitle": "Relie chaque partie du corps à son organe principal",
+                            "title": "Corps, santé et alimentation",
+                            "subtitle": "Relie chaque notion à son rôle",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_sciences_cm1",
+                                "category": "matching_sciences_cm1_corps",
                                 "dataFile": "data/science_matching.json",
                                 "questions": 2
                             }
                         },
                         {
                             "id": "cm1-bonus-sciences-corps-hygiene",
-                            "title": "Défi : corps et hygiène",
-                            "subtitle": "Habitudes de santé en série longue",
+                            "title": "Défi : corps et santé",
+                            "subtitle": "Digestion, sang et réflexes en série longue",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-alimentation-corps",
-                                "questions": 12
+                                "category": "cm1-corps-defi",
+                                "questions": 8
                             }
                         }
                     ]
@@ -7399,7 +7406,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-electricite-base",
+                                "category": "cm1-electricite-piles",
                                 "questions": 6
                             }
                         },
@@ -7411,7 +7418,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-electricite-base",
+                                "category": "cm1-electricite-securite",
                                 "questions": 6
                             }
                         },
@@ -7425,8 +7432,8 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-electricite-base",
-                                "questions": 10
+                                "category": "cm1-electricite-defi",
+                                "questions": 8
                             }
                         }
                     ]
@@ -7549,7 +7556,7 @@
                         {
                             "id": "cm1-sciences-trier-dechets",
                             "title": "Trier ses déchets",
-                            "subtitle": "Poubelle jaune, verte et ordures",
+                            "subtitle": "Poubelle jaune, verre et ordures",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -7566,7 +7573,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-environnement-gestes",
+                                "category": "cm1-environnement-economies",
                                 "questions": 6
                             }
                         },
@@ -7578,7 +7585,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-environnement-gestes",
+                                "category": "cm1-environnement-nature",
                                 "questions": 6
                             }
                         },
@@ -7592,8 +7599,8 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-environnement-gestes",
-                                "questions": 10
+                                "category": "cm1-environnement-defi",
+                                "questions": 8
                             }
                         }
                     ]
@@ -7618,12 +7625,12 @@
                         {
                             "id": "cm1-sciences-techno-energie",
                             "title": "Mécanismes en action",
-                            "subtitle": "Poulies, leviers et engrenages au quotidien",
+                            "subtitle": "Poulies, roues et engrenages",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-techno-objets",
+                                "category": "cm1-techno-mecanismes",
                                 "questions": 6
                             }
                         },
@@ -7649,8 +7656,8 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-techno-objets",
-                                "questions": 10
+                                "category": "cm1-techno-defi",
+                                "questions": 8
                             }
                         }
                     ],
@@ -7887,7 +7894,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-mouvements-vitesse",
+                                "category": "cm1-mouvements-trajectoires",
                                 "questions": 6
                             }
                         },
@@ -7923,7 +7930,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-signaux",
+                                "category": "cm1-signaux-sonores",
                                 "questions": 6
                             }
                         },
@@ -7937,8 +7944,8 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-mouvements-vitesse",
-                                "questions": 10
+                                "category": "cm1-mouvements-defi",
+                                "questions": 8
                             }
                         },
                         {
@@ -7951,8 +7958,8 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm1.json",
-                                "category": "cm1-signaux",
-                                "questions": 10
+                                "category": "cm1-signaux-defi",
+                                "questions": 8
                             }
                         }
                     ]

@@ -1033,6 +1033,54 @@
             "gender": "masculin",
             "article": "un",
             "icon": "🎻"
+        },
+        {
+            "word": "TRÉSOR",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "💎"
+        },
+        {
+            "word": "PAYSAGE",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "🌄"
+        },
+        {
+            "word": "HARICOT",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "🫘"
+        },
+        {
+            "word": "HOMARD",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "🦞"
+        },
+        {
+            "word": "FORÊT",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "🌲"
+        },
+        {
+            "word": "MONTAGNE",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "⛰️"
+        },
+        {
+            "word": "HACHE",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "🪓"
+        },
+        {
+            "word": "RIVIÈRE",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "🏞️"
         }
     ],
     "gender_cm2_abstrait": [
@@ -2915,7 +2963,7 @@
             "answer": "calme"
         },
         {
-            "sentence": "Une maison ___",
+            "sentence": "Une maison ___ est au coin de la rue.",
             "answer": "blanche",
             "choices": [
                 "blanc",
@@ -2924,13 +2972,85 @@
             ]
         },
         {
-            "sentence": "Des arbres ___",
+            "sentence": "Des arbres ___ bordent la route.",
             "answer": "verts",
             "choices": [
                 "vert",
                 "verts",
                 "vertes"
             ]
+        },
+        {
+            "sentence": "Les fillettes sont ___ à l'école.",
+            "choices": [
+                "arrivées",
+                "arrivés",
+                "arrivée"
+            ],
+            "answer": "arrivées"
+        },
+        {
+            "sentence": "Mes cousins sont ___ hier soir.",
+            "choices": [
+                "partis",
+                "parti",
+                "parties"
+            ],
+            "answer": "partis"
+        },
+        {
+            "sentence": "Les élèves ___ leurs cahiers sur la table.",
+            "choices": [
+                "posent",
+                "pose",
+                "posons"
+            ],
+            "answer": "posent"
+        },
+        {
+            "sentence": "Ma sœur ___ très vite.",
+            "choices": [
+                "court",
+                "courent",
+                "cours"
+            ],
+            "answer": "court"
+        },
+        {
+            "sentence": "Les histoires ___ amusent les enfants.",
+            "choices": [
+                "drôles",
+                "drôle",
+                "drôlement"
+            ],
+            "answer": "drôles"
+        },
+        {
+            "sentence": "Les voitures ___ roulent trop vite.",
+            "choices": [
+                "rapides",
+                "rapide",
+                "rapidement"
+            ],
+            "answer": "rapides"
+        },
+        {
+            "sentence": "La petite fille est ___ de son dessin.",
+            "choices": [
+                "fière",
+                "fier",
+                "fiers"
+            ],
+            "answer": "fière"
+        },
+        {
+            "sentence": "Léo et Sam sont ___ au cinéma.",
+            "choices": [
+                "allés",
+                "allé",
+                "allées"
+            ],
+            "answer": "allés"
         }
     ],
     "grammar_cloze_cm2": [

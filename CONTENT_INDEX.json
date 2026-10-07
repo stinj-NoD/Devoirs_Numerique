@@ -1,7 +1,7 @@
 {
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
-    "exercises": 1112,
+    "exercises": 1113,
     "lessons": 457,
     "levels": 5,
     "banks": 80
@@ -9718,7 +9718,7 @@
       "engine": "math-input",
       "paramsType": "fraction-view",
       "pool": null,
-      "contractHash": "math-input|{\"maxDenom\":12,\"type\":\"fraction-view\"}"
+      "contractHash": "math-input|{\"maxDenom\":8,\"type\":\"fraction-view\"}"
     },
     {
       "id": "cm1-m-big-2",
@@ -10007,6 +10007,17 @@
       "contractHash": "board-interactive|{\"category\":\"cm1_fractions_equivalentes\",\"dataFile\":\"data/board_number_line_cm1.json\",\"type\":\"number-line-place\"}"
     },
     {
+      "id": "cm1-maths-nombres-appariement",
+      "kind": "exercise",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": "matching",
+      "paramsType": null,
+      "pool": "data/math_matching.json::matching_math_cm1_nombres",
+      "contractHash": "matching|{\"category\":\"matching_math_cm1_nombres\",\"dataFile\":\"data/math_matching.json\"}"
+    },
+    {
       "id": "cm1-lesson-conversions-mesures",
       "kind": "lesson",
       "level": "cm1",
@@ -10201,8 +10212,8 @@
       "subthemeId": "cm1-grandeurs-mesures",
       "engine": "matching",
       "paramsType": null,
-      "pool": "data/math_matching.json::matching_math_cm1",
-      "contractHash": "matching|{\"category\":\"matching_math_cm1\",\"dataFile\":\"data/math_matching.json\"}"
+      "pool": "data/math_matching.json::matching_math_cm1_mesures",
+      "contractHash": "matching|{\"category\":\"matching_math_cm1_mesures\",\"dataFile\":\"data/math_matching.json\"}"
     },
     {
       "id": "cm1-bonus-conversions-expert",
@@ -10410,8 +10421,8 @@
       "subthemeId": "cm1-geometrie-subtheme",
       "engine": "board-interactive",
       "paramsType": "angle-measure",
-      "pool": "data/board_angle_measure_cm1.json::cm1_angle_measure",
-      "contractHash": "board-interactive|{\"category\":\"cm1_angle_measure\",\"dataFile\":\"data/board_angle_measure_cm1.json\",\"type\":\"angle-measure\"}"
+      "pool": "data/board_angle_measure_cm1.json::cm1_angle_measure_expert",
+      "contractHash": "board-interactive|{\"category\":\"cm1_angle_measure_expert\",\"dataFile\":\"data/board_angle_measure_cm1.json\",\"type\":\"angle-measure\"}"
     },
     {
       "id": "cm1-geo-perpendiculaires-pratique",
@@ -10531,8 +10542,8 @@
       "subthemeId": "cm1-geometrie-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/math_geometry_cm1.json::cm1-perimetre-angles",
-      "contractHash": "choice-engine|{\"category\":\"cm1-perimetre-angles\",\"dataFile\":\"data/math_geometry_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/math_geometry_cm1.json::cm1-aires-formules",
+      "contractHash": "choice-engine|{\"category\":\"cm1-aires-formules\",\"dataFile\":\"data/math_geometry_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-lesson-lire-graphique",
@@ -10741,7 +10752,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"on_ont\",\"choices\":[\"on\",\"ont\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"mix_all\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm1-lesson-imparfait-er",
@@ -10928,7 +10939,7 @@
       "engine": "conjugation",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conjugation|{\"category\":\"pc_3_freq\",\"tenses\":\"passé composé\"}"
+      "contractHash": "conjugation|{\"category\":\"pc_3_etre\",\"tenses\":\"passé composé\"}"
     },
     {
       "id": "cm1-bonus-conjugaison-passe-compose",
@@ -12357,8 +12368,8 @@
       "subthemeId": "cm1-sciences-vivant-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-vivant",
-      "contractHash": "choice-engine|{\"category\":\"cm1-vivant\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-vivant-classer",
+      "contractHash": "choice-engine|{\"category\":\"cm1-vivant-classer\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-sciences-ecosystemes",
@@ -12368,8 +12379,8 @@
       "subthemeId": "cm1-sciences-vivant-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-vivant",
-      "contractHash": "choice-engine|{\"category\":\"cm1-vivant\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-vivant-ecosystemes",
+      "contractHash": "choice-engine|{\"category\":\"cm1-vivant-ecosystemes\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-bonus-sciences-vivant-defi",
@@ -12379,8 +12390,8 @@
       "subthemeId": "cm1-sciences-vivant-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-vivant",
-      "contractHash": "choice-engine|{\"category\":\"cm1-vivant\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-vivant-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm1-vivant-defi\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-lesson-matiere-energie",
@@ -12489,8 +12500,8 @@
       "subthemeId": "cm1-sciences-matiere-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-transformations-simples",
-      "contractHash": "choice-engine|{\"category\":\"cm1-transformations-simples\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-matiere-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm1-matiere-defi\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-lesson-corps-hygiene",
@@ -12522,8 +12533,8 @@
       "subthemeId": "cm1-sciences-corps-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-corps-hygiene",
-      "contractHash": "choice-engine|{\"category\":\"cm1-corps-hygiene\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-corps-organes",
+      "contractHash": "choice-engine|{\"category\":\"cm1-corps-organes\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-sciences-hygiene-sante",
@@ -12555,8 +12566,8 @@
       "subthemeId": "cm1-sciences-corps-subtheme",
       "engine": "matching",
       "paramsType": null,
-      "pool": "data/science_matching.json::matching_sciences_cm1",
-      "contractHash": "matching|{\"category\":\"matching_sciences_cm1\",\"dataFile\":\"data/science_matching.json\"}"
+      "pool": "data/science_matching.json::matching_sciences_cm1_corps",
+      "contractHash": "matching|{\"category\":\"matching_sciences_cm1_corps\",\"dataFile\":\"data/science_matching.json\"}"
     },
     {
       "id": "cm1-bonus-sciences-corps-hygiene",
@@ -12566,8 +12577,8 @@
       "subthemeId": "cm1-sciences-corps-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-alimentation-corps",
-      "contractHash": "choice-engine|{\"category\":\"cm1-alimentation-corps\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-corps-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm1-corps-defi\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-lesson-circuit-simple",
@@ -12610,8 +12621,8 @@
       "subthemeId": "cm1-sciences-electricite-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-electricite-base",
-      "contractHash": "choice-engine|{\"category\":\"cm1-electricite-base\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-electricite-piles",
+      "contractHash": "choice-engine|{\"category\":\"cm1-electricite-piles\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-sciences-securite-electrique",
@@ -12621,8 +12632,8 @@
       "subthemeId": "cm1-sciences-electricite-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-electricite-base",
-      "contractHash": "choice-engine|{\"category\":\"cm1-electricite-base\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-electricite-securite",
+      "contractHash": "choice-engine|{\"category\":\"cm1-electricite-securite\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-bonus-sciences-electricite-base",
@@ -12632,8 +12643,8 @@
       "subthemeId": "cm1-sciences-electricite-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-electricite-base",
-      "contractHash": "choice-engine|{\"category\":\"cm1-electricite-base\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-electricite-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm1-electricite-defi\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-lesson-tri-dechets-simple",
@@ -12676,8 +12687,8 @@
       "subthemeId": "cm1-sciences-environnement-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-environnement-gestes",
-      "contractHash": "choice-engine|{\"category\":\"cm1-environnement-gestes\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-environnement-economies",
+      "contractHash": "choice-engine|{\"category\":\"cm1-environnement-economies\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-sciences-proteger-nature",
@@ -12687,8 +12698,8 @@
       "subthemeId": "cm1-sciences-environnement-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-environnement-gestes",
-      "contractHash": "choice-engine|{\"category\":\"cm1-environnement-gestes\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-environnement-nature",
+      "contractHash": "choice-engine|{\"category\":\"cm1-environnement-nature\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-bonus-sciences-environnement-gestes",
@@ -12698,8 +12709,8 @@
       "subthemeId": "cm1-sciences-environnement-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-environnement-gestes",
-      "contractHash": "choice-engine|{\"category\":\"cm1-environnement-gestes\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-environnement-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm1-environnement-defi\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-lesson-objets-techniques",
@@ -12742,8 +12753,8 @@
       "subthemeId": "cm1-sciences-techno-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-techno-objets",
-      "contractHash": "choice-engine|{\"category\":\"cm1-techno-objets\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-techno-mecanismes",
+      "contractHash": "choice-engine|{\"category\":\"cm1-techno-mecanismes\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-sciences-techno-fonction",
@@ -12764,8 +12775,8 @@
       "subthemeId": "cm1-sciences-techno-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-techno-objets",
-      "contractHash": "choice-engine|{\"category\":\"cm1-techno-objets\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-techno-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm1-techno-defi\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-lesson-trajectoire-vitesse",
@@ -12797,8 +12808,8 @@
       "subthemeId": "cm1-sciences-mouvements-signaux-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-mouvements-vitesse",
-      "contractHash": "choice-engine|{\"category\":\"cm1-mouvements-vitesse\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-mouvements-trajectoires",
+      "contractHash": "choice-engine|{\"category\":\"cm1-mouvements-trajectoires\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-sciences-comparer-vitesses",
@@ -12830,8 +12841,8 @@
       "subthemeId": "cm1-sciences-mouvements-signaux-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-signaux",
-      "contractHash": "choice-engine|{\"category\":\"cm1-signaux\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-signaux-sonores",
+      "contractHash": "choice-engine|{\"category\":\"cm1-signaux-sonores\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-bonus-sciences-mouvements-defi",
@@ -12841,8 +12852,8 @@
       "subthemeId": "cm1-sciences-mouvements-signaux-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-mouvements-vitesse",
-      "contractHash": "choice-engine|{\"category\":\"cm1-mouvements-vitesse\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-mouvements-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm1-mouvements-defi\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-bonus-sciences-signaux-defi",
@@ -12852,8 +12863,8 @@
       "subthemeId": "cm1-sciences-mouvements-signaux-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/science_cm1.json::cm1-signaux",
-      "contractHash": "choice-engine|{\"category\":\"cm1-signaux\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/science_cm1.json::cm1-signaux-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm1-signaux-defi\",\"dataFile\":\"data/science_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-lesson-terre-plaques",
@@ -17275,7 +17286,8 @@
     },
     "data/board_angle_measure_cm1.json": {
       "categories": {
-        "cm1_angle_measure": 12
+        "cm1_angle_measure": 12,
+        "cm1_angle_measure_expert": 10
       }
     },
     "data/board_angle_measure_cm2.json": {
@@ -17830,7 +17842,8 @@
         "cm1-polygones": 16,
         "cm1-symetrie-reperage": 16,
         "cm1-vocabulaire-geometrique": 16,
-        "cm1-solides-patron": 8
+        "cm1-solides-patron": 8,
+        "cm1-aires-formules": 14
       }
     },
     "data/math_geometry_cm2.json": {
@@ -17859,9 +17872,11 @@
         "matching_math_cp": 8,
         "matching_math_ce1": 10,
         "matching_math_ce2": 5,
-        "matching_math_cm1": 7,
+        "matching_math_cm1": 4,
         "matching_math_cm2": 8,
-        "matching_geo_math_ce2": 5
+        "matching_geo_math_ce2": 5,
+        "matching_math_cm1_mesures": 4,
+        "matching_math_cm1_nombres": 3
       }
     },
     "data/math_probabilites_algo_cm2.json": {
@@ -17946,27 +17961,45 @@
     },
     "data/science_cm1.json": {
       "categories": {
-        "cm1-vivant": 42,
-        "cm1-matiere-energie": 41,
-        "cm1-corps-hygiene": 39,
+        "cm1-vivant": 15,
+        "cm1-matiere-energie": 31,
+        "cm1-corps-hygiene": 16,
         "cm1-sources-energie": 11,
         "cm1-transformations-simples": 24,
         "cm1-energie-quotidien": 11,
         "cm1-eau-quotidien": 11,
         "cm1-objets-mesures": 11,
         "cm1-alimentation-corps": 24,
-        "cm1-electricite-base": 14,
-        "cm1-environnement-gestes": 14,
-        "cm1-techno-objets": 13,
+        "cm1-electricite-base": 9,
+        "cm1-environnement-gestes": 10,
+        "cm1-techno-objets": 12,
         "cm1-techno-fonction-usage": 13,
-        "cm1-mouvements-vitesse": 10,
-        "cm1-signaux": 10,
+        "cm1-mouvements-vitesse": 9,
+        "cm1-signaux": 9,
         "cm1-terre-plaques": 12,
         "cm1-terre-volcans": 14,
         "cm1-terre-seismes": 14,
         "cm1-cerveau-commande": 12,
         "cm1-cerveau-sens": 11,
-        "cm1-cerveau-sommeil-attention": 12
+        "cm1-cerveau-sommeil-attention": 12,
+        "cm1-vivant-classer": 16,
+        "cm1-vivant-ecosystemes": 15,
+        "cm1-vivant-defi": 15,
+        "cm1-corps-organes": 13,
+        "cm1-corps-defi": 14,
+        "cm1-matiere-defi": 12,
+        "cm1-electricite-piles": 9,
+        "cm1-electricite-securite": 10,
+        "cm1-electricite-defi": 14,
+        "cm1-environnement-economies": 10,
+        "cm1-environnement-nature": 10,
+        "cm1-environnement-defi": 14,
+        "cm1-techno-mecanismes": 11,
+        "cm1-techno-defi": 12,
+        "cm1-mouvements-trajectoires": 9,
+        "cm1-mouvements-defi": 12,
+        "cm1-signaux-sonores": 9,
+        "cm1-signaux-defi": 12
       }
     },
     "data/science_cm2.json": {
@@ -18016,8 +18049,9 @@
       "categories": {
         "matching_sciences_ce1": 9,
         "matching_sciences_ce2": 8,
-        "matching_sciences_cm1": 8,
-        "matching_sciences_cm2": 11
+        "matching_sciences_cm1": 5,
+        "matching_sciences_cm2": 11,
+        "matching_sciences_cm1_corps": 5
       }
     }
   }
