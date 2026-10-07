@@ -242,7 +242,7 @@ const UIVisuals = {
             return `
                 <div class="bar-chart-col">
                     <div class="bar-chart-value">${SecurityUtils.escapeHtml(String(bar.value))}</div>
-                    <div class="bar-chart-bar bar-chart-bar--${tone}" style="--bar-height:${heightPercent}%"></div>
+                    <div class="bar-chart-bar bar-chart-bar--${tone}" style="--bar-frac:${(heightPercent / 100).toFixed(3)}"></div>
                     <div class="bar-chart-label">${SecurityUtils.escapeHtml(String(bar.label))}</div>
                 </div>`;
         }).join('');

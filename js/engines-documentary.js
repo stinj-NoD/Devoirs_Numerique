@@ -84,6 +84,15 @@ const EnginesDocumentary = {
 
         const shuffled = shuffle(units.map((label, index) => ({ id: index, label })));
 
+        // `variantes` : autres phrases tout aussi correctes (ex. « a remis solennellement » / « a
+        // solennellement remis »). Une variante n'est gardée que si elle est faite des MÊMES mots :
+        // sinon une faute de frappe dans les données accepterait n'importe quoi.
+        const triMots = (liste) => liste.slice().sort().join('\u0001');
+        const variantes = (!isStorySequence && Array.isArray(item.variantes) ? item.variantes : [])
+            .filter((s) => typeof s === 'string')
+            .map((s) => s.trim().split(/\s+/))
+            .filter((mots) => mots.length === units.length && triMots(mots) === triMots(units));
+
         return {
             question: SecurityUtils.escapeHtml(item.instruction || (isStorySequence
                 ? "Remets les phrases dans le bon ordre pour reconstituer le récit."
@@ -97,6 +106,7 @@ const EnginesDocumentary = {
                 words: shuffled,
                 picked: [],
                 sentence: units,
+                variantes,
                 isStorySequence
             }
         };

@@ -787,7 +787,19 @@ function Validate-WordOrderDataset($ref, $dataSet) {
         } else {
             $sentenceSafe = (Is-SafeLessonText $item.sentence) -and ($item.sentence.Trim() -split '\s+').Count -ge 3
         }
-        if (-not (Is-PlainObject $item) -or -not $sentenceSafe -or -not $instructionSafe -or -not $explanationSafe) {
+        # variantes : autres phrases correctes, faites exactement des mêmes mots que `sentence`
+        $variantesOk = $true
+        if ($null -ne $item.variantes) {
+            if (-not ($item.variantes -is [System.Collections.IList]) -or ($item.sentences -is [System.Collections.IList]) -or $item.sentence -isnot [string]) {
+                $variantesOk = $false
+            } else {
+                $motsAttendus = (($item.sentence.Trim() -split '\s+') | Sort-Object -CaseSensitive) -join [char]1
+                foreach ($v in $item.variantes) {
+                    if (-not (Is-SafeLessonText $v) -or ((($v.Trim() -split '\s+') | Sort-Object -CaseSensitive) -join [char]1) -cne $motsAttendus) { $variantesOk = $false }
+                }
+            }
+        }
+        if (-not (Is-PlainObject $item) -or -not $sentenceSafe -or -not $instructionSafe -or -not $explanationSafe -or -not $variantesOk) {
             Add-Issue("$($ref.DataFile): phrase de remise en ordre invalide ou non sure dans $($ref.Category)")
             break
         }

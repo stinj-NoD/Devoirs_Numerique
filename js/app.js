@@ -2693,8 +2693,11 @@ const App = {
                 const enMots = (suite) => String(suite).split(',').map((i) => unites[Number(i)]);
                 const saisis = enMots(userInput);
                 const attendus = enMots(targetAnswer);
-                isCorrect = saisis.length === attendus.length
-                    && saisis.every((mot, i) => mot !== undefined && mot === attendus[i]);
+                const memesMots = (liste) => saisis.length === liste.length
+                    && saisis.every((mot, i) => mot !== undefined && mot === liste[i]);
+                // + les variantes déclarées dans les données (adverbe avant ou après le participe...)
+                isCorrect = memesMots(attendus)
+                    || (Array.isArray(problemData.data.variantes) && problemData.data.variantes.some(memesMots));
             }
             // Mots composés (spelling/audioSpelling) : le tiret/espace n'est
             // pas la compétence testée (c'est l'orthographe des lettres) —

@@ -880,6 +880,12 @@
             if (!sentenceOk) return true;
             if (item.instruction !== undefined && !this.isSafeLessonText(item.instruction)) return true;
             if (item.explanation !== undefined && !this.isSafeLessonText(item.explanation)) return true;
+            // variantes : autres phrases correctes, faites exactement des mêmes mots que `sentence`
+            if (item.variantes !== undefined) {
+                const mots = (s) => String(s).trim().split(/\s+/).sort().join('\u0001');
+                if (!Array.isArray(item.variantes) || Array.isArray(item.sentences) || typeof item.sentence !== 'string'
+                    || item.variantes.some((v) => !this.isSafeLessonText(v) || mots(v) !== mots(item.sentence))) return true;
+            }
             return false;
         });
 

@@ -869,11 +869,15 @@
         const { rnd } = Engines.utils;
         let n1, n2, d1, d2;
         if (p.type === 'compare-decimals') {
+            // Valeurs construites à partir d'entiers : `base + Number(Math.random().toFixed(2))` donnait
+            // des écritures parasites (« 7,5600000000000005 »), et l'ajout d'un « 0 » à un premier nombre
+            // ENTIER affichait « 76 ... 760 » avec la réponse « = ».
             const base = rnd(0, 100);
-            n1 = base + Number(Math.random().toFixed(1));
-            n2 = (Math.random() < 0.3) ? n1 : base + Number(Math.random().toFixed(2));
+            n1 = (base * 10 + rnd(0, 9)) / 10;
+            n2 = (Math.random() < 0.3) ? n1 : (base * 100 + rnd(0, 99)) / 100;
             d1 = n1.toString().replace('.', ',');
-            d2 = (n1 === n2 && Math.random() > 0.5) ? d1 + "0" : n2.toString().replace('.', ',');
+            // même nombre écrit avec un zéro de plus (« 7,5 » et « 7,50 », « 76 » et « 76,0 »)
+            d2 = (n1 === n2 && Math.random() > 0.5) ? (d1.includes(',') ? d1 + "0" : d1 + ",0") : n2.toString().replace('.', ',');
         } else {
             const max = p.range || 100;
             n1 = rnd(0, max);

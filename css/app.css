@@ -3540,13 +3540,18 @@ button,
     margin-bottom: 14px;
 }
 
+/* Hauteur DÉFINIE : avec `min-height`, le `height: 100%` de la colonne puis le pourcentage de
+   la barre ne se résolvaient pas, et la barre mesurait 0 px (le diagramme n'affichait que des
+   nombres). La barre prend une fraction de la hauteur utile (hauteur du graphique moins la place
+   du nombre au-dessus et du libellé en dessous). */
 .bar-chart-grid {
+    --chart-h: 220px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    gap: 14px;
-    min-height: 180px;
-    padding: 0 8px;
+    gap: 8px;
+    height: var(--chart-h);
+    padding: 0 4px;
 }
 
 .bar-chart-col {
@@ -3555,7 +3560,8 @@ button,
     align-items: center;
     justify-content: flex-end;
     flex: 1;
-    max-width: 70px;
+    min-width: 0;
+    max-width: 80px;
     height: 100%;
 }
 
@@ -3568,7 +3574,7 @@ button,
 
 .bar-chart-bar {
     width: 100%;
-    height: var(--bar-height, 10%);
+    height: calc((var(--chart-h) - 72px) * var(--bar-frac, 0.1));
     border-radius: 8px 8px 4px 4px;
     box-shadow: 0 4px 10px rgba(45, 55, 72, 0.18);
     transition: height 0.3s ease;
@@ -3582,11 +3588,14 @@ button,
 
 .bar-chart-label {
     margin-top: 8px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 700;
     color: var(--color-text-soft, var(--color-text));
     text-align: center;
-    word-break: break-word;
+    /* « Mercredi » ne se coupait pas aux syllabes (« Mercre / di ») : coupure typographique (lang="fr") */
+    hyphens: auto;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 .visual-card--datatable {
