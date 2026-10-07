@@ -13,7 +13,7 @@
 | Sévérité | Maths | Français | Histoire | Géographie | Sciences | EMC | Total |
 |---|---|---|---|---|---|---|---|
 | Bloquant | 1 | 3 | 0 | 0 | 0 | 0 | **4** — tous corrigés en v4.52.0 |
-| Majeur | 5 | 5 | 1 | 4 | 2 | 2 | **19** — 18 corrigés (v4.54.0 et v4.57.0), 1 à arbitrer (conjugaison au CP) |
+| Majeur | 5 | 5 | 1 | 4 | 2 | 2 | **19** — tous corrigés (v4.54.0, v4.57.0 et v4.59.0, la conjugaison au CP ayant été arbitrée) |
 | Mineur | 15 | 16 | 9 | 8 | 7 | 5 | **60** |
 | Suggestion | 3 | 2 | 2 | 2 | 2 | 2 | **13** |
 
@@ -166,7 +166,7 @@ Le niveau a été profondément enrichi depuis le 2026-07-24 (vagues v4.47.0 à 
 
 **Majeur — « Je ai », « Je aime » à l'écran** — exercices `cp-conj-etre-avoir`, `cp-bonus-conj-etre-avoir`, `cp-conj-verbes-simples` ; `js/engines-french.js::conjugation` et `js/ui.js::drawConjugation` — le pronom « Je » est affiché tel quel devant la forme à taper : « Je [ai] », « Je [aime] » (sonde : « Je + AVOIR » 3 fois sur 40). La leçon `cp-lesson-etre-avoir` enseigne « j'ai ». Correction suggérée : afficher « J' » devant une forme à voyelle initiale.
 
-**⏸ Non traité — arbitrage demandé.** C'est une décision de programme, pas un défaut : le contenu est exact, il est seulement en avance (les six personnes d'être et d'avoir et les verbes en -er à toutes les personnes sont un attendu de CE1 dans le référentiel). Le retirer ou le restreindre au singulier serait un recul pour les enfants qui y jouent déjà. Options : garder en l'assumant comme une avance, restreindre à je, tu, il/elle, ou le reporter au CE1. **Décision à prendre par l'utilisateur.** 
+**✅ Arbitré et corrigé en v4.59.0 (2026-10-07) : restreint au singulier.** Nouveau paramètre `persons` du moteur de conjugaison (validé dans `js/validators.js` et `scripts/validate-data.ps1`, déclaré dans le registre) : `cp-conj-etre-avoir`, `cp-bonus-conj-etre-avoir` et `cp-conj-verbes-simples` ne tirent plus que je, tu, il, elle ; sous-titres mis à jour. La leçon `cp-lesson-etre-avoir` ne montre plus que le singulier (ses deux quiz sont refaits : « Tu ... un chien », « Elle est sept ans »). **Pourquoi ce choix :** les six personnes sont un attendu de CE1 dans le référentiel, et `cp-conj-etre-avoir` était un doublon exact de `ce1-conj-base` (mêmes verbes, même temps, même nombre de questions) ; le CP garde la découverte du singulier, le CE1 garde les six personnes, aucun contenu n'est perdu à l'échelle de la scolarité. Mesuré sur 600 tirages des 3 exercices : 0 sujet hors liste, 0 réponse fausse ; `ce1-conj-base` inchangé (10 sujets vus sur 300 tirages). Réversible : retirer `persons` des trois exercices rend les six personnes. 
 
 **Majeur — la conjugaison complète dépasse le CP (à arbitrer)** — sous-thème `cp-conjugaison` (`cp-conj-etre-avoir`, `cp-bonus-conj-etre-avoir`, `cp-conj-verbes-simples`, leçon `cp-lesson-etre-avoir`) — les six personnes d'être et d'avoir (« vous êtes ») et les verbes en -er à toutes les personnes (« nous mangeons ») sont, dans `PROGRAMME_SCOLAIRE_REFERENCE.md`, un attendu de **CE1**, absent de la liste CP ; `curriculum-audit-cp.md` le signale comme dépassement et renvoie l'analyse fine ici. Fuite de niveau vers le haut, sur un contenu exact. Correction suggérée : restreindre au singulier (je, tu, il/elle) en « découverte », ou assumer ce sous-thème comme une avance explicite.
 
