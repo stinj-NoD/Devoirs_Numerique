@@ -1,5 +1,7 @@
 # Audit programme CE2
 
+> **Mise à jour du 2026-10-07 après la vague v4.58.0** : le niveau compte désormais **95 leçons et 198 exercices** (+10 leçons : heure sur 24 h, numérateur, futur simple, imparfait, 2e groupe, 3e groupe, son/sont/ou/où, ce/se/ces/ses, accord de l'adjectif, régions de France ; −6 exercices : copies exactes retirées ; +1 exercice : conversions de longueurs). Les conjugaisons du futur, de l'imparfait et des verbes des 2e et 3e groupes, les homophones courants, l'accord de l'adjectif, les longueurs en mm/cm/m/km et les 13 régions ont maintenant leur leçon. Les autres statuts restent ceux de la dernière relecture.
+
 Sources officielles utilisées :
 - https://www.education.gouv.fr/programmes-et-horaires-l-ecole-elementaire-9011
 - **Bulletin officiel spécial n°40 du 31 octobre 2024** — programme de mathématiques et de français du cycle 2, **en vigueur au CE2 depuis la rentrée 2025-2026** (deuxième année d'application) : c'est le texte de référence pour les deux premières matières de cet audit.
