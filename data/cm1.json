@@ -919,7 +919,7 @@
                                 {
                                     "type": "example",
                                     "label": "Exemple avec emprunt",
-                                    "content": "523 - 267 : unités 3 - 7 impossible, j'emprunte une dizaine (13 - 7 = 6). Dizaines 1 - 1 (emprunt) - 6 impossible, j'emprunte une centaine (10 - 6 = 4). Centaines 4 - 1 (emprunt) - 2 = 1. Résultat : 256."
+                                    "content": "523 - 267 : unités 3 - 7 impossible, j'emprunte une dizaine (13 - 7 = 6). Dizaines 2 - 1 (emprunt) = 1, puis 1 - 6 impossible, j'emprunte une centaine (11 - 6 = 5). Centaines 5 - 1 (emprunt) - 2 = 2. Résultat : 256."
                                 },
                                 {
                                     "type": "bullets",
@@ -952,11 +952,11 @@
                                     "question": "Pour poser 402 - 158, à quelle colonne dois-je emprunter en premier ?",
                                     "choices": [
                                         "Aux unités, car 2 - 8 est impossible",
-                                        "Aux centaines, car 4 - 1 est impossible",
-                                        "Je n'ai besoin d'aucun emprunt"
+                                        "Aux dizaines, car 0 - 5 est impossible",
+                                        "Aux centaines, car c'est la colonne la plus à gauche"
                                     ],
                                     "answer": "Aux unités, car 2 - 8 est impossible",
-                                    "explanation": "Aux unités, 2 est plus petit que 8 : je dois emprunter une dizaine au chiffre 0 des dizaines pour pouvoir soustraire."
+                                    "explanation": "Je commence par les unités : 2 - 8 est impossible, il faut emprunter. Le chiffre des dizaines est 0, il n'a rien à prêter : j'emprunte donc à la centaine, qui devient 10 dizaines. Je ne passe pas aux dizaines avant d'avoir réglé les unités."
                                 }
                             ]
                         },
@@ -4009,14 +4009,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans la liste « dentiste, dentier, dentelle, dentition », quel mot est l'intrus ?",
+                                    "question": "Dans la liste « mer, marin, maritime, mercredi », quel mot est l'intrus ?",
                                     "choices": [
-                                        "dentelle, car ce tissu n'a rien à voir avec les dents",
-                                        "dentiste, car il désigne une personne et non un objet",
-                                        "dentition, car il est le plus long de la liste"
+                                        "mercredi, car ce jour n'a rien à voir avec la mer",
+                                        "marin, car il désigne une personne et non un objet",
+                                        "mer, car c'est le mot le plus court de la liste"
                                     ],
-                                    "answer": "dentelle, car ce tissu n'a rien à voir avec les dents",
-                                    "explanation": "Une famille de mots demande une partie commune ET un sens commun. Dentiste, dentier et dentition parlent tous des dents. « dentelle » commence pourtant par dent-, mais c'est un tissu ajouré : le sens ne suit pas, donc il n'est pas de la famille. Ni le type de mot ni sa longueur ne servent de critère.",
+                                    "answer": "mercredi, car ce jour n'a rien à voir avec la mer",
+                                    "explanation": "Une famille de mots demande une partie commune ET un sens commun. Marin et maritime parlent tous deux de la mer. « mercredi » commence pourtant par mer-, mais c'est un jour de la semaine : le sens ne suit pas, donc il n'est pas de la famille. Ni le type de mot ni sa longueur ne servent de critère.",
                                     "label": "Vérifie que tu as compris"
                                 },
                                 {
@@ -4288,14 +4288,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pourquoi « lavande » n'appartient-il pas à la famille de « laver », alors que « lavabo » et « lavage » en font partie ?",
+                                    "question": "Pourquoi « fleuve » n'appartient-il pas à la famille de « fleur », alors que « fleuriste » et « floral » en font partie ?",
                                     "choices": [
-                                        "Parce que la lavande est une plante : le sens n'a aucun lien avec laver",
-                                        "Parce que lavande est un nom alors que laver est un verbe",
-                                        "Parce que lavande ne commence pas par le même radical"
+                                        "Parce que fleuve désigne un cours d'eau : le sens n'a aucun lien avec les fleurs",
+                                        "Parce que fleuve est un nom masculin alors que fleur est un nom féminin",
+                                        "Parce que fleuve ne commence pas par les mêmes lettres que fleur"
                                     ],
-                                    "answer": "Parce que la lavande est une plante : le sens n'a aucun lien avec laver",
-                                    "explanation": "Il faut à la fois la forme et le sens. « lavabo » et « lavage » servent tous deux à laver. « lavande » commence bien par lav-, mais désigne une fleur : la ressemblance est trompeuse. Le fait d'être un nom n'exclut rien, puisque lavabo et lavage sont aussi des noms de la famille de laver.",
+                                    "answer": "Parce que fleuve désigne un cours d'eau : le sens n'a aucun lien avec les fleurs",
+                                    "explanation": "Il faut à la fois la forme et le sens. « fleuriste » et « floral » parlent tous deux des fleurs. « fleuve » commence bien par fle-, mais désigne un cours d'eau : la ressemblance est trompeuse. Le genre du nom n'exclut rien, puisque « fleuriste » est aussi un nom de la famille de fleur.",
                                     "label": "Vérifie que tu as compris"
                                 },
                                 {
