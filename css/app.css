@@ -2966,6 +2966,26 @@ button,
 .board-map-svg--flat .board-map-zone:nth-of-type(6n+5) { fill: #f2bfc6; }
 .board-map-svg--flat .board-map-zone:nth-of-type(6n+6) { fill: #a9dcd4; }
 
+/* Régions de France : l'alternance ci-dessus donnait la même couleur à trois paires de
+   régions voisines (Hauts-de-France et Grand Est, Île-de-France et Bourgogne-Franche-Comté,
+   Centre-Val de Loire et Auvergne-Rhône-Alpes), sans trait entre elles : on ne voyait plus où
+   l'une s'arrêtait. Coloration par nom : deux régions voisines n'ont jamais la même couleur
+   (4 couleurs suffisent sur le continent, la Corse prend la 5e). Le repli nth-of-type
+   ci-dessus reste valable pour toute autre carte « flat ». */
+.board-map-svg--flat .board-map-zone[data-zone-name="Bretagne"],
+.board-map-svg--flat .board-map-zone[data-zone-name="Hauts-de-France"],
+.board-map-svg--flat .board-map-zone[data-zone-name="Centre-Val de Loire"],
+.board-map-svg--flat .board-map-zone[data-zone-name="Occitanie"] { fill: #a8c8ec; }
+.board-map-svg--flat .board-map-zone[data-zone-name="Normandie"],
+.board-map-svg--flat .board-map-zone[data-zone-name="Grand Est"],
+.board-map-svg--flat .board-map-zone[data-zone-name="Auvergne-Rhône-Alpes"] { fill: #b8e0b9; }
+.board-map-svg--flat .board-map-zone[data-zone-name="Pays de la Loire"],
+.board-map-svg--flat .board-map-zone[data-zone-name="Île-de-France"],
+.board-map-svg--flat .board-map-zone[data-zone-name="Provence-Alpes-Côte d'Azur"] { fill: #f5d5a0; }
+.board-map-svg--flat .board-map-zone[data-zone-name="Nouvelle-Aquitaine"],
+.board-map-svg--flat .board-map-zone[data-zone-name="Bourgogne-Franche-Comté"] { fill: #d8bfe8; }
+.board-map-svg--flat .board-map-zone[data-zone-name="Corse"] { fill: #f2bfc6; }
+
 .board-map-svg--flat .board-map-zone:hover {
     fill: rgba(74, 144, 226, 0.6);
 }
@@ -3200,6 +3220,33 @@ button,
     border-radius: 20px;
     font-weight: bold;
     margin-bottom: 15px;
+    font-size: var(--font-size-sm);
+}
+
+/* Consigne de l'horloge sur 24 h (niveau 3) : sans elle, l'enfant recopie le cadran. */
+.clock-caption {
+    margin-bottom: 12px;
+    text-align: center;
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+}
+
+.clock-caption-hint {
+    display: block;
+    margin-top: 2px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+/* Énoncé au-dessus du dessin des fractions (fraction-view). */
+.visual-card--fraction {
+    flex-direction: column;
+    gap: 8px;
+}
+
+.fraction-caption {
+    text-align: center;
+    font-weight: 700;
     font-size: var(--font-size-sm);
 }
 

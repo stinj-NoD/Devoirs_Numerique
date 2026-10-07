@@ -341,7 +341,10 @@ const UIBoard = {
             />
         `).join('');
 
-        const markers = (Array.isArray(drawing.markers) ? drawing.markers : []).map((marker) => {
+        // drawing.markersOnReveal : le codage d'angle droit marque justement les sommets à toucher ;
+        // affiché d'emblée il dessine la réponse. Il n'apparaît alors qu'à la correction.
+        const showMarkers = !drawing.markersOnReveal || !!data.revealed;
+        const markers = (showMarkers ? (Array.isArray(drawing.markers) ? drawing.markers : []) : []).map((marker) => {
             if (marker.type !== 'right-angle') return '';
             const x = toX(marker.x);
             const y = toY(marker.y);
@@ -657,8 +660,22 @@ const UIBoard = {
             const x = margin + index * step;
             const realValue = min + (index * (max - min)) / (tickCount - 1);
             const showLabel = positional || numericLabels.some((value) => Math.abs(value - realValue) < 1e-6);
-            const displayLabel = positional ? String(rawLabels[index]) : String(realValue);
+            // Entiers à partir de 1 000 : « 10000 » s'écrit « 10 000 » (espace insécable)
+            const brut = positional ? rawLabels[index] : realValue;
+            const displayLabel = (typeof brut === 'number' && Number.isInteger(brut) && Math.abs(brut) >= 1000)
+                ? String(brut).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+                : String(brut);
             ticks.push({ index, x, y, realValue, showLabel, displayLabel });
+        }
+        // Étiquettes qui se chevauchent : à 320 unités de large, 11 graduations laissent ~27 unités
+        // à chacune, un « 10 000 » en gras en demande ~47 (les étiquettes se touchaient et se lisaient
+        // « 10002000300040005000 »). On n'écrit alors qu'une étiquette sur deux, ou sur trois...
+        const labelled = ticks.filter((t) => t.showLabel);
+        if (labelled.length > 1) {
+            const widest = Math.max(...labelled.map((t) => Array.from(t.displayLabel).length * 7.8));
+            const gap = Math.min(...labelled.slice(1).map((t, k) => t.x - labelled[k].x));
+            const skip = Math.max(1, Math.ceil(widest / (gap * 0.95)));
+            if (skip > 1) labelled.forEach((t, k) => { if (k % skip !== 0) t.showLabel = false; });
         }
         return { ticks, y, step };
     },

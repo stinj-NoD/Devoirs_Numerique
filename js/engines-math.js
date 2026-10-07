@@ -625,14 +625,35 @@
             const units = unitSets[unitType];
             const factors = [1000, 100, 10, 1, 0.1, 0.01, 0.001];
             let range = p.range || [0, 6];
-            const idx1 = rnd(range[0], range[1]);
-            let idx2 = rnd(Math.max(range[0], idx1 - 3), Math.min(range[1], idx1 + 3));
-            while (idx1 === idx2) idx2 = rnd(range[0], range[1]);
+            // `units` restreint le tirage aux unités du programme du niveau (ex. ['kg', 'g'] au
+            // CE2) : avec `range` seul, [0, 3] donnait kg, hg, dag, g et kL, hL, daL, L, donc
+            // des hectolitres sous un titre « Litres et millilitres » et jamais un millilitre.
+            const allowed = Array.isArray(p.units) ? p.units.map((u) => units.indexOf(u)).filter((i) => i >= 0) : [];
+            const restricted = allowed.length >= 2;
+            let idx1, idx2;
+            if (restricted) {
+                idx1 = Engines.utils.pick(allowed);
+                const others = allowed.filter((i) => i !== idx1);
+                const near = others.filter((i) => Math.abs(i - idx1) <= 3);
+                idx2 = Engines.utils.pick(near.length ? near : others);
+            } else {
+                idx1 = rnd(range[0], range[1]);
+                idx2 = rnd(Math.max(range[0], idx1 - 3), Math.min(range[1], idx1 + 3));
+                while (idx1 === idx2) idx2 = rnd(range[0], range[1]);
+            }
             const u1 = units[idx1], u2 = units[idx2], f1 = factors[idx1], f2 = factors[idx2];
             const val = idx1 < idx2 ? rnd(1, 10) : rnd(1, 9) * 1000;
             const result = Math.round((val * (f1 / f2)) * 1000) / 1000;
             const resultStr = result.toString().replace('.', ',');
-            return { question: "Convertis :", answer: resultStr, inputType: 'numeric', isVisual: true, visualType: 'conversionTable', data: { val, u1, u2, type: unitType }, explanation: `${val} ${u1} = ${resultStr} ${u2}.` };
+            const data = { val, u1, u2, type: unitType };
+            if (restricted) {
+                // Le tableau à 7 colonnes montrerait des unités hors programme : on donne la relation.
+                const big = Math.min(idx1, idx2), small = Math.max(idx1, idx2);
+                const ratio = String(Math.round(factors[big] / factors[small])).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+                data.units = allowed.map((i) => units[i]);
+                data.memo = `1 ${units[big]} = ${ratio} ${units[small]}`;
+            }
+            return { question: "Convertis :", answer: resultStr, inputType: 'numeric', isVisual: true, visualType: 'conversionTable', data, explanation: `${val} ${u1} = ${resultStr} ${u2}.` };
         }
         if (p.subtype === 'metric-area') {
             // Unités et facteurs LOCAUX à cette branche : l'aire progresse en x100
@@ -746,7 +767,16 @@
             m = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55][rnd(0, 11)];
         }
         const isDay = h >= 8 && h < 20;
-        return { isVisual: true, visualType: 'clock', inputType: 'numeric', data: { hours: h, minutes: m, periodIcon: isDay ? "☀️" : "\u{1F319}", periodText: isDay ? "Jour" : "Nuit" }, answer: h.toString().padStart(2, '0') + m.toString().padStart(2, '0') };
+        const data = { hours: h, minutes: m, periodIcon: isDay ? "☀️" : "\u{1F319}", periodText: isDay ? "Jour" : "Nuit" };
+        // Niveau 3 : le cadran est à 12 heures mais la réponse s'écrit sur 24 heures (« 2250 » pour
+        // 10 h 50 du soir). Rien ne le disait à l'écran : un enfant qui recopiait le cadran
+        // (« 1050 ») était compté faux sans savoir pourquoi. La pastille Jour/Nuit lève l'ambiguïté
+        // matin/après-midi, à condition que sa règle soit écrite.
+        if (level >= 3) {
+            data.caption = "Écris l'heure sur 24 heures.";
+            data.captionHint = "Jour : de 8 h à 20 h. Nuit : de 20 h à 8 h.";
+        }
+        return { isVisual: true, visualType: 'clock', inputType: 'numeric', data, answer: h.toString().padStart(2, '0') + m.toString().padStart(2, '0') };
     },
     fractionView(p) {
         const d = Engines.utils.rnd(2, p.maxDenom || 8);

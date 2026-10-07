@@ -602,6 +602,18 @@
                     return { valid: false, reason: 'range invalide pour metric-area (attendu [0-3, 0-3]).' };
                 }
             }
+            if (exercise.params.subtype === 'metric' && exercise.params.units !== undefined) {
+                const metricUnits = {
+                    longueur: ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'],
+                    masse: ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'],
+                    capacite: ['kL', 'hL', 'daL', 'L', 'dL', 'cL', 'mL']
+                };
+                const allowedUnits = metricUnits[exercise.params.unitType || 'longueur'];
+                const u = exercise.params.units;
+                if (!allowedUnits || !Array.isArray(u) || u.length < 2 || u.some((x) => !allowedUnits.includes(x))) {
+                    return { valid: false, reason: 'units invalide pour metric (au moins 2 unités du unitType demandé).' };
+                }
+            }
         }
 
         return { valid: true };

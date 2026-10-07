@@ -51,7 +51,13 @@
         }
 
         const verb = Engines.utils.pick(filteredPool.length ? filteredPool : pool);
-        const pIdx = Engines.utils.rnd(0, 8);
+        // Passé composé avec « être » : le participe s'accorde avec le sujet, et rien à l'écran ne
+        // dit si « je », « tu », « on », « nous » ou « vous » désignent un garçon, une fille ou un
+        // groupe. Le moteur écrivait toujours le masculin (« je suis montée » était refusé alors
+        // qu'il est juste). On ne tire donc que les sujets dont le genre et le nombre se lisent :
+        // il, elle, ils, elles.
+        const accordeAvecSujet = isCompound && normalizeToken(verb.aux) === "etre";
+        const pIdx = accordeAvecSujet ? Engines.utils.pick([2, 3, 7, 8]) : Engines.utils.rnd(0, 8);
         const cIdx = [0, 1, 2, 2, 2, 3, 4, 5, 5][pIdx];
         let answer = "";
 

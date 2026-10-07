@@ -125,7 +125,8 @@ const UIVisuals = {
         const denom = d.d || 1;
         const num = d.n || 0;
         const paths = this.drawFractionWedges(num, denom, 60, 80);
-        return `<div class="fraction-display visual-card visual-card--fraction"><svg viewBox="0 0 160 160" width="140" height="140">${paths}</svg></div>`;
+        // Sans énoncé, « ? / 4 » ne disait pas ce qu'on attend : on nomme la tâche.
+        return `<div class="fraction-display visual-card visual-card--fraction"><div class="fraction-caption">Combien de parts sont coloriées ?</div><svg viewBox="0 0 160 160" width="140" height="140">${paths}</svg></div>`;
     },
 
     drawFractionOperation(p) {
@@ -162,20 +163,23 @@ const UIVisuals = {
         const ma = (mins / 60) * 360;
         const ha = ((hours % 12) / 12) * 360 + (mins / 60) * 30;
 
-        const periodInfo = `<div class="period-badge">${d.periodIcon || '\u{1F550}'} ${d.periodText || ''}</div>`;
+        const periodInfo = `<div class="period-badge">${d.periodIcon || '\u{1F550}'} ${d.periodText || ''}</div>`
+            + (d.caption ? `<div class="clock-caption">${SecurityUtils.escapeHtml(String(d.caption))}${d.captionHint ? `<span class="clock-caption-hint">${SecurityUtils.escapeHtml(String(d.captionHint))}</span>` : ''}</div>` : '');
 
-        let svg = `<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}"><circle cx="${c}" cy="${c}" r="${r}" fill="white" stroke="var(--color-text)" stroke-width="3"/>`;
+        // Cadran blanc : chiffres, aiguilles et contour gardent la couleur du texte du thème CLAIR (#243447).
+        // Avec var(--color-text), le thème sombre les peignait en clair sur le blanc : chiffres et aiguille des heures illisibles.
+        let svg = `<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}"><circle cx="${c}" cy="${c}" r="${r}" fill="white" stroke="#243447" stroke-width="3"/>`;
 
         for (let i = 1; i <= 12; i++) {
             const a = (i * 30) * (Math.PI / 180);
             const x = c + (r - 16) * Math.sin(a);
             const y = c - (r - 16) * Math.cos(a);
-            svg += `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="12px" font-weight="bold" fill="var(--color-text)">${i}</text>`;
+            svg += `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="12px" font-weight="bold" fill="#243447">${i}</text>`;
         }
 
-        svg += `<line x1="${c}" y1="${c}" x2="${c + 35 * Math.sin(ha * Math.PI / 180)}" y2="${c - 35 * Math.cos(ha * Math.PI / 180)}" stroke="var(--color-text)" stroke-width="6" stroke-linecap="round"/>`;
+        svg += `<line x1="${c}" y1="${c}" x2="${c + 35 * Math.sin(ha * Math.PI / 180)}" y2="${c - 35 * Math.cos(ha * Math.PI / 180)}" stroke="#243447" stroke-width="6" stroke-linecap="round"/>`;
         svg += `<line x1="${c}" y1="${c}" x2="${c + 52 * Math.sin(ma * Math.PI / 180)}" y2="${c - 52 * Math.cos(ma * Math.PI / 180)}" stroke="var(--color-secondary)" stroke-width="4" stroke-linecap="round"/>`;
-        svg += `<circle cx="${c}" cy="${c}" r="4" fill="var(--color-text)"/>`;
+        svg += `<circle cx="${c}" cy="${c}" r="4" fill="#243447"/>`;
         svg += `</svg>`;
 
         return `<div class="visual-card visual-card--clock clock-card">${periodInfo}${svg}</div>`;
@@ -347,6 +351,9 @@ const UIVisuals = {
         if (d.type === 'masse') cols = ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'];
         if (d.type === 'capacite') cols = ['kL', 'hL', 'daL', 'L', 'dL', 'cL', 'mL'];
         if (d.type === 'aire') cols = ['m²', 'dm²', 'cm²', 'mm²'];
+        // Unités restreintes au programme du niveau : pas de tableau à 7 colonnes (hg, dag... hors
+        // programme), mais la relation entre les deux unités (d.memo, calculée par le moteur).
+        const restricted = Array.isArray(d.units) && d.units.length > 0;
 
         const headerHtml = cols.map((unit) => {
             const isHighlight = unit === d.u1 || unit === d.u2;
@@ -362,10 +369,10 @@ const UIVisuals = {
                     <span class="conversion-target-value">?</span>
                     <span class="conversion-target">${d.u2}</span>
                 </div>
-                <div class="conversion-grid">
+                ${restricted ? '' : `<div class="conversion-grid">
                     ${headerHtml}
-                </div>
-                <div class="conversion-hint">Utilise le tableau pour t'aider.</div>
+                </div>`}
+                <div class="conversion-hint">${restricted ? SecurityUtils.escapeHtml(String(d.memo || '')) : "Utilise le tableau pour t'aider."}</div>
             </div>`;
     },
 

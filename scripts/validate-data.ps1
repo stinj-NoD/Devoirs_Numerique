@@ -356,6 +356,24 @@ function Validate-Exercise($path, $themeId, $exercise) {
                 Add-Issue("${path}: range invalide pour metric-area ($($exercise.id))")
             }
         }
+        if ($exercise.params.subtype -eq 'metric' -and $null -ne $exercise.params.units) {
+            $metricUnits = @{
+                'longueur' = @('km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm')
+                'masse'    = @('kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg')
+                'capacite' = @('kL', 'hL', 'daL', 'L', 'dL', 'cL', 'mL')
+            }
+            $unitTypeKey = if ($exercise.params.unitType) { [string]$exercise.params.unitType } else { 'longueur' }
+            $unitsOk = $metricUnits.ContainsKey($unitTypeKey) -and ($exercise.params.units -is [System.Collections.IList]) -and $exercise.params.units.Count -ge 2
+            if ($unitsOk) {
+                foreach ($u in $exercise.params.units) {
+                    # -ccontains : sensible à la casse (« L » et « l » ne sont pas la même unité)
+                    if (-not ($metricUnits[$unitTypeKey] -ccontains [string]$u)) { $unitsOk = $false }
+                }
+            }
+            if (-not $unitsOk) {
+                Add-Issue("${path}: units invalide pour metric (au moins 2 unités du unitType demandé) ($($exercise.id))")
+            }
+        }
     }
 
     if ($exercise.params.dataFile) {

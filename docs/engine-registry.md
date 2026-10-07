@@ -54,7 +54,7 @@ signal fort d'habillage redondant. Pour `library`/`generator`, un même contrat
 | `math-input` | generator | `add-simple`, `add-trou`, `sub-simple`, `mult`, `complement`, `decimal-place`, `dictée-nombres`, `calc-mental`, `oiseau-math`, `cibles`, `half`, `double`, `division-simple`, `division-reste`, `division-posed`, `operation-posed`⁶, `place-value`, `proportionnalite`, `pourcentage`, `aire-rectangle`, `volume-pave`, `echelle`, `vitesse`, `bar-chart-read`, `data-table-read`, `pie-chart-read`, `average-compute`, `spelling`¹, `clock`, `fraction-view`, `fraction-operation`³, `number-spelling`, `carre-somme` | ~164 |
 | `choice-engine` | mixed | `factual-qcm` (**pool**), `gender-articles`, `article-choice`, `plural-choice`, `word-class-choice`, `grammar-cloze`, `homophone-duel` (library), `compare-decimals`, *(défaut)* `compare` | ~539 |
 | `board-interactive` | pool | `tap-features`, `shape-classify`, `point-on-grid`, `symmetry-complete`, `map-locate`, `memory-match`, `angle-classify`, `angle-measure`, `construction-report`, `fraction-build`², `number-line-place`⁵, `number-line-frame`⁵ | ~42 |
-| `conversion` | generator | — (`modes`, `memo`), `metric-area`⁴ | ~28 |
+| `conversion` | generator | — (`modes`, `memo`, `units`), `metric-area`⁴ | ~29 |
 | `conjugation` | library | — | ~47 |
 | `reading` | library | — | ~51 |
 | `audio-spelling` | library | — | ~44 |

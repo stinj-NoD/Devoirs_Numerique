@@ -38,7 +38,12 @@ js/app-grimoire.js → mapCollectionDefinitions   la Collection "Cartes du monde
 - **Rendu** : `ui-board.js` recadre aléatoirement la vue autour de la zone
   cible (`computedViewBox`, calculé une fois par question). La carte
   France utilise la classe `board-map-svg--flat` (fills pastel, pas de stroke —
-  les tracés régionaux contiennent les frontières départementales).
+  les tracés régionaux contiennent les frontières départementales). Sans trait
+  entre les régions, deux voisines de même couleur se confondent : `css/app.css`
+  colore donc chaque région par son nom (`[data-zone-name="…"]`, 5 couleurs,
+  voisines toujours différentes — vérifié sur les 23 paires de voisines) ;
+  l'alternance `nth-of-type(6n+k)` ne reste que comme repli pour une autre
+  carte « flat ». Une région ajoutée ou renommée doit être ajoutée à cette liste.
 - **Ajout d'une carte** (checklist) :
   1. SVG propre dans `data/maps/` (un path/zone, ids kebab-case, `data-name`),
      source + licence dans `CREDITS.md`

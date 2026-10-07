@@ -64,7 +64,7 @@
       "sourceKind": "pool",
       "commonParams": ["questions", "type"],
       "paramsTypes": {
-        "tap-features": { "sourceKind": "pool", "params": ["dataFile", "category"] },
+        "tap-features": { "sourceKind": "pool", "params": ["dataFile", "category"], "note": "drawing.markers (codage d'angle droit) affichés d'emblée par défaut ; drawing.markersOnReveal: true ne les montre qu'à la correction (sinon ils dessinent la réponse quand ils marquent les sommets à toucher — CE2 ce2_tap_angle_droit)" },
         "shape-classify": { "sourceKind": "pool", "params": ["dataFile", "category"] },
         "point-on-grid": { "sourceKind": "pool", "params": ["dataFile", "category"] },
         "symmetry-complete": { "sourceKind": "pool", "params": ["dataFile", "category"] },
@@ -83,6 +83,7 @@
       "sourceKind": "generator",
       "commonParams": ["questions", "modes", "memo"],
       "paramsTypes": {
+        "metric": { "params": ["unitType", "range", "units"], "note": "conversions de longueur/masse/capacité en x10 (unitType : longueur, masse, capacite) ; range = indices dans le tableau des 7 unités, units = liste restreinte d'unités du niveau (ex. [kg, g] ou [L, mL] au CE2) : le tirage reste dans cette liste (écart d'indice <= 3) et la carte affiche la relation entre les deux unités (data.memo) au lieu du tableau à 7 colonnes" },
         "metric-area": { "params": ["range"], "note": "conversions d'aire (cm²/m²/dm²/mm²) ; progression x100 par palier (contrairement au subtype 'metric' existant, en x10) ; range optionnel [0-3], indices 0=m² à 3=mm² ; rendu par ui-visuals.js::drawConversionCard avec cols=['m²','dm²','cm²','mm²']" }
       }
     },
