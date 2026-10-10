@@ -53,7 +53,7 @@ signal fort d'habillage redondant. Pour `library`/`generator`, un même contrat
 |---|---|---|---|
 | `math-input` | generator | `add-simple`, `add-trou`, `sub-simple`, `mult`, `complement`, `decimal-place`, `dictée-nombres`, `calc-mental`, `oiseau-math`, `cibles`, `half`, `double`, `division-simple`, `division-reste`, `division-posed`, `operation-posed`⁶, `place-value`, `proportionnalite`, `pourcentage`, `aire-rectangle`, `volume-pave`, `echelle`, `vitesse`, `bar-chart-read`, `data-table-read`, `pie-chart-read`, `average-compute`, `spelling`¹, `clock`, `fraction-view`, `fraction-operation`³, `number-spelling`, `carre-somme` | ~164 |
 | `choice-engine` | mixed | `factual-qcm` (**pool**), `gender-articles`, `article-choice`, `plural-choice`, `word-class-choice`, `grammar-cloze`, `homophone-duel` (library), `compare-decimals`, *(défaut)* `compare` | ~539 |
-| `board-interactive` | pool | `tap-features`, `shape-classify`, `point-on-grid`, `symmetry-complete`, `map-locate`, `memory-match`, `angle-classify`, `angle-measure`, `construction-report`, `fraction-build`², `number-line-place`⁵, `number-line-frame`⁵ | ~42 |
+| `board-interactive` | pool | `tap-features`, `shape-classify`, `point-on-grid`⁹, `symmetry-complete`, `map-locate`, `memory-match`, `angle-classify`, `angle-measure`, `construction-report`, `fraction-build`², `number-line-place`⁵, `number-line-frame`⁵ | ~42 |
 | `conversion` | generator | — (`modes`, `memo`, `units`), `metric-area`⁴ | ~29 |
 | `conjugation` | library | — (`persons`) | ~47 |
 | `reading` | library | — | ~51 |
@@ -103,6 +103,13 @@ année) ; une frise de 4 repères sert donc toujours le même puzzle. Garder des
 toutes différentes dans un vivier (deux repères de même année ne se classent pas).
 Mode `place` : `difficulty` (entier ou liste) filtre les repères ; chaque niveau doit
 compter au moins autant de repères que de questions.
+
+⁹ `point-on-grid` : la grille a `board.width` colonnes et `board.height` lignes,
+numérotées à partir de 0 ; une cible `task.target` hors de `[0, width − 1] × [0, height − 1]`
+n'a aucune intersection à toucher et est **refusée par les deux validateurs** (elle avait
+rendu deux exercices injouables au CM1 et au CM2). Champ facultatif `board.outline` : suite
+d'au moins 3 points `[x, y]` en coordonnées de la grille, dessinée derrière le quadrillage
+(contour de la France de `cm2_reperes_france_grille`).
 
 **Alias normalisés en entrée** (`js/engines.js`) : `compare`/`choice` → `choice-engine` ;
 `oiseau` → `math-input` + `type:oiseau-math`.

@@ -886,6 +886,27 @@ function Validate-BoardDataset($ref, $dataSet) {
                 Add-Issue("$($ref.DataFile): point-on-grid invalide dans $($ref.Category)")
                 break
             }
+            # La grille a width colonnes et height lignes, numérotées à partir de 0 : une cible au-delà n'a aucune intersection.
+            if ($null -ne $item.board -and $null -ne $item.board.width -and $null -ne $item.board.height) {
+                $largeur = [double]$item.board.width
+                $hauteur = [double]$item.board.height
+                if ([double]$target[0] -lt 0 -or [double]$target[1] -lt 0 -or [double]$target[0] -gt ($largeur - 1) -or [double]$target[1] -gt ($hauteur - 1)) {
+                    Add-Issue("$($ref.DataFile): point-on-grid : cible hors du quadrillage dans $($ref.Category)")
+                    break
+                }
+            }
+            # board.outline (facultatif) : contour dessiné derrière la grille, suite de points [x, y].
+            if ($null -ne $item.board -and $item.board.PSObject.Properties.Name -contains 'outline') {
+                $contour = @($item.board.outline)
+                $contourValide = $contour.Count -ge 3
+                foreach ($p in $contour) {
+                    if (-not ($p -is [System.Collections.IList]) -or $p.Count -ne 2) { $contourValide = $false }
+                }
+                if (-not $contourValide) {
+                    Add-Issue("$($ref.DataFile): point-on-grid : contour invalide dans $($ref.Category)")
+                    break
+                }
+            }
         }
 
         if ($ref.Type -eq 'symmetry-complete') {

@@ -757,6 +757,20 @@
                 if (!this.isPlainObject(item.task) || !Array.isArray(target) || target.length !== 2) {
                     return { valid: false, reason: `point-on-grid invalide dans ${exercise.params.category}.` };
                 }
+                // La grille a width colonnes et height lignes, numérotées à partir de 0 :
+                // une cible au-delà (ex. (8 ; 8) sur 10 × 8) n'a aucune intersection à toucher.
+                const largeur = Number(item.board?.width);
+                const hauteur = Number(item.board?.height);
+                if (Number.isFinite(largeur) && Number.isFinite(hauteur)
+                    && (!(Number(target[0]) >= 0) || !(Number(target[1]) >= 0) || Number(target[0]) > largeur - 1 || Number(target[1]) > hauteur - 1)) {
+                    return { valid: false, reason: `point-on-grid : cible hors du quadrillage dans ${exercise.params.category}.` };
+                }
+                // board.outline (facultatif) : contour dessiné derrière la grille, suite de points [x, y] de la grille.
+                const contour = item.board?.outline;
+                if (contour !== undefined && (!Array.isArray(contour) || contour.length < 3
+                    || contour.some((p) => !Array.isArray(p) || p.length !== 2 || !Number.isFinite(Number(p[0])) || !Number.isFinite(Number(p[1]))))) {
+                    return { valid: false, reason: `point-on-grid : contour invalide dans ${exercise.params.category}.` };
+                }
             }
 
             if (exercise.params.type === 'symmetry-complete') {

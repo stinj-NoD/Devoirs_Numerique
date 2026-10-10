@@ -467,6 +467,12 @@ const UIBoard = {
         const stepX = (size - margin * 2) / Math.max(cols - 1, 1);
         const stepY = (size - margin * 2) / Math.max(rows - 1, 1);
 
+        // board.outline : contour (ex. la France) dessiné derrière la grille, en coordonnées de la grille.
+        const contour = Array.isArray(board.outline) ? board.outline : [];
+        const outline = contour.length >= 3
+            ? `<polygon class="board-outline" points="${contour.map((p) => `${margin + Number(p[0]) * stepX},${margin + Number(p[1]) * stepY}`).join(' ')}" />`
+            : '';
+
         const verticals = Array.from({ length: cols }, (_, index) => {
             const x = margin + index * stepX;
             return `<line x1="${x}" y1="${margin}" x2="${x}" y2="${size - margin}" class="board-grid-line" />`;
@@ -515,6 +521,7 @@ const UIBoard = {
                 </div>
                 <div class="board-panel">
                     <svg class="board-svg" viewBox="0 0 ${size} ${size}" role="img" aria-label="Quadrillage interactif">
+                        ${outline}
                         ${verticals}
                         ${horizontals}
                         ${axisLabels}
