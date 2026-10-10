@@ -451,7 +451,8 @@
         "li"
       ],
       "answer": "la",
-      "question": "Quelle est la première syllabe ?"
+      "question": "Quelle est la première syllabe ?",
+      "plain": true
     },
     {
       "text": "salade",
@@ -466,7 +467,8 @@
         "de"
       ],
       "answer": "la",
-      "question": "Quelle est la deuxième syllabe ?"
+      "question": "Quelle est la deuxième syllabe ?",
+      "plain": true
     },
     {
       "text": "robot",
@@ -480,7 +482,8 @@
         "bot"
       ],
       "answer": "bot",
-      "question": "Quelle est la dernière syllabe ?"
+      "question": "Quelle est la dernière syllabe ?",
+      "plain": true
     },
     {
       "text": "minute",
@@ -495,7 +498,8 @@
         "te"
       ],
       "answer": "te",
-      "question": "Quelle est la dernière syllabe ?"
+      "question": "Quelle est la dernière syllabe ?",
+      "plain": true
     },
     {
       "text": "pirate",
@@ -510,7 +514,8 @@
         "te"
       ],
       "answer": "ra",
-      "question": "Quelle est la deuxième syllabe ?"
+      "question": "Quelle est la deuxième syllabe ?",
+      "plain": true
     },
     {
       "text": "tomate",
@@ -525,7 +530,8 @@
         "te"
       ],
       "answer": "to",
-      "question": "Quelle est la première syllabe ?"
+      "question": "Quelle est la première syllabe ?",
+      "plain": true
     },
     {
       "text": "bateau",
@@ -539,7 +545,8 @@
         "teau",
         "ta"
       ],
-      "answer": "ba"
+      "answer": "ba",
+      "plain": true
     },
     {
       "text": "soleil",
@@ -553,7 +560,8 @@
         "leil",
         "sol"
       ],
-      "answer": "so"
+      "answer": "so",
+      "plain": true
     },
     {
       "text": "fenêtre",
@@ -568,7 +576,8 @@
         "fe",
         "tre"
       ],
-      "answer": "nê"
+      "answer": "nê",
+      "plain": true
     },
     {
       "text": "chapeau",
@@ -582,7 +591,8 @@
         "peau",
         "cho"
       ],
-      "answer": "cha"
+      "answer": "cha",
+      "plain": true
     }
   ],
   "cp_compter_syllabes": [
@@ -598,7 +608,8 @@
         "3"
       ],
       "answer": "2",
-      "question": "Combien de syllabes lis-tu ?"
+      "question": "Combien de syllabes lis-tu ?",
+      "plain": true
     },
     {
       "text": "salade",
@@ -613,7 +624,8 @@
         "4"
       ],
       "answer": "3",
-      "question": "Combien de syllabes lis-tu ?"
+      "question": "Combien de syllabes lis-tu ?",
+      "plain": true
     },
     {
       "text": "chat",
@@ -626,7 +638,8 @@
         "3"
       ],
       "answer": "1",
-      "question": "Combien de syllabes lis-tu ?"
+      "question": "Combien de syllabes lis-tu ?",
+      "plain": true
     },
     {
       "text": "pirate",
@@ -641,7 +654,8 @@
         "4"
       ],
       "answer": "3",
-      "question": "Combien de syllabes lis-tu ?"
+      "question": "Combien de syllabes lis-tu ?",
+      "plain": true
     },
     {
       "text": "lapin",
@@ -655,7 +669,8 @@
         "3"
       ],
       "answer": "2",
-      "question": "Combien de syllabes lis-tu ?"
+      "question": "Combien de syllabes lis-tu ?",
+      "plain": true
     },
     {
       "text": "minute",
@@ -670,7 +685,8 @@
         "4"
       ],
       "answer": "3",
-      "question": "Combien de syllabes lis-tu ?"
+      "question": "Combien de syllabes lis-tu ?",
+      "plain": true
     },
     {
       "text": "maison",
@@ -684,7 +700,8 @@
         "2",
         "3"
       ],
-      "answer": "2"
+      "answer": "2",
+      "plain": true
     },
     {
       "text": "chocolat",
@@ -699,7 +716,8 @@
         "3",
         "4"
       ],
-      "answer": "3"
+      "answer": "3",
+      "plain": true
     },
     {
       "text": "lit",
@@ -712,22 +730,23 @@
         "2",
         "3"
       ],
-      "answer": "1"
+      "answer": "1",
+      "plain": true
     },
     {
-      "text": "camion",
+      "text": "vélo",
       "syllables": [
-        "ca",
-        "mi",
-        "on"
+        "vé",
+        "lo"
       ],
       "question": "Combien de syllabes lis-tu ?",
       "choices": [
+        "1",
         "2",
-        "3",
-        "4"
+        "3"
       ],
-      "answer": "3"
+      "answer": "2",
+      "plain": true
     }
   ],
   "cp_son_ou": [
@@ -761,10 +780,7 @@
     },
     {
       "text": "caillou",
-      "syllables": [
-        "cai",
-        "llou"
-      ],
+      "syllables": ["cail","lou"],
       "choices": [
         "1re syllabe",
         "2e syllabe",
@@ -885,10 +901,7 @@
     },
     {
       "text": "ballon",
-      "syllables": [
-        "ba",
-        "llon"
-      ],
+      "syllables": ["bal","lon"],
       "choices": [
         "1re syllabe",
         "2e syllabe",
@@ -968,10 +981,10 @@
       "answer": "2e syllabe"
     },
     {
-      "text": "lion",
+      "text": "citron",
       "syllables": [
-        "li",
-        "on"
+        "ci",
+        "tron"
       ],
       "question": "Dans quelle syllabe entends-tu on ?",
       "choices": [
@@ -1568,11 +1581,11 @@
     {
       "text": "sœur",
       "choices": [
-        "Oui, j'entends œu",
-        "Non, je n'entends pas œu"
+        "Oui, je vois œu",
+        "Non, je ne vois pas œu"
       ],
-      "answer": "Oui, j'entends œu",
-      "question": "Est-ce que tu entends le son œu dans « sœur » ?",
+      "answer": "Oui, je vois œu",
+      "question": "Vois-tu les lettres œu dans « sœur » ?",
       "syllables": [
         "sœur"
       ]
@@ -1580,11 +1593,11 @@
     {
       "text": "cœur",
       "choices": [
-        "Oui, j'entends œu",
-        "Non, je n'entends pas œu"
+        "Oui, je vois œu",
+        "Non, je ne vois pas œu"
       ],
-      "answer": "Oui, j'entends œu",
-      "question": "Est-ce que tu entends le son œu dans « cœur » ?",
+      "answer": "Oui, je vois œu",
+      "question": "Vois-tu les lettres œu dans « cœur » ?",
       "syllables": [
         "cœur"
       ]
@@ -1592,11 +1605,11 @@
     {
       "text": "œuf",
       "choices": [
-        "Oui, j'entends œu",
-        "Non, je n'entends pas œu"
+        "Oui, je vois œu",
+        "Non, je ne vois pas œu"
       ],
-      "answer": "Oui, j'entends œu",
-      "question": "Est-ce que tu entends le son œu dans « œuf » ?",
+      "answer": "Oui, je vois œu",
+      "question": "Vois-tu les lettres œu dans « œuf » ?",
       "syllables": [
         "œuf"
       ]
@@ -1604,11 +1617,11 @@
     {
       "text": "bœuf",
       "choices": [
-        "Oui, j'entends œu",
-        "Non, je n'entends pas œu"
+        "Oui, je vois œu",
+        "Non, je ne vois pas œu"
       ],
-      "answer": "Oui, j'entends œu",
-      "question": "Est-ce que tu entends le son œu dans « bœuf » ?",
+      "answer": "Oui, je vois œu",
+      "question": "Vois-tu les lettres œu dans « bœuf » ?",
       "syllables": [
         "bœuf"
       ]
@@ -1616,52 +1629,52 @@
     {
       "text": "tortue",
       "choices": [
-        "Oui, j'entends œu",
-        "Non, je n'entends pas œu"
+        "Oui, je vois œu",
+        "Non, je ne vois pas œu"
       ],
-      "answer": "Non, je n'entends pas œu",
-      "question": "Est-ce que tu entends le son œu dans « tortue » ?",
+      "answer": "Non, je ne vois pas œu",
+      "question": "Vois-tu les lettres œu dans « tortue » ?",
       "syllables": [
         "tor",
         "tue"
       ]
     },
     {
-      "text": "chœur",
+      "text": "nœud",
       "choices": [
-        "Oui, j'entends œu",
-        "Non, je n'entends pas œu"
+        "Oui, je vois œu",
+        "Non, je ne vois pas œu"
       ],
-      "answer": "Oui, j'entends œu",
-      "question": "Est-ce que tu entends le son œu dans « chœur » ?",
+      "answer": "Oui, je vois œu",
+      "question": "Vois-tu les lettres œu dans « nœud » ?",
       "syllables": [
-        "chœur"
+        "nœud"
       ]
     },
     {
       "text": "maison",
       "choices": [
-        "Oui, j'entends œu",
-        "Non, je n'entends pas œu"
+        "Oui, je vois œu",
+        "Non, je ne vois pas œu"
       ],
-      "answer": "Non, je n'entends pas œu",
-      "question": "Est-ce que tu entends le son œu dans « maison » ?",
+      "answer": "Non, je ne vois pas œu",
+      "question": "Vois-tu les lettres œu dans « maison » ?",
       "syllables": [
         "mai",
         "son"
       ]
     },
     {
-      "text": "sœur",
-      "syllables": [
-        "sœur"
-      ],
+      "text": "fleur",
       "choices": [
-        "1re syllabe",
-        "2e syllabe"
+        "Oui, je vois œu",
+        "Non, je ne vois pas œu"
       ],
-      "answer": "1re syllabe",
-      "question": "Dans quelle syllabe entends-tu œu ?"
+      "answer": "Non, je ne vois pas œu",
+      "question": "Vois-tu les lettres œu dans « fleur » ?",
+      "syllables": [
+        "fleur"
+      ]
     }
   ],
   "cp_son_ph": [

@@ -67,11 +67,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Compléter jusqu'à 10 `(cp-lesson-complement-10)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Petites additions `(add-1)` — engine: `math-input`, type=add-simple, maxSum=10, questions=5
-  - Additions jusqu'à 20 `(add-2)` — engine: `math-input`, type=add-simple, maxSum=20, questions=5
-  - Trouver le nombre caché `(add-3)` — engine: `math-input`, type=add-trou, min=1, max=20, questions=5
+  - Additions jusqu'à 20 `(add-2)` — engine: `math-input`, type=add-simple, maxSum=20, questions=5, min=11
+  - Trouver le nombre caché `(add-3)` — engine: `math-input`, type=add-trou, min=3, max=20, questions=5
   - Compléter jusqu'à 10 `(add-4)` — engine: `math-input`, type=complement, target=10, questions=5
   - Compléter jusqu'à 20 `(add-5)` — engine: `math-input`, type=complement, questions=5, target=20
-  - Défi : super additions `(cp-bonus-addition-defi)` — engine: `math-input`, type=add-simple, maxSum=50, questions=8, bonus (seuil=2)
+  - Défi : super additions `(cp-bonus-addition-defi)` — engine: `math-input`, type=add-simple, maxSum=50, questions=8, min=11, bonus (seuil=2)
 
 #### Parcours : Soustraction `(cp-parcours-soustraction)`
 
@@ -125,14 +125,14 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Défis & Logique `(cp-defis-logique)`
 
 - **Leçons** (2) :
-  - Résoudre un petit problème `(cp-lesson-defi-chercher)` — blocs: paragraph, example, bullets, tip, check, check
-  - Vérifier un calcul `(cp-lesson-defi-verifier)` — blocs: paragraph, example, bullets, tip, check, check
+  - Deux nombres qui font 10 `(cp-lesson-defi-chercher)` — blocs: paragraph, example, bullets, tip, check, check
+  - Vérifier une paire `(cp-lesson-defi-verifier)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - L'Oiseau Rapide `(oiseau-1)` — engine: `math-input`, type=oiseau-math, min=1, max=10, vitesse=8, questions=5
-  - Carré Magique 1 `(carre-1)` — engine: `math-input`, type=carre-somme, solutionCount=2, targetMin=10, targetMax=10, gridSize=4, showSum=true, questions=5
-  - Carré Magique 2 `(carre-2)` — engine: `math-input`, type=carre-somme, solutionCount=2, targetMin=10, targetMax=10, gridSize=4, showSum=false, questions=5
-  - Carré Magique 3 `(carre-3)` — engine: `math-input`, type=carre-somme, solutionCount=2, targetMin=15, targetMax=15, gridSize=4, showSum=false, questions=5
-  - Défi : Carré Magique Expert `(cp-bonus-carre-magique-defi)` — engine: `math-input`, type=carre-somme, solutionCount=2, targetMin=20, targetMax=20, gridSize=4, showSum=false, questions=6, bonus (seuil=2)
+  - Trouve la paire (1) `(carre-1)` — engine: `math-input`, type=carre-somme, solutionCount=2, targetMin=10, targetMax=10, gridSize=4, showSum=true, questions=5
+  - Trouve la paire (2) `(carre-2)` — engine: `math-input`, type=carre-somme, solutionCount=2, targetMin=10, targetMax=10, gridSize=4, showSum=false, questions=5
+  - Trouve la paire (3) `(carre-3)` — engine: `math-input`, type=carre-somme, solutionCount=2, targetMin=15, targetMax=15, gridSize=4, showSum=false, questions=5
+  - Défi : trouve la paire `(cp-bonus-carre-magique-defi)` — engine: `math-input`, type=carre-somme, solutionCount=2, targetMin=20, targetMax=20, gridSize=4, showSum=false, questions=6, bonus (seuil=2)
 
 #### Formes et mesures `(cp-formes-mesures-subtheme)`
 
@@ -175,10 +175,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Un problème avec deux calculs `(cp-lesson-probleme-deux-etapes)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Petits problèmes `(cp-problemes-simples)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=cp-problemes-simples, questions=6
-  - Défi : petits problèmes `(cp-bonus-problemes-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=cp-problemes-simples, questions=10, bonus (seuil=2)
-  - Problèmes du quotidien `(cp-problemes-quotidien)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=cp-problemes-simples, questions=6
+  - Défi : petits problèmes `(cp-bonus-problemes-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=cp-problemes-defi, questions=10, bonus (seuil=2)
+  - Problèmes du quotidien `(cp-problemes-quotidien)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=cp-problemes-quotidien, questions=6
   - Problèmes à deux étapes `(cp-problemes-deux-etapes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=cp-problemes-deux-etapes, questions=5
-  - Défi : problèmes à deux étapes `(cp-bonus-problemes-deux-etapes-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=cp-problemes-deux-etapes, questions=8, bonus (seuil=2)
+  - Défi : problèmes à deux étapes `(cp-bonus-problemes-deux-etapes-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=cp-problemes-deux-etapes-defi, questions=8, bonus (seuil=2)
 
 ### Français (cp-francais)
 
@@ -207,7 +207,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Les Aliments `(cp-audio-aliments)` — engine: `audio-spelling`, category=food, speechRate=0.78, questions=5
   - Les Animaux `(cp-audio-animaux)` — engine: `audio-spelling`, category=animals, speechRate=0.78, questions=5
   - Les Transports `(cp-audio-transports)` — engine: `audio-spelling`, category=transport, speechRate=0.78, questions=5
-  - Les syllabes `(cp-audio-syllabes)` — engine: `audio-spelling`, category=cp_syllabes_dictee, speechRate=0.7, questions=6
+  - Les syllabes `(cp-audio-syllabes)` — engine: `audio-spelling`, category=cp_syllabes_dictee, speechRate=0.7, questions=6, unit=syllabe
   - Une petite phrase `(cp-audio-phrase-courte)` — engine: `audio-spelling`, category=cp_phrases_courtes_dictee, speechRate=0.7, questions=5
   - Défi : super dictée audio `(cp-bonus-dictee-audio-defi)` — engine: `audio-spelling`, category=animals, speechRate=0.78, questions=8, bonus (seuil=2)
 
@@ -264,7 +264,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Le son gn `(cp-lecture-gn)` — engine: `reading`, category=cp_son_gn, questions=5
   - Le son oin `(cp-lecture-oin)` — engine: `reading`, category=cp_son_oin, questions=5
   - Le son ien `(cp-lecture-ien)` — engine: `reading`, category=cp_son_ien, questions=5
-  - Le son œu `(cp-lecture-oeu)` — engine: `reading`, category=cp_son_oeu, questions=5
+  - Les lettres œu `(cp-lecture-oeu)` — engine: `reading`, category=cp_son_oeu, questions=5
   - Le son ph `(cp-lecture-ph)` — engine: `reading`, category=cp_son_ph, questions=5
   - Lettres muettes `(cp-lecture-muettes)` — engine: `reading`, category=cp_lettres_muettes, questions=5
   - Défi : super lecture `(cp-bonus-lecture-defi)` — engine: `reading`, category=cp_lettres_muettes, questions=8, bonus (seuil=2)
@@ -275,7 +275,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Un ou une ? `(cp-lesson-un-une)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Un ou Une ? `(cp-un-une)` — engine: `choice-engine`, type=gender-articles, category=gender_cp, questions=5
-  - Le ou La ? `(cp-le-la)` — engine: `choice-engine`, type=gender-articles, category=gender_cp, questions=5
+  - Le, la ou l' ? `(cp-le-la)` — engine: `choice-engine`, type=gender-articles, category=gender_cp, questions=5
   - Mon ou Ma ? `(cp-mon-ma)` — engine: `choice-engine`, type=gender-articles, category=gender_cp, questions=5
   - Défi genre : un, une, le, la `(cp-bonus-genre-mixte)` — engine: `choice-engine`, type=gender-articles, category=gender_cp, questions=8, bonus (seuil=2)
 
@@ -339,7 +339,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Vivre autrefois `(cp-histoire-vie-autrefois)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cp.json, category=cp-vie-autrefois, questions=6
   - Comparer autrefois `(cp-histoire-comparer-autrefois)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_cp.json, category=cp-vie-autrefois
   - Les objets d'autrefois `(cp-histoire-vie-objets-anciens)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cp.json, category=cp-objets-anciens, questions=6
-  - Defi : vie autrefois `(cp-bonus-histoire-vie-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cp.json, category=cp-vie-autrefois, questions=8, bonus (seuil=2)
+  - Défi : vie autrefois `(cp-bonus-histoire-vie-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cp.json, category=cp-vie-autrefois, questions=8, bonus (seuil=2)
   - Les métiers d'autrefois `(cp-histoire-metiers-autrefois)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cp.json, category=cp-metiers-autrefois, questions=6
 
 #### Traces du passé `(cp-histoire-traces-subtheme)`
@@ -364,7 +364,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Exercices** (4) :
   - Le plan et le quartier `(cp-geo-plan-quartier)` — engine: `choice-engine`, type=factual-qcm, category=cp-plan-quartier, dataFile=data/geography_cp.json, questions=6
   - Défi : plan et quartier `(cp-bonus-plan-quartier-defi)` — engine: `choice-engine`, type=factual-qcm, category=cp-plan-quartier, dataFile=data/geography_cp.json, questions=8, bonus (seuil=2)
-  - Se reperer dans l'espace `(cp-geo-se-reperer)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-se-reperer, questions=6
+  - Se repérer dans l'espace `(cp-geo-se-reperer)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-se-reperer, questions=6
   - Les lieux publics du quartier `(cp-plan-lieux-publics)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-lieux-publics, questions=6
 
 #### Se repérer `(cp-geo-reperage-subtheme)`
@@ -376,7 +376,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - La rose des vents `(cp-lesson-rose-des-vents)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (7) :
   - Se repérer `(cp-geo-reperer)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-se-reperer, questions=6
-  - Se repérer à l'école `(cp-geo-ecole-trajets)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cp.json, category=cp-se-reperer
+  - Plan, trajets et positions `(cp-geo-ecole-trajets)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cp.json, category=cp-se-reperer
   - Les lieux de l'école `(cp-geo-lieux-ecole)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cp.json, category=cp-lieux-ecole
   - Les points cardinaux `(cp-geo-points-cardinaux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-points-cardinaux, questions=6
   - La rose des vents `(cp-geo-rose-des-vents)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cp.json, category=cp-rose-des-vents, questions=6
@@ -435,8 +435,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (1) :
   - La matière et ses états `(cp-lesson-matiere-etat)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (2) :
-  - Matière et lumière `(cp-sciences-matiere)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-matiere, questions=6
-  - Défi : matière et lumière `(cp-bonus-sciences-matiere-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-matiere, questions=9, bonus (seuil=2)
+  - La matière `(cp-sciences-matiere)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-matiere, questions=6
+  - Défi : la matière `(cp-bonus-sciences-matiere-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-matiere, questions=9, bonus (seuil=2)
 
 #### Corps et sens `(cp-sciences-corps-subtheme)`
 
@@ -489,7 +489,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Mesurer avec un thermomètre `(cp-lesson-thermometre-degres)` — blocs: paragraph, paragraph, example, bullets, tip, check, check
 - **Exercices** (2) :
   - Chaud, tiède ou froid `(cp-sciences-chaud-froid)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-chaud-froid, questions=6
-  - Lire un thermomètre `(cp-sciences-thermometre)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-temperature-thermometre, questions=6
+  - La température en degrés `(cp-sciences-thermometre)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cp.json, category=cp-temperature-thermometre, questions=6
 
 ### EMC (cp-emc-subject)
 

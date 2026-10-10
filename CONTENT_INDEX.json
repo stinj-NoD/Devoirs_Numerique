@@ -49,7 +49,7 @@
       "engine": "math-input",
       "paramsType": "add-simple",
       "pool": null,
-      "contractHash": "math-input|{\"maxSum\":20,\"type\":\"add-simple\"}"
+      "contractHash": "math-input|{\"maxSum\":20,\"min\":11,\"type\":\"add-simple\"}"
     },
     {
       "id": "add-3",
@@ -60,7 +60,7 @@
       "engine": "math-input",
       "paramsType": "add-trou",
       "pool": null,
-      "contractHash": "math-input|{\"max\":20,\"min\":1,\"type\":\"add-trou\"}"
+      "contractHash": "math-input|{\"max\":20,\"min\":3,\"type\":\"add-trou\"}"
     },
     {
       "id": "add-4",
@@ -93,7 +93,7 @@
       "engine": "math-input",
       "paramsType": "add-simple",
       "pool": null,
-      "contractHash": "math-input|{\"maxSum\":50,\"type\":\"add-simple\"}"
+      "contractHash": "math-input|{\"maxSum\":50,\"min\":11,\"type\":\"add-simple\"}"
     },
     {
       "id": "cp-lesson-soustraction-comprendre",
@@ -851,8 +851,8 @@
       "subthemeId": "cp-problemes-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/math_word_problems_cycle2.json::cp-problemes-simples",
-      "contractHash": "choice-engine|{\"category\":\"cp-problemes-simples\",\"dataFile\":\"data/math_word_problems_cycle2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/math_word_problems_cycle2.json::cp-problemes-defi",
+      "contractHash": "choice-engine|{\"category\":\"cp-problemes-defi\",\"dataFile\":\"data/math_word_problems_cycle2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cp-problemes-quotidien",
@@ -862,8 +862,8 @@
       "subthemeId": "cp-problemes-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/math_word_problems_cycle2.json::cp-problemes-simples",
-      "contractHash": "choice-engine|{\"category\":\"cp-problemes-simples\",\"dataFile\":\"data/math_word_problems_cycle2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/math_word_problems_cycle2.json::cp-problemes-quotidien",
+      "contractHash": "choice-engine|{\"category\":\"cp-problemes-quotidien\",\"dataFile\":\"data/math_word_problems_cycle2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cp-problemes-deux-etapes",
@@ -884,8 +884,8 @@
       "subthemeId": "cp-problemes-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/math_word_problems_cycle2.json::cp-problemes-deux-etapes",
-      "contractHash": "choice-engine|{\"category\":\"cp-problemes-deux-etapes\",\"dataFile\":\"data/math_word_problems_cycle2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/math_word_problems_cycle2.json::cp-problemes-deux-etapes-defi",
+      "contractHash": "choice-engine|{\"category\":\"cp-problemes-deux-etapes-defi\",\"dataFile\":\"data/math_word_problems_cycle2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cp-lesson-ecrire-mot-image",
@@ -1072,7 +1072,7 @@
       "engine": "audio-spelling",
       "paramsType": null,
       "pool": null,
-      "contractHash": "audio-spelling|{\"category\":\"cp_syllabes_dictee\",\"speechRate\":0.7}"
+      "contractHash": "audio-spelling|{\"category\":\"cp_syllabes_dictee\",\"speechRate\":0.7,\"unit\":\"syllabe\"}"
     },
     {
       "id": "cp-audio-phrase-courte",
@@ -17715,7 +17715,6 @@
     },
     "data/board_map_locate_cp.json": {
       "categories": {
-        "cp_map_regions_france": 8,
         "cp_map_continents_monde": 6
       }
     },
@@ -18297,13 +18296,16 @@
     },
     "data/math_word_problems_cycle2.json": {
       "categories": {
-        "cp-problemes-simples": 18,
+        "cp-problemes-simples": 10,
         "cp-problemes-deux-etapes": 8,
         "ce1-problemes-additifs": 10,
         "ce1-problemes-mixtes": 20,
         "ce2-monnaie": 10,
         "ce1-fractions": 16,
-        "ce1-monnaie-decimale": 10
+        "ce1-monnaie-decimale": 10,
+        "cp-problemes-quotidien": 10,
+        "cp-problemes-defi": 14,
+        "cp-problemes-deux-etapes-defi": 11
       }
     },
     "data/math_word_problems_cycle3.json": {

@@ -26,12 +26,13 @@
                         {
                             "id": "add-2",
                             "title": "Additions jusqu'à 20",
-                            "subtitle": "Additionner sans dépasser 20",
+                            "subtitle": "Des sommes de 11 à 20",
                             "engine": "math-input",
                             "params": {
                                 "type": "add-simple",
                                 "maxSum": 20,
-                                "questions": 5
+                                "questions": 5,
+                                "min": 11
                             }
                         },
                         {
@@ -41,7 +42,7 @@
                             "engine": "math-input",
                             "params": {
                                 "type": "add-trou",
-                                "min": 1,
+                                "min": 3,
                                 "max": 20,
                                 "questions": 5
                             }
@@ -71,14 +72,15 @@
                         {
                             "id": "cp-bonus-addition-defi",
                             "title": "Défi : super additions",
-                            "subtitle": "Additionner jusqu'à 50",
+                            "subtitle": "Des sommes de 11 à 50",
                             "engine": "math-input",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "add-simple",
                                 "maxSum": 50,
-                                "questions": 8
+                                "questions": 8,
+                                "min": 11
                             }
                         }
                     ],
@@ -674,7 +676,7 @@
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "Sur une ligne graduée de 0 à 10, le nombre 7 se trouve en comptant 7 graduations à partir du 0."
+                                    "content": "Sur une ligne graduée de 1 en 1, le nombre 7 se trouve en comptant 7 graduations à partir du 0. Sur une ligne graduée de 10 en 10, 3 graduations après le 0 donnent 30."
                                 },
                                 {
                                     "type": "bullets",
@@ -687,7 +689,7 @@
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "Pour placer un nombre, je pars du 0 et je compte le bon nombre de graduations vers la droite."
+                                    "content": "Pour placer un nombre, je pars du 0, je regarde ce que vaut une graduation (1, 5 ou 10) et je compte vers la droite."
                                 },
                                 {
                                     "type": "check",
@@ -1117,8 +1119,8 @@
                         },
                         {
                             "id": "carre-1",
-                            "title": "Carré Magique 1",
-                            "subtitle": "Aide visuelle",
+                            "title": "Trouve la paire (1)",
+                            "subtitle": "Deux nombres qui font 10, avec aide",
                             "engine": "math-input",
                             "params": {
                                 "type": "carre-somme",
@@ -1132,8 +1134,8 @@
                         },
                         {
                             "id": "carre-2",
-                            "title": "Carré Magique 2",
-                            "subtitle": "Calcul mental",
+                            "title": "Trouve la paire (2)",
+                            "subtitle": "Deux nombres qui font 10",
                             "engine": "math-input",
                             "params": {
                                 "type": "carre-somme",
@@ -1147,8 +1149,8 @@
                         },
                         {
                             "id": "carre-3",
-                            "title": "Carré Magique 3",
-                            "subtitle": "Trouver 15",
+                            "title": "Trouve la paire (3)",
+                            "subtitle": "Deux nombres qui font 15",
                             "engine": "math-input",
                             "params": {
                                 "type": "carre-somme",
@@ -1162,8 +1164,8 @@
                         },
                         {
                             "id": "cp-bonus-carre-magique-defi",
-                            "title": "Défi : Carré Magique Expert",
-                            "subtitle": "Trouver 20, sans aide",
+                            "title": "Défi : trouve la paire",
+                            "subtitle": "Deux nombres qui font 20, sans aide",
                             "engine": "math-input",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -1181,105 +1183,105 @@
                     "lessons": [
                         {
                             "id": "cp-lesson-defi-chercher",
-                            "title": "Résoudre un petit problème",
-                            "subtitle": "Lire, choisir, calculer",
+                            "title": "Deux nombres qui font 10",
+                            "subtitle": "Chercher ce qui manque",
                             "format": "lesson-card",
                             "blocks": [
                                 {
-                                    "text": "Pour résoudre un problème, je lis la question et je choisis le bon calcul.",
+                                    "text": "Pour trouver deux nombres qui font 10, je pars d'un nombre et je cherche ce qui lui manque pour arriver à 10.",
                                     "type": "paragraph"
                                 },
                                 {
                                     "label": "Exemple",
-                                    "content": "J'ai 6 images et j'en colle 2 de plus dans mon cahier : 6 + 2 = 8.",
+                                    "content": "Avec 7, il manque 3 pour faire 10 : 7 + 3 = 10.",
                                     "type": "example"
                                 },
                                 {
                                     "items": [
-                                        "je lis",
-                                        "je choisis",
-                                        "je calcule"
+                                        "je choisis un nombre",
+                                        "je cherche ce qui lui manque pour faire 10",
+                                        "je vérifie en additionnant"
                                     ],
                                     "type": "bullets"
                                 },
                                 {
                                     "label": "À retenir",
-                                    "content": "Un problème simple donne des nombres et une question précise à calculer.",
+                                    "content": "Deux nombres qui font 10 forment une paire : 8 et 2, 9 et 1, 5 et 5.",
                                     "type": "tip"
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans un panier il y a 9 pommes. Papa en prend 3 pour le goûter. Combien reste-t-il de pommes ?",
+                                    "question": "Quel nombre va avec 6 pour faire 10 ?",
                                     "choices": [
-                                        "6 pommes",
-                                        "12 pommes",
-                                        "3 pommes"
+                                        "4",
+                                        "16",
+                                        "5"
                                     ],
-                                    "answer": "6 pommes",
-                                    "explanation": "Papa retire des pommes du panier, donc j'enlève : 9 - 3 = 6 pommes."
+                                    "answer": "4",
+                                    "explanation": "Il manque 4 à 6 pour arriver à 10 : 6 + 4 = 10. 16 est la somme de 6 et de 10, et 6 + 5 fait 11."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Zoé a 4 autocollants et sa maîtresse lui en offre 5. Quel calcul répond à la question « Combien en a-t-elle maintenant ? »",
+                                    "question": "Quelles paires font 15 ensemble ?",
                                     "choices": [
-                                        "4 + 5",
-                                        "5 - 4",
-                                        "4 + 4"
+                                        "9 et 6",
+                                        "9 et 5",
+                                        "8 et 8"
                                     ],
-                                    "answer": "4 + 5",
-                                    "explanation": "Zoé reçoit des autocollants en plus : je réunis les deux quantités, 4 + 5 = 9 autocollants."
+                                    "answer": "9 et 6",
+                                    "explanation": "9 + 6 = 15. Avec 9 et 5 on obtient 14, un de moins, et avec 8 et 8 on obtient 16, un de plus."
                                 }
                             ]
                         },
                         {
                             "id": "cp-lesson-defi-verifier",
-                            "title": "Vérifier un calcul",
-                            "subtitle": "Recompter et corriger",
+                            "title": "Vérifier une paire",
+                            "subtitle": "Additionner puis ajuster",
                             "format": "lesson-card",
                             "blocks": [
                                 {
-                                    "text": "Je vérifie pour savoir si mon calcul est juste.",
+                                    "text": "Quand je cherche deux nombres qui font un total donné, j'additionne mes deux nombres pour vérifier.",
                                     "type": "paragraph"
                                 },
                                 {
                                     "label": "Exemple",
-                                    "content": "Je refais le calcul pour voir si j'obtiens le même résultat.",
+                                    "content": "Pour faire 15, je choisis 8 et 6 : 8 + 6 = 14, ce n'est pas 15. Je change 6 en 7 : 8 + 7 = 15.",
                                     "type": "example"
                                 },
                                 {
                                     "items": [
-                                        "je relis la consigne",
-                                        "je refais le calcul",
-                                        "je corrige si besoin"
+                                        "j'additionne mes deux nombres",
+                                        "je compare avec le total demandé",
+                                        "je change un nombre si c'est trop petit ou trop grand"
                                     ],
                                     "type": "bullets"
                                 },
                                 {
                                     "label": "À retenir",
-                                    "content": "Vérifier évite les erreurs.",
+                                    "content": "Si le total est trop petit, je prends un nombre plus grand ; s'il est trop grand, un nombre plus petit.",
                                     "type": "tip"
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un élève a écrit : 5 + 4 = 8. En recomptant, que découvre-t-on ?",
+                                    "question": "On cherche deux nombres qui font 12. Léa a choisi 7 et 4. Que doit-elle faire ?",
                                     "choices": [
-                                        "C'est faux, le résultat est 9",
-                                        "C'est juste, le résultat est bien 8",
-                                        "C'est faux, le résultat est 1"
+                                        "Prendre 5 à la place de 4",
+                                        "Prendre 3 à la place de 4",
+                                        "Garder 7 et 4"
                                     ],
-                                    "answer": "C'est faux, le résultat est 9",
-                                    "explanation": "Je recompte à partir de 5 : 6, 7, 8, 9. J'avance de 4 pas et j'arrive à 9, pas à 8."
+                                    "answer": "Prendre 5 à la place de 4",
+                                    "explanation": "7 + 4 = 11, il manque 1 pour arriver à 12 : il faut un nombre plus grand, 5, car 7 + 5 = 12."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un problème demande combien il reste de billes, et un élève trouve un résultat plus grand que le nombre de départ. Que faut-il penser ?",
+                                    "question": "Pour faire 20, Hugo prend 9 et 12. Est-ce que c'est bon ?",
                                     "choices": [
-                                        "Il s'est trompé, il a sûrement ajouté au lieu d'enlever",
-                                        "C'est normal, il reste toujours plus de billes",
-                                        "Il faut recopier ce résultat sans rien changer"
+                                        "Non, 9 + 12 = 21, c'est un de trop",
+                                        "Oui, 9 + 12 = 20",
+                                        "Non, 9 + 12 = 19, c'est un de moins"
                                     ],
-                                    "answer": "Il s'est trompé, il a sûrement ajouté au lieu d'enlever",
-                                    "explanation": "Quand on enlève des billes, il en reste forcément moins qu'au départ : un résultat plus grand montre une erreur d'opération."
+                                    "answer": "Non, 9 + 12 = 21, c'est un de trop",
+                                    "explanation": "9 + 12 fait 21 : c'est 1 de plus que 20. Il faut un nombre plus petit, par exemple 11."
                                 }
                             ]
                         }
@@ -1428,11 +1430,11 @@
                                     "type": "check",
                                     "question": "Range ces trois moments dans l'ordre de la journée.",
                                     "choices": [
-                                        "Petit-déjeuner, récréation de 15 h, coucher",
-                                        "Coucher, petit-déjeuner, récréation de 15 h",
-                                        "Récréation de 15 h, coucher, petit-déjeuner"
+                                        "Petit-déjeuner, récréation de l'après-midi, coucher",
+                                        "Coucher, petit-déjeuner, récréation de l'après-midi",
+                                        "Récréation de l'après-midi, coucher, petit-déjeuner"
                                     ],
-                                    "answer": "Petit-déjeuner, récréation de 15 h, coucher",
+                                    "answer": "Petit-déjeuner, récréation de l'après-midi, coucher",
                                     "explanation": "On mange au réveil, on joue en récréation l'après-midi, et on se couche en dernier, quand la nuit tombe."
                                 },
                                 {
@@ -1880,12 +1882,13 @@
                                 },
                                 {
                                     "label": "Exemple",
-                                    "content": "34 = 3 dizaines et 4 unités.",
+                                    "content": "34 = 3 dizaines et 4 unités. Le chiffre 3 vaut 30, car 3 dizaines, c'est 30.",
                                     "type": "example"
                                 },
                                 {
                                     "items": [
                                         "1 dizaine = 10",
+                                        "le chiffre des dizaines vaut 10 fois plus : 8 dizaines, c'est 80",
                                         "les unités vont de 0 à 9",
                                         "je peux compter par paquets de 10"
                                     ],
@@ -1942,14 +1945,14 @@
                         {
                             "id": "cp-bonus-problemes-expert",
                             "title": "Défi : petits problèmes",
-                            "subtitle": "Tous les problèmes, sans erreur",
+                            "subtitle": "Écart, complément et comparaison, sans erreur",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/math_word_problems_cycle2.json",
-                                "category": "cp-problemes-simples",
+                                "category": "cp-problemes-defi",
                                 "questions": 10
                             }
                         },
@@ -1961,7 +1964,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/math_word_problems_cycle2.json",
-                                "category": "cp-problemes-simples",
+                                "category": "cp-problemes-quotidien",
                                 "questions": 6
                             }
                         },
@@ -1980,14 +1983,14 @@
                         {
                             "id": "cp-bonus-problemes-deux-etapes-defi",
                             "title": "Défi : problèmes à deux étapes",
-                            "subtitle": "Tous les problèmes, sans erreur",
+                            "subtitle": "Deux calculs à la suite, jusqu'à 20",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/math_word_problems_cycle2.json",
-                                "category": "cp-problemes-deux-etapes",
+                                "category": "cp-problemes-deux-etapes-defi",
                                 "questions": 8
                             }
                         }
@@ -2202,7 +2205,7 @@
                                 },
                                 {
                                     "label": "Exemple",
-                                    "content": "Si je vois un chat, je dis le mot chat : j'entends [ch] puis [a], alors j'écris ch puis a.",
+                                    "content": "Si je vois un chat, je dis le mot chat : j'entends [ch] puis [a], alors j'écris ch puis a, et je n'oublie pas le t qu'on n'entend pas.",
                                     "type": "example"
                                 },
                                 {
@@ -2316,7 +2319,8 @@
                             "params": {
                                 "category": "cp_syllabes_dictee",
                                 "speechRate": 0.7,
-                                "questions": 6
+                                "questions": 6,
+                                "unit": "syllabe"
                             }
                         },
                         {
@@ -2476,7 +2480,7 @@
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "Une phrase dictée peut être courte : trois ou quatre mots suffisent souvent."
+                                    "content": "Une phrase dictée peut être courte : trois ou quatre mots suffisent souvent. Ici, on écrit seulement les mots, sans majuscule ni point."
                                 },
                                 {
                                     "type": "check",
@@ -2597,7 +2601,7 @@
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "Pour a et à, on apprend la différence dans les exercices d'homophones."
+                                    "content": "Attention : « a » (il a un chat) et « à » (il va à l'école) se disent pareil ; c'est la phrase qui aide à choisir."
                                 },
                                 {
                                     "type": "check",
@@ -3043,8 +3047,8 @@
                         },
                         {
                             "id": "cp-lecture-oeu",
-                            "title": "Le son œu",
-                            "subtitle": "Entendre le son dans le mot",
+                            "title": "Les lettres œu",
+                            "subtitle": "Les voir dans le mot",
                             "engine": "reading",
                             "params": {
                                 "category": "cp_son_oeu",
@@ -3101,12 +3105,13 @@
                                     "type": "example"
                                 },
                                 {
+                                    "type": "bullets",
                                     "items": [
                                         "je cherche les morceaux du mot",
                                         "je lis dans l'ordre",
-                                        "je relis le mot entier"
-                                    ],
-                                    "type": "bullets"
+                                        "je relis le mot entier",
+                                        "à l'écrit, le e de la fin compte aussi : sa-la-de a trois morceaux"
+                                    ]
                                 },
                                 {
                                     "label": "À retenir",
@@ -3144,7 +3149,7 @@
                             "format": "lesson-card",
                             "blocks": [
                                 {
-                                    "text": "Une phrase commence par une majuscule et se termine par un point.",
+                                    "text": "Une phrase commence par une majuscule et se termine par un point, un point d'interrogation ou un point d'exclamation.",
                                     "type": "paragraph"
                                 },
                                 {
@@ -3213,7 +3218,7 @@
                         },
                         {
                             "id": "cp-le-la",
-                            "title": "Le ou La ?",
+                            "title": "Le, la ou l' ?",
                             "subtitle": "Articles définis",
                             "engine": "choice-engine",
                             "params": {
@@ -3473,7 +3478,7 @@
                             "format": "lesson-card",
                             "blocks": [
                                 {
-                                    "text": "Une phrase commence par une majuscule et se termine par un point. Elle exprime une idée complète.",
+                                    "text": "Une phrase commence par une majuscule et se termine par un point, un point d'interrogation ou un point d'exclamation. Elle exprime une idée complète.",
                                     "type": "paragraph"
                                 },
                                 {
@@ -3491,7 +3496,7 @@
                                 },
                                 {
                                     "label": "À retenir",
-                                    "content": "Sans majuscule ni point, ce n'est pas une vraie phrase !",
+                                    "content": "Une phrase dit une idée complète : les mots doivent être dans le bon ordre.",
                                     "type": "tip"
                                 },
                                 {
@@ -3855,19 +3860,19 @@
                                 },
                                 {
                                     "label": "À retenir",
-                                    "content": "Les repères du temps me permettent de raconter dans l'ordre. Plus tard, j'apprendrai aussi à me repérer avec le mois et l'année.",
+                                    "content": "Les repères du temps me permettent de raconter dans l'ordre.",
                                     "type": "tip"
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Nous sommes mercredi. Chloé dit : « Demain, je suis allée à la piscine. » Pourquoi sa phrase est-elle bizarre ?",
+                                    "question": "Chloé dit : « Demain, j'ai nagé. » Pourquoi est-ce bizarre ?",
                                     "choices": [
-                                        "Elle raconte comme déjà fait un moment pas encore arrivé",
-                                        "Elle a oublié de préciser quel jour de la semaine on est aujourd'hui",
-                                        "On ne va jamais à la piscine le jeudi, seulement le mercredi matin"
+                                        "« Demain » parle du futur, « j'ai nagé » du passé",
+                                        "Elle n'a pas dit à quelle heure elle nage",
+                                        "On ne va jamais à la piscine le jeudi"
                                     ],
-                                    "answer": "Elle raconte comme déjà fait un moment pas encore arrivé",
-                                    "explanation": "« Demain » vient après maintenant : Chloé doit dire « j'irai ». Dire quel jour on est ne réglerait rien, et le jour de la piscine n'a rien à voir : c'est le mot du temps qui ne va pas avec le verbe."
+                                    "answer": "« Demain » parle du futur, « j'ai nagé » du passé",
+                                    "explanation": "« Demain » vient après maintenant : il faut dire « je nagerai ». Dire l'heure n'y change rien."
                                 },
                                 {
                                     "type": "check",
@@ -3958,7 +3963,7 @@
                                     "items": [
                                         "le jour : le Soleil éclaire notre ciel",
                                         "la nuit : on voit la Lune et les étoiles",
-                                        "le jour et la nuit forment une journée"
+                                        "un jour et une nuit qui se suivent font 24 heures"
                                     ]
                                 },
                                 {
@@ -3979,7 +3984,7 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Papi se lève très tôt : le ciel devient clair et le Soleil apparaît à l'horizon. Comment appelle-t-on ce moment ?",
+                                    "question": "Papi voit le Soleil apparaître à l'horizon. Comment appelle-t-on ce moment ?",
                                     "choices": [
                                         "Le lever du Soleil",
                                         "Le coucher du Soleil",
@@ -4072,11 +4077,11 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Lou raconte : « Enfin, j'ai plongé dans l'eau. Ensuite, j'ai mis mon maillot. D'abord, je suis arrivée à la piscine. » Qu'est-ce qui ne va pas ?",
+                                    "question": "Lou dit : « Enfin, je plonge. Ensuite, je mets mon maillot. D'abord, j'arrive. » Que fait-elle ?",
                                     "choices": [
                                         "Elle raconte les moments à l'envers",
-                                        "Elle a oublié de dire son âge",
-                                        "Elle a employé trois fois le même petit mot"
+                                        "Elle oublie de dire son âge",
+                                        "Elle répète trois fois le même mot"
                                     ],
                                     "answer": "Elle raconte les moments à l'envers",
                                     "explanation": "Lou commence par la fin et termine par le début. Dans l'ordre : elle arrive à la piscine, elle met son maillot, puis elle plonge."
@@ -4139,8 +4144,8 @@
                         },
                         {
                             "id": "cp-bonus-histoire-vie-defi",
-                            "title": "Defi : vie autrefois",
-                            "subtitle": "Maitre du temps qui passe",
+                            "title": "Défi : vie autrefois",
+                            "subtitle": "Maître du temps qui passe",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -4168,25 +4173,25 @@
                         {
                             "id": "cp-lesson-vivre-autrefois",
                             "title": "Vivre autrefois",
-                            "subtitle": "À la maison et à l'école",
+                            "subtitle": "À la maison",
                             "format": "lesson-card",
                             "blocks": [
                                 {
-                                    "text": "Autrefois, la vie quotidienne était différente : les objets, l'école et les habits n'étaient pas les mêmes.",
+                                    "text": "Autrefois, la vie à la maison était différente : on s'éclairait, on se chauffait et on lavait le linge autrement.",
                                     "type": "paragraph"
                                 },
                                 {
                                     "label": "Exemple",
-                                    "content": "On pouvait écrire à la plume et utiliser des objets anciens.",
+                                    "content": "On s'éclairait à la bougie et on allait chercher l'eau à la fontaine du village.",
                                     "type": "example"
                                 },
                                 {
+                                    "type": "bullets",
                                     "items": [
-                                        "les objets changent",
-                                        "l'école change",
-                                        "la vie quotidienne change"
-                                    ],
-                                    "type": "bullets"
+                                        "on s'éclairait à la bougie",
+                                        "on lavait le linge au lavoir",
+                                        "on allait chercher l'eau à la fontaine"
+                                    ]
                                 },
                                 {
                                     "label": "À retenir",
@@ -4195,14 +4200,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans un dessin qui montre la vie autrefois, un enfant a ajouté une télévision. Pourquoi est-ce une erreur ?",
+                                    "question": "Sur un dessin d'autrefois, un enfant a mis une télévision. Pourquoi est-ce une erreur ?",
                                     "choices": [
-                                        "Cet objet n'existait pas encore à cette époque",
-                                        "Les enfants d'autrefois n'aimaient pas la télévision",
-                                        "On ne dessine jamais d'objets sur une image du passé"
+                                        "Cet objet n'existait pas encore",
+                                        "Les enfants n'aimaient pas la télévision",
+                                        "On ne dessine pas d'objets du passé"
                                     ],
-                                    "answer": "Cet objet n'existait pas encore à cette époque",
-                                    "explanation": "Un objet ne peut pas être là avant d'avoir été inventé. Ce n'est pas une question de goût, et on a bien le droit de dessiner des objets du passé : ce sont eux qui racontent la vie d'avant."
+                                    "answer": "Cet objet n'existait pas encore",
+                                    "explanation": "Un objet ne peut pas être là avant d'avoir été inventé. Ce n'est pas une question de goût, et on a le droit de dessiner des objets du passé."
                                 },
                                 {
                                     "type": "check",
@@ -4258,14 +4263,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pour écrire à la plume, il fallait la tremper souvent dans l'encre. Qu'est-ce que cela changeait pour l'élève ?",
+                                    "question": "Une plume se trempe souvent dans l'encre. Qu'est-ce que cela change pour l'élève ?",
                                     "choices": [
-                                        "Il s'arrêtait souvent et faisait attention aux taches",
-                                        "Il écrivait bien plus vite qu'avec un stylo",
-                                        "Il n'avait plus besoin de cahier"
+                                        "Il s'arrête souvent et fait attention aux taches",
+                                        "Il écrit bien plus vite qu'avec un stylo",
+                                        "Il n'a plus besoin de cahier"
                                     ],
-                                    "answer": "Il s'arrêtait souvent et faisait attention aux taches",
-                                    "explanation": "La plume ne garde pas l'encre longtemps : on s'arrête pour la retremper, et une goutte fait vite une tache. Elle est donc plus lente qu'un stylo, et le cahier restait bien nécessaire pour écrire."
+                                    "answer": "Il s'arrête souvent et fait attention aux taches",
+                                    "explanation": "La plume ne garde pas l'encre longtemps : on s'arrête pour la retremper, et une goutte fait vite une tache. Elle est donc plus lente qu'un stylo, et le cahier reste nécessaire."
                                 }
                             ]
                         }
@@ -4371,13 +4376,13 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sacha trouve au grenier un cartable en cuir usé, avec le nom de son papi écrit dedans. Que peut-il apprendre ?",
+                                    "question": "Sacha trouve au grenier un vieux cartable avec le nom de son papi. Que peut-il apprendre ?",
                                     "choices": [
-                                        "Comment son papi allait à l'école quand il était enfant",
-                                        "Quel âge a son papi aujourd'hui, en comptant les bougies",
-                                        "Ce que son papi va manger demain midi à la maison"
+                                        "Comment son papi allait à l'école enfant",
+                                        "Quel âge a son papi aujourd'hui",
+                                        "Ce que son papi mangera demain midi"
                                     ],
-                                    "answer": "Comment son papi allait à l'école quand il était enfant",
+                                    "answer": "Comment son papi allait à l'école enfant",
                                     "explanation": "Un objet gardé parle du moment où on s'en servait : ce cartable raconte l'école de papi enfant. Il ne dit pas son âge d'aujourd'hui, et une trace du passé ne raconte jamais demain."
                                 },
                                 {
@@ -4592,8 +4597,8 @@
                         },
                         {
                             "id": "cp-geo-se-reperer",
-                            "title": "Se reperer dans l'espace",
-                            "subtitle": "Gauche, droite, devant, derriere",
+                            "title": "Se repérer dans l'espace",
+                            "subtitle": "Gauche, droite, devant, derrière",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -4605,7 +4610,7 @@
                         {
                             "id": "cp-plan-lieux-publics",
                             "title": "Les lieux publics du quartier",
-                            "subtitle": "Mairie, poste, marche, mediatheque...",
+                            "subtitle": "Mairie, poste, bibliothèque...",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -4640,10 +4645,10 @@
                                 "category": "cp-se-reperer",
                                 "type": "factual-qcm"
                             },
-                            "title": "Se repérer à l'école",
+                            "title": "Plan, trajets et positions",
                             "engine": "choice-engine",
                             "id": "cp-geo-ecole-trajets",
-                            "subtitle": "Trajets et positions"
+                            "subtitle": "Se repérer sur un plan"
                         },
                         {
                             "params": {
@@ -5526,7 +5531,7 @@
                                         "L'escargot n'est pas vivant"
                                     ],
                                     "answer": "L'escargot se déplace, même lentement",
-                                    "explanation": "Ce qui compte, c'est de se déplacer, pas d'aller vite : l'escargot bouge, c'est un animal. Il ne pousse pas comme une fleur, et il est bien vivant."
+                                    "explanation": "Ce qui compte, c'est que l'escargot se déplace, même lentement : il bouge, c'est un animal. Il ne pousse pas comme une fleur, et il est bien vivant."
                                 }
                             ]
                         },
@@ -5666,8 +5671,8 @@
                     "exercises": [
                         {
                             "id": "cp-sciences-matiere",
-                            "title": "Matière et lumière",
-                            "subtitle": "Eau, bois, lampe, glace",
+                            "title": "La matière",
+                            "subtitle": "Eau, bois, glace, sable",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -5678,7 +5683,7 @@
                         },
                         {
                             "id": "cp-bonus-sciences-matiere-defi",
-                            "title": "Défi : matière et lumière",
+                            "title": "Défi : la matière",
                             "subtitle": "Sans erreur",
                             "engine": "choice-engine",
                             "isBonus": true,
@@ -5718,7 +5723,7 @@
                                 },
                                 {
                                     "label": "À retenir",
-                                    "content": "Un objet peut changer d'état sans disparaître.",
+                                    "content": "Une matière peut changer d'état sans disparaître.",
                                     "type": "tip"
                                 },
                                 {
@@ -6427,8 +6432,8 @@
                         },
                         {
                             "id": "cp-sciences-thermometre",
-                            "title": "Lire un thermomètre",
-                            "subtitle": "La température en degrés",
+                            "title": "La température en degrés",
+                            "subtitle": "Chaud, froid et degrés",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -6656,25 +6661,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Deux élèves veulent raconter leur week-end en même temps. Pourquoi vaut-il mieux parler l'un après l'autre ?",
+                                    "question": "Deux élèves parlent en même temps. Pourquoi vaut-il mieux parler l'un après l'autre ?",
                                     "choices": [
-                                        "Parce que si les deux parlent ensemble, on ne comprend ni l'un ni l'autre",
-                                        "Parce que raconter son week-end est interdit en classe le matin",
-                                        "Parce que c'est le plus rapide à parler qui a le droit de continuer"
+                                        "Sinon, on ne comprend ni l'un ni l'autre",
+                                        "Parce que raconter est interdit en classe",
+                                        "Parce que le plus rapide a le droit de parler"
                                     ],
-                                    "answer": "Parce que si les deux parlent ensemble, on ne comprend ni l'un ni l'autre",
-                                    "explanation": "Chacun son tour sert à quelque chose : deux voix en même temps se couvrent et personne n'est entendu. Raconter son week-end n'est pas interdit, et être le plus rapide ne donne aucun droit de parler avant les autres."
+                                    "answer": "Sinon, on ne comprend ni l'un ni l'autre",
+                                    "explanation": "Deux voix en même temps se couvrent et personne n'est entendu. Raconter n'est pas interdit, et être rapide ne donne aucun droit de parler avant les autres."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sacha a fini son dessin. Il reste une seule boîte de feutres pour toute la table. Que fait-il ?",
+                                    "question": "Sacha a fini son dessin. Il reste une boîte de feutres pour la table. Que fait-il ?",
                                     "choices": [
-                                        "Il pose la boîte au milieu pour que les autres s'en servent",
-                                        "Il garde la boîte tout près de lui, au cas où il en aurait besoin",
-                                        "Il range la boîte dans son cartable pour la retrouver demain"
+                                        "Il la pose au milieu de la table",
+                                        "Il la garde près de lui au cas où",
+                                        "Il la range dans son cartable"
                                     ],
-                                    "answer": "Il pose la boîte au milieu pour que les autres s'en servent",
-                                    "explanation": "Le matériel de la table sert à toute la table. Garder la boîte « au cas où » alors qu'on a fini bloque les autres pour rien, et la mettre dans son cartable prend ce qui appartient à la classe."
+                                    "answer": "Il la pose au milieu de la table",
+                                    "explanation": "Le matériel de la table sert à toute la table. La garder « au cas où » bloque les autres, et la mettre dans son cartable prend ce qui est à la classe."
                                 }
                             ]
                         },
@@ -6709,25 +6714,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans la classe, tous les élèves crient leur réponse en même temps. Que se passe-t-il ?",
+                                    "question": "Tous les élèves crient leur réponse en même temps. Que se passe-t-il ?",
                                     "choices": [
-                                        "La maîtresse n'entend aucune réponse clairement",
+                                        "La maîtresse n'entend aucune réponse",
                                         "Tout le monde apprend plus vite",
                                         "Les réponses deviennent toutes justes"
                                     ],
-                                    "answer": "La maîtresse n'entend aucune réponse clairement",
+                                    "answer": "La maîtresse n'entend aucune réponse",
                                     "explanation": "Voilà pourquoi on lève le doigt : quand tout le monde crie, les voix se mélangent et rien n'est entendu. Crier ne fait pas apprendre plus vite et ne rend aucune réponse juste."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Nora trouve une paire de ciseaux par terre à la fin de l'activité. Que fait-elle ?",
+                                    "question": "Nora trouve des ciseaux par terre après l'activité. Que fait-elle ?",
                                     "choices": [
-                                        "Elle la range à sa place pour qu'on la retrouve demain",
-                                        "Elle la laisse là, ce n'est pas elle qui l'a fait tomber",
-                                        "Elle la met dans sa trousse pour la garder"
+                                        "Elle les range à leur place",
+                                        "Elle les laisse, ce n'est pas elle",
+                                        "Elle les met dans sa trousse"
                                     ],
-                                    "answer": "Elle la range à sa place pour qu'on la retrouve demain",
-                                    "explanation": "Ranger sert à ce que la classe retrouve son matériel. Laisser par terre parce que « ce n'est pas moi » fait quand même perdre les ciseaux, et les garder dans sa trousse prive les autres d'un objet commun."
+                                    "answer": "Elle les range à leur place",
+                                    "explanation": "Ranger sert à ce que la classe retrouve son matériel. Les laisser parce que « ce n'est pas moi » fait quand même perdre les ciseaux, et les garder prive les autres d'un objet commun."
                                 }
                             ]
                         },
@@ -6762,24 +6767,24 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Tom dit : « J'ai le droit d'apprendre, alors j'ai le droit de faire du bruit quand je veux. » Qu'est-ce qu'il oublie ?",
+                                    "question": "Tom dit : « J'ai le droit d'apprendre, donc je fais du bruit quand je veux. » Qu'oublie-t-il ?",
                                     "choices": [
-                                        "Que son bruit empêche les autres d'apprendre aussi",
+                                        "Que son bruit gêne les autres élèves",
                                         "Qu'il n'a pas le droit d'apprendre",
-                                        "Que le bruit est le seul moyen d'apprendre"
+                                        "Que le bruit aide à apprendre"
                                     ],
-                                    "answer": "Que son bruit empêche les autres d'apprendre aussi",
-                                    "explanation": "Le droit d'apprendre est le même pour tous : Tom l'a bien, mais ses camarades aussi, et son bruit leur prend le leur. Personne ne lui retire son droit, et le bruit n'aide personne à apprendre."
+                                    "answer": "Que son bruit gêne les autres élèves",
+                                    "explanation": "Le droit d'apprendre est le même pour tous : le bruit de Tom prend celui de ses camarades. Personne ne lui retire son droit, et le bruit n'aide personne à apprendre."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans la classe, chaque élève a le droit d'être écouté. Qu'est-ce que cela demande à Tom ?",
+                                    "question": "Chaque élève a le droit d'être écouté. Qu'est-ce que cela demande à Tom ?",
                                     "choices": [
-                                        "Qu'il écoute les autres quand c'est leur tour",
-                                        "Qu'il parle le plus souvent possible",
-                                        "Qu'il choisisse qui a le droit de parler"
+                                        "Écouter les autres à leur tour",
+                                        "Parler le plus souvent possible",
+                                        "Choisir qui a le droit de parler"
                                     ],
-                                    "answer": "Qu'il écoute les autres quand c'est leur tour",
+                                    "answer": "Écouter les autres à leur tour",
                                     "explanation": "Un droit que tout le monde possède crée un devoir pour chacun : si Tom veut être écouté, il doit écouter aussi. Parler beaucoup ou décider qui parle enlèverait ce droit aux autres."
                                 }
                             ]
@@ -7097,7 +7102,7 @@
                             "format": "lesson-card",
                             "blocks": [
                                 {
-                                    "text": "Les émotions sont des sentiments que tout le monde ressent. Elles nous informent sur ce qu'on vit.",
+                                    "text": "Tout le monde ressent des émotions. Elles nous informent sur ce qu'on vit.",
                                     "type": "paragraph"
                                 },
                                 {
@@ -7106,13 +7111,14 @@
                                     "type": "example"
                                 },
                                 {
+                                    "type": "bullets",
+                                    "label": "Par exemple",
                                     "items": [
                                         "la joie : quand quelque chose de bien arrive",
                                         "la peur : quand on pense qu'il y a un danger",
                                         "la tristesse : quand on perd quelque chose ou quelqu'un",
                                         "la colère : quand quelque chose ne va pas comme on veut"
-                                    ],
-                                    "type": "bullets"
+                                    ]
                                 },
                                 {
                                     "label": "À retenir",
@@ -7173,24 +7179,24 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un camarade a pris le jeu de Rayan sans demander. Rayan est très en colère. Que peut-il faire ?",
+                                    "question": "Un camarade a pris le jeu de Rayan sans demander. Rayan est en colère. Que peut-il faire ?",
                                     "choices": [
-                                        "Lui expliquer pourquoi il est fâché, avec des mots",
-                                        "Le pousser très fort pour reprendre le jeu tout de suite",
-                                        "Ne rien dire du tout et garder sa colère au fond de lui"
+                                        "Lui dire avec des mots qu'il est fâché",
+                                        "Le pousser pour reprendre le jeu",
+                                        "Ne rien dire et garder sa colère"
                                     ],
-                                    "answer": "Lui expliquer pourquoi il est fâché, avec des mots",
+                                    "answer": "Lui dire avec des mots qu'il est fâché",
                                     "explanation": "Dire sa colère et sa raison permet à l'autre de comprendre et de rendre le jeu. Pousser fait mal et crée un deuxième problème ; se taire laisse la colère grandir sans rien régler."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pourquoi dire « je suis triste » aide-t-il, alors que cela ne fait pas disparaître le problème ?",
+                                    "question": "Pourquoi dire « je suis triste » aide-t-il ?",
                                     "choices": [
-                                        "Parce que les autres peuvent alors comprendre et aider",
-                                        "Parce que dire un mot efface toujours la tristesse",
-                                        "Parce qu'il est interdit d'être triste à l'école"
+                                        "Les autres peuvent comprendre et aider",
+                                        "Un mot efface toujours la tristesse",
+                                        "Il est interdit d'être triste à l'école"
                                     ],
-                                    "answer": "Parce que les autres peuvent alors comprendre et aider",
+                                    "answer": "Les autres peuvent comprendre et aider",
                                     "explanation": "Personne ne devine ce qu'on ressent : le dire est ce qui permet à un adulte ou à un camarade de venir aider. Les mots ne font pas disparaître la tristesse d'un coup, et être triste n'est jamais interdit."
                                 }
                             ]
@@ -7374,24 +7380,24 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Adam laisse le robinet couler pendant qu'il se savonne les mains. Pourquoi vaut-il mieux le fermer ?",
+                                    "question": "Adam laisse couler le robinet en se savonnant les mains. Pourquoi vaut-il mieux le fermer ?",
                                     "choices": [
-                                        "Parce que l'eau part dans le tuyau sans servir à personne",
-                                        "Parce que le savon ne marche pas avec l'eau",
-                                        "Parce qu'il est interdit de se laver les mains"
+                                        "L'eau part sans servir à personne",
+                                        "Le savon ne marche pas avec l'eau",
+                                        "Il est interdit de se laver les mains"
                                     ],
-                                    "answer": "Parce que l'eau part dans le tuyau sans servir à personne",
+                                    "answer": "L'eau part sans servir à personne",
                                     "explanation": "L'eau qui coule pendant qu'on se savonne est perdue pour rien : c'est du gaspillage. Le savon a bien besoin d'eau pour rincer, et se laver les mains est important pour la santé."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Une gourde et une bouteille en plastique servent toutes les deux à boire. Pourquoi la gourde protège-t-elle mieux la nature ?",
+                                    "question": "Pourquoi une gourde protège-t-elle mieux la nature qu'une bouteille en plastique ?",
                                     "choices": [
-                                        "Parce qu'on la réutilise au lieu de jeter un déchet chaque jour",
-                                        "Parce que l'eau qu'elle contient est plus propre",
-                                        "Parce qu'elle est plus jolie à regarder"
+                                        "On la réutilise au lieu de jeter un déchet",
+                                        "L'eau qu'elle contient est plus propre",
+                                        "Elle est plus jolie à regarder"
                                     ],
-                                    "answer": "Parce qu'on la réutilise au lieu de jeter un déchet chaque jour",
+                                    "answer": "On la réutilise au lieu de jeter un déchet",
                                     "explanation": "La gourde sert des centaines de fois, alors qu'une bouteille jetée chaque jour fait des centaines de déchets. Ce n'est pas une question de propreté de l'eau, ni une question de goût."
                                 }
                             ]

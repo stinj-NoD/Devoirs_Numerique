@@ -102,78 +102,6 @@
                 ],
                 "answer": "17",
                 "explanation": "On additionne les enfants déjà présents et ceux qui arrivent : 9 + 8 = 17."
-            },
-            {
-                "question": "Léa a 4 billes. Elle en gagne 3 à la récré. Combien en a-t-elle ?",
-                "choices": [
-                    "7",
-                    "6",
-                    "8"
-                ],
-                "answer": "7"
-            },
-            {
-                "question": "Il y a 9 oiseaux sur le fil. 4 s'envolent. Combien en reste-t-il ?",
-                "choices": [
-                    "5",
-                    "6",
-                    "4"
-                ],
-                "answer": "5"
-            },
-            {
-                "question": "Tom a 2 voitures rouges et 5 voitures bleues. Combien de voitures en tout ?",
-                "choices": [
-                    "7",
-                    "8",
-                    "6"
-                ],
-                "answer": "7"
-            },
-            {
-                "question": "Maman achète 10 pommes. On en mange 6. Combien en reste-t-il ?",
-                "choices": [
-                    "4",
-                    "5",
-                    "3"
-                ],
-                "answer": "4"
-            },
-            {
-                "question": "Dans la classe, il y a 6 filles et 6 garçons. Combien d'élèves en tout ?",
-                "choices": [
-                    "12",
-                    "11",
-                    "13"
-                ],
-                "answer": "12"
-            },
-            {
-                "question": "J'ai 8 crayons. J'en prête 2 à mon voisin. Combien m'en reste-t-il ?",
-                "choices": [
-                    "6",
-                    "5",
-                    "7"
-                ],
-                "answer": "6"
-            },
-            {
-                "question": "Le fermier a 3 poules et chacune pond 1 œuf. Combien d'œufs ce matin ?",
-                "choices": [
-                    "3",
-                    "2",
-                    "4"
-                ],
-                "answer": "3"
-            },
-            {
-                "question": "Paul a 5 images. Il lui en faut 10 pour remplir sa page. Combien lui en manque-t-il ?",
-                "choices": [
-                    "5",
-                    "4",
-                    "6"
-                ],
-                "answer": "5"
             }
         ],
         "cp-problemes-deux-etapes": [
@@ -926,6 +854,362 @@
                 ],
                 "answer": "2,95 €",
                 "explanation": "Deux euros avant la virgule, quatre-vingt-quinze centimes après, sur deux chiffres : 2,95 €."
+            }
+        ],
+        "cp-problemes-quotidien": [
+            {
+                "question": "Léa a 4 billes. Elle en gagne 3 à la récré. Combien en a-t-elle ?",
+                "choices": [
+                    "7",
+                    "6",
+                    "8"
+                ],
+                "answer": "7",
+                "explanation": "Léa gagne des billes en plus : 4 + 3 = 7."
+            },
+            {
+                "question": "Il y a 9 oiseaux sur le fil. 4 s'envolent. Combien en reste-t-il ?",
+                "choices": [
+                    "5",
+                    "6",
+                    "4"
+                ],
+                "answer": "5",
+                "explanation": "Des oiseaux s'envolent, il en reste moins : 9 - 4 = 5."
+            },
+            {
+                "question": "Tom a 2 voitures rouges et 5 voitures bleues. Combien de voitures en tout ?",
+                "choices": [
+                    "7",
+                    "8",
+                    "6"
+                ],
+                "answer": "7",
+                "explanation": "On réunit les voitures rouges et bleues : 2 + 5 = 7."
+            },
+            {
+                "question": "Maman achète 10 pommes. On en mange 6. Combien en reste-t-il ?",
+                "choices": [
+                    "4",
+                    "5",
+                    "3"
+                ],
+                "answer": "4",
+                "explanation": "On en mange, il en reste moins : 10 - 6 = 4."
+            },
+            {
+                "question": "Dans la classe, il y a 6 filles et 6 garçons. Combien d'élèves en tout ?",
+                "choices": [
+                    "12",
+                    "11",
+                    "13"
+                ],
+                "answer": "12",
+                "explanation": "On réunit les filles et les garçons : 6 + 6 = 12."
+            },
+            {
+                "question": "J'ai 8 crayons. J'en donne 2 à mon voisin. Combien m'en reste-t-il ?",
+                "choices": [
+                    "6",
+                    "5",
+                    "7"
+                ],
+                "answer": "6",
+                "explanation": "Donner des crayons, c'est en avoir moins : 8 - 2 = 6."
+            },
+            {
+                "question": "Le fermier a 3 poules dans le pré et 4 poules dans le poulailler. Combien de poules a-t-il en tout ?",
+                "choices": [
+                    "7",
+                    "1",
+                    "8"
+                ],
+                "answer": "7",
+                "explanation": "On réunit les poules des deux endroits : 3 + 4 = 7."
+            },
+            {
+                "question": "Paul a 5 images. Il lui en faut 10 pour remplir sa page. Combien lui en manque-t-il ?",
+                "choices": [
+                    "5",
+                    "4",
+                    "6"
+                ],
+                "answer": "5",
+                "explanation": "Il manque ce qu'il faut ajouter pour arriver à 10 : 10 - 5 = 5."
+            },
+            {
+                "question": "Dans la boulangerie, il y a 9 croissants. Une cliente en achète 4. Combien en reste-t-il ?",
+                "choices": [
+                    "5",
+                    "13",
+                    "4"
+                ],
+                "answer": "5",
+                "explanation": "La cliente en achète : il y en a moins, 9 - 4 = 5."
+            },
+            {
+                "question": "Léo a 7 euros et sa mamie lui donne 5 euros. Combien d'euros a-t-il maintenant ?",
+                "choices": [
+                    "12",
+                    "2",
+                    "11"
+                ],
+                "answer": "12",
+                "explanation": "Sa mamie lui en donne en plus : 7 + 5 = 12 euros."
+            }
+        ],
+        "cp-problemes-defi": [
+            {
+                "question": "Léo a 8 billes et Sami en a 5. Combien de billes Léo a-t-il de plus que Sami ?",
+                "choices": [
+                    "3",
+                    "13",
+                    "5"
+                ],
+                "answer": "3",
+                "explanation": "On cherche l'écart entre 8 et 5 : 8 - 5 = 3."
+            },
+            {
+                "question": "Il y a 12 élèves et 7 chaises. Combien de chaises manque-t-il ?",
+                "choices": [
+                    "19",
+                    "5",
+                    "4"
+                ],
+                "answer": "5",
+                "explanation": "Il manque ce qu'il faut ajouter à 7 pour arriver à 12 : 12 - 7 = 5 chaises."
+            },
+            {
+                "question": "Nina veut 15 images. Elle en a déjà 9. Combien lui en faut-il encore ?",
+                "choices": [
+                    "6",
+                    "24",
+                    "5"
+                ],
+                "answer": "6",
+                "explanation": "Pour passer de 9 à 15, il faut 6 de plus : 15 - 9 = 6."
+            },
+            {
+                "question": "Dans un bus, il y a 14 personnes. À l'arrêt, 6 personnes descendent. Combien de personnes restent dans le bus ?",
+                "choices": [
+                    "20",
+                    "8",
+                    "9"
+                ],
+                "answer": "8",
+                "explanation": "Des personnes descendent, il en reste moins : 14 - 6 = 8."
+            },
+            {
+                "question": "Un livre a 20 pages. Lila en a déjà lu 12. Combien de pages lui reste-t-il à lire ?",
+                "choices": [
+                    "8",
+                    "32",
+                    "7"
+                ],
+                "answer": "8",
+                "explanation": "Il reste les pages pas encore lues : 20 - 12 = 8."
+            },
+            {
+                "question": "Tom a 9 euros. Il reçoit 6 euros pour son anniversaire. Combien d'euros a-t-il maintenant ?",
+                "choices": [
+                    "15",
+                    "3",
+                    "14"
+                ],
+                "answer": "15",
+                "explanation": "Il reçoit des euros en plus : 9 + 6 = 15."
+            },
+            {
+                "question": "Dans la cour, il y a 13 garçons et 9 filles. Combien y a-t-il de garçons de plus que de filles ?",
+                "choices": [
+                    "22",
+                    "4",
+                    "3"
+                ],
+                "answer": "4",
+                "explanation": "On cherche l'écart entre 13 et 9 : 13 - 9 = 4."
+            },
+            {
+                "question": "Maman a 16 œufs. Elle en utilise 7 pour un gâteau. Combien d'œufs lui reste-t-il ?",
+                "choices": [
+                    "9",
+                    "23",
+                    "8"
+                ],
+                "answer": "9",
+                "explanation": "Elle utilise des œufs, il lui en reste moins : 16 - 7 = 9."
+            },
+            {
+                "question": "Il y a 11 poissons rouges et 6 poissons noirs dans l'aquarium. Combien de poissons en tout ?",
+                "choices": [
+                    "17",
+                    "5",
+                    "16"
+                ],
+                "answer": "17",
+                "explanation": "On réunit les deux sortes de poissons : 11 + 6 = 17."
+            },
+            {
+                "question": "Pour une tarte, il faut 12 pommes. Papa en a déjà 8. Combien de pommes lui manque-t-il ?",
+                "choices": [
+                    "20",
+                    "4",
+                    "3"
+                ],
+                "answer": "4",
+                "explanation": "Il manque ce qu'il faut ajouter à 8 pour arriver à 12 : 12 - 8 = 4."
+            },
+            {
+                "question": "Lina a 5 stylos de plus que Sami. Sami a 6 stylos. Combien de stylos Lina a-t-elle ?",
+                "choices": [
+                    "11",
+                    "1",
+                    "5"
+                ],
+                "answer": "11",
+                "explanation": "Lina en a 5 de plus que Sami : 6 + 5 = 11."
+            },
+            {
+                "question": "Hugo a 4 cartes de moins que Ben. Ben a 10 cartes. Combien de cartes Hugo a-t-il ?",
+                "choices": [
+                    "6",
+                    "14",
+                    "4"
+                ],
+                "answer": "6",
+                "explanation": "Hugo en a 4 de moins que Ben : 10 - 4 = 6."
+            },
+            {
+                "question": "Il y a 20 places dans le car. 15 places sont prises. Combien de places sont libres ?",
+                "choices": [
+                    "35",
+                    "5",
+                    "4"
+                ],
+                "answer": "5",
+                "explanation": "Les places libres sont celles qui ne sont pas prises : 20 - 15 = 5."
+            },
+            {
+                "question": "Dans le jardin, il y a 6 roses rouges et 9 roses blanches. Combien de roses en tout ?",
+                "choices": [
+                    "15",
+                    "3",
+                    "14"
+                ],
+                "answer": "15",
+                "explanation": "On réunit les roses rouges et les roses blanches : 6 + 9 = 15."
+            }
+        ],
+        "cp-problemes-deux-etapes-defi": [
+            {
+                "question": "Zoé a 12 images. Elle en colle 5, puis sa sœur lui en donne 4. Combien d'images a-t-elle maintenant ?",
+                "choices": [
+                    "11",
+                    "21",
+                    "3"
+                ],
+                "answer": "11",
+                "explanation": "12 - 5 = 7, puis 7 + 4 = 11 images."
+            },
+            {
+                "question": "Il y a 9 vaches dans le pré. 6 autres arrivent, puis 3 repartent à l'étable. Combien de vaches restent dans le pré ?",
+                "choices": [
+                    "18",
+                    "12",
+                    "6"
+                ],
+                "answer": "12",
+                "explanation": "9 + 6 = 15, puis 15 - 3 = 12 vaches."
+            },
+            {
+                "question": "Max a 15 billes. Il en perd 4, puis il en gagne 7. Combien de billes a-t-il maintenant ?",
+                "choices": [
+                    "18",
+                    "26",
+                    "4"
+                ],
+                "answer": "18",
+                "explanation": "15 - 4 = 11, puis 11 + 7 = 18 billes."
+            },
+            {
+                "question": "Dans un car, 8 enfants sont assis. 5 enfants montent, puis 2 descendent. Combien d'enfants sont dans le car ?",
+                "choices": [
+                    "15",
+                    "11",
+                    "1"
+                ],
+                "answer": "11",
+                "explanation": "8 + 5 = 13, puis 13 - 2 = 11 enfants."
+            },
+            {
+                "question": "Lina a 6 fraises. Papa lui en donne 5, puis elle en offre 3 à sa sœur. Combien de fraises a-t-elle ?",
+                "choices": [
+                    "14",
+                    "2",
+                    "8"
+                ],
+                "answer": "8",
+                "explanation": "6 + 5 = 11, puis 11 - 3 = 8 fraises."
+            },
+            {
+                "question": "Un jardinier plante 7 roses rouges et 6 roses blanches. Il en offre 4. Combien de roses lui reste-t-il ?",
+                "choices": [
+                    "9",
+                    "17",
+                    "3"
+                ],
+                "answer": "9",
+                "explanation": "7 + 6 = 13, puis 13 - 4 = 9 roses."
+            },
+            {
+                "question": "Sami a 20 cartes. Il en donne 8, puis il en donne encore 5. Combien de cartes lui reste-t-il ?",
+                "choices": [
+                    "33",
+                    "7",
+                    "13"
+                ],
+                "answer": "7",
+                "explanation": "20 - 8 = 12, puis 12 - 5 = 7 cartes."
+            },
+            {
+                "question": "Dans le bus, il y a 10 personnes. 4 personnes montent, puis 6 personnes montent encore. Combien y a-t-il de personnes ?",
+                "choices": [
+                    "4",
+                    "16",
+                    "20"
+                ],
+                "answer": "20",
+                "explanation": "10 + 4 = 14, puis 14 + 6 = 20 personnes."
+            },
+            {
+                "question": "Chloé a 14 euros. Elle achète un livre à 6 euros, puis un crayon à 2 euros. Combien d'euros lui reste-t-il ?",
+                "choices": [
+                    "22",
+                    "6",
+                    "8"
+                ],
+                "answer": "6",
+                "explanation": "14 - 6 = 8, puis 8 - 2 = 6 euros."
+            },
+            {
+                "question": "Une boîte contient 5 bonbons rouges et 4 bonbons verts. On y ajoute 7 bonbons jaunes. Combien y a-t-il de bonbons ?",
+                "choices": [
+                    "2",
+                    "9",
+                    "16"
+                ],
+                "answer": "16",
+                "explanation": "5 + 4 = 9, puis 9 + 7 = 16 bonbons."
+            },
+            {
+                "question": "Il y a 16 oiseaux sur un toit. 7 s'envolent, puis 2 reviennent. Combien d'oiseaux sont sur le toit ?",
+                "choices": [
+                    "25",
+                    "11",
+                    "7"
+                ],
+                "answer": "11",
+                "explanation": "16 - 7 = 9, puis 9 + 2 = 11 oiseaux."
             }
         ]
     }

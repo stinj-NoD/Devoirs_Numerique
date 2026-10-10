@@ -199,10 +199,10 @@
             "icon": "🎂"
         },
         {
-            "word": "TROUSSE",
+            "word": "PLUME",
             "gender": "féminin",
             "article": "une",
-            "icon": "✏️"
+            "icon": "🪶"
         },
         {
             "word": "HIBOU",
@@ -331,10 +331,10 @@
             "icon": "🏴‍☠️"
         },
         {
-            "word": "GOMME",
+            "word": "RÈGLE",
             "gender": "féminin",
             "article": "une",
-            "icon": "🧽"
+            "icon": "📏"
         },
         {
             "word": "PIANO",
@@ -391,10 +391,10 @@
             "icon": "🎄"
         },
         {
-            "word": "BALLE",
+            "word": "RAQUETTE",
             "gender": "féminin",
             "article": "une",
-            "icon": "🏀"
+            "icon": "🏸"
         },
         {
             "word": "MOUTON",
@@ -5409,23 +5409,8 @@
                 "Le",
                 "Les"
             ],
-            "answer": "Le"
-        },
-        {
-            "question": "___ chats dorment.",
-            "choices": [
-                "Les",
-                "Le"
-            ],
-            "answer": "Les"
-        },
-        {
-            "question": "___ fleur est jolie.",
-            "choices": [
-                "La",
-                "Les"
-            ],
-            "answer": "La"
+            "answer": "Le",
+            "explanation": "Il n'y a qu'un chat : on dit « le chat »."
         },
         {
             "question": "___ fleurs sont jolies.",
@@ -5433,7 +5418,8 @@
                 "Les",
                 "La"
             ],
-            "answer": "Les"
+            "answer": "Les",
+            "explanation": "Il y a plusieurs fleurs : « fleurs » finit par s, on dit « les »."
         },
         {
             "question": "___ oiseau chante.",
@@ -5441,23 +5427,8 @@
                 "L'",
                 "Les"
             ],
-            "answer": "L'"
-        },
-        {
-            "question": "___ oiseaux chantent.",
-            "choices": [
-                "Les",
-                "L'"
-            ],
-            "answer": "Les"
-        },
-        {
-            "question": "___ élève écrit.",
-            "choices": [
-                "L'",
-                "Les"
-            ],
-            "answer": "L'"
+            "answer": "L'",
+            "explanation": "Il n'y a qu'un oiseau, et « oiseau » commence par une voyelle : on dit « l'oiseau »."
         },
         {
             "question": "___ élèves écrivent.",
@@ -5465,7 +5436,8 @@
                 "Les",
                 "L'"
             ],
-            "answer": "Les"
+            "answer": "Les",
+            "explanation": "Il y a plusieurs élèves : « élèves » finit par s et le verbe finit par -ent."
         },
         {
             "question": "___ ballon roule.",
@@ -5473,23 +5445,8 @@
                 "Le",
                 "Les"
             ],
-            "answer": "Le"
-        },
-        {
-            "question": "___ ballons roulent.",
-            "choices": [
-                "Les",
-                "Le"
-            ],
-            "answer": "Les"
-        },
-        {
-            "question": "___ maison est grande.",
-            "choices": [
-                "La",
-                "Les"
-            ],
-            "answer": "La"
+            "answer": "Le",
+            "explanation": "Il n'y a qu'un ballon : on dit « le ballon »."
         },
         {
             "question": "___ maisons sont grandes.",
@@ -5497,7 +5454,62 @@
                 "Les",
                 "La"
             ],
-            "answer": "Les"
+            "answer": "Les",
+            "explanation": "Il y a plusieurs maisons : on dit « les maisons »."
+        },
+        {
+            "question": "___ lapin saute.",
+            "choices": [
+                "Le",
+                "Les"
+            ],
+            "answer": "Le",
+            "explanation": "Le verbe « saute » est au singulier : il n'y a qu'un lapin, on dit « le lapin »."
+        },
+        {
+            "question": "___ voitures roulent vite.",
+            "choices": [
+                "Les",
+                "La"
+            ],
+            "answer": "Les",
+            "explanation": "Le verbe finit par -ent : plusieurs voitures roulent, on dit « les voitures »."
+        },
+        {
+            "question": "___ école est fermée.",
+            "choices": [
+                "L'",
+                "Les"
+            ],
+            "answer": "L'",
+            "explanation": "Il n'y a qu'une école, et « école » commence par une voyelle : on dit « l'école »."
+        },
+        {
+            "question": "___ enfants jouent dehors.",
+            "choices": [
+                "Les",
+                "L'"
+            ],
+            "answer": "Les",
+            "explanation": "Plusieurs enfants jouent : « enfants » finit par s, on dit « les enfants »."
+        },
+        {
+            "question": "___ table est ronde.",
+            "choices": [
+                "La",
+                "Les"
+            ],
+            "answer": "La",
+            "explanation": "Il n'y a qu'une table : on dit « la table »."
+        },
+        {
+            "question": "___ livres sont sur l'étagère.",
+            "choices": [
+                "Les",
+                "Le"
+            ],
+            "answer": "Les",
+            "explanation": "Il y a plusieurs livres : « livres » finit par s, on dit « les livres »."
         }
     ],
     "grammar_agreement_cm1_defi": [
