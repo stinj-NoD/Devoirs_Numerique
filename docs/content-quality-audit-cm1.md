@@ -6,7 +6,7 @@
 >
 > Sources faisant autorité : `PROGRAMME_SCOLAIRE_REFERENCE.md` (section CM1 et calendrier de réforme : histoire-géographie 2020 toujours en vigueur au CM1, EMC 2024 déployé en CM1 depuis 2024-2025), dictionnaire (Académie, Larousse, Robert) et Bescherelle pour la langue, IGN et Insee pour la géographie, `docs/lesson-guidelines.md` (règles R1-R5) pour les quiz de leçon. Les points qui reposent sur une étymologie ou un rattachement de programme établis **de mémoire** (aucune consultation en ligne possible) sont signalés comme tels dans le corps du document et à recouper avant correction.
 >
-> **Aucune correction n'a été appliquée dans cette phase.** Ce document liste les problèmes trouvés ; la correction fait l'objet d'une phase séparée (souvent confiée ensuite à `exercise-author` ou à une intervention manuelle).
+> **Aucune correction n'a été appliquée dans la phase d'audit** (les corrections suivent : voir « État des corrections » plus bas). Ce document liste les problèmes trouvés ; la correction fait l'objet d'une phase séparée (souvent confiée ensuite à `exercise-author` ou à une intervention manuelle).
 
 ## Note liminaire : ce que ce rafraîchissement change par rapport à l'audit du 2026-07-30
 
@@ -28,11 +28,31 @@ La phrase des audits précédents vaut encore : **un exercice peut être conform
 | Sévérité | Maths | Français | Histoire | Géographie | Sciences | EMC | Total |
 |---|---|---|---|---|---|---|---|
 | Bloquant | 1 | 8 | 0 | 0 | 1 | 0 | **10** — tous corrigés en v4.60.0 |
-| Majeur | 16 | 14 | 6 | 7 | 8 | 5 | **56** |
+| Majeur | 16 | 14 | 6 | 7 | 8 | 5 | **56** — 55 traités en v4.61.0, 1 laissé à arbitrage (voir « État des corrections ») |
 | Mineur | 22 | 17 | 5 | 8 | 10 | 6 | **68** |
 | Suggestion | 2 | 1 | 1 | 1 | 2 | 1 | **8** |
 
 106 leçons (32 Maths, 21 Français, 9 Histoire, 12 Géographie, 20 Sciences, 12 EMC, toutes équipées de deux `check` jouables, 212 quiz) et 254 exercices (76, 58, 22, 33, 43, 22). Les défauts d'un même motif qui touchent plusieurs matières sont comptés dans chaque matière concernée et décrits une fois dans les anomalies transverses ci-dessous.
+
+### État des corrections (2026-10-10, v4.61.0)
+
+Les 10 Bloquants sont corrigés depuis v4.60.0 ; **55 des 56 Majeurs sont corrigés en v4.61.0**. Le corps du document décrit les constats **tels qu'ils étaient au 2026-10-07** ; seuls les constats marqués ✅ plus bas portent leur correction. Le niveau passe de 106 à 119 leçons (13 leçons ajoutées) et de 254 à 255 exercices.
+
+**Mathématiques (16 sur 16).** Diagramme en barres : la hauteur des barres suit la valeur (variable `--bar-frac`, hauteur de grille fixe) et les étiquettes ne débordent plus ; `compare-decimals` tire enfin un entier face à un décimal et les égalités « 7 = 7,0 », sans erreur de flottant ; `cm1-frac-1`, `-2` et `-3` ont trois plafonds différents (6, 8 et 12) ; `markersOnReveal` et énoncés neutres sur `cm1_tap_angle_droit` et `cm1_perpendiculaires_tap` (les 11 figures vérifiées par produit scalaire, pentagone, parallélogramme et triangles redessinés) ; mesure d'angle : 12 tracés recalculés (écart maximal 0,11°) et un vivier propre au défi (`cm1_angle_measure_expert`, de 5° en 5°) ; droite graduée : `labels ["0", "1"]` affichés sur les 7 premiers items (conservés, pas retirés) ; compas : les distracteurs proches du rayon sont écartés et deux défis ne se déduisent plus par comptage ; `matching_math_cm1` scindé en quatre viviers (figures, formules calculables, outils, mesures, nombres) ; vivier d'aires et de périmètres propre au défi `cm1-bonus-geo-figures-expert` ; `.board-shape-line` visible en thème sombre (v4.60.0) ; **6 leçons ajoutées** : division euclidienne, échelle, pourcentage simple, segment/milieu/diagonale, droites parallèles et perpendiculaires, triangles particuliers.
+
+**Français (13 sur 14).** Texte complet des 10 inférences (v4.60.0) ; élision des 47 énoncés de synonymes et d'antonymes ; antonymes 61 et 97, polysémie 6 (une seule réponse juste) ; fait des manchots ; distracteurs de `cm1_lecture_mot_contexte`, `_idee_principale` et `_expression_imagee` étoffés (le nombre d'items où la bonne réponse est au moins 1,5 fois plus longue passe de 55 à 0) ; `cm1-bonus-homophones-mix` mêle enfin les homophones (`mix_all`), `cm1-c-pc-3-etre` a sa catégorie de 12 verbes à l'auxiliaire être ; `gender_cm1_elision` passe de 8 à 16 mots, `grammar_agreement_cm1` est refaite (fragments complétés, défi à vivier propre de 14 items) ; permutation d'adverbe acceptée dans `french_word_order.json` (champ `variantes`, vérifié en navigateur : 3 variantes acceptées sur 3, aucune permutation fausse acceptée) ; **ces/ses** : les 5 phrases ambiguës portent « ce sont les siens/siennes » (le correctif profite au CE2 et au CM2, qui partagent la catégorie) ; familles de mots à radical différent présentées comme des adjectifs savants ; leçons « le participe passé avec être » et « sujet, verbe, complément ».
+
+**Histoire (6 sur 6).** Premier quiz de `cm1-lesson-periodes` sans contenu faux, repères de période (3300 av. J.-C., 476, 1492, 1789) ajoutés à la leçon ; édit de Nantes limité aux lieux fixés puis révocation de 1685 dans la leçon et le quiz ; leçon « La Renaissance » (27 questions d'exercices en avaient besoin) ; 18 quiz ramenés à des questions de 80 à 115 caractères et des explications de deux phrases ; les quatre frises « ordre » tirent 4 repères dans un vivier de 7 à 14 (mesuré : 24 à 39 puzzles différents sur 40 tirages, 5 puzzles différents dans chaque séance sur 8, au lieu d'un seul) ; frises « placer » : `cm1-place-moyen-age` passe de 6 à 16 repères (5 faciles, 6 intermédiaires, 5 experts), n1, n2 et n3 sans aucune répétition dans une séance (mesuré sur 8 séances), le défi couvre les niveaux 2 et 3 ; trois dates corrigées (paix romaine −27, premiers raids vikings 793, début de Notre-Dame 1163) et deux repères ajoutés (Verdun 843, Hastings 1066).
+
+**Géographie (7 sur 7).** 24 quiz de leçon raccourcis, treize régions rangées par position dans la leçon des régions, leçon « Les continents et les océans » ; `matching_geo_cm1` scindé en quatre viviers par thème (reliefs, territoires, transports, monde), l'item des transports à double réponse refait ; `cm1-france-relief` scindé en reliefs et fleuves, `cm1-europe-monde` en France en Europe et monde, `cm1-eaux-paysages` en standard et défi, vivier propre aux défis des territoires, des déplacements et de la carte des continents (12 consignes directes, 12 consignes à indices, 6 questions) ; mauvaises réponses étoffées dans les banques les plus marquées (part de bonnes réponses les plus longues : 93 % → 29 % pour `cm1-inegalites-niveau-vie`, 75 % → 8 % et 33 % pour `cm1-eaux-paysages`, 75 % → 33 % pour `cm1-types-territoires`) ; couleurs de la carte des régions en thème sombre (v4.60.0).
+
+**Sciences (8 sur 8).** Accents des items 1 à 4 de `cm1-matiere-energie` et neuf coquilles ; 11 items de physique-chimie de cycle 4 reformulés ou remplacés (transformation chimique, densité, solubilité, conservation de l'énergie, voltmètre) et explications allégées (molécules, électrons, énergie cinétique, enzymes…) ; air expiré (« quel gaz le corps produit-il ? ») ; « pivot central » remplacé ; `matching_sciences_cm1` scindé en deux viviers aux cibles toutes distinctes ; les six viviers partagés (`cm1-vivant`, `-electricite-base`, `-environnement-gestes`, `-techno-objets`, `-mouvements-vitesse`, `-signaux`) scindés par facette (une catégorie par exercice, 9 à 16 items chacune) et un vivier propre à chaque défi (12 à 15 items, 8 à 10 questions) ; 145 questions neuves ; volcan en thème sombre (v4.60.0).
+
+**EMC (5 sur 5).** Appariements : deux viviers (concepts et vie quotidienne) aux paires exclusives, titres exacts ; défi « citoyens solidaires » retitré « égalité et respect » (la banque ne contient pas de premiers secours, que `cm1-emc-alerte-secours` porte désormais avec 12 items) ; trois leçons ajoutées (égalité et discrimination, débattre, institutions de la République) ; les neuf exercices à quatre viviers ont chacun leur banque (vivre ensemble en trois, droits et devoirs en trois dont un défi « sécurité au quotidien », citoyenneté en deux, débat en deux) ; accents et faits de la banque (APER, scrutin, Marianne) corrigés.
+
+**Laissé à arbitrage (1 Majeur).** *Français — « 17 exercices au contrat identique à un autre niveau »* (et ses 20 équivalents en mathématiques, classés Mineur transverse) : les homophones, la conjugaison, les conversions et les romains du CM1 ont les mêmes paramètres qu'au CE2 et au CM2. C'est une répétition en spirale voulue pour les homophones (même catégorie de la bibliothèque partagée), mais le décider est un choix éditorial, pas une correction. `build-content-index.js` continue de les signaler (372 avertissements, contre 450). **Aussi non traités (Mineurs, volontairement)** : doublons de questions entre catégories, items de cycle 2 de `cm1-vivant`, `cm1-eau-quotidien` et `cm1-energie-quotidien`, anticipations du CM2 (volume, division à deux chiffres, millions), BOM, étymologies à recouper.
+
+**Limite de cette vérification.** Les viviers neufs et les 145 questions de sciences ont été écrits et relus ici, de mémoire ; ils sont conformes à la forme (`answer` ∈ `choices`, aucune question en double entre viviers, aucune réponse repérable à plus de 1,5 fois) mais n'ont pas été recoupés avec une source externe : un relecteur humain reste utile, surtout pour les sciences, l'histoire (dates des repères neufs) et la géographie.
 
 ### Anomalies transverses
 
@@ -628,7 +648,7 @@ Au total : **5 416 tirages** sur les 135 exercices, **aucune erreur JavaScript**
 3. **Français** : `reading.json::cm1_lecture_expression_imagee` item 4 : réparer `syllables`.
 4. **Français** : `reading.json::cm1_lecture_recit_long` (6 items) et `cm1_lecture_documentaire_long` (5) : texte complet dans `syllables`.
 
-### Priorité 2 : Majeurs (56)
+### Priorité 2 : Majeurs (56) — 55 corrigés en v4.61.0 (voir « État des corrections »)
 
 **Partie A (Mathématiques, Sciences).**
 

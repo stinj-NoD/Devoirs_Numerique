@@ -60,8 +60,8 @@ signal fort d'habillage redondant. Pour `library`/`generator`, un même contrat
 | `audio-spelling` | library | — | ~44 |
 | `cloze-fill-in` | library | — | ~5 |
 | `matching` | pool | — (`dataFile`, `category`) | ~49 |
-| `word-order` | pool | — (`dataFile`, `category`) | ~13 |
-| `timeline` | pool | — (`dataFile`, `grade`, `mode`∈{order,place}, `timelineId`) | ~22 |
+| `word-order` | pool | — (`dataFile`, `category`), item `variantes`⁷ | ~13 |
+| `timeline` | pool | — (`dataFile`, `grade`, `mode`∈{order,place}, `timelineId`, `difficulty`)⁸ | ~22 |
 | `clock` | generator | — | ~6 |
 | `counting` | generator | — | ~2 |
 
@@ -90,6 +90,19 @@ mis à l'échelle (jamais de flottant JS), formaté en chaîne virgule côté
 moteur avant `standardize()`. `mult` + `decimals>0` est restreint à
 décimal × entier (le second opérande reste toujours un entier), jamais
 décimal × décimal.
+
+⁷ `word-order` : un item de phrase accepte un champ optionnel `variantes` (tableau de
+phrases tout aussi justes, faites **exactement des mêmes mots** : adverbe avant ou
+après le participe, par ex.). Le moteur ignore toute variante qui n'a pas le même
+multiensemble de mots, et `App.validateAnswer` les accepte en plus de l'ordre attendu
+(jamais plus qu'une phrase identique mot pour mot) ; les deux validateurs refusent un
+item narratif (`sentences`) ou une variante dont les mots diffèrent.
+⁸ `timeline` mode `order` : la frise `timelineId` est un **vivier**. Dès qu'elle compte
+plus de 4 repères, le moteur en tire 4 au hasard à chaque question (puis les trie par
+année) ; une frise de 4 repères sert donc toujours le même puzzle. Garder des années
+toutes différentes dans un vivier (deux repères de même année ne se classent pas).
+Mode `place` : `difficulty` (entier ou liste) filtre les repères ; chaque niveau doit
+compter au moins autant de repères que de questions.
 
 **Alias normalisés en entrée** (`js/engines.js`) : `compare`/`choice` → `choice-engine` ;
 `oiseau` → `math-input` + `type:oiseau-math`.
