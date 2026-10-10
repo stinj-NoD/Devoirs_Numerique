@@ -505,6 +505,49 @@
                     return { valid: false, reason: 'decimals invalide pour operation-posed (0-2 attendu).' };
                 }
             }
+            if (exercise.params.carry !== undefined && typeof exercise.params.carry !== 'boolean') {
+                return { valid: false, reason: 'carry invalide pour operation-posed (booléen attendu).' };
+            }
+        }
+        if (exercise.params.type === 'division-posed') {
+            // divisors : liste d'entiers 2-99 ; dividend : [min, max] entiers croissants (10 à 99 999).
+            const dv = exercise.params.divisors;
+            if (dv !== undefined && (!Array.isArray(dv) || !dv.length || !dv.every((v) => Number.isInteger(v) && v >= 2 && v <= 99))) {
+                return { valid: false, reason: 'divisors invalide pour division-posed (entiers 2-99 attendus).' };
+            }
+            const dd = exercise.params.dividend;
+            if (dd !== undefined && (!Array.isArray(dd) || dd.length !== 2 || !dd.every((v) => Number.isInteger(v) && v >= 10 && v <= 99999) || dd[0] > dd[1])) {
+                return { valid: false, reason: 'dividend invalide pour division-posed ([min, max] entiers 10-99999 attendus).' };
+            }
+        }
+        if (exercise.params.type === 'mult') {
+            // mode : forme sous laquelle la table est demandée ; tables : tables tirées quand table vaut « mix ».
+            if (exercise.params.mode !== undefined && !['produit', 'facteur', 'division', 'mixte'].includes(exercise.params.mode)) {
+                return { valid: false, reason: 'mode invalide pour mult (produit, facteur, division ou mixte attendu).' };
+            }
+            const tb = exercise.params.tables;
+            if (tb !== undefined && (!Array.isArray(tb) || !tb.length || !tb.every((v) => Number.isInteger(v) && v >= 2 && v <= 12))) {
+                return { valid: false, reason: 'tables invalide pour mult (entiers 2-12 attendus).' };
+            }
+        }
+        if (exercise.params.type === 'complement' && exercise.params.multipleOf !== undefined) {
+            const step = Number(exercise.params.multipleOf);
+            if (!Number.isInteger(step) || step < 2 || step > 50) {
+                return { valid: false, reason: 'multipleOf invalide pour complement (entier 2-50 attendu).' };
+            }
+        }
+        if (exercise.params.type === 'decimal-place' && exercise.params.decimals !== undefined && ![2, 3].includes(exercise.params.decimals)) {
+            return { valid: false, reason: 'decimals invalide pour decimal-place (2 ou 3 attendu).' };
+        }
+        if ((exercise.engine === 'clock' || exercise.params.type === 'clock') && exercise.params.level !== undefined) {
+            const lvl = Number(exercise.params.level);
+            if (!Number.isInteger(lvl) || lvl < 1 || lvl > 4) {
+                return { valid: false, reason: 'level invalide pour clock (1-4 attendu).' };
+            }
+        }
+        if (exercise.params.type === 'homophone-duel' && exercise.params.level !== undefined
+            && !['ce1', 'ce2', 'cm1', 'cm2'].includes(exercise.params.level)) {
+            return { valid: false, reason: 'level invalide pour homophone-duel (ce1, ce2, cm1 ou cm2 attendu).' };
         }
         if (exercise.params.type === 'division-simple' || exercise.params.type === 'division-reste') {
             // divisors : liste d'entiers 2-99 ; quotient : [min, max] entiers croissants ; ask (division-reste) : quotient | reste.
@@ -629,6 +672,9 @@
                     || Number(r[0]) < 0 || Number(r[1]) > 3 || Number(r[0]) > Number(r[1])) {
                     return { valid: false, reason: 'range invalide pour metric-area (attendu [0-3, 0-3]).' };
                 }
+            }
+            if (exercise.params.subtype === 'metric' && exercise.params.decimals !== undefined && ![0, 1, 2].includes(exercise.params.decimals)) {
+                return { valid: false, reason: 'decimals invalide pour metric (0, 1 ou 2 attendu).' };
             }
             if (exercise.params.subtype === 'metric' && exercise.params.units !== undefined) {
                 const metricUnits = {

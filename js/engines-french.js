@@ -156,11 +156,17 @@
     homophones(p, lib) {
         if (!lib?.homophones) return Engines.fallback("Lib manquante");
         let cat = p.category;
+        // `level` (ce1, ce2, cm1, cm2) : ne garde que les phrases écrites pour ce niveau. Une phrase
+        // sans champ `level` reste disponible pour tous, et un exercice sans `level` voit tout le
+        // vivier (comportement d'origine). Une même paire (a/à, son/sont...) se travaille sur
+        // quatre années ; c'est le champ `level` des phrases qui fait croître la difficulté.
+        const level = typeof p.level === "string" ? p.level : "";
+        const forLevel = (arr) => (level ? arr.filter((item) => !item.level || item.level === level) : arr);
         if (cat === "mix_all" || cat === "mix_auto") {
-            const keys = Object.keys(lib.homophones).filter((k) => Array.isArray(lib.homophones[k]));
+            const keys = Object.keys(lib.homophones).filter((k) => Array.isArray(lib.homophones[k]) && forLevel(lib.homophones[k]).length);
             cat = Engines.utils.pick(keys);
         }
-        const pool = lib.homophones[cat];
+        const pool = forLevel(lib.homophones[cat] || []);
         if (!pool || !pool.length) return Engines.fallback("Catégorie vide");
         const picked = Engines.utils.pickUnused(pool, p.usedSet);
         const rawQ = SecurityUtils.escapeHtml(picked.sentence || picked.q || "");

@@ -10,9 +10,9 @@
         "add-simple": { "params": ["min", "maxSum"] },
         "add-trou": { "params": ["min", "max"] },
         "sub-simple": { "params": ["min", "max"] },
-        "mult": { "params": ["table"] },
-        "complement": { "params": ["target"] },
-        "decimal-place": { "params": ["trap"] },
+        "mult": { "params": ["table", "mode", "tables"], "note": "table = 2-12 ou 'mix' ; mode = produit (défaut) | facteur (« 7 × ? = 56 ») | division (« 56 : 7 = ? ») | mixte (une des trois formes, produit écrit dans les deux sens) ; tables = liste des tables tirées quand table vaut 'mix' (défaut 2 à 12)" },
+        "complement": { "params": ["target", "multipleOf"], "note": "multipleOf (entier 2-50, optionnel) : le nombre donné est un multiple de ce pas (dizaines entières : 30 + ? = 100)" },
+        "decimal-place": { "params": ["trap", "decimals"], "note": "decimals = 2 (défaut : dixièmes et centièmes) | 3 (ajoute les millièmes, CM2) ; trap:true ajoute dizaines et centaines de la partie entière" },
         "dictée-nombres": { "params": ["max"] },
         "calc-mental": { "params": ["operator", "operands", "range"], "note": "operator symbolique 'x'|'/'|'+'|'-' (absent = multiplication) ; attention, operation-posed attend add|sub|mult : les 2 conventions coexistent dans le meme engine math-input. range=[min,max] borne les 2 operandes pour + et -, et seulement le premier facteur pour x. operands = liste de multiplicateurs (x) ou de diviseurs (/), ex. [10,100,1000]. Le cas - permute les operandes pour ne jamais produire de resultat negatif. + et - tirent les 2 operandes dans range, contrairement a add-simple (qui decoupe une somme) et sub-simple (dont le 2e operande descend a 0) : ~20 % et ~12 % de tirages triviaux sur des bornes CM2." },
         "oiseau-math": { "params": ["min", "max", "vitesse"] },
@@ -21,8 +21,8 @@
         "double": { "params": ["max"] },
         "division-simple": { "params": ["max"] },
         "division-reste": { "params": ["max"] },
-        "division-posed": { "params": ["min", "max"] },
-        "operation-posed": { "params": ["operator", "level", "decimals", "maxResult"], "note": "operator='add'|'sub'|'mult' ; level 1-3 borne la difficulté ; maxResult (optionnel, entier 20-20000, addition seulement) plafonne la SOMME en resserrant le second opérande, sans changer les bornes du niveau — absent, comportement historique inchangé au bit près ;decimals=0|1|2 (défaut 0) pose l'opération avec des opérandes décimaux — toujours des entiers mis à l'échelle en interne (jamais de flottant JS), formatés en chaîne virgule côté moteur avant standardize() ; mult+decimals>0 restreint à décimal×entier (le second opérande reste toujours un entier simple) ; rendu par ui-visuals.js::drawOperationPosedCard (visualType 'operationPosed')" },
+        "division-posed": { "params": ["level", "ask", "divisors", "dividend"], "note": "level 1-3 borne la difficulté ; ask='reste' demande le reste ; divisors (liste d'entiers 2-99) et dividend ([min, max], entiers 10-99999) recalibrent le niveau (CE2 : diviseurs 2 à 5, dividende 20 à 99)" },
+        "operation-posed": { "params": ["operator", "level", "decimals", "maxResult", "carry"], "note": "operator='add'|'sub'|'mult' ; level 1-3 borne la difficulté ; maxResult (optionnel, entier 20-20000, addition seulement) plafonne la SOMME en resserrant le second opérande, sans changer les bornes du niveau — absent, comportement historique inchangé au bit près ;decimals=0|1|2 (défaut 0) pose l'opération avec des opérandes décimaux — toujours des entiers mis à l'échelle en interne (jamais de flottant JS), formatés en chaîne virgule côté moteur avant standardize() ; mult+decimals>0 restreint à décimal×entier (le second opérande reste toujours un entier simple) ; rendu par ui-visuals.js::drawOperationPosedCard (visualType 'operationPosed') ; carry:true (booléen, add/sub) garantit au moins une retenue ou un emprunt : on retire les opérandes jusqu'à ce qu'une colonne déborde ou emprunte" },
         "place-value": { "params": ["digitCount", "ask"], "note": "digitCount = nombre de chiffres généré (défaut 4, borné à 2-10 par les 2 validateurs) ; ask='digit'|'value' (défaut 'digit') ; le moteur nomme 10 rangs, des unités aux milliards — au-delà de 10 chiffres il replierait sur un libellé « position N » non pédagogique, d'où la borne ; pas de rendu visuel dédié, pattern textuel comme decimal-place" },
         "proportionnalite": { "params": [] },
         "pourcentage": { "params": [] },
@@ -35,7 +35,7 @@
         "pie-chart-read": { "params": ["partSets"] },
         "average-compute": { "params": ["length", "maxValue"], "note": "length>=3, maxValue>=1" },
         "spelling": { "params": ["category"], "note": "branché avant calculate() dans engines.js ; s'appuie sur la lib français" },
-        "clock": { "params": [], "note": "alias : engine 'clock' direct équivalent" },
+        "clock": { "params": ["level"], "note": "alias : engine 'clock' direct équivalent ; level 1 = heures pleines et demies, 2 = + quarts, 3 (défaut) = 24 h par 5 minutes, 4 = à la minute près (graduations des minutes dessinées)" },
         "fraction-view": { "params": ["maxDenom"] },
         "fraction-operation": { "params": ["operator", "level", "maxDenom"], "note": "operator='add'|'sub' ; level 1-2 = dénominateurs identiques (level 1 : maxDenom défaut 6 ; level 2 : maxDenom défaut 10, dénominateurs 4+) ; level 3 = dénominateurs différents mais l'un multiple de l'autre, dénominateur commun donné dans l'énoncé (pas de PPCM demandé à l'élève ; cas général avec PPCM hors scope) ; réponse attendue = numérateur seul du résultat ; rendu par ui-visuals.js::drawFractionOperation (visualType 'fractionOperation'). À ne pas confondre avec 'fraction-view', moteur séparé et plus simple qui ne fait que lire/représenter une fraction unique." },
         "number-spelling": { "params": ["max"] },
@@ -54,7 +54,7 @@
         "plural-choice": { "sourceKind": "library", "params": [] },
         "word-class-choice": { "sourceKind": "library", "params": [] },
         "grammar-cloze": { "sourceKind": "library", "params": [] },
-        "homophone-duel": { "sourceKind": "library", "params": [] },
+        "homophone-duel": { "sourceKind": "library", "params": ["category", "level"], "note": "level (ce1|ce2|cm1|cm2, optionnel) ne garde que les phrases dont le champ `level` vaut ce niveau (une phrase sans `level` reste disponible pour tous) ; 'mix_all' tire une catégorie qui compte au moins une phrase du niveau" },
         "compare-decimals": { "sourceKind": "generator", "params": [] },
         "(défaut)": { "sourceKind": "generator", "params": ["choices", "options"], "note": "compare() si aucun type reconnu ; choices/options >= 2" }
       }
@@ -83,7 +83,7 @@
       "sourceKind": "generator",
       "commonParams": ["questions", "modes", "memo"],
       "paramsTypes": {
-        "metric": { "params": ["unitType", "range", "units"], "note": "conversions de longueur/masse/capacité en x10 (unitType : longueur, masse, capacite) ; range = indices dans le tableau des 7 unités, units = liste restreinte d'unités du niveau (ex. [kg, g] ou [L, mL] au CE2) : le tirage reste dans cette liste (écart d'indice <= 3) et la carte affiche la relation entre les deux unités (data.memo) au lieu du tableau à 7 colonnes" },
+        "metric": { "params": ["unitType", "range", "units", "decimals"], "note": "conversions de longueur/masse/capacité en x10 (unitType : longueur, masse, capacite) ; range = indices dans le tableau des 7 unités, units = liste restreinte d'unités du niveau (ex. [kg, g] ou [L, mL] au CE2) : le tirage reste dans cette liste (écart d'indice <= 3) et la carte affiche la relation entre les deux unités (data.memo) au lieu du tableau à 7 colonnes ; decimals (0 | 1 | 2) donne une valeur de départ décimale (4,5 km = ? m), compétence de fin de cycle 3" },
         "metric-area": { "params": ["range"], "note": "conversions d'aire (cm²/m²/dm²/mm²) ; progression x100 par palier (contrairement au subtype 'metric' existant, en x10) ; range optionnel [0-3], indices 0=m² à 3=mm² ; rendu par ui-visuals.js::drawConversionCard avec cols=['m²','dm²','cm²','mm²']" }
       }
     },

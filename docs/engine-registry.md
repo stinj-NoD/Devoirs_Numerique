@@ -51,10 +51,10 @@ signal fort d'habillage redondant. Pour `library`/`generator`, un même contrat
 
 | `engine` | Nature | `params.type` | Ex. dans les données |
 |---|---|---|---|
-| `math-input` | generator | `add-simple`, `add-trou`, `sub-simple`, `mult`, `complement`, `decimal-place`, `dictée-nombres`, `calc-mental`, `oiseau-math`, `cibles`, `half`, `double`, `division-simple`¹⁰, `division-reste`¹⁰, `division-posed`¹⁰, `operation-posed`⁶, `place-value`, `proportionnalite`, `pourcentage`¹⁰, `aire-rectangle`, `volume-pave`, `echelle`, `vitesse`, `bar-chart-read`, `data-table-read`, `pie-chart-read`, `average-compute`, `spelling`¹, `clock`, `fraction-view`, `fraction-operation`³, `number-spelling`, `carre-somme` | ~164 |
-| `choice-engine` | mixed | `factual-qcm` (**pool**), `gender-articles`, `article-choice`, `plural-choice`, `word-class-choice`, `grammar-cloze`, `homophone-duel` (library), `compare-decimals`¹⁰, *(défaut)* `compare` | ~539 |
+| `math-input` | generator | `add-simple`, `add-trou`, `sub-simple`, `mult`¹², `complement`¹², `decimal-place`¹², `dictée-nombres`, `calc-mental`, `oiseau-math`, `cibles`, `half`, `double`, `division-simple`¹⁰, `division-reste`¹⁰, `division-posed`¹², `operation-posed`⁶¹², `place-value`, `proportionnalite`, `pourcentage`¹⁰, `aire-rectangle`, `volume-pave`, `echelle`, `vitesse`, `bar-chart-read`, `data-table-read`, `pie-chart-read`, `average-compute`, `spelling`¹, `clock`¹², `fraction-view`, `fraction-operation`³, `number-spelling`, `carre-somme` | ~164 |
+| `choice-engine` | mixed | `factual-qcm` (**pool**), `gender-articles`, `article-choice`, `plural-choice`, `word-class-choice`, `grammar-cloze`, `homophone-duel` (library)¹², `compare-decimals`¹⁰, *(défaut)* `compare` | ~539 |
 | `board-interactive` | pool | `tap-features`¹¹, `shape-classify`, `point-on-grid`⁹, `symmetry-complete`, `map-locate`, `memory-match`, `angle-classify`, `angle-measure`, `construction-report`, `fraction-build`², `number-line-place`⁵, `number-line-frame`⁵ | ~42 |
-| `conversion` | generator | — (`modes`, `memo`, `units`), `metric-area`⁴ | ~29 |
+| `conversion` | generator | — (`modes`, `memo`, `units`, `decimals`¹²), `metric-area`⁴ | ~29 |
 | `conjugation` | library | — (`persons`) | ~47 |
 | `reading` | library | — | ~51 |
 | `audio-spelling` | library | — | ~44 |
@@ -125,6 +125,18 @@ d'au moins 3 points `[x, y]` en coordonnées de la grille, dessinée derrière l
 ¹¹ `tap-features` : `drawing.markersOnReveal: true` ne dessine les chevrons d'angle droit qu'à la correction ;
 `drawing.texts` (liste `{ x, y, text, anchor }`, `anchor` ∈ {start, middle, end}) pose des étiquettes sur le dessin
 (noms des villes de `cm2_villes_france_tap`). Le dessin lui-même (`lines`, `circles`) ne porte aucune réponse.
+
+¹² Paramètres de **progression entre niveaux** (v4.64.0), tous optionnels, comportement historique inchangé s'ils sont absents. Ils servent à
+ce qu'un même exercice ne soit plus identique d'un niveau à l'autre (contrôle `contrat-identique` de `build-content-index.js`) :
+`mult` accepte `mode` (`produit` par défaut, `facteur` « 7 × ? = 56 », `division` « 56 : 7 = ? », `mixte`) et `tables` (tables tirées quand `table` vaut `mix`) ;
+`complement` accepte `multipleOf` (le nombre donné est un multiple de ce pas : dizaines entières, puis multiples de 5) ;
+`decimal-place` accepte `decimals: 3` (ajoute les millièmes) ;
+`division-posed` accepte `divisors` (liste d'entiers 2-99) et `dividend` (`[min, max]`, 10-99 999) qui recalibrent le niveau ;
+`operation-posed` accepte `carry: true` (au moins une retenue ou un emprunt, addition et soustraction) ;
+`conversion` `metric` accepte `decimals` (0, 1 ou 2 : valeur de départ décimale) ;
+`clock` accepte `level: 4` (lecture à la minute près, avec graduations des minutes) ;
+`homophone-duel` accepte `level` (`ce1`, `ce2`, `cm1`, `cm2`) : les phrases de `data/french/homophones.json` portent un champ `level`, et un exercice ne tire que
+celles de son niveau (une phrase sans champ reste disponible pour tous). `mix_all` tire d'abord une catégorie qui compte au moins une phrase du niveau.
 
 **Alias normalisés en entrée** (`js/engines.js`) : `compare`/`choice` → `choice-engine` ;
 `oiseau` → `math-input` + `type:oiseau-math`.

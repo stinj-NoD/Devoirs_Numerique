@@ -21,21 +21,61 @@
                 a = rnd(Math.max(2, p.min || 5), Math.max(2, p.max || 20));
                 b = rnd(1, a - 1);
                 return { question: `${a} - ${b} = ?`, answer: a - b, explanation: `${a} - ${b} = ${a - b}` };
-            case 'mult':
-                a = p.table === 'mix' ? rnd(2, 12) : (p.table || 2);
-                b = rnd(0, 10);
-                return { question: `${a} × ${b} = ?`, answer: a * b, explanation: `${a} × ${b} = ${a * b}` };
+            case 'mult': {
+                // `tables` borne la table tirée par « table: mix » (les tables du programme du
+                // niveau : 2, 3, 4, 5 et 10 au CE1) ; absent, 2 à 12 comme avant.
+                const tablesMix = Array.isArray(p.tables) && p.tables.length ? p.tables : null;
+                a = p.table === 'mix' ? (tablesMix ? pick(tablesMix) : rnd(2, 12)) : (p.table || 2);
+                // `mode` : produit (défaut, historique) | facteur (« 7 × ? = 56 ») | division
+                // (« 56 : 7 = ? ») | mixte (une des trois formes, le produit écrit dans les deux
+                // sens). Une table se mémorise d'abord dans le sens « a × b » (CE1) ; c'est
+                // en la retrouvant sous toutes ses formes qu'elle est « mémorisée » (CE2).
+                const mode = ['facteur', 'division', 'mixte'].includes(p.mode) ? p.mode : 'produit';
+                if (mode === 'produit') {
+                    b = rnd(0, 10);
+                    return { question: `${a} × ${b} = ?`, answer: a * b, explanation: `${a} × ${b} = ${a * b}` };
+                }
+                b = rnd(2, 10);
+                total = a * b;
+                const forme = mode === 'mixte' ? pick(['produit', 'facteur', 'division']) : mode;
+                if (forme === 'facteur') {
+                    const manquantAGauche = Math.random() < 0.5;
+                    return { question: manquantAGauche ? `? × ${a} = ${total}` : `${a} × ? = ${total}`, answer: b, explanation: `${a} × ${b} = ${total}, donc le nombre cherché est ${b}.` };
+                }
+                if (forme === 'division') {
+                    return { question: `${total} : ${a} = ?`, answer: b, explanation: `${a} × ${b} = ${total}, donc ${total} : ${a} = ${b}.` };
+                }
+                return Math.random() < 0.5
+                    ? { question: `${a} × ${b} = ?`, answer: total, explanation: `${a} × ${b} = ${total}` }
+                    : { question: `${b} × ${a} = ?`, answer: total, explanation: `${b} × ${a} = ${total}` };
+            }
             case 'complement': {
                 const target = p.target || 100;
-                const cur = rnd(1, target - 1);
+                // `multipleOf` : le nombre donné est un multiple de ce pas (dizaines entières pour
+                // « 30 + ? = 100 », multiples de 5 ensuite) ; absent, n'importe quel entier.
+                const pas = Number.isInteger(p.multipleOf) && p.multipleOf > 1 && p.multipleOf < target ? p.multipleOf : 1;
+                const cur = pas > 1 ? rnd(1, Math.floor((target - 1) / pas)) * pas : rnd(1, target - 1);
                 return { question: `${cur} + ? = ${target}`, answer: target - cur, explanation: `${cur} + ${target - cur} = ${target}, donc il manque ${target - cur}.` };
             }
             case 'decimal-place': {
                 const trapMode = p.trap === true;
                 const intPart = trapMode ? Engines.utils.rnd(123, 987) : Engines.utils.rnd(0, 99);
-                const decPart = Engines.utils.rnd(11, 99);
+                // `decimals: 3` : trois chiffres après la virgule (le millième est un attendu du CM2) ;
+                // défaut 2 (dixièmes et centièmes, CM1). En trois chiffres, le dernier n'est jamais 0 :
+                // un décimal ne s'écrit pas « 4,350 ».
+                const withThousandths = p.decimals === 3;
+                let decPart;
+                if (withThousandths) {
+                    do { decPart = Engines.utils.rnd(101, 999); } while (decPart % 10 === 0);
+                } else {
+                    decPart = Engines.utils.rnd(11, 99);
+                }
                 const numberStr = `${intPart},${decPart}`;
-                const targets = [
+                const targets = withThousandths ? [
+                    { label: "chiffre des <b style='color:#e91e63'>dixièmes</b>", textLabel: "chiffre des dixièmes", ans: Math.floor(decPart / 100) },
+                    { label: "chiffre des <b style='color:#e91e63'>centièmes</b>", textLabel: "chiffre des centièmes", ans: Math.floor(decPart / 10) % 10 },
+                    { label: "chiffre des <b style='color:#e91e63'>millièmes</b>", textLabel: "chiffre des millièmes", ans: decPart % 10 }
+                ] : [
                     { label: "chiffre des <b style='color:#e91e63'>dixièmes</b>", textLabel: "chiffre des dixièmes", ans: Math.floor(decPart / 10) },
                     { label: "chiffre des <b style='color:#e91e63'>centièmes</b>", textLabel: "chiffre des centièmes", ans: decPart % 10 }
                 ];
@@ -218,6 +258,11 @@
                     d_divisor = rnd(15, 99);
                     d_dividend = rnd(500, 9999);
                 }
+                // `divisors` (liste) et `dividend` ([min, max]) recalibrent le niveau : « 20 à 99
+                // divisé par 2, 3, 4 ou 5 » au CE2 (division par un chiffre simple), « 1 000 à
+                // 9 999 divisé par un chiffre » en défi de CM1. Absents, le niveau décide.
+                if (Array.isArray(p.divisors) && p.divisors.length) d_divisor = pick(p.divisors);
+                if (Array.isArray(p.dividend) && p.dividend.length === 2) d_dividend = rnd(p.dividend[0], p.dividend[1]);
                 const d_q = Math.floor(d_dividend / d_divisor);
                 const d_r = d_dividend % d_divisor;
                 const askRemainder = p.ask === 'reste';
@@ -234,37 +279,57 @@
                 // risque de précision et garde add/sub/mult exacts sur des entiers.
                 const decimals = [0, 1, 2].includes(p.decimals) ? p.decimals : 0;
                 let opA, opB;
-                if (operator === 'add') {
-                    // niveaux 4 et 5 : nombres de 5 et de 6 chiffres (défis du CM2)
-                    if (level === 1) { opA = rnd(10, 99); opB = rnd(10, 99); }
-                    else if (level === 2) { opA = rnd(100, 999); opB = rnd(100, 999); }
-                    else if (level === 4) { opA = rnd(10000, 99999); opB = rnd(10000, 99999); }
-                    else if (level === 5) { opA = rnd(100000, 999999); opB = rnd(100000, 999999); }
-                    else { opA = rnd(1000, 9999); opB = rnd(1000, 9999); }
-                    // `maxResult` (optionnel) plafonne la SOMME : « Addition posée
-                    // jusqu'à 1000 » tirait deux nombres de 100 à 999, donc la
-                    // moitié des sommes dépassaient 1000 (jusqu'à 1 998). On garde
-                    // les bornes du niveau pour chaque opérande et on resserre
-                    // seulement le second. Sans ce paramètre, rien ne change au
-                    // bit près (CE2 et CM1 utilisent ce même niveau 2). Ignoré s'il
-                    // est trop petit pour laisser un choix au niveau demandé.
-                    const minOp = [10, 100, 1000, 10000, 100000][level - 1] || 1000;
-                    const maxOp = [99, 999, 9999, 99999, 999999][level - 1] || 9999;
-                    const maxResult = Number(p.maxResult);
-                    if (Number.isInteger(maxResult) && maxResult >= 2 * minOp) {
-                        opA = rnd(minOp, Math.min(maxOp, maxResult - minOp));
-                        opB = rnd(minOp, Math.min(maxOp, maxResult - opA));
+                const tirerOperandes = () => {
+                    if (operator === 'add') {
+                        // niveaux 4 et 5 : nombres de 5 et de 6 chiffres (défis du CM2)
+                        if (level === 1) { opA = rnd(10, 99); opB = rnd(10, 99); }
+                        else if (level === 2) { opA = rnd(100, 999); opB = rnd(100, 999); }
+                        else if (level === 4) { opA = rnd(10000, 99999); opB = rnd(10000, 99999); }
+                        else if (level === 5) { opA = rnd(100000, 999999); opB = rnd(100000, 999999); }
+                        else { opA = rnd(1000, 9999); opB = rnd(1000, 9999); }
+                        // `maxResult` (optionnel) plafonne la SOMME : « Addition posée
+                        // jusqu'à 1000 » tirait deux nombres de 100 à 999, donc la
+                        // moitié des sommes dépassaient 1000 (jusqu'à 1 998). On garde
+                        // les bornes du niveau pour chaque opérande et on resserre
+                        // seulement le second. Sans ce paramètre, rien ne change au
+                        // bit près (CE2 et CM1 utilisent ce même niveau 2). Ignoré s'il
+                        // est trop petit pour laisser un choix au niveau demandé.
+                        const minOp = [10, 100, 1000, 10000, 100000][level - 1] || 1000;
+                        const maxOp = [99, 999, 9999, 99999, 999999][level - 1] || 9999;
+                        const maxResult = Number(p.maxResult);
+                        if (Number.isInteger(maxResult) && maxResult >= 2 * minOp) {
+                            opA = rnd(minOp, Math.min(maxOp, maxResult - minOp));
+                            opB = rnd(minOp, Math.min(maxOp, maxResult - opA));
+                        }
+                    } else if (operator === 'sub') {
+                        if (level === 1) { opA = rnd(20, 99); opB = rnd(10, opA - 1); }
+                        else if (level === 2) { opA = rnd(200, 999); opB = rnd(100, opA - 1); }
+                        else if (level === 4) { opA = rnd(20000, 99999); opB = rnd(10000, opA - 1); }
+                        else if (level === 5) { opA = rnd(200000, 999999); opB = rnd(100000, opA - 1); }
+                        else { opA = rnd(2000, 9999); opB = rnd(1000, opA - 1); }
+                    } else {
+                        if (level === 1) { opA = rnd(11, 99); opB = rnd(2, 9); }
+                        else if (level === 2) { opA = rnd(11, 99); opB = rnd(11, 99); }
+                        else { opA = rnd(100, 999); opB = rnd(11, 99); }
                     }
-                } else if (operator === 'sub') {
-                    if (level === 1) { opA = rnd(20, 99); opB = rnd(10, opA - 1); }
-                    else if (level === 2) { opA = rnd(200, 999); opB = rnd(100, opA - 1); }
-                    else if (level === 4) { opA = rnd(20000, 99999); opB = rnd(10000, opA - 1); }
-                    else if (level === 5) { opA = rnd(200000, 999999); opB = rnd(100000, opA - 1); }
-                    else { opA = rnd(2000, 9999); opB = rnd(1000, opA - 1); }
-                } else {
-                    if (level === 1) { opA = rnd(11, 99); opB = rnd(2, 9); }
-                    else if (level === 2) { opA = rnd(11, 99); opB = rnd(11, 99); }
-                    else { opA = rnd(100, 999); opB = rnd(11, 99); }
+                };
+                tirerOperandes();
+                // `carry: true` : l'énoncé annonce « avec retenue » ; sans cette garantie, un tirage
+                // pouvait n'avoir ni retenue ni emprunt à poser. On retire les opérandes jusqu'à ce
+                // qu'une colonne déborde (addition : somme des deux chiffres ≥ 10) ou emprunte
+                // (soustraction : chiffre du haut < chiffre du bas).
+                if (p.carry === true && operator !== 'mult') {
+                    const aUneRetenue = (x, y) => {
+                        let u = x, v = y;
+                        while (u > 0 || v > 0) {
+                            const du = u % 10, dv = v % 10;
+                            if (operator === 'add' ? du + dv >= 10 : du < dv) return true;
+                            u = Math.floor(u / 10);
+                            v = Math.floor(v / 10);
+                        }
+                        return false;
+                    };
+                    for (let essai = 0; essai < 200 && !aUneRetenue(opA, opB); essai++) tirerOperandes();
                 }
                 const result = operator === 'add' ? opA + opB : (operator === 'sub' ? opA - opB : opA * opB);
                 const opSymbol = operator === 'add' ? '+' : (operator === 'sub' ? '-' : '×');
@@ -660,10 +725,23 @@
                 while (idx1 === idx2) idx2 = rnd(range[0], range[1]);
             }
             const u1 = units[idx1], u2 = units[idx2], f1 = factors[idx1], f2 = factors[idx2];
-            const val = idx1 < idx2 ? rnd(1, 10) : rnd(1, 9) * 1000;
+            let val = idx1 < idx2 ? rnd(1, 10) : rnd(1, 9) * 1000;
+            // `decimals` (1 ou 2) : la valeur de départ est un décimal (« 4,5 km = ? m »), la
+            // compétence de fin de cycle 3. Vers une unité plus petite, c'est le nombre lui-même
+            // (4,5 ou 2,35) ; vers une unité plus grande, un nombre dont le résultat porte 1 ou 2
+            // décimales (4 500 m = 4,5 km). Deux décimales exigent au moins 2 rangs d'écart pour
+            // rester un nombre entier de petites unités. Absent : entiers, comportement d'origine.
+            const decimales = [1, 2].includes(p.decimals) ? p.decimals : 0;
+            if (decimales > 0) {
+                const ecart = Math.abs(idx1 - idx2);
+                const d = decimales === 2 && (idx1 < idx2 || ecart >= 2) ? 2 : 1;
+                const unites = d === 2 ? rnd(101, 999) : rnd(11, 99);
+                if (idx1 < idx2) val = unites / Math.pow(10, d);
+                else val = (unites * Math.pow(10, ecart)) / Math.pow(10, d);
+            }
             const result = Math.round((val * (f1 / f2)) * 1000) / 1000;
             const resultStr = result.toString().replace('.', ',');
-            const data = { val, u1, u2, type: unitType };
+            const data = { val: decimales > 0 ? val.toString().replace('.', ',') : val, u1, u2, type: unitType };
             if (restricted) {
                 // Le tableau à 7 colonnes montrerait des unités hors programme : on donne la relation.
                 const big = Math.min(idx1, idx2), small = Math.max(idx1, idx2);
@@ -671,7 +749,7 @@
                 data.units = allowed.map((i) => units[i]);
                 data.memo = `1 ${units[big]} = ${ratio} ${units[small]}`;
             }
-            return { question: "Convertis :", answer: resultStr, inputType: 'numeric', isVisual: true, visualType: 'conversionTable', data, explanation: `${val} ${u1} = ${resultStr} ${u2}.` };
+            return { question: "Convertis :", answer: resultStr, inputType: 'numeric', isVisual: true, visualType: 'conversionTable', data, explanation: `${data.val} ${u1} = ${resultStr} ${u2}.` };
         }
         if (p.subtype === 'metric-area') {
             // Unités et facteurs LOCAUX à cette branche : l'aire progresse en x100
@@ -780,6 +858,11 @@
         } else if (level === 2) {
             h = rnd(1, 12);
             m = [0, 15, 30, 45][rnd(0, 3)];
+        } else if (level >= 4) {
+            // Niveau 4 : à la minute près (le CE2 lit les cadrans de 5 en 5, le CM2 lit toutes
+            // les graduations). Les minutes multiples de 5 restent possibles, sans être la règle.
+            h = rnd(0, 23);
+            m = rnd(0, 59);
         } else {
             h = rnd(0, 23);
             m = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55][rnd(0, 11)];
@@ -794,6 +877,7 @@
             data.caption = "Écris l'heure sur 24 heures.";
             data.captionHint = "Jour : de 8 h à 20 h. Nuit : de 20 h à 8 h.";
         }
+        if (level >= 4) data.minuteTicks = true;
         return { isVisual: true, visualType: 'clock', inputType: 'numeric', data, answer: h.toString().padStart(2, '0') + m.toString().padStart(2, '0') };
     },
     fractionView(p) {

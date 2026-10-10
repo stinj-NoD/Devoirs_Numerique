@@ -170,6 +170,17 @@ const UIVisuals = {
         // Avec var(--color-text), le thème sombre les peignait en clair sur le blanc : chiffres et aiguille des heures illisibles.
         let svg = `<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}"><circle cx="${c}" cy="${c}" r="${r}" fill="white" stroke="#243447" stroke-width="3"/>`;
 
+        // Graduations des minutes (cadran lu « à la minute près ») : 60 traits, plus longs toutes
+        // les 5 minutes. Sans elles, seule l'estimation à l'œil permettait de lire 13 h 33.
+        if (d.minuteTicks) {
+            for (let i = 0; i < 60; i++) {
+                const a = (i * 6) * (Math.PI / 180);
+                const outer = r - 1;
+                const inner = r - (i % 5 === 0 ? 8 : 5);
+                svg += `<line x1="${c + outer * Math.sin(a)}" y1="${c - outer * Math.cos(a)}" x2="${c + inner * Math.sin(a)}" y2="${c - inner * Math.cos(a)}" stroke="#243447" stroke-width="${i % 5 === 0 ? 2 : 1}"/>`;
+            }
+        }
+
         for (let i = 1; i <= 12; i++) {
             const a = (i * 30) * (Math.PI / 180);
             const x = c + (r - 16) * Math.sin(a);

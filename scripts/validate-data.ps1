@@ -228,6 +228,69 @@ function Validate-Exercise($path, $themeId, $exercise) {
                 Add-Issue("${path}: decimals invalide pour $($exercise.id)")
             }
         }
+        if ($null -ne $exercise.params.carry -and $exercise.params.carry -isnot [bool]) {
+            Add-Issue("${path}: carry invalide pour $($exercise.id)")
+        }
+    }
+    if ($exercise.params.type -eq 'division-posed') {
+        # divisors : liste d'entiers 2-99 ; dividend : [min, max] entiers croissants (10 a 99999).
+        if ($null -ne $exercise.params.divisors) {
+            $dpDivsOk = ($exercise.params.divisors -is [System.Collections.IList]) -and $exercise.params.divisors.Count -ge 1
+            if ($dpDivsOk) {
+                foreach ($rawDpDiv in $exercise.params.divisors) {
+                    $dpDivVal = 0
+                    if (-not [int]::TryParse([string]$rawDpDiv, [ref]$dpDivVal) -or $dpDivVal -lt 2 -or $dpDivVal -gt 99) { $dpDivsOk = $false; break }
+                }
+            }
+            if (-not $dpDivsOk) { Add-Issue("${path}: divisors invalide pour $($exercise.id)") }
+        }
+        if ($null -ne $exercise.params.dividend) {
+            $dpDividendOk = ($exercise.params.dividend -is [System.Collections.IList]) -and $exercise.params.dividend.Count -eq 2
+            if ($dpDividendOk) {
+                $dp0 = 0; $dp1 = 0
+                $dpDividendOk = [int]::TryParse([string]$exercise.params.dividend[0], [ref]$dp0) -and [int]::TryParse([string]$exercise.params.dividend[1], [ref]$dp1) `
+                    -and $dp0 -ge 10 -and $dp1 -le 99999 -and $dp1 -ge $dp0
+            }
+            if (-not $dpDividendOk) { Add-Issue("${path}: dividend invalide pour $($exercise.id)") }
+        }
+    }
+    if ($exercise.params.type -eq 'mult') {
+        # mode : forme sous laquelle la table est demandee ; tables : tables tirees quand table vaut mix.
+        if ($null -ne $exercise.params.mode -and $exercise.params.mode -notin @('produit', 'facteur', 'division', 'mixte')) {
+            Add-Issue("${path}: mode invalide pour $($exercise.id)")
+        }
+        if ($null -ne $exercise.params.tables) {
+            $multTablesOk = ($exercise.params.tables -is [System.Collections.IList]) -and $exercise.params.tables.Count -ge 1
+            if ($multTablesOk) {
+                foreach ($rawTable in $exercise.params.tables) {
+                    $multTableVal = 0
+                    if (-not [int]::TryParse([string]$rawTable, [ref]$multTableVal) -or $multTableVal -lt 2 -or $multTableVal -gt 12) { $multTablesOk = $false; break }
+                }
+            }
+            if (-not $multTablesOk) { Add-Issue("${path}: tables invalide pour $($exercise.id)") }
+        }
+    }
+    if ($exercise.params.type -eq 'complement' -and $null -ne $exercise.params.multipleOf) {
+        $complementStepVal = 0
+        if (-not [int]::TryParse([string]$exercise.params.multipleOf, [ref]$complementStepVal) -or $complementStepVal -lt 2 -or $complementStepVal -gt 50) {
+            Add-Issue("${path}: multipleOf invalide pour $($exercise.id)")
+        }
+    }
+    if ($exercise.params.type -eq 'decimal-place' -and $null -ne $exercise.params.decimals) {
+        if ([string]$exercise.params.decimals -notin @('2', '3')) {
+            Add-Issue("${path}: decimals invalide pour $($exercise.id)")
+        }
+    }
+    if (($exercise.engine -eq 'clock' -or $exercise.params.type -eq 'clock') -and $null -ne $exercise.params.level) {
+        $clockLevelVal = 0
+        if (-not [int]::TryParse([string]$exercise.params.level, [ref]$clockLevelVal) -or $clockLevelVal -lt 1 -or $clockLevelVal -gt 4) {
+            Add-Issue("${path}: level invalide pour $($exercise.id)")
+        }
+    }
+    if ($exercise.params.type -eq 'homophone-duel' -and $null -ne $exercise.params.level) {
+        if ($exercise.params.level -notin @('ce1', 'ce2', 'cm1', 'cm2')) {
+            Add-Issue("${path}: level invalide pour $($exercise.id)")
+        }
     }
     if ($exercise.params.type -eq 'division-simple' -or $exercise.params.type -eq 'division-reste') {
         # divisors : liste d'entiers 2-99 ; quotient : [min, max] entiers croissants ; ask (division-reste) : quotient | reste.
@@ -395,6 +458,11 @@ function Validate-Exercise($path, $themeId, $exercise) {
             }
             if (-not $rangeOk) {
                 Add-Issue("${path}: range invalide pour metric-area ($($exercise.id))")
+            }
+        }
+        if ($exercise.params.subtype -eq 'metric' -and $null -ne $exercise.params.decimals) {
+            if ([string]$exercise.params.decimals -notin @('0', '1', '2')) {
+                Add-Issue("${path}: decimals invalide pour metric ($($exercise.id))")
             }
         }
         if ($exercise.params.subtype -eq 'metric' -and $null -ne $exercise.params.units) {
