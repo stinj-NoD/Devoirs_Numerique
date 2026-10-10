@@ -14,7 +14,7 @@
 |---|---|---|---|---|---|---|---|
 | Bloquant | 1 | 3 | 0 | 0 | 0 | 0 | **4** — tous corrigés en v4.52.0 |
 | Majeur | 5 | 5 | 1 | 4 | 2 | 2 | **19** — tous corrigés (v4.54.0, v4.57.0 et v4.59.0, la conjugaison au CP ayant été arbitrée) |
-| Mineur | 15 | 16 | 9 | 8 | 7 | 5 | **60** |
+| Mineur | 15 | 16 | 9 | 8 | 7 | 5 | **60** — 58 traités en v4.65.0, 2 volontairement laissés (voir « État des corrections des Mineurs ») |
 | Suggestion | 3 | 2 | 2 | 2 | 2 | 2 | **13** |
 
 **Quatre Bloquants, tous invisibles aux validateurs** (qui sont tous verts, voir plus bas) et tous trouvés par la sonde ou par la lecture du moteur :
@@ -363,6 +363,20 @@ Le niveau a été profondément enrichi depuis le 2026-07-24 (vagues v4.47.0 à 
 **Résumé** : Bloquant 0, Majeur 2, Mineur 5, Suggestion 2 (10 leçons, 20 exercices, 800 tirages).
 
 ---
+
+## État des corrections des Mineurs (2026-10-11, v4.65.0)
+
+**58 des 60 Mineurs sont corrigés**, après vérification de chaque constat dans les données (plusieurs avaient déjà été levés en passant : « par cœur », l'indice « eau salée », les titres sans accents de `cp-bonus-geo-paysages-defi`). Le corps du document décrit les constats **tels qu'ils étaient au 2026-09-28**.
+
+**Moteurs et interface (communs aux 5 niveaux).** Les générateurs procéduraux ne répètent plus une question dans une série (`Engines.unique`, jusqu'à 30 retirages ; `banquier-1` : 0 doublon sur 40 tirages au lieu de 7) ; l'égalité forcée des comparaisons passe de 20 % à 10 % ; la pastille « Jour/Nuit » ne s'affiche plus sur un cadran de 12 heures (elle annonçait « Nuit » pour 1 h à 7 h) ; « EUR » devient « € » sur les pièces et billets ; la consigne du rangement dit « Range les nombres » ou « Range les mois » au lieu de « Construis la phrase » ; la dictée dit « la syllabe » ou « la phrase » (nouveau paramètre `unit`, validé par les deux validateurs) ; les syllabes d'un mot à compter ou à repérer ne sont plus colorées (champ `plain`).
+
+**Mathématiques (15 sur 15).** `add-2`, `add-3` et le défi d'addition ne tirent plus de sommes de débutant (`min`) ; leçons « Résoudre un petit problème » et « Vérifier un calcul » recentrées sur la paire qui fait 10, 15 ou 20 ; ligne numérique de 10 en 10 et valeur du chiffre des dizaines enseignées ; les exercices « Carré magique » deviennent « Trouve la paire » ; `cp-problemes-simples` perd ses 8 derniers items, déplacés avec leurs explications dans `cp-problemes-quotidien` (10 items), le défi a son vivier d'écarts et de compléments (14 items) et le défi à deux étapes le sien (11 items) ; vocabulaire de la leçon (« cercle », « coins ») dans les formes, « angles droits » retiré, jumeaux supprimés ; explications de la règle.
+
+**Français (15 sur 16).** Une phrase dictée se dit sans majuscule ni point (leçon) ; trois leçons de phrase corrigées (« un point, un point d'interrogation ou un point d'exclamation ») ; « Le, la ou l' ? » ; mots proches réels dans `cp_lire_mots_simples` (plus de « maïson » ni de mot anglais) ; 8 vraies petites histoires dans `cp_comprendre_histoire` avec explications ; `plural_choice_cp` à 12 items non appariés avec explications ; les 105 explications de l'ordre des mots sans « sujet » ni « complément » ; 9 phrases refaites (« Paul mange du pain », « ferme » moins répété) ; « œu » devient « voir les lettres œu » ; images ambiguës remplacées (sac, table, loupe, cloche, globe, carte, plante, riz, visage ; règle, plume, raquette pour le genre) ; découpes syllabiques conventionnelles (bal-lon, cail-lou).
+
+**Histoire (9 sur 9), géographie (8 sur 8), sciences (7 sur 7), EMC (4 sur 5).** Jour + nuit = 24 heures (plus « une journée ») ; séquences à ordre imposé ; une seule convention pour les mois ; items ambigus et tautologie réécrits ; « notions de cycle 3 » (habiter) remplacées par des items d'observation ; « presque toujours » ; lieux publics (piscine, stade) ; catégorie `cp_map_regions_france` retirée de la banque CP ; titres sans support (« La température en degrés », « La matière ») ; matière au lieu d'objet pour l'état, flottaison sans « lourd = coule », sucre, œuf du jeu de mémoire (un fromage) ; doublons exacts entre catégories remplacés (balai, stylo, casserole, savon, dents, mains) ; « Toutes les émotions (joie, peur, tristesse, colère) » ; appariements sans tautologie (« bonjour → quand j'arrive ») ; 10 quiz de leçon d'EMC raccourcis. **Distracteurs repérables par leur longueur : les 74 items sont ramenés sous 8 caractères d'écart** (histoire 17, géographie 17, sciences 16, EMC 20 ; bonne réponse raccourcie ou distracteurs étoffés, sans les rendre plausibles).
+
+**Laissés (2 Mineurs, volontairement).** *Deux systèmes de mots-outils parallèles* (périodes P1-P5 et niveaux 1-3) : les 6 mots d'une période sont précisément la liste à maîtriser, et la banque de révision (30 mots) existe ; une fusion est un choix de parcours, pas une correction. *EMC — chevauchements entre catégories* (prêter, partager, rendre) : les spécialiser demande de nouveaux items et un arbitrage avec `curriculum-auditor`. **Non traités (Suggestions et hygiène)** : solides dans une catégorie de formes planes, deux leçons de mots-outils, « soleil » ou « Soleil », place de l'état gazeux au CP, BOM de 47 fichiers de `data/` (inoffensif : le navigateur et les scripts du dépôt le tolèrent).
 
 ## Constats de l'audit du 2026-07-24 : résolus / persistants
 
