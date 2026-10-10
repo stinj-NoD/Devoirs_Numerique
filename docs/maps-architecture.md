@@ -12,7 +12,7 @@ data/{niveau}.json                 l'exercice et ses params
        mapId: "europe-countries",        ← identifiant logique (Collection)
        mapFile: "data/maps/europe-countries.svg",  ← le dessin
        dataFile: "data/board_map_locate_europe.json", ← les questions
-       category: "cm1_map_pays_europe"
+       category: "cm1_map_europe_proche"
      }
 
 data/board_map_locate_*.json       banque de questions
