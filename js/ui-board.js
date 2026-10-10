@@ -341,6 +341,11 @@ const UIBoard = {
             />
         `).join('');
 
+        // drawing.texts : étiquettes posées sur le dessin (nom d'une ville, d'un composant).
+        const texts = (Array.isArray(drawing.texts) ? drawing.texts : []).map((item) => `
+            <text x="${toX(item.x)}" y="${toY(item.y)}" class="board-map-label" text-anchor="${item.anchor === 'end' ? 'end' : (item.anchor === 'middle' ? 'middle' : 'start')}">${this._escape(item.text)}</text>
+        `).join('');
+
         // drawing.markersOnReveal : le codage d'angle droit marque justement les sommets à toucher ;
         // affiché d'emblée il dessine la réponse. Il n'apparaît alors qu'à la correction.
         const showMarkers = !drawing.markersOnReveal || !!data.revealed;
@@ -382,6 +387,7 @@ const UIBoard = {
                         ${lines}
                         ${circles}
                         ${markers}
+                        ${texts}
                         ${hotspots}
                     </svg>
                 </div>

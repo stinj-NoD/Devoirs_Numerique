@@ -1032,14 +1032,11 @@
                         {
                             "id": "cm2-heures-minutes",
                             "title": "Heures et minutes",
-                            "subtitle": "Convertir sans se tromper",
+                            "subtitle": "Sans aide : 3 h 25 min = ? min",
                             "engine": "conversion",
                             "params": {
                                 "subtype": "time",
-                                "modes": [
-                                    "h_to_min",
-                                    "hmin_to_min"
-                                ],
+                                "modes": ["hmin_to_min"],
                                 "memo": false,
                                 "randomMinutes": true,
                                 "questions": 10
@@ -5837,7 +5834,7 @@
                             "subtitle": "Relie chaque pays de l'Union européenne à sa capitale",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_geo_cm2",
+                                "category": "matching_geo_cm2_capitales",
                                 "dataFile": "data/geography_matching.json",
                                 "questions": 2
                             }
@@ -5871,7 +5868,7 @@
                         {
                             "id": "cm2-bonus-geo-carte-monde-continents",
                             "title": "Défi : situer l'Europe dans le monde",
-                            "subtitle": "Repère les continents sur la carte mondiale",
+                            "subtitle": "Repère les continents par rapport à l'Europe",
                             "engine": "board-interactive",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -5880,7 +5877,7 @@
                                 "dataFile": "data/board_map_locate_world.json",
                                 "mapFile": "data/maps/world-continents.svg",
                                 "mapId": "world-continents",
-                                "category": "cm1_map_continents_monde",
+                                "category": "cm2_map_continents_europe",
                                 "questions": 8
                             }
                         }
@@ -5913,31 +5910,109 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Une commune littorale compte 3 000 habitants en hiver et 25 000 en été. Comment expliquer cet écart ?",
+                                    "question": "Une commune littorale compte 3 000 habitants en hiver et 25 000 en été. Comment l'expliquer ?",
                                     "choices": [
                                         "Le tourisme balnéaire fait affluer les vacanciers à la belle saison",
                                         "Les habitants font beaucoup d'enfants pendant l'été",
                                         "La commune s'agrandit physiquement en été"
                                     ],
                                     "answer": "Le tourisme balnéaire fait affluer les vacanciers à la belle saison",
-                                    "explanation": "Le littoral attire les activités touristiques : la population saisonnière gonfle l'été puis repart. Aucune natalité ne pourrait multiplier une population par huit en quelques semaines. Et le territoire ne change pas de taille : ce sont les gens présents qui changent."
+                                    "explanation": "Le littoral attire les vacanciers : la population saisonnière gonfle l'été puis repart. Aucune natalité ne multiplie une population par huit en quelques semaines."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pourquoi un habitant d'une métropole prend-il souvent le métro, alors qu'un habitant d'un village a presque toujours besoin d'une voiture ?",
+                                    "question": "Pourquoi prend-on souvent le métro en métropole, mais presque toujours la voiture dans un village ?",
                                     "choices": [
-                                        "Parce que chaque espace impose ses contraintes et ses solutions de déplacement",
-                                        "Parce que les habitants des villages n'aiment pas les transports collectifs",
-                                        "Parce que le métro est interdit en dehors des métropoles"
+                                        "Chaque espace impose ses contraintes et ses solutions de déplacement",
+                                        "Les habitants des villages n'aiment pas les transports collectifs",
+                                        "Le métro est interdit en dehors des métropoles"
                                     ],
-                                    "answer": "Parce que chaque espace impose ses contraintes et ses solutions de déplacement",
-                                    "explanation": "Habiter, c'est s'adapter : la densité urbaine rend le métro possible, la dispersion rurale rend la voiture indispensable. Ce n'est pas une question de goût, mais d'offre disponible. Et le métro n'est pas interdit ailleurs : il serait simplement vide et ruineux, faute de voyageurs."
+                                    "answer": "Chaque espace impose ses contraintes et ses solutions de déplacement",
+                                    "explanation": "La densité urbaine rend le métro possible ; la dispersion rurale rend la voiture indispensable. Ce n'est pas une question de goût, mais d'offre disponible."
                                 }
                             ],
                             "title": "Habiter des espaces différents",
                             "format": "lesson-card",
                             "id": "cm2-lesson-habiter-espaces-differents",
                             "subtitle": "Ville, campagne, littoral"
+                        },
+                        {
+                            "id": "cm2-lesson-grandes-villes-france",
+                            "title": "Les grandes villes de France",
+                            "subtitle": "Où sont Paris, Lyon, Marseille...",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Les grandes villes de France sont réparties sur tout le territoire : Paris, la capitale, au nord ; Lille et Strasbourg près des frontières du nord et de l'est ; Lyon et Marseille dans le sud-est ; Toulouse et Bordeaux dans le sud-ouest ; Nantes et Rennes à l'ouest."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "label": "Quelques repères",
+                                    "headers": [
+                                        "Ville",
+                                        "Où est-elle ?"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "Paris",
+                                            "la capitale, au nord du pays, sur la Seine"
+                                        ],
+                                        [
+                                            "Marseille",
+                                            "un grand port sur la Méditerranée"
+                                        ],
+                                        [
+                                            "Lyon",
+                                            "à la rencontre du Rhône et de la Saône"
+                                        ],
+                                        [
+                                            "Bordeaux",
+                                            "sur la Garonne, près de l'Atlantique"
+                                        ],
+                                        [
+                                            "Strasbourg",
+                                            "à l'est, près de l'Allemagne"
+                                        ],
+                                        [
+                                            "Lille",
+                                            "au nord, près de la Belgique"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Pour aller de Paris à Marseille, on descend vers le sud-est en suivant la vallée du Rhône."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Les grandes villes sont reliées par des routes, des trains et des fleuves."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un train va de Paris à Strasbourg. Dans quelle direction roule-t-il ?",
+                                    "choices": [
+                                        "Vers l'est",
+                                        "Vers l'ouest",
+                                        "Vers le sud-ouest"
+                                    ],
+                                    "answer": "Vers l'est",
+                                    "explanation": "Strasbourg se trouve à l'est de la France, près de l'Allemagne : depuis Paris, on roule vers l'est."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève situe Lyon à l'ouest de la France. Quelle est son erreur ?",
+                                    "choices": [
+                                        "Lyon se trouve dans l'est et le sud-est, pas à l'ouest",
+                                        "Lyon se trouve tout au nord, près de la Belgique",
+                                        "Lyon est une ville d'un autre pays"
+                                    ],
+                                    "answer": "Lyon se trouve dans l'est et le sud-est, pas à l'ouest",
+                                    "explanation": "Lyon est située dans le sud-est du pays, sur le Rhône : c'est Nantes ou Rennes qui sont à l'ouest."
+                                }
+                            ]
                         },
                         {
                             "id": "cm2-lesson-france-union-europeenne",
@@ -5979,18 +6054,96 @@
                                         "Les deux pays ont le même gouvernement"
                                     ],
                                     "answer": "Les deux pays utilisent la même monnaie",
-                                    "explanation": "La France et l'Espagne ont adopté l'euro : aucun change n'est nécessaire entre pays de la zone euro. L'Espagne reste un État souverain, pas un département français. Et chaque pays garde son propre gouvernement : coopérer n'est pas fusionner."
+                                    "explanation": "La France et l'Espagne utilisent l'euro : aucun change n'est nécessaire dans la zone euro. L'Espagne reste un État souverain, avec son propre gouvernement."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Depuis le Brexit, un Français doit présenter un passeport pour se rendre au Royaume-Uni, alors qu'il n'en a pas besoin pour la Belgique. Pourquoi ?",
+                                    "question": "Un Français doit présenter un passeport pour aller au Royaume-Uni, pas pour la Belgique. Pourquoi ?",
                                     "choices": [
                                         "Le Royaume-Uni a quitté l'Union européenne",
                                         "Le Royaume-Uni est une île, pas la Belgique",
                                         "La Belgique est devenue une région française"
                                     ],
                                     "answer": "Le Royaume-Uni a quitté l'Union européenne",
-                                    "explanation": "Quitter l'Union, c'est sortir de ses règles communes : les contrôles reviennent, alors qu'ils restent allégés entre pays membres. Être une île n'y change rien : l'Irlande est une île et reste dans l'Union. Et la Belgique est un pays indépendant, pas une région française."
+                                    "explanation": "Quitter l'Union, c'est sortir de ses règles communes : les contrôles reviennent. Être une île n'y change rien : l'Irlande est une île et reste dans l'Union."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-europe-pays",
+                            "title": "L'Europe et ses pays",
+                            "subtitle": "Voisins de la France et capitales",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "L'Europe est un continent qui compte une cinquantaine de pays. La France se trouve à l'ouest ; ses voisins sont la Belgique, le Luxembourg, l'Allemagne, la Suisse, l'Italie, l'Espagne, Andorre et Monaco."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "label": "Quelques capitales",
+                                    "headers": [
+                                        "Pays",
+                                        "Capitale"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "la France",
+                                            "Paris"
+                                        ],
+                                        [
+                                            "l'Allemagne",
+                                            "Berlin"
+                                        ],
+                                        [
+                                            "l'Italie",
+                                            "Rome"
+                                        ],
+                                        [
+                                            "l'Espagne",
+                                            "Madrid"
+                                        ],
+                                        [
+                                            "la Belgique",
+                                            "Bruxelles"
+                                        ],
+                                        [
+                                            "le Portugal",
+                                            "Lisbonne"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Bruxelles est la capitale de la Belgique et accueille des institutions de l'Union européenne."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Une capitale est la ville où siège le gouvernement d'un pays."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Lisbonne, Madrid et Paris sont des capitales. Dans quel ordre les rencontre-t-on en allant du sud-ouest au nord-est de l'Europe ?",
+                                    "choices": [
+                                        "Lisbonne, Madrid, Paris",
+                                        "Paris, Madrid, Lisbonne",
+                                        "Madrid, Lisbonne, Paris"
+                                    ],
+                                    "answer": "Lisbonne, Madrid, Paris",
+                                    "explanation": "Le Portugal est à l'extrémité sud-ouest de l'Europe, l'Espagne se trouve entre le Portugal et la France : on rencontre Lisbonne, puis Madrid, puis Paris."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Parmi ces pays, lequel n'a pas de frontière commune avec la France ?",
+                                    "choices": [
+                                        "Le Portugal, séparé de la France par l'Espagne",
+                                        "L'Espagne, au sud, par les Pyrénées",
+                                        "L'Italie, à l'est, par les Alpes"
+                                    ],
+                                    "answer": "Le Portugal, séparé de la France par l'Espagne",
+                                    "explanation": "Le Portugal est de l'autre côté de l'Espagne : il n'a aucune frontière avec la France. L'Espagne et l'Italie sont bien ses voisines."
                                 }
                             ]
                         }
@@ -6010,20 +6163,20 @@
                                 "type": "factual-qcm",
                                 "dataFile": "data/geography_cm2.json",
                                 "category": "cm2-habiter",
-                                "questions": 8
+                                "questions": 6
                             }
                         },
                         {
                             "params": {
-                                "questions": 10,
+                                "questions": 8,
                                 "dataFile": "data/geography_cm2.json",
-                                "category": "cm2-habiter",
+                                "category": "cm2-habiter-espaces",
                                 "type": "factual-qcm"
                             },
-                            "title": "Habiter différents espaces",
+                            "title": "Habiter autrement",
                             "engine": "choice-engine",
                             "id": "cm2-geo-habiter-espaces",
-                            "subtitle": "Métropoles, littoraux, campagnes"
+                            "subtitle": "La ville de demain : transports, quartiers et nature"
                         },
                         {
                             "id": "cm2-geo-espaces-littoraux",
@@ -6064,15 +6217,15 @@
                         {
                             "id": "cm2-bonus-geo-habiter-defi",
                             "title": "Défi : habiter",
-                            "subtitle": "Sans erreur",
+                            "subtitle": "Raisonner sur les espaces habités",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/geography_cm2.json",
-                                "category": "cm2-habiter",
-                                "questions": 7
+                                "category": "cm2-habiter-defi",
+                                "questions": 6
                             }
                         },
                         {
@@ -6128,25 +6281,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un pays du monde n'a ni port en eau profonde, ni aéroport international, ni connexion internet rapide. Quelle en est la conséquence ?",
+                                    "question": "Un pays n'a ni port en eau profonde, ni aéroport international, ni internet rapide. Quelle conséquence ?",
                                     "choices": [
                                         "Il participe difficilement aux échanges mondiaux",
                                         "Il devient le centre des échanges mondiaux",
                                         "Il n'a plus besoin d'importer quoi que ce soit"
                                     ],
                                     "answer": "Il participe difficilement aux échanges mondiaux",
-                                    "explanation": "Les flux passent par les ports, les aéroports et les réseaux numériques : sans eux, le territoire reste à l'écart, car tous ne sont pas reliés de la même façon. Il ne peut pas devenir un centre, faute d'infrastructures pour accueillir les flux. Et ses besoins ne disparaissent pas : ils deviennent seulement plus difficiles à satisfaire."
+                                    "explanation": "Les flux passent par les ports, les aéroports et les réseaux : sans eux, le territoire reste à l'écart. Ses besoins ne disparaissent pas, ils deviennent plus difficiles à satisfaire."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un smartphone conçu aux États-Unis, assemblé en Asie avec des métaux d'Afrique, est vendu en France. Que montre le mieux cet exemple ?",
+                                    "question": "Un smartphone conçu aux États-Unis, assemblé en Asie avec des métaux d'Afrique, est vendu en France. Que montre-t-il ?",
                                     "choices": [
                                         "Les territoires sont devenus dépendants les uns des autres",
                                         "Chaque pays fabrique seul ce qu'il consomme",
                                         "Les échanges se limitent aux pays voisins"
                                     ],
                                     "answer": "Les territoires sont devenus dépendants les uns des autres",
-                                    "explanation": "Un seul objet mobilise quatre continents : aucun n'aurait pu le produire seul, c'est l'interdépendance des territoires. Il contredit donc l'idée d'un pays qui produit tout lui-même. Et les échanges dépassent largement le voisinage : ils font ici le tour du monde."
+                                    "explanation": "Un seul objet mobilise quatre continents : aucun n'aurait pu le produire seul, c'est l'interdépendance des territoires. Les échanges font ici le tour du monde."
                                 }
                             ],
                             "title": "Échanger et circuler dans le monde",
@@ -6185,25 +6338,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Deux communes françaises ont exactement le même nombre d'habitants, mais l'une s'étend sur 2 km² et l'autre sur 90 km². Que peut-on en déduire ?",
+                                    "question": "Deux communes ont autant d'habitants, mais l'une s'étend sur 2 km² et l'autre sur 90 km². Que déduire ?",
                                     "choices": [
                                         "La première est dense et urbaine, la seconde rurale et étalée",
-                                        "La première commune est forcément plus riche que la seconde",
-                                        "Les deux communes présentent exactement les mêmes paysages"
+                                        "La première est forcément plus riche que la seconde",
+                                        "Les deux communes ont exactement les mêmes paysages"
                                     ],
                                     "answer": "La première est dense et urbaine, la seconde rurale et étalée",
-                                    "explanation": "À population égale, la surface révèle la densité : entassée sur 2 km², c'est la ville ; dispersée sur 90 km², c'est la campagne. La richesse ne se déduit pas d'une surface. Et leurs paysages diffèrent forcément : immeubles d'un côté, champs et hameaux de l'autre."
+                                    "explanation": "À population égale, la surface révèle la densité : 2 km², c'est la ville ; 90 km², c'est la campagne. La richesse ne se déduit pas d'une surface."
                                 },
                                 {
                                     "type": "check",
                                     "question": "Pourquoi les déplacements quotidiens sont-ils si nombreux dans une grande ville ?",
                                     "choices": [
-                                        "Parce que logements, emplois et services y sont séparés et très fréquentés",
-                                        "Parce que les habitants des villes aiment davantage bouger",
-                                        "Parce que les distances y sont plus longues qu'à la campagne"
+                                        "Logements, emplois et services y sont séparés et très fréquentés",
+                                        "Les habitants des villes aiment davantage bouger",
+                                        "Les distances y sont plus longues qu'à la campagne"
                                     ],
-                                    "answer": "Parce que logements, emplois et services y sont séparés et très fréquentés",
-                                    "explanation": "En ville, on dort ici, on travaille là, on étudie ailleurs : chaque jour, des milliers de personnes font ces trajets. Ce n'est pas un goût pour le mouvement, mais l'organisation de l'espace. Et les distances y sont souvent plus courtes qu'à la campagne : c'est leur nombre qui explique tout."
+                                    "answer": "Logements, emplois et services y sont séparés et très fréquentés",
+                                    "explanation": "En ville, on dort ici, on travaille là, on étudie ailleurs : chaque jour, des milliers de personnes font ces trajets. C'est l'organisation de l'espace, pas un goût pour le mouvement."
                                 }
                             ]
                         },
@@ -6239,14 +6392,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Autour d'une grande ville, des lotissements neufs sortent de terre dans d'anciens villages, habités par des familles qui travaillent en ville. Comment nomme-t-on ce phénomène ?",
+                                    "question": "Autour d'une ville, des lotissements neufs accueillent des familles qui travaillent en ville. Quel nom ?",
                                     "choices": [
                                         "La périurbanisation",
                                         "La désertification",
                                         "La mondialisation"
                                     ],
                                     "answer": "La périurbanisation",
-                                    "explanation": "Des citadins qui s'installent autour des villes tout en y travaillant, c'est exactement la périurbanisation. La désertification désignerait au contraire un espace qui se vide de ses habitants. La mondialisation concerne les échanges entre pays, pas l'installation autour d'une ville."
+                                    "explanation": "Des citadins qui s'installent autour des villes en y travaillant : c'est la périurbanisation. La désertification est un espace qui se vide ; la mondialisation concerne les échanges entre pays."
                                 },
                                 {
                                     "type": "check",
@@ -6257,7 +6410,7 @@
                                         "Leur village devient un espace urbain"
                                     ],
                                     "answer": "Ils parcourent de plus longues distances",
-                                    "explanation": "La faible densité rend les services difficiles à maintenir : vivre à la campagne offre l'espace, mais impose ces déplacements. Le village reste une commune : le départ des services ne change pas son statut. Et il ne devient pas urbain : il s'éloigne au contraire du modèle de la ville."
+                                    "explanation": "La faible densité rend les services difficiles à maintenir : la campagne offre l'espace, mais impose des déplacements. Le village reste une commune et ne devient pas urbain."
                                 }
                             ]
                         },
@@ -6311,18 +6464,18 @@
                                         "Augmenter la pente de la montagne"
                                     ],
                                     "answer": "Se protéger pour garder la route ouverte",
-                                    "explanation": "La neige et la pente sont des contraintes : les habitants aménagent l'espace pour s'en protéger et rester accessibles. Ces ouvrages ne sont pas une attraction, on les remarque à peine. Et rien ne peut modifier la pente d'une montagne : on s'y adapte, on ne la change pas."
+                                    "explanation": "La neige et la pente sont des contraintes : on aménage l'espace pour s'en protéger et rester accessible. Ces ouvrages ne sont pas une attraction, et on ne change pas la pente d'une montagne."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur une côte, la mer ronge la falaise et emporte peu à peu le terrain sous les maisons. Comment nomme-t-on ce phénomène ?",
+                                    "question": "La mer ronge la falaise et emporte le terrain sous les maisons. Comment nomme-t-on ce phénomène ?",
                                     "choices": [
                                         "L'érosion des côtes",
                                         "Le tourisme balnéaire",
                                         "La périurbanisation"
                                     ],
                                     "answer": "L'érosion des côtes",
-                                    "explanation": "L'usure du littoral par la mer, qui fait reculer les falaises, s'appelle l'érosion : c'est une contrainte majeure du littoral. Le tourisme balnéaire est une activité, pas une dégradation du terrain. Et la périurbanisation désigne l'installation d'habitants autour des villes."
+                                    "explanation": "L'usure du littoral par la mer, qui fait reculer les falaises, s'appelle l'érosion. Le tourisme balnéaire est une activité, et la périurbanisation concerne les villes."
                                 }
                             ]
                         }
@@ -6375,7 +6528,7 @@
                             "subtitle": "Relie chaque notion économique à sa définition",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_geo_cm2",
+                                "category": "matching_geo_cm2_mondialisation",
                                 "dataFile": "data/geography_matching.json",
                                 "questions": 2
                             }
@@ -6383,15 +6536,15 @@
                         {
                             "id": "cm2-bonus-geo-acteurs-mondialisation-expert",
                             "title": "Défi : acteurs de la mondialisation",
-                            "subtitle": "Série longue sur les flux et réseaux",
+                            "subtitle": "Raisonner sur les flux et les réseaux",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/geography_cm2.json",
-                                "category": "cm2-acteurs-mondialisation",
-                                "questions": 10
+                                "category": "cm2-acteurs-defi",
+                                "questions": 6
                             }
                         }
                     ],
@@ -6428,25 +6581,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Une entreprise conçoit ses baskets en Europe, les fait fabriquer à l'autre bout du monde, puis les vend partout. Pourquoi ne fabrique-t-elle pas tout au même endroit ?",
+                                    "question": "Une entreprise conçoit ses baskets en Europe, les fait fabriquer en Asie, puis les vend partout. Pourquoi ?",
                                     "choices": [
-                                        "Parce qu'elle cherche à produire là où cela lui coûte le moins cher",
-                                        "Parce qu'il est interdit de fabriquer et de vendre dans le même pays",
-                                        "Parce que les bateaux exigent que les usines soient éloignées"
+                                        "Elle cherche à produire là où cela lui coûte le moins cher",
+                                        "Il est interdit de fabriquer et de vendre dans le même pays",
+                                        "Les bateaux exigent des usines éloignées"
                                     ],
-                                    "answer": "Parce qu'elle cherche à produire là où cela lui coûte le moins cher",
-                                    "explanation": "Les entreprises répartissent conception, fabrication et vente selon leur intérêt économique : les transports rendent cet éclatement possible. Aucune loi n'interdit de produire et de vendre au même endroit. Et les bateaux ne fixent rien : ils ne font que suivre les choix des entreprises."
+                                    "answer": "Elle cherche à produire là où cela lui coûte le moins cher",
+                                    "explanation": "Les entreprises répartissent conception, fabrication et vente selon leur intérêt économique : les transports rendent cet éclatement possible. Aucune loi n'interdit de produire et de vendre au même endroit."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un élève dit : « La mondialisation, ce sont seulement les grandes entreprises ; moi, je n'y suis pour rien. » Que peut-on lui répondre ?",
+                                    "question": "Un élève dit : « La mondialisation, ce sont les grandes entreprises ; moi, je n'y suis pour rien. » Que répondre ?",
                                     "choices": [
                                         "En achetant ces produits, chacun est aussi un acteur de la mondialisation",
-                                        "C'est exact, seuls les transporteurs et les usines comptent",
-                                        "C'est exact, Internet ne relie que les entreprises"
+                                        "C'est exact : seuls les transporteurs et les usines comptent",
+                                        "C'est exact : Internet ne relie que les entreprises"
                                     ],
                                     "answer": "En achetant ces produits, chacun est aussi un acteur de la mondialisation",
-                                    "explanation": "Sans acheteurs, rien ne se produirait ni ne circulerait : le consommateur fait partie des acteurs, au même titre que les entreprises. Transporteurs et usines ne sont donc pas les seuls. Et Internet relie tout le monde, y compris cet élève quand il commande ou s'informe."
+                                    "explanation": "Sans acheteurs, rien ne se produirait ni ne circulerait : le consommateur est un acteur, comme les entreprises. Internet relie aussi cet élève quand il commande."
                                 }
                             ]
                         },
@@ -6477,25 +6630,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "En janvier, un client hésite entre des fraises venues par avion d'un autre continent et des pommes récoltées à 30 km. Quel choix pèse le moins sur le climat ?",
+                                    "question": "En janvier, fraises venues en avion ou pommes récoltées à 30 km : quel choix pèse le moins sur le climat ?",
                                     "choices": [
                                         "Les pommes, produites près de chez lui et de saison",
                                         "Les fraises, car les fruits rouges poussent sans énergie",
                                         "Les deux se valent, ce sont des fruits dans les deux cas"
                                     ],
                                     "answer": "Les pommes, produites près de chez lui et de saison",
-                                    "explanation": "Acheter local et de saison évite le transport aérien, de loin le plus émetteur de gaz à effet de serre. Les fraises hors saison ont justement voyagé en avion, ce qui coûte très cher au climat. Et les deux ne se valent pas : ce n'est pas le fruit qui compte, mais la distance parcourue."
+                                    "explanation": "Acheter local et de saison évite le transport aérien, très émetteur de gaz à effet de serre. Ce n'est pas le fruit qui compte, mais la distance parcourue."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Deux paquets de café portent la même origine lointaine, mais l'un est labellisé « commerce équitable ». Que garantit surtout ce label ?",
+                                    "question": "Deux paquets de café ont la même origine lointaine, mais l'un porte le label « commerce équitable ». Que garantit-il ?",
                                     "choices": [
                                         "Une meilleure rémunération des producteurs",
                                         "Que le café a voyagé sans aucun transport",
                                         "Que le café a été cultivé en France"
                                     ],
                                     "answer": "Une meilleure rémunération des producteurs",
-                                    "explanation": "Le commerce équitable agit sur le prix payé aux producteurs, pour qu'ils vivent mieux de leur travail. Il ne supprime pas le transport : le café vient toujours de loin, avec son coût pour le climat. Et il ne change pas l'origine : ce café n'a pas poussé en France."
+                                    "explanation": "Le commerce équitable agit sur le prix payé aux producteurs, pour qu'ils vivent mieux de leur travail. Il ne supprime pas le transport et ne change pas l'origine du café."
                                 }
                             ],
                             "title": "Le coût environnemental des échanges",
@@ -6541,25 +6694,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Une ville transforme une avenue à quatre voies en deux voies plus une piste cyclable et une ligne de bus. Quel est l'objectif ?",
+                                    "question": "Une ville transforme une avenue à quatre voies en deux voies, une piste cyclable et une ligne de bus. Quel objectif ?",
                                     "choices": [
                                         "Permettre de se déplacer en consommant moins de ressources",
                                         "Empêcher totalement les habitants de se déplacer",
                                         "Augmenter le nombre de voitures en circulation"
                                     ],
                                     "answer": "Permettre de se déplacer en consommant moins de ressources",
-                                    "explanation": "Habiter durablement, c'est continuer à se déplacer en préservant les ressources : vélo et bus consomment bien moins par voyageur. Il ne s'agit pas d'immobiliser les habitants, mais de leur offrir d'autres moyens. Et l'objectif est l'inverse d'une hausse du trafic automobile."
+                                    "explanation": "Habiter durablement, c'est continuer à se déplacer en préservant les ressources : vélo et bus consomment moins par voyageur. L'objectif n'est pas d'immobiliser les habitants."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un élève propose : « Pour économiser les ressources, fermons toutes les usines et interdisons les voitures. » Pourquoi cette idée n'est-elle pas durable ?",
+                                    "question": "Un élève propose : « Fermons toutes les usines et interdisons les voitures. » Pourquoi n'est-ce pas durable ?",
                                     "choices": [
                                         "Il faut préserver les ressources sans cesser de vivre",
                                         "Les usines ne consomment aucune ressource naturelle",
                                         "Les ressources de la planète sont illimitées"
                                     ],
                                     "answer": "Il faut préserver les ressources sans cesser de vivre",
-                                    "explanation": "Habiter durablement cherche l'équilibre : sans emplois ni déplacements, la vie s'arrête, ce n'est pas une solution. Les usines consomment évidemment beaucoup de ressources : c'est bien pour cela qu'on cherche à mieux produire. Et les ressources ne sont pas illimitées : c'est tout le problème."
+                                    "explanation": "Habiter durablement cherche l'équilibre : sans emplois ni déplacements, la vie s'arrête. Les usines consomment des ressources, c'est pourquoi on cherche à mieux produire."
                                 }
                             ]
                         },
@@ -6595,14 +6748,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Une commune abat une forêt pour créer des emplois immédiats, sans rien replanter. En quoi cela s'oppose-t-il au développement durable ?",
+                                    "question": "Une commune abat une forêt pour créer des emplois, sans rien replanter. En quoi s'oppose-t-elle au développement durable ?",
                                     "choices": [
                                         "Les besoins d'aujourd'hui sont satisfaits en privant les générations futures",
                                         "Créer des emplois est toujours contraire au développement durable",
                                         "Une forêt ne sert à rien pour les habitants"
                                     ],
                                     "answer": "Les besoins d'aujourd'hui sont satisfaits en privant les générations futures",
-                                    "explanation": "Le développement durable exige de répondre aux besoins actuels sans hypothéquer ceux de demain : ici, la forêt disparaît pour toujours. L'emploi n'est pas en cause : le durable cherche justement à concilier travail et environnement. Et une forêt rend de nombreux services : bois, air, eau, biodiversité."
+                                    "explanation": "Le développement durable répond aux besoins actuels sans hypothéquer ceux de demain : ici, la forêt disparaît pour toujours. L'emploi n'est pas en cause : le durable concilie travail et environnement."
                                 },
                                 {
                                     "type": "check",
@@ -6613,7 +6766,7 @@
                                         "Le garder cassé au fond d'un placard"
                                     ],
                                     "answer": "Le faire réparer pour prolonger sa durée de vie",
-                                    "explanation": "Réparer évite de fabriquer un objet neuf : c'est autant de matières premières et d'énergie économisées. Racheter du neuf produit un déchet et relance toute la fabrication. Et le garder cassé ne résout rien : l'objet ne sert plus et il faudra le remplacer."
+                                    "explanation": "Réparer évite de fabriquer un objet neuf : matières premières et énergie sont économisées. Racheter du neuf produit un déchet et relance la fabrication."
                                 }
                             ]
                         },
@@ -6649,25 +6802,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans une réserve naturelle, des panneaux demandent de ne pas cueillir les fleurs sauvages. Quelle est la raison principale ?",
+                                    "question": "Une réserve naturelle demande de ne pas cueillir les fleurs sauvages. Quelle est la raison principale ?",
                                     "choices": [
                                         "Les fleurs doivent produire des graines pour que l'espèce se maintienne",
                                         "Les fleurs appartiennent aux gardiens de la réserve",
                                         "Les fleurs sauvages sont toutes dangereuses à toucher"
                                     ],
                                     "answer": "Les fleurs doivent produire des graines pour que l'espèce se maintienne",
-                                    "explanation": "Une fleur cueillie ne donnera ni graine ni nouvelle plante : à force, l'espèce disparaît du milieu. Elles n'appartiennent à personne : c'est la protection du vivant qui est en jeu. Et la plupart ne sont pas dangereuses : le danger n'est pas l'argument."
+                                    "explanation": "Une fleur cueillie ne donnera ni graine ni nouvelle plante : à force, l'espèce disparaît du milieu. Les fleurs n'appartiennent à personne : c'est le vivant qu'on protège."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un promeneur jette un trognon de pomme dans un sentier de montagne : « C'est naturel, ça ne pollue pas. » Que peut-on lui objecter ?",
+                                    "question": "Un promeneur jette un trognon de pomme en montagne : « C'est naturel, ça ne pollue pas. » Que lui objecter ?",
                                     "choices": [
-                                        "Il habitue les animaux sauvages à chercher la nourriture des humains",
-                                        "Un trognon met plusieurs siècles à disparaître",
-                                        "Rien, un déchet naturel est sans effet sur le milieu"
+                                        "Il habitue les animaux à chercher la nourriture des humains",
+                                        "Un trognon met plusieurs siècles à disparaître dans la nature",
+                                        "Un déchet naturel est toujours sans effet sur le milieu"
                                     ],
-                                    "answer": "Il habitue les animaux sauvages à chercher la nourriture des humains",
-                                    "explanation": "Nourrir même sans le vouloir modifie le comportement des animaux, qui s'approchent des sentiers et perdent leur méfiance : protéger un milieu, c'est aussi respecter la faune. Un trognon se décompose en quelques semaines, pas en siècles. Et il a donc bien un effet, même s'il est biodégradable."
+                                    "answer": "Il habitue les animaux à chercher la nourriture des humains",
+                                    "explanation": "Nourrir, même sans le vouloir, modifie le comportement des animaux, qui s'approchent des sentiers. Un trognon se décompose en quelques semaines, mais il a un effet."
                                 }
                             ]
                         }
@@ -6689,7 +6842,7 @@
                             "params": {
                                 "questions": 8,
                                 "dataFile": "data/geography_cm2.json",
-                                "category": "cm2-developpement-durable",
+                                "category": "cm2-durable-agir",
                                 "type": "factual-qcm"
                             },
                             "title": "Agir pour durer",
@@ -6739,7 +6892,7 @@
                             "subtitle": "Relie chaque geste écologique à son bénéfice",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_geo_cm2",
+                                "category": "matching_geo_cm2_durable",
                                 "dataFile": "data/geography_matching.json",
                                 "questions": 2
                             }
@@ -6747,15 +6900,15 @@
                         {
                             "id": "cm2-bonus-geo-agir-pour-durer-expert",
                             "title": "Défi : agir pour durer",
-                            "subtitle": "Série longue sur le développement durable",
+                            "subtitle": "Raisonner sur le développement durable",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/geography_cm2.json",
-                                "category": "cm2-developpement-durable",
-                                "questions": 12
+                                "category": "cm2-durable-defi",
+                                "questions": 6
                             }
                         }
                     ]
@@ -8351,13 +8504,14 @@
                                 },
                                 {
                                     "type": "bullets",
+                                    "label": "Institutions utiles à connaître",
                                     "items": [
-                                        "le président de la République",
-                                        "le Parlement qui vote les lois",
-                                        "le gouvernement qui les met en œuvre",
-                                        "les mairies qui gèrent la commune"
-                                    ],
-                                    "label": "Institutions utiles à connaître"
+                                        "le président de la République : chef de l'État, élu par les citoyens pour cinq ans",
+                                        "le Parlement (Assemblée nationale et Sénat) : il vote les lois",
+                                        "le gouvernement, dirigé par le Premier ministre : il met les lois en œuvre",
+                                        "la Constitution : le texte qui organise ces pouvoirs et garantit les droits",
+                                        "les mairies : elles gèrent la commune"
+                                    ]
                                 },
                                 {
                                     "type": "example",
@@ -8458,14 +8612,14 @@
                                 "type": "factual-qcm",
                                 "dataFile": "data/emc_cm2.json",
                                 "category": "cm2-citoyennete",
-                                "questions": 8
+                                "questions": 6
                             }
                         },
                         {
                             "params": {
-                                "questions": 10,
+                                "questions": 8,
                                 "dataFile": "data/emc_cm2.json",
-                                "category": "cm2-citoyennete",
+                                "category": "cm2-debattre-choisir",
                                 "type": "factual-qcm"
                             },
                             "title": "Débattre et choisir",
@@ -8479,7 +8633,7 @@
                             "subtitle": "Relie chaque institution à son rôle",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_emc_cm2",
+                                "category": "matching_emc_cm2_institutions",
                                 "dataFile": "data/emc_matching.json",
                                 "questions": 3
                             }
@@ -8490,7 +8644,7 @@
                             "subtitle": "Relie chaque engagement à sa valeur",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_emc_cm2",
+                                "category": "matching_emc_cm2_engagement",
                                 "dataFile": "data/emc_matching.json",
                                 "questions": 3
                             }
@@ -8545,6 +8699,60 @@
                                     "explanation": "Un don solidaire doit servir à celui qui le reçoit : un jouet en état lui est vraiment utile. Donner un jouet cassé, c'est se débarrasser d'un déchet ; exiger que son nom soit affiché, c'est chercher une récompense plutôt qu'aider."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cm2-lesson-solidarite-associations",
+                            "title": "Solidarité, associations et aide humanitaire",
+                            "subtitle": "Aider au-delà de la classe",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La solidarité ne s'arrête pas à la classe : des associations, souvent animées par des bénévoles, aident des personnes en difficulté. L'État organise aussi une solidarité nationale, par exemple avec la Sécurité sociale."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "une association : des personnes qui s'unissent pour une cause (les Restos du Cœur, une banque alimentaire)",
+                                        "un bénévole : une personne qui donne son temps sans être payée",
+                                        "la Sécurité sociale : elle rembourse une partie des soins pour que chacun puisse se soigner",
+                                        "l'aide humanitaire : l'aide envoyée après une catastrophe ou dans des pays en difficulté (ONG, UNICEF)"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Les Restos du Cœur distribuent des repas grâce à des milliers de bénévoles et à des dons."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "La solidarité s'exerce à toutes les échelles : l'école, le quartier, le pays et le monde."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une inondation détruit des maisons dans un pays voisin. Qui peut envoyer de l'aide sur place ?",
+                                    "choices": [
+                                        "Des ONG et des organisations humanitaires",
+                                        "Seulement la police du pays touché",
+                                        "Aucune organisation : c'est impossible"
+                                    ],
+                                    "answer": "Des ONG et des organisations humanitaires",
+                                    "explanation": "Des organisations non gouvernementales et des pays envoient des secours, des vivres et du matériel : c'est l'aide humanitaire."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pourquoi les bénévoles d'une association ne sont-ils pas payés ?",
+                                    "choices": [
+                                        "Ils donnent leur temps par choix pour une cause",
+                                        "L'association n'a aucun but précis",
+                                        "Il est interdit de payer les adultes"
+                                    ],
+                                    "answer": "Ils donnent leur temps par choix pour une cause",
+                                    "explanation": "Un bénévole agit librement, par engagement : c'est ce qui le distingue d'un salarié."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -8557,20 +8765,20 @@
                                 "type": "factual-qcm",
                                 "dataFile": "data/emc_cm2.json",
                                 "category": "cm2-solidarite",
-                                "questions": 8
+                                "questions": 6
                             }
                         },
                         {
                             "params": {
-                                "questions": 10,
+                                "questions": 8,
                                 "dataFile": "data/emc_cm2.json",
-                                "category": "cm2-solidarite",
+                                "category": "cm2-agir-solidarite",
                                 "type": "factual-qcm"
                             },
                             "title": "Agir avec solidarité",
                             "engine": "choice-engine",
                             "id": "cm2-emc-agir-solidarite",
-                            "subtitle": "Bien commun et entraide"
+                            "subtitle": "Associations, aide humanitaire et protection sociale"
                         },
                         {
                             "id": "cm2-emc-solidarite-quotidienne",
@@ -8599,15 +8807,15 @@
                         {
                             "id": "cm2-bonus-emc-solidarite-quotidienne-expert",
                             "title": "Défi : solidarité au quotidien",
-                            "subtitle": "Série longue sur l'entraide",
+                            "subtitle": "Raisonner sur la solidarité",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/emc_cm2.json",
-                                "category": "cm2-solidarite-quotidienne",
-                                "questions": 10
+                                "category": "cm2-solidarite-defi",
+                                "questions": 6
                             }
                         }
                     ]
@@ -8669,6 +8877,60 @@
                                     "explanation": "Participer suppose que les idées soient jugées sur ce qu'elles valent, et non sur qui les propose. La reléguer en dernier écarterait l'élève discret ; la privilégier par gentillesse serait tout aussi injuste, car elle ne serait pas prise au sérieux."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cm2-lesson-sengager-delegue",
+                            "title": "S'engager : délégué, service civique, pétition",
+                            "subtitle": "Agir à l'école et dans sa commune",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "S'engager, c'est choisir librement d'agir pour les autres ou pour une cause. On peut s'engager à l'école, dans sa commune ou dans une association."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Des formes d'engagement",
+                                    "items": [
+                                        "le délégué de classe : élu par ses camarades, il les représente",
+                                        "l'éco-délégué : il propose des gestes pour protéger l'environnement",
+                                        "le service civique : une mission citoyenne volontaire pour les jeunes",
+                                        "la pétition : des signatures qui demandent un changement"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Des élèves lancent une pétition pour obtenir davantage de bacs de tri dans la cour ; ils la remettent au directeur."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Un engagement est un choix libre : on le prend avec sérieux et on le tient."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Des habitants veulent obtenir un passage piéton devant l'école. Quelle action peut les aider ?",
+                                    "choices": [
+                                        "Lancer une pétition et la remettre à la mairie",
+                                        "Attendre sans rien dire pendant plusieurs mois",
+                                        "Fermer eux-mêmes la rue avec des barrières"
+                                    ],
+                                    "answer": "Lancer une pétition et la remettre à la mairie",
+                                    "explanation": "Réunir des signatures et les remettre aux élus est un moyen légal de demander un changement."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pourquoi un délégué est-il élu plutôt que choisi par le professeur ?",
+                                    "choices": [
+                                        "Pour qu'il représente vraiment le choix de ses camarades",
+                                        "Pour récompenser le meilleur élève",
+                                        "Pour que le professeur ait moins de travail"
+                                    ],
+                                    "answer": "Pour qu'il représente vraiment le choix de ses camarades",
+                                    "explanation": "Le délégué parle au nom de la classe : c'est le vote des élèves qui lui donne cette légitimité."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -8686,9 +8948,9 @@
                         },
                         {
                             "params": {
-                                "questions": 8,
+                                "questions": 6,
                                 "dataFile": "data/emc_cm2.json",
-                                "category": "cm2-engagement",
+                                "category": "cm2-sengager-classe",
                                 "type": "factual-qcm"
                             },
                             "title": "S'engager dans la classe",
@@ -8698,13 +8960,13 @@
                         },
                         {
                             "id": "cm2-emc-engagement-solidarite",
-                            "title": "Solidarite au quotidien",
-                            "subtitle": "Agir pour les autres dans la vie de tous les jours",
+                            "title": "Agir pour les autres",
+                            "subtitle": "À la maison, dans le quartier, à l'école",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/emc_cm2.json",
-                                "category": "cm2-solidarite-quotidienne",
+                                "category": "cm2-solidarite-agir-quotidien",
                                 "questions": 6
                             }
                         },
@@ -8716,22 +8978,22 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/emc_cm2.json",
-                                "category": "cm2-projet-collectif",
+                                "category": "cm2-projet-engagement",
                                 "questions": 6
                             }
                         },
                         {
                             "id": "cm2-bonus-emc-engagement-defi",
-                            "title": "Defi : engagement citoyen",
-                            "subtitle": "Solidarite, projet et action collective",
+                            "title": "Défi : engagement citoyen",
+                            "subtitle": "Raisonner sur l'engagement",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/emc_cm2.json",
-                                "category": "cm2-engagement",
-                                "questions": 8
+                                "category": "cm2-engagement-defi",
+                                "questions": 6
                             }
                         }
                     ]
@@ -9033,9 +9295,9 @@
                         },
                         {
                             "params": {
-                                "questions": 8,
+                                "questions": 6,
                                 "dataFile": "data/emc_cm2.json",
-                                "category": "cm2-responsabilites",
+                                "category": "cm2-assumer-responsabilites",
                                 "type": "factual-qcm"
                             },
                             "title": "Assumer ses responsabilités",
@@ -9268,8 +9530,9 @@
                                 "type": "factual-qcm",
                                 "category": "cm2-institutions-debat",
                                 "dataFile": "data/emc_cm2.json",
-                                "questions": 8
-                            }
+                                "questions": 6
+                            },
+                            "subtitle": "Égalité, dignité, débat et justice"
                         },
                         {
                             "id": "cm2-emc-institutions-republique",
@@ -9278,9 +9541,9 @@
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
-                                "category": "cm2-citoyennete",
+                                "category": "cm2-institutions-republique",
                                 "dataFile": "data/emc_cm2.json",
-                                "questions": 7
+                                "questions": 6
                             }
                         },
                         {
@@ -9292,9 +9555,9 @@
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
-                                "category": "cm2-institutions-debat",
+                                "category": "cm2-institutions-debat-defi",
                                 "dataFile": "data/emc_cm2.json",
-                                "questions": 9
+                                "questions": 6
                             }
                         }
                     ]

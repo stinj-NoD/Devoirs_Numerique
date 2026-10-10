@@ -198,98 +198,6 @@
                 "explanation": "Chaque mot décrit une forme du relief que l'on rencontre dans les paysages de France."
             }
         ],
-        "matching_geo_cm2": [
-            {
-                "title": "Relie chaque pays de l'Union européenne à sa capitale.",
-                "pairs": [
-                    ["la France", "Paris"],
-                    ["l'Allemagne", "Berlin"],
-                    ["l'Espagne", "Madrid"],
-                    ["l'Italie", "Rome"]
-                ],
-                "explanation": "Connaître les capitales aide à se repérer dans l'Union européenne."
-            },
-            {
-                "title": "Relie chaque pays de l'Union européenne à sa capitale.",
-                "pairs": [
-                    ["le Portugal", "Lisbonne"],
-                    ["la Belgique", "Bruxelles"],
-                    ["les Pays-Bas", "Amsterdam"],
-                    ["la Grèce", "Athènes"]
-                ],
-                "explanation": "Connaître les capitales aide à se repérer dans l'Union européenne."
-            },
-            {
-                "title": "Relie chaque notion à sa définition.",
-                "pairs": [
-                    ["la mondialisation", "des échanges entre tous les pays du monde"],
-                    ["une importation", "un produit acheté à l'étranger"],
-                    ["une exportation", "un produit vendu à l'étranger"],
-                    ["un flux", "un déplacement de personnes ou de marchandises"]
-                ],
-                "explanation": "Ces notions permettent de comprendre les échanges économiques mondiaux."
-            },
-            {
-                "title": "Relie chaque geste pour l'environnement à son effet.",
-                "pairs": [
-                    ["trier ses déchets", "faciliter le recyclage"],
-                    ["covoiturer", "réduire la pollution liée aux transports"],
-                    ["économiser l'eau", "préserver une ressource limitée"],
-                    ["planter des arbres", "améliorer la qualité de l'air"]
-                ],
-                "explanation": "Le développement durable repose sur des gestes qui protègent l'environnement."
-            },
-            {
-                "title": "Relie chaque espace à son enjeu pour l'avenir.",
-                "pairs": [
-                    ["la ville", "gérer les déplacements et la pollution"],
-                    ["la campagne", "préserver les terres agricoles"],
-                    ["la montagne", "adapter le tourisme au changement climatique"],
-                    ["le littoral", "protéger les côtes de la montée des eaux"]
-                ],
-                "explanation": "Chaque type d'espace doit faire face à des défis liés à l'avenir et à l'environnement."
-            },
-            {
-                "title": "Relie chaque moyen de transport à son impact sur l'environnement.",
-                "pairs": [
-                    ["le vélo", "aucune pollution directe"],
-                    ["le train électrique", "une faible émission de gaz à effet de serre"],
-                    ["l'avion", "une forte émission de gaz à effet de serre"],
-                    ["la voiture individuelle", "une consommation importante de carburant"]
-                ],
-                "explanation": "Comparer les transports aide à choisir des mobilités plus durables."
-            },
-            {
-                "title": "Relie chaque pays de l'Union européenne à sa capitale.",
-                "pairs": [
-                    ["la Pologne", "Varsovie"],
-                    ["l'Autriche", "Vienne"],
-                    ["la Suède", "Stockholm"],
-                    ["l'Irlande", "Dublin"]
-                ],
-                "explanation": "Connaître les capitales aide à se repérer dans l'Union européenne."
-            },
-            {
-                "title": "Relie chaque notion de mondialisation à sa définition.",
-                "pairs": [
-                    ["une multinationale", "une entreprise présente dans plusieurs pays"],
-                    ["une délocalisation", "le déplacement d'une production vers un autre pays"],
-                    ["un porte-conteneurs", "un navire qui transporte des marchandises du monde entier"],
-                    ["une métropole mondiale", "une grande ville qui a une influence internationale"]
-                ],
-                "explanation": "La mondialisation multiplie les échanges et les liens entre les pays du monde."
-            },
-            {
-                "title": "Relie chaque enjeu du développement durable à son objectif.",
-                "pairs": [
-                    ["protéger la biodiversité", "préserver les espèces animales et végétales"],
-                    ["limiter le réchauffement climatique", "réduire les émissions de gaz à effet de serre"],
-                    ["développer les énergies renouvelables", "produire de l'énergie sans épuiser les ressources"],
-                    ["réduire les inégalités", "permettre à chacun d'accéder aux ressources essentielles"]
-                ],
-                "explanation": "Le développement durable cherche à répondre aux besoins actuels sans nuire aux générations futures."
-            }
-        ],
         "matching_geo_ce2_reperage": [
             {
                 "title": "Relie chaque point cardinal à sa position.",
@@ -426,6 +334,132 @@
                     ["la mer du Nord", "au nord de la Belgique et des Pays-Bas"]
                 ],
                 "explanation": "Les mers et l'océan qui bordent la France et l'Europe se repèrent sur une carte."
+            }
+        ],
+        "matching_geo_cm2_capitales": [
+            {
+                "title": "Relie chaque pays de l'Union européenne à sa capitale.",
+                "pairs": [
+                    ["la France", "Paris"],
+                    ["l'Allemagne", "Berlin"],
+                    ["l'Espagne", "Madrid"],
+                    ["l'Italie", "Rome"]
+                ],
+                "explanation": "Connaître les capitales aide à se repérer dans l'Union européenne."
+            },
+            {
+                "title": "Relie chaque pays de l'Union européenne à sa capitale.",
+                "pairs": [
+                    ["le Portugal", "Lisbonne"],
+                    ["la Belgique", "Bruxelles"],
+                    ["les Pays-Bas", "Amsterdam"],
+                    ["la Grèce", "Athènes"]
+                ],
+                "explanation": "Connaître les capitales aide à se repérer dans l'Union européenne."
+            },
+            {
+                "title": "Relie chaque pays de l'Union européenne à sa capitale.",
+                "pairs": [
+                    ["la Pologne", "Varsovie"],
+                    ["l'Autriche", "Vienne"],
+                    ["la Suède", "Stockholm"],
+                    ["l'Irlande", "Dublin"]
+                ],
+                "explanation": "Connaître les capitales aide à se repérer dans l'Union européenne."
+            },
+            {
+                "title": "Relie chaque pays de l'Union européenne à sa capitale.",
+                "pairs": [
+                    ["la Roumanie", "Bucarest"],
+                    ["la Hongrie", "Budapest"],
+                    ["la Finlande", "Helsinki"],
+                    ["le Danemark", "Copenhague"]
+                ],
+                "explanation": "Connaître les capitales aide à se repérer dans l'Union européenne."
+            }
+        ],
+        "matching_geo_cm2_mondialisation": [
+            {
+                "title": "Relie chaque notion à sa définition.",
+                "pairs": [
+                    ["la mondialisation", "des échanges entre tous les pays du monde"],
+                    ["une importation", "un produit acheté à l'étranger"],
+                    ["une exportation", "un produit vendu à l'étranger"],
+                    ["un flux", "un déplacement de personnes ou de marchandises"]
+                ],
+                "explanation": "Ces notions permettent de comprendre les échanges économiques mondiaux."
+            },
+            {
+                "title": "Relie chaque notion de mondialisation à sa définition.",
+                "pairs": [
+                    ["une multinationale", "une entreprise présente dans plusieurs pays"],
+                    ["une délocalisation", "le déplacement d'une production vers un autre pays"],
+                    ["un porte-conteneurs", "un navire qui transporte des marchandises du monde entier"],
+                    ["une métropole mondiale", "une grande ville qui a une influence internationale"]
+                ],
+                "explanation": "La mondialisation multiplie les échanges et les liens entre les pays du monde."
+            },
+            {
+                "title": "Relie chaque acteur ou élément du commerce mondial à son rôle.",
+                "pairs": [
+                    ["un consommateur", "celui qui achète et utilise un produit"],
+                    ["un conteneur", "une grande boîte standard qui facilite le transport"],
+                    ["un port", "un lieu où les bateaux chargent et déchargent"],
+                    ["une usine", "un lieu où l'on fabrique des produits"]
+                ],
+                "explanation": "Chaque acteur ou élément a un rôle dans la chaîne qui va de la fabrication à la vente."
+            },
+            {
+                "title": "Relie chaque mot du commerce à sa définition.",
+                "pairs": [
+                    ["une matière première", "une ressource naturelle avant transformation"],
+                    ["le commerce équitable", "des échanges qui paient mieux les petits producteurs"],
+                    ["un hub", "un carrefour de correspondances"],
+                    ["un transporteur", "une entreprise qui déplace des marchandises"]
+                ],
+                "explanation": "Ces mots permettent de décrire la mondialisation des échanges."
+            }
+        ],
+        "matching_geo_cm2_durable": [
+            {
+                "title": "Relie chaque geste pour l'environnement à son effet.",
+                "pairs": [
+                    ["trier ses déchets", "faciliter le recyclage"],
+                    ["covoiturer", "réduire la pollution liée aux transports"],
+                    ["économiser l'eau", "préserver une ressource limitée"],
+                    ["planter des arbres", "améliorer la qualité de l'air"]
+                ],
+                "explanation": "Le développement durable repose sur des gestes qui protègent l'environnement."
+            },
+            {
+                "title": "Relie chaque espace à son enjeu pour l'avenir.",
+                "pairs": [
+                    ["la ville", "gérer les déplacements et la pollution"],
+                    ["la campagne", "préserver les terres agricoles"],
+                    ["la montagne", "adapter le tourisme au changement climatique"],
+                    ["le littoral", "protéger les côtes de la montée des eaux"]
+                ],
+                "explanation": "Chaque type d'espace doit faire face à des défis liés à l'avenir et à l'environnement."
+            },
+            {
+                "title": "Relie chaque moyen de transport à son impact sur l'environnement.",
+                "pairs": [
+                    ["le vélo", "aucune pollution directe"],
+                    ["le train électrique", "une faible émission de gaz à effet de serre"],
+                    ["l'avion", "une forte émission de gaz à effet de serre"],
+                    ["la voiture individuelle", "une consommation importante de carburant"]
+                ],
+                "explanation": "Comparer les transports aide à choisir des mobilités plus durables."
+            },
+            {
+                "title": "Relie chaque enjeu du développement durable à son objectif.",
+                "pairs": [
+                    ["protéger la biodiversité", "préserver les espèces animales et végétales"],
+                    ["limiter le réchauffement climatique", "réduire les émissions de gaz à effet de serre"],
+                    ["développer les énergies renouvelables", "produire de l'énergie sans épuiser les ressources"],
+                    ["réduire les inégalités", "permettre à chacun d'accéder aux ressources essentielles"]
+                ],
+                "explanation": "Le développement durable cherche à répondre aux besoins actuels sans nuire aux générations futures."
             }
         ]
     }

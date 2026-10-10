@@ -2,7 +2,7 @@
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
     "exercises": 1114,
-    "lessons": 479,
+    "lessons": 483,
     "levels": 5,
     "banks": 80
   },
@@ -14096,7 +14096,7 @@
       "engine": "conversion",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conversion|{\"modes\":[\"h_to_min\",\"hmin_to_min\"],\"randomMinutes\":true,\"subtype\":\"time\"}"
+      "contractHash": "conversion|{\"modes\":[\"hmin_to_min\"],\"randomMinutes\":true,\"subtype\":\"time\"}"
     },
     {
       "id": "cm2-minutes-secondes",
@@ -16079,7 +16079,29 @@
       "contractHash": null
     },
     {
+      "id": "cm2-lesson-grandes-villes-france",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-geographie-subject",
+      "subthemeId": "cm2-geo-europe-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm2-lesson-france-union-europeenne",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-geographie-subject",
+      "subthemeId": "cm2-geo-europe-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm2-lesson-europe-pays",
       "kind": "lesson",
       "level": "cm2",
       "subjectId": "cm2-geographie-subject",
@@ -16141,8 +16163,8 @@
       "subthemeId": "cm2-geo-europe-subtheme",
       "engine": "matching",
       "paramsType": null,
-      "pool": "data/geography_matching.json::matching_geo_cm2",
-      "contractHash": "matching|{\"category\":\"matching_geo_cm2\",\"dataFile\":\"data/geography_matching.json\"}"
+      "pool": "data/geography_matching.json::matching_geo_cm2_capitales",
+      "contractHash": "matching|{\"category\":\"matching_geo_cm2_capitales\",\"dataFile\":\"data/geography_matching.json\"}"
     },
     {
       "id": "cm2-geo-carte-europe-pays",
@@ -16174,8 +16196,8 @@
       "subthemeId": "cm2-geo-europe-subtheme",
       "engine": "board-interactive",
       "paramsType": "map-locate",
-      "pool": "data/board_map_locate_world.json::cm1_map_continents_monde",
-      "contractHash": "board-interactive|{\"category\":\"cm1_map_continents_monde\",\"dataFile\":\"data/board_map_locate_world.json\",\"mapFile\":\"data/maps/world-continents.svg\",\"mapId\":\"world-continents\",\"type\":\"map-locate\"}"
+      "pool": "data/board_map_locate_world.json::cm2_map_continents_europe",
+      "contractHash": "board-interactive|{\"category\":\"cm2_map_continents_europe\",\"dataFile\":\"data/board_map_locate_world.json\",\"mapFile\":\"data/maps/world-continents.svg\",\"mapId\":\"world-continents\",\"type\":\"map-locate\"}"
     },
     {
       "id": "cm2-lesson-mondialisation-echanges",
@@ -16240,8 +16262,8 @@
       "subthemeId": "cm2-geo-habiter-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/geography_cm2.json::cm2-habiter",
-      "contractHash": "choice-engine|{\"category\":\"cm2-habiter\",\"dataFile\":\"data/geography_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/geography_cm2.json::cm2-habiter-espaces",
+      "contractHash": "choice-engine|{\"category\":\"cm2-habiter-espaces\",\"dataFile\":\"data/geography_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-geo-espaces-littoraux",
@@ -16284,8 +16306,8 @@
       "subthemeId": "cm2-geo-habiter-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/geography_cm2.json::cm2-habiter",
-      "contractHash": "choice-engine|{\"category\":\"cm2-habiter\",\"dataFile\":\"data/geography_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/geography_cm2.json::cm2-habiter-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm2-habiter-defi\",\"dataFile\":\"data/geography_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-geo-villes-france",
@@ -16372,8 +16394,8 @@
       "subthemeId": "cm2-geo-mondialisation-subtheme",
       "engine": "matching",
       "paramsType": null,
-      "pool": "data/geography_matching.json::matching_geo_cm2",
-      "contractHash": "matching|{\"category\":\"matching_geo_cm2\",\"dataFile\":\"data/geography_matching.json\"}"
+      "pool": "data/geography_matching.json::matching_geo_cm2_mondialisation",
+      "contractHash": "matching|{\"category\":\"matching_geo_cm2_mondialisation\",\"dataFile\":\"data/geography_matching.json\"}"
     },
     {
       "id": "cm2-bonus-geo-acteurs-mondialisation-expert",
@@ -16383,8 +16405,8 @@
       "subthemeId": "cm2-geo-mondialisation-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/geography_cm2.json::cm2-acteurs-mondialisation",
-      "contractHash": "choice-engine|{\"category\":\"cm2-acteurs-mondialisation\",\"dataFile\":\"data/geography_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/geography_cm2.json::cm2-acteurs-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm2-acteurs-defi\",\"dataFile\":\"data/geography_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-lesson-habiter-durablement",
@@ -16438,8 +16460,8 @@
       "subthemeId": "cm2-geo-durable-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/geography_cm2.json::cm2-developpement-durable",
-      "contractHash": "choice-engine|{\"category\":\"cm2-developpement-durable\",\"dataFile\":\"data/geography_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/geography_cm2.json::cm2-durable-agir",
+      "contractHash": "choice-engine|{\"category\":\"cm2-durable-agir\",\"dataFile\":\"data/geography_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-geo-mobilites-durables",
@@ -16482,8 +16504,8 @@
       "subthemeId": "cm2-geo-durable-subtheme",
       "engine": "matching",
       "paramsType": null,
-      "pool": "data/geography_matching.json::matching_geo_cm2",
-      "contractHash": "matching|{\"category\":\"matching_geo_cm2\",\"dataFile\":\"data/geography_matching.json\"}"
+      "pool": "data/geography_matching.json::matching_geo_cm2_durable",
+      "contractHash": "matching|{\"category\":\"matching_geo_cm2_durable\",\"dataFile\":\"data/geography_matching.json\"}"
     },
     {
       "id": "cm2-bonus-geo-agir-pour-durer-expert",
@@ -16493,8 +16515,8 @@
       "subthemeId": "cm2-geo-durable-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/geography_cm2.json::cm2-developpement-durable",
-      "contractHash": "choice-engine|{\"category\":\"cm2-developpement-durable\",\"dataFile\":\"data/geography_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/geography_cm2.json::cm2-durable-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm2-durable-defi\",\"dataFile\":\"data/geography_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-lesson-classification-vivant",
@@ -17186,8 +17208,8 @@
       "subthemeId": "cm2-emc-citoyennete-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cm2.json::cm2-citoyennete",
-      "contractHash": "choice-engine|{\"category\":\"cm2-citoyennete\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cm2.json::cm2-debattre-choisir",
+      "contractHash": "choice-engine|{\"category\":\"cm2-debattre-choisir\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-emc-appariement",
@@ -17197,8 +17219,8 @@
       "subthemeId": "cm2-emc-citoyennete-subtheme",
       "engine": "matching",
       "paramsType": null,
-      "pool": "data/emc_matching.json::matching_emc_cm2",
-      "contractHash": "matching|{\"category\":\"matching_emc_cm2\",\"dataFile\":\"data/emc_matching.json\"}"
+      "pool": "data/emc_matching.json::matching_emc_cm2_institutions",
+      "contractHash": "matching|{\"category\":\"matching_emc_cm2_institutions\",\"dataFile\":\"data/emc_matching.json\"}"
     },
     {
       "id": "cm2-emc-appariement-2",
@@ -17208,11 +17230,22 @@
       "subthemeId": "cm2-emc-citoyennete-subtheme",
       "engine": "matching",
       "paramsType": null,
-      "pool": "data/emc_matching.json::matching_emc_cm2",
-      "contractHash": "matching|{\"category\":\"matching_emc_cm2\",\"dataFile\":\"data/emc_matching.json\"}"
+      "pool": "data/emc_matching.json::matching_emc_cm2_engagement",
+      "contractHash": "matching|{\"category\":\"matching_emc_cm2_engagement\",\"dataFile\":\"data/emc_matching.json\"}"
     },
     {
       "id": "cm2-lesson-solidarite-bien-commun",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-emc-subject",
+      "subthemeId": "cm2-emc-solidarite-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm2-lesson-solidarite-associations",
       "kind": "lesson",
       "level": "cm2",
       "subjectId": "cm2-emc-subject",
@@ -17241,8 +17274,8 @@
       "subthemeId": "cm2-emc-solidarite-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cm2.json::cm2-solidarite",
-      "contractHash": "choice-engine|{\"category\":\"cm2-solidarite\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cm2.json::cm2-agir-solidarite",
+      "contractHash": "choice-engine|{\"category\":\"cm2-agir-solidarite\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-emc-solidarite-quotidienne",
@@ -17274,11 +17307,22 @@
       "subthemeId": "cm2-emc-solidarite-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cm2.json::cm2-solidarite-quotidienne",
-      "contractHash": "choice-engine|{\"category\":\"cm2-solidarite-quotidienne\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cm2.json::cm2-solidarite-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm2-solidarite-defi\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-lesson-engagement-participer",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-emc-subject",
+      "subthemeId": "cm2-emc-engagement-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm2-lesson-sengager-delegue",
       "kind": "lesson",
       "level": "cm2",
       "subjectId": "cm2-emc-subject",
@@ -17307,8 +17351,8 @@
       "subthemeId": "cm2-emc-engagement-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cm2.json::cm2-engagement",
-      "contractHash": "choice-engine|{\"category\":\"cm2-engagement\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cm2.json::cm2-sengager-classe",
+      "contractHash": "choice-engine|{\"category\":\"cm2-sengager-classe\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-emc-engagement-solidarite",
@@ -17318,8 +17362,8 @@
       "subthemeId": "cm2-emc-engagement-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cm2.json::cm2-solidarite-quotidienne",
-      "contractHash": "choice-engine|{\"category\":\"cm2-solidarite-quotidienne\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cm2.json::cm2-solidarite-agir-quotidien",
+      "contractHash": "choice-engine|{\"category\":\"cm2-solidarite-agir-quotidien\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-emc-engagement-projet",
@@ -17329,8 +17373,8 @@
       "subthemeId": "cm2-emc-engagement-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cm2.json::cm2-projet-collectif",
-      "contractHash": "choice-engine|{\"category\":\"cm2-projet-collectif\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cm2.json::cm2-projet-engagement",
+      "contractHash": "choice-engine|{\"category\":\"cm2-projet-engagement\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-bonus-emc-engagement-defi",
@@ -17340,8 +17384,8 @@
       "subthemeId": "cm2-emc-engagement-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cm2.json::cm2-engagement",
-      "contractHash": "choice-engine|{\"category\":\"cm2-engagement\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cm2.json::cm2-engagement-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm2-engagement-defi\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-lesson-responsabilites-justice",
@@ -17417,8 +17461,8 @@
       "subthemeId": "cm2-emc-responsabilites-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cm2.json::cm2-responsabilites",
-      "contractHash": "choice-engine|{\"category\":\"cm2-responsabilites\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cm2.json::cm2-assumer-responsabilites",
+      "contractHash": "choice-engine|{\"category\":\"cm2-assumer-responsabilites\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-emc-liberte-justice",
@@ -17516,8 +17560,8 @@
       "subthemeId": "cm2-emc-institutions-debat-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cm2.json::cm2-citoyennete",
-      "contractHash": "choice-engine|{\"category\":\"cm2-citoyennete\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cm2.json::cm2-institutions-republique",
+      "contractHash": "choice-engine|{\"category\":\"cm2-institutions-republique\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-bonus-institutions-debat-expert",
@@ -17527,8 +17571,8 @@
       "subthemeId": "cm2-emc-institutions-debat-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cm2.json::cm2-institutions-debat",
-      "contractHash": "choice-engine|{\"category\":\"cm2-institutions-debat\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cm2.json::cm2-institutions-debat-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm2-institutions-debat-defi\",\"dataFile\":\"data/emc_cm2.json\",\"type\":\"factual-qcm\"}"
     }
   ],
   "banks": {
@@ -17627,7 +17671,8 @@
     "data/board_map_locate_world.json": {
       "categories": {
         "cm1_map_continents_monde": 12,
-        "cm1_map_continents_monde_defi": 12
+        "cm1_map_continents_monde_defi": 12,
+        "cm2_map_continents_europe": 12
       }
     },
     "data/board_memory_match_ce1.json": {
@@ -17798,17 +17843,27 @@
     },
     "data/emc_cm2.json": {
       "categories": {
-        "cm2-institutions-debat": 18,
-        "cm2-citoyennete": 25,
-        "cm2-solidarite": 25,
-        "cm2-engagement": 22,
-        "cm2-responsabilites": 11,
-        "cm2-solidarite-quotidienne": 20,
-        "cm2-projet-collectif": 11,
+        "cm2-institutions-debat": 12,
+        "cm2-citoyennete": 12,
+        "cm2-solidarite": 12,
+        "cm2-engagement": 12,
+        "cm2-responsabilites": 10,
+        "cm2-solidarite-quotidienne": 12,
+        "cm2-projet-collectif": 9,
         "cm2-liberte-justice": 11,
         "cm2-droit-image": 12,
         "cm2-trace-numerique": 12,
-        "cm2-relayer-responsable": 12
+        "cm2-relayer-responsable": 12,
+        "cm2-debattre-choisir": 12,
+        "cm2-institutions-republique": 13,
+        "cm2-agir-solidarite": 17,
+        "cm2-solidarite-agir-quotidien": 12,
+        "cm2-solidarite-defi": 12,
+        "cm2-sengager-classe": 12,
+        "cm2-engagement-defi": 12,
+        "cm2-assumer-responsabilites": 10,
+        "cm2-projet-engagement": 9,
+        "cm2-institutions-debat-defi": 12
       }
     },
     "data/emc_cp.json": {
@@ -17831,9 +17886,10 @@
         "matching_emc_ce1": 8,
         "matching_emc_ce2": 6,
         "matching_emc_cm1": 7,
-        "matching_emc_cm2": 9,
         "matching_emc_ce2_symboles": 3,
-        "matching_emc_cm1_quotidien": 5
+        "matching_emc_cm1_quotidien": 5,
+        "matching_emc_cm2_institutions": 4,
+        "matching_emc_cm2_engagement": 5
       }
     },
     "data/french_ce1_comprehension.json": {
@@ -17968,19 +18024,24 @@
     "data/geography_cm2.json": {
       "categories": {
         "cm2-france-europe": 24,
-        "cm2-habiter": 25,
+        "cm2-habiter": 12,
         "cm2-mondialisation": 22,
-        "cm2-developpement-durable": 24,
+        "cm2-developpement-durable": 12,
         "cm2-europe-proche": 11,
         "cm2-union-europeenne": 11,
         "cm2-voyager-europe": 11,
         "cm2-echanges-flux": 11,
         "cm2-mobilites-durables": 11,
         "cm2-cooperation-europe": 11,
-        "cm2-acteurs-mondialisation": 20,
+        "cm2-acteurs-mondialisation": 12,
         "cm2-espaces-littoraux": 16,
         "cm2-espaces-montagnards": 16,
-        "cm2-espaces-ruraux": 13
+        "cm2-espaces-ruraux": 13,
+        "cm2-habiter-espaces": 12,
+        "cm2-habiter-defi": 11,
+        "cm2-durable-agir": 12,
+        "cm2-durable-defi": 11,
+        "cm2-acteurs-defi": 12
       }
     },
     "data/geography_cp.json": {
@@ -18004,11 +18065,13 @@
         "matching_geo_ce1": 9,
         "matching_geo_ce2": 6,
         "matching_geo_cm1": 4,
-        "matching_geo_cm2": 9,
         "matching_geo_ce2_reperage": 4,
         "matching_geo_cm1_territoires": 3,
         "matching_geo_cm1_transports": 3,
-        "matching_geo_cm1_monde": 3
+        "matching_geo_cm1_monde": 3,
+        "matching_geo_cm2_capitales": 4,
+        "matching_geo_cm2_mondialisation": 4,
+        "matching_geo_cm2_durable": 4
       }
     },
     "data/history_ce1.json": {

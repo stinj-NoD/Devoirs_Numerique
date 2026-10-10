@@ -10,7 +10,7 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 
 ## Vue d'ensemble
 
-- **1114 exercices** et **479 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1114 exercices** et **483 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
@@ -2297,18 +2297,20 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### France et Europe `(cm2-geo-europe-subtheme)`
 
-- **Leçons** (2) :
+- **Leçons** (4) :
   - Habiter des espaces différents `(cm2-lesson-habiter-espaces-differents)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les grandes villes de France `(cm2-lesson-grandes-villes-france)` — blocs: paragraph, mini-table, example, tip, check, check
   - La France dans l'Union européenne `(cm2-lesson-france-union-europeenne)` — blocs: paragraph, example, bullets, tip, check, check
+  - L'Europe et ses pays `(cm2-lesson-europe-pays)` — blocs: paragraph, mini-table, example, tip, check, check
 - **Exercices** (8) :
   - France et Europe `(cm2-geo-europe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-france-europe, questions=8
   - Europe proche `(cm2-geo-europe-proche)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-europe-proche, questions=6
   - Union européenne `(cm2-geo-union-europeenne)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-union-europeenne, questions=6
   - Voyager en Europe `(cm2-geo-voyager-europe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-voyager-europe, questions=6
-  - Pays et capitales `(cm2-geo-appariement)` — engine: `matching`, category=matching_geo_cm2, dataFile=data/geography_matching.json, questions=2
+  - Pays et capitales `(cm2-geo-appariement)` — engine: `matching`, category=matching_geo_cm2_capitales, dataFile=data/geography_matching.json, questions=2
   - Carte de l'Europe `(cm2-geo-carte-europe-pays)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_europe.json, mapFile=data/maps/europe-countries.svg, mapId=europe-countries, category=cm1_map_pays_europe, questions=8
   - Capitales d'Europe `(cm2-geo-capitales-europe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_capitals_cm1.json, category=cm1-capitales-europe, questions=8
-  - Défi : situer l'Europe dans le monde `(cm2-bonus-geo-carte-monde-continents)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_world.json, mapFile=data/maps/world-continents.svg, mapId=world-continents, category=cm1_map_continents_monde, questions=8, bonus (seuil=2)
+  - Défi : situer l'Europe dans le monde `(cm2-bonus-geo-carte-monde-continents)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_world.json, mapFile=data/maps/world-continents.svg, mapId=world-continents, category=cm2_map_continents_europe, questions=8, bonus (seuil=2)
 
 #### Habiter `(cm2-geo-habiter-subtheme)`
 
@@ -2318,12 +2320,12 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Vivre à la campagne `(cm2-lesson-vivre-campagne)` — blocs: paragraph, example, bullets, tip, check, check
   - Vivre sur le littoral ou à la montagne `(cm2-lesson-littoral-montagne)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (8) :
-  - Habiter `(cm2-geo-habiter)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-habiter, questions=8
-  - Habiter différents espaces `(cm2-geo-habiter-espaces)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/geography_cm2.json, category=cm2-habiter
+  - Habiter `(cm2-geo-habiter)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-habiter, questions=6
+  - Habiter autrement `(cm2-geo-habiter-espaces)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cm2.json, category=cm2-habiter-espaces
   - Espaces littoraux `(cm2-geo-espaces-littoraux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-espaces-littoraux, questions=8
   - Espaces montagnards `(cm2-geo-espaces-montagnards)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-espaces-montagnards, questions=8
   - Espaces ruraux `(cm2-geo-espaces-ruraux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-espaces-ruraux, questions=8
-  - Défi : habiter `(cm2-bonus-geo-habiter-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-habiter, questions=7, bonus (seuil=2)
+  - Défi : habiter `(cm2-bonus-geo-habiter-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-habiter-defi, questions=6, bonus (seuil=2)
   - Les grandes villes de France `(cm2-geo-villes-france)` — engine: `board-interactive`, type=tap-features, dataFile=data/board_geography_cm2.json, category=cm2_villes_france_tap, questions=5
   - Villes sur le quadrillage `(cm2-geo-reperes-villes)` — engine: `board-interactive`, type=point-on-grid, dataFile=data/board_geography_cm2.json, category=cm2_reperes_france_grille, questions=5
 
@@ -2336,8 +2338,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Échanges `(cm2-geo-mondialisation)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-mondialisation, questions=6
   - Échanges et flux `(cm2-geo-echanges-flux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-echanges-flux, questions=6
   - Les acteurs de la mondialisation `(cm2-geo-acteurs-mondialisation)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-acteurs-mondialisation, questions=6
-  - Mondialisation et vocabulaire `(cm2-geo-mondialisation-appariement)` — engine: `matching`, category=matching_geo_cm2, dataFile=data/geography_matching.json, questions=2
-  - Défi : acteurs de la mondialisation `(cm2-bonus-geo-acteurs-mondialisation-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-acteurs-mondialisation, questions=10, bonus (seuil=2)
+  - Mondialisation et vocabulaire `(cm2-geo-mondialisation-appariement)` — engine: `matching`, category=matching_geo_cm2_mondialisation, dataFile=data/geography_matching.json, questions=2
+  - Défi : acteurs de la mondialisation `(cm2-bonus-geo-acteurs-mondialisation-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-acteurs-defi, questions=6, bonus (seuil=2)
 
 #### Développement durable `(cm2-geo-durable-subtheme)`
 
@@ -2347,12 +2349,12 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Protéger les milieux `(cm2-lesson-proteger-environnement)` — blocs: paragraph, bullets, example, tip, check, check
 - **Exercices** (7) :
   - Développement durable `(cm2-geo-durable)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-developpement-durable, questions=6
-  - Agir pour durer `(cm2-geo-agir-pour-durer)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cm2.json, category=cm2-developpement-durable
+  - Agir pour durer `(cm2-geo-agir-pour-durer)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cm2.json, category=cm2-durable-agir
   - Mobilités durables `(cm2-geo-mobilites-durables)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cm2.json, category=cm2-mobilites-durables
   - Consommation responsable `(cm2-geo-consommation-responsable)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-consommation-responsable, questions=6
   - Coopérer en Europe `(cm2-geo-cooperation-europe)` — engine: `choice-engine`, type=factual-qcm, questions=6, dataFile=data/geography_cm2.json, category=cm2-cooperation-europe
-  - Gestes et environnement `(cm2-geo-durable-appariement)` — engine: `matching`, category=matching_geo_cm2, dataFile=data/geography_matching.json, questions=2
-  - Défi : agir pour durer `(cm2-bonus-geo-agir-pour-durer-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-developpement-durable, questions=12, bonus (seuil=2)
+  - Gestes et environnement `(cm2-geo-durable-appariement)` — engine: `matching`, category=matching_geo_cm2_durable, dataFile=data/geography_matching.json, questions=2
+  - Défi : agir pour durer `(cm2-bonus-geo-agir-pour-durer-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-durable-defi, questions=6, bonus (seuil=2)
 
 ### Sciences (cm2-sciences-subject)
 
@@ -2463,32 +2465,34 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Les institutions de la République `(cm2-lesson-institutions-republique)` — blocs: paragraph, bullets, example, tip, check, check
   - Le rôle du citoyen `(cm2-lesson-institutions-republique-citoyens)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
-  - Citoyenneté `(cm2-emc-citoyennete)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-citoyennete, questions=8
-  - Débattre et choisir `(cm2-emc-debattre-choisir)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/emc_cm2.json, category=cm2-citoyennete
-  - Institutions et démocratie `(cm2-emc-appariement)` — engine: `matching`, category=matching_emc_cm2, dataFile=data/emc_matching.json, questions=3
-  - Valeurs et engagement citoyen `(cm2-emc-appariement-2)` — engine: `matching`, category=matching_emc_cm2, dataFile=data/emc_matching.json, questions=3
+  - Citoyenneté `(cm2-emc-citoyennete)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-citoyennete, questions=6
+  - Débattre et choisir `(cm2-emc-debattre-choisir)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cm2.json, category=cm2-debattre-choisir
+  - Institutions et démocratie `(cm2-emc-appariement)` — engine: `matching`, category=matching_emc_cm2_institutions, dataFile=data/emc_matching.json, questions=3
+  - Valeurs et engagement citoyen `(cm2-emc-appariement-2)` — engine: `matching`, category=matching_emc_cm2_engagement, dataFile=data/emc_matching.json, questions=3
 
 #### Solidarité `(cm2-emc-solidarite-subtheme)`
 
-- **Leçons** (1) :
+- **Leçons** (2) :
   - Agir pour le bien commun `(cm2-lesson-solidarite-bien-commun)` — blocs: paragraph, example, tip, check, check
+  - Solidarité, associations et aide humanitaire `(cm2-lesson-solidarite-associations)` — blocs: paragraph, bullets, example, tip, check, check
 - **Exercices** (5) :
-  - Solidarité `(cm2-emc-solidarite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-solidarite, questions=8
-  - Agir avec solidarité `(cm2-emc-agir-solidarite)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/emc_cm2.json, category=cm2-solidarite
+  - Solidarité `(cm2-emc-solidarite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-solidarite, questions=6
+  - Agir avec solidarité `(cm2-emc-agir-solidarite)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cm2.json, category=cm2-agir-solidarite
   - Solidarité au quotidien `(cm2-emc-solidarite-quotidienne)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-solidarite-quotidienne, questions=6
   - Projet collectif `(cm2-emc-projet-collectif)` — engine: `choice-engine`, type=factual-qcm, questions=6, dataFile=data/emc_cm2.json, category=cm2-projet-collectif
-  - Défi : solidarité au quotidien `(cm2-bonus-emc-solidarite-quotidienne-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-solidarite-quotidienne, questions=10, bonus (seuil=2)
+  - Défi : solidarité au quotidien `(cm2-bonus-emc-solidarite-quotidienne-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-solidarite-defi, questions=6, bonus (seuil=2)
 
 #### Engagement `(cm2-emc-engagement-subtheme)`
 
-- **Leçons** (1) :
+- **Leçons** (2) :
   - Participer à la vie collective `(cm2-lesson-engagement-participer)` — blocs: paragraph, bullets, example, tip, check, check
+  - S'engager : délégué, service civique, pétition `(cm2-lesson-sengager-delegue)` — blocs: paragraph, bullets, example, tip, check, check
 - **Exercices** (5) :
   - Engagement `(cm2-emc-engagement)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-engagement, questions=6
-  - S'engager dans la classe `(cm2-emc-sengager-classe)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cm2.json, category=cm2-engagement
-  - Solidarite au quotidien `(cm2-emc-engagement-solidarite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-solidarite-quotidienne, questions=6
-  - Le projet collectif `(cm2-emc-engagement-projet)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-projet-collectif, questions=6
-  - Defi : engagement citoyen `(cm2-bonus-emc-engagement-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-engagement, questions=8, bonus (seuil=2)
+  - S'engager dans la classe `(cm2-emc-sengager-classe)` — engine: `choice-engine`, type=factual-qcm, questions=6, dataFile=data/emc_cm2.json, category=cm2-sengager-classe
+  - Agir pour les autres `(cm2-emc-engagement-solidarite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-solidarite-agir-quotidien, questions=6
+  - Le projet collectif `(cm2-emc-engagement-projet)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-projet-engagement, questions=6
+  - Défi : engagement citoyen `(cm2-bonus-emc-engagement-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-engagement-defi, questions=6, bonus (seuil=2)
 
 #### Responsabilités `(cm2-emc-responsabilites-subtheme)`
 
@@ -2500,7 +2504,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Relayer engage sa responsabilité `(cm2-lesson-relayer-responsable)` — blocs: paragraph, paragraph, bullets, example, tip, check, check
 - **Exercices** (6) :
   - Responsabilités `(cm2-emc-responsabilites)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-responsabilites, questions=6
-  - Assumer ses responsabilités `(cm2-emc-assumer-responsabilites)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cm2.json, category=cm2-responsabilites
+  - Assumer ses responsabilités `(cm2-emc-assumer-responsabilites)` — engine: `choice-engine`, type=factual-qcm, questions=6, dataFile=data/emc_cm2.json, category=cm2-assumer-responsabilites
   - Liberté et justice `(cm2-emc-liberte-justice)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cm2.json, category=cm2-liberte-justice
   - Le droit à l'image `(cm2-emc-droit-image)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-droit-image, questions=8
   - Traces et données personnelles `(cm2-emc-trace-numerique)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm2.json, category=cm2-trace-numerique, questions=8
@@ -2513,7 +2517,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Le débat démocratique `(cm2-lesson-debat-democratique)` — blocs: paragraph, example, bullets, tip, check, check
   - La justice protège les droits `(cm2-lesson-justice-proteger)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (3) :
-  - Égalité, débat et justice `(cm2-emc-institutions-debat-egalite-justice)` — engine: `choice-engine`, type=factual-qcm, category=cm2-institutions-debat, dataFile=data/emc_cm2.json, questions=8
-  - Les institutions de la République `(cm2-emc-institutions-republique)` — engine: `choice-engine`, type=factual-qcm, category=cm2-citoyennete, dataFile=data/emc_cm2.json, questions=7
-  - Défi : institutions et débat `(cm2-bonus-institutions-debat-expert)` — engine: `choice-engine`, type=factual-qcm, category=cm2-institutions-debat, dataFile=data/emc_cm2.json, questions=9, bonus (seuil=2)
+  - Égalité, débat et justice `(cm2-emc-institutions-debat-egalite-justice)` — engine: `choice-engine`, type=factual-qcm, category=cm2-institutions-debat, dataFile=data/emc_cm2.json, questions=6
+  - Les institutions de la République `(cm2-emc-institutions-republique)` — engine: `choice-engine`, type=factual-qcm, category=cm2-institutions-republique, dataFile=data/emc_cm2.json, questions=6
+  - Défi : institutions et débat `(cm2-bonus-institutions-debat-expert)` — engine: `choice-engine`, type=factual-qcm, category=cm2-institutions-debat-defi, dataFile=data/emc_cm2.json, questions=6, bonus (seuil=2)
 

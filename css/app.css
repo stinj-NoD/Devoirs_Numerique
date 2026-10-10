@@ -8011,3 +8011,11 @@ button.collection-map--fact {
     border-color: var(--subject-accent);
     color: #ffffff;
 }
+
+/* Étiquettes posées sur un plateau « toucher » (noms de villes) */
+.board-map-label {
+    font-size: 13px;
+    font-weight: 800;
+    fill: var(--color-text);
+    pointer-events: none;
+}
