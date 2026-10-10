@@ -1141,10 +1141,34 @@
             "icon": "🌌"
         },
         {
+            "word": "CHÂTEAU",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "🏰"
+        },
+        {
+            "word": "MONTAGNE",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "⛰️"
+        },
+        {
             "word": "ÉNERGIE",
             "gender": "féminin",
             "article": "une",
             "icon": "⚡"
+        },
+        {
+            "word": "CLIMAT",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "🌡️"
+        },
+        {
+            "word": "FRONTIÈRE",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "🚧"
         },
         {
             "word": "HUMANITÉ",
@@ -1153,10 +1177,40 @@
             "icon": "🌍"
         },
         {
+            "word": "TERRITOIRE",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "🗺️"
+        },
+        {
+            "word": "RÉPUBLIQUE",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "🏛️"
+        },
+        {
             "word": "OCÉAN",
             "gender": "masculin",
             "article": "un",
             "icon": "🌊"
+        },
+        {
+            "word": "DÉBAT",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "🗣️"
+        },
+        {
+            "word": "HONTE",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "😳"
+        },
+        {
+            "word": "HÉROS",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "🦸"
         },
         {
             "word": "ÉPOQUE",
@@ -1165,22 +1219,28 @@
             "icon": "⏰"
         },
         {
+            "word": "HAUTEUR",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "📏"
+        },
+        {
+            "word": "HAMEAU",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "🏘️"
+        },
+        {
             "word": "HÉRITAGE",
             "gender": "masculin",
             "article": "un",
             "icon": "🏛️"
         },
         {
-            "word": "INVENTION",
+            "word": "DÉMOCRATIE",
             "gender": "féminin",
             "article": "une",
-            "icon": "💡"
-        },
-        {
-            "word": "EMPIRE",
-            "gender": "masculin",
-            "article": "un",
-            "icon": "👑"
+            "icon": "🗳️"
         }
     ],
     "article_choice_ce2": [
@@ -2002,53 +2062,8 @@
             "question": "Dans « Il alla au marché », le verbe « alla » est au...",
             "choices": [
                 "présent",
-                "imparfait",
-                "passé simple"
-            ],
-            "answer": "passé simple"
-        },
-        {
-            "question": "Dans « Elle prit son cahier », le verbe « prit » est au...",
-            "choices": [
                 "passé simple",
-                "présent",
-                "futur"
-            ],
-            "answer": "passé simple"
-        },
-        {
-            "question": "Dans « Ils arrivèrent à la gare », le verbe « arrivèrent » est au...",
-            "choices": [
-                "imparfait",
-                "passé simple",
-                "présent"
-            ],
-            "answer": "passé simple"
-        },
-        {
-            "question": "Dans « Le chevalier vit un dragon », le verbe « vit » est au...",
-            "choices": [
-                "passé simple",
-                "présent",
                 "imparfait"
-            ],
-            "answer": "passé simple"
-        },
-        {
-            "question": "Dans « Nous fûmes surpris », le verbe « fûmes » est au...",
-            "choices": [
-                "futur",
-                "passé simple",
-                "présent"
-            ],
-            "answer": "passé simple"
-        },
-        {
-            "question": "Dans « La princesse partit au lever du jour », le verbe « partit » est au...",
-            "choices": [
-                "imparfait",
-                "présent",
-                "passé simple"
             ],
             "answer": "passé simple"
         },
@@ -2062,22 +2077,76 @@
             "answer": "présent"
         },
         {
-            "question": "Dans « Elle chantait tous les soirs », le verbe « chantait » est au...",
+            "question": "Dans « Elle prit son cahier », le verbe « prit » est au...",
             "choices": [
-                "passé simple",
-                "présent",
-                "imparfait"
-            ],
-            "answer": "imparfait"
-        },
-        {
-            "question": "Dans « Elle prit son manteau et sortit », le verbe « prit » est au...",
-            "choices": [
-                "imparfait",
                 "futur",
-                "passé simple"
+                "passé simple",
+                "présent"
             ],
             "answer": "passé simple"
+        },
+        {
+            "question": "Dans « Elle chantait tous les soirs », le verbe « chantait » est à...",
+            "choices": [
+                "au passé simple",
+                "l'imparfait",
+                "au présent"
+            ],
+            "answer": "l'imparfait"
+        },
+        {
+            "question": "Dans « Ils arrivèrent à la gare », le verbe « arrivèrent » est au...",
+            "choices": [
+                "imparfait",
+                "passé simple",
+                "présent"
+            ],
+            "answer": "passé simple"
+        },
+        {
+            "question": "Dans « Il a ouvert la porte », le verbe « a ouvert » est au...",
+            "choices": [
+                "passé simple",
+                "passé composé",
+                "imparfait"
+            ],
+            "answer": "passé composé"
+        },
+        {
+            "question": "Dans « Le chevalier vit un dragon », le verbe « vit » est au...",
+            "choices": [
+                "présent",
+                "passé simple",
+                "imparfait"
+            ],
+            "answer": "passé simple"
+        },
+        {
+            "question": "Dans « Chaque soir, il lisait près du feu », le verbe « lisait » est à...",
+            "choices": [
+                "au passé simple",
+                "l'imparfait",
+                "au présent"
+            ],
+            "answer": "l'imparfait"
+        },
+        {
+            "question": "Dans « La princesse partit au lever du jour », le verbe « partit » est au...",
+            "choices": [
+                "imparfait",
+                "passé simple",
+                "présent"
+            ],
+            "answer": "passé simple"
+        },
+        {
+            "question": "Dans « Nous partirons demain à l'aube », le verbe « partirons » est au...",
+            "choices": [
+                "passé simple",
+                "futur",
+                "présent"
+            ],
+            "answer": "futur"
         },
         {
             "question": "Dans « Ils virent un éclair dans le ciel », le verbe « virent » est au...",
@@ -2091,8 +2160,8 @@
         {
             "question": "Dans « Le chevalier saisissait son épée », le verbe « saisissait » est à...",
             "choices": [
-                "l'imparfait",
                 "au passé simple",
+                "l'imparfait",
                 "au futur"
             ],
             "answer": "l'imparfait"
@@ -2100,47 +2169,38 @@
         {
             "question": "Dans « Soudain, la porte s'ouvrit », le verbe « ouvrit » est au...",
             "choices": [
+                "présent",
+                "passé simple",
+                "imparfait"
+            ],
+            "answer": "passé simple"
+        },
+        {
+            "question": "Dans « Elle prend son manteau et sort », le verbe « prend » est au...",
+            "choices": [
                 "passé simple",
                 "présent",
                 "imparfait"
             ],
-            "answer": "passé simple"
-        },
-        {
-            "question": "Dans « Nous fûmes surpris par l'orage », le verbe « fûmes » est au...",
-            "choices": [
-                "passé composé",
-                "passé simple",
-                "imparfait"
-            ],
-            "answer": "passé simple"
+            "answer": "présent"
         },
         {
             "question": "Dans « Le loup dévora le fromage en un instant », le verbe « dévora » est au...",
             "choices": [
-                "passé simple",
                 "imparfait",
+                "passé simple",
                 "présent"
             ],
             "answer": "passé simple"
         },
         {
-            "question": "Dans « Chaque soir, il lisait près du feu », le verbe « lisait » est à...",
+            "question": "Dans « La nuit tombait sur la ville », le verbe « tombait » est à...",
             "choices": [
-                "l'imparfait",
                 "au passé simple",
+                "l'imparfait",
                 "au présent"
             ],
             "answer": "l'imparfait"
-        },
-        {
-            "question": "Dans « Elle eut soudain une idée géniale », le verbe « eut » est au...",
-            "choices": [
-                "passé simple",
-                "présent",
-                "futur"
-            ],
-            "answer": "passé simple"
         }
     ],
     "grammar_cloze_ce1": [
@@ -3157,22 +3217,22 @@
             "answer": "précis"
         },
         {
-            "sentence": "Une décision ___",
-            "answer": "importante",
+            "sentence": "Une décision ___ a été prise par le conseil.",
             "choices": [
-                "important",
                 "importante",
+                "important",
                 "importants"
-            ]
+            ],
+            "answer": "importante"
         },
         {
-            "sentence": "Des paysages ___",
-            "answer": "magnifiques",
+            "sentence": "Des paysages ___ s'offrent au regard du voyageur.",
             "choices": [
-                "magnifique",
                 "magnifiques",
-                "magnifiquent"
-            ]
+                "magnifique",
+                "magnifiquement"
+            ],
+            "answer": "magnifiques"
         }
     ],
     "grammar_phrase_types_ce1": [
@@ -5566,6 +5626,134 @@
                 "apparue"
             ],
             "answer": "apparus"
+        }
+    ],
+    "grammar_agreement_cm2_defi": [
+        {
+            "sentence": "Le groupe de randonneurs, qui avait marché longtemps, ___ épuisé.",
+            "choices": [
+                "était",
+                "étaient",
+                "étions"
+            ],
+            "answer": "était"
+        },
+        {
+            "sentence": "Les voisins de ma grand-mère ___ souvent des gâteaux.",
+            "choices": [
+                "apportent",
+                "apporte",
+                "apportons"
+            ],
+            "answer": "apportent"
+        },
+        {
+            "sentence": "La maison que mes parents ont ___ est très ancienne.",
+            "choices": [
+                "achetée",
+                "acheté",
+                "achetés"
+            ],
+            "answer": "achetée"
+        },
+        {
+            "sentence": "Les histoires que j'ai ___ hier m'ont fait rire.",
+            "choices": [
+                "lues",
+                "lu",
+                "lue"
+            ],
+            "answer": "lues"
+        },
+        {
+            "sentence": "Les élèves de CM2 semblent très ___.",
+            "choices": [
+                "motivés",
+                "motivé",
+                "motivées"
+            ],
+            "answer": "motivés"
+        },
+        {
+            "sentence": "Ma sœur et sa copine sont ___ au concert.",
+            "choices": [
+                "allées",
+                "allés",
+                "allé"
+            ],
+            "answer": "allées"
+        },
+        {
+            "sentence": "Les photos que tu m'as ___ sont superbes.",
+            "choices": [
+                "envoyées",
+                "envoyé",
+                "envoyés"
+            ],
+            "answer": "envoyées"
+        },
+        {
+            "sentence": "La plupart des enfants ___ déjà arrivés.",
+            "choices": [
+                "étaient",
+                "était",
+                "étions"
+            ],
+            "answer": "étaient"
+        },
+        {
+            "sentence": "Cette histoire, que nous avons ___ en classe, plaît à tous.",
+            "choices": [
+                "étudiée",
+                "étudié",
+                "étudiées"
+            ],
+            "answer": "étudiée"
+        },
+        {
+            "sentence": "Les pommes mûres ont été ___ par les enfants.",
+            "choices": [
+                "cueillies",
+                "cueilli",
+                "cueillie"
+            ],
+            "answer": "cueillies"
+        },
+        {
+            "sentence": "Léa et Tom, qui ___ du même village, sont amis.",
+            "choices": [
+                "viennent",
+                "vient",
+                "venons"
+            ],
+            "answer": "viennent"
+        },
+        {
+            "sentence": "La classe entière ___ partie en sortie.",
+            "choices": [
+                "est",
+                "sont",
+                "êtes"
+            ],
+            "answer": "est"
+        },
+        {
+            "sentence": "Les films qu'ils ont ___ ce soir étaient drôles.",
+            "choices": [
+                "vus",
+                "vu",
+                "vue"
+            ],
+            "answer": "vus"
+        },
+        {
+            "sentence": "Les nuages se sont ___ peu à peu.",
+            "choices": [
+                "dissipés",
+                "dissipé",
+                "dissipée"
+            ],
+            "answer": "dissipés"
         }
     ]
 }

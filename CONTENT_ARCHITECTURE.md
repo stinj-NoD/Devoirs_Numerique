@@ -10,7 +10,7 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 
 ## Vue d'ensemble
 
-- **1114 exercices** et **475 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1114 exercices** et **478 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
@@ -2145,7 +2145,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Passé Composé du 3e groupe `(cm2_conj_pc_3)` — engine: `conjugation`, category=pc_3_cm2, tenses=passé composé, questions=10
   - Présent du 2e groupe `(cm2-conj-present-2g)` — engine: `conjugation`, category=present_2, tenses=présent, questions=10
   - Être et avoir à l'imparfait `(cm2-conj-ea-imp)` — engine: `conjugation`, category=etre_avoir_imp, tenses=imparfait, questions=8
-  - Défi : passé composé expert `(cm2-bonus-conj-pc-3-expert)` — engine: `conjugation`, category=pc_3_cm2, tenses=passé composé, questions=14, bonus (seuil=2)
+  - Défi : passé composé expert `(cm2-bonus-conj-pc-3-expert)` — engine: `conjugation`, category=pc_3_cm2_defi, tenses=passé composé, questions=10, bonus (seuil=2)
   - Reconnaître le passé simple `(cm2-conj-passe-simple-reco)` — engine: `choice-engine`, type=word-class-choice, category=passe_simple_recognition_cm2, questions=6
   - Le passé simple des verbes en -er `(cm2-conj-passe-simple-er)` — engine: `conjugation`, category=passe_simple_1, tenses=passé simple, questions=8
   - Le passé simple des verbes fréquents `(cm2-conj-passe-simple-3g)` — engine: `conjugation`, category=passe_simple_3_freq, tenses=passé simple, questions=8
@@ -2190,21 +2190,24 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Accorder dans la phrase `(cm2_g_cloze_accord)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_agreement_cm2, questions=8
   - Accorder le verbe avec son sujet `(cm2-g-accord-sujet-verbe)` — engine: `choice-engine`, type=grammar-cloze, category=accord_sujet_verbe_cm2, questions=8
   - Ordre des mots `(cm2-francais-ordre-mots)` — engine: `word-order`, category=word_order_cm2, dataFile=data/french_word_order.json, questions=5
-  - Structurer un récit ou une lettre `(cm2-francais-structure-recit)` — engine: `word-order`, category=story_order_cm2, dataFile=data/french_word_order.json, questions=5
+  - Remettre un texte dans l'ordre `(cm2-francais-structure-recit)` — engine: `word-order`, category=story_order_cm2, dataFile=data/french_word_order.json, questions=5
   - Accord du participe passé `(cm2-g-pp-accord)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_pp_accord_cm2, questions=8
-  - Défi : accorder sans filet `(cm2-bonus-grammaire-cloze-accord)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_agreement_cm2, questions=14, bonus (seuil=2)
+  - Défi : accorder sans filet `(cm2-bonus-grammaire-cloze-accord)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_agreement_cm2_defi, questions=10, bonus (seuil=2)
   - Les connecteurs experts `(cm2-redaction-connecteurs)` — engine: `choice-engine`, type=grammar-cloze, category=redaction_connecteurs_cm2, questions=8
   - L'atelier d'écriture `(cm2-redaction-meilleure-phrase)` — engine: `choice-engine`, type=word-class-choice, category=redaction_phrase_cm2, questions=6
 
 #### Lecture et vocabulaire `(cm2-francais-lecture-vocabulaire-subtheme)`
 
-- **Leçons** (6) :
+- **Leçons** (9) :
   - Trouver l'idée principale `(cm2-lesson-idee-principale)` — blocs: paragraph, example, bullets, tip, check, check
   - Employer un vocabulaire précis `(cm2-lesson-vocabulaire-precis)` — blocs: paragraph, example, bullets, tip, check, check
   - Sens propre et sens figuré `(cm2-lesson-sens-propre-figure)` — blocs: paragraph, example, bullets, tip, check, check
   - Polysémie et familles de mots avancées `(cm2-lesson-polysemie-familles-avance)` — blocs: paragraph, example, bullets, tip, check, check
   - Remettre un récit dans l'ordre `(cm2-lesson-ordre-evenements-recit)` — blocs: paragraph, example, bullets, check, check
+  - Relier les idées : cause, conséquence, opposition `(cm2-lesson-connecteurs-logiques)` — blocs: paragraph, mini-table, example, tip, check, check
   - Les reprises dans un texte `(cm2-lesson-reprises-texte)` — blocs: paragraph, example, tip, check, check
+  - Ce que le texte ne dit pas `(cm2-lesson-inferer-texte)` — blocs: paragraph, example, bullets, tip, check, check
+  - Familier, courant, soutenu `(cm2-lesson-niveaux-langue)` — blocs: paragraph, mini-table, example, tip, check, check
 - **Exercices** (13) :
   - Trouver l'idée principale `(cm2-lecture-idee-principale)` — engine: `reading`, category=cm2_lecture_idee_principale, questions=5
   - Choisir le sens du mot `(cm2-vocabulaire-sens)` — engine: `reading`, category=cm2_vocabulaire_sens, questions=5
@@ -2215,7 +2218,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Comprendre un personnage `(cm2-lecture-inference-personnage)` — engine: `reading`, category=cm2_lecture_inference_personnage, questions=6
   - Connecteurs logiques `(cm2-lecture-connecteurs-logiques)` — engine: `reading`, category=cm2_lecture_connecteurs_logiques, questions=6
   - Niveaux de langue `(cm2-lecture-niveaux-langue)` — engine: `reading`, category=cm2_niveaux_langue, questions=6
-  - Défi : polysémie experte `(cm2-bonus-vocabulaire-polysemie-expert)` — engine: `reading`, category=cm2_vocabulaire_polysemie, questions=10, bonus (seuil=2)
+  - Défi : polysémie experte `(cm2-bonus-vocabulaire-polysemie-expert)` — engine: `reading`, category=cm2_vocabulaire_polysemie_defi, questions=8, bonus (seuil=2)
   - L'ordre des événements `(cm2-lecture-sequence-evenements)` — engine: `reading`, category=cm2_lecture_sequence_evenements, questions=5
   - À qui renvoie ce mot ? `(cm2-lecture-pronoms-reprises)` — engine: `reading`, category=cm2_lecture_pronoms_reprises, questions=5
   - Le sens exact en contexte `(cm2-vocabulaire-contexte-precis)` — engine: `reading`, category=cm2_vocabulaire_contexte_precis, questions=5
@@ -2229,7 +2232,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Vocabulaire de la maison `(cm2-audio-maison-avancee)` — engine: `audio-spelling`, category=house_advanced, speechRate=0.9, questions=8
   - Orthographe avancée `(cm2-audio-orthographe-avancee)` — engine: `audio-spelling`, category=cm2_orthographe_avancee, speechRate=0.9, questions=8
   - Vocabulaire citoyen `(cm2-audio-citoyennete)` — engine: `audio-spelling`, category=cm2_vocabulaire_citoyennete, speechRate=0.9, questions=8
-  - Défi : dictée sans ralenti `(cm2-bonus-audio-orthographe-rapide)` — engine: `audio-spelling`, category=cm2_orthographe_avancee, speechRate=1, questions=10, bonus (seuil=2)
+  - Défi : dictée sans ralenti `(cm2-bonus-audio-orthographe-rapide)` — engine: `audio-spelling`, category=cm2_orthographe_avancee_defi, speechRate=1, questions=8, bonus (seuil=2)
 
 ### Histoire (cm2-histoire-subject)
 

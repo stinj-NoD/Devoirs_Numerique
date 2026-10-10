@@ -344,6 +344,6 @@
         const displayWord = isCp
             ? item.word.toUpperCase()
             : item.word.charAt(0).toUpperCase() + item.word.slice(1).toLowerCase();
-        return { question: "Choisis le bon petit mot :", answer: expected, inputType: "qcm", isVisual: true, visualType: "spelling", data: { word: displayWord, icon: item.icon, img: item.img || `assets/img/${item.word.toLowerCase()}.png`, choices } };
+        return { question: "Choisis le bon petit mot :", answer: expected, inputType: "qcm", isVisual: true, visualType: "spelling", data: { word: displayWord, icon: item.icon, img: item.img, choices } };
     }
 };

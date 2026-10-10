@@ -2701,14 +2701,14 @@
                         {
                             "id": "cm2-bonus-conj-pc-3-expert",
                             "title": "Défi : passé composé expert",
-                            "subtitle": "3e groupe, verbes piégeux",
+                            "subtitle": "Verbes en être et participes irréguliers",
                             "engine": "conjugation",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
-                                "category": "pc_3_cm2",
+                                "category": "pc_3_cm2_defi",
                                 "tenses": "passé composé",
-                                "questions": 14
+                                "questions": 10
                             }
                         },
                         {
@@ -3302,7 +3302,7 @@
                         {
                             "id": "cm2_g_elision",
                             "title": "Le, La ou L' ?",
-                            "subtitle": "Élision et noms plus experts",
+                            "subtitle": "Consonne, voyelle ou h : le, la ou l'",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "gender-articles",
@@ -3437,8 +3437,8 @@
                         },
                         {
                             "id": "cm2-francais-structure-recit",
-                            "title": "Structurer un récit ou une lettre",
-                            "subtitle": "Connecteurs et formules de politesse",
+                            "title": "Remettre un texte dans l'ordre",
+                            "subtitle": "Récits, explications et lettres",
                             "engine": "word-order",
                             "params": {
                                 "category": "story_order_cm2",
@@ -3460,14 +3460,14 @@
                         {
                             "id": "cm2-bonus-grammaire-cloze-accord",
                             "title": "Défi : accorder sans filet",
-                            "subtitle": "Série longue d'accords en contexte",
+                            "subtitle": "Accord du participe, du verbe et de l'attribut",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "grammar-cloze",
-                                "category": "grammar_agreement_cm2",
-                                "questions": 14
+                                "category": "grammar_agreement_cm2_defi",
+                                "questions": 10
                             }
                         },
                         {
@@ -4109,6 +4109,72 @@
                             ]
                         },
                         {
+                            "id": "cm2-lesson-connecteurs-logiques",
+                            "title": "Relier les idées : cause, conséquence, opposition",
+                            "subtitle": "Les connecteurs logiques",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un connecteur logique est un petit mot qui relie deux idées et dit comment elles se rapportent l'une à l'autre."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "label": "Les liens les plus fréquents",
+                                    "headers": [
+                                        "Le lien",
+                                        "Les connecteurs"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "la cause (pourquoi ?)",
+                                            "parce que, car, puisque"
+                                        ],
+                                        [
+                                            "la conséquence (alors ?)",
+                                            "donc, alors, c'est pourquoi"
+                                        ],
+                                        [
+                                            "l'opposition",
+                                            "mais, pourtant, cependant"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Une cause et sa conséquence",
+                                    "content": "Il pleuvait, donc nous sommes restés à l'intérieur. Nous sommes restés à l'intérieur parce qu'il pleuvait."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour choisir un connecteur, je me demande : l'idée qui suit explique-t-elle, en découle-t-elle ou la contredit-elle ?"
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel lien exprime « pourtant » dans : « Il était fatigué, pourtant il a continué à courir » ?",
+                                    "choices": [
+                                        "Une opposition : la suite est inattendue",
+                                        "Une cause : la fatigue explique la course",
+                                        "Une conséquence : il court, donc il est fatigué"
+                                    ],
+                                    "answer": "Une opposition : la suite est inattendue",
+                                    "explanation": "« Pourtant » oppose deux idées : être fatigué fait plutôt s'arrêter, mais il a continué. Ce n'est ni une cause ni une conséquence."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Le sol était glissant parce que la nuit avait été glaciale », quelle idée est la cause ?",
+                                    "choices": [
+                                        "La nuit avait été glaciale",
+                                        "Le sol était glissant",
+                                        "Les deux idées sont des causes"
+                                    ],
+                                    "answer": "La nuit avait été glaciale",
+                                    "explanation": "« Parce que » introduit la cause : ce qui explique que le sol soit glissant, c'est la nuit glaciale. Le sol glissant est la conséquence."
+                                }
+                            ]
+                        },
+                        {
                             "id": "cm2-lesson-reprises-texte",
                             "title": "Les reprises dans un texte",
                             "subtitle": "Savoir à qui renvoie un mot",
@@ -4149,6 +4215,125 @@
                                     ],
                                     "answer": "Le loup, désigné par un mot plus général",
                                     "explanation": "Une reprise n'est pas forcément un pronom : ici c'est un groupe nominal, « l'animal », qui désigne le loup déjà cité. La bergerie est un lieu, et rien n'annonce un nouvel animal."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-inferer-texte",
+                            "title": "Ce que le texte ne dit pas",
+                            "subtitle": "Déduire à partir d'indices",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un texte ne dit pas tout. Pour comprendre, on relie des indices (ce que fait un personnage, ce qu'il dit, ce qui l'entoure) à ce qu'on sait : c'est inférer."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« Tom regarde la pendule toutes les deux minutes et tapote la table avec son crayon. » Le texte n'écrit pas « il s'ennuie », mais les indices le montrent."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je cherche",
+                                    "items": [
+                                        "ce que fait le personnage",
+                                        "ce qu'il dit et comment il le dit",
+                                        "ce qui se passe autour de lui"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Une bonne déduction s'appuie sur un indice du texte, pas sur une simple impression."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« Après la dispute, Inès ne répond plus à Sami et change de place dans la classe. » Que peut-on déduire ?",
+                                    "choices": [
+                                        "Elle est fâchée contre Sami",
+                                        "Elle a oublié le prénom de Sami",
+                                        "Elle veut apprendre à mieux écrire"
+                                    ],
+                                    "answer": "Elle est fâchée contre Sami",
+                                    "explanation": "Ne plus répondre et s'éloigner après une dispute sont des indices d'une colère : la première déduction s'appuie sur le texte, pas les autres."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "« En entrant dans la cuisine, Paul sent l'odeur du gâteau et sourit largement. » Quelle déduction s'appuie sur les indices ?",
+                                    "choices": [
+                                        "Il est content de retrouver ce gâteau",
+                                        "Il a peur de la cuisine",
+                                        "Il est en colère contre le pâtissier"
+                                    ],
+                                    "answer": "Il est content de retrouver ce gâteau",
+                                    "explanation": "L'odeur du gâteau et le large sourire montrent le plaisir. La peur ou la colère ne s'appuient sur aucun indice du texte."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-niveaux-langue",
+                            "title": "Familier, courant, soutenu",
+                            "subtitle": "Les niveaux de langue",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "On ne parle pas de la même façon à un ami, à un professeur ou dans une lettre officielle. Ces façons de parler sont les niveaux de langue."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "label": "Trois niveaux",
+                                    "headers": [
+                                        "Niveau",
+                                        "Où l'emploie-t-on ?"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "familier",
+                                            "entre amis, à l'oral"
+                                        ],
+                                        [
+                                            "courant",
+                                            "à l'école, en famille, dans la vie de tous les jours"
+                                        ],
+                                        [
+                                            "soutenu",
+                                            "à l'écrit officiel, dans un discours"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Un même message",
+                                    "content": "« Ouais, j'ai la flemme » (familier) · « Je n'ai pas envie » (courant) · « Je ne suis guère disposé à le faire » (soutenu)."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour reconnaître un niveau, je regarde le vocabulaire, la construction de la phrase et la situation de parole."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève écrit à la directrice : « Salut, j'ai pas pu venir hier, désolé. » Que peut-on lui conseiller ?",
+                                    "choices": [
+                                        "Employer un niveau de langue plus soigné, adapté à une lettre à la directrice",
+                                        "Employer un niveau encore plus familier, pour paraître sympathique",
+                                        "Ne rien changer : le niveau de langue n'a aucune importance"
+                                    ],
+                                    "answer": "Employer un niveau de langue plus soigné, adapté à une lettre à la directrice",
+                                    "explanation": "On adapte son langage à la personne et à la situation : à la directrice, on écrit en langue courante ou soutenue, pas comme à un ami."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quelle phrase est en niveau courant ?",
+                                    "choices": [
+                                        "Je voudrais emprunter ce livre, s'il vous plaît.",
+                                        "Je sollicite l'emprunt de cet ouvrage.",
+                                        "File-moi ce bouquin, vite !"
+                                    ],
+                                    "answer": "Je voudrais emprunter ce livre, s'il vous plaît.",
+                                    "explanation": "La première est correcte et simple : c'est le niveau courant. La deuxième est recherchée (soutenue) et la troisième relâchée (familière)."
                                 }
                             ]
                         }
@@ -4253,8 +4438,8 @@
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
-                                "category": "cm2_vocabulaire_polysemie",
-                                "questions": 10
+                                "category": "cm2_vocabulaire_polysemie_defi",
+                                "questions": 8
                             }
                         },
                         {
@@ -4346,9 +4531,9 @@
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
-                                "category": "cm2_orthographe_avancee",
+                                "category": "cm2_orthographe_avancee_defi",
                                 "speechRate": 1,
-                                "questions": 10
+                                "questions": 8
                             }
                         }
                     ],

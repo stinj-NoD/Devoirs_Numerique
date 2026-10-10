@@ -1807,14 +1807,16 @@ const UI = {
         }
 
         const safeId = word.replace(/[^a-zA-Z0-9]/g, '');
-        const fallbackText = hasImage ? "Illustration indisponible" : "Icône utilisée";
+        // Sans image déclarée, le pictogramme EST l'illustration : aucune légende. Le texte de repli
+        // n'apparaît que si une image déclarée ne se charge pas.
+        const fallbackText = hasImage ? "Illustration indisponible" : "";
 
         return `
             <div class="spelling-container">
                 <div class="spelling-visual">
                     <div class="spelling-fallback" id="fallback-${safeId}">
                         <div class="fallback-icon fallback-icon-large">${icon}</div>
-                        <div class="spelling-fallback-text">${fallbackText}</div>
+                        ${fallbackText ? `<div class="spelling-fallback-text">${fallbackText}</div>` : ''}
                     </div>
                     ${imgPath ? `
                     <img src="${imgPath}" 

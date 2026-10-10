@@ -2,7 +2,7 @@
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
     "exercises": 1114,
-    "lessons": 475,
+    "lessons": 478,
     "levels": 5,
     "banks": 80
   },
@@ -14866,7 +14866,7 @@
       "engine": "conjugation",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conjugation|{\"category\":\"pc_3_cm2\",\"tenses\":\"passé composé\"}"
+      "contractHash": "conjugation|{\"category\":\"pc_3_cm2_defi\",\"tenses\":\"passé composé\"}"
     },
     {
       "id": "cm2-conj-passe-simple-reco",
@@ -15273,7 +15273,7 @@
       "engine": "choice-engine",
       "paramsType": "grammar-cloze",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"grammar_agreement_cm2\",\"type\":\"grammar-cloze\"}"
+      "contractHash": "choice-engine|{\"category\":\"grammar_agreement_cm2_defi\",\"type\":\"grammar-cloze\"}"
     },
     {
       "id": "cm2-redaction-connecteurs",
@@ -15353,7 +15353,40 @@
       "contractHash": null
     },
     {
+      "id": "cm2-lesson-connecteurs-logiques",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-francais-subject",
+      "subthemeId": "cm2-francais-lecture-vocabulaire-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm2-lesson-reprises-texte",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-francais-subject",
+      "subthemeId": "cm2-francais-lecture-vocabulaire-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm2-lesson-inferer-texte",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-francais-subject",
+      "subthemeId": "cm2-francais-lecture-vocabulaire-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm2-lesson-niveaux-langue",
       "kind": "lesson",
       "level": "cm2",
       "subjectId": "cm2-francais-subject",
@@ -15471,7 +15504,7 @@
       "engine": "reading",
       "paramsType": null,
       "pool": null,
-      "contractHash": "reading|{\"category\":\"cm2_vocabulaire_polysemie\"}"
+      "contractHash": "reading|{\"category\":\"cm2_vocabulaire_polysemie_defi\"}"
     },
     {
       "id": "cm2-lecture-sequence-evenements",
@@ -15570,7 +15603,7 @@
       "engine": "audio-spelling",
       "paramsType": null,
       "pool": null,
-      "contractHash": "audio-spelling|{\"category\":\"cm2_orthographe_avancee\",\"speechRate\":1}"
+      "contractHash": "audio-spelling|{\"category\":\"cm2_orthographe_avancee_defi\",\"speechRate\":1}"
     },
     {
       "id": "cm2-lesson-temps-modernes",
@@ -17858,7 +17891,7 @@
         "story_order_ce1": 10,
         "story_order_ce2": 10,
         "story_order_cm1": 10,
-        "story_order_cm2": 10,
+        "story_order_cm2": 14,
         "alpha_order_ce1": 10,
         "alpha_order_ce2": 10
       }
