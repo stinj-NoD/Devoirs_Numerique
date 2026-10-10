@@ -2,7 +2,7 @@
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
     "exercises": 1113,
-    "lessons": 470,
+    "lessons": 473,
     "levels": 5,
     "banks": 80
   },
@@ -13612,7 +13612,7 @@
       "engine": "choice-engine",
       "paramsType": "compare-decimals",
       "pool": null,
-      "contractHash": "choice-engine|{\"type\":\"compare-decimals\"}"
+      "contractHash": "choice-engine|{\"distinctWriting\":true,\"type\":\"compare-decimals\",\"wholeParts\":\"mix\"}"
     },
     {
       "id": "cm2-problemes-decimaux-fractions",
@@ -13689,7 +13689,7 @@
       "engine": "math-input",
       "paramsType": "operation-posed",
       "pool": null,
-      "contractHash": "math-input|{\"level\":3,\"operator\":\"add\",\"type\":\"operation-posed\"}"
+      "contractHash": "math-input|{\"level\":5,\"operator\":\"add\",\"type\":\"operation-posed\"}"
     },
     {
       "id": "cm2-m-soustraction-posee-experte",
@@ -13700,7 +13700,7 @@
       "engine": "math-input",
       "paramsType": "operation-posed",
       "pool": null,
-      "contractHash": "math-input|{\"level\":3,\"operator\":\"sub\",\"type\":\"operation-posed\"}"
+      "contractHash": "math-input|{\"level\":5,\"operator\":\"sub\",\"type\":\"operation-posed\"}"
     },
     {
       "id": "cm2-m-multiplication-posee-experte",
@@ -13799,7 +13799,7 @@
       "engine": "choice-engine",
       "paramsType": "compare-decimals",
       "pool": null,
-      "contractHash": "choice-engine|{\"type\":\"compare-decimals\"}"
+      "contractHash": "choice-engine|{\"distinctWriting\":true,\"type\":\"compare-decimals\"}"
     },
     {
       "id": "cm2_fractions_lecture",
@@ -13945,6 +13945,17 @@
       "contractHash": null
     },
     {
+      "id": "cm2-lesson-division-deux-chiffres",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-division-posee-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm2-lesson-division-verifier",
       "kind": "lesson",
       "level": "cm2",
@@ -13954,6 +13965,28 @@
       "paramsType": null,
       "pool": null,
       "contractHash": null
+    },
+    {
+      "id": "cm2_division_simple_expert",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-division-posee-subtheme",
+      "engine": "math-input",
+      "paramsType": "division-simple",
+      "pool": null,
+      "contractHash": "math-input|{\"divisors\":[11,12,15,20,25],\"quotient\":[6,20],\"type\":\"division-simple\"}"
+    },
+    {
+      "id": "cm2_division_reste_expert",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-division-posee-subtheme",
+      "engine": "math-input",
+      "paramsType": "division-reste",
+      "pool": null,
+      "contractHash": "math-input|{\"ask\":\"reste\",\"divisors\":[6,7,8,9,12],\"quotient\":[8,30],\"type\":\"division-reste\"}"
     },
     {
       "id": "cm2_division_posee",
@@ -13976,28 +14009,6 @@
       "paramsType": "division-posed",
       "pool": null,
       "contractHash": "math-input|{\"ask\":\"reste\",\"level\":2,\"type\":\"division-posed\"}"
-    },
-    {
-      "id": "cm2_division_simple_expert",
-      "kind": "exercise",
-      "level": "cm2",
-      "subjectId": "cm2-maths-subject",
-      "subthemeId": "cm2-division-posee-subtheme",
-      "engine": "math-input",
-      "paramsType": "division-simple",
-      "pool": null,
-      "contractHash": "math-input|{\"type\":\"division-simple\"}"
-    },
-    {
-      "id": "cm2_division_reste_expert",
-      "kind": "exercise",
-      "level": "cm2",
-      "subjectId": "cm2-maths-subject",
-      "subthemeId": "cm2-division-posee-subtheme",
-      "engine": "math-input",
-      "paramsType": "division-reste",
-      "pool": null,
-      "contractHash": "math-input|{\"type\":\"division-reste\"}"
     },
     {
       "id": "cm2-bonus-division-posee-experte",
@@ -14066,6 +14077,17 @@
       "contractHash": "conversion|{\"subtype\":\"metric\"}"
     },
     {
+      "id": "cm2-heures-minutes-aide",
+      "kind": "exercise",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-grandeurs-mesures-subtheme",
+      "engine": "conversion",
+      "paramsType": null,
+      "pool": null,
+      "contractHash": "conversion|{\"modes\":[\"h_to_min\",\"hmin_to_min\"],\"randomMinutes\":true,\"subtype\":\"time\"}"
+    },
+    {
       "id": "cm2-heures-minutes",
       "kind": "exercise",
       "level": "cm2",
@@ -14085,7 +14107,7 @@
       "engine": "conversion",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conversion|{\"modes\":\"min_to_sec\",\"subtype\":\"time\"}"
+      "contractHash": "conversion|{\"modes\":[\"min_to_sec\",\"minsec_to_sec\"],\"randomMinutes\":true,\"subtype\":\"time\"}"
     },
     {
       "id": "cm2-lire-horloge",
@@ -14110,17 +14132,6 @@
       "contractHash": "conversion|{\"max\":100,\"subtype\":\"roman\"}"
     },
     {
-      "id": "cm2-heures-minutes-aide",
-      "kind": "exercise",
-      "level": "cm2",
-      "subjectId": "cm2-maths-subject",
-      "subthemeId": "cm2-grandeurs-mesures-subtheme",
-      "engine": "conversion",
-      "paramsType": null,
-      "pool": null,
-      "contractHash": "conversion|{\"modes\":\"h_to_min\",\"subtype\":\"time\"}"
-    },
-    {
       "id": "cm2-heures-secondes",
       "kind": "exercise",
       "level": "cm2",
@@ -14129,7 +14140,7 @@
       "engine": "conversion",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conversion|{\"modes\":\"min_to_sec\",\"subtype\":\"time\"}"
+      "contractHash": "conversion|{\"modes\":[\"minsec_to_sec\"],\"randomMinutes\":true,\"subtype\":\"time\"}"
     },
     {
       "id": "cm2-conversions-longueurs-2",
@@ -14173,7 +14184,7 @@
       "engine": "math-input",
       "paramsType": "pourcentage",
       "pool": null,
-      "contractHash": "math-input|{\"maxMultiple\":10,\"type\":\"pourcentage\",\"values\":[10,20,25,50]}"
+      "contractHash": "math-input|{\"maxMultiple\":10,\"minMultiple\":2,\"type\":\"pourcentage\",\"values\":[10,20,25,50]}"
     },
     {
       "id": "cm2-echelle-plan",
@@ -14206,7 +14217,7 @@
       "engine": "math-input",
       "paramsType": "pourcentage",
       "pool": null,
-      "contractHash": "math-input|{\"maxMultiple\":12,\"type\":\"pourcentage\",\"values\":[10,20,25,50]}"
+      "contractHash": "math-input|{\"maxMultiple\":12,\"minMultiple\":3,\"type\":\"pourcentage\",\"values\":[5,10,20,25,50]}"
     },
     {
       "id": "cm2-conversions-masses",
@@ -14275,6 +14286,17 @@
       "contractHash": null
     },
     {
+      "id": "cm2-lesson-angles-rapporteur",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-geometrie-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm2-lesson-figures-cercle",
       "kind": "lesson",
       "level": "cm2",
@@ -14298,6 +14320,17 @@
     },
     {
       "id": "cm2-lesson-symetrie-centrale",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-geometrie-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm2-lesson-agrandir-reduire",
       "kind": "lesson",
       "level": "cm2",
       "subjectId": "cm2-maths-subject",
@@ -14436,8 +14469,8 @@
       "subthemeId": "cm2-geometrie-subtheme",
       "engine": "matching",
       "paramsType": null,
-      "pool": "data/math_matching.json::matching_math_cm2",
-      "contractHash": "matching|{\"category\":\"matching_math_cm2\",\"dataFile\":\"data/math_matching.json\"}"
+      "pool": "data/math_matching.json::matching_math_cm2_figures",
+      "contractHash": "matching|{\"category\":\"matching_math_cm2_figures\",\"dataFile\":\"data/math_matching.json\"}"
     },
     {
       "id": "cm2-geo-classement-formes",
@@ -14579,8 +14612,8 @@
       "subthemeId": "cm2-graphiques-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/math_word_problems_cycle3.json::cm2-problemes-pourcentages",
-      "contractHash": "choice-engine|{\"category\":\"cm2-problemes-pourcentages\",\"dataFile\":\"data/math_word_problems_cycle3.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/math_word_problems_cycle3.json::cm2-camembert",
+      "contractHash": "choice-engine|{\"category\":\"cm2-camembert\",\"dataFile\":\"data/math_word_problems_cycle3.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-bonus-graphique-expert",
@@ -18013,8 +18046,8 @@
         "cm2-droites-angles": 12,
         "cm2-vocabulaire-construction": 16,
         "cm2-nature-angles": 16,
-        "cm2-symetrie-centrale": 8,
-        "cm2-agrandissement-reduction": 7,
+        "cm2-symetrie-centrale": 14,
+        "cm2-agrandissement-reduction": 14,
         "cm2-aire-figure-composee": 10
       }
     },
@@ -18034,10 +18067,11 @@
         "matching_math_ce1": 10,
         "matching_math_ce2": 5,
         "matching_math_cm1": 4,
-        "matching_math_cm2": 8,
+        "matching_math_cm2": 7,
         "matching_geo_math_ce2": 5,
         "matching_math_cm1_mesures": 4,
-        "matching_math_cm1_nombres": 3
+        "matching_math_cm1_nombres": 3,
+        "matching_math_cm2_figures": 5
       }
     },
     "data/math_probabilites_algo_cm2.json": {
@@ -18072,7 +18106,8 @@
         "cm1-donnees-tableaux": 10,
         "cm2-donnees-tableaux": 10,
         "ce2-problemes-deux-etapes": 10,
-        "ce2-durees": 10
+        "ce2-durees": 10,
+        "cm2-camembert": 12
       }
     },
     "data/quiz_culture.json": {

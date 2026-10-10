@@ -10,7 +10,7 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 
 ## Vue d'ensemble
 
-- **1113 exercices** et **470 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1113 exercices** et **473 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
@@ -1986,7 +1986,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 #### Nombres & calcul mental `(cm2-nombres-calcul-mental)`
 
 - **Leçons** (2) :
-  - Lire et écrire les grands nombres `(cm2-lesson-grands-nombres)` — blocs: paragraph, example, mini-table, tip, check, check
+  - Lire et écrire les grands nombres `(cm2-lesson-grands-nombres)` — blocs: paragraph, example, example, mini-table, tip, check, check
   - Calculer de tête en passant par un nombre rond `(cm2-lesson-calcul-mental-additif)` — blocs: paragraph, example, tip, check, check
 - **Exercices** (18) :
   - Les Milliards `(cm2_grands_nombres)` — engine: `math-input`, type=dictée-nombres, min=1000000, max=9999999999, questions=10
@@ -1994,15 +1994,15 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Multiplier par 11 à 15 `(cm2_tables_x)` — engine: `math-input`, type=calc-mental, operator=x, questions=10
   - Multiplier par 16 à 20 `(cm2_tables_x_16_20)` — engine: `math-input`, type=calc-mental, operator=x, questions=10
   - Très grands nombres `(cm2_grands_nombres_2)` — engine: `math-input`, type=dictée-nombres, min=100000000, max=9999999999, questions=10
-  - Décimaux (2) `(cm2-decimaux-compare-2)` — engine: `choice-engine`, type=compare-decimals, questions=12
+  - Décimaux (2) `(cm2-decimaux-compare-2)` — engine: `choice-engine`, type=compare-decimals, questions=12, wholeParts=mix, distinctWriting=true
   - Problèmes décimaux et fractions `(cm2-problemes-decimaux-fractions)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=cm2-problemes-decimaux-fractions, questions=8
   - Problèmes de pourcentages `(cm2-problemes-pourcentages)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=cm2-problemes-pourcentages, questions=8
   - Problèmes à étapes `(cm2-problemes-multi-etapes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=cm2-problemes-multi-etapes, questions=8
   - Défi : multiplier par 21 à 25 `(cm2-bonus-tables-x-21-25)` — engine: `math-input`, type=calc-mental, operator=x, questions=10, bonus (seuil=2)
   - Le chiffre à sa place `(cm2-m-position-chiffre-milliard)` — engine: `math-input`, type=place-value, digitCount=6, min=500000, ask=digit, questions=8
   - La valeur d'un chiffre `(cm2-m-valeur-chiffre-milliard)` — engine: `math-input`, type=place-value, digitCount=6, min=500000, ask=value, questions=8
-  - Addition posée niveau expert `(cm2-m-addition-posee-experte)` — engine: `math-input`, type=operation-posed, operator=add, level=3, questions=6
-  - Soustraction posée niveau expert `(cm2-m-soustraction-posee-experte)` — engine: `math-input`, type=operation-posed, operator=sub, level=3, questions=6
+  - Addition posée niveau expert `(cm2-m-addition-posee-experte)` — engine: `math-input`, type=operation-posed, operator=add, level=5, questions=6
+  - Soustraction posée niveau expert `(cm2-m-soustraction-posee-experte)` — engine: `math-input`, type=operation-posed, operator=sub, level=5, questions=6
   - Multiplication posée niveau expert `(cm2-m-multiplication-posee-experte)` — engine: `math-input`, type=operation-posed, operator=mult, level=3, questions=6
   - Jusqu’au milliard `(cm2-place-value-milliards)` — engine: `math-input`, type=place-value, digitCount=10, ask=digit, questions=8
   - Additions de tête `(cm2-calcul-mental-additif)` — engine: `math-input`, type=calc-mental, operator=+, questions=10
@@ -2016,13 +2016,13 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Additionner et soustraire des fractions `(cm2-lesson-fractions-addition)` — blocs: paragraph, example, bullets, tip, check, check
   - Poser une opération à virgule `(cm2-lesson-operations-posees-decimaux)` — blocs: paragraph, example, tip, check, check
 - **Exercices** (13) :
-  - Décimaux `(cm2_decimaux_compare)` — engine: `choice-engine`, type=compare-decimals, questions=10
+  - Décimaux `(cm2_decimaux_compare)` — engine: `choice-engine`, type=compare-decimals, questions=10, distinctWriting=true
   - Fractions `(cm2_fractions_lecture)` — engine: `math-input`, type=fraction-view, maxDenom=12, questions=10
   - Construis la fraction `(cm2-frac-build)` — engine: `board-interactive`, type=fraction-build, minDenom=2, maxDenom=12, questions=8
   - Décimaux : positions `(cm2_decimaux_positions)` — engine: `math-input`, type=decimal-place, trap=true, questions=10
   - Décimaux : positions (2) `(cm2_decimaux_positions_2)` — engine: `math-input`, type=decimal-place, trap=false, questions=10
   - Fractions (2) `(cm2_fractions_lecture_2)` — engine: `math-input`, type=fraction-view, maxDenom=20, questions=10
-  - Fractions et décimaux `(cm2-maths-fractions-appariement)` — engine: `matching`, category=matching_math_cm2, dataFile=data/math_matching.json, questions=3
+  - Nombres, fractions et décimaux `(cm2-maths-fractions-appariement)` — engine: `matching`, category=matching_math_cm2, dataFile=data/math_matching.json, questions=3
   - Défi : fractions expertes `(cm2-bonus-fractions-expert)` — engine: `math-input`, type=fraction-view, maxDenom=24, questions=12, bonus (seuil=2)
   - Additionne des fractions `(cm2-frac-addition)` — engine: `math-input`, type=fraction-operation, operator=add, level=2, questions=8
   - Défi : dénominateurs multiples `(cm2-frac-addition-avancee)` — engine: `math-input`, type=fraction-operation, operator=add, level=3, questions=6, bonus (seuil=2)
@@ -2032,14 +2032,15 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Division posée `(cm2-division-posee-subtheme)`
 
-- **Leçons** (2) :
+- **Leçons** (3) :
   - Comprendre la division posée `(cm2-lesson-division-comprendre)` — blocs: paragraph, example, bullets, tip, check, check
+  - Diviser par un nombre à deux chiffres `(cm2-lesson-division-deux-chiffres)` — blocs: paragraph, example, bullets, tip, check, check
   - Vérifier une division `(cm2-lesson-division-verifier)` — blocs: paragraph, mini-table, example, tip, check, check
 - **Exercices** (5) :
+  - Division mentale experte `(cm2_division_simple_expert)` — engine: `math-input`, type=division-simple, questions=10
+  - Division avec reste `(cm2_division_reste_expert)` — engine: `math-input`, type=division-reste, questions=10, ask=reste
   - Division posée `(cm2_division_posee)` — engine: `math-input`, type=division-posed, level=2, questions=6
   - Division posée : reste `(cm2_division_posee_reste)` — engine: `math-input`, type=division-posed, level=2, ask=reste, questions=6
-  - Division mentale experte `(cm2_division_simple_expert)` — engine: `math-input`, type=division-simple, questions=10
-  - Division avec reste `(cm2_division_reste_expert)` — engine: `math-input`, type=division-reste, questions=10
   - Défi : division posée experte `(cm2-bonus-division-posee-experte)` — engine: `math-input`, type=division-posed, level=3, questions=8, bonus (seuil=2)
 
 #### Grandeurs & mesures `(cm2-grandeurs-mesures-subtheme)`
@@ -2051,19 +2052,19 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Convertir les unités d'aire `(cm2-lesson-conversion-aires)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (19) :
   - Conversions de longueurs `(cm2-conversions-longueurs)` — engine: `conversion`, subtype=metric, questions=10
+  - Heures et minutes (aide) `(cm2-heures-minutes-aide)` — engine: `conversion`, questions=10, memo=true, subtype=time, randomMinutes=true
   - Heures et minutes `(cm2-heures-minutes)` — engine: `conversion`, subtype=time, memo=false, randomMinutes=true, questions=10
-  - Minutes et secondes `(cm2-minutes-secondes)` — engine: `conversion`, subtype=time, modes=min_to_sec, memo=false, questions=10
+  - Minutes et secondes `(cm2-minutes-secondes)` — engine: `conversion`, subtype=time, memo=false, questions=10, randomMinutes=true
   - Lire l'horloge `(cm2-lire-horloge)` — engine: `clock`, questions=8
   - Chiffres Romains `(cm2-romains-100)` — engine: `conversion`, subtype=roman, max=100, questions=6
-  - Heures et minutes (aide) `(cm2-heures-minutes-aide)` — engine: `conversion`, questions=10, modes=h_to_min, memo=true, subtype=time
-  - Minutes vers Secondes (2) `(cm2-heures-secondes)` — engine: `conversion`, subtype=time, modes=min_to_sec, memo=false, questions=10
+  - Minutes et secondes vers secondes `(cm2-heures-secondes)` — engine: `conversion`, subtype=time, memo=false, questions=10, randomMinutes=true
   - Conversions de longueurs (2) `(cm2-conversions-longueurs-2)` — engine: `conversion`, subtype=metric, questions=12
   - Chiffres romains (3) `(cm2-romains-500)` — engine: `conversion`, subtype=roman, max=500, questions=6
   - Proportionnalité et échelle `(cm2-proportionnalite-echelle)` — engine: `math-input`, type=proportionnalite, maxCoef=8, maxBase=9, questions=4
-  - Calculer un pourcentage `(cm2-pourcentages)` — engine: `math-input`, type=pourcentage, maxMultiple=10, questions=6
+  - Calculer un pourcentage `(cm2-pourcentages)` — engine: `math-input`, type=pourcentage, maxMultiple=10, questions=6, minMultiple=2
   - Lire une échelle de plan `(cm2-echelle-plan)` — engine: `math-input`, type=echelle, questions=4
   - Vitesse, distance, durée `(cm2-vitesse-1)` — engine: `math-input`, type=vitesse, maxHeures=5, questions=6
-  - Défi : proportionnalité experte `(cm2-bonus-proportionnalite-expert)` — engine: `math-input`, type=pourcentage, maxMultiple=12, questions=8, bonus (seuil=2)
+  - Défi : pourcentages experts `(cm2-bonus-proportionnalite-expert)` — engine: `math-input`, type=pourcentage, maxMultiple=12, questions=8, minMultiple=3, bonus (seuil=2)
   - Convertir des masses `(cm2-conversions-masses)` — engine: `conversion`, subtype=metric, unitType=masse, questions=6
   - Convertir des contenances `(cm2-conversions-contenances)` — engine: `conversion`, subtype=metric, unitType=capacite, questions=6
   - Défi : chiffres romains jusqu'à M `(cm2-bonus-romains-1000)` — engine: `conversion`, subtype=roman, max=1000, questions=8, bonus (seuil=2)
@@ -2072,11 +2073,13 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Géométrie `(cm2-geometrie-subtheme)`
 
-- **Leçons** (5) :
+- **Leçons** (7) :
   - Droites et angles `(cm2-lesson-droites-angles)` — blocs: paragraph, example, bullets, tip, check, check
+  - Mesurer et classer les angles `(cm2-lesson-angles-rapporteur)` — blocs: paragraph, mini-table, example, tip, check, check
   - Polygones et cercle `(cm2-lesson-figures-cercle)` — blocs: paragraph, example, bullets, tip, check, check
   - La symétrie `(cm2-lesson-symetrie)` — blocs: paragraph, example, bullets, tip, check, check
   - La symétrie centrale `(cm2-lesson-symetrie-centrale)` — blocs: paragraph, example, bullets, tip, check, check
+  - Agrandir et réduire une figure `(cm2-lesson-agrandir-reduire)` — blocs: paragraph, example, bullets, tip, check, check
   - Aires et volumes `(cm2-lesson-aires-volumes)` — blocs: paragraph, example, example, bullets, tip, check, check
 - **Exercices** (18) :
   - Droites et angles `(cm2-geo-droites-angles)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm2.json, category=cm2-droites-angles, questions=8
@@ -2089,7 +2092,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Calculer une aire `(cm2-geo-aire-rectangle)` — engine: `math-input`, type=aire-rectangle, max=20, questions=6
   - Aire d'une figure composée `(cm2-geo-aire-figure-composee)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm2.json, category=cm2-aire-figure-composee, questions=8
   - Calculer un volume `(cm2-geo-volume-pave)` — engine: `math-input`, type=volume-pave, max=8, questions=5
-  - Figures et propriétés `(cm2-maths-geo-appariement)` — engine: `matching`, category=matching_math_cm2, dataFile=data/math_matching.json, questions=3
+  - Figures et propriétés `(cm2-maths-geo-appariement)` — engine: `matching`, category=matching_math_cm2_figures, dataFile=data/math_matching.json, questions=3
   - Classer les formes géométriques `(cm2-geo-classement-formes)` — engine: `board-interactive`, type=shape-classify, dataFile=data/board_shape_classify_cm2.json, category=cm2_shape_classify, questions=6
   - Place le point `(cm2-geo-reperage-pratique)` — engine: `board-interactive`, type=point-on-grid, dataFile=data/board_geometry_cm2.json, category=cm2_point_quadrillage, questions=4
   - Droites parallèles `(cm2-geo-droites-paralleles-pratique)` — engine: `board-interactive`, type=tap-features, dataFile=data/board_geometry_cm2.json, category=cm2_droites_paralleles_tap, questions=3
@@ -2107,7 +2110,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Exercices** (7) :
   - Lire un diagramme en barres `(cm2-graphique-lecture)` — engine: `math-input`, type=bar-chart-read, maxBars=5, maxValue=30, questions=6
   - Lire un tableau de données `(cm2-donnees-tableaux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=cm2-donnees-tableaux, questions=6
-  - Lire un diagramme circulaire `(cm2-graphique-camembert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=cm2-problemes-pourcentages, questions=5
+  - Calculer avec un diagramme circulaire `(cm2-graphique-camembert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=cm2-camembert, questions=5
   - Défi : graphiques en rafale `(cm2-bonus-graphique-expert)` — engine: `math-input`, type=bar-chart-read, maxBars=5, maxValue=40, questions=8, bonus (seuil=2)
   - Lire un tableau à double entrée `(cm2-tableau-double-entree)` — engine: `math-input`, type=data-table-read, maxRows=4, maxCols=3, maxValue=20, questions=6
   - Lire un diagramme circulaire `(cm2-diagramme-circulaire)` — engine: `math-input`, type=pie-chart-read, questions=5

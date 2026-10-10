@@ -1022,7 +1022,7 @@
         ],
         "cm2-donnees-tableaux": [
             {
-                "question": "Un tableau indique les scores de 4 eleves : Alice 18, Baptiste 14, Camille 20, Diego 11. Qui a le meilleur score ?",
+                "question": "Un tableau indique les scores de 4 élèves : Alice 18, Baptiste 14, Camille 20, Diego 11. Qui a le meilleur score ?",
                 "choices": [
                     "Camille",
                     "Alice",
@@ -1030,10 +1030,10 @@
                     "Diego"
                 ],
                 "answer": "Camille",
-                "explanation": "Camille a 20, c'est le score le plus eleve."
+                "explanation": "Camille a 20, c'est le score le plus élevé."
             },
             {
-                "question": "Le tableau montre les temperatures : lundi 12, mardi 15, mercredi 9, jeudi 17, vendredi 13. Quel jour fait-il le plus chaud ?",
+                "question": "Le tableau montre les températures : lundi 12, mardi 15, mercredi 9, jeudi 17, vendredi 13. Quel jour fait-il le plus chaud ?",
                 "choices": [
                     "Jeudi",
                     "Lundi",
@@ -1041,7 +1041,7 @@
                     "Vendredi"
                 ],
                 "answer": "Jeudi",
-                "explanation": "Jeudi : 17 degres, c'est le maximum."
+                "explanation": "Jeudi : 17 degrés, c'est le maximum."
             },
             {
                 "question": "Un tableau de ventes : pommes 45 kg, poires 32 kg, bananes 28 kg. Quelle est la vente totale ?",
@@ -1055,7 +1055,7 @@
                 "explanation": "45 + 32 + 28 = 105 kg."
             },
             {
-                "question": "Le graphique montre 5 barres : 8, 12, 6, 15, 9. Quelle est la valeur la plus petite ?",
+                "question": "Un tableau donne 5 valeurs : 8, 12, 6, 15 et 9. Quelle est la plus petite valeur ?",
                 "choices": [
                     "6",
                     "8",
@@ -1063,7 +1063,7 @@
                     "12"
                 ],
                 "answer": "6",
-                "explanation": "6 est la valeur minimale parmi les 5 barres."
+                "explanation": "6 est la plus petite des cinq valeurs."
             },
             {
                 "question": "Un tableau indique les distances en km : Paris-Lyon 465, Paris-Marseille 775, Paris-Bordeaux 580. Quelle ville est la plus proche de Paris ?",
@@ -1073,20 +1073,20 @@
                     "Bordeaux"
                 ],
                 "answer": "Lyon",
-                "explanation": "Lyon est a 465 km, c'est la distance la plus courte."
+                "explanation": "Lyon est à 465 km, c'est la distance la plus courte."
             },
             {
-                "question": "Le graphique montre les notes de 3 eleves sur 5 controles. Marie a pour moyenne 14. Elle a eu : 12, 16, 14, 13, 15. Est-ce exact ?",
+                "question": "Un tableau donne les notes de Marie à 5 contrôles : 12, 16, 14, 13 et 15. Sa moyenne est-elle 14 ?",
                 "choices": [
-                    "Oui, 12+16+14+13+15=70 divise par 5 = 14",
-                    "Non, la moyenne est 13",
-                    "Non, la moyenne est 15"
+                    "Oui : 70 ÷ 5 = 14, donc sa moyenne est bien 14",
+                    "Non : en faisant le calcul, on trouve 13 de moyenne",
+                    "Non : en faisant le calcul, on trouve 15 de moyenne"
                 ],
-                "answer": "Oui, 12+16+14+13+15=70 divise par 5 = 14",
-                "explanation": "70 / 5 = 14. La moyenne est bien 14."
+                "answer": "Oui : 70 ÷ 5 = 14, donc sa moyenne est bien 14",
+                "explanation": "12 + 16 + 14 + 13 + 15 = 70, et 70 ÷ 5 = 14. La moyenne est bien 14."
             },
             {
-                "question": "Un tableau montre le nombre de visiteurs par mois : janvier 120, fevrier 95, mars 140. Combien de visiteurs en 3 mois ?",
+                "question": "Un tableau montre le nombre de visiteurs par mois : janvier 120, février 95, mars 140. Combien de visiteurs en 3 mois ?",
                 "choices": [
                     "355",
                     "345",
@@ -1097,18 +1097,17 @@
                 "explanation": "120 + 95 + 140 = 355 visiteurs."
             },
             {
-                "question": "Dans un graphique a barres, les barres mesurent 4, 7, 3, 8, 5. Quelle est la valeur mediane (au milieu quand on les range dans l'ordre) ?",
+                "question": "Un tableau donne les valeurs 4, 7, 3, 8 et 5. Quel est l'écart entre la plus grande et la plus petite valeur ?",
                 "choices": [
                     "5",
-                    "4",
-                    "7",
+                    "11",
                     "3"
                 ],
                 "answer": "5",
-                "explanation": "En ordre : 3, 4, 5, 7, 8. La valeur du milieu est 5."
+                "explanation": "La plus grande valeur est 8 et la plus petite est 3 : l'écart est 8 − 3 = 5."
             },
             {
-                "question": "Un tableau de donnees montre : 3 filles et 5 garcons aiment le football, 6 filles et 2 garcons preferent la danse. Combien d'eleves au total ?",
+                "question": "Un tableau de données montre : 3 filles et 5 garçons aiment le football, 6 filles et 2 garçons préfèrent la danse. Combien d'élèves au total ?",
                 "choices": [
                     "16",
                     "14",
@@ -1116,18 +1115,18 @@
                     "12"
                 ],
                 "answer": "16",
-                "explanation": "3+5+6+2 = 16 eleves."
+                "explanation": "3 + 5 + 6 + 2 = 16 élèves."
             },
             {
-                "question": "Le graphique compare les ventes de janvier a juin. Les barres sont : 30, 45, 25, 50, 40, 35. En quel mois les ventes sont-elles maximales ?",
+                "question": "Un tableau donne les ventes de janvier à juin : 30, 45, 25, 50, 40 et 35. En quel mois les ventes sont-elles maximales ?",
                 "choices": [
-                    "Avril (barre 4)",
-                    "Fevrier (barre 2)",
-                    "Mai (barre 5)",
-                    "Juin (barre 6)"
+                    "Avril (50)",
+                    "Février (45)",
+                    "Mai (40)",
+                    "Juin (35)"
                 ],
-                "answer": "Avril (barre 4)",
-                "explanation": "La 4e barre vaut 50, c'est la plus haute."
+                "answer": "Avril (50)",
+                "explanation": "La plus grande valeur est 50, en avril : c'est le maximum."
             }
         ],
         "ce2-problemes-deux-etapes": [
@@ -1332,6 +1331,139 @@
                 ],
                 "answer": "11 h 45",
                 "explanation": "9 h 30 plus 2 heures donne 11 h 30, puis on ajoute 15 minutes : la sortie se termine à 11 h 45."
+            }
+        ],
+        "cm2-camembert": [
+            {
+                "question": "Combien d'élèves restent à l'étude ?",
+                "context": "Diagramme circulaire : 200 élèves selon leur activité du midi. Cantine 50 %, étude 30 %, maison 20 %.",
+                "choices": [
+                    "60",
+                    "30",
+                    "100"
+                ],
+                "answer": "60",
+                "explanation": "30 % de 200 : 200 × 30 ÷ 100 = 60 élèves. 30 est le pourcentage, pas le nombre d'élèves."
+            },
+            {
+                "question": "Combien de bandes dessinées y a-t-il ?",
+                "context": "Diagramme circulaire : les 40 livres d'une étagère. Romans 50 %, bandes dessinées 25 %, documentaires 25 %.",
+                "choices": [
+                    "10",
+                    "25",
+                    "20"
+                ],
+                "answer": "10",
+                "explanation": "25 % est le quart : 40 ÷ 4 = 10 bandes dessinées. 20 est le nombre de romans (50 %)."
+            },
+            {
+                "question": "Combien de repas contiennent du poisson ?",
+                "context": "Diagramme circulaire : 150 repas de la semaine. Poisson 20 %, viande 40 %, légumes 40 %.",
+                "choices": [
+                    "30",
+                    "20",
+                    "60"
+                ],
+                "answer": "30",
+                "explanation": "20 % de 150 : 150 × 20 ÷ 100 = 30 repas. 60 correspond à 40 % du total."
+            },
+            {
+                "question": "Quel pourcentage du public représentent les adultes ?",
+                "context": "Diagramme circulaire : 80 spectateurs. Adultes 40, enfants 24, adolescents 16.",
+                "choices": [
+                    "50 %",
+                    "40 %",
+                    "25 %"
+                ],
+                "answer": "50 %",
+                "explanation": "40 adultes sur 80 spectateurs, c'est la moitié : 50 %. 40 est un nombre de personnes, pas un pourcentage."
+            },
+            {
+                "question": "Quel pourcentage du diagramme représentent les devoirs ?",
+                "context": "Diagramme circulaire : un samedi. Sport 25 %, jeux 35 %, repos 20 %, devoirs : la part qui reste.",
+                "choices": [
+                    "20 %",
+                    "80 %",
+                    "15 %"
+                ],
+                "answer": "20 %",
+                "explanation": "Le total vaut 100 % : 25 + 35 + 20 = 80, donc 100 − 80 = 20 %. 80 % est la somme des trois autres parts."
+            },
+            {
+                "question": "Combien d'élèves viennent à vélo ?",
+                "context": "Diagramme circulaire : 120 élèves. La part « vélo » occupe un quart du disque.",
+                "choices": [
+                    "30",
+                    "25",
+                    "40"
+                ],
+                "answer": "30",
+                "explanation": "Un quart de 120 : 120 ÷ 4 = 30 élèves. 25 est le pourcentage d'un quart, et 40 serait un tiers."
+            },
+            {
+                "question": "Combien d'euros sont consacrés aux loisirs ?",
+                "context": "Diagramme circulaire : un budget de 600 €. Logement 50 %, nourriture 30 %, loisirs 20 %.",
+                "choices": [
+                    "120 €",
+                    "20 €",
+                    "180 €"
+                ],
+                "answer": "120 €",
+                "explanation": "20 % de 600 € : 600 × 20 ÷ 100 = 120 €. 180 € correspond à la nourriture (30 %)."
+            },
+            {
+                "question": "Combien de votes de plus Léa a-t-elle eus qu'Hugo ?",
+                "context": "Diagramme circulaire : 300 votes. Léa 45 %, Hugo 35 %, Inès 20 %.",
+                "choices": [
+                    "30",
+                    "10",
+                    "60"
+                ],
+                "answer": "30",
+                "explanation": "L'écart est de 45 − 35 = 10 % de 300, soit 30 votes. 10 est l'écart en pourcentage, pas en votes."
+            },
+            {
+                "question": "Combien d'élèves la part rouge représente-t-elle ?",
+                "context": "Diagramme circulaire : 50 élèves. La part rouge représente 60 %, la part bleue 40 %.",
+                "choices": [
+                    "30",
+                    "60",
+                    "20"
+                ],
+                "answer": "30",
+                "explanation": "60 % de 50 : 50 × 60 ÷ 100 = 30 élèves. 20 élèves est la part bleue (40 %)."
+            },
+            {
+                "question": "Quelle fraction du disque le vélo représente-t-il ?",
+                "context": "Diagramme circulaire : comment les élèves vont à l'école. À pied, la moitié du disque ; en bus, un quart du disque ; le reste, à vélo.",
+                "choices": [
+                    "un quart",
+                    "un tiers",
+                    "la moitié"
+                ],
+                "answer": "un quart",
+                "explanation": "Le disque entier vaut 1 : 1 − 1/2 − 1/4 = 1/4. Le vélo occupe un quart du disque, comme le bus."
+            },
+            {
+                "question": "Combien d'élèves ont un chien ?",
+                "context": "Diagramme circulaire : 25 élèves selon leur animal. Chats 40 %, chiens 36 %, autres 24 %.",
+                "choices": [
+                    "9",
+                    "36",
+                    "16"
+                ],
+                "answer": "9",
+                "explanation": "36 % de 25 : 25 × 36 ÷ 100 = 9 élèves. 36 est un pourcentage, et 16 élèves n'ont pas de chien."
+            },
+            {
+                "question": "Deux classes, l'une de 20 élèves et l'autre de 30, ont chacune un diagramme où la cantine représente 50 %. Ont-elles le même nombre d'élèves à la cantine ?",
+                "choices": [
+                    "Non : 50 % de 20 font 10 élèves et 50 % de 30 font 15 élèves",
+                    "Oui : dans les deux diagrammes la part cantine vaut 50 %",
+                    "Oui : un pourcentage est toujours un nombre d'élèves"
+                ],
+                "answer": "Non : 50 % de 20 font 10 élèves et 50 % de 30 font 15 élèves",
+                "explanation": "Un pourcentage dépend du total : 50 % de 20 = 10 et 50 % de 30 = 15. Deux parts égales en pourcentage ne représentent pas le même nombre d'élèves."
             }
         ]
     }

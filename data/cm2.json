@@ -20,7 +20,7 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Un grand nombre se lit par groupes de trois chiffres en partant de la droite. Les classes aident à repérer les unités, les milliers et les millions."
+                                    "text": "Un grand nombre se lit par groupes de trois chiffres en partant de la droite. Les classes aident à repérer les unités, les milliers, les millions et les milliards."
                                 },
                                 {
                                     "type": "example",
@@ -28,22 +28,14 @@
                                     "label": "Exemple"
                                 },
                                 {
+                                    "type": "example",
+                                    "label": "Exemple avec les milliards",
+                                    "content": "4 305 000 012 se lit : quatre milliards trois cent cinq millions douze."
+                                },
+                                {
                                     "type": "mini-table",
                                     "label": "Repères",
-                                    "rows": [
-                                        [
-                                            "Unités",
-                                            "les trois derniers chiffres"
-                                        ],
-                                        [
-                                            "Mille",
-                                            "le groupe du milieu"
-                                        ],
-                                        [
-                                            "Millions",
-                                            "le groupe le plus à gauche"
-                                        ]
-                                    ],
+                                    "rows": [["Unités","les trois derniers chiffres"],["Mille","le groupe du milieu"],["Millions","le groupe le plus à gauche"],["Milliards","le groupe à gauche des millions : le nombre a au moins 10 chiffres"]],
                                     "headers": [
                                         "Classe",
                                         "Ce qu'elle contient"
@@ -63,7 +55,7 @@
                                         "Il a inversé les groupes : il fallait commencer la lecture par la droite"
                                     ],
                                     "answer": "Il a oublié de nommer la classe des millions : le 2 est isolé à gauche",
-                                    "explanation": "En classes de trois chiffres depuis la droite : 400 (unités), 060 (mille), 2 (millions). Le 2 est seul dans la classe des millions, donc on lit « deux millions soixante mille quatre cents ». Dire « quatre mille » est faux : 400 appartient à la classe des unités, pas des milliers. Et lire en commençant par la droite est faux aussi : on découpe depuis la droite, mais on nomme ensuite de gauche à droite."
+                                    "explanation": "Depuis la droite, on découpe en classes : 400, 060, puis 2. Le 2 est seul dans la classe des millions : on lit « deux millions soixante mille quatre cents »."
                                 },
                                 {
                                     "type": "check",
@@ -74,7 +66,7 @@
                                         "9"
                                     ],
                                     "answer": "7",
-                                    "explanation": "Il faut 3 chiffres pour la classe des unités et 3 pour celle des milliers, soit 6 ; le 7e chiffre ouvre la classe des millions. 1 000 000 en compte bien 7. Avec 6 chiffres, on plafonne à 999 999 : on reste dans les milliers. Et 9 chiffres, ce n'est pas le minimum : on serait déjà rendu aux milliards."
+                                    "explanation": "Trois chiffres pour les unités et trois pour les milliers : 6 chiffres vont jusqu'à 999 999. Le 7e chiffre ouvre la classe des millions."
                                 }
                             ]
                         },
@@ -197,11 +189,13 @@
                         {
                             "id": "cm2-decimaux-compare-2",
                             "title": "Décimaux (2)",
-                            "subtitle": "Comparer plus finement",
+                            "subtitle": "Parties entières différentes, zéros de plus et de moins",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "compare-decimals",
-                                "questions": 12
+                                "questions": 12,
+                                "wholeParts": "mix",
+                                "distinctWriting": true
                             }
                         },
                         {
@@ -286,24 +280,24 @@
                         {
                             "id": "cm2-m-addition-posee-experte",
                             "title": "Addition posée niveau expert",
-                            "subtitle": "Poser l'addition de très grands nombres",
+                            "subtitle": "Poser l'addition de nombres à six chiffres",
                             "engine": "math-input",
                             "params": {
                                 "type": "operation-posed",
                                 "operator": "add",
-                                "level": 3,
+                                "level": 5,
                                 "questions": 6
                             }
                         },
                         {
                             "id": "cm2-m-soustraction-posee-experte",
                             "title": "Soustraction posée niveau expert",
-                            "subtitle": "Poser la soustraction de très grands nombres",
+                            "subtitle": "Poser la soustraction de nombres à six chiffres",
                             "engine": "math-input",
                             "params": {
                                 "type": "operation-posed",
                                 "operator": "sub",
-                                "level": 3,
+                                "level": 5,
                                 "questions": 6
                             }
                         },
@@ -375,7 +369,8 @@
                             "engine": "choice-engine",
                             "params": {
                                 "type": "compare-decimals",
-                                "questions": 10
+                                "questions": 10,
+                                "distinctWriting": true
                             }
                         },
                         {
@@ -436,8 +431,8 @@
                         },
                         {
                             "id": "cm2-maths-fractions-appariement",
-                            "title": "Fractions et décimaux",
-                            "subtitle": "Relie chaque fraction à son équivalent",
+                            "title": "Nombres, fractions et décimaux",
+                            "subtitle": "Relie chaque écriture, mesure ou calcul à son équivalent",
                             "engine": "matching",
                             "params": {
                                 "category": "matching_math_cm2",
@@ -559,7 +554,7 @@
                                         "Il fallait d'abord comparer les parties entières, qui départagent les deux nombres"
                                     ],
                                     "answer": "La partie décimale ne se lit pas comme un entier : 7,15 a 1 dixième, 7,9 en a 9",
-                                    "explanation": "Après la virgule, chaque rang a sa valeur : 7,15 vaut 1 dixième et 5 centièmes, 7,9 vaut 9 dixièmes. Comme 1 dixième est plus petit que 9 dixièmes, 7,15 < 7,9. Compter les chiffres ne prouve rien : 7,90 a autant de chiffres que 7,15 et reste le plus grand. Et les parties entières ne départagent rien ici : elles valent 7 toutes les deux."
+                                    "explanation": "Après la virgule, chaque rang a sa valeur : 7,15 a 1 dixième, 7,9 en a 9. Comme 1 dixième est plus petit que 9 dixièmes, 7,15 < 7,9."
                                 },
                                 {
                                     "type": "check",
@@ -570,7 +565,7 @@
                                         ">"
                                     ],
                                     "answer": "=",
-                                    "explanation": "3,4 vaut 4 dixièmes ; 3,40 vaut 4 dixièmes et 0 centième, ce qui n'ajoute rien. Les deux écritures désignent la même quantité, d'où le signe =. Le signe < supposerait que 3,4 soit plus petit, et le signe > que le zéro final ajoute de la valeur : ni l'un ni l'autre, un zéro placé tout à droite après la virgule ne change jamais le nombre."
+                                    "explanation": "3,4 et 3,40 désignent la même quantité : un zéro placé tout à droite après la virgule ne change pas le nombre. On écrit donc 3,4 = 3,40."
                                 }
                             ],
                             "title": "Comparer des décimaux",
@@ -625,11 +620,11 @@
                                     "question": "Un élève écrit que 1/5 = 0,15. Quelle est son erreur ?",
                                     "choices": [
                                         "Il a collé les deux chiffres au lieu de calculer 1 ÷ 5, qui donne 0,2",
-                                        "Il a simplement oublié une décimale au passage : 1/5 s'écrit 0,155",
-                                        "Il a inversé les deux termes de la fraction : 1/5 s'écrit 0,51"
+                                        "Il a calculé 5 ÷ 1 au lieu de 1 ÷ 5 : la fraction vaut alors 5",
+                                        "Il a pris le 5 pour des dixièmes : il pense que 1/5 vaut 0,5"
                                     ],
                                     "answer": "Il a collé les deux chiffres au lieu de calculer 1 ÷ 5, qui donne 0,2",
-                                    "explanation": "Une fraction est une division : 1/5 se calcule 1 ÷ 5 = 0,2, et non en accolant le 1 et le 5. Écrire 0,155 est faux : ajouter des décimales n'a aucun rapport avec le calcul de la division. Et 0,51 est faux aussi : intervertir les chiffres ne correspond à aucune règle, une fraction ne se lit pas à l'envers."
+                                    "explanation": "Une fraction est une division : 1/5 = 1 ÷ 5 = 0,2. Accoler le 1 et le 5 ne donne pas la valeur, et 0,5 est celle de 1/2."
                                 },
                                 {
                                     "type": "check",
@@ -790,7 +785,7 @@
                                         "96 − 4, ce qui donne 92"
                                     ],
                                     "answer": "96 ÷ 4, ce qui donne 24",
-                                    "explanation": "On partage 96 livres en 4 parts égales : c'est une division, 96 ÷ 4 = 24 livres par carton. Multiplier donnerait 384, soit bien plus que le stock de départ : impossible en partageant. Soustraire donnerait 92, ce qui reviendrait à retirer 4 livres, alors qu'on ne retire rien : on répartit."
+                                    "explanation": "On partage 96 livres en 4 parts égales : 96 ÷ 4 = 24 par carton. Multiplier (384) ou soustraire (92) ne partage rien."
                                 },
                                 {
                                     "type": "check",
@@ -798,10 +793,63 @@
                                     "choices": [
                                         "En calculant 8 × 9 : si on retrouve 72, le résultat est bon",
                                         "En calculant 72 − 8 : si on retrouve 9, le résultat est bon",
-                                        "En calculant 72 + 8 : si le total est un multiple de 9, le résultat est bon"
+                                        "En calculant 8 + 9 : si on retrouve 72, le résultat est bon"
                                     ],
                                     "answer": "En calculant 8 × 9 : si on retrouve 72, le résultat est bon",
-                                    "explanation": "Diviser et multiplier sont deux opérations inverses : si 72 ÷ 8 = 9, alors 8 × 9 doit redonner 72, ce qui est le cas. La soustraction ne convient pas : 72 − 8 = 64, et non 9 ; retirer une fois le diviseur n'annule pas une division. L'addition non plus : 72 + 8 = 80, et le fait qu'un total tombe ou non sur un multiple ne prouve rien sur le quotient."
+                                    "explanation": "Diviser et multiplier sont deux opérations inverses : si 72 ÷ 8 = 9, alors 8 × 9 redonne 72. Soustraire ou additionner le diviseur ne vérifie rien."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-division-deux-chiffres",
+                            "title": "Diviser par un nombre à deux chiffres",
+                            "subtitle": "Chercher combien de fois le diviseur tient",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour diviser par un nombre à deux chiffres, on cherche à chaque étape combien de fois le diviseur tient dans les premiers chiffres du dividende. La table du diviseur aide à trouver."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple : 345 ÷ 15",
+                                    "content": "Dans 34, il y a 2 fois 15 (15 × 2 = 30), reste 4. On abaisse le 5 : 45. Dans 45, il y a 3 fois 15 (15 × 3 = 45), reste 0. Le quotient est 23."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Méthode",
+                                    "items": [
+                                        "je prends les premiers chiffres du dividende jusqu'à contenir le diviseur",
+                                        "je cherche le plus grand multiple du diviseur qui ne dépasse pas ce nombre",
+                                        "je soustrais, j'abaisse le chiffre suivant et je recommence"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "À chaque étape, le reste doit rester plus petit que le diviseur ; sinon, le chiffre placé au quotient est trop petit."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour 468 ÷ 12, par quels chiffres du dividende commence-t-on ?",
+                                    "choices": [
+                                        "Par 46, car 4 est trop petit pour contenir 12",
+                                        "Par 4, car on commence toujours par le premier chiffre",
+                                        "Par 468, car on prend tout le dividende d'un coup"
+                                    ],
+                                    "answer": "Par 46, car 4 est trop petit pour contenir 12",
+                                    "explanation": "Le diviseur 12 ne tient pas dans 4 : on prend les deux premiers chiffres, 46. Dans 46, il y a 3 fois 12 (36), reste 10."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans 272 ÷ 16, on a placé 1 au quotient (16 × 1 = 16), il reste 11 et on abaisse le 2 : on obtient 112. Quel chiffre place-t-on ensuite au quotient ?",
+                                    "choices": [
+                                        "7, car 16 × 7 = 112 tombe pile",
+                                        "6, car 16 × 6 = 96 est plus bas que 112",
+                                        "8, car 16 × 8 = 128 est plus proche de 112"
+                                    ],
+                                    "answer": "7, car 16 × 7 = 112 tombe pile",
+                                    "explanation": "Il faut le plus grand multiple de 16 qui ne dépasse pas 112 : 16 × 7 = 112, reste 0. Le quotient est 17. 16 × 8 = 128 dépasse 112."
                                 }
                             ]
                         },
@@ -852,7 +900,7 @@
                                         "Le quotient est égal au diviseur, ce qui est interdit"
                                     ],
                                     "answer": "12 dépasse 7 : on pouvait encore placer un 7 de plus au quotient",
-                                    "explanation": "Un reste doit rester inférieur au diviseur : ici 12 > 7, donc un 7 supplémentaire tenait encore, et la vraie réponse est 61 ÷ 7 = 8 reste 5. Le deuxième choix est trompeur : 7 × 7 + 12 = 61 tombe pourtant juste, ce qui montre qu'une vérification par multiplication ne suffit pas si l'on ne contrôle pas aussi le reste. Le troisième est faux : rien n'interdit qu'un quotient égale le diviseur, comme dans 49 ÷ 7 = 7."
+                                    "explanation": "Un reste doit être plus petit que le diviseur : 12 > 7, donc on pouvait encore mettre un 7 au quotient (61 ÷ 7 = 8 reste 5). Un quotient égal au diviseur est permis (49 ÷ 7 = 7)."
                                 },
                                 {
                                     "type": "check",
@@ -863,12 +911,55 @@
                                         "0"
                                     ],
                                     "answer": "6",
-                                    "explanation": "Le reste doit être strictement inférieur au diviseur : avec un diviseur de 6, les restes possibles vont de 0 à 5. Un reste de 6 signifierait qu'on peut encore retirer un groupe de 6. Le reste 5 est donc parfaitement possible, c'est le plus grand admis. Le reste 0 l'est aussi : il signale simplement que la division tombe juste."
+                                    "explanation": "Le reste est strictement plus petit que le diviseur : avec 6, les restes vont de 0 à 5. Un reste de 6 permettrait encore de retirer un groupe de 6."
                                 }
                             ]
                         }
                     ],
                     "exercises": [
+                        {
+                            "id": "cm2_division_simple_expert",
+                            "title": "Division mentale experte",
+                            "subtitle": "Diviser par 11, 12, 15, 20 ou 25",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "division-simple",
+                                "questions": 10,
+                                "divisors": [
+                                    11,
+                                    12,
+                                    15,
+                                    20,
+                                    25
+                                ],
+                                "quotient": [
+                                    6,
+                                    20
+                                ]
+                            }
+                        },
+                        {
+                            "id": "cm2_division_reste_expert",
+                            "title": "Division avec reste",
+                            "subtitle": "Trouver le reste d'une division",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "division-reste",
+                                "questions": 10,
+                                "divisors": [
+                                    6,
+                                    7,
+                                    8,
+                                    9,
+                                    12
+                                ],
+                                "quotient": [
+                                    8,
+                                    30
+                                ],
+                                "ask": "reste"
+                            }
+                        },
                         {
                             "id": "cm2_division_posee",
                             "title": "Division posée",
@@ -890,26 +981,6 @@
                                 "level": 2,
                                 "ask": "reste",
                                 "questions": 6
-                            }
-                        },
-                        {
-                            "id": "cm2_division_simple_expert",
-                            "title": "Division mentale experte",
-                            "subtitle": "Tables inversées et quotient",
-                            "engine": "math-input",
-                            "params": {
-                                "type": "division-simple",
-                                "questions": 10
-                            }
-                        },
-                        {
-                            "id": "cm2_division_reste_expert",
-                            "title": "Division avec reste",
-                            "subtitle": "Identifier quotient et reste",
-                            "engine": "math-input",
-                            "params": {
-                                "type": "division-reste",
-                                "questions": 10
                             }
                         },
                         {
@@ -943,6 +1014,22 @@
                             }
                         },
                         {
+                            "params": {
+                                "questions": 10,
+                                "modes": [
+                                    "h_to_min",
+                                    "hmin_to_min"
+                                ],
+                                "memo": true,
+                                "subtype": "time",
+                                "randomMinutes": true
+                            },
+                            "title": "Heures et minutes (aide)",
+                            "engine": "conversion",
+                            "id": "cm2-heures-minutes-aide",
+                            "subtitle": "Avec aide-mémoire"
+                        },
+                        {
                             "id": "cm2-heures-minutes",
                             "title": "Heures et minutes",
                             "subtitle": "Convertir sans se tromper",
@@ -961,13 +1048,14 @@
                         {
                             "id": "cm2-minutes-secondes",
                             "title": "Minutes et secondes",
-                            "subtitle": "Passer de min à s",
+                            "subtitle": "Minutes, puis minutes et secondes, en secondes",
                             "engine": "conversion",
                             "params": {
                                 "subtype": "time",
-                                "modes": "min_to_sec",
+                                "modes": ["min_to_sec","minsec_to_sec"],
                                 "memo": false,
-                                "questions": 10
+                                "questions": 10,
+                                "randomMinutes": true
                             }
                         },
                         {
@@ -991,27 +1079,16 @@
                             }
                         },
                         {
-                            "params": {
-                                "questions": 10,
-                                "modes": "h_to_min",
-                                "memo": true,
-                                "subtype": "time"
-                            },
-                            "title": "Heures et minutes (aide)",
-                            "engine": "conversion",
-                            "id": "cm2-heures-minutes-aide",
-                            "subtitle": "Avec aide-mémoire"
-                        },
-                        {
                             "id": "cm2-heures-secondes",
-                            "title": "Minutes vers Secondes (2)",
-                            "subtitle": "Conversion rapide sans aide",
+                            "title": "Minutes et secondes vers secondes",
+                            "subtitle": "Conversion rapide sans aide : 3 min 25 s = ? s",
                             "engine": "conversion",
                             "params": {
                                 "subtype": "time",
-                                "modes": "min_to_sec",
+                                "modes": ["minsec_to_sec"],
                                 "memo": false,
-                                "questions": 10
+                                "questions": 10,
+                                "randomMinutes": true
                             }
                         },
                         {
@@ -1061,7 +1138,8 @@
                                     50
                                 ],
                                 "maxMultiple": 10,
-                                "questions": 6
+                                "questions": 6,
+                                "minMultiple": 2
                             }
                         },
                         {
@@ -1092,21 +1170,17 @@
                         },
                         {
                             "id": "cm2-bonus-proportionnalite-expert",
-                            "title": "Défi : proportionnalité experte",
-                            "subtitle": "Pourcentages, échelles et vitesses en rafale",
+                            "title": "Défi : pourcentages experts",
+                            "subtitle": "5 %, 10 %, 20 %, 25 % et 50 % de grands nombres",
                             "engine": "math-input",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "pourcentage",
-                                "values": [
-                                    10,
-                                    20,
-                                    25,
-                                    50
-                                ],
+                                "values": [5,10,20,25,50],
                                 "maxMultiple": 12,
-                                "questions": 8
+                                "questions": 8,
+                                "minMultiple": 3
                             }
                         },
                         {
@@ -1231,7 +1305,7 @@
                                         "Il a mal placé la virgule : il fallait écrire 2,15 min"
                                     ],
                                     "answer": "Il a collé les nombres : il fallait calculer 2 × 60 + 15, soit 135 min",
-                                    "explanation": "Le temps ne se compte pas de dix en dix : 2 h valent 2 × 60 = 120 min, auxquelles on ajoute les 15 min, soit 135 min. Passer par 60 × 60 est faux ici : cela convertirait en secondes, alors que la question demande des minutes. Et 2,15 min est faux aussi : ce serait une durée d'à peine plus de 2 minutes, pas de plus de deux heures."
+                                    "explanation": "2 h valent 2 × 60 = 120 min, plus 15 min : 135 min. Le temps ne se compte pas de dix en dix : 215 mélange simplement les deux nombres."
                                 },
                                 {
                                     "type": "check",
@@ -1242,7 +1316,7 @@
                                         "19 h 5 min"
                                     ],
                                     "answer": "3 h 15 min",
-                                    "explanation": "On cherche combien de fois 60 min tiennent dans 195 : trois fois, soit 180 min, et il reste 15 min, d'où 3 h 15 min. « 1 h 95 min » est incorrect : une durée en minutes doit rester sous 60, sinon il faut encore convertir. « 19 h 5 min » vient d'un découpage des chiffres, mais 195 min font à peine plus de 3 heures, pas 19."
+                                    "explanation": "195 min = 3 × 60 + 15, soit 3 h 15 min. Une durée en minutes reste sous 60 : « 1 h 95 min » n'est pas une écriture achevée."
                                 }
                             ],
                             "title": "Convertir des durées",
@@ -1301,11 +1375,11 @@
                                     "question": "Un élève convertit 2,5 km et écrit 250 m. Quelle est son erreur ?",
                                     "choices": [
                                         "Il a multiplié par 100 au lieu de 1 000 : 2,5 km valent 2 500 m",
-                                        "Il a multiplié alors qu'il fallait diviser : 2,5 km valent 0,0025 m",
-                                        "Il a oublié que le kilomètre est plus petit que le mètre"
+                                        "Il a divisé au lieu de multiplier : 2,5 km valent 0,0025 m",
+                                        "Il a multiplié par 10 000 : 2,5 km valent 25 000 m"
                                     ],
                                     "answer": "Il a multiplié par 100 au lieu de 1 000 : 2,5 km valent 2 500 m",
-                                    "explanation": "Un kilomètre vaut 1 000 m, donc 2,5 × 1 000 = 2 500 m. Diviser serait un contresens : on va d'une grande unité vers une plus petite, donc le nombre doit augmenter, pas devenir minuscule. Et le dernier choix inverse la réalité : le kilomètre est bien plus grand que le mètre, c'est justement pour cela qu'on multiplie."
+                                    "explanation": "1 km = 1 000 m, donc 2,5 km = 2,5 × 1 000 = 2 500 m. De km vers m, on va vers une plus petite unité : le nombre augmente."
                                 },
                                 {
                                     "type": "check",
@@ -1316,7 +1390,7 @@
                                         "150 km"
                                     ],
                                     "answer": "1,5 km",
-                                    "explanation": "Pour passer des mètres aux kilomètres, on divise par 1 000 : 1 500 ÷ 1 000 = 1,5 km, soit un kilomètre et demi, ce qui est plausible pour une piste. 15 km reviendrait à diviser par 100 seulement, et 150 km à diviser par 10 : dans les deux cas, la piste ferait la longueur d'un trajet entre deux villes."
+                                    "explanation": "Des mètres aux kilomètres, on divise par 1 000 : 1 500 ÷ 1 000 = 1,5 km. 15 km et 150 km feraient une piste aussi longue qu'un trajet entre deux villes."
                                 }
                             ]
                         },
@@ -1382,14 +1456,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un pull coûte 80 € et bénéficie d'une remise de 25 %. Un élève annonce un prix final de 25 €. Quelle est son erreur ?",
+                                    "question": "Un pull à 80 € a une remise de 25 %. Un élève annonce 25 € de remise. Quelle est son erreur ?",
                                     "choices": [
                                         "Il a pris le pourcentage pour un prix : la remise vaut 20 €, donc le pull coûte 60 €",
                                         "Il a oublié de multiplier le tout par 100 : la remise vaut alors 2 000 €",
                                         "Il a divisé par 25 au lieu de diviser par 4 : le pull coûte 3,20 €"
                                     ],
                                     "answer": "Il a pris le pourcentage pour un prix : la remise vaut 20 €, donc le pull coûte 60 €",
-                                    "explanation": "25 % est une proportion, pas une somme : 25 % de 80 €, c'est le quart de 80, soit 20 € de remise, et le pull revient à 80 − 20 = 60 €. Multiplier par 100 donnerait 2 000 €, une remise plus grande que le prix : impossible. Diviser par 25 donne 3,20 €, ce qui n'a pas de sens non plus : une remise de 25 % ne peut pas faire perdre presque tout le prix."
+                                    "explanation": "25 % de 80 €, c'est le quart de 80 : 20 € de remise, donc 80 − 20 = 60 €. 25 % est une proportion du prix, pas une somme en euros."
                                 },
                                 {
                                     "type": "check",
@@ -1400,7 +1474,7 @@
                                         "0,7 m"
                                     ],
                                     "answer": "7 m",
-                                    "explanation": "À l'échelle 1/100, chaque centimètre du plan vaut 100 cm en vrai, soit 1 m : 7 cm représentent donc 7 m, une longueur crédible pour un salon. 70 m reviendrait à appliquer un coefficient de 1 000 : ce serait la longueur d'un stade. Et 0,7 m supposerait de réduire au lieu d'agrandir, alors qu'un plan est toujours plus petit que la réalité."
+                                    "explanation": "À l'échelle 1/100, 1 cm du plan vaut 100 cm, soit 1 m : 7 cm représentent 7 m. 70 m serait la longueur d'un stade ; 0,7 m réduirait au lieu d'agrandir."
                                 }
                             ]
                         },
@@ -1452,10 +1526,10 @@
                                     "choices": [
                                         "Il a multiplié par 10 au lieu de 100 : la feuille mesure 600 cm²",
                                         "Il a divisé au lieu de multiplier : la feuille mesure 0,6 cm²",
-                                        "Il a oublié de multiplier par 3 : la feuille mesure 180 cm²"
+                                        "Il a multiplié par 1 000 : la feuille mesure 6 000 cm²"
                                     ],
                                     "answer": "Il a multiplié par 10 au lieu de 100 : la feuille mesure 600 cm²",
-                                    "explanation": "Entre dm² et cm², le facteur est ×100 et non ×10, car chaque dimension du carré est multipliée par 10 : 6 × 100 = 600 cm². Diviser inverserait le sens de la conversion : on passe d'une grande unité à une plus petite, donc le nombre doit augmenter. Et multiplier par 3 ne correspond à aucune règle de conversion d'aire."
+                                    "explanation": "Entre dm² et cm², on multiplie par 100 (chaque côté est multiplié par 10) : 6 × 100 = 600 cm². On va vers une plus petite unité : le nombre augmente."
                                 },
                                 {
                                     "type": "check",
@@ -1466,7 +1540,7 @@
                                         "0,4 cm²"
                                     ],
                                     "answer": "4 cm²",
-                                    "explanation": "Entre mm² et cm², le facteur est ×100 (dans l'autre sens, on divise donc par 100) : 400 ÷ 100 = 4 cm², une taille plausible pour un timbre. 40 cm² viendrait d'une division par 10 seulement, ce qui correspondrait à un palier de longueur, pas d'aire. Et 0,4 cm² inverserait le sens de la conversion, en allant d'une petite unité vers une plus grande sans multiplier."
+                                    "explanation": "De mm² à cm², on divise par 100 : 400 ÷ 100 = 4 cm². Diviser par 10 seulement serait une conversion de longueur, pas d'aire."
                                 }
                             ]
                         }
@@ -1508,14 +1582,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Deux droites tracées sur une feuille ne se coupent pas sur le dessin. Un élève en conclut qu'elles sont parallèles. A-t-il forcément raison ?",
+                                    "question": "Deux droites ne se coupent pas sur la feuille. Un élève en conclut qu'elles sont parallèles. A-t-il forcément raison ?",
                                     "choices": [
                                         "Non : elles peuvent se croiser plus loin, il faut vérifier qu'elles gardent partout le même écart",
                                         "Oui : deux droites qui ne se croisent pas sur la feuille sont parallèles",
                                         "Non : deux droites finissent toujours par se croiser quelque part"
                                     ],
                                     "answer": "Non : elles peuvent se croiser plus loin, il faut vérifier qu'elles gardent partout le même écart",
-                                    "explanation": "Une droite est illimitée : deux droites légèrement inclinées l'une vers l'autre ne se coupent pas sur la feuille mais se couperaient si on les prolongeait. Le test fiable est de mesurer l'écart en deux endroits : s'il est constant, elles sont parallèles. Le deuxième choix confond le dessin et la droite entière. Le troisième est faux : des droites vraiment parallèles ne se croisent jamais, même prolongées à l'infini."
+                                    "explanation": "Une droite est illimitée : deux droites inclinées peuvent se couper plus loin, hors de la feuille. Pour être parallèles, elles gardent partout le même écart."
                                 },
                                 {
                                     "type": "check",
@@ -1526,7 +1600,77 @@
                                         "Elles se coupent en formant un angle droit"
                                     ],
                                     "answer": "Elles sont parallèles entre elles",
-                                    "explanation": "Chacune forme un angle droit avec la même droite : elles ont donc exactement la même direction et gardent partout le même écart, comme les deux bords d'une règle posée en travers d'une ligne. Elles ne sont pas perpendiculaires entre elles, et elles ne se coupent pas du tout : les deux autres réponses décrivent la relation de chacune avec la troisième droite, pas leur relation mutuelle."
+                                    "explanation": "Chacune forme un angle droit avec la même droite : elles ont la même direction et gardent le même écart, comme les deux bords d'une règle. Elles sont parallèles."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-angles-rapporteur",
+                            "title": "Mesurer et classer les angles",
+                            "subtitle": "Aigu, droit, obtus, plat, et le rapporteur",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un angle se mesure en degrés (°) avec un rapporteur. On le nomme en comparant sa mesure à celle de l'angle droit, qui vaut 90°."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "label": "Les quatre sortes d'angles",
+                                    "headers": [
+                                        "Angle",
+                                        "Sa mesure"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "aigu",
+                                            "moins de 90°"
+                                        ],
+                                        [
+                                            "droit",
+                                            "exactement 90°"
+                                        ],
+                                        [
+                                            "obtus",
+                                            "entre 90° et 180°"
+                                        ],
+                                        [
+                                            "plat",
+                                            "exactement 180° : c'est une droite"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un angle de 35° est aigu ; un angle de 120° est obtus. À 6 h, les aiguilles de l'horloge forment un angle plat."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Avec le rapporteur, je place le centre sur la pointe de l'angle et le 0 sur l'un des côtés, puis je lis la graduation qui part de ce 0."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un angle mesure 135°. Comment s'appelle-t-il ?",
+                                    "choices": [
+                                        "Obtus, car il est plus grand que 90° et plus petit que 180°",
+                                        "Aigu, car 135° est un nombre assez éloigné de 180° pile",
+                                        "Plat, car il est plus grand que l'angle droit de 90°"
+                                    ],
+                                    "answer": "Obtus, car il est plus grand que 90° et plus petit que 180°",
+                                    "explanation": "135° est supérieur à 90° et inférieur à 180° : l'angle est obtus. Aigu est réservé aux angles de moins de 90°, plat à 180° pile."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Au rapporteur, un élève hésite entre 40° et 140° pour un angle plus petit que l'angle droit. Quelle mesure choisit-il ?",
+                                    "choices": [
+                                        "40°, car un angle plus petit que l'angle droit mesure moins de 90°",
+                                        "140°, car c'est la graduation la plus grande, donc la plus sûre",
+                                        "Les deux : un même angle a toujours deux mesures possibles"
+                                    ],
+                                    "answer": "40°, car un angle plus petit que l'angle droit mesure moins de 90°",
+                                    "explanation": "Un angle plus petit que l'angle droit est aigu : il mesure moins de 90°, donc 40°. Un angle n'a qu'une seule mesure : l'autre graduation sert à lire dans l'autre sens."
                                 }
                             ]
                         },
@@ -1569,7 +1713,7 @@
                                         "12 cm, car il faut doubler le diamètre"
                                     ],
                                     "answer": "3 cm, car le compas s'ouvre de la valeur du rayon",
-                                    "explanation": "La pointe du compas se place au centre et la mine trace à la distance du rayon, soit la moitié du diamètre : 6 ÷ 2 = 3 cm. Ouvrir à 6 cm donnerait un cercle de 12 cm de diamètre, deux fois trop grand. Ouvrir à 12 cm serait pire encore : on doublerait une longueur qu'il fallait justement diviser par deux."
+                                    "explanation": "Le compas s'ouvre du rayon, la moitié du diamètre : 6 ÷ 2 = 3 cm. Ouvert à 6 cm, il tracerait un cercle de 12 cm de diamètre."
                                 },
                                 {
                                     "type": "check",
@@ -1580,7 +1724,7 @@
                                         "Ses 4 côtés ont obligatoirement la même longueur"
                                     ],
                                     "answer": "C'est un quadrilatère, mais ses angles peuvent être quelconques",
-                                    "explanation": "Le nombre de côtés donne la famille : 4 côtés font un quadrilatère, sans rien imposer aux angles ni aux longueurs. Conclure au carré est trop rapide : un carré est un quadrilatère particulier, avec 4 angles droits et 4 côtés égaux, alors qu'un quadrilatère quelconque n'a rien de tout cela. Affirmer que les côtés sont égaux est faux pour la même raison : un rectangle allongé a bien 4 côtés de longueurs différentes."
+                                    "explanation": "4 côtés : c'est un quadrilatère, sans rien imposer aux angles ni aux longueurs. Un carré en est un cas particulier ; un rectangle a des côtés inégaux."
                                 }
                             ]
                         },
@@ -1615,14 +1759,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un élève trace la diagonale d'un rectangle et affirme que c'est un axe de symétrie « puisqu'elle le coupe en deux parts identiques ». Pourquoi se trompe-t-il ?",
+                                    "question": "La diagonale d'un rectangle le coupe en deux parts égales. Pourquoi n'est-ce pas un axe de symétrie ?",
                                     "choices": [
                                         "Les deux moitiés ne se superposent pas par pliage le long de la diagonale",
                                         "Un rectangle ne possède en réalité aucun axe de symétrie",
                                         "Un axe de symétrie doit toujours être tracé verticalement"
                                     ],
                                     "answer": "Les deux moitiés ne se superposent pas par pliage le long de la diagonale",
-                                    "explanation": "Découper en deux parts de même aire ne suffit pas : il faut que le pliage superpose exactement les deux moitiés, or en pliant un rectangle le long de sa diagonale, les triangles dépassent l'un de l'autre. Dire qu'un rectangle n'a aucun axe est faux : il en a deux, passant par les milieux des côtés opposés. Et un axe n'est pas forcément vertical : celui d'un rectangle posé à plat peut être horizontal."
+                                    "explanation": "Un axe de symétrie doit superposer les deux moitiés par pliage : le long de la diagonale, elles ne se recouvrent pas. Un rectangle a deux axes, qui passent par les milieux des côtés opposés."
                                 },
                                 {
                                     "type": "check",
@@ -1633,7 +1777,7 @@
                                         "Sur l'axe, à mi-distance entre A et l'axe"
                                     ],
                                     "answer": "À 3 cm à droite de l'axe, à la même hauteur que A",
-                                    "explanation": "Comme dans un miroir, le symétrique se place de l'autre côté de l'axe, à la même distance et à la même hauteur : 3 cm à gauche deviennent 3 cm à droite. 6 cm confond la distance de A à l'axe avec la distance totale de A à A' : c'est justement 3 + 3 = 6, mais mesurés depuis l'axe il n'y a que 3 cm. Et placer A' sur l'axe est impossible : seul un point déjà situé sur l'axe est son propre symétrique."
+                                    "explanation": "A' est de l'autre côté de l'axe, à la même distance : 3 cm à droite, à la même hauteur. Seul un point de l'axe est son propre symétrique."
                                 }
                             ]
                         },
@@ -1675,18 +1819,71 @@
                                         "Au même endroit que B, car un centre ne déplace pas les points"
                                     ],
                                     "answer": "À 5 cm à gauche de O, à la même hauteur, sur la droite (B, O)",
-                                    "explanation": "Dans une symétrie centrale, B, O et B' sont toujours alignés et O est le milieu de [BB'] : B' est donc de l'autre côté de O, sur la même droite, à la même distance, soit 5 cm à gauche à la même hauteur. Le placer au-dessus de O romprait l'alignement avec B. Et dire que B reste sur place confond avec l'identité : une symétrie centrale déplace bien tous les points, sauf le centre lui-même."
+                                    "explanation": "B, O et B' sont alignés et O est le milieu de [BB'] : B' est à 5 cm à gauche de O, à la même hauteur. La symétrie centrale déplace tous les points sauf le centre."
                                 },
                                 {
                                     "type": "check",
                                     "question": "Comment distinguer une symétrie centrale d'une symétrie axiale en observant une figure et son image ?",
                                     "choices": [
-                                        "Dans la symétrie centrale, l'image semble tournée d'un demi-tour ; dans la symétrique axiale, elle est retournée comme dans un miroir",
-                                        "La symétrie centrale ne s'applique qu'aux cercles et jamais aux triangles, carrés ou autres polygones, contrairement à la symétrie axiale",
-                                        "Les deux transformations produisent toujours exactement la même image finale, seul le nom employé par l'enseignant change selon l'habitude de la classe"
+                                        "Dans la symétrie centrale, l'image est tournée d'un demi-tour ; dans la symétrie axiale, elle est retournée comme dans un miroir",
+                                        "Dans la symétrie centrale, l'image est retournée comme dans un miroir ; dans la symétrie axiale, elle est tournée d'un demi-tour",
+                                        "Il n'y a aucune différence : les deux symétries donnent toujours exactement la même image de la figure"
                                     ],
-                                    "answer": "Dans la symétrie centrale, l'image semble tournée d'un demi-tour ; dans la symétrique axiale, elle est retournée comme dans un miroir",
-                                    "explanation": "La symétrie axiale retourne la figure comme un reflet dans un miroir posé le long d'un axe, alors que la symétrie centrale fait pivoter la figure d'un demi-tour autour d'un point : sur une lettre comme F, l'image axiale et l'image centrale ne se ressemblent pas du tout. Rien n'interdit d'appliquer une symétrie centrale à un carré, un triangle ou toute autre figure, pas seulement au cercle. Et les deux transformations donnent des images différentes : ce ne sont pas deux noms pour la même opération."
+                                    "answer": "Dans la symétrie centrale, l'image est tournée d'un demi-tour ; dans la symétrie axiale, elle est retournée comme dans un miroir",
+                                    "explanation": "La symétrie axiale retourne la figure comme un reflet dans un miroir ; la symétrie centrale la fait pivoter d'un demi-tour autour d'un point. Sur la lettre F, les deux images sont différentes."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-agrandir-reduire",
+                            "title": "Agrandir et réduire une figure",
+                            "subtitle": "Multiplier toutes les longueurs par le même nombre",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Agrandir ou réduire une figure, c'est multiplier toutes ses longueurs par un même nombre : le facteur. La forme ne change pas et les angles gardent leur mesure."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un rectangle de 2 cm sur 3 cm agrandi avec un facteur 4 mesure 8 cm sur 12 cm. Réduit avec un facteur 1/2, il mesurerait 1 cm sur 1,5 cm."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "un facteur plus grand que 1 agrandit la figure",
+                                        "un facteur plus petit que 1, comme 1/2 ou 1/3, la réduit",
+                                        "les angles ne changent pas"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Ajouter le même nombre de centimètres à chaque côté déforme la figure : pour garder la forme, on multiplie."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "On agrandit un triangle de côtés 4 cm, 6 cm et 8 cm avec un facteur 3. Quelles sont les nouvelles longueurs ?",
+                                    "choices": [
+                                        "12 cm, 18 cm et 24 cm",
+                                        "7 cm, 9 cm et 11 cm",
+                                        "12 cm, 6 cm et 8 cm"
+                                    ],
+                                    "answer": "12 cm, 18 cm et 24 cm",
+                                    "explanation": "Chaque côté est multiplié par 3 : 4 × 3 = 12, 6 × 3 = 18 et 8 × 3 = 24. Ajouter 3 (7, 9, 11) déforme le triangle, et ne changer qu'un côté ne l'agrandit pas."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une photo de 12 cm sur 8 cm est réduite : sa largeur de 12 cm devient 6 cm. Que devient sa hauteur de 8 cm ?",
+                                    "choices": [
+                                        "4 cm",
+                                        "2 cm",
+                                        "6 cm"
+                                    ],
+                                    "answer": "4 cm",
+                                    "explanation": "La largeur est divisée par 2 (12 ÷ 2 = 6) : la hauteur l'est aussi, 8 ÷ 2 = 4 cm. 2 cm viendrait d'une soustraction (8 − 6)."
                                 }
                             ]
                         },
@@ -1733,7 +1930,7 @@
                                         "Il a additionné les côtés au lieu de les diviser : l'aire vaut 8 ÷ 3 cm²"
                                     ],
                                     "answer": "Il a calculé le périmètre : l'aire vaut 8 × 3 = 24 cm²",
-                                    "explanation": "22 cm correspond au tour de la figure, 2 × (8 + 3), c'est-à-dire au périmètre. L'aire mesure la surface et se calcule en multipliant : 8 × 3 = 24 cm². Écrire 22 cm² ne corrigerait rien : le nombre lui-même est celui du périmètre, changer l'unité ne le transforme pas en aire. Et diviser les côtés ne correspond à aucune formule d'aire."
+                                    "explanation": "22 cm est le tour de la figure, 2 × (8 + 3) : c'est le périmètre. L'aire est une surface : 8 × 3 = 24 cm². Écrire « cm² » ne change pas le nombre."
                                 },
                                 {
                                     "type": "check",
@@ -1744,7 +1941,7 @@
                                         "30 cm²"
                                     ],
                                     "answer": "30 cm³",
-                                    "explanation": "Le volume d'un pavé droit se calcule en multipliant les trois dimensions : 5 × 2 × 3 = 30 cm³. 10 cm³ ne prend en compte que la longueur et la largeur (5 × 2) : c'est oublier la hauteur, donc calculer une aire et non un volume. Et 30 cm² a le bon nombre mais la mauvaise unité : un espace occupé se mesure en unités cubes, pas en unités carrées."
+                                    "explanation": "Le volume d'un pavé droit : 5 × 2 × 3 = 30 cm³. 10 cm³ oublie la hauteur ; 30 cm² a la mauvaise unité : un volume se mesure en unités cubes."
                                 }
                             ]
                         }
@@ -1874,7 +2071,7 @@
                             "subtitle": "Relie chaque figure ou angle à sa définition",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_math_cm2",
+                                "category": "matching_math_cm2_figures",
                                 "dataFile": "data/math_matching.json",
                                 "questions": 3
                             }
@@ -1997,13 +2194,13 @@
                         },
                         {
                             "id": "cm2-graphique-camembert",
-                            "title": "Lire un diagramme circulaire",
-                            "subtitle": "Interpréter des pourcentages",
+                            "title": "Calculer avec un diagramme circulaire",
+                            "subtitle": "Des pourcentages de la légende aux effectifs",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/math_word_problems_cycle3.json",
-                                "category": "cm2-problemes-pourcentages",
+                                "category": "cm2-camembert",
                                 "questions": 5
                             }
                         },
@@ -2089,25 +2286,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur un diagramme, la barre « lundi » atteint 45 entrées et la barre « mardi » 28. Que calcule-t-on pour savoir combien lundi a fait d'entrées de plus que mardi ?",
+                                    "question": "Lundi : 45 entrées, mardi : 28. Quel calcul donne combien d'entrées de plus lundi a faites ?",
                                     "choices": [
                                         "45 − 28, ce qui donne 17 entrées de plus",
                                         "45 + 28, ce qui donne 73 entrées de plus",
                                         "45 ÷ 28, ce qui donne environ 1,6 entrée de plus"
                                     ],
                                     "answer": "45 − 28, ce qui donne 17 entrées de plus",
-                                    "explanation": "Un écart entre deux barres se lit avec une soustraction : 45 − 28 = 17 entrées. L'addition donne 73, soit le total des deux jours et non leur différence. La division donne environ 1,6, qui indique combien de fois lundi dépasse mardi, pas de combien d'entrées : ce n'est pas ce qui est demandé."
+                                    "explanation": "Un écart entre deux barres se calcule par une soustraction : 45 − 28 = 17. L'addition (73) donne le total des deux jours, la division un rapport."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur un diagramme, la barre A est deux fois plus haute que la barre B. Un élève en conclut que A vaut le double de B. Que faut-il vérifier avant de l'affirmer ?",
+                                    "question": "La barre A est deux fois plus haute que la barre B. Que vérifier avant de dire que A vaut le double de B ?",
                                     "choices": [
                                         "Que l'axe des quantités commence bien à zéro",
                                         "Que les deux barres ont la même largeur",
                                         "Que les barres sont placées côte à côte"
                                     ],
                                     "answer": "Que l'axe des quantités commence bien à zéro",
-                                    "explanation": "Si l'axe démarre à 20 par exemple, une barre deux fois plus haute qu'une autre ne vaut pas du tout le double : les hauteurs ne sont comparables que mesurées depuis zéro. La largeur des barres ne porte aucune information dans un diagramme en barres : seule la hauteur compte. Leur position côte à côte ou éloignée ne change rien non plus à la valeur qu'elles représentent."
+                                    "explanation": "Si l'axe démarre à 20, une barre deux fois plus haute ne vaut pas le double : il faut que l'axe commence à zéro. La largeur ou la place des barres n'informe sur rien."
                                 }
                             ]
                         },
@@ -2142,14 +2339,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un diagramme circulaire représente les 200 élèves d'une école. La part « demi-pensionnaires » occupe un quart du disque. Combien d'élèves cela représente-t-il ?",
+                                    "question": "Un diagramme circulaire représente 200 élèves. La part « demi-pensionnaires » occupe un quart du disque. Combien d'élèves ?",
                                     "choices": [
                                         "50 élèves",
                                         "25 élèves",
                                         "100 élèves"
                                     ],
                                     "answer": "50 élèves",
-                                    "explanation": "Le disque entier vaut les 200 élèves ; un quart du disque en représente donc le quart, soit 200 ÷ 4 = 50 élèves. Répondre 25 revient à confondre le pourcentage avec un nombre d'élèves : 25 % est une proportion, pas un effectif. Et 100 élèves correspondrait à la moitié du disque, soit une part deux fois plus grande que celle décrite."
+                                    "explanation": "Un quart de 200 élèves : 200 ÷ 4 = 50. 25 confond le pourcentage avec un effectif, et 100 correspondrait à la moitié du disque."
                                 },
                                 {
                                     "type": "check",
@@ -2160,7 +2357,7 @@
                                         "Dans la toute première case en haut de la colonne « Janvier »"
                                     ],
                                     "answer": "Dans la case où la ligne « CM1 » et la colonne « Janvier » se croisent",
-                                    "explanation": "Un tableau à double entrée croise deux informations : il faut donc les deux repères à la fois, la classe et le mois. La case de total de la ligne « CM1 » donnerait les emprunts de l'année entière, tous mois confondus. La première case de la colonne « Janvier » concerne bien janvier, mais celle d'une autre classe : sans croiser les deux entrées, on lit la mauvaise donnée."
+                                    "explanation": "Un tableau à double entrée croise deux repères : il faut la ligne « CM1 » et la colonne « Janvier ». La case de total de la ligne donnerait toute l'année, tous mois confondus."
                                 }
                             ]
                         },
@@ -2195,25 +2392,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un élève calcule la moyenne de 14, 8, 11 et 7 et annonce 13,3. Comment repérer immédiatement que c'est faux ?",
+                                    "question": "Un élève calcule la moyenne de 14, 8, 11 et 7 et annonce 13,3. Quelle est son erreur ?",
                                     "choices": [
                                         "Il a divisé par 3 au lieu de 4 : la moyenne vaut 40 ÷ 4 = 10",
                                         "Il a oublié une valeur dans la somme : la moyenne vaut 40 ÷ 3",
                                         "Il a additionné sans ordonner les valeurs de la série"
                                     ],
                                     "answer": "Il a divisé par 3 au lieu de 4 : la moyenne vaut 40 ÷ 4 = 10",
-                                    "explanation": "La somme vaut 14 + 8 + 11 + 7 = 40, et la série compte 4 valeurs : 40 ÷ 4 = 10. Le 13,3 annoncé vient de 40 ÷ 3, soit un oubli dans le comptage des valeurs. Le deuxième choix décrit l'inverse de l'erreur : la somme de 40 est correcte, c'est le diviseur qui est faux. Et l'ordre des valeurs n'a aucune importance : une addition donne le même total dans n'importe quel ordre."
+                                    "explanation": "La somme vaut 14 + 8 + 11 + 7 = 40 et la série compte 4 valeurs : 40 ÷ 4 = 10. Le 13,3 vient de 40 ÷ 3 : le diviseur est faux."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Une série contient les valeurs 6, 9 et 12. Quelle réponse est impossible pour sa moyenne, avant même tout calcul ?",
+                                    "question": "Une élève annonce que la moyenne de 6, 9 et 12 est 14. Comment voit-on tout de suite qu'elle se trompe ?",
                                     "choices": [
-                                        "14",
-                                        "9",
-                                        "8"
+                                        "14 dépasse la plus grande valeur de la série, 12",
+                                        "14 est plus petit que la somme des valeurs, 27",
+                                        "14 n'est pas une des valeurs de la série"
                                     ],
-                                    "answer": "14",
-                                    "explanation": "Une moyenne se situe toujours entre la plus petite et la plus grande valeur de la série, ici entre 6 et 12 : 14 sort de cet intervalle, c'est donc forcément une erreur. 9 est possible, et c'est même le résultat exact : 27 ÷ 3 = 9. 8 est plausible aussi puisqu'il tombe entre 6 et 12 : seul le calcul permet de l'écarter, alors que 14 s'élimine d'un coup d'œil."
+                                    "answer": "14 dépasse la plus grande valeur de la série, 12",
+                                    "explanation": "Une moyenne est toujours comprise entre la plus petite et la plus grande valeur : ici entre 6 et 12. 14 dépasse 12, c'est donc impossible."
                                 }
                             ]
                         }
@@ -2301,7 +2498,7 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Programme A : « avance de 3, tourne à droite ». Programme B : « tourne à droite, avance de 3 ». Le robot finit-il au même endroit ?",
+                                    "question": "A : « avance de 3, tourne à droite ». B : « tourne à droite, avance de 3 ». Le robot finit-il au même endroit ?",
                                     "choices": [
                                         "Non, car les instructions ne sont pas exécutées dans le même ordre",
                                         "Oui, car les deux programmes contiennent exactement les mêmes instructions",

@@ -419,11 +419,13 @@ const UIVisuals = {
         };
 
         // En mode "Reste", le dernier reste ne doit pas apparaître en clair
-        // dans le calcul : c'est justement la valeur demandée. Le quotient,
-        // lui, n'apparaît déjà jamais dans la grille (il n'est affiché que
-        // dans le panneau latéral) — on applique la même règle au reste.
+        // dans le calcul : c'est justement la valeur demandée.
+        // En mode "Quotient", la grille ne montre que le dividende : chaque produit
+        // soustrait (diviseur × chiffre du quotient) laissait lire le quotient en
+        // divisant ces produits par le diviseur (« 1 958 : 15 » affichait 15, 45, 0 → 130).
         let workRows = buildRow('', divStr, 0);
-        steps.forEach((step, stepIndex) => {
+        const visibleSteps = d.askRemainder ? steps : [];
+        visibleSteps.forEach((step, stepIndex) => {
             const subStr = step.sub.toString();
             const subStart = step.endIndex - subStr.length + 1;
             const fullRemStr = `${step.rem}${step.nextDigit || ''}`;

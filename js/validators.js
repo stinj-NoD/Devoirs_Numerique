@@ -489,8 +489,8 @@
             }
             if (exercise.params.level !== undefined) {
                 const lvl = Number(exercise.params.level);
-                if (!Number.isFinite(lvl) || lvl < 1 || lvl > 3) {
-                    return { valid: false, reason: 'level invalide pour operation-posed (1-3 attendu).' };
+                if (!Number.isFinite(lvl) || lvl < 1 || lvl > 5) {
+                    return { valid: false, reason: 'level invalide pour operation-posed (1-5 attendu).' };
                 }
             }
             if (exercise.params.maxResult !== undefined) {
@@ -504,6 +504,34 @@
                 if (!Number.isFinite(dec) || dec < 0 || dec > 2) {
                     return { valid: false, reason: 'decimals invalide pour operation-posed (0-2 attendu).' };
                 }
+            }
+        }
+        if (exercise.params.type === 'division-simple' || exercise.params.type === 'division-reste') {
+            // divisors : liste d'entiers 2-99 ; quotient : [min, max] entiers croissants ; ask (division-reste) : quotient | reste.
+            const dv = exercise.params.divisors;
+            if (dv !== undefined && (!Array.isArray(dv) || !dv.length || !dv.every((v) => Number.isInteger(v) && v >= 2 && v <= 99))) {
+                return { valid: false, reason: `divisors invalide pour ${exercise.params.type} (entiers 2-99 attendus).` };
+            }
+            const qt = exercise.params.quotient;
+            if (qt !== undefined && (!Array.isArray(qt) || qt.length !== 2 || !qt.every((v) => Number.isInteger(v) && v >= 1) || qt[0] > qt[1])) {
+                return { valid: false, reason: `quotient invalide pour ${exercise.params.type} ([min, max] attendu).` };
+            }
+            if (exercise.params.ask !== undefined && (exercise.params.type !== 'division-reste' || !['quotient', 'reste'].includes(exercise.params.ask))) {
+                return { valid: false, reason: 'ask invalide pour division-reste (quotient ou reste attendu).' };
+            }
+        }
+        if (exercise.params.type === 'pourcentage' && exercise.params.minMultiple !== undefined) {
+            const mm = Number(exercise.params.minMultiple);
+            if (!Number.isInteger(mm) || mm < 1 || mm > 50) {
+                return { valid: false, reason: 'minMultiple invalide pour pourcentage (entier 1-50 attendu).' };
+            }
+        }
+        if (exercise.params.type === 'compare-decimals') {
+            if (exercise.params.wholeParts !== undefined && !['same', 'mix'].includes(exercise.params.wholeParts)) {
+                return { valid: false, reason: 'wholeParts invalide pour compare-decimals (same ou mix attendu).' };
+            }
+            if (exercise.params.distinctWriting !== undefined && typeof exercise.params.distinctWriting !== 'boolean') {
+                return { valid: false, reason: 'distinctWriting invalide pour compare-decimals (booléen attendu).' };
             }
         }
         if (exercise.params.type === 'calc-mental') {

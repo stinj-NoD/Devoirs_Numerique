@@ -210,7 +210,7 @@ function Validate-Exercise($path, $themeId, $exercise) {
         if ($null -ne $exercise.params.level) {
             $opPosedLevelVal = 0
             $opPosedLevelOk = [int]::TryParse([string]$exercise.params.level, [ref]$opPosedLevelVal)
-            if (-not $opPosedLevelOk -or $opPosedLevelVal -lt 1 -or $opPosedLevelVal -gt 3) {
+            if (-not $opPosedLevelOk -or $opPosedLevelVal -lt 1 -or $opPosedLevelVal -gt 5) {
                 Add-Issue("${path}: level invalide pour $($exercise.id)")
             }
         }
@@ -227,6 +227,47 @@ function Validate-Exercise($path, $themeId, $exercise) {
             if (-not $opPosedDecimalsOk -or $opPosedDecimalsVal -lt 0 -or $opPosedDecimalsVal -gt 2) {
                 Add-Issue("${path}: decimals invalide pour $($exercise.id)")
             }
+        }
+    }
+    if ($exercise.params.type -eq 'division-simple' -or $exercise.params.type -eq 'division-reste') {
+        # divisors : liste d'entiers 2-99 ; quotient : [min, max] entiers croissants ; ask (division-reste) : quotient | reste.
+        if ($null -ne $exercise.params.divisors) {
+            $divsOk = ($exercise.params.divisors -is [System.Collections.IList]) -and $exercise.params.divisors.Count -ge 1
+            if ($divsOk) {
+                foreach ($rawDiv in $exercise.params.divisors) {
+                    $divVal = 0
+                    if (-not [int]::TryParse([string]$rawDiv, [ref]$divVal) -or $divVal -lt 2 -or $divVal -gt 99) { $divsOk = $false; break }
+                }
+            }
+            if (-not $divsOk) { Add-Issue("${path}: divisors invalide pour $($exercise.id)") }
+        }
+        if ($null -ne $exercise.params.quotient) {
+            $qtOk = ($exercise.params.quotient -is [System.Collections.IList]) -and $exercise.params.quotient.Count -eq 2
+            if ($qtOk) {
+                $q0 = 0; $q1 = 0
+                $qtOk = [int]::TryParse([string]$exercise.params.quotient[0], [ref]$q0) -and [int]::TryParse([string]$exercise.params.quotient[1], [ref]$q1) `
+                    -and $q0 -ge 1 -and $q1 -ge $q0
+            }
+            if (-not $qtOk) { Add-Issue("${path}: quotient invalide pour $($exercise.id)") }
+        }
+        if ($null -ne $exercise.params.ask) {
+            if ($exercise.params.type -ne 'division-reste' -or $exercise.params.ask -notin @('quotient', 'reste')) {
+                Add-Issue("${path}: ask invalide pour $($exercise.id)")
+            }
+        }
+    }
+    if ($exercise.params.type -eq 'pourcentage' -and $null -ne $exercise.params.minMultiple) {
+        $minMultVal = 0
+        if (-not [int]::TryParse([string]$exercise.params.minMultiple, [ref]$minMultVal) -or $minMultVal -lt 1 -or $minMultVal -gt 50) {
+            Add-Issue("${path}: minMultiple invalide pour $($exercise.id)")
+        }
+    }
+    if ($exercise.params.type -eq 'compare-decimals') {
+        if ($null -ne $exercise.params.wholeParts -and $exercise.params.wholeParts -notin @('same', 'mix')) {
+            Add-Issue("${path}: wholeParts invalide pour $($exercise.id)")
+        }
+        if ($null -ne $exercise.params.distinctWriting -and $exercise.params.distinctWriting -isnot [bool]) {
+            Add-Issue("${path}: distinctWriting invalide pour $($exercise.id)")
         }
     }
     if ($exercise.params.type -eq 'calc-mental') {

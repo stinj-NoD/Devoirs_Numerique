@@ -3651,6 +3651,25 @@ button,
     color: var(--color-text);
 }
 
+/* Thème sombre : le texte devient clair (--color-text) mais les fonds restaient clairs, soit un
+   contraste d'environ 1,1:1 sur les en-têtes de lignes et de colonnes que l'on doit justement lire. */
+#app.theme-dark .data-table-grid th,
+#app.theme-dark .data-table-grid td {
+    border-color: rgba(148, 163, 184, 0.4);
+}
+
+#app.theme-dark .data-table-grid thead th {
+    background: #2a3a4f;
+}
+
+#app.theme-dark .data-table-grid tbody th {
+    background: #223043;
+}
+
+#app.theme-dark .data-table-grid td {
+    color: var(--color-text);
+}
+
 .visual-card--piechart {
     display: flex;
     flex-direction: column;

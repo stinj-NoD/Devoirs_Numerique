@@ -117,16 +117,22 @@
                 const base = rnd(p.min || 5, p.max || 50);
                 return { question: `Double de ${base} ?`, answer: base * 2, explanation: `Le double de ${base} est ${base * 2}, car ${base} + ${base} = ${base * 2}.` };
             }
-            case 'division-simple':
-                b = rnd(2, 9);
-                total = rnd(2, 10);
+            case 'division-simple': {
+                // `divisors` (liste) et `quotient` ([min, max]) : défaut historique = diviseur 2-9, quotient 2-10.
+                b = Array.isArray(p.divisors) && p.divisors.length ? pick(p.divisors) : rnd(2, 9);
+                total = Array.isArray(p.quotient) ? rnd(p.quotient[0], p.quotient[1]) : rnd(2, 10);
                 a = b * total;
                 return { question: `${a} : ${b} = ?`, answer: total, explanation: `${a} : ${b} = ${total}, car ${b} × ${total} = ${a}.` };
+            }
             case 'division-reste': {
-                const diviseur = rnd(3, 9);
-                const quotient = rnd(2, 9);
+                // `divisors`, `quotient` : mêmes bornes optionnelles ; `ask: 'reste'` demande le reste (défaut : le quotient).
+                const diviseur = Array.isArray(p.divisors) && p.divisors.length ? pick(p.divisors) : rnd(3, 9);
+                const quotient = Array.isArray(p.quotient) ? rnd(p.quotient[0], p.quotient[1]) : rnd(2, 9);
                 const reste = rnd(1, diviseur - 1);
                 const dividende = (diviseur * quotient) + reste;
+                if (p.ask === 'reste') {
+                    return { question: `<span class="small-question">Quel est le reste de la division de <b>${dividende}</b> par <b>${diviseur}</b> ?</span>`, answer: reste, explanation: `${diviseur} × ${quotient} = ${dividende - reste} et ${dividende} - ${dividende - reste} = ${reste} : le reste est ${reste}, plus petit que ${diviseur}.` };
+                }
                 return { question: `<span class="small-question">Dans <b>${dividende}</b>,<br>combien de fois <b>${diviseur}</b> ?</span>`, answer: quotient, explanation: `${diviseur} × ${quotient} = ${dividende - reste}, et il reste ${reste} (${dividende} - ${dividende - reste} = ${reste}).` };
             }
             case 'proportionnalite': {
@@ -161,7 +167,9 @@
                 const pct = pick(pourcentages);
                 const steps = [4, 5, 10, 20];
                 const step = steps.find(s => (100 / pct) % 1 === 0 && s % (100 / pct) === 0) || (100 / pct);
-                const base = rnd(1, p.maxMultiple || 10) * step;
+                // `minMultiple` écarte les bases triviales (« 20 % de 10 ») : la base vaut multiple × pas.
+                const minMult = Math.min(Math.max(1, Number(p.minMultiple) || 1), p.maxMultiple || 10);
+                const base = rnd(minMult, p.maxMultiple || 10) * step;
                 const result = (base * pct) / 100;
                 return { question: `<span class="small-question">${pct} % de ${base} = ?</span>`, answer: result, inputType: 'numeric', explanation: `${pct} % de ${base} = (${base} × ${pct}) ÷ 100 = ${result}.` };
             }
@@ -227,8 +235,11 @@
                 const decimals = [0, 1, 2].includes(p.decimals) ? p.decimals : 0;
                 let opA, opB;
                 if (operator === 'add') {
+                    // niveaux 4 et 5 : nombres de 5 et de 6 chiffres (défis du CM2)
                     if (level === 1) { opA = rnd(10, 99); opB = rnd(10, 99); }
                     else if (level === 2) { opA = rnd(100, 999); opB = rnd(100, 999); }
+                    else if (level === 4) { opA = rnd(10000, 99999); opB = rnd(10000, 99999); }
+                    else if (level === 5) { opA = rnd(100000, 999999); opB = rnd(100000, 999999); }
                     else { opA = rnd(1000, 9999); opB = rnd(1000, 9999); }
                     // `maxResult` (optionnel) plafonne la SOMME : « Addition posée
                     // jusqu'à 1000 » tirait deux nombres de 100 à 999, donc la
@@ -237,8 +248,8 @@
                     // seulement le second. Sans ce paramètre, rien ne change au
                     // bit près (CE2 et CM1 utilisent ce même niveau 2). Ignoré s'il
                     // est trop petit pour laisser un choix au niveau demandé.
-                    const minOp = [10, 100, 1000][level - 1] || 1000;
-                    const maxOp = [99, 999, 9999][level - 1] || 9999;
+                    const minOp = [10, 100, 1000, 10000, 100000][level - 1] || 1000;
+                    const maxOp = [99, 999, 9999, 99999, 999999][level - 1] || 9999;
                     const maxResult = Number(p.maxResult);
                     if (Number.isInteger(maxResult) && maxResult >= 2 * minOp) {
                         opA = rnd(minOp, Math.min(maxOp, maxResult - minOp));
@@ -247,6 +258,8 @@
                 } else if (operator === 'sub') {
                     if (level === 1) { opA = rnd(20, 99); opB = rnd(10, opA - 1); }
                     else if (level === 2) { opA = rnd(200, 999); opB = rnd(100, opA - 1); }
+                    else if (level === 4) { opA = rnd(20000, 99999); opB = rnd(10000, opA - 1); }
+                    else if (level === 5) { opA = rnd(200000, 999999); opB = rnd(100000, opA - 1); }
                     else { opA = rnd(2000, 9999); opB = rnd(1000, opA - 1); }
                 } else {
                     if (level === 1) { opA = rnd(11, 99); opB = rnd(2, 9); }
@@ -493,8 +506,13 @@
                 const minSlice = slices.reduce((best, s) => (s.pct < best.pct ? s : best), slices[0]);
                 const halfSlice = slices.find((s) => s.pct === 50);
 
-                const questionKinds = p.questionKinds || (halfSlice ? ['max', 'min', 'half'] : ['max', 'min']);
-                const kind = pick(questionKinds);
+                // « la plus petite (grande) part » n'est demandée que si elle est unique : deux parts à 25 %
+                // donnaient deux réponses justes dont une seule était acceptée.
+                const maxUnique = slices.filter((s) => s.pct === maxSlice.pct).length === 1;
+                const minUnique = slices.filter((s) => s.pct === minSlice.pct).length === 1;
+                const kindsPossibles = [maxUnique ? 'max' : null, minUnique ? 'min' : null, halfSlice ? 'half' : null].filter(Boolean);
+                const questionKinds = (p.questionKinds || kindsPossibles).filter((k) => kindsPossibles.includes(k));
+                const kind = pick(questionKinds.length ? questionKinds : (kindsPossibles.length ? kindsPossibles : ['max']));
 
                 let question, answer, explanation;
                 if (kind === 'max') {
@@ -874,10 +892,23 @@
             // ENTIER affichait « 76 ... 760 » avec la réponse « = ».
             const base = rnd(0, 100);
             n1 = (base * 10 + rnd(0, 9)) / 10;
-            n2 = (Math.random() < 0.3) ? n1 : (base * 100 + rnd(0, 99)) / 100;
+            // `wholeParts: 'mix'` : la partie entière du second nombre diffère souvent de celle du premier
+            // (la règle « je compare d'abord la partie entière » sert enfin). Défaut : même partie entière.
+            const mix = p.wholeParts === 'mix';
+            const egal = Math.random() < (mix ? 0.15 : 0.3);
+            if (egal) {
+                n2 = n1;
+            } else if (mix && Math.random() < 0.6) {
+                const autre = Math.max(0, base + (Math.random() < 0.5 ? -1 : 1) * rnd(1, 3));
+                n2 = ((autre === base ? base + 1 : autre) * 100 + rnd(0, 99)) / 100;
+            } else {
+                n2 = (base * 100 + rnd(0, 99)) / 100;
+            }
             d1 = n1.toString().replace('.', ',');
             // même nombre écrit avec un zéro de plus (« 7,5 » et « 7,50 », « 76 » et « 76,0 »)
-            d2 = (n1 === n2 && Math.random() > 0.5) ? (d1.includes(',') ? d1 + "0" : d1 + ",0") : n2.toString().replace('.', ',');
+            // `distinctWriting` : deux nombres égaux ne s'écrivent jamais de la même façon.
+            const memeEcriture = n1 === n2 && (p.distinctWriting === true || Math.random() > 0.5);
+            d2 = memeEcriture ? (d1.includes(',') ? d1 + "0" : d1 + ",0") : n2.toString().replace('.', ',');
         } else {
             const max = p.range || 100;
             n1 = rnd(0, max);
