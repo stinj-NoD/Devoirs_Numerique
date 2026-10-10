@@ -10,7 +10,7 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 
 ## Vue d'ensemble
 
-- **1113 exercices** et **473 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1114 exercices** et **475 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
@@ -19,7 +19,7 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 | `math-input` | 193 |
 | `reading` | 58 |
 | `board-interactive` | 56 |
-| `matching` | 49 |
+| `matching` | 50 |
 | `conjugation` | 47 |
 | `audio-spelling` | 46 |
 | `conversion` | 29 |
@@ -2362,74 +2362,78 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Classer les êtres vivants `(cm2-sciences-vivant-classification)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-vivant-classification, questions=8
   - La reproduction des êtres vivants `(cm2-sciences-vivant-reproduction)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-vivant-reproduction, questions=6
   - Chaînes alimentaires `(cm2-sciences-vivant-chaines)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-vivant-chaines-alimentaires, questions=7
-  - Le vivant : groupes et rôles `(cm2-sciences-vivant-appariement)` — engine: `matching`, category=matching_sciences_cm2, dataFile=data/science_matching.json, questions=2
-  - Défi : le vivant `(cm2-bonus-sciences-vivant-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-vivant-classification, questions=10, bonus (seuil=2)
+  - Le vivant : groupes et rôles `(cm2-sciences-vivant-appariement)` — engine: `matching`, category=matching_sciences_cm2_vivant, dataFile=data/science_matching.json, questions=2
+  - Défi : le vivant `(cm2-bonus-sciences-vivant-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-vivant-defi, questions=8, bonus (seuil=2)
 
 #### Corps et santé `(cm2-sciences-corps-subtheme)`
 
 - **Leçons** (2) :
   - Préserver sa santé `(cm2-lesson-corps-sante)` — blocs: paragraph, bullets, tip, check, check
   - Les cinq sens `(cm2-lesson-cinq-sens)` — blocs: paragraph, mini-table, example, tip, check, check
-- **Exercices** (4) :
+- **Exercices** (6) :
   - Corps et santé `(cm2-sciences-corps)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-corps-sante, questions=8
-  - Préserver sa santé `(cm2-sciences-preserver-sante)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/science_cm2.json, category=cm2-corps-sante
-  - Hygiène et prévention `(cm2-sciences-corps-prevention)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-prevention-dechets, questions=6
-  - Défi : corps et santé `(cm2-bonus-sciences-corps-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-corps-sante, questions=10, bonus (seuil=2)
+  - Préserver sa santé `(cm2-sciences-preserver-sante)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cm2.json, category=cm2-corps-hygiene
+  - Hygiène et prévention `(cm2-sciences-corps-prevention)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-corps-prevention, questions=6
+  - Voir, entendre, se protéger `(cm2-sciences-effort-lumiere-son)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-sens-protection, questions=6
+  - Le corps : organes, gestes et effort `(cm2-sciences-corps-appariement)` — engine: `matching`, category=matching_sciences_cm2_corps, dataFile=data/science_matching.json, questions=2
+  - Défi : corps et santé `(cm2-bonus-sciences-corps-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-corps-defi, questions=8, bonus (seuil=2)
 
 #### Énergie `(cm2-sciences-energie-subtheme)`
 
 - **Leçons** (1) :
-  - Produire et utiliser l'énergie `(cm2-lesson-sources-energie)` — blocs: paragraph, bullets, tip, check, check
+  - Produire et utiliser l'énergie `(cm2-lesson-sources-energie)` — blocs: paragraph, bullets, example, tip, check, check
 - **Exercices** (5) :
   - Énergie `(cm2-sciences-energie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-techno-energie, questions=8
-  - Produire et économiser l'énergie `(cm2-sciences-produire-economiser-energie)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/science_cm2.json, category=cm2-techno-energie
+  - Produire de l'électricité `(cm2-sciences-produire-economiser-energie)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cm2.json, category=cm2-energie-production
   - Économies d'énergie `(cm2-sciences-economies-energie)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cm2.json, category=cm2-economies-energie
-  - Sources d'énergie et risques climatiques `(cm2-sciences-energie-appariement)` — engine: `matching`, category=matching_sciences_cm2, dataFile=data/science_matching.json, questions=2
-  - Défi : énergie et économies `(cm2-bonus-sciences-energie-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-techno-energie, questions=12, bonus (seuil=2)
+  - Sources d'énergie et risques climatiques `(cm2-sciences-energie-appariement)` — engine: `matching`, category=matching_sciences_cm2_energie, dataFile=data/science_matching.json, questions=2
+  - Défi : énergie et économies `(cm2-bonus-sciences-energie-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-energie-defi, questions=8, bonus (seuil=2)
 
 #### Environnement `(cm2-sciences-environnement-subtheme)`
 
 - **Leçons** (2) :
   - Protéger les milieux `(cm2-lesson-proteger-environnement-sciences)` — blocs: paragraph, bullets, tip, check, check
   - Les états de la matière `(cm2-lesson-etats-matiere)` — blocs: paragraph, mini-table, example, tip, check, check
-- **Exercices** (5) :
+- **Exercices** (6) :
   - Environnement `(cm2-sciences-environnement)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-environnement, questions=6
-  - Protéger les milieux `(cm2-sciences-proteger-milieux)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cm2.json, category=cm2-environnement
+  - Protéger les milieux `(cm2-sciences-proteger-milieux)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cm2.json, category=cm2-milieux-proteger
   - Éco-gestes `(cm2-sciences-eco-gestes)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cm2.json, category=cm2-eco-gestes
-  - Gestes et environnement `(cm2-sciences-appariement)` — engine: `matching`, category=matching_sciences_cm2, dataFile=data/science_matching.json, questions=2
-  - Défi : éco-gestes au quotidien `(cm2-bonus-sciences-eco-gestes-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-eco-gestes, questions=12, bonus (seuil=2)
+  - Gestes et environnement `(cm2-sciences-appariement)` — engine: `matching`, category=matching_sciences_cm2_environnement, dataFile=data/science_matching.json, questions=2
+  - Les matières des objets `(cm2-sciences-consommation-responsable-matiere)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-matiere-objets, questions=6
+  - Défi : éco-gestes au quotidien `(cm2-bonus-sciences-eco-gestes-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-eco-gestes-defi, questions=8, bonus (seuil=2)
 
 #### Corps et effort `(cm2-sciences-effort-subtheme)`
 
 - **Leçons** (1) :
   - Le corps pendant l'effort `(cm2-lesson-corps-effort)` — blocs: paragraph, example, tip, check, check
-- **Exercices** (4) :
+- **Exercices** (3) :
   - Corps et effort `(cm2-sciences-effort)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-corps-effort, questions=6
-  - Respirer et récupérer `(cm2-sciences-respirer-recuperer)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cm2.json, category=cm2-corps-effort
-  - Lumière et son `(cm2-sciences-effort-lumiere-son)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-lumiere-son, questions=6
-  - Défi : mouvement et énergie `(cm2-bonus-sciences-effort-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-corps-effort, questions=10, bonus (seuil=2)
+  - Respirer et récupérer `(cm2-sciences-respirer-recuperer)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cm2.json, category=cm2-corps-recuperer
+  - Défi : mouvement et énergie `(cm2-bonus-sciences-effort-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-corps-effort-defi, questions=8, bonus (seuil=2)
 
 #### Électricité `(cm2-sciences-electricite-subtheme)`
 
-- **Leçons** (1) :
+- **Leçons** (2) :
   - Faire circuler l'électricité `(cm2-lesson-electricite-circuit)` — blocs: paragraph, bullets, tip, check, check
+  - Les objets techniques `(cm2-lesson-objets-techniques)` — blocs: paragraph, bullets, example, tip, check, check
 - **Exercices** (6) :
   - Électricité `(cm2-sciences-electricite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-electricite-objets, questions=6
   - Objets techniques `(cm2-sciences-objets-techniques)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-objets-techniques-quotidien, questions=6
   - Sécurité électrique `(cm2-sciences-securite-electrique)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-securite-electrique, questions=6
   - Le circuit électrique `(cm2-sciences-tap-circuit)` — engine: `board-interactive`, type=tap-features, dataFile=data/board_tap_features_science.json, category=cm2_tap_circuit_electrique, questions=3
-  - Sécurité électrique et appareils `(cm2-sciences-electricite-appariement)` — engine: `matching`, category=matching_sciences_cm2, dataFile=data/science_matching.json, questions=2
-  - Défi : sécurité électrique experte `(cm2-bonus-sciences-securite-electrique-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-securite-electrique, questions=12, bonus (seuil=2)
+  - Sécurité électrique et appareils `(cm2-sciences-electricite-appariement)` — engine: `matching`, category=matching_sciences_cm2_electricite, dataFile=data/science_matching.json, questions=2
+  - Défi : sécurité électrique experte `(cm2-bonus-sciences-securite-electrique-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-securite-electrique-defi, questions=8, bonus (seuil=2)
 
 #### Climat et déchets `(cm2-sciences-climat-subtheme)`
 
-- **Leçons** (1) :
+- **Leçons** (2) :
   - Réduire les déchets `(cm2-lesson-climat-dechets)` — blocs: paragraph, bullets, tip, check, check
+  - Le climat et ses risques `(cm2-lesson-climat-risques)` — blocs: paragraph, bullets, example, tip, check, check
 - **Exercices** (4) :
   - Climat et déchets `(cm2-sciences-climat)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-climat-dechets, questions=6
   - Prévention des déchets `(cm2-sciences-prevention-dechets)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-prevention-dechets, questions=6
   - Risques climatiques `(cm2-sciences-risques-climatiques)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-risques-climatiques, questions=6
-  - Défi : risques climatiques `(cm2-bonus-sciences-climat-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-risques-climatiques, questions=5, bonus (seuil=2)
+  - Défi : risques climatiques `(cm2-bonus-sciences-climat-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-climat-defi, questions=6, bonus (seuil=2)
 
 #### Matière et transformations `(cm2-sciences-matiere-transformations-subtheme)`
 
@@ -2437,14 +2441,13 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Les états et les transformations `(cm2-lesson-etats-transformations)` — blocs: paragraph, example, bullets, tip, check, check
   - Mélanges et séparations `(cm2-lesson-melanges-separations)` — blocs: paragraph, example, bullets, tip, check, check
   - Lumière et son `(cm2-lesson-lumiere-son)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (7) :
+- **Exercices** (6) :
   - Matière et transformations `(cm2-sciences-matiere-transformations)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-matiere-transformations, questions=8
-  - Les états de l’eau `(cm2-sciences-etats-eau)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-etats-eau, questions=8
+  - Les états de l'eau `(cm2-sciences-etats-eau)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-etats-eau, questions=8
   - Mélanges et solutions `(cm2-sciences-melanges-solutions)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-melanges-solutions, questions=8
-  - Lumière et son `(cm2-sciences-lumiere-son)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-lumiere-son, questions=8
+  - Lumière et son `(cm2-sciences-lumiere-son)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-lumiere-son, questions=6
   - Lumière et ombres `(cm2-sciences-lumiere-ombres)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-sources-lumiere-ombres, questions=8
   - Le son `(cm2-sciences-son-volume)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-son-propagation, questions=8
-  - Consommation responsable `(cm2-sciences-consommation-responsable-matiere)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm2.json, category=cm2-consommation-responsable, questions=6
 
 ### EMC (cm2-emc-subject)
 

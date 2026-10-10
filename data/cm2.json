@@ -6509,7 +6509,7 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Le monde du vivant regroupe les animaux, les végétaux, les champignons et de nombreux organismes invisibles à l'œil nu. Pour mieux les comprendre, les scientifiques les classent selon leurs ressemblances et leurs différences."
+                                    "text": "Le monde du vivant regroupe les animaux, les végétaux, les champignons et de nombreux organismes invisibles à l'œil nu. On distingue d'abord les vertébrés, qui ont une colonne vertébrale et un squelette interne, et les invertébrés, qui n'en ont pas."
                                 },
                                 {
                                     "type": "bullets",
@@ -6524,11 +6524,12 @@
                                 },
                                 {
                                     "type": "bullets",
-                                    "label": "Les invertébrés (sans squelette interne)",
+                                    "label": "Les invertébrés (sans colonne vertébrale)",
                                     "items": [
-                                        "les insectes (papillon, fourmi)",
-                                        "les mollusques (escargot, pieuvre)",
-                                        "les arachnides (araignée)"
+                                        "les insectes : six pattes et un corps en trois parties (papillon, fourmi)",
+                                        "les arachnides : huit pattes et un corps en deux parties (araignée)",
+                                        "les mollusques : un corps mou, souvent une coquille (escargot, pieuvre)",
+                                        "les crustacés : une carapace et plusieurs paires de pattes (crabe)"
                                     ]
                                 },
                                 {
@@ -6549,14 +6550,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Une araignée est-elle un insecte ?",
+                                    "question": "La crevette a une carapace et dix pattes, mais pas de colonne vertébrale. Dans quel groupe la range-t-on ?",
                                     "choices": [
-                                        "Non : elle a huit pattes, pas six",
-                                        "Oui : c'est un petit animal sans os",
-                                        "Oui : elle vole comme les insectes"
+                                        "Chez les invertébrés, avec les crustacés",
+                                        "Chez les insectes, car elle a des pattes",
+                                        "Chez les vertébrés, car elle a une carapace dure"
                                     ],
-                                    "answer": "Non : elle a huit pattes, pas six",
-                                    "explanation": "Être petit et sans squelette interne ne suffit pas : cela en fait un invertébré, comme l'escargot. Et les araignées ne volent pas. Leurs huit pattes les rangent chez les arachnides, un groupe distinct des insectes."
+                                    "answer": "Chez les invertébrés, avec les crustacés",
+                                    "explanation": "Une carapace n'est pas un squelette interne : sans colonne vertébrale, la crevette est un invertébré du groupe des crustacés. Les insectes, eux, n'ont que six pattes."
                                 }
                             ]
                         },
@@ -6633,7 +6634,7 @@
                                     "items": [
                                         "producteurs : les plantes vertes, qui fabriquent leur nourriture grâce à la lumière",
                                         "herbivores : se nourrissent uniquement de végétaux",
-                                        "carnivores : se nourrissent d'autres animaux",
+                                        "carnivores : se nourrissent d'autres animaux ; ce sont des prédateurs, et les animaux qu'ils mangent sont leurs proies",
                                         "omnivores : se nourrissent de végétaux et d'animaux",
                                         "décomposeurs : champignons et bactéries qui recyclent la matière morte"
                                     ]
@@ -6653,8 +6654,8 @@
                                     "question": "Dans une forêt, les champignons et les bactéries disparaissent. Que se passe-t-il ?",
                                     "choices": [
                                         "Les feuilles mortes s'accumulent sans être recyclées",
-                                        "Les arbres de la forêt poussent alors bien plus vite",
-                                        "Rien du tout : ils ne mangent aucun animal de la forêt"
+                                        "Les arbres de la forêt poussent plus vite grâce à la lumière",
+                                        "Les herbivores manquent de plantes à manger tout de suite"
                                     ],
                                     "answer": "Les feuilles mortes s'accumulent sans être recyclées",
                                     "explanation": "Les décomposeurs transforment la matière morte en éléments réutilisables par le sol. Sans eux, les feuilles et les cadavres s'entassent et les arbres finissent par manquer de ce que le sol ne leur rend plus."
@@ -6716,7 +6717,7 @@
                             "subtitle": "Relie chaque être vivant à son groupe ou à son rôle",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_sciences_cm2",
+                                "category": "matching_sciences_cm2_vivant",
                                 "dataFile": "data/science_matching.json",
                                 "questions": 2
                             }
@@ -6724,15 +6725,15 @@
                         {
                             "id": "cm2-bonus-sciences-vivant-expert",
                             "title": "Défi : le vivant",
-                            "subtitle": "Série longue, toutes les notions du vivant",
+                            "subtitle": "Classer, comparer et raisonner sur le vivant",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm2.json",
-                                "category": "cm2-vivant-classification",
-                                "questions": 10
+                                "category": "cm2-vivant-defi",
+                                "questions": 8
                             }
                         }
                     ]
@@ -6876,7 +6877,7 @@
                         {
                             "id": "cm2-sciences-corps",
                             "title": "Corps et santé",
-                            "subtitle": "Hygiène et fonctions",
+                            "subtitle": "Muscles, cœur, sang et respiration",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -6887,9 +6888,9 @@
                         },
                         {
                             "params": {
-                                "questions": 10,
+                                "questions": 8,
                                 "dataFile": "data/science_cm2.json",
-                                "category": "cm2-corps-sante",
+                                "category": "cm2-corps-hygiene",
                                 "type": "factual-qcm"
                             },
                             "title": "Préserver sa santé",
@@ -6905,22 +6906,45 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm2.json",
-                                "category": "cm2-prevention-dechets",
+                                "category": "cm2-corps-prevention",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-sciences-effort-lumiere-son",
+                            "title": "Voir, entendre, se protéger",
+                            "subtitle": "Yeux, oreilles, lumière et bruit",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-sens-protection",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cm2-sciences-corps-appariement",
+                            "title": "Le corps : organes, gestes et effort",
+                            "subtitle": "Relie chaque organe, geste ou situation à son rôle",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_sciences_cm2_corps",
+                                "dataFile": "data/science_matching.json",
+                                "questions": 2
                             }
                         },
                         {
                             "id": "cm2-bonus-sciences-corps-defi",
                             "title": "Défi : corps et santé",
-                            "subtitle": "Corps, hygiène et bien-être",
+                            "subtitle": "Raisonner sur le corps, l'hygiène et le bien-être",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm2.json",
-                                "category": "cm2-corps-sante",
-                                "questions": 10
+                                "category": "cm2-corps-defi",
+                                "questions": 8
                             }
                         }
                     ]
@@ -6942,13 +6966,17 @@
                                 },
                                 {
                                     "type": "bullets",
-                                    "label": "Exemples de sources",
+                                    "label": "Deux familles de sources",
                                     "items": [
-                                        "le soleil",
-                                        "le vent",
-                                        "l'eau",
-                                        "les combustibles"
+                                        "les énergies renouvelables se reforment sans cesse : le soleil, le vent, l'eau, le bois",
+                                        "les énergies fossiles (charbon, pétrole, gaz naturel) se sont formées en millions d'années et s'épuisent",
+                                        "on les brûle plus vite qu'elles ne se forment : elles sont dites non renouvelables"
                                     ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un panneau solaire utilise la lumière du Soleil, une source renouvelable ; une chaudière à gaz brûle un combustible fossile et rejette du gaz carbonique."
                                 },
                                 {
                                     "type": "tip",
@@ -6961,7 +6989,7 @@
                                     "choices": [
                                         "Le vent se renouvelle sans cesse",
                                         "Le vent est plus puissant",
-                                        "Le pétrole ne produit pas d'électricité"
+                                        "Le vent ne produit de l'électricité que la nuit"
                                     ],
                                     "answer": "Le vent se renouvelle sans cesse",
                                     "explanation": "Le pétrole produit bien de l'électricité, et souvent en plus grande quantité. Mais ses réserves, formées en des millions d'années, s'épuisent, alors que le vent souffle encore demain : l'un est renouvelable, l'autre non."
@@ -6975,7 +7003,7 @@
                                         "C'est vrai : l'électricité n'est pas de l'énergie"
                                     ],
                                     "answer": "L'énergie a été produite ailleurs pour la recharger",
-                                    "explanation": "L'électricité est bel et bien une énergie, et il faut la fabriquer quelque part : centrale, barrage, éoliennes ou panneaux solaires. La voiture ne rejette rien en roulant, mais sa consommation a lieu en amont."
+                                    "explanation": "L'électricité est bel et bien une énergie, et il faut la fabriquer quelque part : centrale, barrage, éoliennes ou panneaux solaires. La voiture ne rejette pas de gaz d'échappement en roulant, mais sa consommation a lieu en amont."
                                 }
                             ]
                         }
@@ -6984,7 +7012,7 @@
                         {
                             "id": "cm2-sciences-energie",
                             "title": "Énergie",
-                            "subtitle": "Électricité et ressources",
+                            "subtitle": "Sources, énergies renouvelables et fossiles",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -6995,15 +7023,15 @@
                         },
                         {
                             "params": {
-                                "questions": 10,
+                                "questions": 8,
                                 "dataFile": "data/science_cm2.json",
-                                "category": "cm2-techno-energie",
+                                "category": "cm2-energie-production",
                                 "type": "factual-qcm"
                             },
-                            "title": "Produire et économiser l'énergie",
+                            "title": "Produire de l'électricité",
                             "engine": "choice-engine",
                             "id": "cm2-sciences-produire-economiser-energie",
-                            "subtitle": "Ressources, usages et économies"
+                            "subtitle": "Centrales, éoliennes, barrages et lignes"
                         },
                         {
                             "params": {
@@ -7020,10 +7048,10 @@
                         {
                             "id": "cm2-sciences-energie-appariement",
                             "title": "Sources d'énergie et risques climatiques",
-                            "subtitle": "Relie chaque risque climatique à son effet",
+                            "subtitle": "Relie chaque source, installation ou appareil à ce qu'il fait",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_sciences_cm2",
+                                "category": "matching_sciences_cm2_energie",
                                 "dataFile": "data/science_matching.json",
                                 "questions": 2
                             }
@@ -7031,15 +7059,15 @@
                         {
                             "id": "cm2-bonus-sciences-energie-expert",
                             "title": "Défi : énergie et économies",
-                            "subtitle": "Série longue sur les ressources",
+                            "subtitle": "Raisonner sur les sources, la production et la consommation",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm2.json",
-                                "category": "cm2-techno-energie",
-                                "questions": 12
+                                "category": "cm2-energie-defi",
+                                "questions": 8
                             }
                         }
                     ]
@@ -7186,13 +7214,13 @@
                             "params": {
                                 "questions": 8,
                                 "dataFile": "data/science_cm2.json",
-                                "category": "cm2-environnement",
+                                "category": "cm2-milieux-proteger",
                                 "type": "factual-qcm"
                             },
                             "title": "Protéger les milieux",
                             "engine": "choice-engine",
                             "id": "cm2-sciences-proteger-milieux",
-                            "subtitle": "Recycler, préserver, limiter"
+                            "subtitle": "Biodiversité, espèces et habitats"
                         },
                         {
                             "params": {
@@ -7212,23 +7240,35 @@
                             "subtitle": "Relie chaque geste ou risque à sa conséquence",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_sciences_cm2",
+                                "category": "matching_sciences_cm2_environnement",
                                 "dataFile": "data/science_matching.json",
                                 "questions": 2
                             }
                         },
                         {
+                            "id": "cm2-sciences-consommation-responsable-matiere",
+                            "title": "Les matières des objets",
+                            "subtitle": "D'où vient ce qu'on utilise et combien de temps ça dure",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cm2.json",
+                                "category": "cm2-matiere-objets",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "cm2-bonus-sciences-eco-gestes-expert",
                             "title": "Défi : éco-gestes au quotidien",
-                            "subtitle": "Série longue sur le recyclage",
+                            "subtitle": "Tri, filières et recyclage",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm2.json",
-                                "category": "cm2-eco-gestes",
-                                "questions": 12
+                                "category": "cm2-eco-gestes-defi",
+                                "questions": 8
                             }
                         }
                     ]
@@ -7300,7 +7340,7 @@
                             "params": {
                                 "questions": 8,
                                 "dataFile": "data/science_cm2.json",
-                                "category": "cm2-corps-effort",
+                                "category": "cm2-corps-recuperer",
                                 "type": "factual-qcm"
                             },
                             "title": "Respirer et récupérer",
@@ -7309,29 +7349,17 @@
                             "subtitle": "Effort, muscles et repos"
                         },
                         {
-                            "id": "cm2-sciences-effort-lumiere-son",
-                            "title": "Lumière et son",
-                            "subtitle": "Propagation, réflexion et vitesse",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/science_cm2.json",
-                                "category": "cm2-lumiere-son",
-                                "questions": 6
-                            }
-                        },
-                        {
                             "id": "cm2-bonus-sciences-effort-defi",
                             "title": "Défi : mouvement et énergie",
-                            "subtitle": "Corps, effort et physique",
+                            "subtitle": "Raisonner sur l'effort et la récupération",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm2.json",
-                                "category": "cm2-corps-effort",
-                                "questions": 10
+                                "category": "cm2-corps-effort-defi",
+                                "questions": 8
                             }
                         }
                     ]
@@ -7355,9 +7383,10 @@
                                     "type": "bullets",
                                     "label": "Je retiens",
                                     "items": [
-                                        "un circuit fermé fonctionne",
-                                        "un circuit ouvert ne fonctionne pas",
-                                        "on ne manipule pas le courant domestique"
+                                        "un circuit fermé fonctionne ; un circuit ouvert ne fonctionne pas",
+                                        "un conducteur laisse passer le courant (les métaux) ; un isolant l'arrête (plastique, bois sec, caoutchouc)",
+                                        "des lampes montées l'une après l'autre sont en série : si l'une s'éteint, toutes s'éteignent",
+                                        "on ne manipule jamais le courant du secteur"
                                     ]
                                 },
                                 {
@@ -7380,12 +7409,66 @@
                                     "type": "check",
                                     "question": "Un élève veut savoir si une pièce de monnaie conduit le courant. Que doit-il faire ?",
                                     "choices": [
-                                        "L'insérer dans un circuit à pile et observer",
-                                        "L'approcher doucement d'une prise de courant du mur",
-                                        "La poser directement sur une ampoule déjà allumée"
+                                        "L'insérer dans un circuit à pile et observer la lampe",
+                                        "La poser sur une table et la regarder longtemps",
+                                        "La peser sur une balance de cuisine"
                                     ],
-                                    "answer": "L'insérer dans un circuit à pile et observer",
-                                    "explanation": "Le courant du mur est dangereux : on ne l'utilise jamais pour tester, et une prise ne doit recevoir aucun objet métallique. Poser la pièce sur une ampoule n'apprend rien. Un circuit à pile, lui, est sans danger : si la lampe s'allume, la pièce conduit."
+                                    "answer": "L'insérer dans un circuit à pile et observer la lampe",
+                                    "explanation": "Seul un circuit avec une pile permet de voir si le courant passe : si la lampe s'allume, la pièce est conductrice. La regarder ou la peser n'apprend rien. On ne teste jamais avec le courant du mur, qui est dangereux."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-objets-techniques",
+                            "title": "Les objets techniques",
+                            "subtitle": "Utiliser, protéger, réparer",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un objet technique est conçu pour répondre à un besoin. Il fonctionne avec une énergie, se protège par un fusible ou un disjoncteur, et s'utilise en suivant sa notice."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "la notice explique comment l'utiliser sans danger",
+                                        "le fusible fond si le courant est trop fort et protège le circuit",
+                                        "un appareil en veille consomme encore un peu d'énergie",
+                                        "un objet connecté échange des informations par internet"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un grille-pain transforme l'électricité en chaleur ; si le courant devient trop fort, le fusible fond et coupe le circuit."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Entretenir ou réparer un objet le fait durer plus longtemps."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Le fusible d'une lampe a fondu. Pourquoi ne faut-il pas le remplacer par un morceau de gros fil de cuivre ?",
+                                    "choices": [
+                                        "Le fil laisserait passer un courant trop fort sans couper le circuit",
+                                        "Le fil de cuivre ne conduit pas du tout l'électricité dans la lampe",
+                                        "Le fil de cuivre ferait briller la lampe beaucoup trop fort"
+                                    ],
+                                    "answer": "Le fil laisserait passer un courant trop fort sans couper le circuit",
+                                    "explanation": "Le fusible est le maillon faible voulu du circuit : il fond avant que les fils ne chauffent. Un gros fil ne fond jamais, donc il ne protège plus rien."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un téléviseur éteint avec la télécommande garde un petit voyant rouge. Que cela signifie-t-il ?",
+                                    "choices": [
+                                        "Il est en veille : il consomme encore un peu d'énergie",
+                                        "Il est complètement éteint et ne consomme plus rien",
+                                        "Il se recharge comme une batterie"
+                                    ],
+                                    "answer": "Il est en veille : il consomme encore un peu d'énergie",
+                                    "explanation": "Un voyant allumé montre que l'appareil est encore alimenté : en veille, il consomme un peu d'énergie en permanence."
                                 }
                             ]
                         }
@@ -7394,7 +7477,7 @@
                         {
                             "id": "cm2-sciences-electricite",
                             "title": "Électricité",
-                            "subtitle": "Circuits simples et objets du quotidien",
+                            "subtitle": "Circuits, conducteurs et isolants",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -7442,10 +7525,10 @@
                         {
                             "id": "cm2-sciences-electricite-appariement",
                             "title": "Sécurité électrique et appareils",
-                            "subtitle": "Relie chaque appareil électrique à une règle de sécurité",
+                            "subtitle": "Relie chaque objet, matériau ou situation à sa règle ou à sa cause",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_sciences_cm2",
+                                "category": "matching_sciences_cm2_electricite",
                                 "dataFile": "data/science_matching.json",
                                 "questions": 2
                             }
@@ -7453,15 +7536,15 @@
                         {
                             "id": "cm2-bonus-sciences-securite-electrique-expert",
                             "title": "Défi : sécurité électrique experte",
-                            "subtitle": "Série longue sur les circuits et la prudence",
+                            "subtitle": "Réflexes et situations à risque",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm2.json",
-                                "category": "cm2-securite-electrique",
-                                "questions": 12
+                                "category": "cm2-securite-electrique-defi",
+                                "questions": 8
                             }
                         }
                     ]
@@ -7512,11 +7595,64 @@
                                     "question": "Un élève dit : « Recycler permet de consommer autant qu'on veut, puisque tout revient. » Où est l'erreur ?",
                                     "choices": [
                                         "Recycler coûte de l'énergie et perd de la matière",
-                                        "Rien ne se recycle jamais",
-                                        "Le recyclage ne concerne que le verre"
+                                        "Tout ce qu'on recycle est refabriqué sans aucune perte",
+                                        "Recycler est plus polluant que de jeter les déchets"
                                     ],
                                     "answer": "Recycler coûte de l'énergie et perd de la matière",
-                                    "explanation": "Beaucoup de matières se recyclent, pas seulement le verre. Mais il faut collecter, transporter et transformer : cela dépense de l'énergie, et une partie de la matière se dégrade à chaque tour. Le recyclage limite les dégâts, il ne les annule pas."
+                                    "explanation": "La matière se recycle, mais il faut collecter, transporter et transformer : cela dépense de l'énergie, et une partie de la matière se dégrade à chaque tour. Le recyclage limite les dégâts, il ne les annule pas."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-climat-risques",
+                            "title": "Le climat et ses risques",
+                            "subtitle": "Météo, effet de serre, réchauffement",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La météo dit le temps qu'il fait un jour donné ; le climat résume le temps habituel d'une région sur de nombreuses années. Depuis plus d'un siècle, le climat de la Terre se réchauffe, surtout parce que les activités humaines rejettent du gaz carbonique."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Causes et effets",
+                                    "items": [
+                                        "l'effet de serre : certains gaz retiennent la chaleur près de la Terre",
+                                        "brûler du charbon, du pétrole ou du gaz en libère beaucoup",
+                                        "conséquences : canicules, sécheresses, inondations, fonte des glaciers"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Quand une voiture brûle de l'essence, le gaz carbonique rejeté s'ajoute à celui de l'air : il retient davantage de chaleur."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "On peut agir : économiser l'énergie, se déplacer autrement, protéger les forêts."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une forte pluie inonde une ville un soir d'été. Un élève affirme que c'est la preuve que le climat change. A-t-il raison ?",
+                                    "choices": [
+                                        "Non : un seul événement de météo ne suffit pas à décrire le climat",
+                                        "Oui : un événement exceptionnel prouve le réchauffement à lui seul",
+                                        "Oui : le climat est le temps qu'il fait chaque jour"
+                                    ],
+                                    "answer": "Non : un seul événement de météo ne suffit pas à décrire le climat",
+                                    "explanation": "Le climat se mesure sur de longues périodes : on le décrit par la moyenne et la fréquence des événements, pas par un jour de pluie."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pourquoi brûler du charbon renforce-t-il l'effet de serre ?",
+                                    "choices": [
+                                        "Cela rejette du gaz carbonique dans l'air",
+                                        "Cela fabrique des nuages qui bloquent le soleil",
+                                        "Cela refroidit l'air autour des usines"
+                                    ],
+                                    "answer": "Cela rejette du gaz carbonique dans l'air",
+                                    "explanation": "Le charbon contient du carbone : en brûlant il libère du gaz carbonique, qui retient la chaleur. Il ne fabrique pas de nuages et ne refroidit pas l'air."
                                 }
                             ]
                         }
@@ -7561,15 +7697,15 @@
                         {
                             "id": "cm2-bonus-sciences-climat-defi",
                             "title": "Défi : risques climatiques",
-                            "subtitle": "Sans erreur",
+                            "subtitle": "Climat, météo et effet de serre",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm2.json",
-                                "category": "cm2-risques-climatiques",
-                                "questions": 5
+                                "category": "cm2-climat-defi",
+                                "questions": 6
                             }
                         }
                     ]
@@ -7649,11 +7785,14 @@
                                 },
                                 {
                                     "type": "bullets",
+                                    "label": "Vocabulaire",
                                     "items": [
-                                        "mélange",
-                                        "filtrer",
-                                        "trier",
-                                        "séparer"
+                                        "un mélange homogène : on ne distingue plus les matières (le sirop dans l'eau)",
+                                        "un mélange hétérogène : on distingue plusieurs matières (l'huile et l'eau)",
+                                        "dissoudre : la matière se répartit dans l'eau et ne se voit plus (sel, sucre)",
+                                        "décanter : on laisse reposer, la matière lourde tombe au fond",
+                                        "filtrer : on arrête les grains avec un filtre",
+                                        "évaporer : l'eau part en vapeur et ce qui était dissous reste"
                                     ]
                                 },
                                 {
@@ -7754,7 +7893,7 @@
                         },
                         {
                             "id": "cm2-sciences-etats-eau",
-                            "title": "Les états de l’eau",
+                            "title": "Les états de l'eau",
                             "subtitle": "Glace, eau liquide, vapeur",
                             "engine": "choice-engine",
                             "params": {
@@ -7785,7 +7924,7 @@
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cm2.json",
                                 "category": "cm2-lumiere-son",
-                                "questions": 8
+                                "questions": 6
                             }
                         },
                         {
@@ -7810,18 +7949,6 @@
                                 "dataFile": "data/science_cm2.json",
                                 "category": "cm2-son-propagation",
                                 "questions": 8
-                            }
-                        },
-                        {
-                            "id": "cm2-sciences-consommation-responsable-matiere",
-                            "title": "Consommation responsable",
-                            "subtitle": "Réparer, réutiliser, choisir durable",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/science_cm2.json",
-                                "category": "cm2-consommation-responsable",
-                                "questions": 6
                             }
                         }
                     ]
