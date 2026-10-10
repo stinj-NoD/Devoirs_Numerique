@@ -26,11 +26,11 @@
                         {
                             "id": "cm1-frac-1",
                             "title": "Fractions",
-                            "subtitle": "Lecture visuelle",
+                            "subtitle": "Lecture visuelle, parts jusqu'à 6",
                             "engine": "math-input",
                             "params": {
                                 "type": "fraction-view",
-                                "maxDenom": 8,
+                                "maxDenom": 6,
                                 "questions": 10
                             }
                         },
@@ -913,6 +913,113 @@
                             ]
                         },
                         {
+                            "id": "cm1-lesson-echelle",
+                            "title": "Lire une échelle",
+                            "subtitle": "Plan, carte et longueurs réelles",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Sur un plan ou une carte, les longueurs sont réduites. L'échelle indique de combien : l'échelle 1/200 signifie que 1 cm sur le plan représente 200 cm dans la réalité."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un couloir mesure 3 cm sur un plan à l'échelle 1/200. En réalité : 3 × 200 = 600 cm, soit 6 m."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "échelle 1/100 : 1 cm sur le plan, 100 cm (1 m) dans la réalité",
+                                        "je multiplie la longueur du plan par le nombre de l'échelle",
+                                        "je convertis ensuite dans une unité pratique (de cm en m)"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Plus le nombre de l'échelle est grand, plus la réalité est réduite sur le plan."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur un plan à l'échelle 1/50, une table mesure 4 cm. Quelle est sa longueur réelle ?",
+                                    "choices": [
+                                        "200 cm, soit 2 m",
+                                        "54 cm, soit un peu plus d'un demi-mètre",
+                                        "12,5 cm, soit une petite règle"
+                                    ],
+                                    "answer": "200 cm, soit 2 m",
+                                    "explanation": "4 × 50 = 200 cm, soit 2 m. Ajouter 50 à 4 ou diviser 50 par 4 ne tient pas compte de ce que l'échelle veut dire : chaque centimètre vaut 50 cm."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur une carte à l'échelle 1/1000, deux maisons sont à 7 cm. Quelle distance réelle les sépare ?",
+                                    "choices": [
+                                        "70 m",
+                                        "7 m",
+                                        "700 m"
+                                    ],
+                                    "answer": "70 m",
+                                    "explanation": "7 × 1 000 = 7 000 cm, et 100 cm font 1 m : cela fait 70 m. Se tromper d'un rang dans la conversion donne 7 m ou 700 m."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-pourcentage",
+                            "title": "Le pourcentage simple",
+                            "subtitle": "10 %, 25 % et 50 %",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un pourcentage compare une partie à un tout partagé en 100 parts. 50 % veut dire la moitié, 25 % le quart et 10 % le dixième."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans un car de 28 élèves, 25 % portent un chapeau. 25 % est un quart, donc 28 : 4 = 7 élèves."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "50 % : je divise par 2",
+                                        "25 % : je divise par 4",
+                                        "10 % : je divise par 10",
+                                        "100 % : c'est le tout"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour calculer un pourcentage simple, je le transforme d'abord en fraction du tout."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une veste coûte 80 €. Elle est soldée de 25 %. De combien baisse son prix ?",
+                                    "choices": [
+                                        "20 €",
+                                        "25 €",
+                                        "55 €"
+                                    ],
+                                    "answer": "20 €",
+                                    "explanation": "25 % est un quart : 80 : 4 = 20 €. La veste coûte alors 60 €. Prendre 25 € confond le pourcentage avec des euros."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans une classe de 30 élèves, 10 % sont absents. Combien d'élèves sont absents ?",
+                                    "choices": [
+                                        "3 élèves",
+                                        "10 élèves",
+                                        "27 élèves"
+                                    ],
+                                    "answer": "3 élèves",
+                                    "explanation": "10 % est un dixième : 30 : 10 = 3 élèves absents. 27 est le nombre d'élèves présents, et 10 est le pourcentage lui-même."
+                                }
+                            ]
+                        },
+                        {
                             "id": "cm1-lesson-addition-soustraction-posees",
                             "title": "Addition et soustraction posées",
                             "subtitle": "Retenue et emprunt sur grands nombres",
@@ -1022,6 +1129,61 @@
                                     ],
                                     "answer": "Il a oublié de décaler le produit par les dizaines d'un rang",
                                     "explanation": "Le 1 de 19 représente une dizaine, donc 52 × 1 vaut en réalité 52 × 10 = 520, pas 52. Sans ce décalage, le résultat final est faux."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-division-euclidienne",
+                            "title": "La division euclidienne",
+                            "subtitle": "Quotient, reste et vérification",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Diviser, c'est partager une quantité en parts égales. Dans une division euclidienne, le quotient dit combien de fois le diviseur rentre dans le dividende, et le reste est ce qui n'a pas pu être partagé."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "47 : 5 donne un quotient de 9 et un reste de 2, car 5 × 9 = 45 et 47 − 45 = 2. On vérifie : 5 × 9 + 2 = 47."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "le dividende est le nombre à partager (47)",
+                                        "le diviseur est le nombre par lequel on divise (5)",
+                                        "le quotient est le résultat entier de la division (9)",
+                                        "le reste est toujours plus petit que le diviseur (2 est plus petit que 5)",
+                                        "pour vérifier : diviseur × quotient + reste = dividende"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Si le reste est plus grand que le diviseur, le quotient est trop petit : on peut encore partager."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "On partage 53 billes entre 6 enfants, à parts égales. Combien de billes reste-t-il ?",
+                                    "choices": [
+                                        "5 billes",
+                                        "8 billes",
+                                        "9 billes"
+                                    ],
+                                    "answer": "5 billes",
+                                    "explanation": "6 × 8 = 48 et 53 − 48 = 5. Chaque enfant reçoit 8 billes et il en reste 5, moins que 6 : on ne peut plus distribuer. Avec 9 billes chacun, il en faudrait 54."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour 62 : 7, un élève écrit « quotient 7, reste 13 ». Pourquoi est-ce impossible ?",
+                                    "choices": [
+                                        "Le reste 13 dépasse le diviseur 7",
+                                        "Le quotient doit être égal au diviseur",
+                                        "Le reste doit toujours être égal à 0"
+                                    ],
+                                    "answer": "Le reste 13 dépasse le diviseur 7",
+                                    "explanation": "Un reste doit être plus petit que le diviseur. Avec 13 plus grand que 7, on peut encore partager : le quotient est 8 et le reste 6, car 7 × 8 + 6 = 62."
                                 }
                             ]
                         },
@@ -1890,6 +2052,168 @@
                             ]
                         },
                         {
+                            "id": "cm1-lesson-vocabulaire-geometrie",
+                            "title": "Segment, milieu et diagonale",
+                            "subtitle": "Les mots et les notations de la géométrie",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un segment est une partie de droite limitée par deux points, ses extrémités ; on le note [AB]. Une droite, elle, n'a pas de fin ; on la note (AB). Le milieu d'un segment est le point situé à égale distance de ses deux extrémités."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Si [AB] mesure 8 cm, son milieu M est à 4 cm de A et à 4 cm de B."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "[AB] : le segment d'extrémités A et B",
+                                        "(AB) : la droite qui passe par A et par B",
+                                        "le milieu : à égale distance des deux extrémités",
+                                        "une diagonale relie deux sommets qui ne sont pas voisins"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Les crochets [ ] disent que le segment s'arrête ; les parenthèses ( ) disent que la droite continue."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Le segment [EF] mesure 10 cm. Le point M est son milieu. À quelle distance de E se trouve M ?",
+                                    "choices": [
+                                        "5 cm",
+                                        "10 cm",
+                                        "20 cm"
+                                    ],
+                                    "answer": "5 cm",
+                                    "explanation": "Le milieu partage le segment en deux parties égales : 10 : 2 = 5 cm. 10 cm est la longueur du segment entier, et 20 cm en serait le double."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Combien de diagonales peut-on tracer dans un rectangle ?",
+                                    "choices": [
+                                        "2",
+                                        "4",
+                                        "1"
+                                    ],
+                                    "answer": "2",
+                                    "explanation": "Un rectangle a 4 sommets : chaque diagonale relie deux sommets opposés, il y en a donc 2. Les 4 côtés relient des sommets voisins, ce ne sont pas des diagonales."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-paralleles-perpendiculaires",
+                            "title": "Droites parallèles et perpendiculaires",
+                            "subtitle": "Comment deux droites se placent",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Deux droites tracées sur une feuille peuvent se croiser ou ne jamais se rencontrer. Des droites parallèles ne se croisent jamais et gardent toujours le même écartement. Des droites perpendiculaires se croisent en formant un angle droit."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Les deux bords d'une règle sont parallèles. Le coin d'une feuille est formé par deux côtés perpendiculaires."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "parallèles : même direction, aucun point commun",
+                                        "sécantes : elles se coupent en un point",
+                                        "perpendiculaires : des sécantes qui forment un angle droit",
+                                        "l'équerre sert à vérifier un angle droit"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Deux droites perpendiculaires sont toujours sécantes, mais deux droites sécantes ne sont pas toujours perpendiculaires."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Deux droites se croisent en formant des angles qui ne sont pas droits. Comment les nommer ?",
+                                    "choices": [
+                                        "Sécantes, mais pas perpendiculaires",
+                                        "Parallèles, puisqu'elles se croisent",
+                                        "Perpendiculaires, puisqu'elles se croisent"
+                                    ],
+                                    "answer": "Sécantes, mais pas perpendiculaires",
+                                    "explanation": "Elles se coupent : ce sont des droites sécantes. Mais leur angle n'est pas droit, donc elles ne sont pas perpendiculaires. Des droites parallèles, elles, ne se croisent jamais."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur un quadrillage, deux lignes horizontales côte à côte ne se rencontrent jamais. Que sont-elles ?",
+                                    "choices": [
+                                        "Parallèles",
+                                        "Perpendiculaires",
+                                        "Sécantes"
+                                    ],
+                                    "answer": "Parallèles",
+                                    "explanation": "Deux droites qui ne se croisent jamais et gardent le même écartement sont parallèles. Des droites perpendiculaires ou sécantes se couperaient."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-triangles-particuliers",
+                            "title": "Triangles particuliers",
+                            "subtitle": "Rectangle, isocèle et équilatéral",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Certains triangles ont des propriétés particulières. On les reconnaît à leurs angles ou à la longueur de leurs côtés."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un triangle de côtés 5 cm, 5 cm et 3 cm a deux côtés de même longueur : il est isocèle."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "triangle rectangle : un angle droit",
+                                        "triangle isocèle : deux côtés de même longueur",
+                                        "triangle équilatéral : trois côtés de même longueur",
+                                        "un triangle équilatéral est aussi isocèle"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour nommer un triangle, je regarde d'abord ses angles, puis la longueur de ses côtés."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un triangle a des côtés de 6 cm, 6 cm et 6 cm. Quel nom précis lui donne-t-on ?",
+                                    "choices": [
+                                        "Équilatéral",
+                                        "Rectangle",
+                                        "Isocèle seulement"
+                                    ],
+                                    "answer": "Équilatéral",
+                                    "explanation": "Trois côtés égaux : c'est un triangle équilatéral. Il est aussi isocèle, mais « équilatéral » est le nom le plus précis. Rien n'indique d'angle droit."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un triangle a un angle droit et deux côtés de 4 cm. Quels noms lui convient-il ?",
+                                    "choices": [
+                                        "Rectangle et isocèle",
+                                        "Équilatéral et rectangle",
+                                        "Isocèle seulement"
+                                    ],
+                                    "answer": "Rectangle et isocèle",
+                                    "explanation": "L'angle droit le rend rectangle et les deux côtés égaux le rendent isocèle. Il n'est pas équilatéral : un triangle équilatéral n'a pas d'angle droit."
+                                }
+                            ]
+                        },
+                        {
                             "id": "cm1-lesson-angles-droits",
                             "title": "L'angle droit",
                             "subtitle": "Un repère utile en géométrie",
@@ -2518,7 +2842,7 @@
                                 "type": "angle-measure",
                                 "dataFile": "data/board_angle_measure_cm1.json",
                                 "category": "cm1_angle_measure_expert",
-                                "questions": 9
+                                "questions": 6
                             }
                         },
                         {
@@ -2649,7 +2973,7 @@
                                 "type": "factual-qcm",
                                 "dataFile": "data/math_geometry_cm1.json",
                                 "category": "cm1-aires-formules",
-                                "questions": 12
+                                "questions": 8
                             }
                         }
                     ]
@@ -3351,9 +3675,9 @@
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
-                                "category": "pc_3_cm1",
+                                "category": "pc_3_freq",
                                 "tenses": "passé composé",
-                                "questions": 14
+                                "questions": 10
                             }
                         },
                         {
@@ -3430,7 +3754,7 @@
                         {
                             "blocks": [
                                 {
-                                    "text": "Au passé composé, certains verbes utilisent avoir et d'autres utilisent être.",
+                                    "text": "Au passé composé, certains verbes utilisent avoir et d'autres utilisent être, comme aller, venir, partir, arriver, tomber ou rester. Avec être, le participe passé s'accorde avec le sujet ; avec avoir, il ne s'accorde pas avec le sujet.",
                                     "type": "paragraph"
                                 },
                                 {
@@ -3490,6 +3814,60 @@
                             "format": "lesson-card",
                             "id": "cm1-lesson-passe-compose-auxiliaires",
                             "subtitle": "Le bon auxiliaire au passé composé"
+                        },
+                        {
+                            "id": "cm1-lesson-accord-participe-etre",
+                            "title": "Le participe passé avec être",
+                            "subtitle": "Accorder avec le sujet",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Quand le verbe se conjugue avec l'auxiliaire être, le participe passé s'accorde avec le sujet, comme un adjectif. Plusieurs verbes se conjuguent avec être : aller, venir, partir, arriver, entrer, sortir, rester, tomber, naître, mourir."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Léa est partie. Les garçons sont arrivés. Les filles sont tombées."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "sujet masculin singulier : rien à ajouter (il est parti)",
+                                        "sujet féminin singulier : on ajoute e (elle est partie)",
+                                        "sujet masculin pluriel : on ajoute s (ils sont partis)",
+                                        "sujet féminin pluriel : on ajoute es (elles sont parties)"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Avec être, je cherche le sujet et j'accorde le participe avec lui."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Complète : « Mes sœurs sont ... hier soir. » (verbe arriver)",
+                                    "choices": [
+                                        "arrivées",
+                                        "arrivés",
+                                        "arrivé"
+                                    ],
+                                    "answer": "arrivées",
+                                    "explanation": "« Mes sœurs » est un sujet féminin pluriel : le participe prend e et s. « Arrivés » serait masculin pluriel, « arrivé » ne s'accorde pas."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pourquoi écrit-on « Lucas est tombé » mais « Lucas et Inès sont tombés » ?",
+                                    "choices": [
+                                        "Le participe s'accorde avec le sujet, ici pluriel",
+                                        "Le verbe tomber change de groupe au pluriel",
+                                        "L'auxiliaire être devient avoir au pluriel"
+                                    ],
+                                    "answer": "Le participe s'accorde avec le sujet, ici pluriel",
+                                    "explanation": "Avec être, le participe suit le sujet : « Lucas et Inès » est pluriel, on ajoute s. Le verbe reste du même groupe et garde l'auxiliaire être."
+                                }
+                            ]
                         },
                         {
                             "id": "cm1-lesson-passe-simple-recit",
@@ -3843,7 +4221,7 @@
                             "params": {
                                 "type": "grammar-cloze",
                                 "category": "grammar_agreement_cm1",
-                                "questions": 8
+                                "questions": 6
                             }
                         },
                         {
@@ -3888,8 +4266,8 @@
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "grammar-cloze",
-                                "category": "grammar_agreement_cm1",
-                                "questions": 14
+                                "category": "grammar_agreement_cm1_defi",
+                                "questions": 8
                             }
                         },
                         {
@@ -3983,6 +4361,60 @@
                             "format": "lesson-card",
                             "id": "cm1-lesson-nature-mots",
                             "subtitle": "Nom, verbe, adjectif"
+                        },
+                        {
+                            "id": "cm1-lesson-sujet-verbe-complement",
+                            "title": "Sujet, verbe, complément",
+                            "subtitle": "Analyser une phrase simple",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une phrase simple a un verbe, un sujet qui fait l'action et souvent un complément qui apporte une précision. Pour trouver le sujet, on pose la question « qui est-ce qui ? » devant le verbe."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le chat boit du lait dans la cuisine. Qui est-ce qui boit ? Le chat : c'est le sujet. « Boit » est le verbe. « Du lait » et « dans la cuisine » sont des compléments."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "le verbe exprime l'action ou l'état (boit)",
+                                        "le sujet répond à « qui est-ce qui ? » (le chat)",
+                                        "le complément apporte une précision (du lait, dans la cuisine)",
+                                        "on peut souvent supprimer un complément sans casser la phrase"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Je trouve d'abord le verbe, puis son sujet avec « qui est-ce qui ? »."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Les enfants lisent un livre dans le jardin », quel est le sujet ?",
+                                    "choices": [
+                                        "Les enfants",
+                                        "un livre",
+                                        "dans le jardin"
+                                    ],
+                                    "answer": "Les enfants",
+                                    "explanation": "Qui est-ce qui lit ? Les enfants : c'est le sujet. « Un livre » et « dans le jardin » apportent des précisions : ce sont des compléments."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans « Mon voisin répare sa voiture le dimanche », quel groupe est un complément ?",
+                                    "choices": [
+                                        "sa voiture",
+                                        "Mon voisin",
+                                        "répare"
+                                    ],
+                                    "answer": "sa voiture",
+                                    "explanation": "« Mon voisin » est le sujet (qui est-ce qui répare ?) et « répare » le verbe. « Sa voiture » précise ce qui est réparé : c'est un complément, comme « le dimanche »."
+                                }
+                            ]
                         },
                         {
                             "id": "cm1-lesson-familles-mots",
@@ -4800,25 +5232,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Des archéologues fouillent un village très ancien : ils trouvent des grains de blé cultivé, des os de moutons élevés là, mais aucun signe d'écriture. Que peuvent-ils en conclure ?",
+                                    "question": "Un village ancien livre des grains de blé cultivé et des os de moutons élevés, sans aucune trace d'écriture. Il date de...",
                                     "choices": [
-                                        "C'est un village de la fin de la Préhistoire",
-                                        "C'est un village du début de la Préhistoire",
-                                        "C'est un village de l'Antiquité"
+                                        "la fin de la Préhistoire",
+                                        "le début de la Préhistoire",
+                                        "l'Antiquité"
                                     ],
-                                    "answer": "C'est un village de la fin de la Préhistoire",
-                                    "explanation": "L'agriculture et l'élevage n'apparaissent qu'à la fin de la Préhistoire : ce n'est donc pas le début, où l'on vivait de chasse et de cueillette. Et sans écriture, on n'est pas encore dans l'Antiquité."
+                                    "answer": "la fin de la Préhistoire",
+                                    "explanation": "L'agriculture et l'élevage apparaissent à la fin de la Préhistoire. Sans écriture, on n'est pas encore dans l'Antiquité."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pourquoi les historiens connaissent-ils la Préhistoire seulement par des objets (outils, peintures, ossements), et jamais par des récits ?",
+                                    "question": "Pourquoi connaît-on la Préhistoire par des objets et jamais par des récits ?",
                                     "choices": [
-                                        "Parce que les textes de cette période ont tous été perdus",
-                                        "Parce que personne ne savait encore écrire à cette période",
-                                        "Parce que les historiens préfèrent étudier les objets"
+                                        "Parce que l'écriture n'existait pas encore",
+                                        "Parce que tous les textes ont été perdus",
+                                        "Parce que les historiens préfèrent les objets"
                                     ],
-                                    "answer": "Parce que personne ne savait encore écrire à cette période",
-                                    "explanation": "La Préhistoire est justement la période d'avant l'écriture : aucun récit n'a pu y être écrit, donc aucun n'a été perdu. Ce n'est pas un choix des historiens : les objets sont les seules traces qui existent."
+                                    "answer": "Parce que l'écriture n'existait pas encore",
+                                    "explanation": "La Préhistoire est la période d'avant l'écriture : aucun récit n'a pu être écrit. Les objets sont les seules traces qui existent."
                                 }
                             ]
                         },
@@ -4834,12 +5266,12 @@
                                 },
                                 {
                                     "type": "bullets",
-                                    "label": "Les grandes périodes",
+                                    "label": "Les grandes périodes et leurs repères",
                                     "items": [
-                                        "la Préhistoire",
-                                        "l'Antiquité",
-                                        "le Moyen Âge",
-                                        "les Temps modernes"
+                                        "la Préhistoire : jusqu'à l'invention de l'écriture, vers 3300 avant J.-C.",
+                                        "l'Antiquité : de l'écriture à la chute de Rome, en 476",
+                                        "le Moyen Âge : de 476 à la découverte de l'Amérique, en 1492",
+                                        "les Temps modernes : de 1492 à la Révolution, en 1789"
                                     ]
                                 },
                                 {
@@ -4854,25 +5286,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un élève écrit : « Les chevaliers et les Romains vivaient à la même époque, ils se battaient ensemble. » Les Romains appartiennent à l'Antiquité et les chevaliers au Moyen Âge : quelle erreur fait-il ?",
+                                    "question": "Un élève écrit : « Les chevaliers et les Romains se battaient côte à côte. » Quelle est son erreur ?",
                                     "choices": [
-                                        "Il réunit deux périodes qui ne se suivent pas",
-                                        "Il se trompe seulement sur les Romains",
-                                        "Il ne fait aucune erreur de période"
+                                        "Il place dans la même époque deux périodes différentes",
+                                        "Il se trompe seulement sur le mot « chevaliers »",
+                                        "Il ne fait aucune erreur sur les périodes"
                                     ],
-                                    "answer": "Il réunit deux périodes qui ne se suivent pas",
-                                    "explanation": "Les Romains appartiennent à l'Antiquité et les chevaliers au Moyen Âge, qui vient après : ils n'ont pas pu se rencontrer. Les Romains ne sont donc pas du Moyen Âge, et « être ancien » ne suffit pas à situer une même époque."
+                                    "answer": "Il place dans la même époque deux périodes différentes",
+                                    "explanation": "Les Romains vivent dans l'Antiquité, les chevaliers au Moyen Âge, qui commence après 476. Deux périodes qui se suivent ne se chevauchent pas."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "À quoi sert de découper le passé en grandes périodes plutôt que de tout raconter à la suite ?",
+                                    "question": "À quoi sert de découper le passé en grandes périodes ?",
                                     "choices": [
                                         "À regrouper des époques où l'on vivait de façon comparable",
-                                        "À vérifier que chaque période dure le même nombre d'années",
-                                        "À retenir la date exacte de chaque événement du passé"
+                                        "À donner à chaque période exactement la même durée",
+                                        "À retenir par cœur la date de chaque événement"
                                     ],
                                     "answer": "À regrouper des époques où l'on vivait de façon comparable",
-                                    "explanation": "Une période rassemble des façons de vivre et des repères qui se ressemblent. Les périodes n'ont pas du tout la même durée : la Préhistoire dure bien plus longtemps que les autres. Et elles servent à situer, pas à réciter toutes les dates."
+                                    "explanation": "Une période rassemble des façons de vivre et des repères qui se ressemblent. Elles n'ont pas la même durée : la Préhistoire est de loin la plus longue."
                                 }
                             ]
                         },
@@ -4907,25 +5339,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Une bande de pillards approche du village. Les paysans courent se réfugier dans le château fort du seigneur. Qu'est-ce que cela montre de leur relation ?",
+                                    "question": "Des pillards approchent. Les paysans se réfugient dans le château fort du seigneur. Que montre cette scène ?",
                                     "choices": [
-                                        "Le seigneur protège les paysans, qui en échange travaillent pour lui",
-                                        "Les paysans sont propriétaires du château et y rentrent chez eux",
-                                        "Le seigneur et les paysans font le même travail au village"
+                                        "Le seigneur protège les paysans, qui travaillent pour lui",
+                                        "Les paysans sont propriétaires du château fort",
+                                        "Le seigneur et les paysans font le même travail"
                                     ],
-                                    "answer": "Le seigneur protège les paysans, qui en échange travaillent pour lui",
-                                    "explanation": "Le château fort sert d'abri : le seigneur protège son territoire et ceux qui y vivent, et les paysans lui doivent en retour leur travail. Le château appartient au seigneur, pas aux paysans, et les deux n'ont pas du tout le même rôle."
+                                    "answer": "Le seigneur protège les paysans, qui travaillent pour lui",
+                                    "explanation": "Le château fort sert d'abri : le seigneur protège ceux qui vivent sur ses terres, et les paysans lui doivent leur travail. Le château appartient au seigneur."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pourquoi les châteaux forts sont-ils construits en hauteur, avec des murs épais et des fossés ?",
+                                    "question": "Pourquoi construit-on les châteaux forts en hauteur, avec des murs épais et des fossés ?",
                                     "choices": [
-                                        "Pour se défendre à une époque où les attaques sont fréquentes",
+                                        "Pour se défendre quand les attaques sont fréquentes",
                                         "Pour loger tous les paysans du village toute l'année",
                                         "Pour que le seigneur puisse admirer le paysage"
                                     ],
-                                    "answer": "Pour se défendre à une époque où les attaques sont fréquentes",
-                                    "explanation": "Hauteur, murs épais et fossés sont des moyens de défense contre les attaques. Les paysans vivaient dans le village et ne se réfugiaient au château qu'en cas de danger ; la vue n'était qu'un avantage pour surveiller les alentours."
+                                    "answer": "Pour se défendre quand les attaques sont fréquentes",
+                                    "explanation": "Hauteur, murs épais et fossés sont des moyens de défense. Les paysans ne s'y réfugient qu'en cas de danger."
                                 }
                             ]
                         },
@@ -4937,7 +5369,7 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Après la conquête romaine, la Gaule devient une partie de l'Empire romain."
+                                    "text": "En 52 avant J.-C., Jules César bat le chef gaulois Vercingétorix à Alésia. Après cette conquête, la Gaule devient une partie de l'Empire romain."
                                 },
                                 {
                                     "type": "example",
@@ -4959,25 +5391,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pourquoi les Romains construisent-ils autant de routes solides à travers la Gaule ?",
+                                    "question": "Pourquoi les Romains construisent-ils tant de routes solides en Gaule ?",
                                     "choices": [
-                                        "Pour déplacer vite leurs soldats et leurs marchandises dans tout l'Empire",
-                                        "Pour que les Gaulois puissent visiter Rome pendant les vacances",
+                                        "Pour déplacer vite leurs soldats et leurs marchandises",
+                                        "Pour que les Gaulois puissent visiter Rome en vacances",
                                         "Pour séparer les villes gauloises les unes des autres"
                                     ],
-                                    "answer": "Pour déplacer vite leurs soldats et leurs marchandises dans tout l'Empire",
-                                    "explanation": "Les routes servent à contrôler un immense empire : l'armée et le commerce y circulent rapidement. Elles relient les villes au lieu de les séparer, et voyager pour le plaisir n'était pas leur raison d'être."
+                                    "answer": "Pour déplacer vite leurs soldats et leurs marchandises",
+                                    "explanation": "Les routes servent à contrôler un immense empire : l'armée et le commerce y circulent vite. Elles relient les villes au lieu de les séparer."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "En creusant sous une ville française d'aujourd'hui, on découvre les gradins d'un grand théâtre antique. Qu'est-ce que cela apprend aux historiens ?",
+                                    "question": "On découvre sous une ville française les gradins d'un théâtre antique. Que montre cette découverte ?",
                                     "choices": [
-                                        "Qu'une ville gallo-romaine se trouvait déjà à cet endroit",
-                                        "Que les Romains n'ont jamais habité cette région",
-                                        "Que la ville a été construite pendant la Préhistoire"
+                                        "Une ville gallo-romaine se trouvait déjà là",
+                                        "Les Romains n'ont jamais habité cette région",
+                                        "La ville a été construite pendant la Préhistoire"
                                     ],
-                                    "answer": "Qu'une ville gallo-romaine se trouvait déjà à cet endroit",
-                                    "explanation": "Un théâtre antique est un vestige laissé par les Romains : il prouve au contraire leur présence sur place. Et la Préhistoire est bien antérieure : on n'y construisait pas de tels monuments en pierre."
+                                    "answer": "Une ville gallo-romaine se trouvait déjà là",
+                                    "explanation": "Un théâtre antique est un vestige laissé par les Romains : il prouve leur présence sur place. La Préhistoire est bien plus ancienne."
                                 }
                             ]
                         },
@@ -5012,25 +5444,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un seigneur donne des terres à un chevalier, qui promet de venir combattre pour lui. Comment appelle-t-on ce type d'accord, à la base de la société féodale ?",
+                                    "question": "Un seigneur donne des terres à un chevalier, qui promet de combattre pour lui. Quel est cet accord ?",
                                     "choices": [
-                                        "Un échange de fidélité : des terres contre un service",
-                                        "Un achat : le chevalier paie ses terres en pièces d'or",
+                                        "Un échange : des terres contre un service",
+                                        "Un achat : le chevalier paie ses terres en or",
                                         "Un cadeau : le chevalier ne doit rien en retour"
                                     ],
-                                    "answer": "Un échange de fidélité : des terres contre un service",
-                                    "explanation": "Dans la société féodale, on reçoit une terre en échange d'un service et d'une promesse de fidélité. Ce n'est pas un achat, car rien n'est payé en argent, ni un cadeau, puisque le chevalier doit servir son seigneur à la guerre."
+                                    "answer": "Un échange : des terres contre un service",
+                                    "explanation": "On reçoit une terre en échange d'une promesse de fidélité et d'un service à la guerre. Ce n'est ni un achat, puisque rien n'est payé, ni un cadeau."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans cette société, les paysans sont de très loin les plus nombreux, mais ils sont tout en bas de l'organisation. Qu'est-ce que cela montre ?",
+                                    "question": "Les paysans sont les plus nombreux, mais tout en bas de la société féodale. Qu'est-ce que cela montre ?",
                                     "choices": [
-                                        "Que la place de chacun dépendait de sa naissance, pas du nombre",
-                                        "Que les paysans dirigeaient le royaume puisqu'ils étaient majoritaires",
-                                        "Que les paysans étaient les plus riches du royaume"
+                                        "La place de chacun dépend de sa naissance, pas du nombre",
+                                        "Les paysans dirigeaient le royaume, étant majoritaires",
+                                        "Les paysans étaient les plus riches du royaume"
                                     ],
-                                    "answer": "Que la place de chacun dépendait de sa naissance, pas du nombre",
-                                    "explanation": "On naissait dans un ordre et on y restait : être nombreux ne donnait aucun pouvoir. Les paysans ne dirigeaient rien, et ils étaient les plus pauvres alors même qu'ils nourrissaient toute la société."
+                                    "answer": "La place de chacun dépend de sa naissance, pas du nombre",
+                                    "explanation": "On naît dans un ordre et on y reste : être nombreux ne donne aucun pouvoir. Les paysans nourrissent tout le monde mais restent les plus pauvres."
                                 }
                             ]
                         },
@@ -5066,25 +5498,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "En 1789, chaque ordre (clergé, noblesse, tiers état) ne compte que pour une seule voix au moment du vote, même si le tiers état a beaucoup plus de députés que les deux autres réunis. Pourquoi les députés du tiers état réclament-ils de voter « par tête » plutôt que « par ordre » ?",
+                                    "question": "En 1789, le tiers état réclame de voter « par tête » et non « par ordre ». Pourquoi ?",
                                     "choices": [
-                                        "Parce qu'être plus nombreux compterait enfin davantage dans le résultat du vote",
-                                        "Parce qu'ils veulent que le clergé et la noblesse votent à leur place",
-                                        "Parce que le roi le leur avait promis avant la réunion des états généraux"
+                                        "Parce qu'être plus nombreux compterait enfin dans le vote",
+                                        "Parce qu'il veut que la noblesse vote à sa place",
+                                        "Parce que le roi le leur avait déjà promis"
                                     ],
-                                    "answer": "Parce qu'être plus nombreux compterait enfin davantage dans le résultat du vote",
-                                    "explanation": "Avec un vote par ordre, le tiers état perd presque toujours face au clergé et à la noblesse réunis, même s'il représente la majorité des Français. En votant par tête, être plus nombreux ferait enfin la différence. Le roi n'avait rien promis de tel, et il ne s'agit pas de voter à la place d'un autre ordre."
+                                    "answer": "Parce qu'être plus nombreux compterait enfin dans le vote",
+                                    "explanation": "Avec un vote par ordre, le tiers état perd presque toujours face au clergé et à la noblesse, même s'il représente presque tous les Français. Voter par tête rendrait son nombre décisif."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Après 1789, Louis XVI reste roi de France : il n'est pas chassé du trône. Pourtant, on dit que 1789 marque « la fin de la monarchie absolue ». Comment expliquer cela ?",
+                                    "question": "Après 1789, Louis XVI reste roi. Pourquoi dit-on pourtant que c'est la fin de la monarchie absolue ?",
                                     "choices": [
-                                        "Le roi doit désormais accepter de nouveaux droits et ne gouverne plus seul",
-                                        "Le roi a totalement disparu et la France n'a plus aucun souverain",
-                                        "Rien ne change vraiment pour le roi avant longtemps"
+                                        "Il doit accepter de nouvelles règles et ne gouverne plus seul",
+                                        "Il a disparu et la France n'a plus de souverain",
+                                        "Rien ne change pour le roi avant longtemps"
                                     ],
-                                    "answer": "Le roi doit désormais accepter de nouveaux droits et ne gouverne plus seul",
-                                    "explanation": "En 1789, le roi reste sur le trône, mais les états généraux, la prise de la Bastille et la Déclaration des droits l'obligent à composer avec de nouvelles règles : il ne gouverne plus seul comme avant. Ce n'est donc pas la disparition du roi, et beaucoup de choses changent bel et bien dès 1789."
+                                    "answer": "Il doit accepter de nouvelles règles et ne gouverne plus seul",
+                                    "explanation": "Les états généraux, la Bastille et la Déclaration des droits obligent le roi à composer avec de nouvelles règles. Il reste roi, mais n'a plus un pouvoir absolu."
                                 }
                             ]
                         },
@@ -5109,36 +5541,90 @@
                                     "items": [
                                         "Le roi gouverne seul : il ne partage pas son pouvoir avec une assemblée.",
                                         "Louis XIV, surnommé le Roi-Soleil, incarne le sommet de la monarchie absolue.",
-                                        "En 1598, Henri IV avait signé l'édit de Nantes, qui accordait une tolérance religieuse aux protestants.",
+                                        "En 1598, Henri IV signe l'édit de Nantes, qui accorde une tolérance religieuse aux protestants ; en 1685, Louis XIV le révoque.",
                                         "La cour de Versailles rassemble la noblesse autour du roi et affiche sa puissance."
                                     ]
                                 },
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "La monarchie absolue repose sur un roi qui détient tous les pouvoirs du royaume et sur un lieu qui montre sa grandeur : Versailles. Même une décision religieuse comme l'édit de Nantes dépend alors de la seule volonté du roi."
+                                    "content": "La monarchie absolue repose sur un roi qui détient tous les pouvoirs du royaume et sur un lieu qui montre sa grandeur : Versailles. Même une décision religieuse dépend de sa seule volonté : l'édit de Nantes est accordé en 1598, puis supprimé en 1685."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un roi absolu comme Louis XIV veut faire construire une nouvelle route royale à travers le pays. Qui doit donner son accord pour que les travaux commencent ?",
+                                    "question": "Louis XIV veut faire construire une route royale à travers le pays. Qui doit donner son accord ?",
                                     "choices": [
-                                        "Le roi seul décide, sans l'accord d'une assemblée",
-                                        "Les nobles réunis à Versailles votent la décision",
-                                        "Le peuple est consulté par un vote"
+                                        "Le roi seul, sans l'accord d'une assemblée",
+                                        "Les nobles réunis à Versailles, par un vote",
+                                        "Tous les habitants du royaume, par un vote"
                                     ],
-                                    "answer": "Le roi seul décide, sans l'accord d'une assemblée",
-                                    "explanation": "Dans une monarchie absolue, le roi détient tous les pouvoirs : il n'a besoin ni du vote des nobles ni de l'avis du peuple pour lancer de grands travaux."
+                                    "answer": "Le roi seul, sans l'accord d'une assemblée",
+                                    "explanation": "Dans une monarchie absolue, le roi détient tous les pouvoirs : il n'a besoin ni du vote des nobles ni de l'avis du peuple."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "L'édit de Nantes, signé par Henri IV, autorise les protestants à pratiquer leur religion partout en France. Qu'est-ce que cette décision montre à propos du pouvoir du roi ?",
+                                    "question": "Henri IV accorde l'édit de Nantes (1598) et Louis XIV le supprime (1685). Qu'est-ce que cela montre ?",
                                     "choices": [
-                                        "Que le roi peut, seul, imposer une règle religieuse à tout le royaume",
-                                        "Que ce sont les évêques qui décidaient de la tolérance religieuse à sa place",
-                                        "Que cette règle avait été votée par les protestants eux-mêmes"
+                                        "Le roi peut seul accorder puis retirer un droit",
+                                        "Les évêques décidaient à la place du roi",
+                                        "Les protestants ont voté cette suppression"
                                     ],
-                                    "answer": "Que le roi peut, seul, imposer une règle religieuse à tout le royaume",
-                                    "explanation": "Même en matière religieuse, c'est le roi seul qui décide dans une monarchie absolue : ni les évêques ni les protestants n'ont voté cette règle, c'est Henri IV qui l'impose par sa seule autorité."
+                                    "answer": "Le roi peut seul accorder puis retirer un droit",
+                                    "explanation": "Dans une monarchie absolue, le roi décide seul, sans l'accord d'une assemblée. Ni les évêques ni les protestants ne votent rien."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-renaissance",
+                            "title": "La Renaissance",
+                            "subtitle": "Imprimerie, humanistes et artistes",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Aux XVe et XVIe siècles, des artistes, des savants et des écrivains européens redécouvrent les œuvres de l'Antiquité et cherchent à mieux comprendre le monde. On appelle cette période la Renaissance."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Vers 1450, Johannes Gutenberg met au point l'imprimerie en Europe. Avant, chaque livre était copié à la main, très lentement. Avec l'imprimerie, on fabrique beaucoup de livres, moins chers, et les idées circulent plus vite."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "Vers 1450 : Gutenberg et l'imprimerie",
+                                        "Léonard de Vinci, artiste et inventeur, peint la Joconde vers 1503",
+                                        "Les humanistes lisent les auteurs anciens et veulent s'instruire",
+                                        "En 1539, François Ier impose le français dans les actes officiels (Villers-Cotterêts)"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "La Renaissance n'est pas seulement une période d'art : en faisant circuler les livres et les idées, elle change la façon d'apprendre et de comprendre le monde."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un imprimeur fabrique en une semaine des centaines d'exemplaires d'un même livre. Qu'est-ce que cela change pour les lecteurs ?",
+                                    "choices": [
+                                        "Les livres coûtent moins cher et circulent davantage",
+                                        "Les livres deviennent réservés aux seigneurs",
+                                        "Les livres ne sont plus écrits qu'à la main"
+                                    ],
+                                    "answer": "Les livres coûtent moins cher et circulent davantage",
+                                    "explanation": "Imprimer permet de fabriquer beaucoup de livres bien plus vite que de les copier à la main. Ils coûtent moins cher et davantage de gens peuvent les lire."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un humaniste étudie des textes grecs et latins. Que cherche-t-il surtout ?",
+                                    "choices": [
+                                        "Mieux comprendre le monde grâce aux savoirs anciens",
+                                        "Faire disparaître tous les livres de l'Antiquité",
+                                        "Imiter la vie des seigneurs dans les châteaux"
+                                    ],
+                                    "answer": "Mieux comprendre le monde grâce aux savoirs anciens",
+                                    "explanation": "Les humanistes veulent s'instruire en lisant les auteurs anciens. Ils ne cherchent pas à les détruire, et les châteaux forts appartiennent à une autre période."
                                 }
                             ]
                         },
@@ -5174,25 +5660,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un armateur du XVe siècle veut rapporter des épices d'Asie sans dépendre des marchands qui contrôlent la route terrestre et en augmentent le prix à chaque étape. Que peut-il tenter, à cette époque, pour résoudre ce problème ?",
+                                    "question": "Au XVe siècle, un armateur veut des épices d'Asie sans passer par les marchands de la route terrestre. Que peut-il tenter ?",
                                     "choices": [
-                                        "Financer un voyage par bateau qui évite complètement la route terrestre",
-                                        "Construire une route terrestre parallèle, encore plus surveillée",
-                                        "Payer plus cher les mêmes intermédiaires pour aller plus vite"
+                                        "Financer un voyage en bateau qui évite cette route",
+                                        "Construire une autre route terrestre mieux gardée",
+                                        "Payer plus cher les mêmes intermédiaires"
                                     ],
-                                    "answer": "Financer un voyage par bateau qui évite complètement la route terrestre",
-                                    "explanation": "C'est justement l'idée des grandes explorations : en finançant un voyage maritime, on espère atteindre l'Asie sans dépendre de la route terrestre ni de ses intermédiaires."
+                                    "answer": "Financer un voyage en bateau qui évite cette route",
+                                    "explanation": "C'est l'idée des grandes explorations : atteindre l'Asie par la mer, sans dépendre de la route terrestre et de ses intermédiaires."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Après l'arrivée de Christophe Colomb en Amérique, des colons européens s'y installent dans les années qui suivent. Pourquoi peut-on dire que cette arrivée n'est pas seulement une découverte, mais aussi le début d'une conquête ?",
+                                    "question": "Pourquoi l'arrivée de Colomb en Amérique est-elle aussi le début d'une conquête ?",
                                     "choices": [
-                                        "Parce que les Européens s'emparent de territoires déjà habités par d'autres peuples",
-                                        "Parce que l'Amérique était un continent totalement vide avant 1492",
-                                        "Parce que les Européens repartent aussitôt sans jamais s'y installer"
+                                        "Les Européens prennent des territoires déjà habités",
+                                        "L'Amérique était un continent vide avant 1492",
+                                        "Les Européens repartent aussitôt sans s'y installer"
                                     ],
-                                    "answer": "Parce que les Européens s'emparent de territoires déjà habités par d'autres peuples",
-                                    "explanation": "Découvrir une terre pour les Européens ne veut pas dire qu'elle était inhabitée : les colons européens s'installent et prennent peu à peu le contrôle de territoires où vivaient déjà d'autres peuples, ce qui en fait aussi une conquête."
+                                    "answer": "Les Européens prennent des territoires déjà habités",
+                                    "explanation": "Pour les Européens, c'est une découverte, mais ces terres étaient habitées. Les colons s'y installent et prennent peu à peu le contrôle de leurs territoires."
                                 }
                             ]
                         }
@@ -5327,8 +5813,8 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/history_cm1.json",
-                                "category": "cm1-moyen-age",
-                                "questions": 12
+                                "category": "cm1-moyen-age-defi",
+                                "questions": 8
                             }
                         }
                     ]
@@ -5340,13 +5826,13 @@
                     "lessons": [
                         {
                             "id": "cm1-lesson-frise",
-                            "title": "Le temps des rois",
-                            "subtitle": "Châteaux, pouvoir et société",
+                            "title": "Lire une frise historique",
+                            "subtitle": "Ranger les périodes de la plus ancienne à la plus récente",
                             "format": "lesson-card",
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Une frise historique range les grandes périodes dans l'ordre : la Préhistoire, l'Antiquité, le Moyen Âge puis les Temps modernes. Le temps des rois correspond surtout au Moyen Âge, où le roi dirige le royaume et où les châteaux forts protègent les territoires."
+                                    "text": "Une frise historique range les grandes périodes dans l'ordre : la Préhistoire, l'Antiquité, le Moyen Âge puis les Temps modernes. Plus un événement est à gauche, plus il est ancien ; plus il est à droite, plus il est récent."
                                 },
                                 {
                                     "type": "example",
@@ -5370,25 +5856,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur une frise, un élève doit placer une peinture de grotte, un aqueduc romain et un château fort. Dans quel ordre les rencontre-t-il en allant de la gauche vers la droite ?",
+                                    "question": "Sur une frise, dans quel ordre, de gauche à droite : peinture de grotte, aqueduc romain, château fort ?",
                                     "choices": [
-                                        "La peinture de grotte, l'aqueduc, le château fort",
-                                        "Le château fort, l'aqueduc, la peinture de grotte",
-                                        "L'aqueduc, la peinture de grotte, le château fort"
+                                        "Grotte, aqueduc, château fort",
+                                        "Château fort, aqueduc, grotte",
+                                        "Aqueduc, grotte, château fort"
                                     ],
-                                    "answer": "La peinture de grotte, l'aqueduc, le château fort",
-                                    "explanation": "Une frise se lit de gauche à droite, du plus ancien au plus récent : la grotte est préhistorique, l'aqueduc antique, le château fort médiéval. Commencer par le château inverse le temps, et l'aqueduc ne peut pas précéder la Préhistoire."
+                                    "answer": "Grotte, aqueduc, château fort",
+                                    "explanation": "Une frise va du plus ancien au plus récent : la grotte est préhistorique, l'aqueduc antique, le château fort médiéval."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Deux événements sont placés très près l'un de l'autre sur une frise historique. Qu'est-ce que cela signifie ?",
+                                    "question": "Deux événements sont très proches sur une frise. Qu'est-ce que cela signifie ?",
                                     "choices": [
-                                        "Qu'ils se sont produits à peu de temps d'écart",
-                                        "Qu'ils se sont produits au même endroit",
-                                        "Qu'ils sont tous les deux très importants"
+                                        "Ils se sont produits à peu de temps d'écart",
+                                        "Ils se sont produits au même endroit",
+                                        "Ils sont tous les deux très importants"
                                     ],
-                                    "answer": "Qu'ils se sont produits à peu de temps d'écart",
-                                    "explanation": "Sur une frise, la distance mesure le temps écoulé : proches signifie rapprochés dans le temps. Une frise n'indique ni le lieu, qui se lit sur une carte, ni l'importance d'un événement."
+                                    "answer": "Ils se sont produits à peu de temps d'écart",
+                                    "explanation": "Sur une frise, la distance mesure le temps écoulé. Elle n'indique ni le lieu, qui se lit sur une carte, ni l'importance."
                                 }
                             ]
                         }
@@ -5539,7 +6025,7 @@
                                 "grade": "cm1",
                                 "dataFile": "data/history_chrono.json",
                                 "timelineId": "cm1-place-moyen-age",
-                                "difficulty": 3,
+                                "difficulty": [2, 3],
                                 "questions": 8
                             }
                         }
@@ -5590,25 +6076,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un élève décrit un paysage ainsi : « C'est joli, il y a plein de choses vertes et des trucs au fond. » Que doit-il améliorer ?",
+                                    "question": "Un élève écrit : « Il y a plein de choses vertes et des trucs au fond. » Que doit-il améliorer ?",
                                     "choices": [
-                                        "Employer un vocabulaire précis : prairie, forêt, colline",
-                                        "Ajouter plus d'adjectifs sur la beauté du lieu",
-                                        "Décrire seulement ce qui est au premier plan"
+                                        "Nommer ce qu'il voit : prairie, forêt, colline",
+                                        "Ajouter encore des adjectifs pour dire que c'est joli",
+                                        "Décrire seulement ce qui se trouve au premier plan"
                                     ],
-                                    "answer": "Employer un vocabulaire précis : prairie, forêt, colline",
-                                    "explanation": "En géographie, on nomme ce qu'on voit avec des mots exacts : « prairie » ou « colline » disent ce que « trucs verts » ne dit pas. Multiplier les adjectifs sur la beauté n'apporte aucune information sur le lieu. Et se limiter au premier plan ferait perdre la moitié du paysage."
+                                    "answer": "Nommer ce qu'il voit : prairie, forêt, colline",
+                                    "explanation": "En géographie, on nomme ce qu'on voit avec des mots exacts : « prairie » ou « colline » en disent plus que « trucs verts ». Les adjectifs sur la beauté n'apprennent rien sur le lieu."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur une photo, un cours d'eau serpente au fond d'un creux allongé, entre deux versants qui montent de chaque côté. Qu'est-ce qui explique le mieux cette forme du relief ?",
+                                    "question": "Sur une photo, un cours d'eau serpente au fond d'un creux entre deux versants. Comment ce creux s'est-il formé ?",
                                     "choices": [
-                                        "Le cours d'eau a creusé le terrain pendant très longtemps",
-                                        "Les deux versants ont poussé récemment de chaque côté",
-                                        "Des habitants ont creusé ce passage pour l'eau"
+                                        "Le cours d'eau l'a creusé pendant très longtemps",
+                                        "Les deux versants ont poussé récemment",
+                                        "Des habitants l'ont creusé pour faire passer l'eau"
                                     ],
-                                    "answer": "Le cours d'eau a creusé le terrain pendant très longtemps",
-                                    "explanation": "L'eau qui s'écoule use la roche et entaille le sol : au fil des millénaires, elle creuse ce couloir entre deux versants. Les versants n'ont pas poussé : c'est le milieu qui s'est enfoncé, eux sont restés. Et aucun chantier humain n'atteint cette échelle : ce sont des kilomètres façonnés par la nature."
+                                    "answer": "Le cours d'eau l'a creusé pendant très longtemps",
+                                    "explanation": "L'eau qui s'écoule use la roche et entaille le sol : au fil des millénaires, elle creuse une vallée. Aucun chantier humain n'atteint cette échelle."
                                 }
                             ]
                         },
@@ -5659,25 +6145,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Une région française est presque entièrement plate, couverte de champs de céréales à perte de vue, avec de très gros silos. À quel type de paysage appartient-elle ?",
+                                    "question": "Une région est presque plate, couverte de champs de céréales à perte de vue. Quel type de paysage est-ce ?",
                                     "choices": [
                                         "Une plaine agricole",
                                         "Un massif montagneux",
                                         "Un littoral touristique"
                                     ],
                                     "answer": "Une plaine agricole",
-                                    "explanation": "Un relief plat et de vastes cultures céréalières sont les marques d'une plaine agricole, comme la Beauce. Un massif montagneux se reconnaîtrait à ses sommets et ses pentes, incompatibles avec un terrain plat. Un littoral supposerait la mer, absente ici."
+                                    "explanation": "Un relief plat et de vastes cultures de céréales sont les marques d'une plaine agricole, comme la Beauce. Une montagne a des pentes, un littoral borde la mer."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pourquoi les grandes cultures de céréales s'installent-elles en plaine plutôt qu'en montagne ?",
+                                    "question": "Pourquoi cultive-t-on les céréales en plaine plutôt qu'en montagne ?",
                                     "choices": [
-                                        "Les grosses machines exigent un terrain plat",
+                                        "Les grosses machines ont besoin d'un terrain plat",
                                         "La pluie ne tombe jamais sur les plaines",
-                                        "Les montagnes n'ont plus aucun habitant"
+                                        "Plus personne n'habite dans les montagnes"
                                     ],
-                                    "answer": "Les grosses machines exigent un terrain plat",
-                                    "explanation": "Les moissonneuses ont besoin de vastes surfaces planes : la pente rend leur travail impossible, on y préfère l'élevage. Il pleut bien en plaine, et les céréales ont justement besoin d'eau. Et la montagne est habitée : ses habitants ont d'autres activités."
+                                    "answer": "Les grosses machines ont besoin d'un terrain plat",
+                                    "explanation": "Les moissonneuses travaillent sur de vastes surfaces planes ; en montagne, la pente rend le travail impossible et on préfère l'élevage. Il pleut aussi en plaine."
                                 }
                             ]
                         }
@@ -5686,7 +6172,7 @@
                         {
                             "id": "cm1-geo-relief",
                             "title": "Reliefs et fleuves",
-                            "subtitle": "France et paysages",
+                            "subtitle": "Montagnes, plaines et littoral",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -5697,15 +6183,15 @@
                         },
                         {
                             "params": {
-                                "questions": 10,
+                                "questions": 8,
                                 "dataFile": "data/geography_cm1.json",
-                                "category": "cm1-france-relief",
+                                "category": "cm1-france-fleuves",
                                 "type": "factual-qcm"
                             },
-                            "title": "Fleuves et reliefs de France",
+                            "title": "Fleuves de France",
                             "engine": "choice-engine",
                             "id": "cm1-geo-fleuves-reliefs-france",
-                            "subtitle": "Montagnes, vallées et grands cours d'eau"
+                            "subtitle": "Seine, Loire, Rhône et Garonne"
                         },
                         {
                             "params": {
@@ -5733,15 +6219,15 @@
                         {
                             "id": "cm1-bonus-geo-relief-expert",
                             "title": "Défi : reliefs et fleuves",
-                            "subtitle": "Question longue, sans répit",
+                            "subtitle": "Estuaire, delta, presqu'île et glacier",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/geography_cm1.json",
-                                "category": "cm1-eaux-paysages",
-                                "questions": 12
+                                "category": "cm1-eaux-paysages-defi",
+                                "questions": 8
                             }
                         }
                     ]
@@ -5783,25 +6269,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Une commune du littoral compte de nombreux hôtels, un port de pêche et une école qui ferme des classes l'hiver. Quelle information manque encore pour décrire ce territoire ?",
+                                    "question": "Une commune du littoral a des hôtels et un port de pêche. Quelle information manque pour la décrire ?",
                                     "choices": [
                                         "Les services dont les habitants disposent toute l'année",
                                         "La liste des prénoms donnés aux enfants cette année",
-                                        "L'année où le premier hôtel a été bâti"
+                                        "L'année de construction du premier hôtel de la commune"
                                     ],
                                     "answer": "Les services dont les habitants disposent toute l'année",
-                                    "explanation": "On connaît déjà les paysages et les activités, mais pas les besoins des habitants permanents : sans médecin ni commerces l'hiver, le territoire s'organise autrement. Les prénoms ne renseignent sur aucun espace. Et la date du premier hôtel est une donnée historique, pas une description du territoire actuel."
+                                    "explanation": "On connaît les paysages et les activités, mais pas les besoins des habitants permanents : sans médecin ni commerces l'hiver, le territoire s'organise autrement. Prénoms et date d'un hôtel ne décrivent pas le territoire."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans une commune, un habitant sur deux travaille à l'usine du bourg, les maisons sont serrées autour, et le boulanger vit du passage des ouvriers. Que montre cet exemple ?",
+                                    "question": "Un bourg s'est construit autour de son usine, où travaille la moitié des habitants. Que montre cet exemple ?",
                                     "choices": [
                                         "Les activités des habitants organisent l'espace où ils vivent",
                                         "Les paysages n'ont aucun lien avec les activités",
                                         "Une commune ne peut avoir qu'une seule activité"
                                     ],
                                     "answer": "Les activités des habitants organisent l'espace où ils vivent",
-                                    "explanation": "Ici l'usine a attiré les logements et fait vivre les commerces : c'est bien l'activité qui a façonné le territoire. Les paysages sont donc au contraire liés aux activités. Et rien n'interdit plusieurs activités : cette commune en a déjà deux, l'usine et le commerce."
+                                    "explanation": "L'usine a attiré les logements et fait vivre les commerces : l'activité a façonné le territoire. Les paysages sont donc liés aux activités, et une commune peut en avoir plusieurs."
                                 }
                             ]
                         },
@@ -5837,25 +6323,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur une carte, un élève voit une grande tache verte et en conclut : « Là-bas, il y a beaucoup d'herbe et d'arbres. » Pourquoi cette conclusion est-elle risquée ?",
+                                    "question": "Sur une carte, un élève voit une grande tache verte et conclut : « Il y a beaucoup d'arbres. » Pourquoi est-ce risqué ?",
                                     "choices": [
-                                        "Le vert peut signifier une plaine de faible altitude, pas une végétation",
-                                        "Le vert n'est jamais utilisé sur les cartes de géographie",
-                                        "Une carte ne montre jamais la végétation qui pousse au sol"
+                                        "Le vert peut indiquer une basse altitude, pas des arbres",
+                                        "Le vert n'est jamais utilisé sur les cartes",
+                                        "Une carte ne montre jamais ce qui pousse au sol"
                                     ],
-                                    "answer": "Le vert peut signifier une plaine de faible altitude, pas une végétation",
-                                    "explanation": "Sur une carte du relief, le vert code une altitude basse : seule la légende dit ce que la couleur signifie vraiment. Le vert est au contraire très employé sur les cartes. Et certaines cartes montrent bien la végétation : encore faut-il vérifier que c'est le sujet de celle-ci."
+                                    "answer": "Le vert peut indiquer une basse altitude, pas des arbres",
+                                    "explanation": "Sur une carte du relief, le vert code une basse altitude : seule la légende dit ce que la couleur signifie. Certaines cartes montrent la végétation, mais il faut le vérifier."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Deux cartes de France sont posées côte à côte : elles ont la même forme mais aucune information commune. Qu'est-ce qui a changé entre elles ?",
+                                    "question": "Deux cartes de France ont la même forme mais ne montrent aucune information commune. Qu'est-ce qui diffère ?",
                                     "choices": [
                                         "Le sujet, annoncé par le titre",
-                                        "Le pays qui est représenté",
+                                        "Le pays représenté",
                                         "Le point de vue : l'une est vue de côté"
                                     ],
                                     "answer": "Le sujet, annoncé par le titre",
-                                    "explanation": "Une carte sélectionne les informations liées à son sujet : deux cartes du même pays peuvent donc ne rien montrer de commun. Le pays n'a pas changé, puisque la forme est identique. Et toute carte est vue de haut : c'est ce qui la distingue d'un dessin de paysage."
+                                    "explanation": "Une carte choisit les informations liées à son sujet, donné par le titre : deux cartes du même pays peuvent donc ne rien montrer de commun. Une carte est toujours vue de dessus."
                                 }
                             ]
                         },
@@ -5867,7 +6353,7 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "La France métropolitaine est découpée en 13 grandes régions, chacune avec ses paysages, ses villes et son organisation propre."
+                                    "text": "La France métropolitaine est découpée en 13 grandes régions, chacune avec ses paysages, ses villes et son organisation propre. Une région regroupe plusieurs départements."
                                 },
                                 {
                                     "type": "example",
@@ -5876,11 +6362,14 @@
                                 },
                                 {
                                     "type": "bullets",
-                                    "label": "Je retiens",
+                                    "label": "Où chercher les 13 régions",
                                     "items": [
-                                        "une région regroupe plusieurs départements",
-                                        "chaque région a une histoire et des paysages propres",
-                                        "la France métropolitaine compte 13 régions"
+                                        "au nord : Hauts-de-France, Normandie et Île-de-France (autour de Paris)",
+                                        "au centre : Centre-Val de Loire",
+                                        "à l'ouest : Bretagne, Pays de la Loire et Nouvelle-Aquitaine",
+                                        "à l'est : Grand Est et Bourgogne-Franche-Comté",
+                                        "au sud et au sud-est : Occitanie, Auvergne-Rhône-Alpes et Provence-Alpes-Côte d'Azur",
+                                        "et une île de la Méditerranée : la Corse"
                                     ]
                                 },
                                 {
@@ -5890,25 +6379,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un élève dit : « Ma commune est dans un département, mais elle n'est donc dans aucune région. » Pourquoi se trompe-t-il ?",
+                                    "question": "Un élève dit : « Ma commune est dans un département, donc dans aucune région. » Pourquoi se trompe-t-il ?",
                                     "choices": [
-                                        "Parce que les départements sont eux-mêmes regroupés en régions",
-                                        "Parce qu'une commune n'appartient à aucun département",
-                                        "Parce que les régions ont remplacé les départements"
+                                        "Les départements sont regroupés en régions",
+                                        "Une commune n'appartient à aucun département",
+                                        "Les régions ont remplacé les départements"
                                     ],
-                                    "answer": "Parce que les départements sont eux-mêmes regroupés en régions",
-                                    "explanation": "Le territoire s'emboîte : la commune est dans un département, lui-même dans une région. Elle appartient donc aux deux. Sa commune est bien dans un département, il le dit lui-même. Et les régions n'ont pas remplacé les départements : les deux existent en même temps."
+                                    "answer": "Les départements sont regroupés en régions",
+                                    "explanation": "Les territoires s'emboîtent : une commune est dans un département, lui-même dans une région. Les régions n'ont pas remplacé les départements."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pourquoi la région où se trouve la capitale est-elle de loin la plus peuplée du pays ?",
+                                    "question": "Pourquoi l'Île-de-France est-elle la région la plus peuplée de France ?",
                                     "choices": [
-                                        "Parce que la capitale concentre les emplois, les services et les transports",
-                                        "Parce qu'elle est de loin la région la plus vaste du pays en superficie",
-                                        "Parce que c'est la seule région du pays à posséder de vraies villes"
+                                        "Paris y concentre emplois, services et transports",
+                                        "C'est la région la plus vaste du pays",
+                                        "C'est la seule région qui possède de vraies villes"
                                     ],
-                                    "answer": "Parce que la capitale concentre les emplois, les services et les transports",
-                                    "explanation": "L'Île-de-France attire les habitants parce que Paris y rassemble le travail, les services et les réseaux de transport. Elle est au contraire l'une des plus petites régions par la superficie : c'est bien la densité qui compte. Et toutes les régions ont des villes, souvent grandes."
+                                    "answer": "Paris y concentre emplois, services et transports",
+                                    "explanation": "Paris y rassemble le travail, les services et les transports, ce qui attire les habitants. La région est pourtant l'une des plus petites par sa superficie."
                                 }
                             ]
                         }
@@ -5948,8 +6437,8 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/geography_cm1.json",
-                                "category": "cm1-types-territoires",
-                                "questions": 10
+                                "category": "cm1-territoires-defi",
+                                "questions": 8
                             }
                         },
                         {
@@ -5958,7 +6447,7 @@
                             "subtitle": "Relie chaque territoire à ce qui le caractérise",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_geo_cm1",
+                                "category": "matching_geo_cm1_territoires",
                                 "dataFile": "data/geography_matching.json",
                                 "questions": 1
                             }
@@ -5986,13 +6475,13 @@
                     "lessons": [
                         {
                             "id": "cm1-lesson-deplacements",
-                            "title": "Se déplacer en France",
-                            "subtitle": "Routes, trains et trajets",
+                            "title": "Choisir son moyen de transport",
+                            "subtitle": "Distance, temps et sécurité",
                             "format": "lesson-card",
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Se déplacer, c'est aller d'un lieu à un autre en choisissant un moyen de transport adapté au trajet."
+                                    "text": "Pour chaque trajet, on choisit un moyen de transport en tenant compte de la distance, du temps disponible, du coût et de la sécurité."
                                 },
                                 {
                                     "type": "example",
@@ -6016,25 +6505,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un adulte doit se rendre à un rendez-vous à 8 km, en pleine heure de pointe, dans une ville où les places de stationnement sont rares. Que peut-il privilégier ?",
+                                    "question": "Un adulte doit faire 8 km en pleine heure de pointe, dans une ville où le stationnement est rare. Que peut-il choisir ?",
                                     "choices": [
-                                        "Le vélo, qui évite les bouchons et le problème du stationnement",
-                                        "La voiture, plus rapide dans les embouteillages",
-                                        "L'avion, adapté aux trajets de quelques kilomètres"
+                                        "Le vélo, qui évite les bouchons et le stationnement",
+                                        "La voiture, qui reste rapide même dans les embouteillages",
+                                        "La marche à pied, la plus rapide sur 8 kilomètres"
                                     ],
-                                    "answer": "Le vélo, qui évite les bouchons et le problème du stationnement",
-                                    "explanation": "Sur 8 km en heure de pointe, le vélo se faufile et se gare partout : les deux contraintes disparaissent. La voiture subit précisément les bouchons et le manque de places. Et l'avion est absurde ici : il sert aux longues distances, avec un aéroport à rejoindre."
+                                    "answer": "Le vélo, qui évite les bouchons et le stationnement",
+                                    "explanation": "Sur 8 km en heure de pointe, le vélo évite les bouchons et se gare partout. La voiture subit les bouchons et le manque de places, et marcher 8 km prend beaucoup plus de temps."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pourquoi dit-on qu'un trajet plus court n'est pas toujours un trajet plus rapide ?",
+                                    "question": "Pourquoi un trajet plus court n'est-il pas toujours plus rapide ?",
                                     "choices": [
-                                        "Le trafic et l'itinéraire pèsent aussi sur la durée",
+                                        "Le trafic et l'itinéraire jouent aussi sur la durée",
                                         "La distance ne peut pas vraiment se mesurer",
-                                        "Tous les transports roulent à la même vitesse"
+                                        "Tous les transports vont à la même vitesse"
                                     ],
-                                    "answer": "Le trafic et l'itinéraire pèsent aussi sur la durée",
-                                    "explanation": "Un trajet court mais embouteillé peut prendre plus de temps qu'un détour par une voie rapide : la distance n'est qu'un critère parmi d'autres. La distance se mesure très bien, en kilomètres. Et les transports n'ont pas la même vitesse : c'est ce qui fait varier la durée."
+                                    "answer": "Le trafic et l'itinéraire jouent aussi sur la durée",
+                                    "explanation": "Un trajet court mais embouteillé peut durer plus longtemps qu'un détour par une voie rapide. La distance se mesure bien, et les transports n'ont pas tous la même vitesse."
                                 }
                             ]
                         },
@@ -6069,25 +6558,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans un hameau de montagne, il n'y a ni bus ni gare, et le premier supermarché est à 20 km. Comment les habitants s'organisent-ils le plus souvent ?",
+                                    "question": "Dans un hameau de montagne sans bus ni gare, le premier supermarché est à 20 km. Comment les habitants font-ils ?",
                                     "choices": [
-                                        "Ils utilisent la voiture et groupent leurs courses en un seul trajet",
-                                        "Ils font tous leurs courses à pied, un peu chaque jour",
-                                        "Ils prennent le train à chaque fois qu'ils ont un achat à faire"
+                                        "Ils prennent la voiture et groupent leurs courses",
+                                        "Ils vont à pied au supermarché chaque jour",
+                                        "Ils prennent le train pour chaque petit achat"
                                     ],
-                                    "answer": "Ils utilisent la voiture et groupent leurs courses en un seul trajet",
-                                    "explanation": "Sans transport en commun, la voiture reste la seule solution, et l'éloignement pousse à tout regrouper pour limiter les allers-retours. 20 km à pied chaque jour serait irréalisable. Et le train est impossible : l'énoncé précise qu'il n'y a pas de gare."
+                                    "answer": "Ils prennent la voiture et groupent leurs courses",
+                                    "explanation": "Sans transport en commun, la voiture est la seule solution, et l'éloignement pousse à regrouper les courses. 20 km à pied chaque jour est irréalisable, et il n'y a pas de gare."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pourquoi les transports en commun sont-ils beaucoup plus développés dans les grandes villes que dans les campagnes ?",
+                                    "question": "Pourquoi les transports en commun sont-ils plus développés dans les grandes villes qu'à la campagne ?",
                                     "choices": [
-                                        "Parce que de nombreux habitants y font les mêmes trajets aux mêmes heures",
-                                        "Parce que les habitants des campagnes ne se déplacent pas",
-                                        "Parce que les campagnes n'ont pas de routes"
+                                        "Beaucoup d'habitants y font les mêmes trajets",
+                                        "Les habitants des campagnes ne se déplacent pas",
+                                        "Les campagnes n'ont pas de routes"
                                     ],
-                                    "answer": "Parce que de nombreux habitants y font les mêmes trajets aux mêmes heures",
-                                    "explanation": "Une ligne n'est rentable que si beaucoup de voyageurs l'empruntent : la densité urbaine le permet, la dispersion rurale non. Les habitants des campagnes se déplacent au contraire beaucoup, souvent plus loin. Et les campagnes ont bien des routes : c'est le nombre de voyageurs qui manque."
+                                    "answer": "Beaucoup d'habitants y font les mêmes trajets",
+                                    "explanation": "Une ligne n'est rentable que si beaucoup de voyageurs l'empruntent : la densité des villes le permet, pas la dispersion des campagnes. Les habitants des campagnes se déplacent beaucoup, et les routes y existent."
                                 }
                             ]
                         }
@@ -6115,8 +6604,8 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/geography_cm1.json",
-                                "category": "cm1-se-deplacer",
-                                "questions": 10
+                                "category": "cm1-deplacements-defi",
+                                "questions": 8
                             }
                         },
                         {
@@ -6137,7 +6626,7 @@
                             "subtitle": "Relie chaque moyen de transport à son usage",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_geo_cm1",
+                                "category": "matching_geo_cm1_transports",
                                 "dataFile": "data/geography_matching.json",
                                 "questions": 1
                             }
@@ -6181,25 +6670,79 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un élève affirme : « La France est un continent, puisqu'elle est très grande. » Que faut-il lui répondre ?",
+                                    "question": "Un élève affirme : « La France est un continent, puisqu'elle est très grande. » Que faut-il répondre ?",
                                     "choices": [
-                                        "La France est un pays situé sur le continent européen",
-                                        "C'est vrai, tout grand pays est un continent",
-                                        "La France est un continent bordé par l'Europe"
+                                        "C'est un pays situé sur le continent européen",
+                                        "C'est vrai : un grand pays est un continent",
+                                        "C'est un continent bordé par l'Europe"
                                     ],
-                                    "answer": "La France est un pays situé sur le continent européen",
-                                    "explanation": "Un continent est une très vaste étendue de terres qui regroupe de nombreux pays : la France n'en est qu'un, situé en Europe. La taille ne fait pas un continent, sinon la Chine ou le Brésil en seraient. Et l'Europe ne borde pas la France : elle la contient."
+                                    "answer": "C'est un pays situé sur le continent européen",
+                                    "explanation": "Un continent regroupe de nombreux pays : la France en est un, situé en Europe. La taille ne fait pas un continent, et l'Europe ne borde pas la France : elle la contient."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un randonneur veut quitter la France à pied en franchissant un col de haute montagne. Pourquoi ne pourra-t-il jamais rejoindre le Royaume-Uni de cette façon ?",
+                                    "question": "Un randonneur veut aller à pied de la France au Royaume-Uni. Pourquoi est-ce impossible ?",
                                     "choices": [
-                                        "Un bras de mer le sépare de la France, sans frontière terrestre",
-                                        "Ses montagnes sont trop hautes pour être franchies à pied",
-                                        "Il est situé sur un autre continent que la France"
+                                        "Un bras de mer les sépare, sans frontière terrestre",
+                                        "Les montagnes sont trop hautes pour être franchies",
+                                        "Ils ne sont pas sur le même continent"
                                     ],
-                                    "answer": "Un bras de mer le sépare de la France, sans frontière terrestre",
-                                    "explanation": "Le Royaume-Uni est une île : la Manche l'isole, et aucun col ne peut mener là où il n'y a pas de terre continue. Ce n'est pas une question d'altitude : le problème est la mer, pas la pente. Et il appartient bien au continent européen, comme la France."
+                                    "answer": "Un bras de mer les sépare, sans frontière terrestre",
+                                    "explanation": "Le Royaume-Uni est séparé de la France par la Manche : il n'y a pas de passage terrestre. Les deux pays sont pourtant sur le même continent."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-continents-oceans",
+                            "title": "Les continents et les océans",
+                            "subtitle": "Se repérer dans le monde",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La Terre est couverte en grande partie d'eau. Les immenses étendues d'eau salée sont les océans ; les immenses étendues de terre, qui regroupent de nombreux pays, sont les continents."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Sur un planisphère, la France se trouve en Europe, à l'ouest du continent, au bord de l'océan Atlantique."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "les continents : Europe, Asie, Afrique, Amérique du Nord, Amérique du Sud, Océanie (et l'Antarctique, couvert de glace)",
+                                        "les océans : Pacifique, Atlantique, Indien (et l'Arctique, très froid)",
+                                        "l'Asie est le continent le plus vaste et le plus peuplé",
+                                        "un planisphère est une carte plate du monde entier"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour se repérer dans le monde, on va du plus grand au plus petit : du continent au pays, puis à la ville."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève dit : « L'Atlantique est un continent. » Que faut-il lui répondre ?",
+                                    "choices": [
+                                        "C'est un océan : une immense étendue d'eau",
+                                        "C'est bien un continent, entouré de terres",
+                                        "C'est un grand pays au bord de l'Europe"
+                                    ],
+                                    "answer": "C'est un océan : une immense étendue d'eau",
+                                    "explanation": "Les continents sont des étendues de terre, les océans des étendues d'eau. L'Atlantique est un océan qui sépare l'Europe et l'Afrique de l'Amérique."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour situer une ville du monde sur un planisphère, par quoi commence-t-on ?",
+                                    "choices": [
+                                        "Par le continent où se trouve son pays",
+                                        "Par la rue où se trouve la ville",
+                                        "Par le nom du fleuve le plus proche"
+                                    ],
+                                    "answer": "Par le continent où se trouve son pays",
+                                    "explanation": "On va du plus grand au plus petit : on repère le continent, puis le pays, puis la ville. La rue est bien trop petite pour figurer sur un planisphère."
                                 }
                             ]
                         }
@@ -6225,7 +6768,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/geography_cm1.json",
-                                "category": "cm1-europe-monde",
+                                "category": "cm1-monde-situer",
                                 "questions": 6
                             }
                         },
@@ -6273,11 +6816,11 @@
                         },
                         {
                             "id": "cm1-geo-europe-appariement",
-                            "title": "Reliefs, territoires et transports",
-                            "subtitle": "Relie chaque relief, territoire ou moyen de transport à sa caractéristique",
+                            "title": "Pays, continents et mers",
+                            "subtitle": "Relie chaque élément à sa place dans le monde",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_geo_cm1",
+                                "category": "matching_geo_cm1_monde",
                                 "dataFile": "data/geography_matching.json",
                                 "questions": 2
                             }
@@ -6387,7 +6930,7 @@
                         {
                             "id": "cm1-bonus-geo-carte-monde-expert",
                             "title": "Défi : carte du monde",
-                            "subtitle": "Continents en mode marathon",
+                            "subtitle": "Continents devinés à partir d'indices",
                             "engine": "board-interactive",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -6396,8 +6939,8 @@
                                 "dataFile": "data/board_map_locate_world.json",
                                 "mapFile": "data/maps/world-continents.svg",
                                 "mapId": "world-continents",
-                                "category": "cm1_map_continents_monde",
-                                "questions": 12
+                                "category": "cm1_map_continents_monde_defi",
+                                "questions": 6
                             }
                         }
                     ]
@@ -6440,25 +6983,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Léa habite en France et veut montrer aujourd'hui même un dessin à sa correspondante qui vit au Japon, très loin. Que peut-elle faire de plus efficace ?",
+                                    "question": "Léa veut montrer aujourd'hui son dessin à sa correspondante du Japon. Que peut-elle faire de plus rapide ?",
                                     "choices": [
-                                        "Envoyer une photo du dessin par message, grâce à Internet",
-                                        "Envoyer le dessin par la poste, dans une lettre",
-                                        "Décrire le dessin à l'oral, par un appel sur un poste fixe"
+                                        "Envoyer une photo du dessin par Internet",
+                                        "Envoyer le dessin par la poste dans une lettre",
+                                        "Décrire le dessin par téléphone fixe"
                                     ],
-                                    "answer": "Envoyer une photo du dessin par message, grâce à Internet",
-                                    "explanation": "Une photo envoyée par Internet arrive en quelques secondes, même au Japon. Une lettre postée le jour même mettrait des jours, voire des semaines, à traverser les continents. Et un appel sur poste fixe permettrait de parler, mais pas de montrer réellement le dessin."
+                                    "answer": "Envoyer une photo du dessin par Internet",
+                                    "explanation": "Une photo envoyée par Internet arrive en quelques secondes, même au Japon. Une lettre mettrait des jours, et le téléphone permet de parler mais pas de montrer le dessin."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans un village isolé de montagne, la connexion Internet est très lente, alors qu'en ville, on peut regarder des vidéos ou passer des appels vidéo sans problème. Que montre cette différence ?",
+                                    "question": "Au village de montagne, la connexion est très lente ; en ville, elle est rapide. Que montre cette différence ?",
                                     "choices": [
-                                        "Tous les lieux du monde n'ont pas un accès identique à Internet",
-                                        "Les habitants de ce village n'aiment pas utiliser Internet",
-                                        "Il n'y a pas d'électricité dans les villages de montagne"
+                                        "Tous les lieux n'ont pas le même accès à Internet",
+                                        "Les habitants du village n'aiment pas Internet",
+                                        "Les villages de montagne n'ont pas d'électricité"
                                     ],
-                                    "answer": "Tous les lieux du monde n'ont pas un accès identique à Internet",
-                                    "explanation": "Certaines régions, comme des villages isolés ou des pays pauvres, ont un accès à Internet plus difficile, plus lent ou plus cher que dans les grandes villes : c'est une inégalité d'accès. Ce n'est pas une question de goût : les habitants n'ont simplement pas les mêmes moyens techniques. Et l'électricité existe bien dans la plupart des villages, même quand la connexion Internet y est mauvaise."
+                                    "answer": "Tous les lieux n'ont pas le même accès à Internet",
+                                    "explanation": "Dans des villages isolés ou des pays pauvres, l'accès à Internet est plus lent ou plus cher qu'en ville : c'est une inégalité d'accès. Ce n'est pas une question de goût."
                                 }
                             ]
                         }
@@ -6515,25 +7058,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Théo achète des cerises récoltées la veille dans un verger situé à seulement 10 km de chez lui, vendues directement par le producteur sur le marché du village. Que peut-on dire du trajet de ces cerises ?",
+                                    "question": "Théo achète au marché des cerises cueillies la veille à 10 km, vendues par le producteur. Quel circuit est-ce ?",
                                     "choices": [
-                                        "Elles ont parcouru une très courte distance avant d'arriver dans son assiette",
-                                        "Elles ont traversé plusieurs pays avant d'arriver dans son assiette",
-                                        "Elles ont poussé directement dans le jardin de Théo"
+                                        "Un circuit court, avec très peu de transport",
+                                        "Un circuit long, avec plusieurs pays traversés",
+                                        "Ni l'un ni l'autre : on ne peut pas le savoir"
                                     ],
-                                    "answer": "Elles ont parcouru une très courte distance avant d'arriver dans son assiette",
-                                    "explanation": "Un aliment produit tout près de chez soi et vendu presque directement par le producteur, avec peu de transport, correspond à un circuit court : c'est le cas ici, avec un verger situé à seulement 10 km du village."
+                                    "answer": "Un circuit court, avec très peu de transport",
+                                    "explanation": "Un aliment produit près de chez soi et vendu presque directement par le producteur suit un circuit court. Ici, le verger est à seulement 10 km."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans une région où il pleut très peu et où les terres sont difficiles à cultiver, les récoltes sont souvent insuffisantes pour nourrir tous les habitants. Dans une grande plaine fertile bien arrosée, au contraire, les récoltes sont abondantes. Que montre cette différence ?",
+                                    "question": "Une région sèche récolte peu, une plaine fertile bien arrosée récolte beaucoup. Que montre cette différence ?",
                                     "choices": [
-                                        "Toutes les régions du monde ne produisent pas la même quantité de nourriture",
-                                        "Les habitants de la région sèche ne savent pas cultiver la terre",
+                                        "Toutes les régions ne produisent pas autant de nourriture",
+                                        "Les habitants de la région sèche ne savent pas cultiver",
                                         "Il n'existe aucune agriculture dans les régions peu arrosées"
                                     ],
-                                    "answer": "Toutes les régions du monde ne produisent pas la même quantité de nourriture",
-                                    "explanation": "Certains territoires disposent de terres fertiles et d'un climat favorable pour produire beaucoup de nourriture, alors que d'autres, plus secs ou moins fertiles, ont plus de mal à cultiver suffisamment : ce n'est pas un manque de savoir-faire, mais une différence géographique et climatique."
+                                    "answer": "Toutes les régions ne produisent pas autant de nourriture",
+                                    "explanation": "Certains territoires ont des terres fertiles et un climat favorable, d'autres sont plus secs ou moins fertiles. Ce n'est pas un manque de savoir-faire, mais une différence géographique."
                                 }
                             ]
                         }
@@ -6589,25 +7132,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un puits est creusé au centre d'un village ; jusque-là, les habitants marchaient deux heures chaque jour pour rapporter de l'eau. Quelle conséquence est la plus probable pour les enfants ?",
+                                    "question": "Un puits est creusé dans un village où l'on marchait deux heures par jour pour l'eau. Quelle conséquence pour les enfants ?",
                                     "choices": [
-                                        "Ils disposent de plus de temps pour aller en classe",
-                                        "Ils boivent beaucoup moins d'eau qu'auparavant",
-                                        "Ils doivent quitter le village avec leurs parents"
+                                        "Ils ont plus de temps pour aller à l'école",
+                                        "Ils boivent beaucoup moins d'eau qu'avant",
+                                        "Ils quittent le village avec leurs parents"
                                     ],
-                                    "answer": "Ils disposent de plus de temps pour aller en classe",
-                                    "explanation": "Les heures passées à chercher l'eau étaient prises sur la journée des enfants. Rapprocher le point d'eau libère ce temps, qui peut être consacré à l'école."
+                                    "answer": "Ils ont plus de temps pour aller à l'école",
+                                    "explanation": "Les heures passées à chercher l'eau étaient prises sur la journée des enfants. Avec un puits proche, ce temps peut être consacré à l'école."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans un même pays, une famille habite une grande ville avec un hôpital à dix minutes ; une autre vit dans un village de montagne, à trois heures de route du premier centre de soins. Que montre cette comparaison ?",
+                                    "question": "Dans un même pays, une famille vit à dix minutes d'un hôpital, une autre à trois heures. Que montre cette comparaison ?",
                                     "choices": [
-                                        "Des inégalités séparent aussi les régions d'un même pays",
-                                        "Les habitants des montagnes tombent bien moins souvent malades",
+                                        "Des inégalités existent aussi entre régions d'un même pays",
+                                        "Les habitants des montagnes tombent moins souvent malades",
                                         "Tous les habitants d'un pays sont soignés de la même façon"
                                     ],
-                                    "answer": "Des inégalités séparent aussi les régions d'un même pays",
-                                    "explanation": "L'accès aux soins ne dépend pas seulement du pays où l'on vit, mais aussi de l'endroit : une zone isolée est plus éloignée des équipements qu'une grande ville."
+                                    "answer": "Des inégalités existent aussi entre régions d'un même pays",
+                                    "explanation": "L'accès aux soins dépend aussi de l'endroit où l'on vit : une zone isolée est plus éloignée des équipements qu'une grande ville."
                                 }
                             ]
                         },
@@ -6642,25 +7185,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans le pays A, le revenu moyen par habitant est élevé. Pourtant, des familles de ce pays peinent à payer leur logement. Comment l'expliquer ?",
+                                    "question": "Dans le pays A, le revenu moyen est élevé, pourtant des familles peinent à payer leur logement. Pourquoi ?",
                                     "choices": [
-                                        "La moyenne cache des écarts entre les habitants du pays",
-                                        "Le revenu moyen a été calculé sur un seul habitant du pays",
-                                        "Un pays au revenu moyen élevé n'a jamais d'habitants modestes"
+                                        "La moyenne cache des écarts entre les habitants",
+                                        "Le revenu moyen est calculé sur un seul habitant",
+                                        "Un pays riche n'a jamais d'habitants modestes"
                                     ],
-                                    "answer": "La moyenne cache des écarts entre les habitants du pays",
-                                    "explanation": "Le revenu moyen additionne tous les revenus puis les partage entre tous les habitants : il ne dit rien de leur répartition réelle. Quelques revenus très élevés suffisent à le faire monter."
+                                    "answer": "La moyenne cache des écarts entre les habitants",
+                                    "explanation": "Le revenu moyen additionne tous les revenus puis les partage : il ne dit rien de leur répartition. Quelques revenus très élevés suffisent à le faire monter."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pour comparer le niveau de vie de deux pays, un élève regarde uniquement le nombre de voitures vendues chaque année. Pourquoi ce choix est-il insuffisant ?",
+                                    "question": "Pour comparer deux pays, un élève ne regarde que le nombre de voitures vendues. Pourquoi est-ce insuffisant ?",
                                     "choices": [
-                                        "Un seul indicateur ne renseigne ni sur la santé ni sur l'école",
-                                        "Le nombre de voitures vendues est impossible à compter",
+                                        "Un seul indicateur ne dit rien de la santé ou de l'école",
+                                        "Le nombre de voitures vendues ne se compte pas",
                                         "Les voitures n'ont aucun lien avec les conditions de vie"
                                     ],
-                                    "answer": "Un seul indicateur ne renseigne ni sur la santé ni sur l'école",
-                                    "explanation": "Chaque indicateur n'éclaire qu'un aspect des conditions de vie. Pour décrire un pays, on croise revenu, espérance de vie, scolarisation et accès aux équipements."
+                                    "answer": "Un seul indicateur ne dit rien de la santé ou de l'école",
+                                    "explanation": "Chaque indicateur n'éclaire qu'un aspect des conditions de vie. On croise donc revenu, espérance de vie, scolarisation et accès aux équipements."
                                 }
                             ]
                         }
@@ -8508,6 +9051,60 @@
                                     "explanation": "L'opérateur peut guider les gestes à faire en attendant l'arrivée des secours : raccrocher coupe cette aide. Rappeler un autre numéro occupe une seconde ligne d'urgence pour la même intervention."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cm1-lesson-egalite-discrimination",
+                            "title": "Égalité et discrimination",
+                            "subtitle": "Filles, garçons, handicap : les mêmes droits",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Tous les enfants ont les mêmes droits, quels que soient leur sexe, leur origine, leur apparence ou un éventuel handicap. Traiter quelqu'un moins bien à cause de ce qu'il est s'appelle une discrimination, et la loi l'interdit."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dire « ce métier n'est pas pour les filles » est un préjugé : tous les métiers sont ouverts aux filles comme aux garçons."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "l'égalité : chacun a les mêmes droits et les mêmes chances",
+                                        "un préjugé est une idée toute faite, sans preuve",
+                                        "le racisme, le sexisme et la moquerie sur le physique sont des discriminations",
+                                        "le harcèlement est une violence répétée : on en parle à un adulte ou on appelle le 3018"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "L'égalité ne veut pas dire que tout le monde est pareil : elle veut dire que chacun est respecté et a les mêmes droits."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léa entend : « Les garçons sont meilleurs en sport que les filles. » Que peut-elle répondre ?",
+                                    "choices": [
+                                        "C'est un préjugé : cela dépend de chacun",
+                                        "C'est une règle officielle du sport",
+                                        "C'est vrai, car les garçons sont plus forts"
+                                    ],
+                                    "answer": "C'est un préjugé : cela dépend de chacun",
+                                    "explanation": "Les talents sportifs dépendent de chaque personne, pas de son sexe. Dire le contraire est un préjugé."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un élève en fauteuil roulant ne peut pas monter à l'étage pour son cours. Que demande l'égalité ?",
+                                    "choices": [
+                                        "Adapter les lieux pour qu'il apprenne avec les autres",
+                                        "Le faire étudier seul dans une autre école",
+                                        "Le dispenser de suivre ce cours"
+                                    ],
+                                    "answer": "Adapter les lieux pour qu'il apprenne avec les autres",
+                                    "explanation": "Tous les enfants ont droit à l'école : on adapte les lieux (ascenseur, salle au rez-de-chaussée) pour qu'il apprenne avec ses camarades."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -8527,7 +9124,7 @@
                             "params": {
                                 "questions": 10,
                                 "dataFile": "data/emc_cm1.json",
-                                "category": "cm1-vivre-ensemble",
+                                "category": "cm1-vivre-ensemble-respect",
                                 "type": "factual-qcm"
                             },
                             "title": "Respecter chacun",
@@ -8545,8 +9142,8 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/emc_cm1.json",
-                                "category": "cm1-vivre-ensemble",
-                                "questions": 12
+                                "category": "cm1-vivre-ensemble-defi",
+                                "questions": 8
                             }
                         },
                         {
@@ -8575,13 +9172,13 @@
                         },
                         {
                             "id": "cm1-bonus-egalite-defi",
-                            "title": "Défi : citoyens solidaires",
-                            "subtitle": "Égalité, respect et premiers secours",
+                            "title": "Défi : égalité et respect",
+                            "subtitle": "Préjugés, harcèlement et discriminations",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/emc_cm1.json",
-                                "category": "cm1-egalite-respect",
+                                "category": "cm1-egalite-defi",
                                 "questions": 8
                             },
                             "isBonus": true,
@@ -8720,26 +9317,26 @@
                             "params": {
                                 "questions": 10,
                                 "dataFile": "data/emc_cm1.json",
-                                "category": "cm1-droits-devoirs",
+                                "category": "cm1-regles-justice",
                                 "type": "factual-qcm"
                             },
                             "title": "Règles et justice",
                             "engine": "choice-engine",
                             "id": "cm1-emc-regles-justice",
-                            "subtitle": "Droits, devoirs, responsabilités"
+                            "subtitle": "La loi, la justice et les droits de l'enfant"
                         },
                         {
                             "id": "cm1-bonus-emc-droits-devoirs-defi",
-                            "title": "Défi : droits et devoirs",
-                            "subtitle": "Sans erreur",
+                            "title": "Défi : sécurité au quotidien",
+                            "subtitle": "Route, numéros d'urgence et alerte",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/emc_cm1.json",
-                                "category": "cm1-droits-devoirs",
-                                "questions": 12
+                                "category": "cm1-securite-defi",
+                                "questions": 8
                             }
                         },
                         {
@@ -8759,7 +9356,7 @@
                             "subtitle": "Relie chaque comportement à sa valeur",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_emc_cm1",
+                                "category": "matching_emc_cm1_quotidien",
                                 "dataFile": "data/emc_matching.json",
                                 "questions": 3
                             }
@@ -8931,6 +9528,114 @@
                                     "explanation": "La laïcité met les croyances hors du cadre scolaire commun : ces deux-là sont avant tout des camarades de classe. Il n'y a aucun accord de croyances à trouver, et rien n'empêche des élèves de religions différentes de travailler ensemble."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cm1-lesson-debattre",
+                            "title": "Débattre en classe",
+                            "subtitle": "Écouter, argumenter, trouver un compromis",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un débat est un échange d'idées entre plusieurs personnes qui ne pensent pas la même chose. Chacun donne son avis, l'explique avec des arguments et écoute celui des autres."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Pour choisir la sortie de fin d'année, la classe débat : certains proposent le zoo, d'autres le musée. Chacun explique ses raisons, puis la classe vote."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "un argument est une raison qui explique son avis",
+                                        "on attend son tour et on écoute jusqu'au bout",
+                                        "le président de séance distribue la parole",
+                                        "un compromis est une solution où chacun fait un pas vers l'autre"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Dans un débat, on discute une idée, jamais la personne qui la propose."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pendant un débat, Sami n'est pas d'accord avec Lina. Que doit-il faire ?",
+                                    "choices": [
+                                        "Expliquer son avis avec des arguments",
+                                        "Se moquer de son idée pour la faire taire",
+                                        "Parler plus fort qu'elle pour la couvrir"
+                                    ],
+                                    "answer": "Expliquer son avis avec des arguments",
+                                    "explanation": "On défend son avis avec des raisons, pas avec des moqueries ni en criant. Chacun doit pouvoir s'exprimer."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Deux groupes veulent des activités différentes pour la kermesse. Comment décider ?",
+                                    "choices": [
+                                        "Chercher une solution où chacun fait un pas",
+                                        "Laisser le plus fort imposer son choix",
+                                        "Ne rien organiser du tout"
+                                    ],
+                                    "answer": "Chercher une solution où chacun fait un pas",
+                                    "explanation": "Un compromis permet à chaque groupe d'obtenir une part de ce qu'il souhaite. Imposer son choix ou tout abandonner ne règle rien."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-institutions-republique",
+                            "title": "Les institutions de la République",
+                            "subtitle": "Le Président, le maire et le vote",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La France est une République : les citoyens choisissent par le vote ceux qui dirigent le pays et leur commune. Le Président de la République, chef de l'État, est élu pour 5 ans. Le maire dirige la commune avec le conseil municipal."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un jour d'élection, l'électeur va au bureau de vote, passe par l'isoloir pour choisir en secret, puis glisse son bulletin dans l'urne. Les voix sont ensuite comptées."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je retiens",
+                                    "items": [
+                                        "le Président de la République est élu pour 5 ans",
+                                        "les députés votent les lois à l'Assemblée nationale",
+                                        "le maire est élu par le conseil municipal et travaille à la mairie",
+                                        "la devise de la République : Liberté, Égalité, Fraternité"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Chaque institution a son rôle : voter les lois, diriger l'État, gérer la commune."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour savoir qui s'occupe de l'entretien des rues de la commune, à qui s'adresse-t-on ?",
+                                    "choices": [
+                                        "À la mairie, dirigée par le maire",
+                                        "À l'Élysée, chez le Président",
+                                        "À l'Assemblée nationale, chez les députés"
+                                    ],
+                                    "answer": "À la mairie, dirigée par le maire",
+                                    "explanation": "La commune gère ses rues, ses écoles et ses services : c'est le rôle du maire et du conseil municipal, à la mairie."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pourquoi le vote se fait-il dans un isoloir ?",
+                                    "choices": [
+                                        "Pour que chacun choisisse sans pression",
+                                        "Pour compter les voix plus vite",
+                                        "Pour éviter de se tromper de bulletin"
+                                    ],
+                                    "answer": "Pour que chacun choisisse sans pression",
+                                    "explanation": "Dans l'isoloir, personne ne voit le choix de l'électeur : il est libre de voter comme il le souhaite."
+                                }
+                            ]
                         }
                     ],
                     "exercises": [
@@ -8950,13 +9655,13 @@
                             "params": {
                                 "questions": 8,
                                 "dataFile": "data/emc_cm1.json",
-                                "category": "cm1-citoyennete",
+                                "category": "cm1-institutions",
                                 "type": "factual-qcm"
                             },
-                            "title": "Participer à la vie collective",
+                            "title": "Institutions et symboles",
                             "engine": "choice-engine",
                             "id": "cm1-emc-vie-collective",
-                            "subtitle": "Vote, avis, décisions communes"
+                            "subtitle": "Président, maire, drapeau et devise"
                         },
                         {
                             "params": {
@@ -8997,15 +9702,15 @@
                         {
                             "id": "cm1-bonus-emc-citoyennete-expert",
                             "title": "Défi : citoyen engagé",
-                            "subtitle": "Vote, débat et engagement sans filet",
+                            "subtitle": "Arguments, compromis et coopération",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/emc_cm1.json",
-                                "category": "cm1-debat-cooperation",
-                                "questions": 12
+                                "category": "cm1-debat-defi",
+                                "questions": 8
                             }
                         }
                     ]

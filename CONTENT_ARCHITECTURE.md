@@ -4,13 +4,13 @@ Document de référence listant, pour chaque niveau, chaque matière, chaque sou
 
 Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon, sans exercice, catégories peu fournies) pour prioriser les ajouts.
 
-> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-10-07 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
+> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-10-10 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
 
 ---
 
 ## Vue d'ensemble
 
-- **1113 exercices** et **457 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1113 exercices** et **470 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
@@ -1435,7 +1435,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Nombres et calculs `(cm1-nombres-calculs)`
 
-- **Leçons** (14) :
+- **Leçons** (17) :
   - Lire une fraction `(cm1-lesson-fractions)` — blocs: paragraph, example, bullets, tip, check, check
   - Additionner des fractions de même dénominateur `(cm1-lesson-fractions-addition)` — blocs: paragraph, example, bullets, tip, check, check
   - Des fractions équivalentes `(cm1-lesson-fractions-equivalentes)` — blocs: paragraph, example, bullets, tip, check, check
@@ -1443,8 +1443,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Résoudre un problème `(cm1-lesson-problemes-calcul)` — blocs: paragraph, example, bullets, tip, check, check
   - Résoudre un problème `(cm1-lesson-resoudre-probleme)` — blocs: paragraph, example, bullets, tip, check, check
   - La proportionnalité `(cm1-lesson-proportionnalite)` — blocs: paragraph, example, mini-table, bullets, tip, check, check
+  - Lire une échelle `(cm1-lesson-echelle)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le pourcentage simple `(cm1-lesson-pourcentage)` — blocs: paragraph, example, bullets, tip, check, check
   - Addition et soustraction posées `(cm1-lesson-addition-soustraction-posees)` — blocs: paragraph, example, example, bullets, tip, check, check
   - Multiplication posée par un nombre à 2 chiffres `(cm1-lesson-multiplication-posee-2-chiffres)` — blocs: paragraph, example, bullets, tip, check, check
+  - La division euclidienne `(cm1-lesson-division-euclidienne)` — blocs: paragraph, example, bullets, tip, check, check
   - La position d'un chiffre dans un grand nombre `(cm1-lesson-position-valeur-grands-nombres)` — blocs: paragraph, example, mini-table, tip, check, check
   - Poser une addition ou une soustraction de décimaux `(cm1-lesson-decimaux-operations-posees)` — blocs: paragraph, example, bullets, tip, check, check
   - Multiplier et diviser par 10, 100, 1000 `(cm1-lesson-multiplier-diviser-10-100-1000)` — blocs: paragraph, example, tip, check, check
@@ -1452,7 +1455,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Soustraire des fractions de même dénominateur `(cm1-lesson-fractions-soustraction)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (41) :
   - Grands Nombres `(cm1-m-big)` — engine: `math-input`, type=dictée-nombres, max=1000000, questions=5
-  - Fractions `(cm1-frac-1)` — engine: `math-input`, type=fraction-view, maxDenom=8, questions=10
+  - Fractions `(cm1-frac-1)` — engine: `math-input`, type=fraction-view, maxDenom=6, questions=10
   - Construis la fraction `(cm1-frac-build)` — engine: `board-interactive`, type=fraction-build, minDenom=2, maxDenom=8, questions=8
   - Additionne des fractions `(cm1-frac-addition)` — engine: `math-input`, type=fraction-operation, operator=add, level=1, questions=8
   - Fractions sur la ligne graduée `(cm1-fractions-droite-graduee)` — engine: `board-interactive`, type=number-line-place, dataFile=data/board_number_line_cm1.json, category=cm1_fractions_droite_graduee, questions=8
@@ -1519,8 +1522,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Géométrie `(cm1-geometrie-subtheme)`
 
-- **Leçons** (11) :
+- **Leçons** (14) :
   - Reconnaître les polygones `(cm1-lesson-polygones)` — blocs: paragraph, example, bullets, tip, check, check
+  - Segment, milieu et diagonale `(cm1-lesson-vocabulaire-geometrie)` — blocs: paragraph, example, bullets, tip, check, check
+  - Droites parallèles et perpendiculaires `(cm1-lesson-paralleles-perpendiculaires)` — blocs: paragraph, example, bullets, tip, check, check
+  - Triangles particuliers `(cm1-lesson-triangles-particuliers)` — blocs: paragraph, example, bullets, tip, check, check
   - L'angle droit `(cm1-lesson-angles-droits)` — blocs: paragraph, example, bullets, tip, check, check
   - Les familles d'angles `(cm1-lesson-familles-angles)` — blocs: paragraph, example, bullets, tip, check, check
   - Mesurer un angle en degrés `(cm1-lesson-mesurer-angles)` — blocs: paragraph, example, bullets, tip, check, check
@@ -1538,7 +1544,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Aigu, droit ou obtus ? `(cm1-geo-angle-classify)` — engine: `board-interactive`, type=angle-classify, dataFile=data/board_angle_classify_cm1.json, category=cm1_angle_classify, questions=6
   - Mesure l'angle au rapporteur `(cm1-geo-angle-measure)` — engine: `board-interactive`, type=angle-measure, dataFile=data/board_angle_measure_cm1.json, category=cm1_angle_measure, questions=6
   - Le geste du compas `(cm1-geo-construction-compas)` — engine: `board-interactive`, type=construction-report, dataFile=data/board_construction_cm1.json, category=cm1_construction_report, questions=5
-  - Défi : le maître des angles `(cm1-bonus-geo-angles-expert)` — engine: `board-interactive`, type=angle-measure, dataFile=data/board_angle_measure_cm1.json, category=cm1_angle_measure_expert, questions=9, bonus (seuil=2)
+  - Défi : le maître des angles `(cm1-bonus-geo-angles-expert)` — engine: `board-interactive`, type=angle-measure, dataFile=data/board_angle_measure_cm1.json, category=cm1_angle_measure_expert, questions=6, bonus (seuil=2)
   - Droites perpendiculaires `(cm1-geo-perpendiculaires-pratique)` — engine: `board-interactive`, type=tap-features, dataFile=data/board_geometry_cm1.json, category=cm1_perpendiculaires_tap, questions=3
   - Symétrie et repérage `(cm1-geo-symetrie-reperage)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm1.json, category=cm1-symetrie-reperage, questions=8
   - Place le point sur le quadrillage `(cm1-geo-reperage-pratique)` — engine: `board-interactive`, type=point-on-grid, dataFile=data/board_point_on_grid_cm1.json, category=cm1_point_on_grid, questions=7
@@ -1549,7 +1555,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Décrire un solide `(cm1-geo-solides-patron)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm1.json, category=cm1-solides-patron, questions=8
   - Figures, formules et outils `(cm1-maths-geo-appariement)` — engine: `matching`, category=matching_math_cm1, dataFile=data/math_matching.json, questions=3
   - Classer les formes géométriques `(cm1-geo-classement-formes)` — engine: `board-interactive`, type=shape-classify, dataFile=data/board_shape_classify_cm1.json, category=cm1_shape_classify, questions=6
-  - Défi : aires et périmètres `(cm1-bonus-geo-figures-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm1.json, category=cm1-aires-formules, questions=12, bonus (seuil=2)
+  - Défi : aires et périmètres `(cm1-bonus-geo-figures-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_cm1.json, category=cm1-aires-formules, questions=8, bonus (seuil=2)
 
 #### Lire un graphique `(cm1-graphiques-subtheme)`
 
@@ -1584,9 +1590,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Conjugaison `(cm1-francais-conjugaison)`
 
-- **Leçons** (5) :
+- **Leçons** (6) :
   - L'imparfait des verbes en -ER `(cm1-lesson-imparfait-er)` — blocs: paragraph, example, bullets, tip, check, check
   - Choisir avoir ou être `(cm1-lesson-passe-compose-auxiliaires)` — blocs: paragraph, example, mini-table, tip, check, check
+  - Le participe passé avec être `(cm1-lesson-accord-participe-etre)` — blocs: paragraph, example, bullets, tip, check, check
   - Le passé simple, le temps du récit `(cm1-lesson-passe-simple-recit)` — blocs: paragraph, example, bullets, tip, check, check
   - Le présent des verbes du 3e groupe `(cm1-lesson-present-3e-groupe)` — blocs: paragraph, example, mini-table, tip, check, check
   - Le futur simple `(cm1-lesson-futur-simple)` — blocs: paragraph, example, mini-table, tip, check, check
@@ -1603,7 +1610,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Futur : 3e groupe `(cm1-c-futur-3g)` — engine: `conjugation`, category=future_3_freq, tenses=futur, questions=10
   - Être et avoir à l'imparfait `(cm1-c-ea-imp)` — engine: `conjugation`, category=etre_avoir_imp, tenses=imparfait, questions=8
   - Passé Composé avec être `(cm1-c-pc-3-etre)` — engine: `conjugation`, category=pc_3_etre, tenses=passé composé, questions=8
-  - Défi : passé composé expert `(cm1-bonus-conjugaison-passe-compose)` — engine: `conjugation`, category=pc_3_cm1, tenses=passé composé, questions=14, bonus (seuil=2)
+  - Défi : passé composé expert `(cm1-bonus-conjugaison-passe-compose)` — engine: `conjugation`, category=pc_3_freq, tenses=passé composé, questions=10, bonus (seuil=2)
   - Reconnaître le passé simple `(cm1-conj-passe-simple-reco)` — engine: `choice-engine`, type=word-class-choice, category=passe_simple_recognition_cm1, questions=6
 
 #### Articles et genre `(cm1-francais-articles)`
@@ -1616,8 +1623,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Grammaire `(cm1-francais-grammaire)`
 
-- **Leçons** (3) :
+- **Leçons** (4) :
   - Reconnaître la nature d'un mot `(cm1-lesson-nature-mots)` — blocs: paragraph, example, mini-table, tip, check, check
+  - Sujet, verbe, complément `(cm1-lesson-sujet-verbe-complement)` — blocs: paragraph, example, bullets, tip, check, check
   - Les familles de mots `(cm1-lesson-familles-mots)` — blocs: paragraph, example, bullets, tip, check, check
   - Les connecteurs pour bien écrire `(cm1-lesson-connecteurs)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (13) :
@@ -1627,11 +1635,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Sujet, verbe ou complément `(cm1-g-fonction-qcm)` — engine: `choice-engine`, type=word-class-choice, category=sentence_function_choice_cm1, questions=6
   - Déterminant dans la phrase `(cm1-g-cloze-det)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_cloze_cm1, questions=8
   - Écris le bon mot `(cm1-g-cloze-ecrit)` — engine: `cloze-fill-in`, category=grammar_cloze_cm1, questions=6
-  - Accorder dans la phrase `(cm1-g-cloze-accord)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_agreement_cm1, questions=8
+  - Accorder dans la phrase `(cm1-g-cloze-accord)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_agreement_cm1, questions=6
   - Accorder le participe passé avec être `(cm1-g-pp-accord-etre)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_pp_accord_etre_cm1, questions=8
   - Ordre des mots `(cm1-francais-ordre-mots)` — engine: `word-order`, category=word_order_cm1, dataFile=data/french_word_order.json, questions=5
   - Structurer un récit ou une lettre `(cm1-francais-structure-recit)` — engine: `word-order`, category=story_order_cm1, dataFile=data/french_word_order.json, questions=4
-  - Défi : accords sans filet `(cm1-bonus-grammaire-accords)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_agreement_cm1, questions=14, bonus (seuil=2)
+  - Défi : accords sans filet `(cm1-bonus-grammaire-accords)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_agreement_cm1_defi, questions=8, bonus (seuil=2)
   - Les connecteurs `(cm1-redaction-connecteurs)` — engine: `choice-engine`, type=grammar-cloze, category=redaction_connecteurs_cm1, questions=8
   - La meilleure phrase `(cm1-redaction-meilleure-phrase)` — engine: `choice-engine`, type=word-class-choice, category=redaction_phrase_cm1, questions=6
 
@@ -1677,7 +1685,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Grandes périodes `(cm1-histoire-periodes)`
 
-- **Leçons** (8) :
+- **Leçons** (9) :
   - La Préhistoire `(cm1-lesson-prehistoire)` — blocs: paragraph, example, bullets, tip, check, check
   - Antiquité, Moyen Âge, Temps modernes `(cm1-lesson-periodes)` — blocs: paragraph, bullets, example, tip, check, check
   - La vie au Moyen Âge `(cm1-lesson-vie-moyen-age)` — blocs: paragraph, example, bullets, tip, check, check
@@ -1685,6 +1693,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - La société féodale `(cm1-lesson-vivre-moyen-age)` — blocs: paragraph, example, bullets, tip, check, check
   - 1789 : la fin de la monarchie absolue `(cm1-lesson-annee-1789)` — blocs: paragraph, example, bullets, tip, check, check
   - La monarchie absolue en France `(cm1-lesson-monarchie-absolue)` — blocs: paragraph, example, bullets, tip, check, check
+  - La Renaissance `(cm1-lesson-renaissance)` — blocs: paragraph, example, bullets, tip, check, check
   - Les grandes explorations `(cm1-lesson-explorations)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (11) :
   - Préhistoire `(cm1-histoire-prehistoire)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm1.json, category=cm1-prehistoire, questions=8
@@ -1697,12 +1706,12 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Renaissance et inventions `(cm1-histoire-renaissance-inventions)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm1.json, category=cm1-renaissance-inventions, questions=6
   - Humanisme et imprimerie `(cm1-histoire-humanisme-imprimerie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm1.json, category=cm1-humanisme-imprimerie, questions=6
   - Périodes et civilisations `(cm1-histoire-appariement)` — engine: `matching`, category=matching_histoire_cm1, dataFile=data/history_matching.json, questions=2
-  - Défi : le Moyen Âge `(cm1-bonus-histoire-toutes-periodes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm1.json, category=cm1-moyen-age, questions=12, bonus (seuil=2)
+  - Défi : le Moyen Âge `(cm1-bonus-histoire-toutes-periodes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm1.json, category=cm1-moyen-age-defi, questions=8, bonus (seuil=2)
 
 #### Frises historiques `(cm1-histoire-frises)`
 
 - **Leçons** (1) :
-  - Le temps des rois `(cm1-lesson-frise)` — blocs: paragraph, example, bullets, tip, check, check
+  - Lire une frise historique `(cm1-lesson-frise)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (11) :
   - Frise historique `(cm1-histoire-frise-ordre)` — engine: `timeline`, mode=order, grade=cm1, dataFile=data/history_chrono.json, timelineId=cm1-reperes-celebres, questions=5
   - Placer sur la frise `(cm1-histoire-frise-place)` — engine: `timeline`, mode=place, grade=cm1, dataFile=data/history_chrono.json, timelineId=cm1-place-moyen-age, questions=5
@@ -1714,7 +1723,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Frise : Temps modernes `(cm1-histoire-frise-modernes-ordre)` — engine: `timeline`, mode=order, grade=cm1, dataFile=data/history_chrono.json, timelineId=cm1-ordre-modernes-2, questions=5
   - Placer : Antiquité `(cm1-histoire-frise-antiquite-place)` — engine: `timeline`, mode=place, grade=cm1, dataFile=data/history_chrono.json, timelineId=cm1-place-antiquite, questions=5
   - Placer : Temps modernes `(cm1-histoire-frise-modernes-place)` — engine: `timeline`, mode=place, grade=cm1, dataFile=data/history_chrono.json, timelineId=cm1-place-modernes, questions=5
-  - Défi : frise du Moyen Âge `(cm1-bonus-frise-moyen-age-expert)` — engine: `timeline`, mode=place, grade=cm1, dataFile=data/history_chrono.json, timelineId=cm1-place-moyen-age, difficulty=3, questions=8, bonus (seuil=2)
+  - Défi : frise du Moyen Âge `(cm1-bonus-frise-moyen-age-expert)` — engine: `timeline`, mode=place, grade=cm1, dataFile=data/history_chrono.json, timelineId=cm1-place-moyen-age, questions=8, bonus (seuil=2)
 
 ### Géographie (cm1-geographie-subject)
 
@@ -1725,10 +1734,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Les paysages de France `(cm1-lesson-paysages-france)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (5) :
   - Reliefs et fleuves `(cm1-geo-relief)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-france-relief, questions=8
-  - Fleuves et reliefs de France `(cm1-geo-fleuves-reliefs-france)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/geography_cm1.json, category=cm1-france-relief
+  - Fleuves de France `(cm1-geo-fleuves-reliefs-france)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cm1.json, category=cm1-france-fleuves
   - Eaux et paysages `(cm1-geo-eaux-paysages)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_cm1.json, category=cm1-eaux-paysages
   - Reliefs et régions `(cm1-geo-appariement)` — engine: `matching`, category=matching_geo_cm1, dataFile=data/geography_matching.json, questions=2
-  - Défi : reliefs et fleuves `(cm1-bonus-geo-relief-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-eaux-paysages, questions=12, bonus (seuil=2)
+  - Défi : reliefs et fleuves `(cm1-bonus-geo-relief-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-eaux-paysages-defi, questions=8, bonus (seuil=2)
 
 #### Territoires `(cm1-geo-territoires-subtheme)`
 
@@ -1739,32 +1748,33 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Exercices** (5) :
   - Territoires `(cm1-geo-territoires)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-france-regions, questions=8
   - Types de territoires `(cm1-geo-types-territoires)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-types-territoires, questions=6
-  - Défi : types de territoires `(cm1-bonus-geo-territoires-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-types-territoires, questions=10, bonus (seuil=2)
-  - Territoires et caractéristiques `(cm1-geo-territoires-appariement)` — engine: `matching`, category=matching_geo_cm1, dataFile=data/geography_matching.json, questions=1
+  - Défi : types de territoires `(cm1-bonus-geo-territoires-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-territoires-defi, questions=8, bonus (seuil=2)
+  - Territoires et caractéristiques `(cm1-geo-territoires-appariement)` — engine: `matching`, category=matching_geo_cm1_territoires, dataFile=data/geography_matching.json, questions=1
   - Carte des régions `(cm1-geo-carte-regions)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_cm1.json, mapFile=data/maps/france-regions.svg, mapId=france-regions, category=cm1_map_regions_france, questions=6
 
 #### Se déplacer `(cm1-geo-deplacements-subtheme)`
 
 - **Leçons** (2) :
-  - Se déplacer en France `(cm1-lesson-deplacements)` — blocs: paragraph, example, bullets, tip, check, check
+  - Choisir son moyen de transport `(cm1-lesson-deplacements)` — blocs: paragraph, example, bullets, tip, check, check
   - Se déplacer en France `(cm1-lesson-mobilites-france)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Se déplacer `(cm1-geo-deplacements)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-se-deplacer, questions=6
-  - Défi : se déplacer `(cm1-bonus-geo-deplacements-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-se-deplacer, questions=10, bonus (seuil=2)
+  - Défi : se déplacer `(cm1-bonus-geo-deplacements-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-deplacements-defi, questions=8, bonus (seuil=2)
   - Mobilités en France `(cm1-geo-mobilites-france)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-mobilites-france, questions=6
-  - Moyens de transport et usages `(cm1-geo-deplacements-appariement)` — engine: `matching`, category=matching_geo_cm1, dataFile=data/geography_matching.json, questions=1
+  - Moyens de transport et usages `(cm1-geo-deplacements-appariement)` — engine: `matching`, category=matching_geo_cm1_transports, dataFile=data/geography_matching.json, questions=1
 
 #### Se situer dans le monde `(cm1-geo-europe-subtheme)`
 
-- **Leçons** (1) :
+- **Leçons** (2) :
   - La France en Europe `(cm1-lesson-france-europe)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les continents et les océans `(cm1-lesson-continents-oceans)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (15) :
   - La France en Europe `(cm1-geo-france-europe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-europe-monde, questions=6
-  - Se situer dans le monde `(cm1-geo-se-situer-monde)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-europe-monde, questions=6
+  - Se situer dans le monde `(cm1-geo-se-situer-monde)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-monde-situer, questions=6
   - Carte du monde `(cm1-geo-carte-continents)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_world.json, mapFile=data/maps/world-continents.svg, mapId=world-continents, category=cm1_map_continents_monde, questions=6
   - Carte de l'Europe `(cm1-geo-carte-europe-pays)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_europe.json, mapFile=data/maps/europe-countries.svg, mapId=europe-countries, category=cm1_map_pays_europe, questions=8
   - Carte de l'Asie `(cm1-geo-carte-asie-pays)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_asia.json, mapFile=data/maps/asia-countries.svg, mapId=asia-countries, category=cm1_map_pays_asie, questions=8
-  - Reliefs, territoires et transports `(cm1-geo-europe-appariement)` — engine: `matching`, category=matching_geo_cm1, dataFile=data/geography_matching.json, questions=2
+  - Pays, continents et mers `(cm1-geo-europe-appariement)` — engine: `matching`, category=matching_geo_cm1_monde, dataFile=data/geography_matching.json, questions=2
   - Carte de l'Afrique `(cm1-geo-carte-afrique-pays)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_africa.json, mapFile=data/maps/africa-countries.svg, mapId=africa-countries, category=cm1_map_pays_afrique, questions=8
   - Carte de l'Amérique du Nord `(cm1-geo-carte-amerique-nord-pays)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_north_america.json, mapFile=data/maps/north-america-countries.svg, mapId=north-america-countries, category=cm1_map_pays_amerique_nord, questions=6
   - Carte de l'Amérique du Sud `(cm1-geo-carte-amerique-sud-pays)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_south_america.json, mapFile=data/maps/south-america-countries.svg, mapId=south-america-countries, category=cm1_map_pays_amerique_sud, questions=6
@@ -1773,7 +1783,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Capitales d'Asie `(cm1-geo-capitales-asie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_capitals_cm1.json, category=cm1-capitales-asie, questions=8
   - Capitales d'Amérique du Nord `(cm1-geo-capitales-amerique-nord)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_capitals_cm1.json, category=cm1-capitales-amerique-nord, questions=6
   - Capitales d'Amérique du Sud `(cm1-geo-capitales-amerique-sud)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_capitals_cm1.json, category=cm1-capitales-amerique-sud, questions=6
-  - Défi : carte du monde `(cm1-bonus-geo-carte-monde-expert)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_world.json, mapFile=data/maps/world-continents.svg, mapId=world-continents, category=cm1_map_continents_monde, questions=12, bonus (seuil=2)
+  - Défi : carte du monde `(cm1-bonus-geo-carte-monde-expert)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_world.json, mapFile=data/maps/world-continents.svg, mapId=world-continents, category=cm1_map_continents_monde_defi, questions=6, bonus (seuil=2)
 
 #### Communiquer `(cm1-geo-communiquer-subtheme)`
 
@@ -1912,16 +1922,17 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Vivre ensemble `(cm1-emc-vivre-ensemble-subtheme)`
 
-- **Leçons** (2) :
+- **Leçons** (3) :
   - Vivre ensemble `(cm1-lesson-vivre-ensemble)` — blocs: paragraph, example, bullets, tip, check, check
   - Alerter et secourir `(cm1-lesson-alerte-secours)` — blocs: paragraph, example, bullets, tip, check, check
+  - Égalité et discrimination `(cm1-lesson-egalite-discrimination)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Vivre ensemble `(cm1-emc-vivre-ensemble)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-vivre-ensemble, questions=8
-  - Respecter chacun `(cm1-emc-respecter-chacun)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/emc_cm1.json, category=cm1-vivre-ensemble
-  - Défi : vivre ensemble `(cm1-bonus-emc-vivre-ensemble-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-vivre-ensemble, questions=12, bonus (seuil=2)
+  - Respecter chacun `(cm1-emc-respecter-chacun)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/emc_cm1.json, category=cm1-vivre-ensemble-respect
+  - Défi : vivre ensemble `(cm1-bonus-emc-vivre-ensemble-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-vivre-ensemble-defi, questions=8, bonus (seuil=2)
   - Égalité et respect `(cm1-emc-egalite-respect)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-egalite-respect, questions=6
   - Alerter et secourir `(cm1-emc-alerte-secours)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-alerte-secours, questions=6
-  - Défi : citoyens solidaires `(cm1-bonus-egalite-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-egalite-respect, questions=8, bonus (seuil=2)
+  - Défi : égalité et respect `(cm1-bonus-egalite-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-egalite-defi, questions=8, bonus (seuil=2)
 
 #### Droits et devoirs `(cm1-emc-droits-devoirs-subtheme)`
 
@@ -1930,24 +1941,26 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - La laïcité à l'école `(cm1-lesson-laicite-ecole)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Droits et devoirs `(cm1-emc-droits-devoirs)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-droits-devoirs, questions=8
-  - Règles et justice `(cm1-emc-regles-justice)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/emc_cm1.json, category=cm1-droits-devoirs
-  - Défi : droits et devoirs `(cm1-bonus-emc-droits-devoirs-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-droits-devoirs, questions=12, bonus (seuil=2)
+  - Règles et justice `(cm1-emc-regles-justice)` — engine: `choice-engine`, type=factual-qcm, questions=10, dataFile=data/emc_cm1.json, category=cm1-regles-justice
+  - Défi : sécurité au quotidien `(cm1-bonus-emc-droits-devoirs-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-securite-defi, questions=8, bonus (seuil=2)
   - Droits, institutions et valeurs `(cm1-emc-appariement)` — engine: `matching`, category=matching_emc_cm1, dataFile=data/emc_matching.json, questions=3
-  - Citoyenneté au quotidien `(cm1-emc-appariement-2)` — engine: `matching`, category=matching_emc_cm1, dataFile=data/emc_matching.json, questions=3
+  - Citoyenneté au quotidien `(cm1-emc-appariement-2)` — engine: `matching`, category=matching_emc_cm1_quotidien, dataFile=data/emc_matching.json, questions=3
 
 #### Citoyenneté `(cm1-emc-citoyennete-subtheme)`
 
-- **Leçons** (3) :
+- **Leçons** (5) :
   - Décider ensemble `(cm1-lesson-citoyennete)` — blocs: paragraph, example, bullets, tip, check, check
   - Les symboles de la République `(cm1-lesson-symboles-republique)` — blocs: paragraph, example, bullets, tip, check, check
   - La laïcité `(cm1-lesson-laicite-republique)` — blocs: paragraph, example, bullets, tip, check, check
+  - Débattre en classe `(cm1-lesson-debattre)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les institutions de la République `(cm1-lesson-institutions-republique)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Citoyenneté `(cm1-emc-citoyennete)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-citoyennete, questions=6
-  - Participer à la vie collective `(cm1-emc-vie-collective)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cm1.json, category=cm1-citoyennete
+  - Institutions et symboles `(cm1-emc-vie-collective)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cm1.json, category=cm1-institutions
   - Débat et coopération `(cm1-emc-debat-cooperation)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_cm1.json, category=cm1-debat-cooperation
   - Parole citoyenne `(cm1-emc-parole-citoyenne)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-parole-citoyenne, questions=6
   - Engagement dans la classe `(cm1-emc-engagement-classe)` — engine: `choice-engine`, type=factual-qcm, questions=6, dataFile=data/emc_cm1.json, category=cm1-engagement-classe
-  - Défi : citoyen engagé `(cm1-bonus-emc-citoyennete-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-debat-cooperation, questions=12, bonus (seuil=2)
+  - Défi : citoyen engagé `(cm1-bonus-emc-citoyennete-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_cm1.json, category=cm1-debat-defi, questions=8, bonus (seuil=2)
 
 #### Civisme numérique `(cm1-emc-civisme-numerique-subtheme)`
 

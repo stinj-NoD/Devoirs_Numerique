@@ -181,7 +181,7 @@
                                               {
                                                   "id":  "pax-romana",
                                                   "label":  "Début de la paix romaine",
-                                                  "year":  27,
+                                                  "year":  -27,
                                                   "period":  "antiquite",
                                                   "icon":  "📘",
                                                   "difficulty":  3
@@ -224,7 +224,7 @@
                                                   "year":  732,
                                                   "period":  "moyen-age",
                                                   "icon":  "📘",
-                                                  "difficulty":  2
+                                                  "difficulty":  3
                                               },
                                               {
                                                   "id":  "charlemagne",
@@ -237,10 +237,18 @@
                                               {
                                                   "id":  "vikings",
                                                   "label":  "Début des raids vikings en Europe",
-                                                  "year":  843,
+                                                  "year":  793,
                                                   "period":  "moyen-age",
                                                   "icon":  "📘",
                                                   "difficulty":  3
+                                              },
+                                              {
+                                                  "id": "verdun",
+                                                  "label": "Traité de Verdun : l'empire de Charlemagne est partagé",
+                                                  "year": 843,
+                                                  "period": "moyen-age",
+                                                  "icon": "📘",
+                                                  "difficulty": 3
                                               },
                                               {
                                                   "id":  "capet",
@@ -249,6 +257,14 @@
                                                   "period":  "moyen-age",
                                                   "icon":  "📘",
                                                   "difficulty":  2
+                                              },
+                                              {
+                                                  "id": "hastings",
+                                                  "label": "Bataille d'Hastings : Guillaume conquiert l'Angleterre",
+                                                  "year": 1066,
+                                                  "period": "moyen-age",
+                                                  "icon": "📘",
+                                                  "difficulty": 2
                                               },
                                               {
                                                   "id":  "croisades",
@@ -284,11 +300,11 @@
                                               },
                                               {
                                                   "id":  "notre-dame",
-                                                  "label":  "Construction de Notre-Dame de Paris",
-                                                  "year":  1345,
+                                                  "label":  "Début de la construction de Notre-Dame de Paris",
+                                                  "year":  1163,
                                                   "period":  "moyen-age",
                                                   "icon":  "📘",
-                                                  "difficulty":  2
+                                                  "difficulty":  3
                                               },
                                               {
                                                   "id":  "guerre-cent-ans",
@@ -404,11 +420,21 @@
                                                      "mode":  "order",
                                                      "title":  "Repères célèbres",
                                                      "items":  [
-                                                                   "chute-rome",
-                                                                   "charlemagne",
-                                                                   "imprimerie",
-                                                                   "revolution-fr"
-                                                               ]
+                                                               "maitrise-feu",
+                                                               "lascaux",
+                                                               "ecriture",
+                                                               "pyramides",
+                                                               "cesar",
+                                                               "chute-rome",
+                                                               "clovis",
+                                                               "charlemagne",
+                                                               "croisades",
+                                                               "jeanne-arc",
+                                                               "imprimerie",
+                                                               "colomb",
+                                                               "louis-xiv",
+                                                               "revolution-fr"
+                                                     ]
                                                  },
                                                  {
                                                      "id":  "cm1-prehistoire-antiquite",
@@ -448,11 +474,18 @@
                                                      "mode":  "order",
                                                      "title":  "Repères d'Antiquité",
                                                      "items":  [
-                                                                   "ecriture",
-                                                                   "pyramides",
-                                                                   "jeux-olympiques",
-                                                                   "chute-rome"
-                                                               ]
+                                                               "ecriture",
+                                                               "pyramides",
+                                                               "hammourabi",
+                                                               "jeux-olympiques",
+                                                               "rome-antique",
+                                                               "marathon",
+                                                               "alexandre",
+                                                               "cesar",
+                                                               "auguste",
+                                                               "constantin",
+                                                               "chute-rome"
+                                                     ]
                                                  },
                                                  {
                                                      "id":  "cm1-antiquite-ordre-2",
@@ -503,11 +536,15 @@
                                                      "mode":  "order",
                                                      "title":  "La Préhistoire en ordre",
                                                      "items":  [
-                                                                   "maitrise-feu",
-                                                                   "homo-sapiens",
-                                                                   "lascaux",
-                                                                   "agriculture"
-                                                               ]
+                                                               "maitrise-feu",
+                                                               "homo-sapiens",
+                                                               "aiguille-os",
+                                                               "lascaux",
+                                                               "sedentarisation",
+                                                               "agriculture",
+                                                               "poterie",
+                                                               "menhirs"
+                                                     ]
                                                  },
                                                  {
                                                      "id":  "cm1-ordre-prehistoire-2",
@@ -635,11 +672,14 @@
                                                      "mode":  "order",
                                                      "title":  "Renaissance et découvertes",
                                                      "items":  [
-                                                                   "colomb",
-                                                                   "vinci",
-                                                                   "copernic",
-                                                                   "edith-nantes"
-                                                               ]
+                                                               "colomb",
+                                                               "vinci",
+                                                               "copernic",
+                                                               "edith-nantes",
+                                                               "louis-xiv",
+                                                               "encyclopedie",
+                                                               "revolution-fr"
+                                                     ]
                                                  },
                                                  {
                                                      "id":  "cm1-ordre-modernes-3",
@@ -717,13 +757,23 @@
                                                                ],
                                                      "step":  100,
                                                      "items":  [
-                                                                   "clovis",
-                                                                   "charlemagne",
-                                                                   "capet",
-                                                                   "bouvines",
-                                                                   "jeanne-arc",
-                                                                   "imprimerie"
-                                                               ]
+                                                               "clovis",
+                                                               "hegire",
+                                                               "poitiers",
+                                                               "charlemagne",
+                                                               "vikings",
+                                                               "verdun",
+                                                               "capet",
+                                                               "hastings",
+                                                               "croisades",
+                                                               "bouvines",
+                                                               "saint-louis",
+                                                               "notre-dame",
+                                                               "guerre-cent-ans",
+                                                               "peste-noire",
+                                                               "jeanne-arc",
+                                                               "imprimerie"
+                                                     ]
                                                  },
                                                  {
                                                      "id":  "cm1-place-antiquite",

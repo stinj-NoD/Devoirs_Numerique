@@ -163,39 +163,19 @@
                     ["une montagne", "un relief élevé avec des sommets"],
                     ["une vallée", "un creux entre deux reliefs"],
                     ["un littoral", "la zone où la terre rencontre la mer"],
-                    ["un fleuve", "un cours d'eau qui se termine dans la mer"]
+                    ["un fleuve", "un grand cours d'eau qui se jette dans la mer"]
                 ],
                 "explanation": "Connaître le vocabulaire du relief aide à décrire les paysages de France."
             },
             {
-                "title": "Relie chaque région française à un élément qui la caractérise.",
+                "title": "Relie chaque région ou massif à un élément qui le caractérise.",
                 "pairs": [
                     ["la Bretagne", "une longue côte maritime"],
                     ["les Alpes", "de hautes montagnes"],
                     ["le Massif central", "des volcans anciens"],
                     ["la vallée de la Loire", "de nombreux châteaux"]
                 ],
-                "explanation": "Chaque région française possède des caractéristiques géographiques qui la distinguent."
-            },
-            {
-                "title": "Relie chaque type de territoire à sa description.",
-                "pairs": [
-                    ["un territoire urbain", "une forte concentration de population"],
-                    ["un territoire rural", "des espaces agricoles et peu d'habitants"],
-                    ["un territoire de montagne", "un relief difficile à aménager"],
-                    ["un territoire littoral", "une activité tournée vers la mer"]
-                ],
-                "explanation": "Les territoires se distinguent par leur relief, leur population et leurs activités."
-            },
-            {
-                "title": "Relie chaque moyen de transport à son réseau.",
-                "pairs": [
-                    ["le train", "le réseau ferré"],
-                    ["la voiture", "le réseau routier"],
-                    ["l'avion", "le réseau aérien"],
-                    ["le bateau", "le réseau fluvial ou maritime"]
-                ],
-                "explanation": "Chaque moyen de transport circule sur un réseau adapté."
+                "explanation": "Chaque région ou massif de France a des caractéristiques géographiques qui le distinguent."
             },
             {
                 "title": "Relie chaque cours d'eau à sa caractéristique.",
@@ -208,24 +188,14 @@
                 "explanation": "Le vocabulaire des cours d'eau permet de comprendre comment l'eau circule sur un territoire."
             },
             {
-                "title": "Relie chaque territoire à sa caractéristique principale.",
+                "title": "Relie chaque paysage à ce qui le caractérise.",
                 "pairs": [
-                    ["la ville", "des immeubles, des commerces et beaucoup d'habitants"],
-                    ["la campagne", "des champs, des fermes et peu d'habitants"],
-                    ["le littoral", "des plages ou des ports tournés vers la mer"],
-                    ["la montagne", "des pentes, des sommets et un climat plus froid"]
+                    ["une plaine", "un terrain plat et peu élevé"],
+                    ["un plateau", "une haute terre plate, entaillée de vallées"],
+                    ["une colline", "un relief arrondi, moins haut qu'une montagne"],
+                    ["une falaise", "une paroi rocheuse abrupte au bord de la mer"]
                 ],
-                "explanation": "Chaque territoire se distingue par son relief, ses habitants et ses activités principales."
-            },
-            {
-                "title": "Relie chaque moyen de transport à son usage le plus courant.",
-                "pairs": [
-                    ["le train", "voyager loin entre deux grandes villes"],
-                    ["le vélo", "se déplacer sur de courtes distances sans polluer"],
-                    ["l'avion", "parcourir de très longues distances, parfois à l'étranger"],
-                    ["la voiture", "se déplacer librement, même dans des lieux isolés"]
-                ],
-                "explanation": "Chaque moyen de transport convient mieux à certaines distances et à certains besoins de déplacement."
+                "explanation": "Chaque mot décrit une forme du relief que l'on rencontre dans les paysages de France."
             }
         ],
         "matching_geo_cm2": [
@@ -360,6 +330,102 @@
                     ["le titre", "dire quel lieu la carte montre"]
                 ],
                 "explanation": "Pour se repérer, on utilise des outils sur le terrain et des indications sur la carte."
+            }
+        ],
+        "matching_geo_cm1_territoires": [
+            {
+                "title": "Relie chaque type de territoire à sa description.",
+                "pairs": [
+                    ["un territoire urbain", "une forte concentration de population"],
+                    ["un territoire rural", "des espaces agricoles et peu d'habitants"],
+                    ["un territoire de montagne", "un relief difficile à aménager"],
+                    ["un territoire littoral", "une activité tournée vers la mer"]
+                ],
+                "explanation": "Les territoires se distinguent par leur relief, leur population et leurs activités."
+            },
+            {
+                "title": "Relie chaque lieu à son activité principale.",
+                "pairs": [
+                    ["un port", "charger et décharger des bateaux"],
+                    ["une exploitation agricole", "cultiver des champs et élever des animaux"],
+                    ["une station de ski", "accueillir des touristes en hiver"],
+                    ["une zone industrielle", "fabriquer des produits dans des usines"]
+                ],
+                "explanation": "L'activité principale d'un lieu dépend de son relief, de sa situation et de ses habitants."
+            },
+            {
+                "title": "Relie chaque territoire à un exemple en France.",
+                "pairs": [
+                    ["une métropole", "Lyon ou Marseille"],
+                    ["un territoire de montagne", "les Alpes"],
+                    ["une plaine céréalière", "la Beauce"],
+                    ["un littoral", "la côte atlantique"]
+                ],
+                "explanation": "Chaque type de territoire a des exemples connus que l'on peut situer sur une carte."
+            }
+        ],
+        "matching_geo_cm1_transports": [
+            {
+                "title": "Relie chaque moyen de transport à son réseau.",
+                "pairs": [
+                    ["le train", "le réseau ferré"],
+                    ["la voiture", "le réseau routier"],
+                    ["l'avion", "le réseau aérien"],
+                    ["le bateau", "le réseau fluvial ou maritime"]
+                ],
+                "explanation": "Chaque moyen de transport circule sur un réseau adapté."
+            },
+            {
+                "title": "Relie chaque moyen de transport à son usage le plus courant.",
+                "pairs": [
+                    ["le train", "voyager vite entre grandes villes, sur des rails"],
+                    ["le vélo", "se déplacer sur de courtes distances sans polluer"],
+                    ["l'avion", "traverser un océan ou un continent en quelques heures"],
+                    ["la voiture", "aller n'importe où, même dans un village isolé"]
+                ],
+                "explanation": "Chaque moyen de transport convient mieux à certaines distances et à certains besoins de déplacement."
+            },
+            {
+                "title": "Relie chaque aménagement à son rôle.",
+                "pairs": [
+                    ["la gare", "monter dans un train"],
+                    ["l'aéroport", "prendre l'avion"],
+                    ["le port", "embarquer sur un bateau"],
+                    ["la piste cyclable", "rouler à vélo en sécurité"]
+                ],
+                "explanation": "Chaque aménagement permet d'utiliser un moyen de transport dans de bonnes conditions."
+            }
+        ],
+        "matching_geo_cm1_monde": [
+            {
+                "title": "Relie chaque continent à un pays qui s'y trouve.",
+                "pairs": [
+                    ["l'Europe", "l'Italie"],
+                    ["l'Afrique", "le Maroc"],
+                    ["l'Asie", "le Japon"],
+                    ["l'Amérique du Sud", "le Brésil"]
+                ],
+                "explanation": "Chaque pays se situe sur un continent : on les repère avec un planisphère."
+            },
+            {
+                "title": "Relie chaque voisin de la France à sa direction depuis la France.",
+                "pairs": [
+                    ["la Belgique", "au nord"],
+                    ["l'Allemagne", "à l'est"],
+                    ["l'Espagne", "au sud-ouest"],
+                    ["l'Italie", "au sud-est"]
+                ],
+                "explanation": "La France a des voisins dans plusieurs directions : on les situe grâce à la carte de l'Europe."
+            },
+            {
+                "title": "Relie chaque étendue d'eau à son emplacement.",
+                "pairs": [
+                    ["la Manche", "entre la France et le Royaume-Uni"],
+                    ["la Méditerranée", "au sud de la France"],
+                    ["l'océan Atlantique", "à l'ouest de la France"],
+                    ["la mer du Nord", "au nord de la Belgique et des Pays-Bas"]
+                ],
+                "explanation": "Les mers et l'océan qui bordent la France et l'Europe se repèrent sur une carte."
             }
         ]
     }

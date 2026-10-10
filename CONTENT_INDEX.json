@@ -2,7 +2,7 @@
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
     "exercises": 1113,
-    "lessons": 457,
+    "lessons": 470,
     "levels": 5,
     "banks": 80
   },
@@ -9490,6 +9490,28 @@
       "contractHash": null
     },
     {
+      "id": "cm1-lesson-echelle",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-pourcentage",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm1-lesson-addition-soustraction-posees",
       "kind": "lesson",
       "level": "cm1",
@@ -9502,6 +9524,17 @@
     },
     {
       "id": "cm1-lesson-multiplication-posee-2-chiffres",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-nombres-calculs",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-division-euclidienne",
       "kind": "lesson",
       "level": "cm1",
       "subjectId": "cm1-maths-subject",
@@ -9586,7 +9619,7 @@
       "engine": "math-input",
       "paramsType": "fraction-view",
       "pool": null,
-      "contractHash": "math-input|{\"maxDenom\":8,\"type\":\"fraction-view\"}"
+      "contractHash": "math-input|{\"maxDenom\":6,\"type\":\"fraction-view\"}"
     },
     {
       "id": "cm1-frac-build",
@@ -10238,6 +10271,39 @@
       "contractHash": null
     },
     {
+      "id": "cm1-lesson-vocabulaire-geometrie",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-geometrie-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-paralleles-perpendiculaires",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-geometrie-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-triangles-particuliers",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-maths-subject",
+      "subthemeId": "cm1-geometrie-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm1-lesson-angles-droits",
       "kind": "lesson",
       "level": "cm1",
@@ -10777,6 +10843,17 @@
       "contractHash": null
     },
     {
+      "id": "cm1-lesson-accord-participe-etre",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-francais-subject",
+      "subthemeId": "cm1-francais-conjugaison",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm1-lesson-passe-simple-recit",
       "kind": "lesson",
       "level": "cm1",
@@ -10950,7 +11027,7 @@
       "engine": "conjugation",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conjugation|{\"category\":\"pc_3_cm1\",\"tenses\":\"passé composé\"}"
+      "contractHash": "conjugation|{\"category\":\"pc_3_freq\",\"tenses\":\"passé composé\"}"
     },
     {
       "id": "cm1-conj-passe-simple-reco",
@@ -10998,6 +11075,17 @@
     },
     {
       "id": "cm1-lesson-nature-mots",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-francais-subject",
+      "subthemeId": "cm1-francais-grammaire",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-sujet-verbe-complement",
       "kind": "lesson",
       "level": "cm1",
       "subjectId": "cm1-francais-subject",
@@ -11148,7 +11236,7 @@
       "engine": "choice-engine",
       "paramsType": "grammar-cloze",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"grammar_agreement_cm1\",\"type\":\"grammar-cloze\"}"
+      "contractHash": "choice-engine|{\"category\":\"grammar_agreement_cm1_defi\",\"type\":\"grammar-cloze\"}"
     },
     {
       "id": "cm1-redaction-connecteurs",
@@ -11558,6 +11646,17 @@
       "contractHash": null
     },
     {
+      "id": "cm1-lesson-renaissance",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-histoire-subject",
+      "subthemeId": "cm1-histoire-periodes",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm1-lesson-explorations",
       "kind": "lesson",
       "level": "cm1",
@@ -11686,8 +11785,8 @@
       "subthemeId": "cm1-histoire-periodes",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/history_cm1.json::cm1-moyen-age",
-      "contractHash": "choice-engine|{\"category\":\"cm1-moyen-age\",\"dataFile\":\"data/history_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/history_cm1.json::cm1-moyen-age-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm1-moyen-age-defi\",\"dataFile\":\"data/history_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-lesson-frise",
@@ -11819,7 +11918,7 @@
       "engine": "timeline",
       "paramsType": null,
       "pool": null,
-      "contractHash": "timeline|{\"dataFile\":\"data/history_chrono.json\",\"difficulty\":3,\"grade\":\"cm1\",\"mode\":\"place\",\"timelineId\":\"cm1-place-moyen-age\"}"
+      "contractHash": "timeline|{\"dataFile\":\"data/history_chrono.json\",\"difficulty\":[2,3],\"grade\":\"cm1\",\"mode\":\"place\",\"timelineId\":\"cm1-place-moyen-age\"}"
     },
     {
       "id": "cm1-lesson-relief-paysage",
@@ -11862,8 +11961,8 @@
       "subthemeId": "cm1-geo-relief-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/geography_cm1.json::cm1-france-relief",
-      "contractHash": "choice-engine|{\"category\":\"cm1-france-relief\",\"dataFile\":\"data/geography_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/geography_cm1.json::cm1-france-fleuves",
+      "contractHash": "choice-engine|{\"category\":\"cm1-france-fleuves\",\"dataFile\":\"data/geography_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-geo-eaux-paysages",
@@ -11895,8 +11994,8 @@
       "subthemeId": "cm1-geo-relief-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/geography_cm1.json::cm1-eaux-paysages",
-      "contractHash": "choice-engine|{\"category\":\"cm1-eaux-paysages\",\"dataFile\":\"data/geography_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/geography_cm1.json::cm1-eaux-paysages-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm1-eaux-paysages-defi\",\"dataFile\":\"data/geography_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-lesson-territoires",
@@ -11961,8 +12060,8 @@
       "subthemeId": "cm1-geo-territoires-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/geography_cm1.json::cm1-types-territoires",
-      "contractHash": "choice-engine|{\"category\":\"cm1-types-territoires\",\"dataFile\":\"data/geography_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/geography_cm1.json::cm1-territoires-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm1-territoires-defi\",\"dataFile\":\"data/geography_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-geo-territoires-appariement",
@@ -11972,8 +12071,8 @@
       "subthemeId": "cm1-geo-territoires-subtheme",
       "engine": "matching",
       "paramsType": null,
-      "pool": "data/geography_matching.json::matching_geo_cm1",
-      "contractHash": "matching|{\"category\":\"matching_geo_cm1\",\"dataFile\":\"data/geography_matching.json\"}"
+      "pool": "data/geography_matching.json::matching_geo_cm1_territoires",
+      "contractHash": "matching|{\"category\":\"matching_geo_cm1_territoires\",\"dataFile\":\"data/geography_matching.json\"}"
     },
     {
       "id": "cm1-geo-carte-regions",
@@ -12027,8 +12126,8 @@
       "subthemeId": "cm1-geo-deplacements-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/geography_cm1.json::cm1-se-deplacer",
-      "contractHash": "choice-engine|{\"category\":\"cm1-se-deplacer\",\"dataFile\":\"data/geography_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/geography_cm1.json::cm1-deplacements-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm1-deplacements-defi\",\"dataFile\":\"data/geography_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-geo-mobilites-france",
@@ -12049,11 +12148,22 @@
       "subthemeId": "cm1-geo-deplacements-subtheme",
       "engine": "matching",
       "paramsType": null,
-      "pool": "data/geography_matching.json::matching_geo_cm1",
-      "contractHash": "matching|{\"category\":\"matching_geo_cm1\",\"dataFile\":\"data/geography_matching.json\"}"
+      "pool": "data/geography_matching.json::matching_geo_cm1_transports",
+      "contractHash": "matching|{\"category\":\"matching_geo_cm1_transports\",\"dataFile\":\"data/geography_matching.json\"}"
     },
     {
       "id": "cm1-lesson-france-europe",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-geographie-subject",
+      "subthemeId": "cm1-geo-europe-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-continents-oceans",
       "kind": "lesson",
       "level": "cm1",
       "subjectId": "cm1-geographie-subject",
@@ -12082,8 +12192,8 @@
       "subthemeId": "cm1-geo-europe-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/geography_cm1.json::cm1-europe-monde",
-      "contractHash": "choice-engine|{\"category\":\"cm1-europe-monde\",\"dataFile\":\"data/geography_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/geography_cm1.json::cm1-monde-situer",
+      "contractHash": "choice-engine|{\"category\":\"cm1-monde-situer\",\"dataFile\":\"data/geography_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-geo-carte-continents",
@@ -12126,8 +12236,8 @@
       "subthemeId": "cm1-geo-europe-subtheme",
       "engine": "matching",
       "paramsType": null,
-      "pool": "data/geography_matching.json::matching_geo_cm1",
-      "contractHash": "matching|{\"category\":\"matching_geo_cm1\",\"dataFile\":\"data/geography_matching.json\"}"
+      "pool": "data/geography_matching.json::matching_geo_cm1_monde",
+      "contractHash": "matching|{\"category\":\"matching_geo_cm1_monde\",\"dataFile\":\"data/geography_matching.json\"}"
     },
     {
       "id": "cm1-geo-carte-afrique-pays",
@@ -12225,8 +12335,8 @@
       "subthemeId": "cm1-geo-europe-subtheme",
       "engine": "board-interactive",
       "paramsType": "map-locate",
-      "pool": "data/board_map_locate_world.json::cm1_map_continents_monde",
-      "contractHash": "board-interactive|{\"category\":\"cm1_map_continents_monde\",\"dataFile\":\"data/board_map_locate_world.json\",\"mapFile\":\"data/maps/world-continents.svg\",\"mapId\":\"world-continents\",\"type\":\"map-locate\"}"
+      "pool": "data/board_map_locate_world.json::cm1_map_continents_monde_defi",
+      "contractHash": "board-interactive|{\"category\":\"cm1_map_continents_monde_defi\",\"dataFile\":\"data/board_map_locate_world.json\",\"mapFile\":\"data/maps/world-continents.svg\",\"mapId\":\"world-continents\",\"type\":\"map-locate\"}"
     },
     {
       "id": "cm1-lesson-communiquer-internet",
@@ -13032,6 +13142,17 @@
       "contractHash": null
     },
     {
+      "id": "cm1-lesson-egalite-discrimination",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-emc-subject",
+      "subthemeId": "cm1-emc-vivre-ensemble-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm1-emc-vivre-ensemble",
       "kind": "exercise",
       "level": "cm1",
@@ -13050,8 +13171,8 @@
       "subthemeId": "cm1-emc-vivre-ensemble-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cm1.json::cm1-vivre-ensemble",
-      "contractHash": "choice-engine|{\"category\":\"cm1-vivre-ensemble\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cm1.json::cm1-vivre-ensemble-respect",
+      "contractHash": "choice-engine|{\"category\":\"cm1-vivre-ensemble-respect\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-bonus-emc-vivre-ensemble-defi",
@@ -13061,8 +13182,8 @@
       "subthemeId": "cm1-emc-vivre-ensemble-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cm1.json::cm1-vivre-ensemble",
-      "contractHash": "choice-engine|{\"category\":\"cm1-vivre-ensemble\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cm1.json::cm1-vivre-ensemble-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm1-vivre-ensemble-defi\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-emc-egalite-respect",
@@ -13094,8 +13215,8 @@
       "subthemeId": "cm1-emc-vivre-ensemble-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cm1.json::cm1-egalite-respect",
-      "contractHash": "choice-engine|{\"category\":\"cm1-egalite-respect\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cm1.json::cm1-egalite-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm1-egalite-defi\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-lesson-droits-devoirs",
@@ -13138,8 +13259,8 @@
       "subthemeId": "cm1-emc-droits-devoirs-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cm1.json::cm1-droits-devoirs",
-      "contractHash": "choice-engine|{\"category\":\"cm1-droits-devoirs\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cm1.json::cm1-regles-justice",
+      "contractHash": "choice-engine|{\"category\":\"cm1-regles-justice\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-bonus-emc-droits-devoirs-defi",
@@ -13149,8 +13270,8 @@
       "subthemeId": "cm1-emc-droits-devoirs-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cm1.json::cm1-droits-devoirs",
-      "contractHash": "choice-engine|{\"category\":\"cm1-droits-devoirs\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cm1.json::cm1-securite-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm1-securite-defi\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-emc-appariement",
@@ -13171,8 +13292,8 @@
       "subthemeId": "cm1-emc-droits-devoirs-subtheme",
       "engine": "matching",
       "paramsType": null,
-      "pool": "data/emc_matching.json::matching_emc_cm1",
-      "contractHash": "matching|{\"category\":\"matching_emc_cm1\",\"dataFile\":\"data/emc_matching.json\"}"
+      "pool": "data/emc_matching.json::matching_emc_cm1_quotidien",
+      "contractHash": "matching|{\"category\":\"matching_emc_cm1_quotidien\",\"dataFile\":\"data/emc_matching.json\"}"
     },
     {
       "id": "cm1-lesson-citoyennete",
@@ -13208,6 +13329,28 @@
       "contractHash": null
     },
     {
+      "id": "cm1-lesson-debattre",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-emc-subject",
+      "subthemeId": "cm1-emc-citoyennete-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-institutions-republique",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-emc-subject",
+      "subthemeId": "cm1-emc-citoyennete-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm1-emc-citoyennete",
       "kind": "exercise",
       "level": "cm1",
@@ -13226,8 +13369,8 @@
       "subthemeId": "cm1-emc-citoyennete-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cm1.json::cm1-citoyennete",
-      "contractHash": "choice-engine|{\"category\":\"cm1-citoyennete\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cm1.json::cm1-institutions",
+      "contractHash": "choice-engine|{\"category\":\"cm1-institutions\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-emc-debat-cooperation",
@@ -13270,8 +13413,8 @@
       "subthemeId": "cm1-emc-citoyennete-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/emc_cm1.json::cm1-debat-cooperation",
-      "contractHash": "choice-engine|{\"category\":\"cm1-debat-cooperation\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/emc_cm1.json::cm1-debat-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm1-debat-defi\",\"dataFile\":\"data/emc_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-lesson-numerique-emetteur-recepteur",
@@ -17373,7 +17516,8 @@
     },
     "data/board_map_locate_world.json": {
       "categories": {
-        "cm1_map_continents_monde": 24
+        "cm1_map_continents_monde": 12,
+        "cm1_map_continents_monde_defi": 12
       }
     },
     "data/board_memory_match_ce1.json": {
@@ -17520,19 +17664,26 @@
     },
     "data/emc_cm1.json": {
       "categories": {
-        "cm1-vivre-ensemble": 42,
-        "cm1-droits-devoirs": 41,
-        "cm1-citoyennete": 38,
-        "cm1-debat-cooperation": 24,
+        "cm1-vivre-ensemble": 16,
+        "cm1-droits-devoirs": 12,
+        "cm1-citoyennete": 13,
+        "cm1-debat-cooperation": 12,
         "cm1-parole-citoyenne": 11,
         "cm1-engagement-classe": 11,
-        "cm1-egalite-respect": 16,
-        "cm1-alerte-secours": 8,
+        "cm1-egalite-respect": 10,
+        "cm1-alerte-secours": 12,
         "cm1-numerique-emetteur-recepteur": 12,
         "cm1-numerique-image-texte": 12,
         "cm1-numerique-diffusion": 12,
         "cm1-numerique-cyberviolence": 12,
-        "cm1-numerique-sobriete": 12
+        "cm1-numerique-sobriete": 12,
+        "cm1-vivre-ensemble-respect": 17,
+        "cm1-vivre-ensemble-defi": 14,
+        "cm1-regles-justice": 16,
+        "cm1-securite-defi": 13,
+        "cm1-institutions": 25,
+        "cm1-debat-defi": 12,
+        "cm1-egalite-defi": 12
       }
     },
     "data/emc_cm2.json": {
@@ -17569,9 +17720,10 @@
         "matching_emc_cp": 8,
         "matching_emc_ce1": 8,
         "matching_emc_ce2": 6,
-        "matching_emc_cm1": 8,
+        "matching_emc_cm1": 7,
         "matching_emc_cm2": 9,
-        "matching_emc_ce2_symboles": 3
+        "matching_emc_ce2_symboles": 3,
+        "matching_emc_cm1_quotidien": 5
       }
     },
     "data/french_ce1_comprehension.json": {
@@ -17685,17 +17837,22 @@
     },
     "data/geography_cm1.json": {
       "categories": {
-        "cm1-france-relief": 14,
+        "cm1-france-relief": 12,
         "cm1-france-regions": 12,
         "cm1-se-deplacer": 12,
         "cm1-types-territoires": 12,
         "cm1-mobilites-france": 11,
-        "cm1-eaux-paysages": 24,
+        "cm1-eaux-paysages": 12,
         "cm1-europe-monde": 10,
         "cm1-communiquer-internet": 14,
         "cm1-se-nourrir": 14,
         "cm1-inegalites-acces": 14,
-        "cm1-inegalites-niveau-vie": 14
+        "cm1-inegalites-niveau-vie": 14,
+        "cm1-france-fleuves": 12,
+        "cm1-monde-situer": 10,
+        "cm1-eaux-paysages-defi": 12,
+        "cm1-territoires-defi": 12,
+        "cm1-deplacements-defi": 12
       }
     },
     "data/geography_cm2.json": {
@@ -17736,9 +17893,12 @@
       "categories": {
         "matching_geo_ce1": 9,
         "matching_geo_ce2": 6,
-        "matching_geo_cm1": 7,
+        "matching_geo_cm1": 4,
         "matching_geo_cm2": 9,
-        "matching_geo_ce2_reperage": 4
+        "matching_geo_ce2_reperage": 4,
+        "matching_geo_cm1_territoires": 3,
+        "matching_geo_cm1_transports": 3,
+        "matching_geo_cm1_monde": 3
       }
     },
     "data/history_ce1.json": {
@@ -17773,13 +17933,14 @@
       "categories": {
         "cm1-prehistoire": 16,
         "cm1-antiquite": 18,
-        "cm1-moyen-age": 24,
+        "cm1-moyen-age": 12,
         "cm1-temps-modernes": 9,
         "cm1-renaissance-inventions": 10,
         "cm1-humanisme-imprimerie": 8,
         "cm1-annee-1789": 16,
         "cm1-monarchie-absolue": 12,
-        "cm1-explorations": 12
+        "cm1-explorations": 12,
+        "cm1-moyen-age-defi": 12
       }
     },
     "data/history_cm2.json": {
