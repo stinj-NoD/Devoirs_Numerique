@@ -296,37 +296,38 @@
                         {
                             "id": "cm1-bonus-grands-calculs",
                             "title": "Défi : grands calculs",
-                            "subtitle": "Divisions posées niveau expert",
+                            "subtitle": "Divisions posées d'un nombre à 4 chiffres par un chiffre",
                             "engine": "math-input",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "division-posed",
-                                "level": 2,
-                                "questions": 6
+                                "level": 1,
+                                "questions": 6,
+                                "dividend": [1000,9999]
                             }
                         },
                         {
                             "id": "cm1-m-addition-posee-retenue",
                             "title": "Addition posée avec retenue",
-                            "subtitle": "Poser l'addition de grands nombres",
+                            "subtitle": "Poser l'addition de nombres à 5 chiffres",
                             "engine": "math-input",
                             "params": {
                                 "type": "operation-posed",
                                 "operator": "add",
-                                "level": 2,
+                                "level": 4,
                                 "questions": 6
                             }
                         },
                         {
                             "id": "cm1-m-soustraction-posee-emprunt",
                             "title": "Soustraction posée avec emprunt",
-                            "subtitle": "Poser la soustraction de grands nombres",
+                            "subtitle": "Poser la soustraction de nombres à 5 chiffres",
                             "engine": "math-input",
                             "params": {
                                 "type": "operation-posed",
                                 "operator": "sub",
-                                "level": 2,
+                                "level": 4,
                                 "questions": 6
                             }
                         },
@@ -1602,9 +1603,10 @@
                             "params": {
                                 "questions": 5,
                                 "max": 100,
-                                "subtype": "roman"
+                                "subtype": "roman",
+                                "min": 51
                             },
-                            "subtitle": "Jusqu'à C (100)",
+                            "subtitle": "De LI (51) à C (100)",
                             "title": "Chiffres romains (3)",
                             "engine": "conversion"
                         },
@@ -3158,7 +3160,7 @@
                         {
                             "id": "cm1-h-ce",
                             "title": "Ce ou Se ?",
-                            "subtitle": "Homophones",
+                            "subtitle": "Ce devant un nom, se devant un verbe",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -3167,13 +3169,14 @@
                                     "ce",
                                     "se"
                                 ],
-                                "questions": 10
+                                "questions": 10,
+                                "level": "cm1"
                             }
                         },
                         {
                             "id": "cm1-h-ces",
                             "title": "Ces ou Ses ?",
-                            "subtitle": "Homophones",
+                            "subtitle": "Sans indice : cherche le possesseur",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -3182,13 +3185,14 @@
                                     "ces",
                                     "ses"
                                 ],
-                                "questions": 10
+                                "questions": 10,
+                                "level": "cm1"
                             }
                         },
                         {
                             "id": "cm1-h-aa",
                             "title": "A ou À ?",
-                            "subtitle": "Homophones fréquents",
+                            "subtitle": "Phrases étendues, lieu, heure et « il y a »",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -3197,13 +3201,14 @@
                                     "a",
                                     "à"
                                 ],
-                                "questions": 10
+                                "questions": 10,
+                                "level": "cm1"
                             }
                         },
                         {
                             "id": "cm1-h-son",
                             "title": "Son ou Sont ?",
-                            "subtitle": "Le bon homophone dans la phrase",
+                            "subtitle": "Sujet éloigné et noms féminins à voyelle",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -3212,13 +3217,14 @@
                                     "son",
                                     "sont"
                                 ],
-                                "questions": 10
+                                "questions": 10,
+                                "level": "cm1"
                             }
                         },
                         {
                             "id": "cm1-h-on",
                             "title": "On ou Ont ?",
-                            "subtitle": "Sujet ou auxiliaire",
+                            "subtitle": "Sujets longs, négation et subordonnées",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -3227,13 +3233,14 @@
                                     "on",
                                     "ont"
                                 ],
-                                "questions": 10
+                                "questions": 10,
+                                "level": "cm1"
                             }
                         },
                         {
                             "id": "cm1-h-ou",
                             "title": "Ou ou Où ?",
-                            "subtitle": "Le choix ou le lieu",
+                            "subtitle": "Un choix, ou un lieu ou un temps",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -3242,7 +3249,8 @@
                                     "ou",
                                     "où"
                                 ],
-                                "questions": 10
+                                "questions": 10,
+                                "level": "cm1"
                             }
                         },
                         {
@@ -3257,7 +3265,8 @@
                                     "leur",
                                     "leurs"
                                 ],
-                                "questions": 10
+                                "questions": 10,
+                                "level": "cm1"
                             }
                         },
                         {
@@ -3272,7 +3281,8 @@
                                     "c'est",
                                     "s'est"
                                 ],
-                                "questions": 10
+                                "questions": 10,
+                                "level": "cm1"
                             }
                         },
                         {
@@ -3285,7 +3295,8 @@
                             "params": {
                                 "type": "homophone-duel",
                                 "category": "mix_all",
-                                "questions": 16
+                                "questions": 16,
+                                "level": "cm1"
                             }
                         }
                     ],
@@ -3520,10 +3531,10 @@
                         {
                             "id": "cm1-c-imp",
                             "title": "L'Imparfait",
-                            "subtitle": "Verbes en -ER",
+                            "subtitle": "1er groupe : -ger, -cer, -ier, -yer",
                             "engine": "conjugation",
                             "params": {
-                                "category": "imparfait_1",
+                                "category": "imparfait_particularites",
                                 "tenses": "imparfait",
                                 "questions": 10
                             }
@@ -3531,17 +3542,11 @@
                         {
                             "id": "cm1-c-pc-avoir",
                             "title": "Passé Composé (1)",
-                            "subtitle": "Auxiliaire Avoir",
+                            "subtitle": "Auxiliaire avoir : regarder, ranger, laver...",
                             "engine": "conjugation",
                             "params": {
                                 "category": "pc_1",
-                                "verbs": [
-                                    "manger",
-                                    "chanter",
-                                    "jouer",
-                                    "chercher",
-                                    "trouver"
-                                ],
+                                "verbs": ["regarder","écouter","dessiner","préparer","ranger","laver","fermer","donner","aimer","parler"],
                                 "tenses": "passé composé",
                                 "questions": 5
                             }
@@ -3549,17 +3554,11 @@
                         {
                             "id": "cm1-c-pc-etre",
                             "title": "Passé Composé (2)",
-                            "subtitle": "Auxiliaire Être",
+                            "subtitle": "Auxiliaire être : aller, venir, partir, sortir",
                             "engine": "conjugation",
                             "params": {
-                                "category": "pc_1",
-                                "verbs": [
-                                    "tomber",
-                                    "monter",
-                                    "arriver",
-                                    "entrer",
-                                    "rester"
-                                ],
+                                "category": "pc_3_etre",
+                                "verbs": ["aller","venir","partir","sortir"],
                                 "tenses": "passé composé",
                                 "questions": 5
                             }
@@ -3588,11 +3587,11 @@
                         },
                         {
                             "id": "cm1-conj-ir",
-                            "title": "Le 2ème groupe",
-                            "subtitle": "Finir, Choisir... en -ISS",
+                            "title": "Verbes en -ir : 2e ou 3e groupe ?",
+                            "subtitle": "Finir, choisir... ou dormir, servir, courir...",
                             "engine": "conjugation",
                             "params": {
-                                "category": "present_2",
+                                "category": "present_ir_mix",
                                 "tenses": "présent",
                                 "questions": 8
                             }
@@ -3611,10 +3610,10 @@
                         {
                             "id": "cm1-c-futur",
                             "title": "Le futur simple",
-                            "subtitle": "Verbes du 1er groupe",
+                            "subtitle": "1er groupe : cas particuliers (-ger, -cer, -ier, -yer)",
                             "engine": "conjugation",
                             "params": {
-                                "category": "future_1",
+                                "category": "future_particularites",
                                 "tenses": "futur",
                                 "questions": 10
                             }
@@ -3659,12 +3658,13 @@
                         {
                             "id": "cm1-c-pc-3-etre",
                             "title": "Passé Composé avec être",
-                            "subtitle": "Aller, venir, partir, sortir...",
+                            "subtitle": "Arriver, entrer, rester, tomber, devenir...",
                             "engine": "conjugation",
                             "params": {
                                 "category": "pc_3_etre",
                                 "tenses": "passé composé",
-                                "questions": 8
+                                "questions": 8,
+                                "verbs": ["arriver","entrer","rester","tomber","devenir","revenir","descendre","naître"]
                             }
                         },
                         {
@@ -4043,6 +4043,112 @@
                                     "answer": "« je mangerai », car « demain » annonce une action future",
                                     "explanation": "« Demain » situe l'action dans l'avenir : c'est le futur simple, qui se termine par -ai avec « je ». La forme en -ais serait du conditionnel, employée sous condition (« je mangerais une glace si j'avais de l'argent »). Deux formes qui se prononcent pareil ne sont pas interchangeables : c'est le sens de la phrase qui décide.",
                                     "label": "Vérifie que tu as compris"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-verbes-particuliers",
+                            "title": "Les verbes en -ger, -cer, -ier, -yer",
+                            "subtitle": "Futur et imparfait : attention aux lettres qui changent",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Certains verbes du 1er groupe demandent un peu d'attention : leur radical garde ou change une lettre pour que le son reste le même."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Je repère",
+                                    "items": [
+                                        "verbes en -ger et -cer : je garde le e (mangeais) ou la cédille (lançais) devant a, mais plus devant -ions et -iez (nous mangions, nous lancions)",
+                                        "verbes en -ier : au futur j'écris -ierai (étudierai) ; à l'imparfait, nous étudiions garde deux i de suite",
+                                        "verbes en -yer : le y devient i devant un e muet (nettoierai) ; à l'imparfait, le y reste (nous nettoyions)"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Demain, je nettoierai la classe. Autrefois, nous voyagions en train et nous étudiions le soir."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Au futur, on part de l'infinitif (mangerai, lancerai, étudierai) ; seuls les verbes en -yer changent leur y en i (nettoierai)."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Comment s'écrit commencer à l'imparfait avec « nous » ?",
+                                    "choices": [
+                                        "nous commencions",
+                                        "nous commençions",
+                                        "nous commençons"
+                                    ],
+                                    "answer": "nous commencions",
+                                    "explanation": "Devant i, la lettre c se prononce déjà « s » : pas besoin de cédille, on écrit nous commencions. « commençions » garde la cédille à tort, et « commençons » est du présent."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quelle est la forme de essuyer au futur avec « tu » ?",
+                                    "choices": [
+                                        "tu essuieras",
+                                        "tu essuyeras",
+                                        "tu essuyais"
+                                    ],
+                                    "answer": "tu essuieras",
+                                    "explanation": "Devant un e muet, le y des verbes en -uyer se change en i : essuyer donne tu essuieras. « essuyeras » garde le y à tort, et « essuyais » est de l'imparfait, pas du futur."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm1-lesson-verbes-en-ir",
+                            "title": "Les verbes en -ir : 2e ou 3e groupe ?",
+                            "subtitle": "Un test avec « nous »",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Tous les verbes en -ir ne font pas partie du 2e groupe. Pour savoir, je conjugue avec « nous » : si j'entends -issons, c'est le 2e groupe."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Le test",
+                                    "items": [
+                                        "nous finissons, nous choisissons : 2e groupe",
+                                        "nous dormons, nous servons, nous courons : 3e groupe",
+                                        "au 3e groupe, le radical se raccourcit : je dors, tu dors, il dort"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Je finis mes devoirs, puis je dors : finir est du 2e groupe, dormir du 3e."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "J'entends -issons à « nous » : 2e groupe. Sinon, le verbe en -ir est du 3e groupe."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Lequel de ces verbes est du 2e groupe ?",
+                                    "choices": [
+                                        "grandir",
+                                        "partir",
+                                        "courir"
+                                    ],
+                                    "answer": "grandir",
+                                    "explanation": "On dit nous grandissons : on entend -issons, donc grandir est du 2e groupe. Nous partons et nous courons n'ont pas -issons : partir et courir sont du 3e groupe."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Au présent, comment s'écrit servir avec « il » ?",
+                                    "choices": [
+                                        "il sert",
+                                        "il servit",
+                                        "il servis"
+                                    ],
+                                    "answer": "il sert",
+                                    "explanation": "Servir est du 3e groupe : il sert, comme il dort. « il servit » applique à tort la terminaison du 2e groupe (il finit), et « servis » ne s'écrit pas avec il."
                                 }
                             ]
                         }
@@ -6788,7 +6894,7 @@
                         },
                         {
                             "id": "cm1-geo-carte-europe-pays",
-                            "title": "Carte de l'Europe",
+                            "title": "Carte : la France et l'Europe proche",
                             "subtitle": "Touche le pays demandé",
                             "engine": "board-interactive",
                             "params": {
@@ -6796,7 +6902,7 @@
                                 "dataFile": "data/board_map_locate_europe.json",
                                 "mapFile": "data/maps/europe-countries.svg",
                                 "mapId": "europe-countries",
-                                "category": "cm1_map_pays_europe",
+                                "category": "cm1_map_europe_proche",
                                 "questions": 8
                             }
                         },
@@ -6869,13 +6975,13 @@
                         },
                         {
                             "id": "cm1-geo-capitales-europe",
-                            "title": "Capitales d'Europe",
+                            "title": "Capitales : la France et l'Europe proche",
                             "subtitle": "Quelle est la capitale ?",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/geography_capitals_cm1.json",
-                                "category": "cm1-capitales-europe",
+                                "category": "cm1-capitales-europe-proche",
                                 "questions": 8
                             }
                         },

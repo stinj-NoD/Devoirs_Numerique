@@ -15,100 +15,109 @@
                         {
                             "id": "ce2-m2",
                             "title": "Table de 2",
-                            "subtitle": "Les doubles",
+                            "subtitle": "Produits, nombre manquant et divisions",
                             "engine": "math-input",
                             "params": {
                                 "type": "mult",
                                 "table": 2,
-                                "questions": 10
+                                "questions": 10,
+                                "mode": "mixte"
                             }
                         },
                         {
                             "id": "ce2-m3",
                             "title": "Table de 3",
-                            "subtitle": "Les triples",
+                            "subtitle": "Produits, nombre manquant et divisions",
                             "engine": "math-input",
                             "params": {
                                 "type": "mult",
                                 "table": 3,
-                                "questions": 10
+                                "questions": 10,
+                                "mode": "mixte"
                             }
                         },
                         {
                             "id": "ce2-m4",
                             "title": "Table de 4",
-                            "subtitle": "Calcul",
+                            "subtitle": "Produits, nombre manquant et divisions",
                             "engine": "math-input",
                             "params": {
                                 "type": "mult",
                                 "table": 4,
-                                "questions": 10
+                                "questions": 10,
+                                "mode": "mixte"
                             }
                         },
                         {
                             "id": "ce2-m5",
                             "title": "Table de 5",
-                            "subtitle": "Calcul",
+                            "subtitle": "Produits, nombre manquant et divisions",
                             "engine": "math-input",
                             "params": {
                                 "type": "mult",
                                 "table": 5,
-                                "questions": 10
+                                "questions": 10,
+                                "mode": "mixte"
                             }
                         },
                         {
                             "id": "ce2-m6",
                             "title": "Table de 6",
-                            "subtitle": "Calcul",
+                            "subtitle": "Produits, nombre manquant et divisions",
                             "engine": "math-input",
                             "params": {
                                 "type": "mult",
                                 "table": 6,
-                                "questions": 10
+                                "questions": 10,
+                                "mode": "mixte"
                             }
                         },
                         {
                             "id": "ce2-m7",
                             "title": "Table de 7",
-                            "subtitle": "Calcul",
+                            "subtitle": "Produits, nombre manquant et divisions",
                             "engine": "math-input",
                             "params": {
                                 "type": "mult",
                                 "table": 7,
-                                "questions": 10
+                                "questions": 10,
+                                "mode": "mixte"
                             }
                         },
                         {
                             "id": "ce2-m8",
                             "title": "Table de 8",
-                            "subtitle": "Calcul",
+                            "subtitle": "Produits, nombre manquant et divisions",
                             "engine": "math-input",
                             "params": {
                                 "type": "mult",
                                 "table": 8,
-                                "questions": 10
+                                "questions": 10,
+                                "mode": "mixte"
                             }
                         },
                         {
                             "id": "ce2-m9",
                             "title": "Table de 9",
-                            "subtitle": "Calcul",
+                            "subtitle": "Produits, nombre manquant et divisions",
                             "engine": "math-input",
                             "params": {
                                 "type": "mult",
                                 "table": 9,
-                                "questions": 10
+                                "questions": 10,
+                                "mode": "mixte"
                             }
                         },
                         {
                             "id": "ce2-m10",
                             "title": "Table de 10",
-                            "subtitle": "Calcul rapide",
+                            "subtitle": "Produits, nombre manquant et divisions",
                             "engine": "math-input",
                             "params": {
                                 "type": "mult",
                                 "table": 10,
-                                "questions": 10
+                                "questions": 10,
+                                "mode": "mixte"
                             }
                         },
                         {
@@ -151,14 +160,15 @@
                         {
                             "id": "ce2-bonus-tables-melangees",
                             "title": "Défi : toutes les tables",
-                            "subtitle": "Multiplications mélangées de 2 à 12",
+                            "subtitle": "Produits, nombre manquant et divisions, de 2 à 12",
                             "engine": "math-input",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "mult",
                                 "table": "mix",
-                                "questions": 15
+                                "questions": 15,
+                                "mode": "mixte"
                             }
                         }
                     ],
@@ -410,11 +420,11 @@
                         },
                         {
                             "id": "ce2-comp-1000-compare",
-                            "title": "Comparer < 1000",
+                            "title": "Comparer jusqu'à 10 000",
                             "subtitle": "Trouver le plus grand",
                             "engine": "choice-engine",
                             "params": {
-                                "range": 1000,
+                                "range": 10000,
                                 "questions": 10
                             }
                         },
@@ -549,34 +559,38 @@
                         {
                             "id": "ce2-division-posee",
                             "title": "Division posée",
-                            "subtitle": "Trouver le quotient",
+                            "subtitle": "Trouver le quotient : division par 2, 3, 4 ou 5",
                             "engine": "math-input",
                             "params": {
                                 "type": "division-posed",
                                 "level": 1,
-                                "questions": 5
+                                "questions": 5,
+                                "divisors": [2,3,4,5],
+                                "dividend": [20,99]
                             }
                         },
                         {
                             "id": "ce2-division-posee-reste",
                             "title": "Division posée avec reste",
-                            "subtitle": "Trouver ce qu'il reste",
+                            "subtitle": "Trouver ce qu'il reste : division par 2, 3, 4 ou 5",
                             "engine": "math-input",
                             "params": {
                                 "type": "division-posed",
                                 "level": 1,
                                 "ask": "reste",
-                                "questions": 5
+                                "questions": 5,
+                                "divisors": [2,3,4,5],
+                                "dividend": [20,99]
                             }
                         },
                         {
                             "id": "ce2-fractions-simples",
                             "title": "Lire des fractions simples",
-                            "subtitle": "Compter les parts coloriées",
+                            "subtitle": "Compter les parts coloriées (moitiés, tiers, quarts, cinquièmes)",
                             "engine": "math-input",
                             "params": {
                                 "type": "fraction-view",
-                                "maxDenom": 6,
+                                "maxDenom": 5,
                                 "questions": 8
                             }
                         },
@@ -671,7 +685,8 @@
                                 "type": "operation-posed",
                                 "operator": "add",
                                 "level": 2,
-                                "questions": 6
+                                "questions": 6,
+                                "carry": true
                             }
                         },
                         {
@@ -683,7 +698,8 @@
                                 "type": "operation-posed",
                                 "operator": "sub",
                                 "level": 2,
-                                "questions": 6
+                                "questions": 6,
+                                "carry": true
                             }
                         },
                         {
@@ -1998,7 +2014,7 @@
                         {
                             "id": "ce2-h-et",
                             "title": "Et ou Est ?",
-                            "subtitle": "Homophones",
+                            "subtitle": "Dans des phrases plus longues",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -2007,13 +2023,14 @@
                                     "et",
                                     "est"
                                 ],
-                                "questions": 8
+                                "questions": 8,
+                                "level": "ce2"
                             }
                         },
                         {
                             "id": "ce2-h-a",
                             "title": "A ou à ?",
-                            "subtitle": "Homophones",
+                            "subtitle": "Dans des phrases plus longues",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -2022,13 +2039,14 @@
                                     "a",
                                     "à"
                                 ],
-                                "questions": 8
+                                "questions": 8,
+                                "level": "ce2"
                             }
                         },
                         {
                             "id": "ce2-h-son",
                             "title": "Son ou Sont ?",
-                            "subtitle": "Homophones",
+                            "subtitle": "Attention : son école, son amie",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -2037,13 +2055,14 @@
                                     "son",
                                     "sont"
                                 ],
-                                "questions": 8
+                                "questions": 8,
+                                "level": "ce2"
                             }
                         },
                         {
                             "id": "ce2-h-on",
                             "title": "On ou Ont ?",
-                            "subtitle": "Homophones",
+                            "subtitle": "On = il, ont = avaient",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -2052,13 +2071,14 @@
                                     "on",
                                     "ont"
                                 ],
-                                "questions": 8
+                                "questions": 8,
+                                "level": "ce2"
                             }
                         },
                         {
                             "id": "ce2-h-ou",
                             "title": "Ou ou Où ?",
-                            "subtitle": "Homophones",
+                            "subtitle": "Un choix ou un lieu, en phrases longues",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -2067,13 +2087,14 @@
                                     "ou",
                                     "où"
                                 ],
-                                "questions": 8
+                                "questions": 8,
+                                "level": "ce2"
                             }
                         },
                         {
                             "id": "ce2-h-ce",
                             "title": "Ce ou Se ?",
-                            "subtitle": "Homophones",
+                            "subtitle": "Ce devant un nom, se devant un verbe",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -2082,13 +2103,14 @@
                                     "ce",
                                     "se"
                                 ],
-                                "questions": 8
+                                "questions": 8,
+                                "level": "ce2"
                             }
                         },
                         {
                             "id": "ce2-h-ces",
                             "title": "Ces ou Ses ?",
-                            "subtitle": "Homophones",
+                            "subtitle": "Ces ou ses : cherche le possesseur",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -2097,7 +2119,8 @@
                                     "ces",
                                     "ses"
                                 ],
-                                "questions": 8
+                                "questions": 8,
+                                "level": "ce2"
                             }
                         },
                         {
@@ -3480,8 +3503,8 @@
                         },
                         {
                             "id": "ce2-conj-present-ea",
-                            "title": "Présent : être et avoir",
-                            "subtitle": "Les auxiliaires essentiels",
+                            "title": "Être et avoir : présent ou futur",
+                            "subtitle": "Les auxiliaires essentiels, au présent et au futur",
                             "engine": "conjugation",
                             "params": {
                                 "category": "etre_avoir_p",
@@ -3489,19 +3512,20 @@
                                     "être",
                                     "avoir"
                                 ],
-                                "tenses": "présent",
+                                "tenses": ["présent","futur"],
                                 "questions": 8
                             }
                         },
                         {
                             "id": "ce2-conj-present-2g",
                             "title": "Présent : 2e groupe",
-                            "subtitle": "Finir, choisir, grandir...",
+                            "subtitle": "Finir, choisir, grandir, rougir...",
                             "engine": "conjugation",
                             "params": {
                                 "category": "present_2",
                                 "tenses": "présent",
-                                "questions": 8
+                                "questions": 8,
+                                "verbs": ["finir","choisir","grandir","rougir","réussir","obéir","applaudir","maigrir","jaunir"]
                             }
                         },
                         {

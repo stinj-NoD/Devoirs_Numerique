@@ -376,11 +376,11 @@
                         {
                             "id": "cm2_fractions_lecture",
                             "title": "Fractions",
-                            "subtitle": "Lecture visuelle des parts",
+                            "subtitle": "Lecture visuelle des parts jusqu'à 16",
                             "engine": "math-input",
                             "params": {
                                 "type": "fraction-view",
-                                "maxDenom": 12,
+                                "maxDenom": 16,
                                 "questions": 10
                             }
                         },
@@ -399,23 +399,25 @@
                         {
                             "id": "cm2_decimaux_positions",
                             "title": "Décimaux : positions",
-                            "subtitle": "Dixièmes, centièmes et pièges",
+                            "subtitle": "Dixièmes, centièmes, millièmes et pièges",
                             "engine": "math-input",
                             "params": {
                                 "type": "decimal-place",
                                 "trap": true,
-                                "questions": 10
+                                "questions": 10,
+                                "decimals": 3
                             }
                         },
                         {
                             "id": "cm2_decimaux_positions_2",
                             "title": "Décimaux : positions (2)",
-                            "subtitle": "Lecture sans pièges",
+                            "subtitle": "Dixièmes, centièmes et millièmes",
                             "engine": "math-input",
                             "params": {
                                 "type": "decimal-place",
                                 "trap": false,
-                                "questions": 10
+                                "questions": 10,
+                                "decimals": 3
                             }
                         },
                         {
@@ -520,6 +522,76 @@
                         }
                     ],
                     "lessons": [
+                        {
+                            "id": "cm2-lesson-decimaux-milliemes",
+                            "title": "Les millièmes",
+                            "subtitle": "Trois chiffres après la virgule",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Après la virgule, chaque chiffre a un nom. Le premier est le chiffre des dixièmes, le deuxième celui des centièmes et le troisième celui des millièmes : un millième est une des 1 000 parts égales d'un entier."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "label": "Dans 6,382",
+                                    "headers": [
+                                        "Chiffre",
+                                        "Rang"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "6",
+                                            "unités"
+                                        ],
+                                        [
+                                            "3",
+                                            "dixièmes"
+                                        ],
+                                        [
+                                            "8",
+                                            "centièmes"
+                                        ],
+                                        [
+                                            "2",
+                                            "millièmes"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans 6,382, le chiffre des centièmes est 8 et le chiffre des millièmes est 2."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Chaque rang vaut dix fois moins que celui qui le précède : un millième est dix fois plus petit qu'un centième."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans 12,704, quel est le chiffre des millièmes ?",
+                                    "choices": [
+                                        "4",
+                                        "0",
+                                        "7"
+                                    ],
+                                    "answer": "4",
+                                    "explanation": "Les millièmes sont le troisième rang après la virgule : 12,704 compte 7 dixièmes, 0 centième et 4 millièmes. Le 7 est le chiffre des dixièmes et le 0 celui des centièmes."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel nombre contient 3 dixièmes, 0 centième et 5 millièmes ?",
+                                    "choices": [
+                                        "0,305",
+                                        "0,35",
+                                        "0,053"
+                                    ],
+                                    "answer": "0,305",
+                                    "explanation": "Le 3 se place juste après la virgule, le 0 garde la place des centièmes et le 5 vient en troisième : 0,305. Écrire 0,35 oublie le zéro des centièmes, et 0,053 inverse les rangs."
+                                }
+                            ]
+                        },
                         {
                             "blocks": [
                                 {
@@ -1006,11 +1078,12 @@
                         {
                             "id": "cm2-conversions-longueurs",
                             "title": "Conversions de longueurs",
-                            "subtitle": "km, m, cm, mm...",
+                            "subtitle": "km, m, cm, mm... avec des nombres décimaux",
                             "engine": "conversion",
                             "params": {
                                 "subtype": "metric",
-                                "questions": 10
+                                "questions": 10,
+                                "decimals": 1
                             }
                         },
                         {
@@ -1058,10 +1131,11 @@
                         {
                             "id": "cm2-lire-horloge",
                             "title": "Lire l'horloge",
-                            "subtitle": "Heures et minutes par 5",
+                            "subtitle": "Heures et minutes, à la minute près",
                             "engine": "clock",
                             "params": {
-                                "questions": 8
+                                "questions": 8,
+                                "level": 4
                             }
                         },
                         {
@@ -1091,11 +1165,13 @@
                         {
                             "id": "cm2-conversions-longueurs-2",
                             "title": "Conversions de longueurs (2)",
-                            "subtitle": "Mélanger km, m, cm et mm",
+                            "subtitle": "Mélanger km, m, cm et mm, jusqu'au centième",
                             "engine": "conversion",
                             "params": {
                                 "subtype": "metric",
-                                "questions": 12
+                                "questions": 12,
+                                "units": ["km","m","cm","mm"],
+                                "decimals": 2
                             }
                         },
                         {
@@ -1142,15 +1218,11 @@
                         {
                             "id": "cm2-echelle-plan",
                             "title": "Lire une échelle de plan",
-                            "subtitle": "Du plan à la réalité",
+                            "subtitle": "Du plan de quartier à la réalité",
                             "engine": "math-input",
                             "params": {
                                 "type": "echelle",
-                                "echelles": [
-                                    50,
-                                    100,
-                                    200
-                                ],
+                                "echelles": [500,1000,2000,5000,10000],
                                 "questions": 4
                             }
                         },
@@ -1183,7 +1255,7 @@
                         {
                             "id": "cm2-conversions-masses",
                             "title": "Convertir des masses",
-                            "subtitle": "kg, g, mg...",
+                            "subtitle": "kg, g, mg... avec des nombres décimaux",
                             "engine": "conversion",
                             "params": {
                                 "subtype": "metric",
@@ -1192,13 +1264,14 @@
                                     0,
                                     6
                                 ],
-                                "questions": 6
+                                "questions": 6,
+                                "decimals": 1
                             }
                         },
                         {
                             "id": "cm2-conversions-contenances",
                             "title": "Convertir des contenances",
-                            "subtitle": "L, mL, cL...",
+                            "subtitle": "L, mL, cL... avec des nombres décimaux",
                             "engine": "conversion",
                             "params": {
                                 "subtype": "metric",
@@ -1207,7 +1280,8 @@
                                     0,
                                     6
                                 ],
-                                "questions": 6
+                                "questions": 6,
+                                "decimals": 1
                             }
                         },
                         {
@@ -1388,6 +1462,59 @@
                                     ],
                                     "answer": "1,5 km",
                                     "explanation": "Des mètres aux kilomètres, on divise par 1 000 : 1 500 ÷ 1 000 = 1,5 km. 15 km et 150 km feraient une piste aussi longue qu'un trajet entre deux villes."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-conversions-decimaux",
+                            "title": "Convertir avec des nombres décimaux",
+                            "subtitle": "2,5 km = 2 500 m",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Un nombre décimal se convertit comme un nombre entier : on passe d'une unité à l'autre en multipliant ou en divisant par 10, 100 ou 1 000, et la virgule se déplace du même nombre de rangs."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "3,25 m = 325 cm, car 1 m = 100 cm et 3,25 × 100 = 325."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Repères utiles",
+                                    "items": [
+                                        "vers une unité plus petite, il y en a davantage : je multiplie",
+                                        "vers une unité plus grande, il y en a moins : je divise",
+                                        "du mètre au kilomètre ou au millimètre, l'écart est de 1 000"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Avant de calculer, je regarde si le résultat doit être plus grand ou plus petit que le nombre de départ."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Combien de mètres y a-t-il dans 2,5 km ?",
+                                    "choices": [
+                                        "2 500 m",
+                                        "250 m",
+                                        "25 m"
+                                    ],
+                                    "answer": "2 500 m",
+                                    "explanation": "1 km = 1 000 m, donc 2,5 km = 2,5 × 1 000 = 2 500 m. 250 m ne multiplie que par 100 et 25 m par 10 : ce sont des erreurs sur le nombre de rangs."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Une ficelle mesure 45 cm. Quelle est sa longueur en mètres ?",
+                                    "choices": [
+                                        "0,45 m",
+                                        "4,5 m",
+                                        "450 m"
+                                    ],
+                                    "answer": "0,45 m",
+                                    "explanation": "1 m = 100 cm : pour passer des centimètres aux mètres, on divise par 100, donc 45 cm = 0,45 m. 4,5 m ne divise que par 10, et 450 m multiplie au lieu de diviser."
                                 }
                             ]
                         },
@@ -2617,10 +2744,10 @@
                         {
                             "id": "cm2_conj_present_3",
                             "title": "Présent 3e Groupe",
-                            "subtitle": "Verbes fréquents & Irréguliers",
+                            "subtitle": "Recevoir, tenir, vivre, croire, peindre...",
                             "engine": "conjugation",
                             "params": {
-                                "category": "present_3_freq",
+                                "category": "present_troisieme_avance",
                                 "tenses": "présent",
                                 "questions": 10
                             }
@@ -2628,10 +2755,10 @@
                         {
                             "id": "cm2_conj_future",
                             "title": "Futur Simple",
-                            "subtitle": "Tous les verbes du 1er groupe",
+                            "subtitle": "Tous les groupes : verbes irréguliers",
                             "engine": "conjugation",
                             "params": {
-                                "category": "future_1",
+                                "category": "future_tous_groupes",
                                 "tenses": "futur",
                                 "questions": 10
                             }
@@ -2639,10 +2766,10 @@
                         {
                             "id": "cm2_conj_imparfait",
                             "title": "L'Imparfait",
-                            "subtitle": "Attention aux exceptions !",
+                            "subtitle": "Verbes des trois groupes : nous faisions, vous voyiez",
                             "engine": "conjugation",
                             "params": {
-                                "category": "imparfait_1",
+                                "category": "imparfait_tous_groupes",
                                 "tenses": "imparfait",
                                 "questions": 10
                             }
@@ -2650,10 +2777,10 @@
                         {
                             "id": "cm2_conj_pc",
                             "title": "Passé Composé",
-                            "subtitle": "Auxiliaire + Participe Passé",
+                            "subtitle": "Tous les groupes, avec avoir ou être",
                             "engine": "conjugation",
                             "params": {
-                                "category": "pc_1",
+                                "category": "pc_tous_groupes",
                                 "tenses": "passé composé",
                                 "questions": 10
                             }
@@ -2672,18 +2799,18 @@
                         {
                             "id": "cm2-conj-present-2g",
                             "title": "Présent du 2e groupe",
-                            "subtitle": "Finir, choisir, réfléchir...",
+                            "subtitle": "Réfléchir, bâtir, atterrir, accomplir...",
                             "engine": "conjugation",
                             "params": {
-                                "category": "present_2",
+                                "category": "present_deuxieme_avance",
                                 "tenses": "présent",
                                 "questions": 10
                             }
                         },
                         {
                             "id": "cm2-conj-ea-imp",
-                            "title": "Être et avoir à l'imparfait",
-                            "subtitle": "Révisions des auxiliaires",
+                            "title": "Être et avoir : tous les temps simples",
+                            "subtitle": "Présent, futur et imparfait : révision des auxiliaires",
                             "engine": "conjugation",
                             "params": {
                                 "category": "etre_avoir_imp",
@@ -2691,7 +2818,7 @@
                                     "être",
                                     "avoir"
                                 ],
-                                "tenses": "imparfait",
+                                "tenses": ["présent","futur","imparfait"],
                                 "questions": 8
                             }
                         },
@@ -2795,6 +2922,113 @@
                             "format": "lesson-card",
                             "id": "cm2-lesson-passe-compose",
                             "subtitle": "Action terminée et auxiliaire"
+                        },
+                        {
+                            "id": "cm2-lesson-futur-imparfait-tous-groupes",
+                            "title": "Futur et imparfait de tous les groupes",
+                            "subtitle": "Savoir, courir, voir : des formes à connaître",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Au futur et à l'imparfait, les verbes des trois groupes prennent les mêmes terminaisons que les verbes en -er, mais leur radical peut changer."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "À retenir",
+                                    "items": [
+                                        "au futur, les formes irrégulières se retiennent : saurai, devrai, courrai, tiendrai, enverrai ; on entend toujours un r avant la terminaison",
+                                        "à l'imparfait, je pars de la forme « nous » du présent : nous prenons donne je prenais, nous finissons donne je finissais",
+                                        "voir et croire gardent le y avec nous et vous : nous voyions, vous croyiez"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Demain, nous saurons la réponse. Autrefois, il prenait le bus et nous voyions la mer par la fenêtre."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "À l'imparfait, la forme « nous » du présent donne le radical : nous finissons, donc finiss-ais."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Comment s'écrit courir au futur avec « il » ?",
+                                    "choices": [
+                                        "il courra",
+                                        "il coura",
+                                        "il courira"
+                                    ],
+                                    "answer": "il courra",
+                                    "explanation": "Courir a un futur irrégulier : il courra, avec deux r qu'on entend. « coura » n'a qu'un r, et « courira » applique à tort la règle des verbes réguliers."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel est le radical de l'imparfait de finir ?",
+                                    "choices": [
+                                        "finiss-",
+                                        "fin-",
+                                        "finis-"
+                                    ],
+                                    "answer": "finiss-",
+                                    "explanation": "On part de nous finissons : le radical est finiss-, d'où je finissais. « fin- » et « finis- » oublient les deux s de nous finissons."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-present-3e-groupe-avance",
+                            "title": "Le présent du 3e groupe : d'autres verbes",
+                            "subtitle": "Recevoir, tenir, vivre, croire, peindre...",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Beaucoup de verbes du 3e groupe changent de radical selon la personne. Pour écrire nous et vous, je pars souvent de l'infinitif ; c'est aux autres personnes que le radical change."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Des modèles",
+                                    "items": [
+                                        "recevoir : je reçois, nous recevons, ils reçoivent",
+                                        "tenir : je tiens, nous tenons, ils tiennent",
+                                        "vivre : je vis, nous vivons, ils vivent",
+                                        "peindre : je peins, nous peignons, ils peignent"
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Elle reçoit une lettre, et ils reçoivent un colis."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Avec nous et vous, le radical ressemble souvent à l'infinitif (nous tenons, vous recevez) ; il change aux autres personnes."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Au présent, comment s'écrit croire avec « ils » ?",
+                                    "choices": [
+                                        "ils croient",
+                                        "ils croyent",
+                                        "ils croit"
+                                    ],
+                                    "answer": "ils croient",
+                                    "explanation": "Croire fait ils croient : la terminaison est -ent, et le y n'apparaît qu'avec nous et vous (nous croyons). « croyent » garde le y à tort, et « croit » oublie la marque du pluriel."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Au présent, comment s'écrit rendre avec « tu » ?",
+                                    "choices": [
+                                        "tu rends",
+                                        "tu rend",
+                                        "tu rendes"
+                                    ],
+                                    "answer": "tu rends",
+                                    "explanation": "Les verbes en -dre font -ds aux deux premières personnes du singulier : je rends, tu rends, il rend. « rend » oublie le s, et « rendes » ajoute la terminaison des verbes en -er."
+                                }
+                            ]
                         },
                         {
                             "blocks": [
@@ -3013,13 +3247,14 @@
                             "params": {
                                 "type": "homophone-duel",
                                 "category": "mix_all",
-                                "questions": 15
+                                "questions": 15,
+                                "level": "cm2"
                             }
                         },
                         {
                             "id": "cm2_homophones_ce_se",
                             "title": "Ce ou se ?",
-                            "subtitle": "Le bon homophone dans la phrase",
+                            "subtitle": "« Ce qui », « ce que » et se devant un verbe",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -3028,13 +3263,14 @@
                                     "ce",
                                     "se"
                                 ],
-                                "questions": 10
+                                "questions": 10,
+                                "level": "cm2"
                             }
                         },
                         {
                             "id": "cm2_homophones_ces_ses",
                             "title": "Ces ou ses ?",
-                            "subtitle": "Déterminant ou possessif",
+                            "subtitle": "Cherche le possesseur dans la phrase",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -3043,13 +3279,14 @@
                                     "ces",
                                     "ses"
                                 ],
-                                "questions": 10
+                                "questions": 10,
+                                "level": "cm2"
                             }
                         },
                         {
                             "id": "cm2_homophones_a_a",
                             "title": "A ou à ?",
-                            "subtitle": "Homophones fréquents",
+                            "subtitle": "Les pièges : « a à faire », inversion, « grâce à »",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -3058,13 +3295,14 @@
                                     "a",
                                     "à"
                                 ],
-                                "questions": 10
+                                "questions": 10,
+                                "level": "cm2"
                             }
                         },
                         {
                             "id": "cm2_homophones_ou_ou",
                             "title": "Ou ou où ?",
-                            "subtitle": "Choisir le bon homophone",
+                            "subtitle": "« Jusqu'où », « d'où », « le jour où »",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -3073,13 +3311,14 @@
                                     "ou",
                                     "où"
                                 ],
-                                "questions": 10
+                                "questions": 10,
+                                "level": "cm2"
                             }
                         },
                         {
                             "id": "cm2-homophones-son-sont",
                             "title": "Son ou Sont ?",
-                            "subtitle": "Possessif ou verbe être",
+                            "subtitle": "Sujets éloignés, « ce sont », phrases complexes",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -3088,13 +3327,14 @@
                                     "son",
                                     "sont"
                                 ],
-                                "questions": 10
+                                "questions": 10,
+                                "level": "cm2"
                             }
                         },
                         {
                             "id": "cm2-homophones-on-ont",
                             "title": "On ou Ont ?",
-                            "subtitle": "Sujet ou auxiliaire",
+                            "subtitle": "« Qu'on », « n'ont », propositions relatives",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -3103,7 +3343,8 @@
                                     "on",
                                     "ont"
                                 ],
-                                "questions": 10
+                                "questions": 10,
+                                "level": "cm2"
                             }
                         },
                         {
@@ -3116,13 +3357,14 @@
                             "params": {
                                 "type": "homophone-duel",
                                 "category": "mix_all",
-                                "questions": 20
+                                "questions": 20,
+                                "level": "cm2"
                             }
                         },
                         {
                             "id": "cm2-h-leur",
                             "title": "Leur ou Leurs ?",
-                            "subtitle": "Un pronom invariable ou un adjectif pluriel",
+                            "subtitle": "Pronom, possessif singulier ou pluriel",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -3131,13 +3373,14 @@
                                     "leur",
                                     "leurs"
                                 ],
-                                "questions": 10
+                                "questions": 10,
+                                "level": "cm2"
                             }
                         },
                         {
                             "id": "cm2-h-cest",
                             "title": "C'est ou S'est ?",
-                            "subtitle": "Présenter ou se transformer au passé",
+                            "subtitle": "Présenter ou verbe pronominal, en phrases longues",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -3146,7 +3389,8 @@
                                     "c'est",
                                     "s'est"
                                 ],
-                                "questions": 10
+                                "questions": 10,
+                                "level": "cm2"
                             }
                         }
                     ],
@@ -5842,26 +6086,26 @@
                         {
                             "id": "cm2-geo-carte-europe-pays",
                             "title": "Carte de l'Europe",
-                            "subtitle": "Touche le pays demandé",
+                            "subtitle": "Touche le pays demandé, dans toute l'Europe",
                             "engine": "board-interactive",
                             "params": {
                                 "type": "map-locate",
                                 "dataFile": "data/board_map_locate_europe.json",
                                 "mapFile": "data/maps/europe-countries.svg",
                                 "mapId": "europe-countries",
-                                "category": "cm1_map_pays_europe",
+                                "category": "cm2_map_pays_europe",
                                 "questions": 8
                             }
                         },
                         {
                             "id": "cm2-geo-capitales-europe",
                             "title": "Capitales d'Europe",
-                            "subtitle": "Quelle est la capitale ?",
+                            "subtitle": "Quelle est la capitale ? Toute l'Europe",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/geography_capitals_cm1.json",
-                                "category": "cm1-capitales-europe",
+                                "category": "cm2-capitales-europe",
                                 "questions": 8
                             }
                         },

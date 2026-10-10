@@ -2,7 +2,7 @@
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
     "exercises": 1114,
-    "lessons": 483,
+    "lessons": 489,
     "levels": 5,
     "banks": 80
   },
@@ -3316,7 +3316,7 @@
       "engine": "math-input",
       "paramsType": "mult",
       "pool": null,
-      "contractHash": "math-input|{\"table\":\"mix\",\"type\":\"mult\"}"
+      "contractHash": "math-input|{\"table\":\"mix\",\"tables\":[2,3,4,5,10],\"type\":\"mult\"}"
     },
     {
       "id": "ce1-lesson-complements-20",
@@ -3635,7 +3635,7 @@
       "engine": "math-input",
       "paramsType": "complement",
       "pool": null,
-      "contractHash": "math-input|{\"target\":20,\"type\":\"complement\"}"
+      "contractHash": "math-input|{\"multipleOf\":10,\"target\":100,\"type\":\"complement\"}"
     },
     {
       "id": "ce1-additions-100",
@@ -3679,7 +3679,7 @@
       "engine": "math-input",
       "paramsType": "complement",
       "pool": null,
-      "contractHash": "math-input|{\"target\":100,\"type\":\"complement\"}"
+      "contractHash": "math-input|{\"multipleOf\":5,\"target\":100,\"type\":\"complement\"}"
     },
     {
       "id": "ce1-addition-posee-colonnes",
@@ -4086,7 +4086,7 @@
       "engine": "math-input",
       "paramsType": "spelling",
       "pool": null,
-      "contractHash": "math-input|{\"category\":\"animals\",\"type\":\"spelling\"}"
+      "contractHash": "math-input|{\"category\":\"animals_ce1\",\"type\":\"spelling\"}"
     },
     {
       "id": "ce1-sp-corps",
@@ -4097,7 +4097,7 @@
       "engine": "math-input",
       "paramsType": "spelling",
       "pool": null,
-      "contractHash": "math-input|{\"category\":\"corps\",\"type\":\"spelling\"}"
+      "contractHash": "math-input|{\"category\":\"corps_ce1\",\"type\":\"spelling\"}"
     },
     {
       "id": "ce1-homo-aa",
@@ -4108,7 +4108,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"a_à\",\"choices\":[\"a\",\"à\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"a_à\",\"choices\":[\"a\",\"à\"],\"level\":\"ce1\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "ce1-homo-et",
@@ -4119,7 +4119,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"et_est\",\"choices\":[\"et\",\"est\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"et_est\",\"choices\":[\"et\",\"est\"],\"level\":\"ce1\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "ce1-sp-ecole",
@@ -4130,7 +4130,7 @@
       "engine": "math-input",
       "paramsType": "spelling",
       "pool": null,
-      "contractHash": "math-input|{\"category\":\"school\",\"type\":\"spelling\"}"
+      "contractHash": "math-input|{\"category\":\"school_ce1\",\"type\":\"spelling\"}"
     },
     {
       "id": "ce1-sp-maison",
@@ -4141,7 +4141,7 @@
       "engine": "math-input",
       "paramsType": "spelling",
       "pool": null,
-      "contractHash": "math-input|{\"category\":\"house\",\"type\":\"spelling\"}"
+      "contractHash": "math-input|{\"category\":\"house_ce1\",\"type\":\"spelling\"}"
     },
     {
       "id": "ce1-sp-aliments",
@@ -4152,7 +4152,7 @@
       "engine": "math-input",
       "paramsType": "spelling",
       "pool": null,
-      "contractHash": "math-input|{\"category\":\"food\",\"type\":\"spelling\"}"
+      "contractHash": "math-input|{\"category\":\"food_ce1\",\"type\":\"spelling\"}"
     },
     {
       "id": "ce1-sp-transport",
@@ -4163,7 +4163,7 @@
       "engine": "math-input",
       "paramsType": "spelling",
       "pool": null,
-      "contractHash": "math-input|{\"category\":\"transport\",\"type\":\"spelling\"}"
+      "contractHash": "math-input|{\"category\":\"transport_ce1\",\"type\":\"spelling\"}"
     },
     {
       "id": "ce1-sp-vetements",
@@ -4185,7 +4185,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"son_sont\",\"choices\":[\"son\",\"sont\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"son_sont\",\"choices\":[\"son\",\"sont\"],\"level\":\"ce1\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "ce1-homo-onont",
@@ -4196,7 +4196,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"on_ont\",\"choices\":[\"on\",\"ont\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"on_ont\",\"choices\":[\"on\",\"ont\"],\"level\":\"ce1\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "ce1-homo-ouou",
@@ -4207,7 +4207,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"ou_où\",\"choices\":[\"ou\",\"où\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"ou_où\",\"choices\":[\"ou\",\"où\"],\"level\":\"ce1\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "ce1-bonus-dictee-vetements",
@@ -4240,7 +4240,7 @@
       "engine": "audio-spelling",
       "paramsType": null,
       "pool": null,
-      "contractHash": "audio-spelling|{\"category\":\"school\",\"speechRate\":0.74}"
+      "contractHash": "audio-spelling|{\"category\":\"school_ce1\",\"speechRate\":0.74}"
     },
     {
       "id": "ce1-audio-maison",
@@ -4251,7 +4251,7 @@
       "engine": "audio-spelling",
       "paramsType": null,
       "pool": null,
-      "contractHash": "audio-spelling|{\"category\":\"house\",\"speechRate\":0.74}"
+      "contractHash": "audio-spelling|{\"category\":\"house_ce1\",\"speechRate\":0.74}"
     },
     {
       "id": "ce1-audio-corps",
@@ -4262,7 +4262,7 @@
       "engine": "audio-spelling",
       "paramsType": null,
       "pool": null,
-      "contractHash": "audio-spelling|{\"category\":\"corps\",\"speechRate\":0.74}"
+      "contractHash": "audio-spelling|{\"category\":\"corps_ce1\",\"speechRate\":0.74}"
     },
     {
       "id": "ce1-audio-animaux",
@@ -4273,7 +4273,7 @@
       "engine": "audio-spelling",
       "paramsType": null,
       "pool": null,
-      "contractHash": "audio-spelling|{\"category\":\"animals\",\"speechRate\":0.74}"
+      "contractHash": "audio-spelling|{\"category\":\"animals_ce1\",\"speechRate\":0.74}"
     },
     {
       "id": "ce1-audio-aliments",
@@ -4284,7 +4284,7 @@
       "engine": "audio-spelling",
       "paramsType": null,
       "pool": null,
-      "contractHash": "audio-spelling|{\"category\":\"food\",\"speechRate\":0.74}"
+      "contractHash": "audio-spelling|{\"category\":\"food_ce1\",\"speechRate\":0.74}"
     },
     {
       "id": "ce1-bonus-audio-animaux-expert",
@@ -4295,7 +4295,7 @@
       "engine": "audio-spelling",
       "paramsType": null,
       "pool": null,
-      "contractHash": "audio-spelling|{\"category\":\"animals\",\"speechRate\":0.74}"
+      "contractHash": "audio-spelling|{\"category\":\"animals_ce1\",\"speechRate\":0.74}"
     },
     {
       "id": "ce1-lesson-mots-frequents",
@@ -6231,7 +6231,7 @@
       "engine": "math-input",
       "paramsType": "mult",
       "pool": null,
-      "contractHash": "math-input|{\"table\":2,\"type\":\"mult\"}"
+      "contractHash": "math-input|{\"mode\":\"mixte\",\"table\":2,\"type\":\"mult\"}"
     },
     {
       "id": "ce2-m3",
@@ -6242,7 +6242,7 @@
       "engine": "math-input",
       "paramsType": "mult",
       "pool": null,
-      "contractHash": "math-input|{\"table\":3,\"type\":\"mult\"}"
+      "contractHash": "math-input|{\"mode\":\"mixte\",\"table\":3,\"type\":\"mult\"}"
     },
     {
       "id": "ce2-m4",
@@ -6253,7 +6253,7 @@
       "engine": "math-input",
       "paramsType": "mult",
       "pool": null,
-      "contractHash": "math-input|{\"table\":4,\"type\":\"mult\"}"
+      "contractHash": "math-input|{\"mode\":\"mixte\",\"table\":4,\"type\":\"mult\"}"
     },
     {
       "id": "ce2-m5",
@@ -6264,7 +6264,7 @@
       "engine": "math-input",
       "paramsType": "mult",
       "pool": null,
-      "contractHash": "math-input|{\"table\":5,\"type\":\"mult\"}"
+      "contractHash": "math-input|{\"mode\":\"mixte\",\"table\":5,\"type\":\"mult\"}"
     },
     {
       "id": "ce2-m6",
@@ -6275,7 +6275,7 @@
       "engine": "math-input",
       "paramsType": "mult",
       "pool": null,
-      "contractHash": "math-input|{\"table\":6,\"type\":\"mult\"}"
+      "contractHash": "math-input|{\"mode\":\"mixte\",\"table\":6,\"type\":\"mult\"}"
     },
     {
       "id": "ce2-m7",
@@ -6286,7 +6286,7 @@
       "engine": "math-input",
       "paramsType": "mult",
       "pool": null,
-      "contractHash": "math-input|{\"table\":7,\"type\":\"mult\"}"
+      "contractHash": "math-input|{\"mode\":\"mixte\",\"table\":7,\"type\":\"mult\"}"
     },
     {
       "id": "ce2-m8",
@@ -6297,7 +6297,7 @@
       "engine": "math-input",
       "paramsType": "mult",
       "pool": null,
-      "contractHash": "math-input|{\"table\":8,\"type\":\"mult\"}"
+      "contractHash": "math-input|{\"mode\":\"mixte\",\"table\":8,\"type\":\"mult\"}"
     },
     {
       "id": "ce2-m9",
@@ -6308,7 +6308,7 @@
       "engine": "math-input",
       "paramsType": "mult",
       "pool": null,
-      "contractHash": "math-input|{\"table\":9,\"type\":\"mult\"}"
+      "contractHash": "math-input|{\"mode\":\"mixte\",\"table\":9,\"type\":\"mult\"}"
     },
     {
       "id": "ce2-m10",
@@ -6319,7 +6319,7 @@
       "engine": "math-input",
       "paramsType": "mult",
       "pool": null,
-      "contractHash": "math-input|{\"table\":10,\"type\":\"mult\"}"
+      "contractHash": "math-input|{\"mode\":\"mixte\",\"table\":10,\"type\":\"mult\"}"
     },
     {
       "id": "ce2-m11",
@@ -6363,7 +6363,7 @@
       "engine": "math-input",
       "paramsType": "mult",
       "pool": null,
-      "contractHash": "math-input|{\"table\":\"mix\",\"type\":\"mult\"}"
+      "contractHash": "math-input|{\"mode\":\"mixte\",\"table\":\"mix\",\"type\":\"mult\"}"
     },
     {
       "id": "ce2-lesson-division-posee",
@@ -6638,7 +6638,7 @@
       "engine": "choice-engine",
       "paramsType": null,
       "pool": null,
-      "contractHash": "choice-engine|{\"range\":1000}"
+      "contractHash": "choice-engine|{\"range\":10000}"
     },
     {
       "id": "ce2-comp-500",
@@ -6759,7 +6759,7 @@
       "engine": "math-input",
       "paramsType": "division-posed",
       "pool": null,
-      "contractHash": "math-input|{\"level\":1,\"type\":\"division-posed\"}"
+      "contractHash": "math-input|{\"dividend\":[20,99],\"divisors\":[2,3,4,5],\"level\":1,\"type\":\"division-posed\"}"
     },
     {
       "id": "ce2-division-posee-reste",
@@ -6770,7 +6770,7 @@
       "engine": "math-input",
       "paramsType": "division-posed",
       "pool": null,
-      "contractHash": "math-input|{\"ask\":\"reste\",\"level\":1,\"type\":\"division-posed\"}"
+      "contractHash": "math-input|{\"ask\":\"reste\",\"dividend\":[20,99],\"divisors\":[2,3,4,5],\"level\":1,\"type\":\"division-posed\"}"
     },
     {
       "id": "ce2-fractions-simples",
@@ -6781,7 +6781,7 @@
       "engine": "math-input",
       "paramsType": "fraction-view",
       "pool": null,
-      "contractHash": "math-input|{\"maxDenom\":6,\"type\":\"fraction-view\"}"
+      "contractHash": "math-input|{\"maxDenom\":5,\"type\":\"fraction-view\"}"
     },
     {
       "id": "ce2-bonus-comp-5000",
@@ -6869,7 +6869,7 @@
       "engine": "math-input",
       "paramsType": "operation-posed",
       "pool": null,
-      "contractHash": "math-input|{\"level\":2,\"operator\":\"add\",\"type\":\"operation-posed\"}"
+      "contractHash": "math-input|{\"carry\":true,\"level\":2,\"operator\":\"add\",\"type\":\"operation-posed\"}"
     },
     {
       "id": "ce2-soustraction-posee-retenue",
@@ -6880,7 +6880,7 @@
       "engine": "math-input",
       "paramsType": "operation-posed",
       "pool": null,
-      "contractHash": "math-input|{\"level\":2,\"operator\":\"sub\",\"type\":\"operation-posed\"}"
+      "contractHash": "math-input|{\"carry\":true,\"level\":2,\"operator\":\"sub\",\"type\":\"operation-posed\"}"
     },
     {
       "id": "ce2-multiplication-posee-un-chiffre",
@@ -7199,7 +7199,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"et_est\",\"choices\":[\"et\",\"est\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"et_est\",\"choices\":[\"et\",\"est\"],\"level\":\"ce2\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "ce2-h-a",
@@ -7210,7 +7210,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"a_à\",\"choices\":[\"a\",\"à\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"a_à\",\"choices\":[\"a\",\"à\"],\"level\":\"ce2\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "ce2-h-son",
@@ -7221,7 +7221,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"son_sont\",\"choices\":[\"son\",\"sont\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"son_sont\",\"choices\":[\"son\",\"sont\"],\"level\":\"ce2\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "ce2-h-on",
@@ -7232,7 +7232,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"on_ont\",\"choices\":[\"on\",\"ont\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"on_ont\",\"choices\":[\"on\",\"ont\"],\"level\":\"ce2\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "ce2-h-ou",
@@ -7243,7 +7243,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"ou_où\",\"choices\":[\"ou\",\"où\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"ou_où\",\"choices\":[\"ou\",\"où\"],\"level\":\"ce2\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "ce2-h-ce",
@@ -7254,7 +7254,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"ce_se\",\"choices\":[\"ce\",\"se\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"ce_se\",\"choices\":[\"ce\",\"se\"],\"level\":\"ce2\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "ce2-h-ces",
@@ -7265,7 +7265,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"ces_ses\",\"choices\":[\"ces\",\"ses\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"ces_ses\",\"choices\":[\"ces\",\"ses\"],\"level\":\"ce2\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "ce2-g-un-une",
@@ -7650,7 +7650,7 @@
       "engine": "conjugation",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conjugation|{\"category\":\"etre_avoir_p\",\"tenses\":\"présent\",\"verbs\":[\"être\",\"avoir\"]}"
+      "contractHash": "conjugation|{\"category\":\"etre_avoir_p\",\"tenses\":[\"présent\",\"futur\"],\"verbs\":[\"être\",\"avoir\"]}"
     },
     {
       "id": "ce2-conj-present-2g",
@@ -7661,7 +7661,7 @@
       "engine": "conjugation",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conjugation|{\"category\":\"present_2\",\"tenses\":\"présent\"}"
+      "contractHash": "conjugation|{\"category\":\"present_2\",\"tenses\":\"présent\",\"verbs\":[\"finir\",\"choisir\",\"grandir\",\"rougir\",\"réussir\",\"obéir\",\"applaudir\",\"maigrir\",\"jaunir\"]}"
     },
     {
       "id": "ce2-conj-pc-avoir",
@@ -9872,7 +9872,7 @@
       "engine": "math-input",
       "paramsType": "division-posed",
       "pool": null,
-      "contractHash": "math-input|{\"level\":2,\"type\":\"division-posed\"}"
+      "contractHash": "math-input|{\"dividend\":[1000,9999],\"level\":1,\"type\":\"division-posed\"}"
     },
     {
       "id": "cm1-m-addition-posee-retenue",
@@ -9883,7 +9883,7 @@
       "engine": "math-input",
       "paramsType": "operation-posed",
       "pool": null,
-      "contractHash": "math-input|{\"level\":2,\"operator\":\"add\",\"type\":\"operation-posed\"}"
+      "contractHash": "math-input|{\"level\":4,\"operator\":\"add\",\"type\":\"operation-posed\"}"
     },
     {
       "id": "cm1-m-soustraction-posee-emprunt",
@@ -9894,7 +9894,7 @@
       "engine": "math-input",
       "paramsType": "operation-posed",
       "pool": null,
-      "contractHash": "math-input|{\"level\":2,\"operator\":\"sub\",\"type\":\"operation-posed\"}"
+      "contractHash": "math-input|{\"level\":4,\"operator\":\"sub\",\"type\":\"operation-posed\"}"
     },
     {
       "id": "cm1-m-multiplication-posee-2-chiffres",
@@ -10202,7 +10202,7 @@
       "engine": "conversion",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conversion|{\"max\":100,\"subtype\":\"roman\"}"
+      "contractHash": "conversion|{\"max\":100,\"min\":51,\"subtype\":\"roman\"}"
     },
     {
       "id": "cm1-time-hard-2",
@@ -10730,7 +10730,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"ce_se\",\"choices\":[\"ce\",\"se\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"ce_se\",\"choices\":[\"ce\",\"se\"],\"level\":\"cm1\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm1-h-ces",
@@ -10741,7 +10741,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"ces_ses\",\"choices\":[\"ces\",\"ses\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"ces_ses\",\"choices\":[\"ces\",\"ses\"],\"level\":\"cm1\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm1-h-aa",
@@ -10752,7 +10752,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"a_à\",\"choices\":[\"a\",\"à\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"a_à\",\"choices\":[\"a\",\"à\"],\"level\":\"cm1\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm1-h-son",
@@ -10763,7 +10763,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"son_sont\",\"choices\":[\"son\",\"sont\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"son_sont\",\"choices\":[\"son\",\"sont\"],\"level\":\"cm1\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm1-h-on",
@@ -10774,7 +10774,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"on_ont\",\"choices\":[\"on\",\"ont\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"on_ont\",\"choices\":[\"on\",\"ont\"],\"level\":\"cm1\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm1-h-ou",
@@ -10785,7 +10785,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"ou_où\",\"choices\":[\"ou\",\"où\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"ou_où\",\"choices\":[\"ou\",\"où\"],\"level\":\"cm1\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm1-h-leur",
@@ -10796,7 +10796,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"leur_leurs\",\"choices\":[\"leur\",\"leurs\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"leur_leurs\",\"choices\":[\"leur\",\"leurs\"],\"level\":\"cm1\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm1-h-cest",
@@ -10807,7 +10807,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"c_est_s_est\",\"choices\":[\"c'est\",\"s'est\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"c_est_s_est\",\"choices\":[\"c'est\",\"s'est\"],\"level\":\"cm1\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm1-bonus-homophones-mix",
@@ -10818,7 +10818,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"mix_all\",\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"mix_all\",\"level\":\"cm1\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm1-lesson-imparfait-er",
@@ -10887,6 +10887,28 @@
       "contractHash": null
     },
     {
+      "id": "cm1-lesson-verbes-particuliers",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-francais-subject",
+      "subthemeId": "cm1-francais-conjugaison",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm1-lesson-verbes-en-ir",
+      "kind": "lesson",
+      "level": "cm1",
+      "subjectId": "cm1-francais-subject",
+      "subthemeId": "cm1-francais-conjugaison",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm1-c-imp",
       "kind": "exercise",
       "level": "cm1",
@@ -10895,7 +10917,7 @@
       "engine": "conjugation",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conjugation|{\"category\":\"imparfait_1\",\"tenses\":\"imparfait\"}"
+      "contractHash": "conjugation|{\"category\":\"imparfait_particularites\",\"tenses\":\"imparfait\"}"
     },
     {
       "id": "cm1-c-pc-avoir",
@@ -10906,7 +10928,7 @@
       "engine": "conjugation",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conjugation|{\"category\":\"pc_1\",\"tenses\":\"passé composé\",\"verbs\":[\"manger\",\"chanter\",\"jouer\",\"chercher\",\"trouver\"]}"
+      "contractHash": "conjugation|{\"category\":\"pc_1\",\"tenses\":\"passé composé\",\"verbs\":[\"regarder\",\"écouter\",\"dessiner\",\"préparer\",\"ranger\",\"laver\",\"fermer\",\"donner\",\"aimer\",\"parler\"]}"
     },
     {
       "id": "cm1-c-pc-etre",
@@ -10917,7 +10939,7 @@
       "engine": "conjugation",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conjugation|{\"category\":\"pc_1\",\"tenses\":\"passé composé\",\"verbs\":[\"tomber\",\"monter\",\"arriver\",\"entrer\",\"rester\"]}"
+      "contractHash": "conjugation|{\"category\":\"pc_3_etre\",\"tenses\":\"passé composé\",\"verbs\":[\"aller\",\"venir\",\"partir\",\"sortir\"]}"
     },
     {
       "id": "cm1-c-pc-mix",
@@ -10950,7 +10972,7 @@
       "engine": "conjugation",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conjugation|{\"category\":\"present_2\",\"tenses\":\"présent\"}"
+      "contractHash": "conjugation|{\"category\":\"present_ir_mix\",\"tenses\":\"présent\"}"
     },
     {
       "id": "cm1-conj-present-3g",
@@ -10972,7 +10994,7 @@
       "engine": "conjugation",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conjugation|{\"category\":\"future_1\",\"tenses\":\"futur\"}"
+      "contractHash": "conjugation|{\"category\":\"future_particularites\",\"tenses\":\"futur\"}"
     },
     {
       "id": "cm1-c-futur-2g",
@@ -11016,7 +11038,7 @@
       "engine": "conjugation",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conjugation|{\"category\":\"pc_3_etre\",\"tenses\":\"passé composé\"}"
+      "contractHash": "conjugation|{\"category\":\"pc_3_etre\",\"tenses\":\"passé composé\",\"verbs\":[\"arriver\",\"entrer\",\"rester\",\"tomber\",\"devenir\",\"revenir\",\"descendre\",\"naître\"]}"
     },
     {
       "id": "cm1-bonus-conjugaison-passe-compose",
@@ -12214,8 +12236,8 @@
       "subthemeId": "cm1-geo-europe-subtheme",
       "engine": "board-interactive",
       "paramsType": "map-locate",
-      "pool": "data/board_map_locate_europe.json::cm1_map_pays_europe",
-      "contractHash": "board-interactive|{\"category\":\"cm1_map_pays_europe\",\"dataFile\":\"data/board_map_locate_europe.json\",\"mapFile\":\"data/maps/europe-countries.svg\",\"mapId\":\"europe-countries\",\"type\":\"map-locate\"}"
+      "pool": "data/board_map_locate_europe.json::cm1_map_europe_proche",
+      "contractHash": "board-interactive|{\"category\":\"cm1_map_europe_proche\",\"dataFile\":\"data/board_map_locate_europe.json\",\"mapFile\":\"data/maps/europe-countries.svg\",\"mapId\":\"europe-countries\",\"type\":\"map-locate\"}"
     },
     {
       "id": "cm1-geo-carte-asie-pays",
@@ -12280,8 +12302,8 @@
       "subthemeId": "cm1-geo-europe-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/geography_capitals_cm1.json::cm1-capitales-europe",
-      "contractHash": "choice-engine|{\"category\":\"cm1-capitales-europe\",\"dataFile\":\"data/geography_capitals_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/geography_capitals_cm1.json::cm1-capitales-europe-proche",
+      "contractHash": "choice-engine|{\"category\":\"cm1-capitales-europe-proche\",\"dataFile\":\"data/geography_capitals_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm1-geo-capitales-afrique",
@@ -13747,6 +13769,17 @@
       "contractHash": "math-input|{\"operator\":\"-\",\"range\":[10,99],\"type\":\"calc-mental\"}"
     },
     {
+      "id": "cm2-lesson-decimaux-milliemes",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-fractions-decimaux",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm2-lesson-decimaux-comparer",
       "kind": "lesson",
       "level": "cm2",
@@ -13810,7 +13843,7 @@
       "engine": "math-input",
       "paramsType": "fraction-view",
       "pool": null,
-      "contractHash": "math-input|{\"maxDenom\":12,\"type\":\"fraction-view\"}"
+      "contractHash": "math-input|{\"maxDenom\":16,\"type\":\"fraction-view\"}"
     },
     {
       "id": "cm2-frac-build",
@@ -13832,7 +13865,7 @@
       "engine": "math-input",
       "paramsType": "decimal-place",
       "pool": null,
-      "contractHash": "math-input|{\"trap\":true,\"type\":\"decimal-place\"}"
+      "contractHash": "math-input|{\"decimals\":3,\"trap\":true,\"type\":\"decimal-place\"}"
     },
     {
       "id": "cm2_decimaux_positions_2",
@@ -13843,7 +13876,7 @@
       "engine": "math-input",
       "paramsType": "decimal-place",
       "pool": null,
-      "contractHash": "math-input|{\"trap\":false,\"type\":\"decimal-place\"}"
+      "contractHash": "math-input|{\"decimals\":3,\"trap\":false,\"type\":\"decimal-place\"}"
     },
     {
       "id": "cm2_fractions_lecture_2",
@@ -14044,6 +14077,17 @@
       "contractHash": null
     },
     {
+      "id": "cm2-lesson-conversions-decimaux",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-maths-subject",
+      "subthemeId": "cm2-grandeurs-mesures-subtheme",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm2-lesson-proportionnalite-echelle",
       "kind": "lesson",
       "level": "cm2",
@@ -14074,7 +14118,7 @@
       "engine": "conversion",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conversion|{\"subtype\":\"metric\"}"
+      "contractHash": "conversion|{\"decimals\":1,\"subtype\":\"metric\"}"
     },
     {
       "id": "cm2-heures-minutes-aide",
@@ -14118,7 +14162,7 @@
       "engine": "clock",
       "paramsType": null,
       "pool": null,
-      "contractHash": "clock|{}"
+      "contractHash": "clock|{\"level\":4}"
     },
     {
       "id": "cm2-romains-100",
@@ -14151,7 +14195,7 @@
       "engine": "conversion",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conversion|{\"subtype\":\"metric\"}"
+      "contractHash": "conversion|{\"decimals\":2,\"subtype\":\"metric\",\"units\":[\"km\",\"m\",\"cm\",\"mm\"]}"
     },
     {
       "id": "cm2-romains-500",
@@ -14195,7 +14239,7 @@
       "engine": "math-input",
       "paramsType": "echelle",
       "pool": null,
-      "contractHash": "math-input|{\"echelles\":[50,100,200],\"type\":\"echelle\"}"
+      "contractHash": "math-input|{\"echelles\":[500,1000,2000,5000,10000],\"type\":\"echelle\"}"
     },
     {
       "id": "cm2-vitesse-1",
@@ -14228,7 +14272,7 @@
       "engine": "conversion",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conversion|{\"range\":[0,6],\"subtype\":\"metric\",\"unitType\":\"masse\"}"
+      "contractHash": "conversion|{\"decimals\":1,\"range\":[0,6],\"subtype\":\"metric\",\"unitType\":\"masse\"}"
     },
     {
       "id": "cm2-conversions-contenances",
@@ -14239,7 +14283,7 @@
       "engine": "conversion",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conversion|{\"range\":[0,6],\"subtype\":\"metric\",\"unitType\":\"capacite\"}"
+      "contractHash": "conversion|{\"decimals\":1,\"range\":[0,6],\"subtype\":\"metric\",\"unitType\":\"capacite\"}"
     },
     {
       "id": "cm2-bonus-romains-1000",
@@ -14748,6 +14792,28 @@
       "contractHash": null
     },
     {
+      "id": "cm2-lesson-futur-imparfait-tous-groupes",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-francais-subject",
+      "subthemeId": "cm2-francais-conjugaison",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
+      "id": "cm2-lesson-present-3e-groupe-avance",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-francais-subject",
+      "subthemeId": "cm2-francais-conjugaison",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm2-lesson-etre-avoir-imparfait",
       "kind": "lesson",
       "level": "cm2",
@@ -14789,7 +14855,7 @@
       "engine": "conjugation",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conjugation|{\"category\":\"present_3_freq\",\"tenses\":\"présent\"}"
+      "contractHash": "conjugation|{\"category\":\"present_troisieme_avance\",\"tenses\":\"présent\"}"
     },
     {
       "id": "cm2_conj_future",
@@ -14800,7 +14866,7 @@
       "engine": "conjugation",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conjugation|{\"category\":\"future_1\",\"tenses\":\"futur\"}"
+      "contractHash": "conjugation|{\"category\":\"future_tous_groupes\",\"tenses\":\"futur\"}"
     },
     {
       "id": "cm2_conj_imparfait",
@@ -14811,7 +14877,7 @@
       "engine": "conjugation",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conjugation|{\"category\":\"imparfait_1\",\"tenses\":\"imparfait\"}"
+      "contractHash": "conjugation|{\"category\":\"imparfait_tous_groupes\",\"tenses\":\"imparfait\"}"
     },
     {
       "id": "cm2_conj_pc",
@@ -14822,7 +14888,7 @@
       "engine": "conjugation",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conjugation|{\"category\":\"pc_1\",\"tenses\":\"passé composé\"}"
+      "contractHash": "conjugation|{\"category\":\"pc_tous_groupes\",\"tenses\":\"passé composé\"}"
     },
     {
       "id": "cm2_conj_pc_3",
@@ -14844,7 +14910,7 @@
       "engine": "conjugation",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conjugation|{\"category\":\"present_2\",\"tenses\":\"présent\"}"
+      "contractHash": "conjugation|{\"category\":\"present_deuxieme_avance\",\"tenses\":\"présent\"}"
     },
     {
       "id": "cm2-conj-ea-imp",
@@ -14855,7 +14921,7 @@
       "engine": "conjugation",
       "paramsType": null,
       "pool": null,
-      "contractHash": "conjugation|{\"category\":\"etre_avoir_imp\",\"tenses\":\"imparfait\",\"verbs\":[\"être\",\"avoir\"]}"
+      "contractHash": "conjugation|{\"category\":\"etre_avoir_imp\",\"tenses\":[\"présent\",\"futur\",\"imparfait\"],\"verbs\":[\"être\",\"avoir\"]}"
     },
     {
       "id": "cm2-bonus-conj-pc-3-expert",
@@ -14932,7 +14998,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"mix_all\",\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"mix_all\",\"level\":\"cm2\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm2_homophones_ce_se",
@@ -14943,7 +15009,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"ce_se\",\"choices\":[\"ce\",\"se\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"ce_se\",\"choices\":[\"ce\",\"se\"],\"level\":\"cm2\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm2_homophones_ces_ses",
@@ -14954,7 +15020,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"ces_ses\",\"choices\":[\"ces\",\"ses\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"ces_ses\",\"choices\":[\"ces\",\"ses\"],\"level\":\"cm2\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm2_homophones_a_a",
@@ -14965,7 +15031,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"a_à\",\"choices\":[\"a\",\"à\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"a_à\",\"choices\":[\"a\",\"à\"],\"level\":\"cm2\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm2_homophones_ou_ou",
@@ -14976,7 +15042,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"ou_où\",\"choices\":[\"ou\",\"où\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"ou_où\",\"choices\":[\"ou\",\"où\"],\"level\":\"cm2\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm2-homophones-son-sont",
@@ -14987,7 +15053,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"son_sont\",\"choices\":[\"son\",\"sont\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"son_sont\",\"choices\":[\"son\",\"sont\"],\"level\":\"cm2\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm2-homophones-on-ont",
@@ -14998,7 +15064,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"on_ont\",\"choices\":[\"on\",\"ont\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"on_ont\",\"choices\":[\"on\",\"ont\"],\"level\":\"cm2\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm2-bonus-homophones-mix-expert",
@@ -15009,7 +15075,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"mix_all\",\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"mix_all\",\"level\":\"cm2\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm2-h-leur",
@@ -15020,7 +15086,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"leur_leurs\",\"choices\":[\"leur\",\"leurs\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"leur_leurs\",\"choices\":[\"leur\",\"leurs\"],\"level\":\"cm2\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm2-h-cest",
@@ -15031,7 +15097,7 @@
       "engine": "choice-engine",
       "paramsType": "homophone-duel",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"c_est_s_est\",\"choices\":[\"c'est\",\"s'est\"],\"type\":\"homophone-duel\"}"
+      "contractHash": "choice-engine|{\"category\":\"c_est_s_est\",\"choices\":[\"c'est\",\"s'est\"],\"level\":\"cm2\",\"type\":\"homophone-duel\"}"
     },
     {
       "id": "cm2-lesson-accords-groupe-nominal",
@@ -16174,8 +16240,8 @@
       "subthemeId": "cm2-geo-europe-subtheme",
       "engine": "board-interactive",
       "paramsType": "map-locate",
-      "pool": "data/board_map_locate_europe.json::cm1_map_pays_europe",
-      "contractHash": "board-interactive|{\"category\":\"cm1_map_pays_europe\",\"dataFile\":\"data/board_map_locate_europe.json\",\"mapFile\":\"data/maps/europe-countries.svg\",\"mapId\":\"europe-countries\",\"type\":\"map-locate\"}"
+      "pool": "data/board_map_locate_europe.json::cm2_map_pays_europe",
+      "contractHash": "board-interactive|{\"category\":\"cm2_map_pays_europe\",\"dataFile\":\"data/board_map_locate_europe.json\",\"mapFile\":\"data/maps/europe-countries.svg\",\"mapId\":\"europe-countries\",\"type\":\"map-locate\"}"
     },
     {
       "id": "cm2-geo-capitales-europe",
@@ -16185,8 +16251,8 @@
       "subthemeId": "cm2-geo-europe-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/geography_capitals_cm1.json::cm1-capitales-europe",
-      "contractHash": "choice-engine|{\"category\":\"cm1-capitales-europe\",\"dataFile\":\"data/geography_capitals_cm1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/geography_capitals_cm1.json::cm2-capitales-europe",
+      "contractHash": "choice-engine|{\"category\":\"cm2-capitales-europe\",\"dataFile\":\"data/geography_capitals_cm1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-bonus-geo-carte-monde-continents",
@@ -17655,7 +17721,8 @@
     },
     "data/board_map_locate_europe.json": {
       "categories": {
-        "cm1_map_pays_europe": 37
+        "cm2_map_pays_europe": 37,
+        "cm1_map_europe_proche": 12
       }
     },
     "data/board_map_locate_north_america.json": {
@@ -17965,11 +18032,12 @@
     },
     "data/geography_capitals_cm1.json": {
       "categories": {
-        "cm1-capitales-europe": 37,
+        "cm2-capitales-europe": 37,
         "cm1-capitales-afrique": 49,
         "cm1-capitales-asie": 43,
         "cm1-capitales-amerique-nord": 15,
-        "cm1-capitales-amerique-sud": 12
+        "cm1-capitales-amerique-sud": 12,
+        "cm1-capitales-europe-proche": 12
       }
     },
     "data/geography_ce1.json": {

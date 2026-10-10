@@ -122,14 +122,15 @@
                         {
                             "id": "ce1-bonus-mult-melange",
                             "title": "Défi : tables mélangées",
-                            "subtitle": "Toutes les tables, en rafale",
+                            "subtitle": "Les tables de 2, 3, 4, 5 et 10, en rafale",
                             "engine": "math-input",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "mult",
                                 "table": "mix",
-                                "questions": 15
+                                "questions": 15,
+                                "tables": [2,3,4,5,10]
                             }
                         }
                     ],
@@ -453,13 +454,14 @@
                         },
                         {
                             "id": "ce1-complements-20",
-                            "title": "Compléments à 20",
-                            "subtitle": "Trouver ce qui manque pour faire 20",
+                            "title": "Compléments à 100 : les dizaines",
+                            "subtitle": "Trouver ce qui manque pour faire 100 : 30 + ? = 100",
                             "engine": "math-input",
                             "params": {
                                 "type": "complement",
-                                "target": 20,
-                                "questions": 6
+                                "target": 100,
+                                "questions": 6,
+                                "multipleOf": 10
                             }
                         },
                         {
@@ -501,14 +503,15 @@
                         {
                             "id": "ce1-bonus-complements-100",
                             "title": "Défi : compléments à 100",
-                            "subtitle": "Pour les champions du calcul",
+                            "subtitle": "Des nombres qui finissent par 0 ou par 5",
                             "engine": "math-input",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "complement",
                                 "target": 100,
-                                "questions": 8
+                                "questions": 8,
+                                "multipleOf": 5
                             }
                         },
                         {
@@ -1944,7 +1947,7 @@
                             "engine": "math-input",
                             "params": {
                                 "type": "spelling",
-                                "category": "animals",
+                                "category": "animals_ce1",
                                 "questions": 8
                             }
                         },
@@ -1955,14 +1958,14 @@
                             "engine": "math-input",
                             "params": {
                                 "type": "spelling",
-                                "category": "corps",
+                                "category": "corps_ce1",
                                 "questions": 8
                             }
                         },
                         {
                             "id": "ce1-homo-aa",
                             "title": "A ou à?",
-                            "subtitle": "Homophones",
+                            "subtitle": "Essaie « avait » à la place",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -1971,13 +1974,14 @@
                                     "a",
                                     "à"
                                 ],
-                                "questions": 10
+                                "questions": 8,
+                                "level": "ce1"
                             }
                         },
                         {
                             "id": "ce1-homo-et",
                             "title": "Et ou est?",
-                            "subtitle": "Homophones",
+                            "subtitle": "Essaie « était » à la place",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -1986,7 +1990,8 @@
                                     "et",
                                     "est"
                                 ],
-                                "questions": 10
+                                "questions": 8,
+                                "level": "ce1"
                             }
                         },
                         {
@@ -1996,7 +2001,7 @@
                             "engine": "math-input",
                             "params": {
                                 "type": "spelling",
-                                "category": "school",
+                                "category": "school_ce1",
                                 "questions": 8
                             }
                         },
@@ -2007,7 +2012,7 @@
                             "engine": "math-input",
                             "params": {
                                 "type": "spelling",
-                                "category": "house",
+                                "category": "house_ce1",
                                 "questions": 8
                             }
                         },
@@ -2018,7 +2023,7 @@
                             "engine": "math-input",
                             "params": {
                                 "type": "spelling",
-                                "category": "food",
+                                "category": "food_ce1",
                                 "questions": 8
                             }
                         },
@@ -2029,7 +2034,7 @@
                             "engine": "math-input",
                             "params": {
                                 "type": "spelling",
-                                "category": "transport",
+                                "category": "transport_ce1",
                                 "questions": 8
                             }
                         },
@@ -2047,7 +2052,7 @@
                         {
                             "id": "ce1-homo-son",
                             "title": "Son ou Sont?",
-                            "subtitle": "Homophones fréquents",
+                            "subtitle": "Essaie « mon » ou « étaient »",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -2056,13 +2061,14 @@
                                     "son",
                                     "sont"
                                 ],
-                                "questions": 10
+                                "questions": 8,
+                                "level": "ce1"
                             }
                         },
                         {
                             "id": "ce1-homo-onont",
                             "title": "On ou Ont?",
-                            "subtitle": "Homophones fréquents",
+                            "subtitle": "Essaie « il » ou « avaient »",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -2071,13 +2077,14 @@
                                     "on",
                                     "ont"
                                 ],
-                                "questions": 10
+                                "questions": 8,
+                                "level": "ce1"
                             }
                         },
                         {
                             "id": "ce1-homo-ouou",
                             "title": "Ou ou Où?",
-                            "subtitle": "Homophones fréquents",
+                            "subtitle": "Essaie « ou bien » : sinon, c'est le lieu",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "homophone-duel",
@@ -2086,7 +2093,8 @@
                                     "ou",
                                     "où"
                                 ],
-                                "questions": 10
+                                "questions": 8,
+                                "level": "ce1"
                             }
                         },
                         {
@@ -2279,7 +2287,7 @@
                             "subtitle": "Écoute et écris",
                             "engine": "audio-spelling",
                             "params": {
-                                "category": "school",
+                                "category": "school_ce1",
                                 "speechRate": 0.74,
                                 "questions": 6
                             }
@@ -2290,7 +2298,7 @@
                             "subtitle": "Écoute et écris",
                             "engine": "audio-spelling",
                             "params": {
-                                "category": "house",
+                                "category": "house_ce1",
                                 "speechRate": 0.74,
                                 "questions": 6
                             }
@@ -2301,7 +2309,7 @@
                             "subtitle": "Écoute et écris",
                             "engine": "audio-spelling",
                             "params": {
-                                "category": "corps",
+                                "category": "corps_ce1",
                                 "speechRate": 0.74,
                                 "questions": 6
                             }
@@ -2312,7 +2320,7 @@
                             "subtitle": "Écoute et écris",
                             "engine": "audio-spelling",
                             "params": {
-                                "category": "animals",
+                                "category": "animals_ce1",
                                 "speechRate": 0.74,
                                 "questions": 6
                             }
@@ -2323,7 +2331,7 @@
                             "subtitle": "Écoute et écris",
                             "engine": "audio-spelling",
                             "params": {
-                                "category": "food",
+                                "category": "food_ce1",
                                 "speechRate": 0.74,
                                 "questions": 6
                             }
@@ -2336,7 +2344,7 @@
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
-                                "category": "animals",
+                                "category": "animals_ce1",
                                 "speechRate": 0.74,
                                 "questions": 10
                             }

@@ -10,7 +10,7 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 
 ## Vue d'ensemble
 
-- **1114 exercices** et **483 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1114 exercices** et **489 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
@@ -609,11 +609,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Défi : soustractions jusqu'à 999 `(ce1-bonus-soustractions-999)` — engine: `math-input`, type=sub-simple, min=100, max=999, questions=10, bonus (seuil=2)
   - Les doubles `(ce1-doubles)` — engine: `math-input`, type=double, min=3, max=30, questions=6
   - Les moitiés `(ce1-moities)` — engine: `math-input`, type=half, min=3, max=25, questions=6
-  - Compléments à 20 `(ce1-complements-20)` — engine: `math-input`, type=complement, target=20, questions=6
+  - Compléments à 100 : les dizaines `(ce1-complements-20)` — engine: `math-input`, type=complement, target=100, questions=6, multipleOf=10
   - Additions jusqu'à 100 `(ce1-additions-100)` — engine: `math-input`, type=add-simple, min=20, maxSum=100, questions=6
   - Soustractions jusqu'à 60 `(ce1-soustractions-60)` — engine: `math-input`, type=sub-simple, min=20, max=60, questions=6
   - Le nombre caché `(ce1-nombre-cache-50)` — engine: `math-input`, type=add-trou, min=20, max=50, questions=6
-  - Défi : compléments à 100 `(ce1-bonus-complements-100)` — engine: `math-input`, type=complement, target=100, questions=8, bonus (seuil=2)
+  - Défi : compléments à 100 `(ce1-bonus-complements-100)` — engine: `math-input`, type=complement, target=100, questions=8, multipleOf=5, bonus (seuil=2)
   - Addition posée en colonnes `(ce1-addition-posee-colonnes)` — engine: `math-input`, type=operation-posed, operator=add, level=1, questions=6
   - Soustraction posée en colonnes `(ce1-soustraction-posee-colonnes)` — engine: `math-input`, type=operation-posed, operator=sub, level=1, questions=6
   - Partager en parts égales `(ce1-fractions-partage)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=ce1-fractions, questions=8
@@ -667,18 +667,18 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - La règle du m devant m, b, p `(ce1-lesson-m-devant-mbp)` — blocs: paragraph, example, bullets, tip, check, check
   - Les lettres muettes `(ce1-lesson-lettres-finales)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (13) :
-  - Dictée des animaux `(ce1-sp-animaux)` — engine: `math-input`, type=spelling, category=animals, questions=8
-  - Le Corps `(ce1-sp-corps)` — engine: `math-input`, type=spelling, category=corps, questions=8
-  - A ou à? `(ce1-homo-aa)` — engine: `choice-engine`, type=homophone-duel, category=a_à, questions=10
-  - Et ou est? `(ce1-homo-et)` — engine: `choice-engine`, type=homophone-duel, category=et_est, questions=10
-  - L'École `(ce1-sp-ecole)` — engine: `math-input`, type=spelling, category=school, questions=8
-  - La Maison `(ce1-sp-maison)` — engine: `math-input`, type=spelling, category=house, questions=8
-  - Les Aliments `(ce1-sp-aliments)` — engine: `math-input`, type=spelling, category=food, questions=8
-  - Les Transports `(ce1-sp-transport)` — engine: `math-input`, type=spelling, category=transport, questions=8
+  - Dictée des animaux `(ce1-sp-animaux)` — engine: `math-input`, type=spelling, category=animals_ce1, questions=8
+  - Le Corps `(ce1-sp-corps)` — engine: `math-input`, type=spelling, category=corps_ce1, questions=8
+  - A ou à? `(ce1-homo-aa)` — engine: `choice-engine`, type=homophone-duel, category=a_à, questions=8, level=ce1
+  - Et ou est? `(ce1-homo-et)` — engine: `choice-engine`, type=homophone-duel, category=et_est, questions=8, level=ce1
+  - L'École `(ce1-sp-ecole)` — engine: `math-input`, type=spelling, category=school_ce1, questions=8
+  - La Maison `(ce1-sp-maison)` — engine: `math-input`, type=spelling, category=house_ce1, questions=8
+  - Les Aliments `(ce1-sp-aliments)` — engine: `math-input`, type=spelling, category=food_ce1, questions=8
+  - Les Transports `(ce1-sp-transport)` — engine: `math-input`, type=spelling, category=transport_ce1, questions=8
   - Les vêtements `(ce1-sp-vetements)` — engine: `math-input`, type=spelling, category=vêtements, questions=8
-  - Son ou Sont? `(ce1-homo-son)` — engine: `choice-engine`, type=homophone-duel, category=son_sont, questions=10
-  - On ou Ont? `(ce1-homo-onont)` — engine: `choice-engine`, type=homophone-duel, category=on_ont, questions=10
-  - Ou ou Où? `(ce1-homo-ouou)` — engine: `choice-engine`, type=homophone-duel, category=ou_où, questions=10
+  - Son ou Sont? `(ce1-homo-son)` — engine: `choice-engine`, type=homophone-duel, category=son_sont, questions=8, level=ce1
+  - On ou Ont? `(ce1-homo-onont)` — engine: `choice-engine`, type=homophone-duel, category=on_ont, questions=8, level=ce1
+  - Ou ou Où? `(ce1-homo-ouou)` — engine: `choice-engine`, type=homophone-duel, category=ou_où, questions=8, level=ce1
   - Défi : dictée des vêtements `(ce1-bonus-dictee-vetements)` — engine: `math-input`, type=spelling, category=vêtements, questions=12, bonus (seuil=2)
 
 #### Dictée audio `(ce1-dictee-audio)`
@@ -686,12 +686,12 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (1) :
   - Écouter et écrire `(ce1-lesson-ecouter-ecrire)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
-  - L'École `(ce1-audio-ecole)` — engine: `audio-spelling`, category=school, speechRate=0.74, questions=6
-  - La Maison `(ce1-audio-maison)` — engine: `audio-spelling`, category=house, speechRate=0.74, questions=6
-  - Le Corps `(ce1-audio-corps)` — engine: `audio-spelling`, category=corps, speechRate=0.74, questions=6
-  - Les Animaux `(ce1-audio-animaux)` — engine: `audio-spelling`, category=animals, speechRate=0.74, questions=6
-  - Les aliments `(ce1-audio-aliments)` — engine: `audio-spelling`, category=food, speechRate=0.74, questions=6
-  - Défi : super dictée des animaux `(ce1-bonus-audio-animaux-expert)` — engine: `audio-spelling`, category=animals, speechRate=0.74, questions=10, bonus (seuil=2)
+  - L'École `(ce1-audio-ecole)` — engine: `audio-spelling`, category=school_ce1, speechRate=0.74, questions=6
+  - La Maison `(ce1-audio-maison)` — engine: `audio-spelling`, category=house_ce1, speechRate=0.74, questions=6
+  - Le Corps `(ce1-audio-corps)` — engine: `audio-spelling`, category=corps_ce1, speechRate=0.74, questions=6
+  - Les Animaux `(ce1-audio-animaux)` — engine: `audio-spelling`, category=animals_ce1, speechRate=0.74, questions=6
+  - Les aliments `(ce1-audio-aliments)` — engine: `audio-spelling`, category=food_ce1, speechRate=0.74, questions=6
+  - Défi : super dictée des animaux `(ce1-bonus-audio-animaux-expert)` — engine: `audio-spelling`, category=animals_ce1, speechRate=0.74, questions=10, bonus (seuil=2)
 
 #### Dictée mots fréquents `(ce1-dictee-mots-frequents)`
 
@@ -996,19 +996,19 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Mémoriser toutes les tables `(ce2-lesson-memoriser-tables)` — blocs: paragraph, example, bullets, tip, check, check
   - Multiplier par 10, 100, 1 000 `(ce2-lesson-multiplier-10-100)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (13) :
-  - Table de 2 `(ce2-m2)` — engine: `math-input`, type=mult, table=2, questions=10
-  - Table de 3 `(ce2-m3)` — engine: `math-input`, type=mult, table=3, questions=10
-  - Table de 4 `(ce2-m4)` — engine: `math-input`, type=mult, table=4, questions=10
-  - Table de 5 `(ce2-m5)` — engine: `math-input`, type=mult, table=5, questions=10
-  - Table de 6 `(ce2-m6)` — engine: `math-input`, type=mult, table=6, questions=10
-  - Table de 7 `(ce2-m7)` — engine: `math-input`, type=mult, table=7, questions=10
-  - Table de 8 `(ce2-m8)` — engine: `math-input`, type=mult, table=8, questions=10
-  - Table de 9 `(ce2-m9)` — engine: `math-input`, type=mult, table=9, questions=10
-  - Table de 10 `(ce2-m10)` — engine: `math-input`, type=mult, table=10, questions=10
+  - Table de 2 `(ce2-m2)` — engine: `math-input`, type=mult, table=2, questions=10, mode=mixte
+  - Table de 3 `(ce2-m3)` — engine: `math-input`, type=mult, table=3, questions=10, mode=mixte
+  - Table de 4 `(ce2-m4)` — engine: `math-input`, type=mult, table=4, questions=10, mode=mixte
+  - Table de 5 `(ce2-m5)` — engine: `math-input`, type=mult, table=5, questions=10, mode=mixte
+  - Table de 6 `(ce2-m6)` — engine: `math-input`, type=mult, table=6, questions=10, mode=mixte
+  - Table de 7 `(ce2-m7)` — engine: `math-input`, type=mult, table=7, questions=10, mode=mixte
+  - Table de 8 `(ce2-m8)` — engine: `math-input`, type=mult, table=8, questions=10, mode=mixte
+  - Table de 9 `(ce2-m9)` — engine: `math-input`, type=mult, table=9, questions=10, mode=mixte
+  - Table de 10 `(ce2-m10)` — engine: `math-input`, type=mult, table=10, questions=10, mode=mixte
   - Table de 11 `(ce2-m11)` — engine: `math-input`, type=mult, table=11, questions=10, bonus (seuil=2)
   - Table de 12 `(ce2-m12)` — engine: `math-input`, type=mult, table=12, questions=10, bonus (seuil=2)
   - Nombres et opérations `(ce2-maths-tables-appariement)` — engine: `matching`, category=matching_math_ce2, dataFile=data/math_matching.json, questions=3
-  - Défi : toutes les tables `(ce2-bonus-tables-melangees)` — engine: `math-input`, type=mult, table=mix, questions=15, bonus (seuil=2)
+  - Défi : toutes les tables `(ce2-bonus-tables-melangees)` — engine: `math-input`, type=mult, table=mix, questions=15, mode=mixte, bonus (seuil=2)
 
 #### Calculs & Logique `(ce2-calculs-logique)`
 
@@ -1038,7 +1038,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Compléments à 100 `(ce2-comp-100)` — engine: `math-input`, type=complement, target=100, questions=10
   - L'horloge `(ce2-clock)` — engine: `clock`, questions=5
   - Compléments à 1000 `(ce2-comp-1000)` — engine: `math-input`, type=complement, target=1000, questions=10
-  - Comparer < 1000 `(ce2-comp-1000-compare)` — engine: `choice-engine`, range=1000, questions=10
+  - Comparer jusqu'à 10 000 `(ce2-comp-1000-compare)` — engine: `choice-engine`, range=10000, questions=10
   - Compléments à 500 `(ce2-comp-500)` — engine: `math-input`, type=complement, questions=10, target=500
   - Compléments à 2000 `(ce2-comp-2000)` — engine: `math-input`, type=complement, target=2000, questions=10
   - L'horloge : la série longue `(ce2-clock-2)` — engine: `clock`, questions=8
@@ -1051,7 +1051,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Convertir des longueurs `(ce2-conversions-longueurs)` — engine: `conversion`, subtype=metric, unitType=longueur, questions=6
   - Division posée `(ce2-division-posee)` — engine: `math-input`, type=division-posed, level=1, questions=5
   - Division posée avec reste `(ce2-division-posee-reste)` — engine: `math-input`, type=division-posed, level=1, ask=reste, questions=5
-  - Lire des fractions simples `(ce2-fractions-simples)` — engine: `math-input`, type=fraction-view, maxDenom=6, questions=8
+  - Lire des fractions simples `(ce2-fractions-simples)` — engine: `math-input`, type=fraction-view, maxDenom=5, questions=8
   - Défi : anticipation CM1 `(ce2-bonus-comp-5000)` — engine: `math-input`, type=complement, target=5000, questions=12, bonus (seuil=2)
   - Lire et écrire les grands nombres `(ce2-nb-lecture-ecriture)` — engine: `math-input`, type=dictée-nombres, max=10000, questions=8
   - Comparer jusqu'à 10 000 `(ce2-nb-comparer-10000)` — engine: `choice-engine`, range=10000, questions=10
@@ -1059,8 +1059,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Les moitiés `(ce2-moities)` — engine: `math-input`, type=half, min=10, max=100, questions=8
   - Le chiffre à sa place `(ce2-grands-nombres-chiffre-position)` — engine: `math-input`, type=place-value, digitCount=4, ask=digit, questions=6
   - La valeur d'un chiffre `(ce2-grands-nombres-valeur-position)` — engine: `math-input`, type=place-value, digitCount=4, ask=value, questions=6
-  - Addition posée avec retenue `(ce2-addition-posee-retenue)` — engine: `math-input`, type=operation-posed, operator=add, level=2, questions=6
-  - Soustraction posée avec retenue `(ce2-soustraction-posee-retenue)` — engine: `math-input`, type=operation-posed, operator=sub, level=2, questions=6
+  - Addition posée avec retenue `(ce2-addition-posee-retenue)` — engine: `math-input`, type=operation-posed, operator=add, level=2, questions=6, carry=true
+  - Soustraction posée avec retenue `(ce2-soustraction-posee-retenue)` — engine: `math-input`, type=operation-posed, operator=sub, level=2, questions=6, carry=true
   - Multiplication posée par un chiffre `(ce2-multiplication-posee-un-chiffre)` — engine: `math-input`, type=operation-posed, operator=mult, level=1, questions=6
   - Addition posée jusqu’aux milliers `(ce2-addition-posee-milliers)` — engine: `math-input`, type=operation-posed, operator=add, level=3, questions=6, maxResult=9999
   - Soustraction posée jusqu’aux milliers `(ce2-soustraction-posee-milliers)` — engine: `math-input`, type=operation-posed, operator=sub, level=3, questions=6
@@ -1101,13 +1101,13 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - son ou sont ? ou ou où ? `(ce2-lesson-son-sont-ou-ou)` — blocs: paragraph, example, bullets, tip, check, check
   - ce ou se ? ces ou ses ? `(ce2-lesson-ce-se-ces-ses)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (25) :
-  - Et ou Est ? `(ce2-h-et)` — engine: `choice-engine`, type=homophone-duel, category=et_est, questions=8
-  - A ou à ? `(ce2-h-a)` — engine: `choice-engine`, type=homophone-duel, category=a_à, questions=8
-  - Son ou Sont ? `(ce2-h-son)` — engine: `choice-engine`, type=homophone-duel, category=son_sont, questions=8
-  - On ou Ont ? `(ce2-h-on)` — engine: `choice-engine`, type=homophone-duel, category=on_ont, questions=8
-  - Ou ou Où ? `(ce2-h-ou)` — engine: `choice-engine`, type=homophone-duel, category=ou_où, questions=8
-  - Ce ou Se ? `(ce2-h-ce)` — engine: `choice-engine`, type=homophone-duel, category=ce_se, questions=8
-  - Ces ou Ses ? `(ce2-h-ces)` — engine: `choice-engine`, type=homophone-duel, category=ces_ses, questions=8
+  - Et ou Est ? `(ce2-h-et)` — engine: `choice-engine`, type=homophone-duel, category=et_est, questions=8, level=ce2
+  - A ou à ? `(ce2-h-a)` — engine: `choice-engine`, type=homophone-duel, category=a_à, questions=8, level=ce2
+  - Son ou Sont ? `(ce2-h-son)` — engine: `choice-engine`, type=homophone-duel, category=son_sont, questions=8, level=ce2
+  - On ou Ont ? `(ce2-h-on)` — engine: `choice-engine`, type=homophone-duel, category=on_ont, questions=8, level=ce2
+  - Ou ou Où ? `(ce2-h-ou)` — engine: `choice-engine`, type=homophone-duel, category=ou_où, questions=8, level=ce2
+  - Ce ou Se ? `(ce2-h-ce)` — engine: `choice-engine`, type=homophone-duel, category=ce_se, questions=8, level=ce2
+  - Ces ou Ses ? `(ce2-h-ces)` — engine: `choice-engine`, type=homophone-duel, category=ces_ses, questions=8, level=ce2
   - Un ou Une ? `(ce2-g-un-une)` — engine: `choice-engine`, type=gender-articles, category=gender_ce2_objets, questions=8
   - Le, La ou L' ? `(ce2-g-le-la)` — engine: `choice-engine`, type=gender-articles, category=gender_ce2_elision, questions=8
   - Articles malins `(ce2-g-mixte)` — engine: `choice-engine`, type=gender-articles, category=gender_ce2_mixte, questions=8
@@ -1147,7 +1147,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Défi : Présent ou Futur ? `(ce2-conj-defi-temps)` — engine: `conjugation`, category=future_1, questions=10
   - Le 3ème groupe (1) `(ce2-conj-p3-freq)` — engine: `conjugation`, category=present_3_ce2_a, tenses=présent, questions=8
   - Le 3ème groupe (2) `(ce2-conj-p3-pouvoir)` — engine: `conjugation`, category=present_3_ce2_b, tenses=présent, questions=8
-  - Présent : être et avoir `(ce2-conj-present-ea)` — engine: `conjugation`, category=etre_avoir_p, tenses=présent, questions=8
+  - Être et avoir : présent ou futur `(ce2-conj-present-ea)` — engine: `conjugation`, category=etre_avoir_p, questions=8
   - Présent : 2e groupe `(ce2-conj-present-2g)` — engine: `conjugation`, category=present_2, tenses=présent, questions=8
   - Passé composé : avoir `(ce2-conj-pc-avoir)` — engine: `conjugation`, category=pc_1, tenses=passé composé, questions=6
   - Passé composé : être `(ce2-conj-pc-etre)` — engine: `conjugation`, category=pc_1, tenses=passé composé, questions=6
@@ -1478,9 +1478,9 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Lire une échelle de plan `(cm1-echelle-1)` — engine: `math-input`, type=echelle, questions=6
   - Calculer un pourcentage simple `(cm1-pourcentage-1)` — engine: `math-input`, type=pourcentage, maxMultiple=8, questions=6
   - Défi : proportionnalité experte `(cm1-bonus-proportionnalite-expert)` — engine: `math-input`, type=proportionnalite, maxCoef=9, maxBase=9, questions=8, bonus (seuil=2)
-  - Défi : grands calculs `(cm1-bonus-grands-calculs)` — engine: `math-input`, type=division-posed, level=2, questions=6, bonus (seuil=2)
-  - Addition posée avec retenue `(cm1-m-addition-posee-retenue)` — engine: `math-input`, type=operation-posed, operator=add, level=2, questions=6
-  - Soustraction posée avec emprunt `(cm1-m-soustraction-posee-emprunt)` — engine: `math-input`, type=operation-posed, operator=sub, level=2, questions=6
+  - Défi : grands calculs `(cm1-bonus-grands-calculs)` — engine: `math-input`, type=division-posed, level=1, questions=6, bonus (seuil=2)
+  - Addition posée avec retenue `(cm1-m-addition-posee-retenue)` — engine: `math-input`, type=operation-posed, operator=add, level=4, questions=6
+  - Soustraction posée avec emprunt `(cm1-m-soustraction-posee-emprunt)` — engine: `math-input`, type=operation-posed, operator=sub, level=4, questions=6
   - Multiplication posée par un nombre à 2 chiffres `(cm1-m-multiplication-posee-2-chiffres)` — engine: `math-input`, type=operation-posed, operator=mult, level=2, questions=6
   - Le chiffre à sa place `(cm1-m-position-chiffre-million)` — engine: `math-input`, type=place-value, digitCount=6, ask=digit, questions=6
   - La valeur d'un chiffre `(cm1-m-valeur-chiffre-million)` — engine: `math-input`, type=place-value, digitCount=6, ask=value, questions=6
@@ -1513,7 +1513,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Convertir des durées `(cm1-time-hard)` — engine: `conversion`, subtype=time, modes=hmin_to_min, memo=true, randomMinutes=true, questions=10
   - Chiffres romains (2) `(cm1-romains-50)` — engine: `conversion`, subtype=roman, max=50, questions=5
   - Minutes vers secondes (2) `(cm1-heures-secondes)` — engine: `conversion`, subtype=time, modes=min_to_sec, memo=false, questions=10
-  - Chiffres romains (3) `(cm1-romains-100)` — engine: `conversion`, questions=5, max=100, subtype=roman
+  - Chiffres romains (3) `(cm1-romains-100)` — engine: `conversion`, questions=5, max=100, subtype=roman, min=51
   - Heures et minutes (2) `(cm1-time-hard-2)` — engine: `conversion`, subtype=time, modes=hmin_to_min, memo=false, randomMinutes=true, questions=10
   - Convertir des masses `(cm1-conversions-masses)` — engine: `conversion`, subtype=metric, unitType=masse, questions=6
   - Convertir des contenances `(cm1-conversions-contenances)` — engine: `conversion`, subtype=metric, unitType=capacite, questions=6
@@ -1578,34 +1578,36 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Leur ou leurs ? `(cm1-lesson-homophones-leur-leurs)` — blocs: paragraph, example, bullets, tip, check, check
   - C'est ou s'est ? `(cm1-lesson-homophones-cest-sest)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (9) :
-  - Ce ou Se ? `(cm1-h-ce)` — engine: `choice-engine`, type=homophone-duel, category=ce_se, questions=10
-  - Ces ou Ses ? `(cm1-h-ces)` — engine: `choice-engine`, type=homophone-duel, category=ces_ses, questions=10
-  - A ou À ? `(cm1-h-aa)` — engine: `choice-engine`, type=homophone-duel, category=a_à, questions=10
-  - Son ou Sont ? `(cm1-h-son)` — engine: `choice-engine`, type=homophone-duel, category=son_sont, questions=10
-  - On ou Ont ? `(cm1-h-on)` — engine: `choice-engine`, type=homophone-duel, category=on_ont, questions=10
-  - Ou ou Où ? `(cm1-h-ou)` — engine: `choice-engine`, type=homophone-duel, category=ou_où, questions=10
-  - Leur ou Leurs ? `(cm1-h-leur)` — engine: `choice-engine`, type=homophone-duel, category=leur_leurs, questions=10
-  - C'est ou S'est ? `(cm1-h-cest)` — engine: `choice-engine`, type=homophone-duel, category=c_est_s_est, questions=10
-  - Défi : tous les homophones `(cm1-bonus-homophones-mix)` — engine: `choice-engine`, type=homophone-duel, category=mix_all, questions=16, bonus (seuil=2)
+  - Ce ou Se ? `(cm1-h-ce)` — engine: `choice-engine`, type=homophone-duel, category=ce_se, questions=10, level=cm1
+  - Ces ou Ses ? `(cm1-h-ces)` — engine: `choice-engine`, type=homophone-duel, category=ces_ses, questions=10, level=cm1
+  - A ou À ? `(cm1-h-aa)` — engine: `choice-engine`, type=homophone-duel, category=a_à, questions=10, level=cm1
+  - Son ou Sont ? `(cm1-h-son)` — engine: `choice-engine`, type=homophone-duel, category=son_sont, questions=10, level=cm1
+  - On ou Ont ? `(cm1-h-on)` — engine: `choice-engine`, type=homophone-duel, category=on_ont, questions=10, level=cm1
+  - Ou ou Où ? `(cm1-h-ou)` — engine: `choice-engine`, type=homophone-duel, category=ou_où, questions=10, level=cm1
+  - Leur ou Leurs ? `(cm1-h-leur)` — engine: `choice-engine`, type=homophone-duel, category=leur_leurs, questions=10, level=cm1
+  - C'est ou S'est ? `(cm1-h-cest)` — engine: `choice-engine`, type=homophone-duel, category=c_est_s_est, questions=10, level=cm1
+  - Défi : tous les homophones `(cm1-bonus-homophones-mix)` — engine: `choice-engine`, type=homophone-duel, category=mix_all, questions=16, level=cm1, bonus (seuil=2)
 
 #### Conjugaison `(cm1-francais-conjugaison)`
 
-- **Leçons** (6) :
+- **Leçons** (8) :
   - L'imparfait des verbes en -ER `(cm1-lesson-imparfait-er)` — blocs: paragraph, example, bullets, tip, check, check
   - Choisir avoir ou être `(cm1-lesson-passe-compose-auxiliaires)` — blocs: paragraph, example, mini-table, tip, check, check
   - Le participe passé avec être `(cm1-lesson-accord-participe-etre)` — blocs: paragraph, example, bullets, tip, check, check
   - Le passé simple, le temps du récit `(cm1-lesson-passe-simple-recit)` — blocs: paragraph, example, bullets, tip, check, check
   - Le présent des verbes du 3e groupe `(cm1-lesson-present-3e-groupe)` — blocs: paragraph, example, mini-table, tip, check, check
   - Le futur simple `(cm1-lesson-futur-simple)` — blocs: paragraph, example, mini-table, tip, check, check
+  - Les verbes en -ger, -cer, -ier, -yer `(cm1-lesson-verbes-particuliers)` — blocs: paragraph, bullets, example, tip, check, check
+  - Les verbes en -ir : 2e ou 3e groupe ? `(cm1-lesson-verbes-en-ir)` — blocs: paragraph, bullets, example, tip, check, check
 - **Exercices** (14) :
-  - L'Imparfait `(cm1-c-imp)` — engine: `conjugation`, category=imparfait_1, tenses=imparfait, questions=10
+  - L'Imparfait `(cm1-c-imp)` — engine: `conjugation`, category=imparfait_particularites, tenses=imparfait, questions=10
   - Passé Composé (1) `(cm1-c-pc-avoir)` — engine: `conjugation`, category=pc_1, tenses=passé composé, questions=5
-  - Passé Composé (2) `(cm1-c-pc-etre)` — engine: `conjugation`, category=pc_1, tenses=passé composé, questions=5
+  - Passé Composé (2) `(cm1-c-pc-etre)` — engine: `conjugation`, category=pc_3_etre, tenses=passé composé, questions=5
   - Passé Composé (Mix) `(cm1-c-pc-mix)` — engine: `conjugation`, category=pc_1, tenses=passé composé, questions=10
   - Passé Composé (Expert) `(cm1-c-pc-3)` — engine: `conjugation`, category=pc_3_cm1, tenses=passé composé, questions=10
-  - Le 2ème groupe `(cm1-conj-ir)` — engine: `conjugation`, category=present_2, tenses=présent, questions=8
+  - Verbes en -ir : 2e ou 3e groupe ? `(cm1-conj-ir)` — engine: `conjugation`, category=present_ir_mix, tenses=présent, questions=8
   - Présent : 3e groupe `(cm1-conj-present-3g)` — engine: `conjugation`, category=present_3_freq, tenses=présent, questions=10
-  - Le futur simple `(cm1-c-futur)` — engine: `conjugation`, category=future_1, tenses=futur, questions=10
+  - Le futur simple `(cm1-c-futur)` — engine: `conjugation`, category=future_particularites, tenses=futur, questions=10
   - Futur : 2e groupe `(cm1-c-futur-2g)` — engine: `conjugation`, category=future_2, tenses=futur, questions=8
   - Futur : 3e groupe `(cm1-c-futur-3g)` — engine: `conjugation`, category=future_3_freq, tenses=futur, questions=10
   - Être et avoir à l'imparfait `(cm1-c-ea-imp)` — engine: `conjugation`, category=etre_avoir_imp, tenses=imparfait, questions=8
@@ -1772,13 +1774,13 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - La France en Europe `(cm1-geo-france-europe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-europe-monde, questions=6
   - Se situer dans le monde `(cm1-geo-se-situer-monde)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-monde-situer, questions=6
   - Carte du monde `(cm1-geo-carte-continents)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_world.json, mapFile=data/maps/world-continents.svg, mapId=world-continents, category=cm1_map_continents_monde, questions=6
-  - Carte de l'Europe `(cm1-geo-carte-europe-pays)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_europe.json, mapFile=data/maps/europe-countries.svg, mapId=europe-countries, category=cm1_map_pays_europe, questions=8
+  - Carte : la France et l'Europe proche `(cm1-geo-carte-europe-pays)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_europe.json, mapFile=data/maps/europe-countries.svg, mapId=europe-countries, category=cm1_map_europe_proche, questions=8
   - Carte de l'Asie `(cm1-geo-carte-asie-pays)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_asia.json, mapFile=data/maps/asia-countries.svg, mapId=asia-countries, category=cm1_map_pays_asie, questions=8
   - Pays, continents et mers `(cm1-geo-europe-appariement)` — engine: `matching`, category=matching_geo_cm1_monde, dataFile=data/geography_matching.json, questions=2
   - Carte de l'Afrique `(cm1-geo-carte-afrique-pays)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_africa.json, mapFile=data/maps/africa-countries.svg, mapId=africa-countries, category=cm1_map_pays_afrique, questions=8
   - Carte de l'Amérique du Nord `(cm1-geo-carte-amerique-nord-pays)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_north_america.json, mapFile=data/maps/north-america-countries.svg, mapId=north-america-countries, category=cm1_map_pays_amerique_nord, questions=6
   - Carte de l'Amérique du Sud `(cm1-geo-carte-amerique-sud-pays)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_south_america.json, mapFile=data/maps/south-america-countries.svg, mapId=south-america-countries, category=cm1_map_pays_amerique_sud, questions=6
-  - Capitales d'Europe `(cm1-geo-capitales-europe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_capitals_cm1.json, category=cm1-capitales-europe, questions=8
+  - Capitales : la France et l'Europe proche `(cm1-geo-capitales-europe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_capitals_cm1.json, category=cm1-capitales-europe-proche, questions=8
   - Capitales d'Afrique `(cm1-geo-capitales-afrique)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_capitals_cm1.json, category=cm1-capitales-afrique, questions=8
   - Capitales d'Asie `(cm1-geo-capitales-asie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_capitals_cm1.json, category=cm1-capitales-asie, questions=8
   - Capitales d'Amérique du Nord `(cm1-geo-capitales-amerique-nord)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_capitals_cm1.json, category=cm1-capitales-amerique-nord, questions=6
@@ -2010,17 +2012,18 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Fractions & décimaux `(cm2-fractions-decimaux)`
 
-- **Leçons** (4) :
+- **Leçons** (5) :
+  - Les millièmes `(cm2-lesson-decimaux-milliemes)` — blocs: paragraph, mini-table, example, tip, check, check
   - Comparer des décimaux `(cm2-lesson-decimaux-comparer)` — blocs: paragraph, example, bullets, tip, check, check
   - Fraction ou décimal ? `(cm2-lesson-fractions-decimaux-lien)` — blocs: paragraph, example, mini-table, tip, check, check
   - Additionner et soustraire des fractions `(cm2-lesson-fractions-addition)` — blocs: paragraph, example, bullets, tip, check, check
   - Poser une opération à virgule `(cm2-lesson-operations-posees-decimaux)` — blocs: paragraph, example, tip, check, check
 - **Exercices** (13) :
   - Décimaux `(cm2_decimaux_compare)` — engine: `choice-engine`, type=compare-decimals, questions=10, distinctWriting=true
-  - Fractions `(cm2_fractions_lecture)` — engine: `math-input`, type=fraction-view, maxDenom=12, questions=10
+  - Fractions `(cm2_fractions_lecture)` — engine: `math-input`, type=fraction-view, maxDenom=16, questions=10
   - Construis la fraction `(cm2-frac-build)` — engine: `board-interactive`, type=fraction-build, minDenom=2, maxDenom=12, questions=8
-  - Décimaux : positions `(cm2_decimaux_positions)` — engine: `math-input`, type=decimal-place, trap=true, questions=10
-  - Décimaux : positions (2) `(cm2_decimaux_positions_2)` — engine: `math-input`, type=decimal-place, trap=false, questions=10
+  - Décimaux : positions `(cm2_decimaux_positions)` — engine: `math-input`, type=decimal-place, trap=true, questions=10, decimals=3
+  - Décimaux : positions (2) `(cm2_decimaux_positions_2)` — engine: `math-input`, type=decimal-place, trap=false, questions=10, decimals=3
   - Fractions (2) `(cm2_fractions_lecture_2)` — engine: `math-input`, type=fraction-view, maxDenom=20, questions=10
   - Nombres, fractions et décimaux `(cm2-maths-fractions-appariement)` — engine: `matching`, category=matching_math_cm2, dataFile=data/math_matching.json, questions=3
   - Défi : fractions expertes `(cm2-bonus-fractions-expert)` — engine: `math-input`, type=fraction-view, maxDenom=24, questions=12, bonus (seuil=2)
@@ -2045,28 +2048,29 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Grandeurs & mesures `(cm2-grandeurs-mesures-subtheme)`
 
-- **Leçons** (4) :
+- **Leçons** (5) :
   - Convertir des durées `(cm2-lesson-conversions-temps)` — blocs: paragraph, example, mini-table, tip, check, check
   - Mesurer des longueurs `(cm2-lesson-mesures-longueurs)` — blocs: paragraph, mini-table, example, tip, check, check
+  - Convertir avec des nombres décimaux `(cm2-lesson-conversions-decimaux)` — blocs: paragraph, example, bullets, tip, check, check
   - Proportionnalité, échelle et vitesse `(cm2-lesson-proportionnalite-echelle)` — blocs: paragraph, example, mini-table, example, bullets, example, tip, check, check
   - Convertir les unités d'aire `(cm2-lesson-conversion-aires)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (19) :
-  - Conversions de longueurs `(cm2-conversions-longueurs)` — engine: `conversion`, subtype=metric, questions=10
+  - Conversions de longueurs `(cm2-conversions-longueurs)` — engine: `conversion`, subtype=metric, questions=10, decimals=1
   - Heures et minutes (aide) `(cm2-heures-minutes-aide)` — engine: `conversion`, questions=10, memo=true, subtype=time, randomMinutes=true
   - Heures et minutes `(cm2-heures-minutes)` — engine: `conversion`, subtype=time, memo=false, randomMinutes=true, questions=10
   - Minutes et secondes `(cm2-minutes-secondes)` — engine: `conversion`, subtype=time, memo=false, questions=10, randomMinutes=true
-  - Lire l'horloge `(cm2-lire-horloge)` — engine: `clock`, questions=8
+  - Lire l'horloge `(cm2-lire-horloge)` — engine: `clock`, questions=8, level=4
   - Chiffres Romains `(cm2-romains-100)` — engine: `conversion`, subtype=roman, max=100, questions=6
   - Minutes et secondes vers secondes `(cm2-heures-secondes)` — engine: `conversion`, subtype=time, memo=false, questions=10, randomMinutes=true
-  - Conversions de longueurs (2) `(cm2-conversions-longueurs-2)` — engine: `conversion`, subtype=metric, questions=12
+  - Conversions de longueurs (2) `(cm2-conversions-longueurs-2)` — engine: `conversion`, subtype=metric, questions=12, decimals=2
   - Chiffres romains (3) `(cm2-romains-500)` — engine: `conversion`, subtype=roman, max=500, questions=6
   - Proportionnalité et échelle `(cm2-proportionnalite-echelle)` — engine: `math-input`, type=proportionnalite, maxCoef=8, maxBase=9, questions=4
   - Calculer un pourcentage `(cm2-pourcentages)` — engine: `math-input`, type=pourcentage, maxMultiple=10, questions=6, minMultiple=2
   - Lire une échelle de plan `(cm2-echelle-plan)` — engine: `math-input`, type=echelle, questions=4
   - Vitesse, distance, durée `(cm2-vitesse-1)` — engine: `math-input`, type=vitesse, maxHeures=5, questions=6
   - Défi : pourcentages experts `(cm2-bonus-proportionnalite-expert)` — engine: `math-input`, type=pourcentage, maxMultiple=12, questions=8, minMultiple=3, bonus (seuil=2)
-  - Convertir des masses `(cm2-conversions-masses)` — engine: `conversion`, subtype=metric, unitType=masse, questions=6
-  - Convertir des contenances `(cm2-conversions-contenances)` — engine: `conversion`, subtype=metric, unitType=capacite, questions=6
+  - Convertir des masses `(cm2-conversions-masses)` — engine: `conversion`, subtype=metric, unitType=masse, questions=6, decimals=1
+  - Convertir des contenances `(cm2-conversions-contenances)` — engine: `conversion`, subtype=metric, unitType=capacite, questions=6, decimals=1
   - Défi : chiffres romains jusqu'à M `(cm2-bonus-romains-1000)` — engine: `conversion`, subtype=roman, max=1000, questions=8, bonus (seuil=2)
   - Convertir des aires `(cm2-conversions-aires)` — engine: `conversion`, subtype=metric-area, questions=8
   - Défi : conversions d'aires `(cm2-bonus-conversions-aires)` — engine: `conversion`, subtype=metric-area, questions=8, bonus (seuil=2)
@@ -2132,19 +2136,21 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Conjugaison `(cm2-francais-conjugaison)`
 
-- **Leçons** (4) :
+- **Leçons** (6) :
   - Former le passé composé `(cm2-lesson-passe-compose)` — blocs: paragraph, example, bullets, tip, check, check
+  - Futur et imparfait de tous les groupes `(cm2-lesson-futur-imparfait-tous-groupes)` — blocs: paragraph, bullets, example, tip, check, check
+  - Le présent du 3e groupe : d'autres verbes `(cm2-lesson-present-3e-groupe-avance)` — blocs: paragraph, bullets, example, tip, check, check
   - Être et avoir à l'imparfait `(cm2-lesson-etre-avoir-imparfait)` — blocs: paragraph, example, mini-table, bullets, tip, check, check
   - Reconnaître le passé simple `(cm2-lesson-passe-simple)` — blocs: paragraph, example, bullets, tip, check, check
   - Conjuguer au passé simple `(cm2-lesson-passe-simple-conjuguer)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (11) :
-  - Présent 3e Groupe `(cm2_conj_present_3)` — engine: `conjugation`, category=present_3_freq, tenses=présent, questions=10
-  - Futur Simple `(cm2_conj_future)` — engine: `conjugation`, category=future_1, tenses=futur, questions=10
-  - L'Imparfait `(cm2_conj_imparfait)` — engine: `conjugation`, category=imparfait_1, tenses=imparfait, questions=10
-  - Passé Composé `(cm2_conj_pc)` — engine: `conjugation`, category=pc_1, tenses=passé composé, questions=10
+  - Présent 3e Groupe `(cm2_conj_present_3)` — engine: `conjugation`, category=present_troisieme_avance, tenses=présent, questions=10
+  - Futur Simple `(cm2_conj_future)` — engine: `conjugation`, category=future_tous_groupes, tenses=futur, questions=10
+  - L'Imparfait `(cm2_conj_imparfait)` — engine: `conjugation`, category=imparfait_tous_groupes, tenses=imparfait, questions=10
+  - Passé Composé `(cm2_conj_pc)` — engine: `conjugation`, category=pc_tous_groupes, tenses=passé composé, questions=10
   - Passé Composé du 3e groupe `(cm2_conj_pc_3)` — engine: `conjugation`, category=pc_3_cm2, tenses=passé composé, questions=10
-  - Présent du 2e groupe `(cm2-conj-present-2g)` — engine: `conjugation`, category=present_2, tenses=présent, questions=10
-  - Être et avoir à l'imparfait `(cm2-conj-ea-imp)` — engine: `conjugation`, category=etre_avoir_imp, tenses=imparfait, questions=8
+  - Présent du 2e groupe `(cm2-conj-present-2g)` — engine: `conjugation`, category=present_deuxieme_avance, tenses=présent, questions=10
+  - Être et avoir : tous les temps simples `(cm2-conj-ea-imp)` — engine: `conjugation`, category=etre_avoir_imp, questions=8
   - Défi : passé composé expert `(cm2-bonus-conj-pc-3-expert)` — engine: `conjugation`, category=pc_3_cm2_defi, tenses=passé composé, questions=10, bonus (seuil=2)
   - Reconnaître le passé simple `(cm2-conj-passe-simple-reco)` — engine: `choice-engine`, type=word-class-choice, category=passe_simple_recognition_cm2, questions=6
   - Le passé simple des verbes en -er `(cm2-conj-passe-simple-er)` — engine: `conjugation`, category=passe_simple_1, tenses=passé simple, questions=8
@@ -2156,16 +2162,16 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Choisir le bon homophone `(cm2-lesson-homophones-strategie)` — blocs: paragraph, example, bullets, tip, check, check
   - Tester un remplacement `(cm2-lesson-homophones-remplacement)` — blocs: paragraph, example, mini-table, tip, check, check
 - **Exercices** (10) :
-  - Grand Mix Homophones `(cm2_homophones_mix)` — engine: `choice-engine`, type=homophone-duel, category=mix_all, questions=15
-  - Ce ou se ? `(cm2_homophones_ce_se)` — engine: `choice-engine`, type=homophone-duel, category=ce_se, questions=10
-  - Ces ou ses ? `(cm2_homophones_ces_ses)` — engine: `choice-engine`, type=homophone-duel, category=ces_ses, questions=10
-  - A ou à ? `(cm2_homophones_a_a)` — engine: `choice-engine`, type=homophone-duel, category=a_à, questions=10
-  - Ou ou où ? `(cm2_homophones_ou_ou)` — engine: `choice-engine`, type=homophone-duel, category=ou_où, questions=10
-  - Son ou Sont ? `(cm2-homophones-son-sont)` — engine: `choice-engine`, type=homophone-duel, category=son_sont, questions=10
-  - On ou Ont ? `(cm2-homophones-on-ont)` — engine: `choice-engine`, type=homophone-duel, category=on_ont, questions=10
-  - Défi : grand mix expert `(cm2-bonus-homophones-mix-expert)` — engine: `choice-engine`, type=homophone-duel, category=mix_all, questions=20, bonus (seuil=2)
-  - Leur ou Leurs ? `(cm2-h-leur)` — engine: `choice-engine`, type=homophone-duel, category=leur_leurs, questions=10
-  - C'est ou S'est ? `(cm2-h-cest)` — engine: `choice-engine`, type=homophone-duel, category=c_est_s_est, questions=10
+  - Grand Mix Homophones `(cm2_homophones_mix)` — engine: `choice-engine`, type=homophone-duel, category=mix_all, questions=15, level=cm2
+  - Ce ou se ? `(cm2_homophones_ce_se)` — engine: `choice-engine`, type=homophone-duel, category=ce_se, questions=10, level=cm2
+  - Ces ou ses ? `(cm2_homophones_ces_ses)` — engine: `choice-engine`, type=homophone-duel, category=ces_ses, questions=10, level=cm2
+  - A ou à ? `(cm2_homophones_a_a)` — engine: `choice-engine`, type=homophone-duel, category=a_à, questions=10, level=cm2
+  - Ou ou où ? `(cm2_homophones_ou_ou)` — engine: `choice-engine`, type=homophone-duel, category=ou_où, questions=10, level=cm2
+  - Son ou Sont ? `(cm2-homophones-son-sont)` — engine: `choice-engine`, type=homophone-duel, category=son_sont, questions=10, level=cm2
+  - On ou Ont ? `(cm2-homophones-on-ont)` — engine: `choice-engine`, type=homophone-duel, category=on_ont, questions=10, level=cm2
+  - Défi : grand mix expert `(cm2-bonus-homophones-mix-expert)` — engine: `choice-engine`, type=homophone-duel, category=mix_all, questions=20, level=cm2, bonus (seuil=2)
+  - Leur ou Leurs ? `(cm2-h-leur)` — engine: `choice-engine`, type=homophone-duel, category=leur_leurs, questions=10, level=cm2
+  - C'est ou S'est ? `(cm2-h-cest)` — engine: `choice-engine`, type=homophone-duel, category=c_est_s_est, questions=10, level=cm2
 
 #### Grammaire `(cm2-francais-grammaire)`
 
@@ -2308,8 +2314,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Union européenne `(cm2-geo-union-europeenne)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-union-europeenne, questions=6
   - Voyager en Europe `(cm2-geo-voyager-europe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm2.json, category=cm2-voyager-europe, questions=6
   - Pays et capitales `(cm2-geo-appariement)` — engine: `matching`, category=matching_geo_cm2_capitales, dataFile=data/geography_matching.json, questions=2
-  - Carte de l'Europe `(cm2-geo-carte-europe-pays)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_europe.json, mapFile=data/maps/europe-countries.svg, mapId=europe-countries, category=cm1_map_pays_europe, questions=8
-  - Capitales d'Europe `(cm2-geo-capitales-europe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_capitals_cm1.json, category=cm1-capitales-europe, questions=8
+  - Carte de l'Europe `(cm2-geo-carte-europe-pays)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_europe.json, mapFile=data/maps/europe-countries.svg, mapId=europe-countries, category=cm2_map_pays_europe, questions=8
+  - Capitales d'Europe `(cm2-geo-capitales-europe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_capitals_cm1.json, category=cm2-capitales-europe, questions=8
   - Défi : situer l'Europe dans le monde `(cm2-bonus-geo-carte-monde-continents)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_world.json, mapFile=data/maps/world-continents.svg, mapId=world-continents, category=cm2_map_continents_europe, questions=8, bonus (seuil=2)
 
 #### Habiter `(cm2-geo-habiter-subtheme)`
