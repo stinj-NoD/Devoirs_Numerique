@@ -56,8 +56,8 @@ signal fort d'habillage redondant. Pour `library`/`generator`, un même contrat
 | `board-interactive` | pool | `tap-features`¹¹, `shape-classify`, `point-on-grid`⁹, `symmetry-complete`, `map-locate`, `memory-match`, `angle-classify`, `angle-measure`, `construction-report`, `fraction-build`², `number-line-place`⁵, `number-line-frame`⁵ | ~42 |
 | `conversion` | generator | — (`modes`, `memo`, `units`, `decimals`¹²), `metric-area`⁴ | ~29 |
 | `conjugation` | library | — (`persons`) | ~47 |
-| `reading` | library | — | ~51 |
-| `audio-spelling` | library | — | ~44 |
+| `reading` | library | — (item `plain`¹³) | ~51 |
+| `audio-spelling` | library | — (`unit`¹³) | ~44 |
 | `cloze-fill-in` | library | — | ~5 |
 | `matching` | pool | — (`dataFile`, `category`) | ~49 |
 | `word-order` | pool | — (`dataFile`, `category`), item `variantes`⁷ | ~13 |
@@ -137,6 +137,12 @@ ce qu'un même exercice ne soit plus identique d'un niveau à l'autre (contrôle
 `clock` accepte `level: 4` (lecture à la minute près, avec graduations des minutes) ;
 `homophone-duel` accepte `level` (`ce1`, `ce2`, `cm1`, `cm2`) : les phrases de `data/french/homophones.json` portent un champ `level`, et un exercice ne tire que
 celles de son niveau (une phrase sans champ reste disponible pour tous). `mix_all` tire d'abord une catégorie qui compte au moins une phrase du niveau.
+
+¹³ Ajouts de la passe « Mineurs du CP » (v4.65.0), optionnels : `audio-spelling` accepte `unit` (`mot` par défaut, `syllabe`) qui fixe
+la consigne affichée et lue (une réponse à espaces est reconnue comme phrase : « Écoute la phrase puis écris-la ») ; un item de `reading` accepte
+`plain: true` (le mot s'affiche d'un bloc, sans coloration des syllabes). Le générateur procédural d'un `math-input`, d'un `conversion`, d'un `clock`
+ou d'un `counting` ne répète plus une question dans une série (`Engines.unique` : jusqu'à 30 retirages) ; la pastille Jour/Nuit de `clock` n'apparaît
+qu'à partir du niveau 3 (cadran à 24 heures).
 
 **Alias normalisés en entrée** (`js/engines.js`) : `compare`/`choice` → `choice-engine` ;
 `oiseau` → `math-input` + `type:oiseau-math`.

@@ -868,7 +868,14 @@
             m = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55][rnd(0, 11)];
         }
         const isDay = h >= 8 && h < 20;
-        const data = { hours: h, minutes: m, periodIcon: isDay ? "☀️" : "\u{1F319}", periodText: isDay ? "Jour" : "Nuit" };
+        const data = { hours: h, minutes: m };
+        // La pastille Jour/Nuit n'a de sens que sur le cadran à 24 heures (niveau 3 et plus). Sur un
+        // cadran de 12 heures, de 1 h à 7 h elle annonçait « Nuit » (27 tirages sur 40 au CP) alors
+        // qu'un enfant de 7 ans lit « 7 h » le matin, et 3 h 30 peut être de l'après-midi.
+        if (level >= 3) {
+            data.periodIcon = isDay ? "☀️" : "\u{1F319}";
+            data.periodText = isDay ? "Jour" : "Nuit";
+        }
         // Niveau 3 : le cadran est à 12 heures mais la réponse s'écrit sur 24 heures (« 2250 » pour
         // 10 h 50 du soir). Rien ne le disait à l'écran : un enfant qui recopiait le cadran
         // (« 1050 ») était compté faux sans savoir pourquoi. La pastille Jour/Nuit lève l'ambiguïté
@@ -996,7 +1003,9 @@
         } else {
             const max = p.range || 100;
             n1 = rnd(0, max);
-            n2 = (Math.random() < 0.2) ? n1 : rnd(0, max);
+            // Une égalité forcée une fois sur cinq, plus le hasard, donnait près d'un quart de
+            // réponses « = » (13 tirages sur 40 au CP) : 10 % forcés, le hasard fait le reste.
+            n2 = (Math.random() < 0.1) ? n1 : rnd(0, max);
             d1 = n1.toString();
             d2 = n2.toString();
         }

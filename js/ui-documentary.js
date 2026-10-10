@@ -147,6 +147,11 @@ const UIDocumentary = {
         const tokenCls = isStorySequence ? 'word-order-token word-order-token--sentence' : 'word-order-token';
         const joiner = isStorySequence ? '' : ' ';
 
+        // Ce qu'on range décide de la consigne : des nombres ou des mois ne forment pas une phrase.
+        const tousNumeriques = words.length > 0 && words.every((w) => /^\d+$/.test(String(w.label).trim()));
+        const NOMS_MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+        const tousMois = words.length > 0 && words.every((w) => NOMS_MOIS.includes(String(w.label).trim().toLowerCase()));
+
         let pickedHtml;
         if (picked.length) {
             pickedHtml = picked.map((w, pos) => {
@@ -159,16 +164,14 @@ const UIDocumentary = {
                 return `<button class="${cls}" ${interactive}>${this._escape(w.label)}</button>`;
             }).join(joiner);
         } else {
-            // Le placeholder suivait l'énoncé de la phrase à reconstituer, ce
-            // qui devenait faux dès qu'on range des nombres ou des mois (CP).
-            // On regarde les jetons : tous numériques => on range, sinon on
-            // forme une phrase.
-            const tousNumeriques = words.length > 0 && words.every((w) => /^\d+$/.test(String(w.label).trim()));
+            // Le placeholder suit ce qu'on range (nombres, mois, phrases, mots).
             const amorce = isStorySequence
                 ? 'Touche les phrases ci-dessous pour reconstituer le récit&hellip;'
                 : (tousNumeriques
                     ? 'Touche les nombres ci-dessous pour les ranger&hellip;'
-                    : 'Touche les mots ci-dessous dans le bon ordre&hellip;');
+                    : (tousMois
+                        ? 'Touche les mois ci-dessous pour les ranger&hellip;'
+                        : 'Touche les mots ci-dessous dans le bon ordre&hellip;'));
             pickedHtml = `<span class="word-order-placeholder">${amorce}</span>`;
         }
 
@@ -184,7 +187,7 @@ const UIDocumentary = {
 
         return `
             <div class="word-order-card${isStorySequence ? ' word-order-card--story' : ''}">
-                <div class="word-order-helper">${isStorySequence ? 'Reconstitue le récit en touchant les phrases dans le bon ordre.' : 'Construis la phrase en touchant les mots dans le bon ordre.'}</div>
+                <div class="word-order-helper">${isStorySequence ? 'Reconstitue le récit en touchant les phrases dans le bon ordre.' : (tousNumeriques ? 'Range les nombres en les touchant dans le bon ordre.' : (tousMois ? 'Range les mois en les touchant dans le bon ordre.' : 'Construis la phrase en touchant les mots dans le bon ordre.'))}</div>
                 <div class="word-order-sentence">
                     ${pickedHtml}
                 </div>

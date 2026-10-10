@@ -130,15 +130,15 @@
         // le dise correctement (ex. tiret remplacé par un espace) sans que
         // ça change jamais ce qui est accepté comme réponse écrite.
         const audioText = (picked.audio || answer).toString().trim().replace(/-/g, " ");
+        const unit = /\s/.test(answer.trim()) ? 'phrase' : (p.unit === 'syllabe' ? 'syllabe' : 'mot');
         return {
             isVisual: true,
             visualType: "audioSpelling",
             inputType: "alpha",
-            // La consigne suit ce qui est réellement dicté : une dictée de
-            // phrase courte (CP) annonçait « le mot » pour cinq mots.
-            question: `<span class="small-question">${/\s/.test(answer.trim())
+            // La consigne suit ce qui est réellement dicté : une phrase, une syllabe ou un mot.
+            question: `<span class="small-question">${unit === 'phrase'
                 ? 'Écoute la phrase puis écris-la.'
-                : 'Écoute le mot puis écris-le.'}</span>`,
+                : (unit === 'syllabe' ? 'Écoute la syllabe puis écris-la.' : 'Écoute le mot puis écris-le.')}</span>`,
             answer: answer.toLowerCase(),
             data: {
                 audioText,
@@ -148,7 +148,8 @@
                 speechRate: Number.isFinite(Number(p.speechRate)) ? Number(p.speechRate) : 0.72,
                 speechPitch: Number.isFinite(Number(p.speechPitch)) ? Number(p.speechPitch) : 1.15,
                 speechVolume: Number.isFinite(Number(p.speechVolume)) ? Number(p.speechVolume) : 0.9,
-                category: cat
+                category: cat,
+                unit
             }
         };
     },
@@ -201,7 +202,8 @@
                 text,
                 syllables,
                 silent,
-                choices
+                choices,
+                plain: picked.plain === true
             }
         };
     },

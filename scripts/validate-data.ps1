@@ -484,6 +484,12 @@ function Validate-Exercise($path, $themeId, $exercise) {
             }
         }
     }
+    if ($exercise.engine -eq 'audio-spelling' -and $null -ne $exercise.params.unit) {
+        # unit : ce que la dictee fait ecrire (mot ou syllabe) ; une phrase est reconnue a ses espaces.
+        if ($exercise.params.unit -notin @('mot', 'syllabe')) {
+            Add-Issue("${path}: unit invalide pour audio-spelling ($($exercise.id))")
+        }
+    }
     if ($exercise.engine -eq 'conjugation' -and $null -ne $exercise.params.persons) {
         $validPersons = @('Je', 'Tu', 'Il', 'Elle', 'On', 'Nous', 'Vous', 'Ils', 'Elles')
         $personsOk = ($exercise.params.persons -is [System.Collections.IList]) -and $exercise.params.persons.Count -ge 1

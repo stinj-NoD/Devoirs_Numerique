@@ -690,6 +690,11 @@
             }
         }
 
+        if (exercise.engine === 'audio-spelling' && exercise.params.unit !== undefined && !['mot', 'syllabe'].includes(exercise.params.unit)) {
+            // unit : ce que la dictée fait écrire (la consigne le dit) ; une phrase est reconnue à ses espaces.
+            return { valid: false, reason: 'unit invalide pour audio-spelling (mot ou syllabe attendu).' };
+        }
+
         if (exercise.engine === 'conjugation' && exercise.params.persons !== undefined) {
             const validPersons = ['Je', 'Tu', 'Il', 'Elle', 'On', 'Nous', 'Vous', 'Ils', 'Elles'];
             const pr = exercise.params.persons;

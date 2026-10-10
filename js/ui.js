@@ -1724,11 +1724,14 @@ const UI = {
     drawReading(p) {
         const d = p.data || {};
         let h = `<div class="reading-container">`, charIdx = 0;
-        (d.syllables || []).forEach((syll, sIdx) => {
+        // `plain` : le mot s'affiche d'un bloc. Les syllabes colorées en alternance donnaient la
+        // réponse à « combien de syllabes lis-tu ? » (il suffisait de compter les couleurs).
+        const morceaux = d.plain && d.text ? [d.text] : (d.syllables || []);
+        morceaux.forEach((syll, sIdx) => {
             if(d.text) {
                 while (d.text[charIdx] === " ") { h += `<span class="reading-space"></span>`; charIdx++; }
             }
-            h += `<span class="syll-${sIdx%2}">`;
+            h += `<span class="${d.plain ? 'reading-plain' : 'syll-' + (sIdx % 2)}">`;
             for (let char of syll) {
                 const isSilent = d.silent && d.silent.includes(charIdx);
                 h += `<span class="${isSilent ? 'char-silent' : ''}">${this._escapeText(char)}</span>`;
@@ -1754,11 +1757,19 @@ const UI = {
         const status = (d.audioStatus || 'ready').toString();
         const isUnsupported = status === 'unsupported';
         const isPlaying = status === 'playing';
+        // La consigne suit ce qui est dicté : un mot, une syllabe ou une phrase.
+        const unit = (d.unit || 'mot').toString();
+        const parUnite = {
+            mot: { nom: 'le mot', lu: "Le mot est en train d'être lu.", pron: 'le' },
+            syllabe: { nom: 'la syllabe', lu: "La syllabe est en train d'être lue.", pron: 'la' },
+            phrase: { nom: 'la phrase', lu: "La phrase est en train d'être lue.", pron: 'la' }
+        };
+        const libelle = parUnite[unit] || parUnite.mot;
         const helperText = isUnsupported
             ? "L'audio n'est pas disponible sur cet appareil."
             : isPlaying
-                ? "Le mot est en train d'être lu."
-                : "Écoute bien le mot, puis écris-le. Tu peux le réécouter.";
+                ? libelle.lu
+                : `Écoute bien ${libelle.nom}, puis écris-${libelle.pron}. Tu peux ${libelle.pron === 'le' ? 'le' : 'la'} réécouter.`;
         const slots = target.map((char) => {
             if (char === ' ') return `<span class="audio-spelling-separator">&nbsp;</span>`;
             if (char === '-' || char === "'") return `<span class="audio-spelling-separator">${char}</span>`;

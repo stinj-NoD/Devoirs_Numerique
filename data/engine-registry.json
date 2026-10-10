@@ -98,14 +98,14 @@
       "label": "Lecture et compréhension",
       "sourceKind": "library",
       "commonParams": ["questions"],
-      "note": "s'appuie sur data/french/reading.json (et catégories de lecture)",
+      "note": "s'appuie sur data/french/reading.json (et catégories de lecture) ; champ d'item `plain: true` : le mot s'affiche d'un bloc, sans coloration des syllabes (compter ou repérer une syllabe)",
       "paramsTypes": {}
     },
     "audio-spelling": {
       "label": "Dictée audio",
       "sourceKind": "library",
-      "commonParams": ["questions"],
-      "note": "s'appuie sur la bibliothèque français",
+      "commonParams": ["questions", "unit"],
+      "note": "s'appuie sur la bibliothèque français ; unit = mot (défaut) | syllabe fixe la consigne (« Écoute la syllabe puis écris-la ») ; une réponse à espaces est reconnue comme phrase",
       "paramsTypes": {}
     },
     "cloze-fill-in": {

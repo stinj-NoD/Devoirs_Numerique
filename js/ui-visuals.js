@@ -163,7 +163,7 @@ const UIVisuals = {
         const ma = (mins / 60) * 360;
         const ha = ((hours % 12) / 12) * 360 + (mins / 60) * 30;
 
-        const periodInfo = `<div class="period-badge">${d.periodIcon || '\u{1F550}'} ${d.periodText || ''}</div>`
+        const periodInfo = (d.periodText ? `<div class="period-badge">${d.periodIcon || '\u{1F550}'} ${SecurityUtils.escapeHtml(String(d.periodText))}</div>` : '')
             + (d.caption ? `<div class="clock-caption">${SecurityUtils.escapeHtml(String(d.caption))}${d.captionHint ? `<span class="clock-caption-hint">${SecurityUtils.escapeHtml(String(d.captionHint))}</span>` : ''}</div>` : '');
 
         // Cadran blanc : chiffres, aiguilles et contour gardent la couleur du texte du thème CLAIR (#243447).
@@ -229,7 +229,7 @@ const UIVisuals = {
                 <div class="money-token money-token--${spec.kind} money-token--${spec.tone}">
                     ${billExtras}
                     <span class="money-token-value">${val}</span>
-                    <span class="money-token-currency">EUR</span>
+                    <span class="money-token-currency">€</span>
                 </div>`;
         }).join('');
 

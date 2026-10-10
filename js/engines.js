@@ -28,16 +28,16 @@ const Engines = {
             switch (engineType) {
                 case 'math-input':
                     if (params.type === 'spelling') result = this.generators.spelling(params, lib);
-                    else if (params.type === 'clock') result = this.generators.clock(params);
-                    else if (params.type === 'fraction-view') result = this.generators.fractionView(params);
-                    else if (params.type === 'fraction-operation') result = this.generators.fractionOperation(params);
-                    else if (params.type === 'number-spelling') result = this.generators.numberSpelling(params);
+                    else if (params.type === 'clock') result = this.unique(params, () => this.generators.clock(params));
+                    else if (params.type === 'fraction-view') result = this.unique(params, () => this.generators.fractionView(params));
+                    else if (params.type === 'fraction-operation') result = this.unique(params, () => this.generators.fractionOperation(params));
+                    else if (params.type === 'number-spelling') result = this.unique(params, () => this.generators.numberSpelling(params));
                     else if (params.type === 'carre-somme') result = this.generators.carreSomme(params);
-                    else result = this.generators.calculate(params);
+                    else result = this.unique(params, () => this.generators.calculate(params));
                     break;
 
                 case 'conversion':
-                    result = this.generators.conversion(params);
+                    result = this.unique(params, () => this.generators.conversion(params));
                     break;
 
                 case 'choice-engine':
@@ -47,7 +47,7 @@ const Engines = {
                     else if (params.type === 'grammar-cloze') result = this.generators.grammarCloze(params, lib);
                     else if (params.type === 'homophone-duel') result = this.generators.homophones(params, lib);
                     else if (params.type === 'factual-qcm') result = this.generators.factualQcm(params);
-                    else result = this.generators.compare(params);
+                    else result = this.unique(params, () => this.generators.compare(params));
                     break;
 
                 case 'board-interactive':
@@ -75,8 +75,8 @@ const Engines = {
                     break;
 
                 case 'conjugation': result = this.generators.conjugation(params, lib); break;
-                case 'clock': result = this.generators.clock(params); break;
-                case 'counting': result = this.generators.counting(params); break;
+                case 'clock': result = this.unique(params, () => this.generators.clock(params)); break;
+                case 'counting': result = this.unique(params, () => this.generators.counting(params)); break;
                 case 'timeline': result = this.generators.timeline(params); break;
 
                 default:
@@ -91,6 +91,31 @@ const Engines = {
             console.error("CRASH ENGINE :", e);
             return this.fallback("Erreur technique de l'exercice");
         }
+    },
+
+    /**
+     * Évite qu'une même question revienne dans une série pour les générateurs procéduraux.
+     * Les banques le font déjà (`pickUnused`) ; les générateurs, eux, tiraient sans mémoire : sur
+     * un petit espace de valeurs (5 totaux de pièces, 10 doubles) la même question revenait
+     * dans toutes les séries. On retire jusqu'à 30 fois (tirages peu coûteux) tant que la question et sa réponse figurent
+     * déjà dans `params.usedSet` ; si l'espace est plus petit que la série, on garde le dernier
+     * tirage (la série reste jouable, comme avant). Les clés texte (`q:`) cohabitent avec les
+     * index numériques des banques sans les gêner.
+     */
+    unique(params, genere) {
+        const used = params && params.usedSet instanceof Set ? params.usedSet : null;
+        let result = genere();
+        if (!used || !result) return result;
+        const cle = (r) => {
+            const d = (r && r.data) || {};
+            const hits = Array.isArray(d.hits)
+                ? d.hits.map((h) => (h && typeof h === 'object' ? h.val : h)).sort((a, b) => a - b).join('+')
+                : '';
+            return 'q:' + JSON.stringify([r && r.question, r && r.answer, hits, d.val, d.u1, d.u2, d.hours, d.minutes, d.n, d.d, d.a, d.b, d.dividend, d.divisor, d.question]);
+        };
+        for (let essai = 0; essai < 30 && used.has(cle(result)); essai++) result = genere();
+        used.add(cle(result));
+        return result;
     },
 
     /**
