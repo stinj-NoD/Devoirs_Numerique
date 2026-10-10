@@ -51,9 +51,9 @@ signal fort d'habillage redondant. Pour `library`/`generator`, un même contrat
 
 | `engine` | Nature | `params.type` | Ex. dans les données |
 |---|---|---|---|
-| `math-input` | generator | `add-simple`, `add-trou`, `sub-simple`, `mult`, `complement`, `decimal-place`, `dictée-nombres`, `calc-mental`, `oiseau-math`, `cibles`, `half`, `double`, `division-simple`, `division-reste`, `division-posed`, `operation-posed`⁶, `place-value`, `proportionnalite`, `pourcentage`, `aire-rectangle`, `volume-pave`, `echelle`, `vitesse`, `bar-chart-read`, `data-table-read`, `pie-chart-read`, `average-compute`, `spelling`¹, `clock`, `fraction-view`, `fraction-operation`³, `number-spelling`, `carre-somme` | ~164 |
-| `choice-engine` | mixed | `factual-qcm` (**pool**), `gender-articles`, `article-choice`, `plural-choice`, `word-class-choice`, `grammar-cloze`, `homophone-duel` (library), `compare-decimals`, *(défaut)* `compare` | ~539 |
-| `board-interactive` | pool | `tap-features`, `shape-classify`, `point-on-grid`⁹, `symmetry-complete`, `map-locate`, `memory-match`, `angle-classify`, `angle-measure`, `construction-report`, `fraction-build`², `number-line-place`⁵, `number-line-frame`⁵ | ~42 |
+| `math-input` | generator | `add-simple`, `add-trou`, `sub-simple`, `mult`, `complement`, `decimal-place`, `dictée-nombres`, `calc-mental`, `oiseau-math`, `cibles`, `half`, `double`, `division-simple`¹⁰, `division-reste`¹⁰, `division-posed`¹⁰, `operation-posed`⁶, `place-value`, `proportionnalite`, `pourcentage`¹⁰, `aire-rectangle`, `volume-pave`, `echelle`, `vitesse`, `bar-chart-read`, `data-table-read`, `pie-chart-read`, `average-compute`, `spelling`¹, `clock`, `fraction-view`, `fraction-operation`³, `number-spelling`, `carre-somme` | ~164 |
+| `choice-engine` | mixed | `factual-qcm` (**pool**), `gender-articles`, `article-choice`, `plural-choice`, `word-class-choice`, `grammar-cloze`, `homophone-duel` (library), `compare-decimals`¹⁰, *(défaut)* `compare` | ~539 |
+| `board-interactive` | pool | `tap-features`¹¹, `shape-classify`, `point-on-grid`⁹, `symmetry-complete`, `map-locate`, `memory-match`, `angle-classify`, `angle-measure`, `construction-report`, `fraction-build`², `number-line-place`⁵, `number-line-frame`⁵ | ~42 |
 | `conversion` | generator | — (`modes`, `memo`, `units`), `metric-area`⁴ | ~29 |
 | `conjugation` | library | — (`persons`) | ~47 |
 | `reading` | library | — | ~51 |
@@ -99,10 +99,13 @@ multiensemble de mots, et `App.validateAnswer` les accepte en plus de l'ordre at
 item narratif (`sentences`) ou une variante dont les mots diffèrent.
 ⁸ `timeline` mode `order` : la frise `timelineId` est un **vivier**. Dès qu'elle compte
 plus de 4 repères, le moteur en tire 4 au hasard à chaque question (puis les trie par
-année) ; une frise de 4 repères sert donc toujours le même puzzle. Garder des années
-toutes différentes dans un vivier (deux repères de même année ne se classent pas).
+année, puis par `order`) ; une frise de 4 repères sert donc toujours le même puzzle. Le
+quatuor n'est jamais reposé deux fois dans une séance (`usedSet`). Deux repères de même année
+portent un champ `order` (1, 2…) qui fixe leur classement : sans lui l'ordre attendu dépendait
+du tirage. Un vivier de 7 à 12 repères suffit à varier les puzzles.
 Mode `place` : `difficulty` (entier ou liste) filtre les repères ; chaque niveau doit
-compter au moins autant de repères que de questions.
+compter au moins autant de repères que de questions. Les dates proposées en distracteurs
+sont écartées de plus de 2 ans de la bonne date tant que le vivier le permet.
 
 ⁹ `point-on-grid` : la grille a `board.width` colonnes et `board.height` lignes,
 numérotées à partir de 0 ; une cible `task.target` hors de `[0, width − 1] × [0, height − 1]`
@@ -110,6 +113,18 @@ n'a aucune intersection à toucher et est **refusée par les deux validateurs** 
 rendu deux exercices injouables au CM1 et au CM2). Champ facultatif `board.outline` : suite
 d'au moins 3 points `[x, y]` en coordonnées de la grille, dessinée derrière le quadrillage
 (contour de la France de `cm2_reperes_france_grille`).
+
+¹⁰ Paramètres de calcul ajoutés au CM2 (v4.63.0), tous optionnels, comportement historique inchangé s'ils sont absents :
+`division-simple` et `division-reste` acceptent `divisors` (liste des diviseurs tirés) et `quotient` (`[min, max]`) ;
+`division-reste` accepte en plus `ask: "reste"` pour demander le reste de la division plutôt que le quotient ;
+`pourcentage` accepte `minMultiple` (le nombre de départ vaut au moins `minMultiple` × le pas, ce qui écarte « 20 % de 10 ») ;
+`operation-posed` accepte `level` 4 et 5 (nombres de 5 et de 6 chiffres) pour l'addition et la soustraction ;
+`compare-decimals` accepte `wholeParts: "mix"` (parties entières différentes) et `distinctWriting: true` (jamais deux écritures identiques).
+`division-posed` n'affiche plus les produits partiels en mode quotient (ils laissaient lire le quotient) ; ils restent visibles en mode `ask: "reste"`.
+
+¹¹ `tap-features` : `drawing.markersOnReveal: true` ne dessine les chevrons d'angle droit qu'à la correction ;
+`drawing.texts` (liste `{ x, y, text, anchor }`, `anchor` ∈ {start, middle, end}) pose des étiquettes sur le dessin
+(noms des villes de `cm2_villes_france_tap`). Le dessin lui-même (`lines`, `circles`) ne porte aucune réponse.
 
 **Alias normalisés en entrée** (`js/engines.js`) : `compare`/`choice` → `choice-engine` ;
 `oiseau` → `math-input` + `type:oiseau-math`.
