@@ -142,12 +142,24 @@ const EnginesDocumentary = {
             const periodIds = [...new Set(items.map((item) => item.period).filter(Boolean))];
             const byYearThenOrder = (a, b) => (a.year - b.year) || ((a.order || 0) - (b.order || 0));
             const filteredItems = items.filter(matchesDifficulty);
+            // Quatre repères tirés dans le vivier, sans reposer deux fois le même quatuor dans une séance.
+            const tirerQuatre = (pool) => {
+                const signature = (liste) => liste.map((item) => item.id).sort().join('|');
+                for (let essai = 0; essai < 12; essai++) {
+                    const candidat = shuffle(pool).slice(0, 4);
+                    if (!(p.usedSet instanceof Set) || !p.usedSet.has(signature(candidat))) {
+                        if (p.usedSet instanceof Set) p.usedSet.add(signature(candidat));
+                        return candidat;
+                    }
+                }
+                return shuffle(pool).slice(0, 4);
+            };
             if (filteredItems.length >= 4) {
-                orderItems = shuffle(filteredItems).slice(0, 4).sort(byYearThenOrder);
+                orderItems = tirerQuatre(filteredItems).sort(byYearThenOrder);
             } else if (difficultyFilter.length > 0 && periodIds.length === 1) {
                 const periodItems = events.filter((event) => event.period === periodIds[0] && matchesDifficulty(event));
                 if (periodItems.length >= 4) {
-                    orderItems = shuffle(periodItems).slice(0, 4).sort(byYearThenOrder);
+                    orderItems = tirerQuatre(periodItems).sort(byYearThenOrder);
                 }
             }
 
@@ -207,7 +219,10 @@ const EnginesDocumentary = {
                 ...gridYears
             ])].filter((year) => year !== target.year);
 
-            const distractors = shuffle(candidatePool)
+            // Des dates à deux ans ou moins de la bonne (1969 et 1970) rendaient le choix arbitraire : on
+            // les écarte tant qu'il reste assez de dates plus éloignées.
+            const loin = candidatePool.filter((year) => Math.abs(year - target.year) > 2);
+            const distractors = shuffle(loin.length >= choiceCount - 1 ? loin : candidatePool)
                 .slice(0, Math.max(0, choiceCount - 1));
             const candidateMarkers = [...distractors, target.year].sort((a, b) => a - b);
             const targetYearText = Math.abs(Number(target.year)).toString();

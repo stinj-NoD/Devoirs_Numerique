@@ -2,7 +2,7 @@
   "_comment": "Index machine-lisible généré par scripts/build-content-index.js. Ne pas éditer à la main : relancer le script après tout ajout de contenu. Artefact d'outillage, NON embarqué dans le bundle runtime.",
   "totals": {
     "exercises": 1114,
-    "lessons": 478,
+    "lessons": 479,
     "levels": 5,
     "banks": 80
   },
@@ -15628,6 +15628,17 @@
       "contractHash": null
     },
     {
+      "id": "cm2-lesson-empire-republiques",
+      "kind": "lesson",
+      "level": "cm2",
+      "subjectId": "cm2-histoire-subject",
+      "subthemeId": "cm2-histoire-reperes",
+      "engine": null,
+      "paramsType": null,
+      "pool": null,
+      "contractHash": null
+    },
+    {
       "id": "cm2-lesson-temps-republique",
       "kind": "lesson",
       "level": "cm2",
@@ -15822,8 +15833,8 @@
       "subthemeId": "cm2-histoire-reperes",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/history_cm2.json::cm2-xxe-siecle",
-      "contractHash": "choice-engine|{\"category\":\"cm2-xxe-siecle\",\"dataFile\":\"data/history_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/history_cm2.json::cm2-xxe-defi",
+      "contractHash": "choice-engine|{\"category\":\"cm2-xxe-defi\",\"dataFile\":\"data/history_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-lesson-reperes-xxe-siecle-frise",
@@ -15966,7 +15977,7 @@
       "engine": "timeline",
       "paramsType": null,
       "pool": null,
-      "contractHash": "timeline|{\"dataFile\":\"data/history_chrono.json\",\"grade\":\"cm2\",\"mode\":\"order\",\"timelineId\":\"cm2-guerres-paix-ordre\"}"
+      "contractHash": "timeline|{\"dataFile\":\"data/history_chrono.json\",\"difficulty\":[2,3],\"grade\":\"cm2\",\"mode\":\"order\",\"timelineId\":\"cm2-guerres-paix-ordre\"}"
     },
     {
       "id": "cm2-lesson-revolution-francaise-recit",
@@ -16009,8 +16020,8 @@
       "subthemeId": "cm2-histoire-recits-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/history_cm2.json::cm2-recits-historiques",
-      "contractHash": "choice-engine|{\"category\":\"cm2-recits-historiques\",\"dataFile\":\"data/history_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/history_cm2.json::cm2-recits-republique",
+      "contractHash": "choice-engine|{\"category\":\"cm2-recits-republique\",\"dataFile\":\"data/history_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-bonus-histoire-recits-expert",
@@ -16020,8 +16031,8 @@
       "subthemeId": "cm2-histoire-recits-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/history_cm2.json::cm2-recits-historiques",
-      "contractHash": "choice-engine|{\"category\":\"cm2-recits-historiques\",\"dataFile\":\"data/history_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/history_cm2.json::cm2-recits-defi-rr",
+      "contractHash": "choice-engine|{\"category\":\"cm2-recits-defi-rr\",\"dataFile\":\"data/history_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-histoire-recits-revolution",
@@ -16031,8 +16042,8 @@
       "subthemeId": "cm2-histoire-recits-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/history_cm2.json::cm2-revolution",
-      "contractHash": "choice-engine|{\"category\":\"cm2-revolution\",\"dataFile\":\"data/history_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/history_cm2.json::cm2-recits-revolution",
+      "contractHash": "choice-engine|{\"category\":\"cm2-recits-revolution\",\"dataFile\":\"data/history_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-histoire-xxe-siecle",
@@ -16042,8 +16053,8 @@
       "subthemeId": "cm2-histoire-recits-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/history_cm2.json::cm2-xxe-siecle",
-      "contractHash": "choice-engine|{\"category\":\"cm2-xxe-siecle\",\"dataFile\":\"data/history_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/history_cm2.json::cm2-recits-xxe",
+      "contractHash": "choice-engine|{\"category\":\"cm2-recits-xxe\",\"dataFile\":\"data/history_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-bonus-histoire-recits-defi",
@@ -16053,8 +16064,8 @@
       "subthemeId": "cm2-histoire-recits-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/history_cm2.json::cm2-recits-historiques",
-      "contractHash": "choice-engine|{\"category\":\"cm2-recits-historiques\",\"dataFile\":\"data/history_cm2.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/history_cm2.json::cm2-recits-defi-mix",
+      "contractHash": "choice-engine|{\"category\":\"cm2-recits-defi-mix\",\"dataFile\":\"data/history_cm2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "cm2-lesson-habiter-espaces-differents",
@@ -18044,7 +18055,6 @@
     },
     "data/history_cm2.json": {
       "categories": {
-        "cm2-recits-historiques": 20,
         "cm2-revolution": 15,
         "cm2-xxe-siecle": 15,
         "cm2-republique": 14,
@@ -18054,7 +18064,13 @@
         "cm2-decolonisation": 14,
         "cm2-premiere-guerre-mondiale": 13,
         "cm2-seconde-guerre-mondiale": 13,
-        "cm2-temps-modernes": 6
+        "cm2-temps-modernes": 12,
+        "cm2-recits-revolution": 12,
+        "cm2-recits-republique": 12,
+        "cm2-recits-xxe": 12,
+        "cm2-xxe-defi": 10,
+        "cm2-recits-defi-rr": 10,
+        "cm2-recits-defi-mix": 10
       }
     },
     "data/history_cp.json": {

@@ -1103,7 +1103,8 @@
                                                   "order":  0,
                                                   "period":  "revolution-empire",
                                                   "icon":  "📘",
-                                                  "difficulty":  1
+                                                  "difficulty":  1,
+                                                  "order": 1
                                               },
                                               {
                                                   "id":  "droits-homme",
@@ -1112,7 +1113,8 @@
                                                   "order":  1,
                                                   "period":  "revolution-empire",
                                                   "icon":  "📘",
-                                                  "difficulty":  1
+                                                  "difficulty":  1,
+                                                  "order": 2
                                               },
                                               {
                                                   "id":  "marseillaise",
@@ -1121,7 +1123,8 @@
                                                   "order":  0,
                                                   "period":  "revolution-empire",
                                                   "icon":  "📘",
-                                                  "difficulty":  2
+                                                  "difficulty":  2,
+                                                  "order": 1
                                               },
                                               {
                                                   "id":  "republique-1792",
@@ -1130,7 +1133,8 @@
                                                   "order":  1,
                                                   "period":  "revolution-empire",
                                                   "icon":  "📘",
-                                                  "difficulty":  2
+                                                  "difficulty":  2,
+                                                  "order": 2
                                               },
                                               {
                                                   "id":  "bonaparte-consul",
@@ -1147,7 +1151,8 @@
                                                   "order":  1,
                                                   "period":  "revolution-empire",
                                                   "icon":  "📘",
-                                                  "difficulty":  1
+                                                  "difficulty":  1,
+                                                  "order": 2
                                               },
                                               {
                                                   "id":  "code-civil",
@@ -1156,7 +1161,8 @@
                                                   "order":  0,
                                                   "period":  "revolution-empire",
                                                   "icon":  "📘",
-                                                  "difficulty":  2
+                                                  "difficulty":  2,
+                                                  "order": 1
                                               },
                                               {
                                                   "id":  "austerlitz",
@@ -1196,7 +1202,8 @@
                                                   "year":  1848,
                                                   "period":  "xix-siecle",
                                                   "icon":  "📘",
-                                                  "difficulty":  1
+                                                  "difficulty":  1,
+                                                  "order": 2
                                               },
                                               {
                                                   "id":  "republique-1848",
@@ -1204,7 +1211,8 @@
                                                   "year":  1848,
                                                   "period":  "xix-siecle",
                                                   "icon":  "📘",
-                                                  "difficulty":  2
+                                                  "difficulty":  2,
+                                                  "order": 1
                                               },
                                               {
                                                   "id":  "second-empire",
@@ -1308,7 +1316,8 @@
                                                   "year":  1936,
                                                   "period":  "xx-siecle",
                                                   "icon":  "📘",
-                                                  "difficulty":  2
+                                                  "difficulty":  3,
+                                                  "order": 1
                                               },
                                               {
                                                   "id":  "appel-18-juin",
@@ -1324,7 +1333,8 @@
                                                   "year":  1944,
                                                   "period":  "xx-siecle",
                                                   "icon":  "📘",
-                                                  "difficulty":  1
+                                                  "difficulty":  1,
+                                                  "order": 1
                                               },
                                               {
                                                   "id":  "liberation",
@@ -1332,7 +1342,8 @@
                                                   "year":  1944,
                                                   "period":  "xx-siecle",
                                                   "icon":  "📘",
-                                                  "difficulty":  1
+                                                  "difficulty":  1,
+                                                  "order": 3
                                               },
                                               {
                                                   "id":  "onu",
@@ -1340,7 +1351,8 @@
                                                   "year":  1945,
                                                   "period":  "xx-siecle",
                                                   "icon":  "📘",
-                                                  "difficulty":  2
+                                                  "difficulty":  2,
+                                                  "order": 2
                                               },
                                               {
                                                   "id":  "securite-sociale",
@@ -1348,7 +1360,8 @@
                                                   "year":  1945,
                                                   "period":  "xx-siecle",
                                                   "icon":  "📘",
-                                                  "difficulty":  2
+                                                  "difficulty":  3,
+                                                  "order": 1
                                               },
                                               {
                                                   "id":  "decolonisation",
@@ -1388,7 +1401,7 @@
                                                   "year":  1968,
                                                   "period":  "xx-siecle",
                                                   "icon":  "📘",
-                                                  "difficulty":  2
+                                                  "difficulty":  3
                                               },
                                               {
                                                   "id":  "mur-berlin",
@@ -1413,6 +1426,64 @@
                                                   "period":  "xx-siecle",
                                                   "icon":  "📘",
                                                   "difficulty":  2
+                                              },
+                                              {
+                                                  "id": "debut-seconde-guerre",
+                                                  "label": "Début de la Seconde Guerre mondiale",
+                                                  "year": 1939,
+                                                  "period": "xx-siecle",
+                                                  "icon": "📘",
+                                                  "difficulty": 1
+                                              },
+                                              {
+                                                  "id": "debarquement-normandie",
+                                                  "label": "Débarquement des Alliés en Normandie",
+                                                  "year": 1944,
+                                                  "period": "xx-siecle",
+                                                  "icon": "📘",
+                                                  "difficulty": 2,
+                                                  "order": 2
+                                              },
+                                              {
+                                                  "id": "fin-guerre-1945",
+                                                  "label": "Fin de la guerre en Europe",
+                                                  "year": 1945,
+                                                  "period": "xx-siecle",
+                                                  "icon": "📘",
+                                                  "difficulty": 1
+                                              },
+                                              {
+                                                  "id": "conges-payes",
+                                                  "label": "Premiers congés payés",
+                                                  "year": 1936,
+                                                  "period": "xx-siecle",
+                                                  "icon": "📘",
+                                                  "difficulty": 2,
+                                                  "order": 2
+                                              },
+                                              {
+                                                  "id": "ceca-1951",
+                                                  "label": "Création de la CECA, première communauté européenne",
+                                                  "year": 1951,
+                                                  "period": "xx-siecle",
+                                                  "icon": "📘",
+                                                  "difficulty": 3
+                                              },
+                                              {
+                                                  "id": "traite-rome-1957",
+                                                  "label": "Traité de Rome : naissance de la CEE",
+                                                  "year": 1957,
+                                                  "period": "xx-siecle",
+                                                  "icon": "📘",
+                                                  "difficulty": 3
+                                              },
+                                              {
+                                                  "id": "independance-algerie-1962",
+                                                  "label": "Indépendance de l'Algérie",
+                                                  "year": 1962,
+                                                  "period": "xx-siecle",
+                                                  "icon": "📘",
+                                                  "difficulty": 3
                                               }
                                           ],
                                "timelines":  [
@@ -1430,13 +1501,8 @@
                                                  {
                                                      "id":  "cm2-revolution-ordre",
                                                      "mode":  "order",
-                                                     "title":  "Révolution et Empire",
-                                                     "items":  [
-                                                                   "bastille",
-                                                                   "republique-1792",
-                                                                   "napoleon-empereur",
-                                                                   "waterloo"
-                                                               ]
+                                                     "title":  "De la découverte de l'Amérique à l'euro",
+                                                     "items":  ["decouverte-amerique","bastille","napoleon-empereur","abolition-esclavage","tour-eiffel","premiere-guerre","liberation","cinquieme-republique","premier-homme-lune","mur-berlin","euro"]
                                                  },
                                                  {
                                                      "id":  "cm2-xix-xx-ordre",
@@ -1486,45 +1552,25 @@
                                                      "id":  "cm2-xix-siecle-ordre",
                                                      "mode":  "order",
                                                      "title":  "Repères du XIXe siècle",
-                                                     "items":  [
-                                                                   "revolution-1830",
-                                                                   "abolition-esclavage",
-                                                                   "ecole-obligatoire",
-                                                                   "tour-eiffel"
-                                                               ]
+                                                     "items":  ["revolution-1830","chemin-fer","republique-1848","abolition-esclavage","second-empire","pasteur","republique-1870","telephone","ecole-obligatoire","tour-eiffel","cinema"]
                                                  },
                                                  {
                                                      "id":  "cm2-sciences-societe-ordre",
                                                      "mode":  "order",
                                                      "title":  "Inventions et progrès",
-                                                     "items":  [
-                                                                   "chemin-fer",
-                                                                   "telephone",
-                                                                   "cinema",
-                                                                   "premier-homme-lune"
-                                                               ]
+                                                     "items":  ["chemin-fer","pasteur","canal-suez","telephone","tour-eiffel","cinema","premier-homme-lune"]
                                                  },
                                                  {
                                                      "id":  "cm2-guerres-paix-ordre",
                                                      "mode":  "order",
                                                      "title":  "Guerres et paix",
-                                                     "items":  [
-                                                                   "premiere-guerre",
-                                                                   "armistice-1918",
-                                                                   "onu",
-                                                                   "mur-berlin"
-                                                               ]
+                                                     "items":  ["premiere-guerre","verdun","armistice-1918","front-populaire","debut-seconde-guerre","appel-18-juin","debarquement-normandie","liberation","fin-guerre-1945","onu","mur-berlin-construction","mur-berlin"]
                                                  },
                                                  {
                                                      "id":  "cm2-ordre-revolution-3",
                                                      "mode":  "order",
-                                                     "title":  "Naissance de la Révolution",
-                                                     "items":  [
-                                                                   "bastille",
-                                                                   "droits-homme",
-                                                                   "marseillaise",
-                                                                   "republique-1792"
-                                                               ]
+                                                     "title":  "De la Bastille à Waterloo",
+                                                     "items":  ["bastille","droits-homme","marseillaise","republique-1792","bonaparte-consul","code-civil","napoleon-empereur","austerlitz","waterloo"]
                                                  },
                                                  {
                                                      "id":  "cm2-ordre-revolution-4",
@@ -1761,18 +1807,7 @@
                                                                    2000
                                                                ],
                                                      "step":  10,
-                                                     "items":  [
-                                                                   "premiere-guerre",
-                                                                   "armistice-1918",
-                                                                   "droit-vote-femmes",
-                                                                   "liberation",
-                                                                   "onu",
-                                                                   "cinquieme-republique",
-                                                                   "premier-homme-lune",
-                                                                   "mur-berlin",
-                                                                   "union-europeenne",
-                                                                   "euro"
-                                                               ]
+                                                     "items":  ["premiere-guerre","armistice-1918","debut-seconde-guerre","liberation","fin-guerre-1945","premier-homme-lune","mur-berlin","verdun","appel-18-juin","conges-payes","debarquement-normandie","onu","mur-berlin-construction","cinquieme-republique","union-europeenne","euro","front-populaire","securite-sociale","decolonisation","ceca-1951","traite-rome-1957","independance-algerie-1962","mai-68"]
                                                  },
                                                  {
                                                      "id":  "cm2-place-republique",
@@ -1783,14 +1818,7 @@
                                                                    1960
                                                                ],
                                                      "step":  20,
-                                                     "items":  [
-                                                                   "droits-homme",
-                                                                   "republique-1792",
-                                                                   "republique-1848",
-                                                                   "republique-1870",
-                                                                   "droit-vote-femmes",
-                                                                   "cinquieme-republique"
-                                                               ]
+                                                     "items":  ["droits-homme","republique-1792","republique-1848","second-empire","republique-1870","ecole-obligatoire","front-populaire","droit-vote-femmes","cinquieme-republique"]
                                                  },
                                                  {
                                                      "id":  "cm2-place-progres",
@@ -2006,12 +2034,7 @@
                                                                    2000
                                                                ],
                                                      "step":  10,
-                                                     "items":  [
-                                                                   "onu",
-                                                                   "mur-berlin",
-                                                                   "union-europeenne",
-                                                                   "euro"
-                                                               ]
+                                                     "items":  ["onu","ceca-1951","traite-rome-1957","mur-berlin-construction","mur-berlin","union-europeenne","euro"]
                                                  },
                                                  {
                                                      "id":  "cm2-place-symboles",

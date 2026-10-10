@@ -10,7 +10,7 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 
 ## Vue d'ensemble
 
-- **1114 exercices** et **478 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1114 exercices** et **479 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
@@ -2238,14 +2238,15 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Repères historiques `(cm2-histoire-reperes)`
 
-- **Leçons** (8) :
+- **Leçons** (9) :
   - Les Temps modernes `(cm2-lesson-temps-modernes)` — blocs: paragraph, example, bullets, tip, check, check
   - La Révolution française `(cm2-lesson-revolution-francaise)` — blocs: paragraph, example, bullets, tip, check, check
+  - De Napoléon à la IIIe République `(cm2-lesson-empire-republiques)` — blocs: paragraph, mini-table, example, tip, check, check
   - Le temps de la République `(cm2-lesson-temps-republique)` — blocs: paragraph, example, bullets, tip, check, check
   - La France et l'Union européenne `(cm2-lesson-france-europe)` — blocs: paragraph, example, bullets, tip, check, check
   - Le XXe siècle en France `(cm2-lesson-reperes-xxe-siecle)` — blocs: paragraph, bullets, example, tip, check, check
   - La Première Guerre mondiale (1914-1918) `(cm2-lesson-premiere-guerre-mondiale)` — blocs: paragraph, example, bullets, tip, check, check
-  - La Seconde Guerre mondiale (1939-1945) `(cm2-lesson-seconde-guerre-mondiale)` — blocs: paragraph, example, bullets, tip, check, check
+  - La Seconde Guerre mondiale (1939-1945) `(cm2-lesson-seconde-guerre-mondiale)` — blocs: paragraph, example, paragraph, bullets, tip, check, check
   - La décolonisation `(cm2-lesson-decolonisation)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (12) :
   - Révolution `(cm2-histoire-revolution)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-revolution, questions=8
@@ -2259,7 +2260,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - La Première Guerre mondiale `(cm2-histoire-premiere-guerre)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-premiere-guerre-mondiale, questions=8
   - La Seconde Guerre mondiale `(cm2-histoire-seconde-guerre)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-seconde-guerre-mondiale, questions=8
   - Les Temps modernes `(cm2-histoire-temps-modernes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-temps-modernes, questions=6
-  - Défi : XXe siècle expert `(cm2-bonus-histoire-xxe-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-xxe-siecle, questions=12, bonus (seuil=2)
+  - Défi : XXe siècle expert `(cm2-bonus-histoire-xxe-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-xxe-defi, questions=6, bonus (seuil=2)
 
 #### Frises historiques `(cm2-histoire-frises)`
 
@@ -2277,7 +2278,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Frise : Progrès techniques `(cm2-histoire-frise-progres-ordre)` — engine: `timeline`, mode=order, grade=cm2, dataFile=data/history_chrono.json, timelineId=cm2-sciences-societe-ordre, questions=5
   - Placer : République `(cm2-histoire-frise-republique-place)` — engine: `timeline`, mode=place, grade=cm2, dataFile=data/history_chrono.json, timelineId=cm2-place-republique, questions=5
   - Placer : Europe `(cm2-histoire-frise-europe-place)` — engine: `timeline`, mode=place, grade=cm2, dataFile=data/history_chrono.json, timelineId=cm2-place-europe, questions=5
-  - Défi : Guerres et paix `(cm2-bonus-histoire-frise-guerres-paix)` — engine: `timeline`, mode=order, grade=cm2, dataFile=data/history_chrono.json, timelineId=cm2-guerres-paix-ordre, questions=7, bonus (seuil=2)
+  - Défi : Guerres et paix `(cm2-bonus-histoire-frise-guerres-paix)` — engine: `timeline`, mode=order, grade=cm2, dataFile=data/history_chrono.json, timelineId=cm2-guerres-paix-ordre, questions=6, bonus (seuil=2)
 
 #### Récits historiques `(cm2-histoire-recits-subtheme)`
 
@@ -2286,11 +2287,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - La République s'installe `(cm2-lesson-republique-progres)` — blocs: paragraph, example, bullets, tip, check, check
   - Le XXe siècle en France `(cm2-lesson-xxe-siecle-changements)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
-  - Récits de la Révolution à la République `(cm2-histoire-recits-revolution-republique)` — engine: `choice-engine`, type=factual-qcm, category=cm2-recits-historiques, dataFile=data/history_cm2.json, questions=8
-  - Défi : récits historiques `(cm2-bonus-histoire-recits-expert)` — engine: `choice-engine`, type=factual-qcm, category=cm2-recits-historiques, dataFile=data/history_cm2.json, questions=8, bonus (seuil=2)
-  - La Revolution francaise `(cm2-histoire-recits-revolution)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-revolution, questions=8
-  - Le XXe siecle `(cm2-histoire-xxe-siecle)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-xxe-siecle, questions=8
-  - Defi : grands recits de l'histoire `(cm2-bonus-histoire-recits-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-recits-historiques, questions=10, bonus (seuil=2)
+  - La République s'installe `(cm2-histoire-recits-revolution-republique)` — engine: `choice-engine`, type=factual-qcm, category=cm2-recits-republique, dataFile=data/history_cm2.json, questions=6
+  - Défi : récits historiques `(cm2-bonus-histoire-recits-expert)` — engine: `choice-engine`, type=factual-qcm, category=cm2-recits-defi-rr, dataFile=data/history_cm2.json, questions=6, bonus (seuil=2)
+  - La Révolution française `(cm2-histoire-recits-revolution)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-recits-revolution, questions=6
+  - Le XXe siècle `(cm2-histoire-xxe-siecle)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-recits-xxe, questions=6
+  - Défi : grands récits de l'histoire `(cm2-bonus-histoire-recits-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_cm2.json, category=cm2-recits-defi-mix, questions=6, bonus (seuil=2)
 
 ### Géographie (cm2-geographie-subject)
 

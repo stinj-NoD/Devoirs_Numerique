@@ -7987,3 +7987,27 @@ button.collection-map--fact {
 #app.quiet-mode .confetti {
     display: none !important;
 }
+
+/* Frise « placer » en thème sombre : le texte clair posait sur des fonds blancs codés en dur (contraste 1,14:1). */
+#app.theme-dark .timeline-target {
+    background: #223043;
+    border-color: rgba(147, 197, 253, 0.45);
+}
+#app.theme-dark .timeline-slot-label {
+    background: linear-gradient(180deg, #2a3a4f 0%, #223043 100%);
+    border-color: rgba(148, 163, 184, 0.4);
+    color: var(--color-text);
+    box-shadow: none;
+}
+#app.theme-dark .timeline-slot-tick {
+    background: #223043;
+    box-shadow: none;
+}
+#app.theme-dark .timeline-slot-stem {
+    background: rgba(147, 197, 253, 0.6);
+}
+#app.theme-dark .timeline-slot.is-selected .timeline-slot-label {
+    background: linear-gradient(180deg, rgba(74, 144, 226, 0.35) 0%, #223043 100%);
+    border-color: var(--subject-accent);
+    color: #ffffff;
+}

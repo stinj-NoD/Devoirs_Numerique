@@ -4740,15 +4740,15 @@
                         {
                             "id": "cm2-bonus-histoire-xxe-expert",
                             "title": "Défi : XXe siècle expert",
-                            "subtitle": "Série longue sur les grandes guerres",
+                            "subtitle": "Causes, conséquences et chronologie",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/history_cm2.json",
-                                "category": "cm2-xxe-siecle",
-                                "questions": 12
+                                "category": "cm2-xxe-defi",
+                                "questions": 6
                             }
                         }
                     ],
@@ -4785,7 +4785,7 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un roi affirme : « Je décide seul des impôts et des lois de mon royaume, aucune assemblée ne peut s'y opposer. » Quel nom donne-t-on à ce type de pouvoir ?",
+                                    "question": "Un roi décide seul des impôts et des lois, sans qu'aucune assemblée ne puisse s'y opposer. Comment nomme-t-on ce pouvoir ?",
                                     "choices": [
                                         "La monarchie absolue",
                                         "La monarchie parlementaire",
@@ -4796,14 +4796,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "En rassemblant les grands nobles autour de lui au château de Versailles plutôt qu'à Paris, quel avantage Louis XIV cherche-t-il surtout à obtenir ?",
+                                    "question": "Pourquoi Louis XIV rassemble-t-il les grands nobles à Versailles plutôt qu'à Paris ?",
                                     "choices": [
-                                        "Il peut surveiller les nobles et les occuper loin de tout complot",
-                                        "Il économise l'argent du royaume en réduisant les dépenses de la cour",
-                                        "Il permet aux nobles de gouverner à sa place pendant ses absences"
+                                        "Pour les surveiller et les occuper loin de tout complot",
+                                        "Pour faire des économies en réduisant les dépenses de la cour",
+                                        "Pour leur laisser gouverner à sa place pendant ses absences"
                                     ],
-                                    "answer": "Il peut surveiller les nobles et les occuper loin de tout complot",
-                                    "explanation": "En occupant les nobles avec les cérémonies et l'étiquette de la cour à Versailles, Louis XIV les tient sous son regard et les empêche de préparer une révolte loin de lui. Versailles a au contraire coûté très cher à construire et à entretenir, et le roi n'y délègue jamais son pouvoir : c'est lui seul qui gouverne."
+                                    "answer": "Pour les surveiller et les occuper loin de tout complot",
+                                    "explanation": "Occupés par les cérémonies de la cour, les nobles sont tenus sous le regard du roi et ne peuvent pas comploter. Versailles a coûté très cher, et le roi y gouverne seul."
                                 }
                             ]
                         },
@@ -4826,8 +4826,9 @@
                                     "type": "bullets",
                                     "label": "Repères à retenir",
                                     "items": [
-                                        "1789 : début de la Révolution française",
-                                        "La Déclaration des droits de l'homme et du citoyen affirme des principes nouveaux",
+                                        "14 juillet 1789 : prise de la Bastille",
+                                        "26 août 1789 : Déclaration des droits de l'homme et du citoyen",
+                                        "1792 : la Première République remplace la monarchie",
                                         "L'Ancien Régime disparaît progressivement"
                                     ]
                                 },
@@ -4838,25 +4839,103 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sous l'Ancien Régime, un noble ne payait pas certains impôts qu'un paysan devait payer, quelle que soit sa richesse. Comment appelle-t-on ce type d'avantage lié à la naissance, que la Révolution abolit ?",
+                                    "question": "Sous l'Ancien Régime, un noble ne payait pas certains impôts qu'un paysan payait. Comment nomme-t-on cet avantage de naissance ?",
                                     "choices": [
                                         "Un privilège",
                                         "Un salaire",
                                         "Une amende"
                                     ],
                                     "answer": "Un privilège",
-                                    "explanation": "Un privilège est un avantage reçu à la naissance, sans l'avoir mérité : c'est ce que la Révolution supprime au nom de l'égalité. Un salaire se gagne par son travail et une amende est une punition : ni l'un ni l'autre ne dépend de la famille où l'on naît."
+                                    "explanation": "Un privilège est un avantage reçu à la naissance, sans l'avoir mérité : la Révolution le supprime au nom de l'égalité. Un salaire se gagne et une amende punit."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "La Déclaration des droits de l'homme et du citoyen affirme que les hommes naissent libres et égaux en droits. Pourquoi cette phrase est-elle révolutionnaire en 1789 ?",
+                                    "question": "Les hommes naissent libres et égaux en droits, dit la Déclaration de 1789. Pourquoi cette phrase est-elle révolutionnaire ?",
                                     "choices": [
-                                        "Parce qu'elle nie l'idée que la naissance décide de la place de chacun",
-                                        "Parce qu'elle accorde immédiatement les mêmes droits à tous les habitants du monde",
-                                        "Parce qu'elle rend le roi plus puissant qu'auparavant"
+                                        "Elle nie que la naissance décide de la place de chacun",
+                                        "Elle donne aussitôt les mêmes droits à tous les habitants du monde",
+                                        "Elle rend le roi plus puissant qu'auparavant"
                                     ],
-                                    "answer": "Parce qu'elle nie l'idée que la naissance décide de la place de chacun",
-                                    "explanation": "Jusque-là, on naissait noble ou paysan, et cela fixait toute la vie : dire que tous naissent égaux en droits renverse ce principe. Ce texte ne s'appliquait pas à tous dans les faits, et il limite le pouvoir du roi au lieu de le renforcer."
+                                    "answer": "Elle nie que la naissance décide de la place de chacun",
+                                    "explanation": "Avant, on naissait noble ou paysan, et cela fixait toute la vie : dire que tous naissent égaux en droits renverse ce principe. Le texte limite le pouvoir du roi, il ne le renforce pas."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cm2-lesson-empire-republiques",
+                            "title": "De Napoléon à la IIIe République",
+                            "subtitle": "Les grands repères du XIXe siècle",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Après la Révolution, la France connaît tour à tour un Empire, des monarchies et plusieurs Républiques. La IIIe République, proclamée en 1870, s'installe durablement."
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "label": "Repères du XIXe siècle",
+                                    "headers": [
+                                        "Date",
+                                        "Événement"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "1799",
+                                            "Bonaparte prend le pouvoir"
+                                        ],
+                                        [
+                                            "1804",
+                                            "Napoléon devient empereur ; le Code civil est mis en place"
+                                        ],
+                                        [
+                                            "1815",
+                                            "défaite de Waterloo"
+                                        ],
+                                        [
+                                            "1848",
+                                            "IIe République ; abolition de l'esclavage"
+                                        ],
+                                        [
+                                            "1870",
+                                            "début de la IIIe République"
+                                        ],
+                                        [
+                                            "1882",
+                                            "l'école devient gratuite, obligatoire et laïque"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "En 1804, Napoléon est sacré empereur : la France, qui était une République, redevient un Empire."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le XIXe siècle alterne Empires et Républiques ; c'est la IIIe République, née en 1870, qui dure le plus longtemps."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans quel ordre se placent l'Empire de Napoléon, la IIe République et la IIIe République ?",
+                                    "choices": [
+                                        "Empire de Napoléon, IIe République, IIIe République",
+                                        "IIIe République, Empire de Napoléon, IIe République",
+                                        "IIe République, IIIe République, Empire de Napoléon"
+                                    ],
+                                    "answer": "Empire de Napoléon, IIe République, IIIe République",
+                                    "explanation": "L'Empire date de 1804-1815, la IIe République de 1848 et la IIIe de 1870 : on place les régimes d'après leurs dates."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "En 1882, les lois sur l'école rendent l'instruction obligatoire. Que change cela pour un enfant de 8 ans ?",
+                                    "choices": [
+                                        "Il doit aller à l'école, et elle est gratuite",
+                                        "Il doit travailler à l'usine pour aider sa famille",
+                                        "Il peut choisir de ne pas y aller si ses parents le décident"
+                                    ],
+                                    "answer": "Il doit aller à l'école, et elle est gratuite",
+                                    "explanation": "L'école de Jules Ferry est gratuite, obligatoire et laïque : tous les enfants de 6 à 13 ans, filles et garçons, doivent y aller."
                                 }
                             ]
                         },
@@ -4925,13 +5004,14 @@
                                     "type": "example"
                                 },
                                 {
+                                    "type": "bullets",
                                     "label": "À observer",
                                     "items": [
                                         "Les pays de l'Union européenne restent différents mais travaillent ensemble.",
-                                        "La monnaie euro est utilisée dans plusieurs États.",
-                                        "Les frontières n'empêchent pas les échanges culturels et économiques."
-                                    ],
-                                    "type": "bullets"
+                                        "1945 : l'ONU est créée pour maintenir la paix dans le monde.",
+                                        "1951 et 1957 : la CECA, puis le traité de Rome, premières étapes de la construction européenne.",
+                                        "1993 : naissance de l'Union européenne ; 1999 : arrivée de l'euro."
+                                    ]
                                 },
                                 {
                                     "label": "À retenir",
@@ -4940,24 +5020,24 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Une famille française part en vacances en Espagne, un autre pays de la zone euro. Elle achète un souvenir sur place. Que se passe-t-il ?",
+                                    "question": "Une famille française achète un souvenir en Espagne, pays de la zone euro. Comment paie-t-elle ?",
                                     "choices": [
-                                        "Elle paie en euros, sans avoir eu besoin de changer sa monnaie",
-                                        "Elle doit d'abord échanger ses euros contre la monnaie espagnole",
+                                        "En euros, sans changer sa monnaie",
+                                        "Après avoir échangé ses euros contre de la monnaie espagnole",
                                         "Elle ne peut rien acheter, car chaque pays interdit la monnaie des autres"
                                     ],
-                                    "answer": "Elle paie en euros, sans avoir eu besoin de changer sa monnaie",
+                                    "answer": "En euros, sans changer sa monnaie",
                                     "explanation": "L'euro est la monnaie commune de plusieurs États de l'Union : dans la zone euro, aucun échange de monnaie n'est nécessaire. L'Espagne n'a plus de monnaie nationale distincte, et rien n'empêche d'y acheter."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "L'Union européenne s'est construite après 1945, entre des pays qui venaient de s'affronter durant deux guerres mondiales. Quelle était l'idée de départ ?",
+                                    "question": "Après 1945, des pays qui s'étaient fait la guerre construisent l'Europe unie. Quelle était l'idée de départ ?",
                                     "choices": [
-                                        "Lier les pays par des échanges et des projets communs pour rendre la guerre improbable",
-                                        "Réunir tous ces pays en un seul État dirigé par un seul gouvernement",
+                                        "Les lier par des échanges et des projets communs, pour éviter la guerre",
+                                        "Les réunir en un seul État dirigé par un seul gouvernement central",
                                         "Effacer les langues et les cultures de chaque pays pour n'en garder qu'une"
                                     ],
-                                    "answer": "Lier les pays par des échanges et des projets communs pour rendre la guerre improbable",
+                                    "answer": "Les lier par des échanges et des projets communs, pour éviter la guerre",
                                     "explanation": "Des pays qui coopèrent et dépendent les uns des autres ont beaucoup à perdre à se faire la guerre : c'était le pari des fondateurs. Les États membres restent des pays distincts, avec leurs langues et leurs cultures."
                                 }
                             ],
@@ -4978,14 +5058,16 @@
                                 },
                                 {
                                     "type": "bullets",
+                                    "label": "Repères à connaître",
                                     "items": [
                                         "1914-1918 : Première Guerre mondiale",
+                                        "1936 : le Front populaire et les premiers congés payés",
                                         "1939-1945 : Seconde Guerre mondiale",
-                                        "1944-1945 : Libération et reconstruction",
+                                        "1944-1945 : Libération, droit de vote des femmes et Sécurité sociale",
                                         "1958 : naissance de la Ve République",
+                                        "1961 et 1989 : construction puis chute du mur de Berlin",
                                         "Après 1945 : construction européenne"
-                                    ],
-                                    "label": "Repères à connaître"
+                                    ]
                                 },
                                 {
                                     "type": "example",
@@ -4999,7 +5081,7 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un arrière-grand-père né en 1900 raconte avoir été soldat pendant la Première Guerre mondiale, puis avoir vu la Seconde. Quel âge avait-il environ au début de la Seconde Guerre mondiale ?",
+                                    "question": "Un arrière-grand-père né en 1900 a connu les deux guerres mondiales. Quel âge avait-il au début de la Seconde ?",
                                     "choices": [
                                         "Environ 39 ans",
                                         "Environ 14 ans",
@@ -5053,13 +5135,13 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Les deux armées s'enterrent face à face dans des tranchées, protégées par des fossés et des barbelés. Pourquoi cela transforme-t-il le conflit en une guerre très longue ?",
+                                    "question": "Les armées s'enterrent dans des tranchées. Pourquoi la guerre devient-elle alors très longue ?",
                                     "choices": [
-                                        "Chaque camp est bien protégé : aucun n'arrive à repousser l'autre durablement",
+                                        "Chaque camp est protégé : aucun ne parvient à repousser l'autre",
                                         "Les soldats des deux camps refusent désormais de se battre",
-                                        "Les armées sont trop petites pour occuper le terrain"
+                                        "Les armées sont trop petites pour occuper tout le terrain"
                                     ],
-                                    "answer": "Chaque camp est bien protégé : aucun n'arrive à repousser l'autre durablement",
+                                    "answer": "Chaque camp est protégé : aucun ne parvient à repousser l'autre",
                                     "explanation": "À l'abri dans leurs tranchées, les défenseurs repoussent les assauts : le front bouge à peine pendant des années, d'où l'enlisement. Les soldats ont continué à combattre, et les armées engagées étaient au contraire immenses."
                                 },
                                 {
@@ -5091,6 +5173,10 @@
                                     "content": "Depuis Londres, le général de Gaulle lance le 18 juin 1940 un appel à poursuivre le combat : des hommes et des femmes, comme Jean Moulin, s’engagent dans la Résistance."
                                 },
                                 {
+                                    "type": "paragraph",
+                                    "text": "Pendant l'Occupation, le régime de Vichy du maréchal Pétain collabore avec l'Allemagne nazie. Les nazis persécutent les Juifs puis organisent leur extermination : c'est la Shoah, un crime contre l'humanité qui a fait environ six millions de morts. Des Françaises et des Français, appelés plus tard les Justes, ont caché des personnes juives au risque de leur vie."
+                                },
+                                {
                                     "type": "bullets",
                                     "label": "Vocabulaire et repères",
                                     "items": [
@@ -5107,25 +5193,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sous l'Occupation, des résistants cachent des personnes recherchées, transmettent des messages secrets et font dérailler des trains allemands. Pourquoi devaient-ils agir dans le plus grand secret ?",
+                                    "question": "Sous l'Occupation, les résistants agissent dans le plus grand secret. Pourquoi ?",
                                     "choices": [
-                                        "Parce qu'ils risquaient la prison, la déportation ou la mort s'ils étaient découverts",
-                                        "Parce que l'armée allemande ignorait qu'une résistance existait en France",
-                                        "Parce que les résistants étaient très peu nombreux au début"
+                                        "Ils risquent la prison, la déportation ou la mort s'ils sont découverts",
+                                        "L'armée allemande ignore qu'une résistance existe en France",
+                                        "Les résistants sont très peu nombreux au début"
                                     ],
-                                    "answer": "Parce qu'ils risquaient la prison, la déportation ou la mort s'ils étaient découverts",
-                                    "explanation": "Résister était puni des peines les plus lourdes : le secret était une question de survie. L'occupant savait parfaitement que la Résistance existait et la traquait ; et si les résistants étaient d'abord peu nombreux, c'est bien le danger, non leur nombre, qui imposait la clandestinité."
+                                    "answer": "Ils risquent la prison, la déportation ou la mort s'ils sont découverts",
+                                    "explanation": "Résister était puni des peines les plus lourdes : le secret était une question de survie. L'occupant connaissait l'existence de la Résistance et la traquait."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Le 6 juin 1944, des dizaines de milliers de soldats alliés débarquent sur les plages de Normandie. En quoi cette opération est-elle décisive pour la France ?",
+                                    "question": "Le 6 juin 1944, les Alliés débarquent en Normandie. En quoi est-ce décisif pour la France ?",
                                     "choices": [
                                         "Elle ouvre un nouveau front qui permet de libérer le pays de l'Occupation",
                                         "Elle marque le tout début de la Seconde Guerre mondiale",
                                         "Elle met fin aux combats dans le monde entier ce jour-là"
                                     ],
                                     "answer": "Elle ouvre un nouveau front qui permet de libérer le pays de l'Occupation",
-                                    "explanation": "Le débarquement installe les Alliés sur le sol français et lance la reconquête du territoire, jusqu'à la Libération. La guerre avait commencé cinq ans plus tôt, en 1939, et elle se poursuit après juin 1944 : en Europe, elle ne s'achève que le 8 mai 1945."
+                                    "explanation": "Le débarquement installe les Alliés sur le sol français et lance la reconquête du territoire. La guerre avait commencé en 1939 ; en Europe elle s'achève le 8 mai 1945."
                                 }
                             ]
                         },
@@ -5162,7 +5248,7 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un territoire d'Afrique dominé par la France élit désormais son propre président, vote ses propres lois et siège à l'ONU en son nom. Comment nomme-t-on ce changement ?",
+                                    "question": "Un territoire d'Afrique élit son président, vote ses lois et siège à l'ONU en son nom. Quel changement est-ce ?",
                                     "choices": [
                                         "Il a obtenu son indépendance",
                                         "Il est devenu une colonie",
@@ -5173,14 +5259,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Les peuples colonisés ont combattu aux côtés de la France pour la liberté durant la Seconde Guerre mondiale. Pourquoi leurs revendications d'indépendance deviennent-elles ensuite très difficiles à refuser ?",
+                                    "question": "Les peuples colonisés ont combattu pour la liberté de 1939 à 1945. Pourquoi refuser leur indépendance devient-il difficile ?",
                                     "choices": [
-                                        "Parce qu'on ne peut pas leur refuser la liberté qu'ils ont aidé à défendre",
-                                        "Parce que la France avait promis par écrit d'abandonner toutes ses colonies avant 1939",
-                                        "Parce que les colonies n'intéressaient plus personne après la guerre"
+                                        "On ne peut pas leur refuser la liberté qu'ils ont aidé à défendre",
+                                        "La France avait promis par écrit d'abandonner ses colonies avant 1939",
+                                        "Les colonies n'intéressent plus personne après la guerre"
                                     ],
-                                    "answer": "Parce qu'on ne peut pas leur refuser la liberté qu'ils ont aidé à défendre",
-                                    "explanation": "Avoir combattu au nom de la liberté rendait la domination coloniale contradictoire : c'est un puissant argument des mouvements d'indépendance. Aucune promesse générale d'abandon n'avait été signée avant 1939, et les colonies gardaient un intérêt économique — d'où des indépendances parfois négociées, parfois arrachées par la guerre."
+                                    "answer": "On ne peut pas leur refuser la liberté qu'ils ont aidé à défendre",
+                                    "explanation": "Avoir combattu au nom de la liberté rendait la domination coloniale contradictoire. Aucune promesse écrite n'existait avant 1939 : les indépendances ont été négociées ou arrachées."
                                 }
                             ]
                         }
@@ -5223,7 +5309,7 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un élève doit classer sur une frise : la Ve République, la Première Guerre mondiale et la Seconde Guerre mondiale. Quel est le bon ordre, du plus ancien au plus récent ?",
+                                    "question": "Classe sur une frise, du plus ancien au plus récent : Ve République, Première et Seconde Guerre mondiale.",
                                     "choices": [
                                         "Première Guerre mondiale, Seconde Guerre mondiale, Ve République",
                                         "Ve République, Première Guerre mondiale, Seconde Guerre mondiale",
@@ -5259,10 +5345,11 @@
                                     "type": "bullets",
                                     "label": "Quelques grandes avancées",
                                     "items": [
-                                        "le chemin de fer",
-                                        "le téléphone",
-                                        "le cinéma",
-                                        "la conquête spatiale : le premier homme sur la Lune"
+                                        "vers 1837 : le chemin de fer se développe",
+                                        "1876 : le téléphone",
+                                        "1889 : la tour Eiffel, symbole du progrès du fer",
+                                        "1895 : les premières séances de cinéma",
+                                        "1969 : le premier homme sur la Lune"
                                     ]
                                 },
                                 {
@@ -5277,24 +5364,24 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Avant le chemin de fer, il fallait plusieurs jours de diligence pour traverser la France ; ensuite, il ne faut plus que quelques heures de train. Quelle conséquence cela a-t-il pour les gens ordinaires ?",
+                                    "question": "Avant le chemin de fer, il fallait plusieurs jours de diligence ; ensuite quelques heures de train. Quelle conséquence ?",
                                     "choices": [
-                                        "On peut voyager, s'installer ailleurs et transporter des marchandises bien plus loin",
-                                        "On voyage exactement comme avant, mais assis plus confortablement",
-                                        "Les habitants cessent de se déplacer entre les régions"
+                                        "On peut voyager et déménager, et transporter des marchandises plus loin",
+                                        "On voyage comme avant, mais assis plus confortablement qu'en diligence",
+                                        "Les habitants cessent presque tous de se déplacer entre les régions"
                                     ],
-                                    "answer": "On peut voyager, s'installer ailleurs et transporter des marchandises bien plus loin",
-                                    "explanation": "En raccourcissant les distances, le train rend possibles des trajets, des déménagements et des échanges jusque-là impensables. Le confort n'est pas l'essentiel : c'est le temps de trajet qui change tout, et les déplacements augmentent au lieu de cesser."
+                                    "answer": "On peut voyager et déménager, et transporter des marchandises plus loin",
+                                    "explanation": "En raccourcissant les distances, le train rend possibles des trajets, des déménagements et des échanges jusque-là impensables : le temps de trajet change tout."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un grand-père raconte : « Quand j'étais enfant, pour savoir si ma tante allait bien, on attendait sa lettre pendant une semaine. » Quelle invention a le plus changé cette situation ?",
+                                    "question": "Un grand-père attendait une semaine la lettre de sa tante pour avoir de ses nouvelles. Quelle invention a le plus changé cela ?",
                                     "choices": [
-                                        "Le téléphone, qui permet de se parler tout de suite malgré la distance",
+                                        "Le téléphone, qui permet de se parler tout de suite",
                                         "Le cinéma, qui permet de voir des images en mouvement",
                                         "La conquête spatiale, qui permet d'aller sur la Lune"
                                     ],
-                                    "answer": "Le téléphone, qui permet de se parler tout de suite malgré la distance",
+                                    "answer": "Le téléphone, qui permet de se parler tout de suite",
                                     "explanation": "Le problème décrit est le délai pour prendre des nouvelles de quelqu'un de loin : le téléphone le supprime en rendant l'échange immédiat. Le cinéma sert à voir des spectacles et la conquête spatiale n'a rien changé aux nouvelles d'une famille."
                                 }
                             ]
@@ -5446,7 +5533,8 @@
                                 "grade": "cm2",
                                 "dataFile": "data/history_chrono.json",
                                 "timelineId": "cm2-guerres-paix-ordre",
-                                "questions": 7
+                                "questions": 6,
+                                "difficulty": [2, 3]
                             }
                         }
                     ]
@@ -5474,11 +5562,9 @@
                                 {
                                     "type": "bullets",
                                     "items": [
-                                        "1789",
-                                        "roi",
-                                        "liberté",
-                                        "égalité",
-                                        "Révolution"
+                                        "1789 : début de la Révolution française",
+                                        "le pouvoir absolu du roi est remis en cause",
+                                        "la liberté et l'égalité sont les idées nouvelles"
                                     ]
                                 },
                                 {
@@ -5499,13 +5585,13 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "La Bastille était une prison où l'on pouvait être enfermé sur simple ordre du roi, sans procès. Pourquoi sa prise est-elle devenue un symbole si fort ?",
+                                    "question": "La Bastille était une prison où l'on enfermait sur ordre du roi, sans procès. Pourquoi sa prise est-elle un symbole fort ?",
                                     "choices": [
-                                        "Parce qu'elle représentait le pouvoir d'emprisonner sans justice, refusé par le peuple",
-                                        "Parce qu'elle était le plus grand château fort construit en France",
-                                        "Parce que le roi y habitait avec toute sa famille"
+                                        "Elle représentait le pouvoir d'emprisonner sans justice",
+                                        "Elle était le plus grand château fort construit en France",
+                                        "Le roi y habitait avec toute sa famille et toute sa cour"
                                     ],
-                                    "answer": "Parce qu'elle représentait le pouvoir d'emprisonner sans justice, refusé par le peuple",
+                                    "answer": "Elle représentait le pouvoir d'emprisonner sans justice",
                                     "explanation": "S'attaquer à la Bastille, c'était s'attaquer à l'arbitraire : être puni sans jugement. Sa taille n'avait rien d'exceptionnel, et le roi résidait alors à Versailles, pas à la Bastille."
                                 }
                             ]
@@ -5527,12 +5613,12 @@
                                 },
                                 {
                                     "type": "bullets",
+                                    "label": "Repères",
                                     "items": [
-                                        "République",
-                                        "école",
-                                        "vote",
-                                        "drapeau",
-                                        "devise"
+                                        "1848 : IIe République et abolition de l'esclavage",
+                                        "1870 : début de la IIIe République",
+                                        "1882 : l'école devient obligatoire et laïque",
+                                        "le drapeau, la Marseillaise et la devise unissent les citoyens"
                                     ]
                                 },
                                 {
@@ -5553,7 +5639,7 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Le drapeau tricolore flotte sur toutes les mairies de France, du plus petit village à la grande ville. Pourquoi la République tient-elle à ces symboles communs ?",
+                                    "question": "Le drapeau tricolore flotte sur toutes les mairies de France. Pourquoi la République tient-elle à ces symboles communs ?",
                                     "choices": [
                                         "Pour rappeler que tous ces habitants font partie d'une même République",
                                         "Pour indiquer aux voyageurs le chemin de la mairie",
@@ -5582,11 +5668,10 @@
                                 {
                                     "type": "bullets",
                                     "items": [
-                                        "guerres mondiales",
-                                        "progrès techniques",
-                                        "santé",
-                                        "transports",
-                                        "vie quotidienne"
+                                        "deux guerres mondiales (1914-1918 et 1939-1945)",
+                                        "des progrès techniques : voiture, avion, radio, télévision",
+                                        "des progrès de la santé : vaccins, antibiotiques",
+                                        "une vie quotidienne qui change : électricité, congés payés"
                                     ]
                                 },
                                 {
@@ -5596,7 +5681,7 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Au cours du XXe siècle, les Français vivent en moyenne beaucoup plus vieux qu'au début du siècle. Quelle explication est la plus solide ?",
+                                    "question": "Au XXe siècle, les Français vivent en moyenne beaucoup plus vieux. Quelle explication est la plus solide ?",
                                     "choices": [
                                         "Les soins et l'hygiène font reculer des maladies mortelles",
                                         "Les gens ont décidé de faire plus attention à eux",
@@ -5614,7 +5699,7 @@
                                         "Il a tort : le XXe siècle n'a apporté aucun progrès"
                                     ],
                                     "answer": "Le siècle mêle de grands progrès et des drames terribles",
-                                    "explanation": "Un même siècle peut apporter le confort et la médecine moderne tout en connaissant des guerres meurtrières : l'histoire n'avance pas toujours dans un seul sens. Dire que tout était facile oublie les guerres ; dire qu'il n'y eut aucun progrès oublie les transports, la santé et l'école."
+                                    "explanation": "Un même siècle apporte le confort et la médecine moderne tout en connaissant des guerres meurtrières : l'histoire n'avance pas toujours dans un seul sens."
                                 }
                             ]
                         }
@@ -5622,14 +5707,15 @@
                     "exercises": [
                         {
                             "id": "cm2-histoire-recits-revolution-republique",
-                            "title": "Récits de la Révolution à la République",
+                            "title": "La République s'installe",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
-                                "category": "cm2-recits-historiques",
+                                "category": "cm2-recits-republique",
                                 "dataFile": "data/history_cm2.json",
-                                "questions": 8
-                            }
+                                "questions": 6
+                            },
+                            "subtitle": "École, droits et laïcité"
                         },
                         {
                             "id": "cm2-bonus-histoire-recits-expert",
@@ -5640,38 +5726,38 @@
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
-                                "category": "cm2-recits-historiques",
+                                "category": "cm2-recits-defi-rr",
                                 "dataFile": "data/history_cm2.json",
-                                "questions": 8
+                                "questions": 6
                             }
                         },
                         {
                             "id": "cm2-histoire-recits-revolution",
-                            "title": "La Revolution francaise",
-                            "subtitle": "1789 : un tournant historique",
+                            "title": "La Révolution française",
+                            "subtitle": "1789 : causes et conséquences",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/history_cm2.json",
-                                "category": "cm2-revolution",
-                                "questions": 8
+                                "category": "cm2-recits-revolution",
+                                "questions": 6
                             }
                         },
                         {
                             "id": "cm2-histoire-xxe-siecle",
-                            "title": "Le XXe siecle",
+                            "title": "Le XXe siècle",
                             "subtitle": "Guerres, paix et grandes transformations",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/history_cm2.json",
-                                "category": "cm2-xxe-siecle",
-                                "questions": 8
+                                "category": "cm2-recits-xxe",
+                                "questions": 6
                             }
                         },
                         {
                             "id": "cm2-bonus-histoire-recits-defi",
-                            "title": "Defi : grands recits de l'histoire",
+                            "title": "Défi : grands récits de l'histoire",
                             "subtitle": "Revolution, guerres, republique",
                             "engine": "choice-engine",
                             "isBonus": true,
@@ -5679,8 +5765,8 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/history_cm2.json",
-                                "category": "cm2-recits-historiques",
-                                "questions": 10
+                                "category": "cm2-recits-defi-mix",
+                                "questions": 6
                             }
                         }
                     ]
