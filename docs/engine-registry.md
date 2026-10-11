@@ -154,6 +154,17 @@ multiple du diviseur (il est décalé de 1, vers le haut ou vers le bas selon la
 affiche la consigne « Additionne les points des flèches : chacune vaut le nombre de sa zone. » hors habillage `skin: money` (la question était vide) ;
 `conjugation` passe par `Engines.unique` (la clé d'unicité inclut pronom, infinitif et temps : une même forme n'est plus posée deux fois dans une série).
 
+¹⁶ Ajustements de la passe « Mineurs du CM1 » (v4.68.0). **Deux paramètres facultatifs nouveaux** (les deux validateurs et `data/engine-registry.json`
+sont à jour) : `operation-posed` accepte `mixed: true` (booléen, `add`/`sub`, `decimals: 2`) — une fois sur deux le premier terme n'a qu'une décimale
+(« 12,4 + 7,35 »), la case manquante reste vide dans la pose (`data.aDecimals`, `blankTail` côté `ui-visuals.js`), ce que la leçon des décimaux posés enseigne ;
+`dictée-nombres` accepte `min` (borne basse du tirage) : les trois dictées du CM1 couvrent trois paliers distincts (jusqu'à 100 000, de 100 000 à 999 999,
+de 500 000 au million). **Sans nouveau paramètre** : `validateAnswer` accepte un décimal saisi sans son zéro final (« 157 » = « 157,0 », comparaison numérique
+quand la cible a la forme `\d+,\d+`) ; `shape-classify` dessine la figure (SVG en ligne : carré, rectangle, losange, cercle, triangle, équilatéral, isocèle)
+dans chaque pastille ; `symmetry-complete` accepte `board.axis: { type: 'horizontal', y }` en plus de l'axe vertical ; `proportionnalite`, `bar-chart-read`
+et `data-table-read` élident « de » devant une voyelle (`deElide`) et mettent le libellé au singulier pour la quantité 1 ; `average-compute` borne la valeur
+dérivée à `maxValue` (plus de note de 39 sur 20) ; `place-value` en `ask: 'value'` ne demande que des chiffres non nuls ; `aire-rectangle` ne tire plus un
+carré ; `fraction-operation` en addition écarte le dénominateur 2 (`1/2 + 1/2`).
+
 **Alias normalisés en entrée** (`js/engines.js`) : `compare`/`choice` → `choice-engine` ;
 `oiseau` → `math-input` + `type:oiseau-math`.
 
