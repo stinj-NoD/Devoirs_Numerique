@@ -144,6 +144,11 @@ la consigne affichée et lue (une réponse à espaces est reconnue comme phrase 
 ou d'un `counting` ne répète plus une question dans une série (`Engines.unique` : jusqu'à 30 retirages) ; la pastille Jour/Nuit de `clock` n'apparaît
 qu'à partir du niveau 3 (cadran à 24 heures).
 
+¹⁴ Ajustements de la passe « Mineurs du CE1 » (v4.66.0), sans nouveau paramètre : `mult` en mode `produit` tire le second facteur de 1 à 10
+(« × 0 » n'est enseigné nulle part en cycle 2 ; dix valeurs pour dix questions, donc une série pose la table entière) ; `clock` des niveaux 1 et 2 affiche
+la consigne « Écris l'heure en chiffres : deux chiffres pour l'heure, deux pour les minutes » (la réponse se tape en quatre chiffres) ;
+`homophone-duel` reprend la graphie du bouton quand la réponse n'en diffère que par la casse (phrase qui commence par « On »).
+
 **Alias normalisés en entrée** (`js/engines.js`) : `compare`/`choice` → `choice-engine` ;
 `oiseau` → `math-input` + `type:oiseau-math`.
 
