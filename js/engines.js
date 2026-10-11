@@ -74,7 +74,7 @@ const Engines = {
                     result = this.generators.clozeFillIn(params, lib);
                     break;
 
-                case 'conjugation': result = this.generators.conjugation(params, lib); break;
+                case 'conjugation': result = this.unique(params, () => this.generators.conjugation(params, lib)); break;
                 case 'clock': result = this.unique(params, () => this.generators.clock(params)); break;
                 case 'counting': result = this.unique(params, () => this.generators.counting(params)); break;
                 case 'timeline': result = this.generators.timeline(params); break;
@@ -111,7 +111,7 @@ const Engines = {
             const hits = Array.isArray(d.hits)
                 ? d.hits.map((h) => (h && typeof h === 'object' ? h.val : h)).sort((a, b) => a - b).join('+')
                 : '';
-            return 'q:' + JSON.stringify([r && r.question, r && r.answer, hits, d.val, d.u1, d.u2, d.hours, d.minutes, d.n, d.d, d.a, d.b, d.dividend, d.divisor, d.question]);
+            return 'q:' + JSON.stringify([r && r.question, r && r.answer, hits, d.val, d.u1, d.u2, d.hours, d.minutes, d.n, d.d, d.a, d.b, d.dividend, d.divisor, d.question, d.pronoun, d.infinitive, d.tense]);
         };
         for (let essai = 0; essai < 30 && used.has(cle(result)); essai++) result = genere();
         used.add(cle(result));

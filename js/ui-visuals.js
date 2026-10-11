@@ -26,7 +26,8 @@ const UIVisuals = {
             svg += `<circle cx="${tx}" cy="${ty}" r="6" fill="black" stroke="white" stroke-width="2"/>`;
         });
 
-        return `<div class="visual-card visual-card--target">${svg}</svg></div>`;
+        const legende = d.caption ? `<div class="clock-caption">${SecurityUtils.escapeHtml(String(d.caption))}</div>` : '';
+        return `<div class="visual-card visual-card--target">${legende}${svg}</svg></div>`;
     },
 
     getDivisionSteps(dividend, divisor) {

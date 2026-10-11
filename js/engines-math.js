@@ -150,7 +150,7 @@
                     touches.push({ val, angle: (i * (360 / (p.nbFleches || 3)) + rnd(0, 20)) * (Math.PI / 180) });
                 }
                 const totalScore = touches.reduce((acc, item) => acc + item.val, 0);
-                return { isVisual: true, visualType: p.skin === 'money' ? 'money' : 'target', data: { zonesDefinitions: zones, hits: touches }, answer: totalScore, explanation: `${touches.map(t => t.val).join(' + ')} = ${totalScore}` };
+                return { isVisual: true, visualType: p.skin === 'money' ? 'money' : 'target', data: { zonesDefinitions: zones, hits: touches, caption: p.skin === 'money' ? undefined : 'Additionne les points des flèches : chacune vaut le nombre de sa zone.' }, answer: totalScore, explanation: `${touches.map(t => t.val).join(' + ')} = ${totalScore}` };
             }
             case 'half': {
                 // min/max bornent la MOITIÉ demandée (ex: min 5, max 25 → moitié de 10 à 50)
@@ -267,9 +267,16 @@
                 // 9 999 divisé par un chiffre » en défi de CM1. Absents, le niveau décide.
                 if (Array.isArray(p.divisors) && p.divisors.length) d_divisor = pick(p.divisors);
                 if (Array.isArray(p.dividend) && p.dividend.length === 2) d_dividend = rnd(p.dividend[0], p.dividend[1]);
+                const askRemainder = p.ask === 'reste';
+                // Un exercice qui demande « ce qu'il reste » ne doit pas poser une division exacte
+                // (10 tirages sur 40 avaient pour réponse 0) : on décale le dividende d'une unité,
+                // dans ses bornes, ce qui donne un reste de 1 (ou de diviseur - 1 vers le bas).
+                if (askRemainder && d_dividend % d_divisor === 0) {
+                    const borneHaute = Array.isArray(p.dividend) && p.dividend.length === 2 ? p.dividend[1] : (level === 1 ? 900 : (level === 2 ? 2000 : 9999));
+                    d_dividend += d_dividend + 1 <= borneHaute ? 1 : -1;
+                }
                 const d_q = Math.floor(d_dividend / d_divisor);
                 const d_r = d_dividend % d_divisor;
-                const askRemainder = p.ask === 'reste';
                 const divExplanation = `${d_dividend} : ${d_divisor} : le quotient est ${d_q} (${d_divisor} × ${d_q} = ${d_divisor * d_q}) et il reste ${d_r}.`;
                 return { question: askRemainder ? "Quel est le reste ?" : "Quel est le quotient ?", answer: askRemainder ? d_r : d_q, isVisual: true, visualType: 'division', inputType: 'numeric', data: { dividend: d_dividend, divisor: d_divisor, askRemainder }, explanation: divExplanation };
             }
