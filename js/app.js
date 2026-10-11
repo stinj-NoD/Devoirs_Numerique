@@ -2716,6 +2716,12 @@ const App = {
             if (!isCorrect && problemData.visualType === 'clock' && /^\d{3}$/.test(uInput) && /^\d{4}$/.test(tAnswer)) {
                 isCorrect = ("0" + uInput) === tAnswer;
             }
+            // Réponse décimale : « 157 » vaut « 157,0 » et « 12,4 » vaut « 12,40 » (la leçon le dit :
+            // « 12,4 et 12,40 valent la même chose »). La comparaison de chaînes refusait un nombre
+            // juste dès que la réponse attendue finissait par un zéro (15 % des additions de dixièmes).
+            if (!isCorrect && /^\d+,\d+$/.test(tAnswer) && /^\d+(?:[.,]\d+)?$/.test(uInput)) {
+                isCorrect = Number(uInput.replace(',', '.')) === Number(tAnswer.replace(',', '.'));
+            }
         }
 
         if (isCorrect) {

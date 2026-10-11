@@ -231,6 +231,9 @@ function Validate-Exercise($path, $themeId, $exercise) {
         if ($null -ne $exercise.params.carry -and $exercise.params.carry -isnot [bool]) {
             Add-Issue("${path}: carry invalide pour $($exercise.id)")
         }
+        if ($null -ne $exercise.params.mixed -and $exercise.params.mixed -isnot [bool]) {
+            Add-Issue("${path}: mixed invalide pour $($exercise.id)")
+        }
     }
     if ($exercise.params.type -eq 'division-posed') {
         # divisors : liste d'entiers 2-99 ; dividend : [min, max] entiers croissants (10 a 99999).

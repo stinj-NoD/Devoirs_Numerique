@@ -508,6 +508,9 @@
             if (exercise.params.carry !== undefined && typeof exercise.params.carry !== 'boolean') {
                 return { valid: false, reason: 'carry invalide pour operation-posed (booléen attendu).' };
             }
+            if (exercise.params.mixed !== undefined && typeof exercise.params.mixed !== 'boolean') {
+                return { valid: false, reason: 'mixed invalide pour operation-posed (booléen attendu).' };
+            }
         }
         if (exercise.params.type === 'division-posed') {
             // divisors : liste d'entiers 2-99 ; dividend : [min, max] entiers croissants (10 à 99 999).

@@ -514,12 +514,14 @@ const UIVisuals = {
         // Construit une ligne de `width` cases en partant de la droite : les
         // `decimals` derniers chiffres, une virgule si `showComma`, puis le
         // reste des chiffres, puis des cases vides pour compléter à `width`.
-        const buildRow = (str, showComma, colorClass = '') => {
+        const buildRow = (str, showComma, colorClass = '', blankTail = 0) => {
             const chars = str.split('');
             const cellsFromRight = [];
             if (showComma) {
                 for (let k = 0; k < decimals; k++) {
-                    cellsFromRight.push(`<span class="operation-cell${colorClass ? ' ' + colorClass : ''}">${chars.pop() || ''}</span>`);
+                    // `blankTail` : cases laissées vides à droite (« 12,4 » posé sur deux décimales).
+                    const chiffre = chars.pop() || '';
+                    cellsFromRight.push(`<span class="operation-cell${colorClass ? ' ' + colorClass : ''}">${k < blankTail ? '&nbsp;' : chiffre}</span>`);
                 }
                 cellsFromRight.push('<span class="operation-cell operation-cell--comma">,</span>');
             }
@@ -531,7 +533,9 @@ const UIVisuals = {
             }
             return cellsFromRight.reverse().join('');
         };
-        const buildDigitRow = (str, colorClass = '') => buildRow(str, operandsShowComma, colorClass);
+        const buildDigitRow = (str, colorClass = '', blankTail = 0) => buildRow(str, operandsShowComma, colorClass, blankTail);
+        // Premier terme à une seule décimale (`mixed`) : la dernière case reste vide, à compléter par un zéro.
+        const aBlankTail = operandsShowComma && Number.isInteger(d.aDecimals) && d.aDecimals < decimals ? decimals - d.aDecimals : 0;
 
         // Calcule les retenues (addition) ou emprunts (soustraction) colonne
         // par colonne, de droite à gauche, pour les afficher au-dessus du
@@ -578,7 +582,7 @@ const UIVisuals = {
             <div class="operation-posed-card visual-card visual-card--operation-posed">
                 <div class="operation-layout" style="--operation-width:${width};">
                     ${carryRowHtml}
-                    <div class="operation-row">${buildDigitRow(aStr)}</div>
+                    <div class="operation-row">${buildDigitRow(aStr, '', aBlankTail)}</div>
                     <div class="operation-row operation-row--operand">
                         <span class="operation-sign">${symbol}</span>
                         ${buildDigitRow(bStr)}

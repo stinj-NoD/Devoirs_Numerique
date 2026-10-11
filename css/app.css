@@ -2199,6 +2199,13 @@ button,
     text-align: center;
 }
 
+/* Thème sombre : l'accent « fort » des matières (vert, brun, violet, bleu foncé) se lit mal sur fond sombre.
+   On l'éclaircit en gardant sa teinte ; le gris clair sert de repli aux navigateurs sans color-mix. */
+#app.theme-dark .game-instruction {
+    color: #dfe7ee;
+    color: color-mix(in srgb, var(--subject-accent-strong) 35%, #ffffff);
+}
+
 .math-problem {
     width: 100%;
     display: flex;
@@ -2688,6 +2695,10 @@ button,
 }
 
 .board-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     min-height: var(--touch-target-min);
     border-radius: 999px;
     border: 1px solid rgba(74, 144, 226, 0.24);
@@ -2697,6 +2708,19 @@ button,
     text-align: center;
     cursor: pointer;
     transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+}
+
+.board-shape-icon {
+    width: 40px;
+    height: 32px;
+    flex: 0 0 auto;
+}
+
+.board-shape-icon * {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.6;
+    stroke-linejoin: round;
 }
 
 .board-chip.is-selected {

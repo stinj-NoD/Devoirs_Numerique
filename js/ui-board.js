@@ -395,6 +395,22 @@ const UIBoard = {
         `;
     },
 
+    /** Petit dessin d'une figure du classement (contour en currentColor : lisible en thèmes clair et sombre). */
+    _shapeIcon(shape) {
+        const formes = {
+            carre: '<rect x="11" y="6" width="26" height="26" />',
+            rectangle: '<rect x="5" y="9" width="38" height="20" />',
+            losange: '<polygon points="24,3 44,19 24,35 4,19" />',
+            cercle: '<circle cx="24" cy="19" r="15" />',
+            triangle: '<polygon points="6,33 41,29 16,5" />',
+            'triangle-equilateral': '<polygon points="24,5 42,34 6,34" />',
+            'triangle-isocele': '<polygon points="24,3 36,35 12,35" />'
+        };
+        const dessin = formes[String(shape || '')];
+        if (!dessin) return '';
+        return `<svg class="board-shape-icon" viewBox="0 0 48 38" aria-hidden="true" focusable="false">${dessin}</svg>`;
+    },
+
     renderShapeClassify(problem) {
         const data = problem.data || {};
         const figures = Array.isArray(data.figures) ? data.figures : [];
@@ -413,6 +429,7 @@ const UIBoard = {
                 data-val="board-select-figure:${SecurityUtils.sanitizeId(figure.id)}"
                 ${revealed ? 'disabled' : ''}
             >
+                ${this._shapeIcon(figure.shape)}
                 <span class="board-chip-label">${this._escape(figure.label || figure.shape || figure.id)}</span>
             </button>
         `).join('');
@@ -805,9 +822,12 @@ const UIBoard = {
             return `<line x1="${margin}" y1="${y}" x2="${size - margin}" y2="${y}" class="board-grid-line" />`;
         }).join('');
 
-        const axisLine = axis && axis.type === 'vertical'
-            ? `<line x1="${margin + Number(axis.x || 0) * stepX}" y1="${margin}" x2="${margin + Number(axis.x || 0) * stepX}" y2="${size - margin}" class="board-axis-line" />`
-            : '';
+        let axisLine = '';
+        if (axis && axis.type === 'vertical') {
+            axisLine = `<line x1="${margin + Number(axis.x || 0) * stepX}" y1="${margin}" x2="${margin + Number(axis.x || 0) * stepX}" y2="${size - margin}" class="board-axis-line" />`;
+        } else if (axis && axis.type === 'horizontal') {
+            axisLine = `<line x1="${margin}" y1="${margin + Number(axis.y || 0) * stepY}" x2="${size - margin}" y2="${margin + Number(axis.y || 0) * stepY}" class="board-axis-line" />`;
+        }
 
         const toKey = (point) => `${Number(point[0])},${Number(point[1])}`;
         const placedSet = new Set(placedPoints.map(toKey));
