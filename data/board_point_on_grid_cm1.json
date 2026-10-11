@@ -49,14 +49,14 @@
                 }
             },
             {
-                "prompt": "Place le point exactement au centre du quadrillage.",
+                "prompt": "Place le point à 5 colonnes du bord gauche et à 5 lignes du bord du haut.",
                 "board": {
                     "width": 10,
                     "height": 10,
                     "grid": true
                 },
                 "task": {
-                    "label": "Au centre",
+                    "label": "5 colonnes, 5 lignes",
                     "target": [
                         5,
                         5
@@ -184,7 +184,7 @@
                 }
             },
             {
-                "prompt": "Place le point au milieu du bord du haut, aux coordonnées (5 ; 0).",
+                "prompt": "Place le point sur le bord du haut, à 5 colonnes du coin en haut à gauche : coordonnées (5 ; 0).",
                 "board": {
                     "width": 10,
                     "height": 10,
@@ -199,7 +199,7 @@
                 }
             },
             {
-                "prompt": "Place le point au milieu du bord gauche, aux coordonnées (0 ; 5).",
+                "prompt": "Place le point sur le bord gauche, à 5 lignes sous le coin en haut à gauche : coordonnées (0 ; 5).",
                 "board": {
                     "width": 10,
                     "height": 10,

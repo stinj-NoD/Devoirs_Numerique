@@ -107,7 +107,6 @@ const DATA_ASSETS = [
   './data/emc_matching.json',
   './data/french_cp_grammar.json',
   './data/french_ce2_reading.json',
-  './data/french_cm1_reading.json',
   './data/french_cm2_reading.json',
   './data/french_word_order.json',
   './data/geography_cp.json',

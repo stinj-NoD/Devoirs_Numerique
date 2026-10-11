@@ -1003,16 +1003,16 @@
             "icon": "✍️"
         },
         {
-            "word": "RÉPONSE",
+            "word": "RÈGLE",
             "gender": "féminin",
             "article": "une",
-            "icon": "💬"
+            "icon": "📏"
         },
         {
-            "word": "EXEMPLE",
+            "word": "DICTIONNAIRE",
             "gender": "masculin",
             "article": "un",
-            "icon": "📚"
+            "icon": "📖"
         },
         {
             "word": "QUESTION",
@@ -1021,10 +1021,10 @@
             "icon": "❓"
         },
         {
-            "word": "TABLEAU",
+            "word": "CARTABLE",
             "gender": "masculin",
             "article": "un",
-            "icon": "⬛"
+            "icon": "🎒"
         },
         {
             "word": "CONSIGNE",
@@ -1697,40 +1697,40 @@
     ],
     "plural_choice_cm1": [
         {
-            "question": "___ élèves rangent leurs trousses.",
+            "question": "___ souris grignotent le fromage.",
             "choices": [
                 "Les",
-                "Le",
-                "La"
+                "La",
+                "Une"
             ],
             "answer": "Les"
         },
         {
-            "question": "___ montagnes sont très hautes.",
-            "choices": [
-                "Les",
-                "L'",
-                "La"
-            ],
-            "answer": "Les"
-        },
-        {
-            "question": "___ réponses sont écrites dans le cahier.",
+            "question": "___ bras du pantin bouge.",
             "choices": [
                 "Le",
                 "Les",
+                "Des"
+            ],
+            "answer": "Le"
+        },
+        {
+            "question": "___ prix affichés sont trop élevés.",
+            "choices": [
+                "Les",
+                "Le",
                 "Un"
             ],
             "answer": "Les"
         },
         {
-            "question": "___ oiseaux migrent quand vient l'hiver.",
+            "question": "___ voix de la chanteuse est douce.",
             "choices": [
+                "La",
                 "Les",
-                "Le",
-                "L'"
+                "Des"
             ],
-            "answer": "Les"
+            "answer": "La"
         },
         {
             "sentence": "Les cheva___ galopent dans le pré.",
@@ -1746,7 +1746,7 @@
             "choices": [
                 "x",
                 "s",
-                ""
+                "ux"
             ],
             "answer": "x"
         },
@@ -1755,7 +1755,7 @@
             "choices": [
                 "x",
                 "s",
-                ""
+                "ux"
             ],
             "answer": "x"
         },
@@ -1807,25 +1807,7 @@
             "answer": "un nom"
         },
         {
-            "sentence": "Dans Les élèves travaillent, élèves est...",
-            "choices": [
-                "un nom",
-                "un verbe",
-                "un adverbe"
-            ],
-            "answer": "un nom"
-        },
-        {
-            "sentence": "Dans Le train arrive vite, vite est...",
-            "choices": [
-                "un adverbe",
-                "un nom",
-                "un déterminant"
-            ],
-            "answer": "un adverbe"
-        },
-        {
-            "sentence": "Dans Ce grand arbre, grand est...",
+            "question": "Dans « Les enfants construisent une grande cabane », le mot « grande » est…",
             "choices": [
                 "un adjectif",
                 "un verbe",
@@ -1834,13 +1816,31 @@
             "answer": "un adjectif"
         },
         {
-            "sentence": "Dans Nous écrivons, écrivons est...",
+            "question": "Dans « Les vagues frappent les rochers », le mot « frappent » est…",
             "choices": [
                 "un verbe",
-                "un pronom",
-                "un nom"
+                "un nom",
+                "un adjectif"
             ],
             "answer": "un verbe"
+        },
+        {
+            "question": "Dans « Un vieux pêcheur répare son filet », le mot « pêcheur » est…",
+            "choices": [
+                "un nom",
+                "un adjectif",
+                "un verbe"
+            ],
+            "answer": "un nom"
+        },
+        {
+            "question": "Dans « Elle porte un manteau rouge », le mot « rouge » est…",
+            "choices": [
+                "un adjectif",
+                "un nom",
+                "un verbe"
+            ],
+            "answer": "un adjectif"
         }
     ],
     "article_choice_cm2": [
@@ -3085,35 +3085,35 @@
             "explanation": "« Moulin » est masculin singulier : on dit « un moulin »."
         },
         {
-            "sentence": "La rivière ___ lentement vers la mer.",
-            "answer": "coule",
+            "sentence": "Marie range ___ cahier dans son sac.",
             "choices": [
-                "coule",
-                "coulent",
-                "couler"
+                "son",
+                "sa",
+                "ses"
             ],
-            "explanation": "Avec « la rivière » (3e personne du singulier), le verbe « couler » se conjugue « coule »."
+            "answer": "son",
+            "explanation": "« Cahier » est masculin singulier : on dit « son cahier »."
         },
         {
-            "sentence": "Les voyageurs ___ dans le train.",
-            "answer": "montent",
+            "sentence": "Tu as oublié ___ lunettes sur la table.",
             "choices": [
-                "montent",
-                "monte",
-                "monter"
+                "tes",
+                "ton",
+                "ta"
             ],
-            "explanation": "Avec « les voyageurs » (3e personne du pluriel), le verbe « monter » se conjugue « montent »."
+            "answer": "tes",
+            "explanation": "« Lunettes » est pluriel et « tu » est le possesseur : on dit « tes lunettes »."
         }
     ],
     "grammar_agreement_cm1": [
         {
-            "sentence": "Les enfants ___ rentrent en classe.",
+            "sentence": "Les enfants ___ leurs manteaux au vestiaire.",
             "choices": [
-                "calme",
-                "calmes",
-                "calmer"
+                "rangent",
+                "range",
+                "rangeons"
             ],
-            "answer": "calmes"
+            "answer": "rangent"
         },
         {
             "sentence": "Une montagne ___ se dresse devant nous.",
@@ -3125,13 +3125,13 @@
             "answer": "haute"
         },
         {
-            "sentence": "Des bateaux ___ flottent sur le port.",
+            "sentence": "Les voisines sont ___ hier soir.",
             "choices": [
-                "blanc",
-                "blancs",
-                "blanches"
+                "venues",
+                "venu",
+                "venue"
             ],
-            "answer": "blancs"
+            "answer": "venues"
         },
         {
             "sentence": "Le renard ___ traverse la forêt.",
@@ -3143,13 +3143,13 @@
             "answer": "roux"
         },
         {
-            "sentence": "Les vagues ___ frappent les rochers.",
+            "sentence": "Mes parents ___ au marché le samedi.",
             "choices": [
-                "forte",
-                "fortes",
-                "fort"
+                "vont",
+                "va",
+                "allons"
             ],
-            "answer": "fortes"
+            "answer": "vont"
         },
         {
             "sentence": "Un chemin ___ mène jusqu'au village.",
@@ -3170,13 +3170,13 @@
             "answer": "parfumées"
         },
         {
-            "sentence": "La rivière ___ traverse la plaine.",
+            "sentence": "Tes amis ___ une très belle maison.",
             "choices": [
-                "calme",
-                "calmes",
-                "calmer"
+                "ont",
+                "a",
+                "avons"
             ],
-            "answer": "calme"
+            "answer": "ont"
         },
         {
             "sentence": "Une maison ___ est au coin de la rue.",
@@ -6166,6 +6166,108 @@
             ],
             "answer": "un",
             "explanation": "« Livre » est masculin singulier : on dit « un livre »."
+        }
+    ],
+    "grammar_cloze_cm1_ecrit": [
+        {
+            "sentence": "Nous avons visité ___ vieux château.",
+            "choices": [
+                "un",
+                "une",
+                "des"
+            ],
+            "answer": "un",
+            "explanation": "« Château » est masculin singulier : « un château »."
+        },
+        {
+            "sentence": "Léa prête ___ stylo à sa voisine.",
+            "choices": [
+                "son",
+                "sa",
+                "ses"
+            ],
+            "answer": "son",
+            "explanation": "« Stylo » est masculin singulier : « son stylo »."
+        },
+        {
+            "sentence": "___ oiseaux se rassemblent sur le toit.",
+            "choices": [
+                "Les",
+                "Le",
+                "La"
+            ],
+            "answer": "Les",
+            "explanation": "« Oiseaux » est masculin pluriel : « les oiseaux »."
+        },
+        {
+            "sentence": "Cette année, ___ grand-père a soixante-dix ans.",
+            "choices": [
+                "mon",
+                "ma",
+                "mes"
+            ],
+            "answer": "mon",
+            "explanation": "« Grand-père » est masculin singulier : « mon grand-père »."
+        },
+        {
+            "sentence": "Regarde ___ belle étoile dans le ciel !",
+            "choices": [
+                "cette",
+                "ce",
+                "ces"
+            ],
+            "answer": "cette",
+            "explanation": "« Étoile » est féminin singulier : « cette étoile »."
+        },
+        {
+            "sentence": "Les enfants rangent ___ jouets dans le coffre.",
+            "choices": [
+                "leurs",
+                "leur",
+                "ses"
+            ],
+            "answer": "leurs",
+            "explanation": "« Jouets » est pluriel et les enfants sont plusieurs : « leurs jouets »."
+        },
+        {
+            "sentence": "J'ai acheté ___ pain et ___ gâteau.",
+            "choices": [
+                "du",
+                "de la",
+                "des"
+            ],
+            "answer": "du",
+            "explanation": "« Pain » est masculin singulier : « du pain »."
+        },
+        {
+            "sentence": "Ma sœur a perdu ___ clés de la maison.",
+            "choices": [
+                "ses",
+                "ces",
+                "sa"
+            ],
+            "answer": "ses",
+            "explanation": "« Clés » est pluriel et le possesseur est « ma sœur » : « ses clés »."
+        },
+        {
+            "sentence": "Le directeur parle à ___ élèves dans la cour.",
+            "choices": [
+                "tous les",
+                "toute la",
+                "tout le"
+            ],
+            "answer": "tous les",
+            "explanation": "« Élèves » est masculin pluriel : « tous les élèves »."
+        },
+        {
+            "sentence": "___ ordinateur est posé sur le bureau.",
+            "choices": [
+                "Cet",
+                "Cette",
+                "Ces"
+            ],
+            "answer": "Cet",
+            "explanation": "« Ordinateur » est masculin singulier et commence par une voyelle : « cet ordinateur »."
         }
     ]
 }

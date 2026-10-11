@@ -10,7 +10,7 @@ Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon,
 
 ## Vue d'ensemble
 
-- **1114 exercices** et **503 leçons** répartis sur 5 niveaux (CP à CM2).
+- **1114 exercices** et **511 leçons** répartis sur 5 niveaux (CP à CM2).
 - Moteurs utilisés :
 
 | Moteur | Nombre d'exercices |
@@ -1462,44 +1462,80 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 ### Mathématiques (cm1-maths-subject)
 
-#### Nombres et calculs `(cm1-nombres-calculs)`
+#### Grands nombres et numération `(cm1-nombres-grands)`
 
-- **Leçons** (17) :
+- **Leçons** (4) :
+  - La position d'un chiffre dans un grand nombre `(cm1-lesson-position-valeur-grands-nombres)` — blocs: paragraph, example, mini-table, tip, check, check
+  - La classe des millions `(cm1-lesson-classe-millions)` — blocs: paragraph, example, mini-table, tip, check, check
+  - Multiplier et diviser par 10, 100, 1000 `(cm1-lesson-multiplier-diviser-10-100-1000)` — blocs: paragraph, example, tip, check, check
+  - Lire les chiffres romains `(cm1-lesson-lire-romains)` — blocs: paragraph, example, mini-table, tip, check, check
+- **Exercices** (13) :
+  - Grands nombres (1) `(cm1-m-big-2)` — engine: `math-input`, type=dictée-nombres, max=100000, questions=5
+  - Grands nombres (2) `(cm1-m-big-3)` — engine: `math-input`, type=dictée-nombres, max=999999, questions=5, min=100000
+  - Grands nombres (3) `(cm1-m-big)` — engine: `math-input`, type=dictée-nombres, max=1000000, questions=5, min=500000
+  - Le chiffre à sa place `(cm1-m-position-chiffre-million)` — engine: `math-input`, type=place-value, digitCount=6, ask=digit, questions=6
+  - La valeur d'un chiffre `(cm1-m-valeur-chiffre-million)` — engine: `math-input`, type=place-value, digitCount=6, ask=value, questions=6
+  - Grands nombres : le chiffre à sa place `(cm1-m-chiffre-classe-millions)` — engine: `math-input`, type=place-value, digitCount=7, ask=digit, questions=6
+  - Grands nombres : la valeur d'un chiffre `(cm1-m-valeur-classe-millions)` — engine: `math-input`, type=place-value, digitCount=7, ask=value, questions=6
+  - Multiplier par 10, 100, 1000 `(cm1-m-multiplier-10-100-1000)` — engine: `math-input`, type=calc-mental, operator=x, questions=10
+  - Diviser par 10, 100, 1000 `(cm1-m-diviser-10-100-1000)` — engine: `math-input`, type=calc-mental, operator=/, questions=10
+  - Chiffres romains `(cm1-romains)` — engine: `conversion`, subtype=roman, max=20, questions=5
+  - Chiffres romains (2) `(cm1-romains-50)` — engine: `conversion`, subtype=roman, max=50, questions=5
+  - Chiffres romains (3) `(cm1-romains-100)` — engine: `conversion`, questions=5, max=100, subtype=roman, min=51
+  - Nombres et divisions `(cm1-maths-nombres-appariement)` — engine: `matching`, category=matching_math_cm1_nombres, dataFile=data/math_matching.json, questions=2
+
+#### Fractions et décimaux `(cm1-fractions-decimaux)`
+
+- **Leçons** (6) :
   - Lire une fraction `(cm1-lesson-fractions)` — blocs: paragraph, example, bullets, tip, check, check
   - Additionner des fractions de même dénominateur `(cm1-lesson-fractions-addition)` — blocs: paragraph, example, bullets, tip, check, check
+  - Soustraire des fractions de même dénominateur `(cm1-lesson-fractions-soustraction)` — blocs: paragraph, example, bullets, tip, check, check
   - Des fractions équivalentes `(cm1-lesson-fractions-equivalentes)` — blocs: paragraph, example, bullets, tip, check, check
   - Repérer les décimaux `(cm1-lesson-decimaux-reperes)` — blocs: paragraph, example, bullets, tip, check, check
-  - Résoudre un problème `(cm1-lesson-problemes-calcul)` — blocs: paragraph, example, bullets, tip, check, check
-  - Résoudre un problème `(cm1-lesson-resoudre-probleme)` — blocs: paragraph, example, bullets, tip, check, check
-  - La proportionnalité `(cm1-lesson-proportionnalite)` — blocs: paragraph, example, mini-table, bullets, tip, check, check
-  - Lire une échelle `(cm1-lesson-echelle)` — blocs: paragraph, example, bullets, tip, check, check
-  - Le pourcentage simple `(cm1-lesson-pourcentage)` — blocs: paragraph, example, bullets, tip, check, check
+  - Poser une addition ou une soustraction de décimaux `(cm1-lesson-decimaux-operations-posees)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (15) :
+  - Fractions `(cm1-frac-1)` — engine: `math-input`, type=fraction-view, maxDenom=6, questions=10
+  - Construis la fraction `(cm1-frac-build)` — engine: `board-interactive`, type=fraction-build, minDenom=2, maxDenom=8, questions=8
+  - Lire des fractions `(cm1-frac-2)` — engine: `math-input`, type=fraction-view, maxDenom=8, questions=10
+  - Fractions plus précises `(cm1-frac-3)` — engine: `math-input`, type=fraction-view, maxDenom=12, questions=10
+  - Additionne des fractions `(cm1-frac-addition)` — engine: `math-input`, type=fraction-operation, operator=add, level=1, questions=8
+  - Soustrais des fractions `(cm1-frac-soustraction)` — engine: `math-input`, type=fraction-operation, operator=sub, level=1, questions=8
+  - Fractions sur la ligne graduée `(cm1-fractions-droite-graduee)` — engine: `board-interactive`, type=number-line-place, dataFile=data/board_number_line_cm1.json, category=cm1_fractions_droite_graduee, questions=8
+  - Fractions équivalentes sur la ligne `(cm1-fractions-equivalentes-droite)` — engine: `board-interactive`, type=number-line-place, dataFile=data/board_number_line_cm1.json, category=cm1_fractions_equivalentes, questions=6
+  - Décimaux : Positions (1) `(cm1-dec-pos-1)` — engine: `math-input`, type=decimal-place, trap=false, questions=10
+  - Décimaux : Positions (2) `(cm1-dec-pos-2)` — engine: `math-input`, type=decimal-place, trap=true, questions=10
+  - Comparer des décimaux `(cm1-dec-compare)` — engine: `choice-engine`, type=compare-decimals, questions=10
+  - Addition posée de décimaux `(cm1-m-addition-posee-decimaux-dixiemes)` — engine: `math-input`, type=operation-posed, operator=add, level=2, decimals=1, questions=6
+  - Soustraction posée de décimaux `(cm1-m-soustraction-posee-decimaux-dixiemes)` — engine: `math-input`, type=operation-posed, operator=sub, level=2, decimals=1, questions=6
+  - Addition posée de décimaux (centièmes) `(cm1-m-addition-posee-decimaux-centiemes)` — engine: `math-input`, type=operation-posed, operator=add, level=3, decimals=2, questions=6, mixed=true
+  - Soustraction posée de décimaux (centièmes) `(cm1-m-soustraction-posee-decimaux-centiemes)` — engine: `math-input`, type=operation-posed, operator=sub, level=3, decimals=2, questions=6, mixed=true
+
+#### Calcul posé et calcul mental `(cm1-calcul-pose-mental)`
+
+- **Leçons** (3) :
   - Addition et soustraction posées `(cm1-lesson-addition-soustraction-posees)` — blocs: paragraph, example, example, bullets, tip, check, check
   - Multiplication posée par un nombre à 2 chiffres `(cm1-lesson-multiplication-posee-2-chiffres)` — blocs: paragraph, example, bullets, tip, check, check
   - La division euclidienne `(cm1-lesson-division-euclidienne)` — blocs: paragraph, example, bullets, tip, check, check
-  - La position d'un chiffre dans un grand nombre `(cm1-lesson-position-valeur-grands-nombres)` — blocs: paragraph, example, mini-table, tip, check, check
-  - Poser une addition ou une soustraction de décimaux `(cm1-lesson-decimaux-operations-posees)` — blocs: paragraph, example, bullets, tip, check, check
-  - Multiplier et diviser par 10, 100, 1000 `(cm1-lesson-multiplier-diviser-10-100-1000)` — blocs: paragraph, example, tip, check, check
-  - La classe des millions `(cm1-lesson-classe-millions)` — blocs: paragraph, example, mini-table, tip, check, check
-  - Soustraire des fractions de même dénominateur `(cm1-lesson-fractions-soustraction)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (41) :
-  - Grands Nombres `(cm1-m-big)` — engine: `math-input`, type=dictée-nombres, max=1000000, questions=5
-  - Fractions `(cm1-frac-1)` — engine: `math-input`, type=fraction-view, maxDenom=6, questions=10
-  - Construis la fraction `(cm1-frac-build)` — engine: `board-interactive`, type=fraction-build, minDenom=2, maxDenom=8, questions=8
-  - Additionne des fractions `(cm1-frac-addition)` — engine: `math-input`, type=fraction-operation, operator=add, level=1, questions=8
-  - Fractions sur la ligne graduée `(cm1-fractions-droite-graduee)` — engine: `board-interactive`, type=number-line-place, dataFile=data/board_number_line_cm1.json, category=cm1_fractions_droite_graduee, questions=8
-  - Décimaux : Positions (1) `(cm1-dec-pos-1)` — engine: `math-input`, type=decimal-place, trap=false, questions=10
-  - Décimaux : Positions (2) `(cm1-dec-pos-2)` — engine: `math-input`, type=decimal-place, trap=true, questions=10
-  - La Moitié `(cm1-div-1)` — engine: `math-input`, type=half, questions=10
+- **Exercices** (9) :
+  - La Moitié `(cm1-div-1)` — engine: `math-input`, type=half, questions=10, min=100, max=1250
   - Divisions Simples `(cm1-div-2)` — engine: `math-input`, type=division-simple, questions=10
   - Le Juste Nombre `(cm1-div-3)` — engine: `math-input`, type=division-reste, questions=10
+  - Addition posée avec retenue `(cm1-m-addition-posee-retenue)` — engine: `math-input`, type=operation-posed, operator=add, level=4, questions=6, carry=true
+  - Soustraction posée avec emprunt `(cm1-m-soustraction-posee-emprunt)` — engine: `math-input`, type=operation-posed, operator=sub, level=4, questions=6, carry=true
   - Division posée `(cm1-div-posed-1)` — engine: `math-input`, type=division-posed, level=1, questions=5
-  - Comparer des décimaux `(cm1-dec-compare)` — engine: `choice-engine`, type=compare-decimals, questions=10
   - Division posée avec reste `(cm1-div-reste)` — engine: `math-input`, type=division-posed, level=1, ask=reste, questions=5
-  - Lire des fractions `(cm1-frac-2)` — engine: `math-input`, type=fraction-view, maxDenom=8, questions=10
-  - Grands nombres `(cm1-m-big-2)` — engine: `math-input`, type=dictée-nombres, max=100000, questions=5
-  - Fractions plus précises `(cm1-frac-3)` — engine: `math-input`, type=fraction-view, maxDenom=12, questions=10
-  - Grands nombres (3) `(cm1-m-big-3)` — engine: `math-input`, type=dictée-nombres, max=999999, questions=5
+  - Multiplication posée par un nombre à 2 chiffres `(cm1-m-multiplication-posee-2-chiffres)` — engine: `math-input`, type=operation-posed, operator=mult, level=2, questions=6
+  - Défi : grands calculs `(cm1-bonus-grands-calculs)` — engine: `math-input`, type=division-posed, level=1, questions=6, bonus (seuil=2)
+
+#### Problèmes et proportionnalité `(cm1-problemes-proportionnalite)`
+
+- **Leçons** (5) :
+  - Vérifier la réponse d'un problème `(cm1-lesson-problemes-calcul)` — blocs: paragraph, example, bullets, tip, check, check
+  - Repérer les données utiles `(cm1-lesson-resoudre-probleme)` — blocs: paragraph, example, bullets, tip, check, check
+  - La proportionnalité `(cm1-lesson-proportionnalite)` — blocs: paragraph, example, mini-table, bullets, tip, check, check
+  - Lire une échelle `(cm1-lesson-echelle)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le pourcentage simple `(cm1-lesson-pourcentage)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (7) :
   - Problèmes multiplications/divisions `(cm1-problemes-multi-division)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=cm1-problemes-multi-division, questions=8
   - Problèmes de mesures `(cm1-problemes-mesures)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=cm1-problemes-mesures, questions=8
   - Proportionnalité `(cm1-problemes-proportionnalite)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=cm1-problemes-proportionnalite, questions=8
@@ -1507,43 +1543,20 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Lire une échelle de plan `(cm1-echelle-1)` — engine: `math-input`, type=echelle, questions=6
   - Calculer un pourcentage simple `(cm1-pourcentage-1)` — engine: `math-input`, type=pourcentage, maxMultiple=8, questions=6
   - Défi : proportionnalité experte `(cm1-bonus-proportionnalite-expert)` — engine: `math-input`, type=proportionnalite, maxCoef=9, maxBase=9, questions=8, bonus (seuil=2)
-  - Défi : grands calculs `(cm1-bonus-grands-calculs)` — engine: `math-input`, type=division-posed, level=1, questions=6, bonus (seuil=2)
-  - Addition posée avec retenue `(cm1-m-addition-posee-retenue)` — engine: `math-input`, type=operation-posed, operator=add, level=4, questions=6
-  - Soustraction posée avec emprunt `(cm1-m-soustraction-posee-emprunt)` — engine: `math-input`, type=operation-posed, operator=sub, level=4, questions=6
-  - Multiplication posée par un nombre à 2 chiffres `(cm1-m-multiplication-posee-2-chiffres)` — engine: `math-input`, type=operation-posed, operator=mult, level=2, questions=6
-  - Le chiffre à sa place `(cm1-m-position-chiffre-million)` — engine: `math-input`, type=place-value, digitCount=6, ask=digit, questions=6
-  - La valeur d'un chiffre `(cm1-m-valeur-chiffre-million)` — engine: `math-input`, type=place-value, digitCount=6, ask=value, questions=6
-  - Addition posée de décimaux `(cm1-m-addition-posee-decimaux-dixiemes)` — engine: `math-input`, type=operation-posed, operator=add, level=2, decimals=1, questions=6
-  - Soustraction posée de décimaux `(cm1-m-soustraction-posee-decimaux-dixiemes)` — engine: `math-input`, type=operation-posed, operator=sub, level=2, decimals=1, questions=6
-  - Addition posée de décimaux (centièmes) `(cm1-m-addition-posee-decimaux-centiemes)` — engine: `math-input`, type=operation-posed, operator=add, level=3, decimals=2, questions=6
-  - Soustraction posée de décimaux (centièmes) `(cm1-m-soustraction-posee-decimaux-centiemes)` — engine: `math-input`, type=operation-posed, operator=sub, level=3, decimals=2, questions=6
-  - Multiplier par 10, 100, 1000 `(cm1-m-multiplier-10-100-1000)` — engine: `math-input`, type=calc-mental, operator=x, questions=10
-  - Diviser par 10, 100, 1000 `(cm1-m-diviser-10-100-1000)` — engine: `math-input`, type=calc-mental, operator=/, questions=10
-  - Grands nombres : le chiffre à sa place `(cm1-m-chiffre-classe-millions)` — engine: `math-input`, type=place-value, digitCount=7, ask=digit, questions=6
-  - Grands nombres : la valeur d'un chiffre `(cm1-m-valeur-classe-millions)` — engine: `math-input`, type=place-value, digitCount=7, ask=value, questions=6
-  - Soustrais des fractions `(cm1-frac-soustraction)` — engine: `math-input`, type=fraction-operation, operator=sub, level=1, questions=8
-  - Fractions équivalentes sur la ligne `(cm1-fractions-equivalentes-droite)` — engine: `board-interactive`, type=number-line-place, dataFile=data/board_number_line_cm1.json, category=cm1_fractions_equivalentes, questions=6
-  - Nombres et divisions `(cm1-maths-nombres-appariement)` — engine: `matching`, category=matching_math_cm1_nombres, dataFile=data/math_matching.json, questions=2
 
 #### Grandeurs et mesures `(cm1-grandeurs-mesures)`
 
-- **Leçons** (5) :
+- **Leçons** (2) :
   - Comprendre une conversion `(cm1-lesson-conversions-mesures)` — blocs: paragraph, example, bullets, tip, check, check
   - Convertir masses et contenances `(cm1-lesson-masses-contenances)` — blocs: paragraph, example, mini-table, bullets, tip, check, check
-  - Lire les chiffres romains `(cm1-lesson-lire-romains)` — blocs: paragraph, example, mini-table, tip, check, check
-  - Repérer des formes géométriques `(cm1-lesson-formes-geometriques)` — blocs: paragraph, example, bullets, tip, check, check
-  - Triangles et quadrilatères `(cm1-lesson-triangles-quadrilateres)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (14) :
-  - Chiffres romains `(cm1-romains)` — engine: `conversion`, subtype=roman, max=20, questions=5
+- **Exercices** (11) :
   - Convertir des longueurs `(cm1-longueurs)` — engine: `conversion`, subtype=metric, questions=10
   - Convertir les heures `(cm1-durees-appr)` — engine: `conversion`, subtype=time, modes=h_to_min, memo=true, questions=10
   - Heures et minutes `(cm1-durees-eval)` — engine: `conversion`, subtype=time, memo=false, questions=10
   - Minutes vers secondes `(cm1-time-sec)` — engine: `conversion`, subtype=time, modes=min_to_sec, memo=true, questions=10
+  - Minutes et secondes `(cm1-heures-secondes)` — engine: `conversion`, subtype=time, memo=false, questions=10, randomMinutes=true
   - Convertir des durées `(cm1-time-hard)` — engine: `conversion`, subtype=time, modes=hmin_to_min, memo=true, randomMinutes=true, questions=10
-  - Chiffres romains (2) `(cm1-romains-50)` — engine: `conversion`, subtype=roman, max=50, questions=5
-  - Minutes vers secondes (2) `(cm1-heures-secondes)` — engine: `conversion`, subtype=time, modes=min_to_sec, memo=false, questions=10
-  - Chiffres romains (3) `(cm1-romains-100)` — engine: `conversion`, questions=5, max=100, subtype=roman, min=51
-  - Heures et minutes (2) `(cm1-time-hard-2)` — engine: `conversion`, subtype=time, modes=hmin_to_min, memo=false, randomMinutes=true, questions=10
+  - Durées sans aide-mémoire `(cm1-time-hard-2)` — engine: `conversion`, subtype=time, memo=false, randomMinutes=true, questions=10
   - Convertir des masses `(cm1-conversions-masses)` — engine: `conversion`, subtype=metric, unitType=masse, questions=6
   - Convertir des contenances `(cm1-conversions-contenances)` — engine: `conversion`, subtype=metric, unitType=capacite, questions=6
   - Mesures et conversions `(cm1-maths-mesures-appariement)` — engine: `matching`, category=matching_math_cm1_mesures, dataFile=data/math_matching.json, questions=3
@@ -1551,8 +1564,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Géométrie `(cm1-geometrie-subtheme)`
 
-- **Leçons** (14) :
+- **Leçons** (16) :
   - Reconnaître les polygones `(cm1-lesson-polygones)` — blocs: paragraph, example, bullets, tip, check, check
+  - Quadrilatères particuliers `(cm1-lesson-triangles-quadrilateres)` — blocs: paragraph, example, bullets, tip, check, check
+  - Reconnaître une figure grâce à ses propriétés `(cm1-lesson-formes-geometriques)` — blocs: paragraph, example, bullets, tip, check, check
   - Segment, milieu et diagonale `(cm1-lesson-vocabulaire-geometrie)` — blocs: paragraph, example, bullets, tip, check, check
   - Droites parallèles et perpendiculaires `(cm1-lesson-paralleles-perpendiculaires)` — blocs: paragraph, example, bullets, tip, check, check
   - Triangles particuliers `(cm1-lesson-triangles-particuliers)` — blocs: paragraph, example, bullets, tip, check, check
@@ -1593,7 +1608,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Calculer une moyenne `(cm1-lesson-moyenne)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - Lire un diagramme en barres `(cm1-graphique-lecture)` — engine: `math-input`, type=bar-chart-read, maxBars=4, maxValue=20, questions=6
-  - Lire un tableau de données `(cm1-donnees-tableaux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=cm1-donnees-tableaux, questions=6
+  - Lire des données `(cm1-donnees-tableaux)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle3.json, category=cm1-donnees-tableaux, questions=6
   - Défi : graphiques en rafale `(cm1-bonus-graphique-expert)` — engine: `math-input`, type=bar-chart-read, maxBars=5, maxValue=25, questions=8, bonus (seuil=2)
   - Calculer une moyenne `(cm1-graphique-moyenne)` — engine: `math-input`, type=average-compute, length=4, maxValue=20, questions=6
 
@@ -1601,11 +1616,12 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Homophones `(cm1-francais-homophones)`
 
-- **Leçons** (4) :
+- **Leçons** (5) :
   - Reconnaître un homophone `(cm1-lesson-homophones-strategie)` — blocs: paragraph, example, bullets, tip, check, check
   - A ou à ? `(cm1-lesson-homophones-a-a)` — blocs: paragraph, example, bullets, tip, check, check
   - Leur ou leurs ? `(cm1-lesson-homophones-leur-leurs)` — blocs: paragraph, example, bullets, tip, check, check
   - C'est ou s'est ? `(cm1-lesson-homophones-cest-sest)` — blocs: paragraph, example, bullets, tip, check, check
+  - Ce, ces, son, ou : les tests de remplacement `(cm1-lesson-homophones-ce-ces-son-ou)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (9) :
   - Ce ou Se ? `(cm1-h-ce)` — engine: `choice-engine`, type=homophone-duel, category=ce_se, questions=10, level=cm1
   - Ces ou Ses ? `(cm1-h-ces)` — engine: `choice-engine`, type=homophone-duel, category=ces_ses, questions=10, level=cm1
@@ -1619,7 +1635,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Conjugaison `(cm1-francais-conjugaison)`
 
-- **Leçons** (8) :
+- **Leçons** (10) :
   - L'imparfait des verbes en -ER `(cm1-lesson-imparfait-er)` — blocs: paragraph, example, bullets, tip, check, check
   - Choisir avoir ou être `(cm1-lesson-passe-compose-auxiliaires)` — blocs: paragraph, example, mini-table, tip, check, check
   - Le participe passé avec être `(cm1-lesson-accord-participe-etre)` — blocs: paragraph, example, bullets, tip, check, check
@@ -1628,6 +1644,8 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Le futur simple `(cm1-lesson-futur-simple)` — blocs: paragraph, example, mini-table, tip, check, check
   - Les verbes en -ger, -cer, -ier, -yer `(cm1-lesson-verbes-particuliers)` — blocs: paragraph, bullets, example, tip, check, check
   - Les verbes en -ir : 2e ou 3e groupe ? `(cm1-lesson-verbes-en-ir)` — blocs: paragraph, bullets, example, tip, check, check
+  - Être et avoir à l'imparfait `(cm1-lesson-imparfait-etre-avoir)` — blocs: paragraph, example, bullets, tip, check, check
+  - Le participe passé des verbes du 3e groupe `(cm1-lesson-participes-3e-groupe)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (14) :
   - L'Imparfait `(cm1-c-imp)` — engine: `conjugation`, category=imparfait_particularites, tenses=imparfait, questions=10
   - Passé Composé (1) `(cm1-c-pc-avoir)` — engine: `conjugation`, category=pc_1, tenses=passé composé, questions=5
@@ -1654,18 +1672,19 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Grammaire `(cm1-francais-grammaire)`
 
-- **Leçons** (4) :
+- **Leçons** (5) :
   - Reconnaître la nature d'un mot `(cm1-lesson-nature-mots)` — blocs: paragraph, example, mini-table, tip, check, check
   - Sujet, verbe, complément `(cm1-lesson-sujet-verbe-complement)` — blocs: paragraph, example, bullets, tip, check, check
   - Les familles de mots `(cm1-lesson-familles-mots)` — blocs: paragraph, example, bullets, tip, check, check
   - Les connecteurs pour bien écrire `(cm1-lesson-connecteurs)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les déterminants `(cm1-lesson-determinants)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (13) :
   - Le bon article `(cm1-g-article-qcm)` — engine: `choice-engine`, type=article-choice, category=article_choice_cm1, questions=8
   - Le bon déterminant `(cm1-g-pluriel-qcm)` — engine: `choice-engine`, type=plural-choice, category=plural_choice_cm1, questions=8
   - Nom, verbe ou adjectif `(cm1-g-nature-qcm)` — engine: `choice-engine`, type=word-class-choice, category=word_class_choice_cm1, questions=8
   - Sujet, verbe ou complément `(cm1-g-fonction-qcm)` — engine: `choice-engine`, type=word-class-choice, category=sentence_function_choice_cm1, questions=6
   - Déterminant dans la phrase `(cm1-g-cloze-det)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_cloze_cm1, questions=8
-  - Écris le bon mot `(cm1-g-cloze-ecrit)` — engine: `cloze-fill-in`, category=grammar_cloze_cm1, questions=6
+  - Écris le bon mot `(cm1-g-cloze-ecrit)` — engine: `cloze-fill-in`, category=grammar_cloze_cm1_ecrit, questions=6
   - Accorder dans la phrase `(cm1-g-cloze-accord)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_agreement_cm1, questions=6
   - Accorder le participe passé avec être `(cm1-g-pp-accord-etre)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_pp_accord_etre_cm1, questions=8
   - Ordre des mots `(cm1-francais-ordre-mots)` — engine: `word-order`, category=word_order_cm1, dataFile=data/french_word_order.json, questions=5
@@ -1676,7 +1695,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 #### Lecture et vocabulaire `(cm1-francais-lecture-vocabulaire-subtheme)`
 
-- **Leçons** (7) :
+- **Leçons** (11) :
   - Comprendre un paragraphe `(cm1-lesson-comprendre-paragraphe)` — blocs: paragraph, example, bullets, tip, check, check
   - La famille de mots `(cm1-lesson-vocabulaire-famille-mots)` — blocs: paragraph, example, bullets, tip, check, check
   - Comprendre un mot par le contexte `(cm1-lesson-vocabulaire-sens-contexte)` — blocs: paragraph, example, bullets, tip, check, check
@@ -1684,6 +1703,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Les synonymes `(cm1-lesson-vocabulaire-synonymes)` — blocs: paragraph, example, bullets, tip, check, check
   - Les antonymes `(cm1-lesson-vocabulaire-antonymes)` — blocs: paragraph, paragraph, example, tip, check, check
   - L'ordre des évènements dans un récit `(cm1-lesson-ordre-evenements)` — blocs: paragraph, paragraph, example, bullets, tip, check, check
+  - Le champ lexical `(cm1-lesson-champ-lexical)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les expressions imagées `(cm1-lesson-expressions-imagees)` — blocs: paragraph, example, bullets, tip, check, check
+  - Lire entre les lignes `(cm1-lesson-lire-entre-les-lignes)` — blocs: paragraph, example, bullets, tip, check, check
+  - Fait ou opinion ? `(cm1-lesson-fait-opinion)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (15) :
   - Trouver l'idée principale `(cm1-lecture-idee-principale)` — engine: `reading`, category=cm1_lecture_idee_principale, questions=5
   - Comprendre un mot par le contexte `(cm1-vocabulaire-contexte)` — engine: `reading`, category=cm1_lecture_mot_contexte, questions=5
@@ -1710,7 +1733,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Transports `(cm1-audio-transports-avances)` — engine: `audio-spelling`, category=transport_advanced, speechRate=0.85, questions=8
   - Mots pièges `(cm1-audio-homophones)` — engine: `audio-spelling`, category=cm1_orthographe_homophones, speechRate=0.85, questions=8
   - Nature et sciences `(cm1-audio-nature-sciences)` — engine: `audio-spelling`, category=cm1_nature_sciences, speechRate=0.85, questions=8
-  - Défi : dictée à vitesse réelle `(cm1-bonus-dictee-vitesse-reelle)` — engine: `audio-spelling`, category=cm1_orthographe_homophones, speechRate=1, questions=10, bonus (seuil=2)
+  - Défi : dictée à vitesse réelle `(cm1-bonus-dictee-vitesse-reelle)` — engine: `audio-spelling`, category=cm1_orthographe_defi, speechRate=1, questions=10, bonus (seuil=2)
 
 ### Histoire (cm1-histoire-subject)
 
@@ -1777,7 +1800,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Lire une carte de France `(cm1-lesson-carte-legende)` — blocs: paragraph, example, bullets, tip, check, check
   - Les régions de France `(cm1-lesson-regions-france)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
-  - Territoires `(cm1-geo-territoires)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-france-regions, questions=8
+  - Régions de France `(cm1-geo-territoires)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-france-regions, questions=8
   - Types de territoires `(cm1-geo-types-territoires)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-types-territoires, questions=6
   - Défi : types de territoires `(cm1-bonus-geo-territoires-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_cm1.json, category=cm1-territoires-defi, questions=8, bonus (seuil=2)
   - Territoires et caractéristiques `(cm1-geo-territoires-appariement)` — engine: `matching`, category=matching_geo_cm1_territoires, dataFile=data/geography_matching.json, questions=1
@@ -1857,14 +1880,12 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 - **Leçons** (1) :
   - Matière et énergie `(cm1-lesson-matiere-energie)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (9) :
+- **Exercices** (7) :
   - Matière et énergie `(cm1-sciences-matiere)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-matiere-energie, questions=8
   - Sources d'énergie `(cm1-sciences-sources-energie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-sources-energie, questions=6
   - Solide, liquide ou gaz ? `(cm1-sciences-tap-etats-matiere)` — engine: `board-interactive`, type=tap-features, dataFile=data/board_tap_features_science.json, category=cm1_tap_etats_matiere, questions=3
   - Transformations simples `(cm1-sciences-transformations)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-transformations-simples, questions=6
   - Énergie au quotidien `(cm1-sciences-energie-quotidien)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-energie-quotidien, questions=6
-  - L'eau au quotidien `(cm1-sciences-eau-quotidien)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-eau-quotidien, questions=6
-  - Objets et mesures `(cm1-sciences-objets-mesures)` — engine: `choice-engine`, type=factual-qcm, questions=6, dataFile=data/science_cm1.json, category=cm1-objets-mesures
   - Énergies, matière et mesures `(cm1-sciences-appariement)` — engine: `matching`, category=matching_sciences_cm1, dataFile=data/science_matching.json, questions=2
   - Défi : matière et énergie `(cm1-bonus-sciences-matiere-energie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-matiere-defi, questions=8, bonus (seuil=2)
 
@@ -1872,7 +1893,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 - **Leçons** (2) :
   - Prendre soin de son corps `(cm1-lesson-corps-hygiene)` — blocs: paragraph, example, bullets, tip, check, check
-  - Les cinq sens `(cm1-lesson-cinq-sens)` — blocs: paragraph, example, bullets, tip, check, check
+  - Les limites de nos sens `(cm1-lesson-cinq-sens)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (5) :
   - Le corps humain `(cm1-sciences-corps)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-corps-organes, questions=6
   - Hygiène et santé `(cm1-sciences-hygiene-sante)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/science_cm1.json, category=cm1-corps-hygiene
@@ -1896,9 +1917,10 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Les déchets et le tri simple `(cm1-lesson-tri-dechets-simple)` — blocs: paragraph, example, bullets, tip, check, check
   - Des gestes simples pour la nature `(cm1-lesson-gestes-environnement-simples)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (4) :
+- **Exercices** (5) :
   - Trier ses déchets `(cm1-sciences-trier-dechets)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-environnement-gestes, questions=6
   - Économiser les ressources `(cm1-sciences-economiser-ressources)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-environnement-economies, questions=6
+  - L'eau au quotidien `(cm1-sciences-eau-quotidien)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-eau-quotidien, questions=6
   - Protéger la nature `(cm1-sciences-proteger-nature)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-environnement-nature, questions=6
   - Défi : gestes pour l'environnement `(cm1-bonus-sciences-environnement-gestes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-environnement-defi, questions=8, bonus (seuil=2)
 
@@ -1907,10 +1929,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Leçons** (2) :
   - Les machines simples `(cm1-lesson-objets-techniques)` — blocs: paragraph, example, tip, check, check
   - Les objets techniques `(cm1-lesson-objets-techniques-fonction)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (4) :
+- **Exercices** (5) :
   - Machines simples `(cm1-sciences-techno-objets)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-techno-objets, questions=8
   - Mécanismes en action `(cm1-sciences-techno-energie)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-techno-mecanismes, questions=6
   - Les objets techniques `(cm1-sciences-techno-fonction)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-techno-fonction-usage, questions=8
+  - Objets et mesures `(cm1-sciences-objets-mesures)` — engine: `choice-engine`, type=factual-qcm, questions=6, dataFile=data/science_cm1.json, category=cm1-objets-mesures
   - Défi : machines et objets `(cm1-bonus-sciences-techno-defi)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/science_cm1.json, category=cm1-techno-defi, questions=8, bonus (seuil=2)
 
 #### Mouvements et signaux `(cm1-sciences-mouvements-signaux-subtheme)`
