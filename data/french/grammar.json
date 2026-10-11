@@ -489,10 +489,10 @@
             "icon": "📘"
         },
         {
-            "word": "TROUSSE",
+            "word": "FEUILLE",
             "gender": "féminin",
             "article": "une",
-            "icon": "✏️"
+            "icon": "📄"
         },
         {
             "word": "LIVRE",
@@ -501,10 +501,10 @@
             "icon": "📚"
         },
         {
-            "word": "GOMME",
+            "word": "CARTE",
             "gender": "féminin",
             "article": "une",
-            "icon": "🧽"
+            "icon": "🗺️"
         },
         {
             "word": "CARTABLE",
@@ -513,10 +513,10 @@
             "icon": "🎒"
         },
         {
-            "word": "ARDOISE",
+            "word": "FENÊTRE",
             "gender": "féminin",
             "article": "une",
-            "icon": "⬛"
+            "icon": "🪟"
         },
         {
             "word": "CRAYON",
@@ -539,7 +539,7 @@
             "icon": "🛏️"
         },
         {
-            "word": "TABLE",
+            "word": "CHAISE",
             "gender": "féminin",
             "article": "une",
             "icon": "🪑"
@@ -557,7 +557,7 @@
             "icon": "💡"
         },
         {
-            "word": "ARMOIRE",
+            "word": "PORTE",
             "gender": "féminin",
             "article": "une",
             "icon": "🚪"
@@ -575,7 +575,7 @@
             "icon": "🕒"
         },
         {
-            "word": "ASPIRATEUR",
+            "word": "BALAI",
             "gender": "masculin",
             "article": "un",
             "icon": "🧹"
@@ -2285,24 +2285,24 @@
             "explanation": "« Ballon » est masculin singulier : on dit « un ballon »."
         },
         {
-            "sentence": "Le chat ___ dans le jardin.",
-            "answer": "court",
+            "sentence": "___ élèves rangent leurs cahiers.",
             "choices": [
-                "court",
-                "courent",
-                "courir"
+                "Les",
+                "Le",
+                "La"
             ],
-            "explanation": "Avec « le chat » (3e personne du singulier), le verbe « courir » se conjugue « court »."
+            "answer": "Les",
+            "explanation": "« Élèves » est au pluriel : on dit « les élèves »."
         },
         {
-            "sentence": "La maîtresse ___ une histoire.",
-            "answer": "raconte",
+            "sentence": "Maman a acheté ___ gâteau au chocolat.",
             "choices": [
-                "raconte",
-                "racontent",
-                "raconter"
+                "un",
+                "une",
+                "des"
             ],
-            "explanation": "Avec « la maîtresse » (3e personne du singulier), le verbe « raconter » se conjugue « raconte »."
+            "answer": "un",
+            "explanation": "« Gâteau » est masculin singulier : on dit « un gâteau »."
         }
     ],
     "grammar_plural_ce1": [
@@ -2379,7 +2379,7 @@
             "answer": "bateaux"
         },
         {
-            "sentence": "Un chien, deux ___",
+            "sentence": "Un chien, deux ___.",
             "answer": "chiens",
             "choices": [
                 "chien",
@@ -2388,12 +2388,12 @@
             ]
         },
         {
-            "sentence": "Une fleur, des ___",
-            "answer": "fleurs",
+            "sentence": "Une pomme, des ___.",
+            "answer": "pommes",
             "choices": [
-                "fleur",
-                "fleurs",
-                "fleures"
+                "pomme",
+                "pommes",
+                "pommees"
             ]
         }
     ],
@@ -2629,13 +2629,13 @@
             "answer": "mûres"
         },
         {
-            "sentence": "Les ___ volent dans le ciel.",
+            "sentence": "Les ___ volent dans le jardin.",
             "choices": [
-                "cerf-volant",
-                "cerfs-volants",
-                "cerf-volants"
+                "papillon",
+                "papillons",
+                "papillone"
             ],
-            "answer": "cerfs-volants"
+            "answer": "papillons"
         },
         {
             "sentence": "Une chaussure ___ est sous le banc.",
@@ -5766,6 +5766,148 @@
                 "dissipée"
             ],
             "answer": "dissipés"
+        }
+    ],
+    "grammar_cloze_ce1_defi": [
+        {
+            "sentence": "___ renard se cache derrière l'arbre.",
+            "choices": [
+                "Le",
+                "La",
+                "Les"
+            ],
+            "answer": "Le",
+            "explanation": "« Renard » est masculin singulier : on dit « le renard »."
+        },
+        {
+            "sentence": "Sur la plage, ___ enfants construisent un château.",
+            "choices": [
+                "le",
+                "la",
+                "les"
+            ],
+            "answer": "les",
+            "explanation": "« Enfants » est au pluriel : on dit « les enfants »."
+        },
+        {
+            "sentence": "Mamie prépare ___ tarte aux pommes.",
+            "choices": [
+                "un",
+                "une",
+                "des"
+            ],
+            "answer": "une",
+            "explanation": "« Tarte » est féminin singulier : on dit « une tarte »."
+        },
+        {
+            "sentence": "J'ai trouvé ___ coquillage sur le sable.",
+            "choices": [
+                "un",
+                "une",
+                "des"
+            ],
+            "answer": "un",
+            "explanation": "« Coquillage » est masculin singulier : on dit « un coquillage »."
+        },
+        {
+            "sentence": "___ étoile brille dans le ciel.",
+            "choices": [
+                "Le",
+                "La",
+                "L'"
+            ],
+            "answer": "L'",
+            "explanation": "« Étoile » commence par une voyelle : « la » devient « l' ». On dit « l'étoile »."
+        },
+        {
+            "sentence": "Le chat joue avec ___ pelote de laine.",
+            "choices": [
+                "un",
+                "une",
+                "des"
+            ],
+            "answer": "une",
+            "explanation": "« Pelote » est féminin singulier : on dit « une pelote »."
+        },
+        {
+            "sentence": "Dans le jardin, ___ fleurs sont jolies.",
+            "choices": [
+                "le",
+                "la",
+                "les"
+            ],
+            "answer": "les",
+            "explanation": "« Fleurs » est au pluriel : on dit « les fleurs »."
+        },
+        {
+            "sentence": "Papa lit ___ journal dans le salon.",
+            "choices": [
+                "le",
+                "la",
+                "les"
+            ],
+            "answer": "le",
+            "explanation": "« Journal » est masculin singulier : on dit « le journal »."
+        },
+        {
+            "sentence": "___ école est près de la mairie.",
+            "choices": [
+                "Le",
+                "La",
+                "L'"
+            ],
+            "answer": "L'",
+            "explanation": "« École » commence par une voyelle : « la » devient « l' ». On dit « l'école »."
+        },
+        {
+            "sentence": "Elle range ___ livres sur l'étagère.",
+            "choices": [
+                "un",
+                "une",
+                "des"
+            ],
+            "answer": "des",
+            "explanation": "« Livres » est au pluriel : on dit « des livres »."
+        },
+        {
+            "sentence": "___ maîtresse écrit au tableau.",
+            "choices": [
+                "Le",
+                "La",
+                "Les"
+            ],
+            "answer": "La",
+            "explanation": "« Maîtresse » est féminin singulier : on dit « la maîtresse »."
+        },
+        {
+            "sentence": "Nous avons vu ___ éléphant au zoo.",
+            "choices": [
+                "un",
+                "une",
+                "des"
+            ],
+            "answer": "un",
+            "explanation": "« Éléphant » est masculin singulier : on dit « un éléphant »."
+        },
+        {
+            "sentence": "___ arbres du jardin ont perdu leurs feuilles.",
+            "choices": [
+                "Le",
+                "La",
+                "Les"
+            ],
+            "answer": "Les",
+            "explanation": "« Arbres » est au pluriel : on dit « les arbres »."
+        },
+        {
+            "sentence": "Mon frère mange ___ banane.",
+            "choices": [
+                "un",
+                "une",
+                "des"
+            ],
+            "answer": "une",
+            "explanation": "« Banane » est féminin singulier : on dit « une banane »."
         }
     ]
 }

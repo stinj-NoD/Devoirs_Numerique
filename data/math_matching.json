@@ -84,16 +84,16 @@
                 "explanation": "Mémoriser les petites additions simples est une première étape pour bien calculer."
             }
         ],
-        "matching_math_ce1": [
+        "matching_math_ce1_nombres": [
             {
-                "title": "Relie chaque chiffre à son nom.",
+                "title": "Relie chaque nombre à son écriture en lettres.",
                 "pairs": [
-                    ["2", "deux"],
-                    ["5", "cinq"],
-                    ["8", "huit"],
-                    ["10", "dix"]
+                    ["35", "trente-cinq"],
+                    ["58", "cinquante-huit"],
+                    ["71", "soixante et onze"],
+                    ["96", "quatre-vingt-seize"]
                 ],
-                "explanation": "Connaître le nom des nombres aide à lire et écrire les chiffres."
+                "explanation": "Les nombres en lettres s'écrivent avec des traits d'union, sauf quand il y a « et » : soixante et onze."
             },
             {
                 "title": "Relie chaque nombre à son écriture en lettres.",
@@ -106,84 +106,44 @@
                 "explanation": "Savoir écrire les nombres en lettres est une compétence de base en français et en maths."
             },
             {
-                "title": "Relie chaque opération à son résultat.",
+                "title": "Relie chaque addition à son résultat.",
                 "pairs": [
-                    ["2 + 3", "5"],
-                    ["4 + 4", "8"],
-                    ["7 + 2", "9"],
-                    ["5 + 5", "10"]
+                    ["25 + 10", "35"],
+                    ["40 + 30", "70"],
+                    ["18 + 7", "25"],
+                    ["36 + 20", "56"]
                 ],
-                "explanation": "Mémoriser les petites additions aide à calculer plus rapidement."
+                "explanation": "On ajoute les dizaines, puis les unités : 25 + 10, c'est 2 dizaines et 1 dizaine, donc 35."
             },
             {
-                "title": "Relie chaque opération à son résultat.",
+                "title": "Relie chaque soustraction à son résultat.",
                 "pairs": [
-                    ["10 - 3", "7"],
-                    ["8 - 5", "3"],
-                    ["6 - 2", "4"],
-                    ["9 - 4", "5"]
+                    ["50 - 20", "30"],
+                    ["43 - 3", "40"],
+                    ["25 - 7", "18"],
+                    ["70 - 25", "45"]
                 ],
-                "explanation": "Mémoriser les petites soustractions aide à calculer plus rapidement."
+                "explanation": "Pour soustraire, on peut reculer d'abord des dizaines, puis des unités : 70 - 25, c'est 70 - 20 = 50, puis 50 - 5 = 45."
             },
             {
-                "title": "Relie chaque forme à sa description.",
+                "title": "Relie chaque multiplication à son résultat.",
                 "pairs": [
-                    ["un rond", "le cercle"],
-                    ["un carré", "4 côtés égaux et 4 angles droits"],
-                    ["un triangle", "3 côtés"],
-                    ["un rectangle", "2 grands côtés et 2 petits côtés"]
+                    ["4 × 3", "12"],
+                    ["5 × 4", "20"],
+                    ["3 × 5", "15"],
+                    ["10 × 7", "70"]
                 ],
-                "explanation": "Reconnaître les formes géométriques et leurs propriétés est la base de la géométrie."
-            },
-            {
-                "title": "Relie chaque unité à ce qu'elle mesure.",
-                "pairs": [
-                    ["le centimètre", "une longueur"],
-                    ["le kilogramme", "une masse"],
-                    ["le litre", "une contenance"],
-                    ["l'heure", "une durée"]
-                ],
-                "explanation": "Chaque unité de mesure correspond à une grandeur précise."
-            },
-            {
-                "title": "Relie chaque moment de la journée à son heure approximative.",
-                "pairs": [
-                    ["le matin", "7 heures"],
-                    ["le midi", "12 heures"],
-                    ["l'après-midi", "15 heures"],
-                    ["le soir", "20 heures"]
-                ],
-                "explanation": "Se repérer dans la journée aide à comprendre le temps qui passe."
-            },
-            {
-                "title": "Relie chaque table de multiplication à son résultat.",
-                "pairs": [
-                    ["2 × 3", "6"],
-                    ["2 × 5", "10"],
-                    ["2 × 4", "8"],
-                    ["2 × 6", "12"]
-                ],
-                "explanation": "La table de 2 est la première table de multiplication à mémoriser."
+                "explanation": "Les tables de 3, 4, 5 et 10 se retrouvent en comptant de 3 en 3, de 4 en 4, de 5 en 5 ou de 10 en 10."
             },
             {
                 "title": "Relie chaque nombre à sa décomposition.",
                 "pairs": [
-                    ["13", "10 + 3"],
-                    ["17", "10 + 7"],
-                    ["24", "20 + 4"],
-                    ["35", "30 + 5"]
+                    ["46", "40 + 6"],
+                    ["82", "80 + 2"],
+                    ["137", "100 + 30 + 7"],
+                    ["205", "200 + 5"]
                 ],
-                "explanation": "Décomposer un nombre aide à comprendre la valeur de chaque chiffre."
-            },
-            {
-                "title": "Relie chaque solide à son nom.",
-                "pairs": [
-                    ["une balle", "la sphère"],
-                    ["une boîte de jus", "le cube ou le pavé"],
-                    ["un cornet de glace", "le cône"],
-                    ["une boîte de conserve", "le cylindre"]
-                ],
-                "explanation": "Les solides sont des formes en 3 dimensions qu'on retrouve dans les objets du quotidien."
+                "explanation": "Décomposer un nombre aide à comprendre la valeur de chaque chiffre : centaines, dizaines, unités."
             }
         ],
         "matching_math_ce2": [
@@ -612,6 +572,48 @@
                     ["un parallélogramme quelconque", "aucun axe de symétrie"]
                 ],
                 "explanation": "Le carré a 4 axes, le rectangle 2 (un horizontal, un vertical), le triangle équilatéral 3 (un par sommet) ; un parallélogramme quelconque n'en a aucun."
+            }
+        ],
+        "matching_math_ce1_mesures": [
+            {
+                "title": "Relie chaque forme à sa description.",
+                "pairs": [
+                    ["un rond", "le cercle"],
+                    ["un carré", "4 côtés égaux et 4 angles droits"],
+                    ["un triangle", "3 côtés"],
+                    ["un rectangle", "2 grands côtés et 2 petits côtés"]
+                ],
+                "explanation": "Reconnaître les formes géométriques et leurs propriétés est la base de la géométrie."
+            },
+            {
+                "title": "Relie chaque unité à ce qu'elle mesure.",
+                "pairs": [
+                    ["le centimètre", "une longueur"],
+                    ["le kilogramme", "une masse"],
+                    ["le litre", "une contenance"],
+                    ["l'heure", "une durée"]
+                ],
+                "explanation": "Chaque unité de mesure correspond à une grandeur précise."
+            },
+            {
+                "title": "Relie chaque moment de la journée à ce que l'on y fait.",
+                "pairs": [
+                    ["le matin", "je prends mon petit-déjeuner"],
+                    ["le midi", "je déjeune"],
+                    ["le soir", "je dîne"],
+                    ["la nuit", "je dors"]
+                ],
+                "explanation": "Chaque moment de la journée a ses habitudes : on se réveille le matin, on déjeune à midi, on dîne le soir et on dort la nuit."
+            },
+            {
+                "title": "Relie chaque solide à son nom.",
+                "pairs": [
+                    ["une balle", "la sphère"],
+                    ["une boîte de jus", "le pavé droit"],
+                    ["un cornet de glace", "le cône"],
+                    ["une boîte de conserve", "le cylindre"]
+                ],
+                "explanation": "Les solides sont des formes en 3 dimensions qu'on retrouve dans les objets du quotidien."
             }
         ]
     }

@@ -250,6 +250,128 @@
                     "icon": "📘",
                     "exercises": [
                         {
+                            "id": "ce1-additions-20",
+                            "title": "Additions jusqu'à 20",
+                            "subtitle": "Calcul mental simple",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "add-simple",
+                                "min": 10,
+                                "maxSum": 20,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "ce1-soustractions-20",
+                            "title": "Soustractions jusqu'à 20",
+                            "subtitle": "Enlever de petites quantités",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "sub-simple",
+                                "min": 5,
+                                "max": 20,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "ce1-oiseau-calcul",
+                            "title": "L'oiseau matheux",
+                            "subtitle": "Réponds avant qu'il s'envole !",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "oiseau-math",
+                                "min": 5,
+                                "max": 20,
+                                "vitesse": 8,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-doubles",
+                            "title": "Les doubles",
+                            "subtitle": "Le double d'un nombre jusqu'à 30",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "double",
+                                "min": 3,
+                                "max": 30,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-moities",
+                            "title": "Les moitiés",
+                            "subtitle": "La moitié d'un nombre pair",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "half",
+                                "min": 3,
+                                "max": 25,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-additions-50",
+                            "title": "Additions jusqu'à 50",
+                            "subtitle": "Calcul mental plus ambitieux",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "add-simple",
+                                "min": 20,
+                                "maxSum": 50,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "ce1-nombre-cache-50",
+                            "title": "Le nombre caché",
+                            "subtitle": "Compléter une addition à trou",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "add-trou",
+                                "min": 20,
+                                "max": 50,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "add-chrono",
+                            "title": "Calcul rapide",
+                            "subtitle": "Vitesse : 8s",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "oiseau-math",
+                                "min": 10,
+                                "max": 30,
+                                "vitesse": 8,
+                                "questions": 10
+                            }
+                        },
+                        {
+                            "id": "ce1-soustractions-60",
+                            "title": "Soustractions jusqu'à 60",
+                            "subtitle": "Enlever sans se tromper",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "sub-simple",
+                                "min": 20,
+                                "max": 60,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-additions-100",
+                            "title": "Additions jusqu'à 100",
+                            "subtitle": "Calculer des sommes plus grandes",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "add-simple",
+                                "min": 20,
+                                "maxSum": 100,
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "add-100",
                             "title": "Additions à trou jusqu'à 100",
                             "subtitle": "Trouve le nombre qui manque",
@@ -262,16 +384,15 @@
                             }
                         },
                         {
-                            "id": "add-chrono",
-                            "title": "Calcul rapide",
-                            "subtitle": "Vitesse : 5s",
+                            "id": "ce1-complements-20",
+                            "title": "Compléments à 100 : les dizaines",
+                            "subtitle": "Trouver ce qui manque pour faire 100 : 30 + ? = 100",
                             "engine": "math-input",
                             "params": {
-                                "type": "oiseau-math",
-                                "min": 10,
-                                "max": 30,
-                                "vitesse": 5,
-                                "questions": 10
+                                "type": "complement",
+                                "target": 100,
+                                "questions": 6,
+                                "multipleOf": 10
                             }
                         },
                         {
@@ -304,9 +425,37 @@
                             }
                         },
                         {
+                            "id": "ce1-monnaie-decimale-lecture",
+                            "title": "Lire un prix avec une virgule",
+                            "subtitle": "Euros et centimes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/math_word_problems_cycle2.json",
+                                "category": "ce1-monnaie-decimale",
+                                "questions": 8
+                            }
+                        },
+                        {
+                            "id": "ce1-cibles-adresse",
+                            "title": "Le jeu de cibles",
+                            "subtitle": "Additionne les points des flèchettes",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "cibles",
+                                "zones": [
+                                    5,
+                                    10,
+                                    25
+                                ],
+                                "nbFleches": 3,
+                                "questions": 5
+                            }
+                        },
+                        {
                             "id": "carre-ce1-1",
-                            "title": "Carré Expert",
-                            "subtitle": "Cible 50",
+                            "title": "Trois nombres pour faire 50",
+                            "subtitle": "Trouve, dans la grille, les 3 nombres dont la somme est 50",
                             "engine": "math-input",
                             "params": {
                                 "type": "carre-somme",
@@ -315,203 +464,6 @@
                                 "gridSize": 9,
                                 "showSum": false,
                                 "questions": 5
-                            }
-                        },
-                        {
-                            "id": "ce1-additions-20",
-                            "title": "Additions jusqu'à 20",
-                            "subtitle": "Calcul mental simple",
-                            "engine": "math-input",
-                            "params": {
-                                "type": "add-simple",
-                                "min": 2,
-                                "maxSum": 20,
-                                "questions": 10
-                            }
-                        },
-                        {
-                            "id": "ce1-soustractions-20",
-                            "title": "Soustractions jusqu'à 20",
-                            "subtitle": "Enlever de petites quantités",
-                            "engine": "math-input",
-                            "params": {
-                                "type": "sub-simple",
-                                "min": 5,
-                                "max": 20,
-                                "questions": 10
-                            }
-                        },
-                        {
-                            "id": "ce1-additions-50",
-                            "title": "Additions jusqu'à 50",
-                            "subtitle": "Calcul mental plus ambitieux",
-                            "engine": "math-input",
-                            "params": {
-                                "type": "add-simple",
-                                "min": 5,
-                                "maxSum": 50,
-                                "questions": 10
-                            }
-                        },
-                        {
-                            "id": "ce1-comp-200",
-                            "title": "Comparer jusqu'à 200",
-                            "subtitle": "Le plus grand, le plus petit",
-                            "engine": "choice-engine",
-                            "params": {
-                                "range": 200,
-                                "questions": 10
-                            }
-                        },
-                        {
-                            "id": "ce1-maths-appariement",
-                            "title": "Nombres et opérations",
-                            "subtitle": "Relie chaque nombre ou opération à sa correspondance",
-                            "engine": "matching",
-                            "params": {
-                                "category": "matching_math_ce1",
-                                "dataFile": "data/math_matching.json",
-                                "questions": 3
-                            }
-                        },
-                        {
-                            "id": "ce1-maths-memoire",
-                            "title": "Jeu de mémoire",
-                            "subtitle": "Retrouve toutes les paires",
-                            "engine": "board-interactive",
-                            "params": {
-                                "type": "memory-match",
-                                "dataFile": "data/board_memory_match_ce1.json",
-                                "category": "ce1_memory_match_maths",
-                                "questions": 5
-                            }
-                        },
-                        {
-                            "id": "ce1-bonus-additions-100",
-                            "title": "Défi : additions jusqu'à 150",
-                            "subtitle": "Calcul mental grand format",
-                            "engine": "math-input",
-                            "isBonus": true,
-                            "bonusThreshold": 2,
-                            "params": {
-                                "type": "add-simple",
-                                "min": 10,
-                                "maxSum": 150,
-                                "questions": 12
-                            }
-                        },
-                        {
-                            "id": "ce1-bonus-additions-999",
-                            "title": "Défi : additions jusqu'à 999",
-                            "subtitle": "Calcul mental jusqu'aux centaines",
-                            "engine": "math-input",
-                            "isBonus": true,
-                            "bonusThreshold": 2,
-                            "params": {
-                                "type": "add-simple",
-                                "min": 100,
-                                "maxSum": 999,
-                                "questions": 10
-                            }
-                        },
-                        {
-                            "id": "ce1-bonus-soustractions-999",
-                            "title": "Défi : soustractions jusqu'à 999",
-                            "subtitle": "Enlever des centaines entières",
-                            "engine": "math-input",
-                            "isBonus": true,
-                            "bonusThreshold": 2,
-                            "params": {
-                                "type": "sub-simple",
-                                "min": 100,
-                                "max": 999,
-                                "questions": 10
-                            }
-                        },
-                        {
-                            "id": "ce1-doubles",
-                            "title": "Les doubles",
-                            "subtitle": "Le double d'un nombre jusqu'à 30",
-                            "engine": "math-input",
-                            "params": {
-                                "type": "double",
-                                "min": 3,
-                                "max": 30,
-                                "questions": 6
-                            }
-                        },
-                        {
-                            "id": "ce1-moities",
-                            "title": "Les moitiés",
-                            "subtitle": "La moitié d'un nombre pair",
-                            "engine": "math-input",
-                            "params": {
-                                "type": "half",
-                                "min": 3,
-                                "max": 25,
-                                "questions": 6
-                            }
-                        },
-                        {
-                            "id": "ce1-complements-20",
-                            "title": "Compléments à 100 : les dizaines",
-                            "subtitle": "Trouver ce qui manque pour faire 100 : 30 + ? = 100",
-                            "engine": "math-input",
-                            "params": {
-                                "type": "complement",
-                                "target": 100,
-                                "questions": 6,
-                                "multipleOf": 10
-                            }
-                        },
-                        {
-                            "id": "ce1-additions-100",
-                            "title": "Additions jusqu'à 100",
-                            "subtitle": "Calculer des sommes plus grandes",
-                            "engine": "math-input",
-                            "params": {
-                                "type": "add-simple",
-                                "min": 20,
-                                "maxSum": 100,
-                                "questions": 6
-                            }
-                        },
-                        {
-                            "id": "ce1-soustractions-60",
-                            "title": "Soustractions jusqu'à 60",
-                            "subtitle": "Enlever sans se tromper",
-                            "engine": "math-input",
-                            "params": {
-                                "type": "sub-simple",
-                                "min": 20,
-                                "max": 60,
-                                "questions": 6
-                            }
-                        },
-                        {
-                            "id": "ce1-nombre-cache-50",
-                            "title": "Le nombre caché",
-                            "subtitle": "Compléter une addition à trou",
-                            "engine": "math-input",
-                            "params": {
-                                "type": "add-trou",
-                                "min": 20,
-                                "max": 50,
-                                "questions": 6
-                            }
-                        },
-                        {
-                            "id": "ce1-bonus-complements-100",
-                            "title": "Défi : compléments à 100",
-                            "subtitle": "Des nombres qui finissent par 0 ou par 5",
-                            "engine": "math-input",
-                            "isBonus": true,
-                            "bonusThreshold": 2,
-                            "params": {
-                                "type": "complement",
-                                "target": 100,
-                                "questions": 8,
-                                "multipleOf": 5
                             }
                         },
                         {
@@ -551,27 +503,14 @@
                             }
                         },
                         {
-                            "id": "ce1-monnaie-decimale-lecture",
-                            "title": "Lire un prix avec une virgule",
-                            "subtitle": "Euros et centimes",
-                            "engine": "choice-engine",
+                            "id": "ce1-fractions-visuel",
+                            "title": "Lire une fraction",
+                            "subtitle": "Sur un dessin partagé",
+                            "engine": "math-input",
                             "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/math_word_problems_cycle2.json",
-                                "category": "ce1-monnaie-decimale",
+                                "type": "fraction-view",
+                                "maxDenom": 5,
                                 "questions": 8
-                            }
-                        },
-                        {
-                            "id": "ce1-encadrement-centaines",
-                            "title": "Encadrer entre deux centaines",
-                            "subtitle": "Trouve les deux centaines qui entourent un nombre",
-                            "engine": "board-interactive",
-                            "params": {
-                                "type": "number-line-frame",
-                                "dataFile": "data/board_number_line_ce1.json",
-                                "category": "ce1_number_line_frame_centaines",
-                                "questions": 6
                             }
                         },
                         {
@@ -587,28 +526,23 @@
                             }
                         },
                         {
-                            "id": "ce1-addition-posee-centaines",
-                            "title": "Addition posée jusqu’à 1000",
-                            "subtitle": "Des nombres à 3 chiffres",
-                            "engine": "math-input",
+                            "id": "ce1-comp-200",
+                            "title": "Comparer jusqu'à 200",
+                            "subtitle": "Le plus grand, le plus petit",
+                            "engine": "choice-engine",
                             "params": {
-                                "type": "operation-posed",
-                                "operator": "add",
-                                "level": 2,
-                                "questions": 6,
-                                "maxResult": 1000
+                                "range": 200,
+                                "questions": 10
                             }
                         },
                         {
-                            "id": "ce1-soustraction-posee-centaines",
-                            "title": "Soustraction posée jusqu’à 1000",
-                            "subtitle": "Des nombres à 3 chiffres",
-                            "engine": "math-input",
+                            "id": "ce1-comparer-1000",
+                            "title": "Comparer jusqu'à 1000",
+                            "subtitle": "Plus grand ou plus petit ?",
+                            "engine": "choice-engine",
                             "params": {
-                                "type": "operation-posed",
-                                "operator": "sub",
-                                "level": 2,
-                                "questions": 6
+                                "range": 1000,
+                                "questions": 10
                             }
                         },
                         {
@@ -625,8 +559,8 @@
                         },
                         {
                             "id": "ce1-valeur-chiffre-cdu",
-                            "title": "La valeur d’un chiffre",
-                            "subtitle": "Jusqu’aux centaines",
+                            "title": "La valeur d'un chiffre",
+                            "subtitle": "Jusqu'aux centaines",
                             "engine": "math-input",
                             "params": {
                                 "type": "place-value",
@@ -636,24 +570,119 @@
                             }
                         },
                         {
-                            "id": "ce1-comparer-1000",
-                            "title": "Comparer jusqu’à 1000",
-                            "subtitle": "Plus grand ou plus petit ?",
-                            "engine": "choice-engine",
+                            "id": "ce1-encadrement-centaines",
+                            "title": "Encadrer entre deux centaines",
+                            "subtitle": "Trouve les deux centaines qui entourent un nombre",
+                            "engine": "board-interactive",
                             "params": {
-                                "range": 1000,
+                                "type": "number-line-frame",
+                                "dataFile": "data/board_number_line_ce1.json",
+                                "category": "ce1_number_line_frame_centaines",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-addition-posee-centaines",
+                            "title": "Addition posée jusqu'à 1000",
+                            "subtitle": "Des nombres à 3 chiffres",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "add",
+                                "level": 2,
+                                "questions": 6,
+                                "maxResult": 1000
+                            }
+                        },
+                        {
+                            "id": "ce1-soustraction-posee-centaines",
+                            "title": "Soustraction posée jusqu'à 1000",
+                            "subtitle": "Des nombres à 3 chiffres",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "operation-posed",
+                                "operator": "sub",
+                                "level": 2,
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "ce1-maths-appariement",
+                            "title": "Nombres et opérations",
+                            "subtitle": "Relie chaque nombre ou opération à sa correspondance",
+                            "engine": "matching",
+                            "params": {
+                                "category": "matching_math_ce1_nombres",
+                                "dataFile": "data/math_matching.json",
+                                "questions": 3
+                            }
+                        },
+                        {
+                            "id": "ce1-maths-memoire",
+                            "title": "Jeu de mémoire",
+                            "subtitle": "Retrouve toutes les paires",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "memory-match",
+                                "dataFile": "data/board_memory_match_ce1.json",
+                                "category": "ce1_memory_match_maths",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-complements-100",
+                            "title": "Défi : compléments à 100",
+                            "subtitle": "Des nombres qui finissent par 0 ou par 5",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "complement",
+                                "target": 100,
+                                "questions": 8,
+                                "multipleOf": 5
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-additions-100",
+                            "title": "Défi : additions jusqu'à 150",
+                            "subtitle": "Calcul mental grand format",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "add-simple",
+                                "min": 10,
+                                "maxSum": 150,
+                                "questions": 12
+                            }
+                        },
+                        {
+                            "id": "ce1-bonus-additions-999",
+                            "title": "Défi : additions jusqu'à 999",
+                            "subtitle": "Calcul mental jusqu'aux centaines",
+                            "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
+                            "params": {
+                                "type": "add-simple",
+                                "min": 100,
+                                "maxSum": 999,
                                 "questions": 10
                             }
                         },
                         {
-                            "id": "ce1-fractions-visuel",
-                            "title": "Lire une fraction",
-                            "subtitle": "Sur un dessin partagé",
+                            "id": "ce1-bonus-soustractions-999",
+                            "title": "Défi : soustractions jusqu'à 999",
+                            "subtitle": "Enlever de grands nombres, sans se tromper",
                             "engine": "math-input",
+                            "isBonus": true,
+                            "bonusThreshold": 2,
                             "params": {
-                                "type": "fraction-view",
-                                "maxDenom": 4,
-                                "questions": 8
+                                "type": "sub-simple",
+                                "min": 100,
+                                "max": 999,
+                                "questions": 10
                             }
                         }
                     ],
@@ -678,7 +707,7 @@
                                     "label": "Je retiens",
                                     "items": [
                                         "Le complément à 10 est la base : 7 + 3, 6 + 4, 8 + 2… à connaître par cœur !",
-                                        "Pour compléter à 20, je passe par 10 : de 13 à 20, c'est 13 → 20, soit 7.",
+                                        "Pour compléter à 20, je peux passer par 10 : de 8 à 20, il y a 2 pas jusqu'à 10, puis 10 pas jusqu'à 20, soit 12.",
                                         "Compléter, c'est aussi une soustraction cachée : 20 − 13 = 7.",
                                         "Je vérifie en additionnant : 13 + 7 = 20 ✓"
                                     ]
@@ -792,7 +821,7 @@
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "Vérifie ton résultat : une addition rend toujours un nombre PLUS GRAND que chacun des deux nombres de départ."
+                                    "content": "Vérifie ton résultat : quand on ajoute un nombre qui n'est pas 0, le total est PLUS GRAND que chacun des deux nombres de départ."
                                 },
                                 {
                                     "type": "check",
@@ -839,7 +868,7 @@
                                     "items": [
                                         "Enlever d'abord les dizaines, puis les unités : 46 − 23, c'est 46 − 20 = 26, puis 26 − 3 = 23.",
                                         "Quand les nombres sont proches, chercher l'écart est plus rapide.",
-                                        "Le résultat d'une soustraction est plus petit que le nombre de départ."
+                                        "Quand j'enlève un nombre qui n'est pas 0, il reste moins que le nombre de départ."
                                     ]
                                 },
                                 {
@@ -1073,7 +1102,8 @@
                                         "1/2 se lit « un demi »",
                                         "1/3 se lit « un tiers »",
                                         "1/4 se lit « un quart »",
-                                        "1/5 se lit « un cinquième »"
+                                        "1/5 se lit « un cinquième »",
+                                        "Sur le même principe : 1/6 se lit « un sixième », 1/8 « un huitième », 1/10 « un dixième »"
                                     ]
                                 },
                                 {
@@ -1361,7 +1391,7 @@
                                 },
                                 {
                                     "type": "paragraph",
-                                    "text": "Il existe aussi des solides simples comme le cube, le pavé, le cylindre, le cône et la sphère : contrairement aux formes planes, on peut les tenir dans la main."
+                                    "text": "Il existe aussi des solides simples comme le cube, le pavé, le cylindre, le cône, la sphère et la pyramide : contrairement aux formes planes, on peut les tenir dans la main. Un solide a des faces (ses surfaces), des arêtes (ses bords) et des sommets (ses coins pointus)."
                                 },
                                 {
                                     "type": "tip",
@@ -1413,7 +1443,10 @@
                                         "plus long",
                                         "plus court",
                                         "même longueur",
-                                        "mesurer avec une règle"
+                                        "mesurer avec une règle",
+                                        "le centimètre (cm) pour un crayon, le mètre (m) pour la classe, le kilomètre (km) pour une route",
+                                        "1 m = 100 cm et 1 km = 1 000 m",
+                                        "un double décimètre est une règle qui mesure 20 cm"
                                     ]
                                 },
                                 {
@@ -1506,7 +1539,7 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "La grande aiguille indique les minutes : sur le 12 c'est l'heure pile, sur le 6 c'est et demie, sur le 3 c'est et quart, sur le 9 c'est moins le quart."
+                                    "text": "La grande aiguille indique les minutes : sur le 12 c'est l'heure pile, sur le 3 c'est et quart (15 minutes), sur le 6 c'est et demie (30 minutes), sur le 9 c'est moins le quart (45 minutes)."
                                 },
                                 {
                                     "type": "example",
@@ -1519,7 +1552,9 @@
                                         "12 = heure pile",
                                         "3 = et quart",
                                         "6 = et demie",
-                                        "9 = moins le quart"
+                                        "9 = moins le quart",
+                                        "4 h 30 s'écrit 0430 : deux chiffres pour les heures, deux pour les minutes.",
+                                        "8 h 45 s'écrit 0845 et se dit « 9 heures moins le quart »."
                                     ]
                                 },
                                 {
@@ -1710,11 +1745,11 @@
                         },
                         {
                             "id": "ce1-maths-geo-appariement",
-                            "title": "Nombres et notions clés",
-                            "subtitle": "Relie chaque notion à sa définition",
+                            "title": "Formes, mesures et temps",
+                            "subtitle": "Relie chaque notion à ce qu'elle désigne",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_math_ce1",
+                                "category": "matching_math_ce1_mesures",
                                 "dataFile": "data/math_matching.json",
                                 "questions": 3
                             }
@@ -1777,44 +1812,15 @@
                         {
                             "id": "ce1-bonus-problemes-expert",
                             "title": "Défi : problèmes en rafale",
-                            "subtitle": "Additifs et à étapes, sans erreur",
+                            "subtitle": "Deux étapes de calcul, sans erreur",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/math_word_problems_cycle2.json",
-                                "category": "ce1-problemes-mixtes",
+                                "category": "ce1-problemes-defi",
                                 "questions": 10
-                            }
-                        },
-                        {
-                            "id": "ce1-oiseau-calcul",
-                            "title": "L'oiseau matheux",
-                            "subtitle": "Réponds avant qu'il s'envole !",
-                            "engine": "math-input",
-                            "params": {
-                                "type": "oiseau-math",
-                                "min": 5,
-                                "max": 20,
-                                "vitesse": 8,
-                                "questions": 6
-                            }
-                        },
-                        {
-                            "id": "ce1-cibles-adresse",
-                            "title": "Le jeu de cibles",
-                            "subtitle": "Additionne les points des flèchettes",
-                            "engine": "math-input",
-                            "params": {
-                                "type": "cibles",
-                                "zones": [
-                                    5,
-                                    10,
-                                    25
-                                ],
-                                "nbFleches": 3,
-                                "questions": 5
                             }
                         }
                     ],
@@ -1827,20 +1833,21 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Pour résoudre un problème, je lis toute la question, je repère les nombres et je cherche ce que l'on me demande de trouver."
+                                    "text": "Avant de calculer, je lis tout l'énoncé et je me demande : qu'est-ce qu'on cherche ? Quels nombres vont me servir ?"
                                 },
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "Un car parcourt 35 km puis 28 km : je dois additionner pour connaître la distance totale, donc 35 + 28 = 63."
+                                    "content": "Dans un panier, il y a 18 pommes rouges et 7 pommes vertes. On mange 4 pommes rouges. Combien reste-t-il de pommes rouges ? On cherche les pommes rouges : j'utilise 18 et 4, donc 18 − 4 = 14. Le 7 ne sert pas."
                                 },
                                 {
                                     "type": "bullets",
                                     "label": "Je retiens",
                                     "items": [
                                         "je lis l'énoncé en entier avant de calculer",
-                                        "je repère les mots qui indiquent ajouter, enlever ou répéter",
-                                        "je vérifie que ma réponse correspond bien à la question"
+                                        "je cherche ce que l'on me demande",
+                                        "je repère les nombres utiles et ceux qui ne servent pas",
+                                        "je vérifie que ma réponse répond bien à la question"
                                     ]
                                 },
                                 {
@@ -1874,33 +1881,33 @@
                         },
                         {
                             "id": "ce1-lesson-resoudre-probleme",
-                            "title": "Résoudre un petit problème",
-                            "subtitle": "Lire, réfléchir, calculer, vérifier",
+                            "title": "Choisir la bonne opération",
+                            "subtitle": "Ajouter, enlever ou répéter ?",
                             "format": "lesson-card",
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Un problème raconte une petite histoire avec des nombres. Pour le résoudre, on suit toujours les mêmes étapes."
+                                    "text": "Quand l'énoncé est compris, il faut choisir l'opération. Je regarde ce qui se passe dans l'histoire : la quantité augmente, diminue ou se répète."
                                 },
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "« Léa a 12 billes, elle en donne 4. » Je cherche : combien lui en reste-t-il ? C'est une soustraction : 12 − 4 = 8."
+                                    "content": "« Léa a 12 billes, elle en donne 4. » Elle en donne : il lui en reste moins, j'enlève. 12 − 4 = 8."
                                 },
                                 {
                                     "type": "bullets",
-                                    "label": "Ma méthode",
+                                    "label": "Quelle opération ?",
                                     "items": [
-                                        "1. Je lis l'histoire en entier, calmement.",
-                                        "2. Je cherche la question : que me demande-t-on ?",
-                                        "3. Je choisis l'opération : ajouter (+) ou enlever (−) ?",
-                                        "4. Je calcule, puis je vérifie que ma réponse a du sens."
+                                        "Je réunis, j'en reçois, j'en gagne : j'ajoute (+).",
+                                        "J'en donne, j'en perds, il en reste : j'enlève (−).",
+                                        "Il y a plusieurs paquets avec le même nombre dedans : je répète ce nombre, je multiplie (×).",
+                                        "Je calcule, puis je vérifie que ma réponse a du sens."
                                     ]
                                 },
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "Les mots « en tout » font souvent penser à une addition ; « il reste » à une soustraction."
+                                    "content": "Les mots « en tout » font souvent penser à une addition, « il reste » à une soustraction, « chaque » ou « paquets de » à une multiplication."
                                 },
                                 {
                                     "type": "check",
@@ -2749,30 +2756,30 @@
                         {
                             "id": "ce1-lesson-vocabulaire-ranger-mots",
                             "title": "Les familles de mots",
-                            "subtitle": "Des mots liés par le sens",
+                            "subtitle": "Des mots qui partagent un morceau",
                             "format": "lesson-card",
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Des mots peuvent aller ensemble parce qu'ils parlent du même thème, du même sens proche ou de la même famille."
+                                    "text": "Des mots de la même famille ont un morceau en commun et parlent de la même idée."
                                 },
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "chat, chien et lapin vont ensemble car ce sont des animaux."
+                                    "content": "fleur, fleuriste et fleurir sont de la même famille : on retrouve « fleur » dans chacun."
                                 },
                                 {
                                     "type": "bullets",
                                     "items": [
-                                        "des mots d'un même thème",
-                                        "des mots de sens proche",
-                                        "des mots d'une même famille"
+                                        "des mots de la même famille ont un morceau en commun",
+                                        "ils parlent de la même idée",
+                                        "deux mots qui se ressemblent ne sont pas toujours de la même famille"
                                     ]
                                 },
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "Ranger les mots aide à mieux comprendre et mieux apprendre le vocabulaire."
+                                    "content": "Chercher le morceau commun aide à retrouver la famille d'un mot et à mieux l'écrire."
                                 },
                                 {
                                     "type": "check",
@@ -2787,14 +2794,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans la liste « rose, tulipe, marteau, tournesol », quel mot ne va pas avec les autres ?",
+                                    "question": "Dans la liste « jardin, jardinier, jardiner, journal », quel mot n'est pas de la famille de « jardin » ?",
                                     "choices": [
-                                        "marteau",
-                                        "tournesol",
-                                        "tulipe"
+                                        "journal",
+                                        "jardinier",
+                                        "jardiner"
                                     ],
-                                    "answer": "marteau",
-                                    "explanation": "Rose, tulipe et tournesol sont des fleurs : ils partagent le même thème. Le marteau est un outil, il n'a pas le même sens."
+                                    "answer": "journal",
+                                    "explanation": "« jardinier » et « jardiner » parlent du jardin : on y retrouve le morceau « jardin ». « journal » commence presque pareil, mais il n'a pas le même sens."
                                 }
                             ]
                         },
@@ -2891,14 +2898,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sami dit : « Le contraire de courir, c'est marcher. » A-t-il raison ?",
+                                    "question": "Maya dit : « Le contraire de grand, c'est gros. » A-t-elle raison ?",
                                     "choices": [
-                                        "Non, marcher n'est pas l'inverse de courir",
-                                        "Oui, car on va moins vite en marchant",
-                                        "Oui, car ce sont deux actions des jambes"
+                                        "Non : le contraire de grand, c'est petit",
+                                        "Oui : un gros est le contraire d'un grand",
+                                        "Oui : les deux mots parlent de la taille"
                                     ],
-                                    "answer": "Non, marcher n'est pas l'inverse de courir",
-                                    "explanation": "Marcher est seulement plus lent que courir : le sens n'est pas opposé. Le contraire de courir serait plutôt « s'arrêter »."
+                                    "answer": "Non : le contraire de grand, c'est petit",
+                                    "explanation": "« gros » n'est pas le contraire de « grand » : le contraire de grand, c'est petit. Pour gros, le contraire serait plutôt mince ou maigre."
                                 }
                             ]
                         },
@@ -3019,7 +3026,7 @@
                         {
                             "id": "ce1-vocab-familles",
                             "title": "Ranger les mots",
-                            "subtitle": "Familles et champs lexicaux simples",
+                            "subtitle": "Range chaque mot dans son groupe",
                             "engine": "reading",
                             "params": {
                                 "category": "ce1_vocabulaire_champs",
@@ -3279,6 +3286,7 @@
                                     "label": "Je retiens",
                                     "items": [
                                         "un nom au pluriel prend souvent un s : le déterminant devient les ou des",
+                                        "les noms en -eau prennent un x au pluriel : un oiseau → des oiseaux",
                                         "un nom féminin utilise la ou une, un nom masculin utilise le ou un",
                                         "je vérifie toujours l'accord en relisant le groupe déterminant + nom"
                                     ]
@@ -3400,8 +3408,8 @@
                         },
                         {
                             "id": "ce1-gram-nature",
-                            "title": "Masculin ou féminin ?",
-                            "subtitle": "Trouver le genre du mot : le, la ou l'",
+                            "title": "Le, la ou l' : la nature",
+                            "subtitle": "Choisis le petit mot qui va devant le nom",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "gender-articles",
@@ -3521,14 +3529,14 @@
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "grammar-cloze",
-                                "category": "grammar_cloze_ce1",
+                                "category": "grammar_cloze_ce1_defi",
                                 "questions": 12
                             }
                         },
                         {
                             "id": "ce1-gram-classes-mots",
                             "title": "Nom, verbe ou adjectif ?",
-                            "subtitle": "Reconnaître la classe d’un mot",
+                            "subtitle": "Reconnaître la classe d'un mot",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "word-class-choice",
@@ -3870,14 +3878,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Trois moments : la naissance de ta maman, ta naissance, ta rentrée au CE1. Lequel est le plus ancien ?",
+                                    "question": "Trois moments : la naissance de ton grand-père, ta naissance, ta rentrée au CE1. Lequel est le plus ancien ?",
                                     "choices": [
-                                        "La naissance de ta maman",
-                                        "Ta naissance, il y a 7 ans",
+                                        "La naissance de ton grand-père",
+                                        "Ta naissance, il y a quelques années",
                                         "Ta rentrée au CE1, en septembre"
                                     ],
-                                    "answer": "La naissance de ta maman",
-                                    "explanation": "Ta maman est née bien avant toi, et tu es né avant d'entrer au CE1. Le plus ancien est celui qui s'est passé en premier : sa naissance."
+                                    "answer": "La naissance de ton grand-père",
+                                    "explanation": "Ton grand-père est né bien avant toi, et tu es né avant d'entrer au CE1. Le plus ancien est celui qui s'est passé en premier : sa naissance."
                                 }
                             ]
                         },
@@ -4174,7 +4182,7 @@
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "Une statue, une plaque ou une fresque peuvent rappeler une personne importante ou un événement."
+                                    "content": "La tour Eiffel, à Paris, est un monument construit en 1889. Jeanne d'Arc, une jeune fille qui a vécu il y a près de 600 ans, est un personnage célèbre : on a fait des statues pour s'en souvenir."
                                 },
                                 {
                                     "type": "bullets",
@@ -4182,7 +4190,8 @@
                                     "items": [
                                         "le nom du monument",
                                         "la personne représentée",
-                                        "ce que l'on veut rappeler"
+                                        "ce que l'on veut rappeler",
+                                        "Exemples : la tour Eiffel à Paris, le château de Versailles du roi Louis XIV, Jeanne d'Arc"
                                     ]
                                 },
                                 {
@@ -4302,8 +4311,8 @@
                         },
                         {
                             "id": "ce1-histoire-appariement",
-                            "title": "Objets et usages d'autrefois",
-                            "subtitle": "Relie chaque objet ancien à son usage",
+                            "title": "Relier le passé et le présent",
+                            "subtitle": "Objets, temps, famille et monuments",
                             "engine": "matching",
                             "params": {
                                 "category": "matching_histoire_ce1",
@@ -4519,7 +4528,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/geography_ce1.json",
-                                "category": "ce1-reperage",
+                                "category": "ce1-reperage-defi",
                                 "questions": 10
                             }
                         }
@@ -4652,7 +4661,7 @@
                             "params": {
                                 "questions": 8,
                                 "dataFile": "data/geography_ce1.json",
-                                "category": "ce1-paysages",
+                                "category": "ce1-paysages-reconnaitre",
                                 "type": "factual-qcm"
                             },
                             "title": "Reconnaître les paysages",
@@ -4703,7 +4712,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/geography_ce1.json",
-                                "category": "ce1-mer-montagne",
+                                "category": "ce1-paysages-france-defi",
                                 "questions": 8
                             },
                             "isBonus": true,
@@ -4895,7 +4904,7 @@
                             "params": {
                                 "questions": 8,
                                 "dataFile": "data/geography_ce1.json",
-                                "category": "ce1-transports-france",
+                                "category": "ce1-se-deplacer-france",
                                 "type": "factual-qcm"
                             },
                             "title": "Se déplacer en France",
@@ -5149,6 +5158,7 @@
                                     "items": [
                                         "Besoins de tous les vivants : eau, air, nourriture.",
                                         "Les plantes fabriquent leur nourriture grâce à la lumière, l'eau et l'air.",
+                                        "Une plante a des racines (elles boivent l'eau du sol), une tige, des feuilles et une fleur.",
                                         "Les animaux trouvent leur nourriture dans leur milieu.",
                                         "Un milieu favorable offre aussi un abri et une bonne température."
                                     ]
@@ -5189,12 +5199,12 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Un être vivant naît, grandit, se nourrit, se reproduit et meurt. Un objet, même s'il bouge, ne fait rien de tout cela."
+                                    "text": "Un être vivant naît, grandit, se nourrit, peut se reproduire et meurt. Un objet, même s'il bouge, ne fait rien de tout cela."
                                 },
                                 {
                                     "type": "example",
                                     "label": "Exemple",
-                                    "content": "Le chat est vivant : il naît, grandit, mange. Le robot bouge, mais il ne grandit pas et ne se reproduit pas : il n'est pas vivant."
+                                    "content": "Le chat est vivant : il naît, grandit, mange. Le robot bouge, mais il ne grandit pas et ne se nourrit pas : il n'est pas vivant."
                                 },
                                 {
                                     "type": "bullets",
@@ -5430,7 +5440,7 @@
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "Dissous ne veut pas dire disparu : goûte l'eau salée, le sel est toujours là, juste invisible !"
+                                    "content": "Dissous ne veut pas dire disparu : l'eau salée garde le sel, juste invisible !"
                                 },
                                 {
                                     "type": "check",
@@ -6215,7 +6225,7 @@
                             "subtitle": "Relie chaque situation à la bonne réaction",
                             "engine": "matching",
                             "params": {
-                                "category": "matching_emc_ce1",
+                                "category": "matching_emc_ce1_emotions",
                                 "dataFile": "data/emc_matching.json",
                                 "questions": 3
                             }
@@ -6609,7 +6619,7 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sacha bloque sur un calcul. Ines connaît le résultat. Quelle aide fait vraiment progresser Sacha ?",
+                                    "question": "Sacha bloque sur un calcul. Inès connaît le résultat. Quelle aide fait vraiment progresser Sacha ?",
                                     "choices": [
                                         "Lui demander où il bloque et l'aider à repartir de là",
                                         "Lui donner le résultat pour qu'il puisse continuer",

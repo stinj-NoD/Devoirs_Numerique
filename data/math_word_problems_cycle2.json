@@ -208,14 +208,14 @@
                 "explanation": "On additionne les deux distances parcourues dans la journée : 35 + 28 = 63."
             },
             {
-                "question": "Dans la classe, il y a 32 livres. La maîtresse en range 9 dans une autre étagère. Combien reste-t-il de livres sur l'étagère de départ ?",
+                "question": "Sur une étagère, il y a 32 livres. La maîtresse en range 9 dans un placard. Combien reste-t-il de livres sur l'étagère ?",
                 "choices": [
                     "23",
                     "41",
                     "22"
                 ],
                 "answer": "23",
-                "explanation": "Ranger ailleurs, c'est retirer des livres de l'étagère de départ : 32 - 9 = 23."
+                "explanation": "Ranger ailleurs, c'est retirer des livres de l'étagère : 32 - 9 = 23."
             },
             {
                 "question": "Au marché, Paul achète des légumes pour 18 € et des fruits pour 14 €. Combien dépense-t-il en tout ?",
@@ -796,7 +796,7 @@
                 "explanation": "On écrit d'abord les euros entiers (5), puis une virgule, puis les centimes sur deux chiffres (20) : cela donne 5,20 €."
             },
             {
-                "question": "Une image montre 3 pièces de 1 € et une pièce de 50 centimes. Quel est le prix écrit avec la virgule ?",
+                "question": "Une tirelire contient 3 pièces de 1 € et une pièce de 50 centimes. Quelle somme cela fait-il, écrite avec la virgule ?",
                 "choices": [
                     "3,50 €",
                     "3,05 €",
@@ -808,12 +808,12 @@
             {
                 "question": "Sur une étiquette, on lit 0,80 €. Que signifie ce prix ?",
                 "choices": [
-                    "80 centimes, pas encore 1 euro entier",
+                    "80 centimes",
                     "8 euros",
                     "80 euros"
                 ],
-                "answer": "80 centimes, pas encore 1 euro entier",
-                "explanation": "Le zéro avant la virgule signifie qu'il n'y a pas d'euro entier : 0,80 € représente seulement 80 centimes."
+                "answer": "80 centimes",
+                "explanation": "Le zéro avant la virgule signifie qu'il n'y a pas d'euro entier : 0,80 € représente seulement 80 centimes, pas encore 1 euro."
             },
             {
                 "question": "Quel prix correspond à « sept euros et dix centimes » ?",
@@ -1210,6 +1210,148 @@
                 ],
                 "answer": "11",
                 "explanation": "16 - 7 = 9, puis 9 + 2 = 11 oiseaux."
+            }
+        ],
+        "ce1-problemes-defi": [
+            {
+                "question": "Lola a 3 paquets de 5 cartes. Elle en donne 4 à son frère. Combien de cartes lui reste-t-il ?",
+                "choices": [
+                    "11",
+                    "19",
+                    "8"
+                ],
+                "answer": "11",
+                "explanation": "3 paquets de 5 : 5 + 5 + 5 = 15 cartes. Elle en donne 4 : 15 - 4 = 11."
+            },
+            {
+                "question": "Samir achète 3 cahiers à 2 € chacun et un stylo à 4 €. Combien dépense-t-il en tout ?",
+                "choices": [
+                    "10 €",
+                    "9 €",
+                    "24 €"
+                ],
+                "answer": "10 €",
+                "explanation": "3 cahiers à 2 € : 2 + 2 + 2 = 6 €. Avec le stylo : 6 + 4 = 10 €."
+            },
+            {
+                "question": "Dans un bus, 18 enfants sont assis. 9 autres enfants montent, puis 5 enfants descendent. Combien d'enfants y a-t-il dans le bus ?",
+                "choices": [
+                    "22",
+                    "32",
+                    "4"
+                ],
+                "answer": "22",
+                "explanation": "D'abord ils montent : 18 + 9 = 27. Puis ils descendent : 27 - 5 = 22."
+            },
+            {
+                "question": "Un fermier met 6 œufs dans chaque boîte. Il remplit 4 boîtes et il lui reste 3 œufs. Combien d'œufs avait-il au départ ?",
+                "choices": [
+                    "27",
+                    "21",
+                    "13"
+                ],
+                "answer": "27",
+                "explanation": "4 boîtes de 6 œufs : 6 + 6 + 6 + 6 = 24. Avec les 3 qui restent : 24 + 3 = 27."
+            },
+            {
+                "question": "Léa lit 12 pages le matin et le double l'après-midi. Combien de pages lit-elle en tout ?",
+                "choices": [
+                    "36",
+                    "24",
+                    "48"
+                ],
+                "answer": "36",
+                "explanation": "Le double de 12 est 24 : elle lit 24 pages l'après-midi. En tout : 12 + 24 = 36."
+            },
+            {
+                "question": "Tom a 50 €. Il achète 2 livres à 10 € chacun. Combien d'argent lui reste-t-il ?",
+                "choices": [
+                    "30 €",
+                    "40 €",
+                    "20 €"
+                ],
+                "answer": "30 €",
+                "explanation": "2 livres à 10 € : 10 + 10 = 20 €. Il lui reste : 50 - 20 = 30 €."
+            },
+            {
+                "question": "Nina a 5 boîtes de 10 crayons. Elle en offre 15. Combien de crayons lui reste-t-il ?",
+                "choices": [
+                    "35",
+                    "65",
+                    "45"
+                ],
+                "answer": "35",
+                "explanation": "5 boîtes de 10 : 10 + 10 + 10 + 10 + 10 = 50 crayons. Elle en offre 15 : 50 - 15 = 35."
+            },
+            {
+                "question": "Un pâtissier fait 24 gâteaux. Il en vend la moitié, puis il en mange 2. Combien lui en reste-t-il ?",
+                "choices": [
+                    "10",
+                    "12",
+                    "22"
+                ],
+                "answer": "10",
+                "explanation": "La moitié de 24 est 12 : il vend 12 gâteaux, il lui en reste 12. Puis il en mange 2 : 12 - 2 = 10."
+            },
+            {
+                "question": "Dans la classe, il y a 12 filles et 9 garçons. Les enfants se mettent par équipes de 3. Combien d'équipes peut-on former ?",
+                "choices": [
+                    "7",
+                    "6",
+                    "9"
+                ],
+                "answer": "7",
+                "explanation": "Il y a 12 + 9 = 21 enfants. Avec des équipes de 3 : 3 × 7 = 21, donc 7 équipes."
+            },
+            {
+                "question": "Maya a 20 billes. Elle en gagne 8, puis elle en perd 13. Combien de billes a-t-elle maintenant ?",
+                "choices": [
+                    "15",
+                    "25",
+                    "41"
+                ],
+                "answer": "15",
+                "explanation": "Elle en gagne : 20 + 8 = 28. Elle en perd : 28 - 13 = 15."
+            },
+            {
+                "question": "Zoé achète 3 livres à 5 € chacun. Elle paie avec un billet de 50 €. Combien lui rend-on ?",
+                "choices": [
+                    "35 €",
+                    "15 €",
+                    "45 €"
+                ],
+                "answer": "35 €",
+                "explanation": "3 livres à 5 € : 5 + 5 + 5 = 15 €. On lui rend : 50 - 15 = 35 €."
+            },
+            {
+                "question": "Un jardinier plante 4 rangées de 5 fleurs rouges et 3 rangées de 5 fleurs jaunes. Combien de fleurs plante-t-il en tout ?",
+                "choices": [
+                    "35",
+                    "12",
+                    "20"
+                ],
+                "answer": "35",
+                "explanation": "Il y a 4 + 3 = 7 rangées de 5 fleurs : 5 × 7 = 35. Ou bien 20 rouges et 15 jaunes : 20 + 15 = 35."
+            },
+            {
+                "question": "Hugo a 28 images. Sa sœur a 6 images de moins que lui. Combien d'images ont-ils à eux deux ?",
+                "choices": [
+                    "50",
+                    "34",
+                    "22"
+                ],
+                "answer": "50",
+                "explanation": "Sa sœur en a 28 - 6 = 22. À eux deux : 28 + 22 = 50."
+            },
+            {
+                "question": "Une classe compte 26 élèves. 9 élèves mangent à la maison, les autres à la cantine. À la cantine, 2 élèves sont absents. Combien d'élèves mangent à la cantine ?",
+                "choices": [
+                    "15",
+                    "17",
+                    "35"
+                ],
+                "answer": "15",
+                "explanation": "Les élèves de la cantine : 26 - 9 = 17. Avec 2 absents : 17 - 2 = 15."
             }
         ]
     }

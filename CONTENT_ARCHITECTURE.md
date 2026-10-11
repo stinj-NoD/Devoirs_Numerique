@@ -4,7 +4,7 @@ Document de référence listant, pour chaque niveau, chaque matière, chaque sou
 
 Objectif : repérer rapidement les manques de contenu (sous-thèmes sans leçon, sans exercice, catégories peu fournies) pour prioriser les ajouts.
 
-> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-10-10 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
+> Document généré automatiquement depuis `data/cp.json` à `data/cm2.json` le 2026-10-11 par `scripts/generate-content-architecture.js`. Ne pas éditer à la main : relancer le script après tout ajout de contenu.
 
 ---
 
@@ -592,40 +592,42 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Comparer avec <, = et > `(ce1-lesson-signes-comparaison)` — blocs: paragraph, example, bullets, tip, check, check
   - Encadrer un nombre entre deux centaines `(ce1-lesson-encadrement-centaines)` — blocs: paragraph, example, bullets, tip, check, check
   - La fraction est un nombre `(ce1-lesson-fraction-sur-ligne)` — blocs: paragraph, example, tip, check, check
-- **Exercices** (33) :
-  - Additions à trou jusqu'à 100 `(add-100)` — engine: `math-input`, type=add-trou, min=10, max=100, questions=10
-  - Calcul rapide `(add-chrono)` — engine: `math-input`, type=oiseau-math, min=10, max=30, vitesse=5, questions=10
-  - Comparer jusqu'à 100 `(comp-ce1-1)` — engine: `choice-engine`, range=100, questions=10
-  - Le Marché `(bank-ce1-1)` — engine: `math-input`, type=cibles, skin=money, nbFleches=5, questions=5
-  - Carré Expert `(carre-ce1-1)` — engine: `math-input`, type=carre-somme, targetMin=50, targetMax=50, gridSize=9, showSum=false, questions=5
-  - Additions jusqu'à 20 `(ce1-additions-20)` — engine: `math-input`, type=add-simple, min=2, maxSum=20, questions=10
+- **Exercices** (35) :
+  - Additions jusqu'à 20 `(ce1-additions-20)` — engine: `math-input`, type=add-simple, min=10, maxSum=20, questions=10
   - Soustractions jusqu'à 20 `(ce1-soustractions-20)` — engine: `math-input`, type=sub-simple, min=5, max=20, questions=10
-  - Additions jusqu'à 50 `(ce1-additions-50)` — engine: `math-input`, type=add-simple, min=5, maxSum=50, questions=10
-  - Comparer jusqu'à 200 `(ce1-comp-200)` — engine: `choice-engine`, range=200, questions=10
-  - Nombres et opérations `(ce1-maths-appariement)` — engine: `matching`, category=matching_math_ce1, dataFile=data/math_matching.json, questions=3
-  - Jeu de mémoire `(ce1-maths-memoire)` — engine: `board-interactive`, type=memory-match, dataFile=data/board_memory_match_ce1.json, category=ce1_memory_match_maths, questions=5
-  - Défi : additions jusqu'à 150 `(ce1-bonus-additions-100)` — engine: `math-input`, type=add-simple, min=10, maxSum=150, questions=12, bonus (seuil=2)
-  - Défi : additions jusqu'à 999 `(ce1-bonus-additions-999)` — engine: `math-input`, type=add-simple, min=100, maxSum=999, questions=10, bonus (seuil=2)
-  - Défi : soustractions jusqu'à 999 `(ce1-bonus-soustractions-999)` — engine: `math-input`, type=sub-simple, min=100, max=999, questions=10, bonus (seuil=2)
+  - L'oiseau matheux `(ce1-oiseau-calcul)` — engine: `math-input`, type=oiseau-math, min=5, max=20, vitesse=8, questions=6
   - Les doubles `(ce1-doubles)` — engine: `math-input`, type=double, min=3, max=30, questions=6
   - Les moitiés `(ce1-moities)` — engine: `math-input`, type=half, min=3, max=25, questions=6
-  - Compléments à 100 : les dizaines `(ce1-complements-20)` — engine: `math-input`, type=complement, target=100, questions=6, multipleOf=10
-  - Additions jusqu'à 100 `(ce1-additions-100)` — engine: `math-input`, type=add-simple, min=20, maxSum=100, questions=6
-  - Soustractions jusqu'à 60 `(ce1-soustractions-60)` — engine: `math-input`, type=sub-simple, min=20, max=60, questions=6
+  - Additions jusqu'à 50 `(ce1-additions-50)` — engine: `math-input`, type=add-simple, min=20, maxSum=50, questions=10
   - Le nombre caché `(ce1-nombre-cache-50)` — engine: `math-input`, type=add-trou, min=20, max=50, questions=6
-  - Défi : compléments à 100 `(ce1-bonus-complements-100)` — engine: `math-input`, type=complement, target=100, questions=8, multipleOf=5, bonus (seuil=2)
+  - Calcul rapide `(add-chrono)` — engine: `math-input`, type=oiseau-math, min=10, max=30, vitesse=8, questions=10
+  - Soustractions jusqu'à 60 `(ce1-soustractions-60)` — engine: `math-input`, type=sub-simple, min=20, max=60, questions=6
+  - Additions jusqu'à 100 `(ce1-additions-100)` — engine: `math-input`, type=add-simple, min=20, maxSum=100, questions=6
+  - Additions à trou jusqu'à 100 `(add-100)` — engine: `math-input`, type=add-trou, min=10, max=100, questions=10
+  - Compléments à 100 : les dizaines `(ce1-complements-20)` — engine: `math-input`, type=complement, target=100, questions=6, multipleOf=10
+  - Comparer jusqu'à 100 `(comp-ce1-1)` — engine: `choice-engine`, range=100, questions=10
+  - Le Marché `(bank-ce1-1)` — engine: `math-input`, type=cibles, skin=money, nbFleches=5, questions=5
+  - Lire un prix avec une virgule `(ce1-monnaie-decimale-lecture)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=ce1-monnaie-decimale, questions=8
+  - Le jeu de cibles `(ce1-cibles-adresse)` — engine: `math-input`, type=cibles, nbFleches=3, questions=5
+  - Trois nombres pour faire 50 `(carre-ce1-1)` — engine: `math-input`, type=carre-somme, targetMin=50, targetMax=50, gridSize=9, showSum=false, questions=5
   - Addition posée en colonnes `(ce1-addition-posee-colonnes)` — engine: `math-input`, type=operation-posed, operator=add, level=1, questions=6
   - Soustraction posée en colonnes `(ce1-soustraction-posee-colonnes)` — engine: `math-input`, type=operation-posed, operator=sub, level=1, questions=6
   - Partager en parts égales `(ce1-fractions-partage)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=ce1-fractions, questions=8
-  - Lire un prix avec une virgule `(ce1-monnaie-decimale-lecture)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=ce1-monnaie-decimale, questions=8
-  - Encadrer entre deux centaines `(ce1-encadrement-centaines)` — engine: `board-interactive`, type=number-line-frame, dataFile=data/board_number_line_ce1.json, category=ce1_number_line_frame_centaines, questions=6
+  - Lire une fraction `(ce1-fractions-visuel)` — engine: `math-input`, type=fraction-view, maxDenom=5, questions=8
   - Placer une fraction `(ce1-fractions-ligne-graduee)` — engine: `board-interactive`, type=number-line-place, dataFile=data/board_number_line_ce1.json, category=ce1_fractions_ligne_graduee, questions=6
-  - Addition posée jusqu’à 1000 `(ce1-addition-posee-centaines)` — engine: `math-input`, type=operation-posed, operator=add, level=2, questions=6, maxResult=1000
-  - Soustraction posée jusqu’à 1000 `(ce1-soustraction-posee-centaines)` — engine: `math-input`, type=operation-posed, operator=sub, level=2, questions=6
+  - Comparer jusqu'à 200 `(ce1-comp-200)` — engine: `choice-engine`, range=200, questions=10
+  - Comparer jusqu'à 1000 `(ce1-comparer-1000)` — engine: `choice-engine`, range=1000, questions=10
   - Centaines, dizaines, unités `(ce1-decomposition-cdu)` — engine: `math-input`, type=place-value, digitCount=3, ask=digit, questions=6
-  - La valeur d’un chiffre `(ce1-valeur-chiffre-cdu)` — engine: `math-input`, type=place-value, digitCount=3, ask=value, questions=6
-  - Comparer jusqu’à 1000 `(ce1-comparer-1000)` — engine: `choice-engine`, range=1000, questions=10
-  - Lire une fraction `(ce1-fractions-visuel)` — engine: `math-input`, type=fraction-view, maxDenom=4, questions=8
+  - La valeur d'un chiffre `(ce1-valeur-chiffre-cdu)` — engine: `math-input`, type=place-value, digitCount=3, ask=value, questions=6
+  - Encadrer entre deux centaines `(ce1-encadrement-centaines)` — engine: `board-interactive`, type=number-line-frame, dataFile=data/board_number_line_ce1.json, category=ce1_number_line_frame_centaines, questions=6
+  - Addition posée jusqu'à 1000 `(ce1-addition-posee-centaines)` — engine: `math-input`, type=operation-posed, operator=add, level=2, questions=6, maxResult=1000
+  - Soustraction posée jusqu'à 1000 `(ce1-soustraction-posee-centaines)` — engine: `math-input`, type=operation-posed, operator=sub, level=2, questions=6
+  - Nombres et opérations `(ce1-maths-appariement)` — engine: `matching`, category=matching_math_ce1_nombres, dataFile=data/math_matching.json, questions=3
+  - Jeu de mémoire `(ce1-maths-memoire)` — engine: `board-interactive`, type=memory-match, dataFile=data/board_memory_match_ce1.json, category=ce1_memory_match_maths, questions=5
+  - Défi : compléments à 100 `(ce1-bonus-complements-100)` — engine: `math-input`, type=complement, target=100, questions=8, multipleOf=5, bonus (seuil=2)
+  - Défi : additions jusqu'à 150 `(ce1-bonus-additions-100)` — engine: `math-input`, type=add-simple, min=10, maxSum=150, questions=12, bonus (seuil=2)
+  - Défi : additions jusqu'à 999 `(ce1-bonus-additions-999)` — engine: `math-input`, type=add-simple, min=100, maxSum=999, questions=10, bonus (seuil=2)
+  - Défi : soustractions jusqu'à 999 `(ce1-bonus-soustractions-999)` — engine: `math-input`, type=sub-simple, min=100, max=999, questions=10, bonus (seuil=2)
 
 #### Géométrie et mesures `(ce1-geometrie-mesures-subtheme)`
 
@@ -642,7 +644,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Repères de la journée `(ce1-geo-reperes-journee)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_ce1.json, category=ce1-reperes-journee, questions=8
   - Lire l'heure `(ce1-clock-heures-quarts)` — engine: `clock`, level=2, questions=6
   - Masses et contenances `(ce1-geo-masses-contenances)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_geometry_ce1.json, category=ce1-masses-contenances, questions=8
-  - Nombres et notions clés `(ce1-maths-geo-appariement)` — engine: `matching`, category=matching_math_ce1, dataFile=data/math_matching.json, questions=3
+  - Formes, mesures et temps `(ce1-maths-geo-appariement)` — engine: `matching`, category=matching_math_ce1_mesures, dataFile=data/math_matching.json, questions=3
   - Défi : lire l'heure `(ce1-bonus-geo-lire-heure)` — engine: `clock`, level=2, questions=10, bonus (seuil=2)
   - Le bon croisement `(ce1-geo-point-quadrillage)` — engine: `board-interactive`, type=point-on-grid, dataFile=data/board_point_on_grid_ce1.json, category=ce1_point_on_grid, questions=6
 
@@ -650,13 +652,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 
 - **Leçons** (2) :
   - Bien lire un problème `(ce1-lesson-bien-lire-probleme)` — blocs: paragraph, example, bullets, tip, check, check
-  - Résoudre un petit problème `(ce1-lesson-resoudre-probleme)` — blocs: paragraph, example, bullets, tip, check, check
-- **Exercices** (5) :
+  - Choisir la bonne opération `(ce1-lesson-resoudre-probleme)` — blocs: paragraph, example, bullets, tip, check, check
+- **Exercices** (3) :
   - Problèmes additifs `(ce1-problemes-additifs)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=ce1-problemes-additifs, questions=8
   - Problèmes à étapes `(ce1-problemes-mixtes)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=ce1-problemes-mixtes, questions=8
-  - Défi : problèmes en rafale `(ce1-bonus-problemes-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=ce1-problemes-mixtes, questions=10, bonus (seuil=2)
-  - L'oiseau matheux `(ce1-oiseau-calcul)` — engine: `math-input`, type=oiseau-math, min=5, max=20, vitesse=8, questions=6
-  - Le jeu de cibles `(ce1-cibles-adresse)` — engine: `math-input`, type=cibles, nbFleches=3, questions=5
+  - Défi : problèmes en rafale `(ce1-bonus-problemes-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/math_word_problems_cycle2.json, category=ce1-problemes-defi, questions=10, bonus (seuil=2)
 
 ### Français (ce1-francais)
 
@@ -750,7 +750,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Exercices** (14) :
   - Un ou Une? `(ce1-gram-un-une)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_classe, questions=8
   - Le, La ou L'? `(ce1-gram-le-la)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_maison, questions=8
-  - Masculin ou féminin ? `(ce1-gram-nature)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_nature, questions=8
+  - Le, la ou l' : la nature `(ce1-gram-nature)` — engine: `choice-engine`, type=gender-articles, category=gender_ce1_nature, questions=8
   - Le bon déterminant `(ce1-gram-cloze-det)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_cloze_ce1, questions=8
   - Écris le bon mot `(ce1-gram-cloze-ecrit)` — engine: `cloze-fill-in`, category=grammar_cloze_ce1, questions=6
   - Singulier ou pluriel `(ce1-gram-pluriel)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_plural_ce1, questions=8
@@ -760,7 +760,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Raconte une histoire `(ce1-francais-raconte-histoire)` — engine: `word-order`, category=story_order_ce1, dataFile=data/french_word_order.json, questions=4
   - Types de phrases `(ce1-gram-types-phrases)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_phrase_types_ce1, questions=8
   - Le sujet du verbe `(ce1-gram-sujet-verbe)` — engine: `choice-engine`, type=word-class-choice, category=grammar_sujet_verbe_ce1, questions=8
-  - Défi : phrases à compléter `(ce1-bonus-grammaire-cloze-expert)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_cloze_ce1, questions=12, bonus (seuil=2)
+  - Défi : phrases à compléter `(ce1-bonus-grammaire-cloze-expert)` — engine: `choice-engine`, type=grammar-cloze, category=grammar_cloze_ce1_defi, questions=12, bonus (seuil=2)
   - Nom, verbe ou adjectif ? `(ce1-gram-classes-mots)` — engine: `choice-engine`, type=word-class-choice, category=word_class_choice_ce1, questions=8
 
 #### Conjugaison `(ce1-conjugaison-subject)`
@@ -820,7 +820,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
 - **Exercices** (4) :
   - Objets du passé `(ce1-histoire-objets-passe)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-objets-passe, questions=6
   - Comparer les objets `(ce1-histoire-comparer-objets)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/history_ce1.json, category=ce1-objets-passe
-  - Objets et usages d'autrefois `(ce1-histoire-appariement)` — engine: `matching`, category=matching_histoire_ce1, dataFile=data/history_matching.json, questions=2
+  - Relier le passé et le présent `(ce1-histoire-appariement)` — engine: `matching`, category=matching_histoire_ce1, dataFile=data/history_matching.json, questions=2
   - Défi : objets du passé en détail `(ce1-bonus-histoire-objets-passe-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/history_ce1.json, category=ce1-objets-passe, questions=10, bonus (seuil=2)
 
 ### Questionner l'espace (ce1-geographie-subject)
@@ -836,7 +836,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Lire la légende `(ce1-geo-legende)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce1.json, category=ce1-legende-simple, questions=6
   - Lieux publics `(ce1-geo-lieux-publics)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce1.json, category=ce1-lieux-publics, questions=6
   - Services du quartier `(ce1-geo-services-quartier)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce1.json, category=ce1-services-quartier, questions=6
-  - Défi : super repérage `(ce1-bonus-geo-reperage-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce1.json, category=ce1-reperage, questions=10, bonus (seuil=2)
+  - Défi : super repérage `(ce1-bonus-geo-reperage-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce1.json, category=ce1-reperage-defi, questions=10, bonus (seuil=2)
 
 #### Paysages `(ce1-geo-paysages-subtheme)`
 
@@ -846,11 +846,11 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Vivre au village ou en ville `(ce1-lesson-village-ville)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (6) :
   - Paysages `(ce1-geo-paysages)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce1.json, category=ce1-paysages, questions=6
-  - Reconnaître les paysages `(ce1-geo-reconnaitre-paysages)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_ce1.json, category=ce1-paysages
+  - Reconnaître les paysages `(ce1-geo-reconnaitre-paysages)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_ce1.json, category=ce1-paysages-reconnaitre
   - Lieux et paysages `(ce1-geo-appariement)` — engine: `matching`, category=matching_geo_ce1, dataFile=data/geography_matching.json, questions=2
   - Mer, montagne, campagne `(ce1-geo-mer-montagne)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce1.json, category=ce1-mer-montagne, questions=6
   - Village ou ville ? `(ce1-geo-village-ville)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce1.json, category=ce1-village-ville, questions=6
-  - Défi : paysages de France `(ce1-bonus-paysages-france)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce1.json, category=ce1-mer-montagne, questions=8, bonus (seuil=2)
+  - Défi : paysages de France `(ce1-bonus-paysages-france)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce1.json, category=ce1-paysages-france-defi, questions=8, bonus (seuil=2)
 
 #### France et transports `(ce1-geo-transports-subtheme)`
 
@@ -859,7 +859,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - À chaque trajet son transport `(ce1-lesson-choisir-transport)` — blocs: paragraph, example, bullets, tip, check, check
 - **Exercices** (4) :
   - France et transports `(ce1-geo-transports)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/geography_ce1.json, category=ce1-transports-france, questions=6
-  - Se déplacer en France `(ce1-geo-se-deplacer-france)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_ce1.json, category=ce1-transports-france
+  - Se déplacer en France `(ce1-geo-se-deplacer-france)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_ce1.json, category=ce1-se-deplacer-france
   - Trajets du quotidien `(ce1-geo-trajets-quotidiens)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/geography_ce1.json, category=ce1-trajets-quotidiens
   - Carte des régions de France `(ce1-geo-carte-regions)` — engine: `board-interactive`, type=map-locate, dataFile=data/board_map_locate_ce1.json, mapFile=data/maps/france-regions.svg, mapId=france-regions, category=ce1_map_regions_france, questions=5
 
@@ -948,7 +948,7 @@ _Aucun sous-thème sans leçon ni sans exercice détecté._
   - Être responsable `(ce1-emc-responsabilites)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-responsabilites-eleve, questions=6
   - Rôles dans la classe `(ce1-emc-roles-classe)` — engine: `choice-engine`, type=factual-qcm, questions=8, dataFile=data/emc_ce1.json, category=ce1-roles-classe
   - Règles et valeurs `(ce1-emc-appariement)` — engine: `matching`, category=matching_emc_ce1, dataFile=data/emc_matching.json, questions=3
-  - Émotions et attitudes `(ce1-emc-appariement-2)` — engine: `matching`, category=matching_emc_ce1, dataFile=data/emc_matching.json, questions=3
+  - Émotions et attitudes `(ce1-emc-appariement-2)` — engine: `matching`, category=matching_emc_ce1_emotions, dataFile=data/emc_matching.json, questions=3
   - Défi : super règles de classe `(ce1-bonus-emc-regles-expert)` — engine: `choice-engine`, type=factual-qcm, dataFile=data/emc_ce1.json, category=ce1-regles, questions=10, bonus (seuil=2)
 
 #### Être citoyen `(ce1-emc-citoyen-subtheme)`

@@ -4,7 +4,7 @@
     "exercises": 1114,
     "lessons": 489,
     "levels": 5,
-    "banks": 80
+    "banks": 78
   },
   "entries": [
     {
@@ -3451,61 +3451,6 @@
       "contractHash": null
     },
     {
-      "id": "add-100",
-      "kind": "exercise",
-      "level": "ce1",
-      "subjectId": "ce1-maths",
-      "subthemeId": "ce1-nombres-calculs",
-      "engine": "math-input",
-      "paramsType": "add-trou",
-      "pool": null,
-      "contractHash": "math-input|{\"max\":100,\"min\":10,\"type\":\"add-trou\"}"
-    },
-    {
-      "id": "add-chrono",
-      "kind": "exercise",
-      "level": "ce1",
-      "subjectId": "ce1-maths",
-      "subthemeId": "ce1-nombres-calculs",
-      "engine": "math-input",
-      "paramsType": "oiseau-math",
-      "pool": null,
-      "contractHash": "math-input|{\"max\":30,\"min\":10,\"type\":\"oiseau-math\",\"vitesse\":5}"
-    },
-    {
-      "id": "comp-ce1-1",
-      "kind": "exercise",
-      "level": "ce1",
-      "subjectId": "ce1-maths",
-      "subthemeId": "ce1-nombres-calculs",
-      "engine": "choice-engine",
-      "paramsType": null,
-      "pool": null,
-      "contractHash": "choice-engine|{\"range\":100}"
-    },
-    {
-      "id": "bank-ce1-1",
-      "kind": "exercise",
-      "level": "ce1",
-      "subjectId": "ce1-maths",
-      "subthemeId": "ce1-nombres-calculs",
-      "engine": "math-input",
-      "paramsType": "cibles",
-      "pool": null,
-      "contractHash": "math-input|{\"nbFleches\":5,\"skin\":\"money\",\"type\":\"cibles\",\"zones\":[1,2,5,10,20]}"
-    },
-    {
-      "id": "carre-ce1-1",
-      "kind": "exercise",
-      "level": "ce1",
-      "subjectId": "ce1-maths",
-      "subthemeId": "ce1-nombres-calculs",
-      "engine": "math-input",
-      "paramsType": "carre-somme",
-      "pool": null,
-      "contractHash": "math-input|{\"gridSize\":9,\"showSum\":false,\"targetMax\":50,\"targetMin\":50,\"type\":\"carre-somme\"}"
-    },
-    {
       "id": "ce1-additions-20",
       "kind": "exercise",
       "level": "ce1",
@@ -3514,7 +3459,7 @@
       "engine": "math-input",
       "paramsType": "add-simple",
       "pool": null,
-      "contractHash": "math-input|{\"maxSum\":20,\"min\":2,\"type\":\"add-simple\"}"
+      "contractHash": "math-input|{\"maxSum\":20,\"min\":10,\"type\":\"add-simple\"}"
     },
     {
       "id": "ce1-soustractions-20",
@@ -3528,81 +3473,15 @@
       "contractHash": "math-input|{\"max\":20,\"min\":5,\"type\":\"sub-simple\"}"
     },
     {
-      "id": "ce1-additions-50",
+      "id": "ce1-oiseau-calcul",
       "kind": "exercise",
       "level": "ce1",
       "subjectId": "ce1-maths",
       "subthemeId": "ce1-nombres-calculs",
       "engine": "math-input",
-      "paramsType": "add-simple",
+      "paramsType": "oiseau-math",
       "pool": null,
-      "contractHash": "math-input|{\"maxSum\":50,\"min\":5,\"type\":\"add-simple\"}"
-    },
-    {
-      "id": "ce1-comp-200",
-      "kind": "exercise",
-      "level": "ce1",
-      "subjectId": "ce1-maths",
-      "subthemeId": "ce1-nombres-calculs",
-      "engine": "choice-engine",
-      "paramsType": null,
-      "pool": null,
-      "contractHash": "choice-engine|{\"range\":200}"
-    },
-    {
-      "id": "ce1-maths-appariement",
-      "kind": "exercise",
-      "level": "ce1",
-      "subjectId": "ce1-maths",
-      "subthemeId": "ce1-nombres-calculs",
-      "engine": "matching",
-      "paramsType": null,
-      "pool": "data/math_matching.json::matching_math_ce1",
-      "contractHash": "matching|{\"category\":\"matching_math_ce1\",\"dataFile\":\"data/math_matching.json\"}"
-    },
-    {
-      "id": "ce1-maths-memoire",
-      "kind": "exercise",
-      "level": "ce1",
-      "subjectId": "ce1-maths",
-      "subthemeId": "ce1-nombres-calculs",
-      "engine": "board-interactive",
-      "paramsType": "memory-match",
-      "pool": "data/board_memory_match_ce1.json::ce1_memory_match_maths",
-      "contractHash": "board-interactive|{\"category\":\"ce1_memory_match_maths\",\"dataFile\":\"data/board_memory_match_ce1.json\",\"type\":\"memory-match\"}"
-    },
-    {
-      "id": "ce1-bonus-additions-100",
-      "kind": "exercise",
-      "level": "ce1",
-      "subjectId": "ce1-maths",
-      "subthemeId": "ce1-nombres-calculs",
-      "engine": "math-input",
-      "paramsType": "add-simple",
-      "pool": null,
-      "contractHash": "math-input|{\"maxSum\":150,\"min\":10,\"type\":\"add-simple\"}"
-    },
-    {
-      "id": "ce1-bonus-additions-999",
-      "kind": "exercise",
-      "level": "ce1",
-      "subjectId": "ce1-maths",
-      "subthemeId": "ce1-nombres-calculs",
-      "engine": "math-input",
-      "paramsType": "add-simple",
-      "pool": null,
-      "contractHash": "math-input|{\"maxSum\":999,\"min\":100,\"type\":\"add-simple\"}"
-    },
-    {
-      "id": "ce1-bonus-soustractions-999",
-      "kind": "exercise",
-      "level": "ce1",
-      "subjectId": "ce1-maths",
-      "subthemeId": "ce1-nombres-calculs",
-      "engine": "math-input",
-      "paramsType": "sub-simple",
-      "pool": null,
-      "contractHash": "math-input|{\"max\":999,\"min\":100,\"type\":\"sub-simple\"}"
+      "contractHash": "math-input|{\"max\":20,\"min\":5,\"type\":\"oiseau-math\",\"vitesse\":8}"
     },
     {
       "id": "ce1-doubles",
@@ -3627,18 +3506,7 @@
       "contractHash": "math-input|{\"max\":25,\"min\":3,\"type\":\"half\"}"
     },
     {
-      "id": "ce1-complements-20",
-      "kind": "exercise",
-      "level": "ce1",
-      "subjectId": "ce1-maths",
-      "subthemeId": "ce1-nombres-calculs",
-      "engine": "math-input",
-      "paramsType": "complement",
-      "pool": null,
-      "contractHash": "math-input|{\"multipleOf\":10,\"target\":100,\"type\":\"complement\"}"
-    },
-    {
-      "id": "ce1-additions-100",
+      "id": "ce1-additions-50",
       "kind": "exercise",
       "level": "ce1",
       "subjectId": "ce1-maths",
@@ -3646,18 +3514,7 @@
       "engine": "math-input",
       "paramsType": "add-simple",
       "pool": null,
-      "contractHash": "math-input|{\"maxSum\":100,\"min\":20,\"type\":\"add-simple\"}"
-    },
-    {
-      "id": "ce1-soustractions-60",
-      "kind": "exercise",
-      "level": "ce1",
-      "subjectId": "ce1-maths",
-      "subthemeId": "ce1-nombres-calculs",
-      "engine": "math-input",
-      "paramsType": "sub-simple",
-      "pool": null,
-      "contractHash": "math-input|{\"max\":60,\"min\":20,\"type\":\"sub-simple\"}"
+      "contractHash": "math-input|{\"maxSum\":50,\"min\":20,\"type\":\"add-simple\"}"
     },
     {
       "id": "ce1-nombre-cache-50",
@@ -3671,7 +3528,51 @@
       "contractHash": "math-input|{\"max\":50,\"min\":20,\"type\":\"add-trou\"}"
     },
     {
-      "id": "ce1-bonus-complements-100",
+      "id": "add-chrono",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "oiseau-math",
+      "pool": null,
+      "contractHash": "math-input|{\"max\":30,\"min\":10,\"type\":\"oiseau-math\",\"vitesse\":8}"
+    },
+    {
+      "id": "ce1-soustractions-60",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "sub-simple",
+      "pool": null,
+      "contractHash": "math-input|{\"max\":60,\"min\":20,\"type\":\"sub-simple\"}"
+    },
+    {
+      "id": "ce1-additions-100",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "add-simple",
+      "pool": null,
+      "contractHash": "math-input|{\"maxSum\":100,\"min\":20,\"type\":\"add-simple\"}"
+    },
+    {
+      "id": "add-100",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "add-trou",
+      "pool": null,
+      "contractHash": "math-input|{\"max\":100,\"min\":10,\"type\":\"add-trou\"}"
+    },
+    {
+      "id": "ce1-complements-20",
       "kind": "exercise",
       "level": "ce1",
       "subjectId": "ce1-maths",
@@ -3679,7 +3580,62 @@
       "engine": "math-input",
       "paramsType": "complement",
       "pool": null,
-      "contractHash": "math-input|{\"multipleOf\":5,\"target\":100,\"type\":\"complement\"}"
+      "contractHash": "math-input|{\"multipleOf\":10,\"target\":100,\"type\":\"complement\"}"
+    },
+    {
+      "id": "comp-ce1-1",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "choice-engine",
+      "paramsType": null,
+      "pool": null,
+      "contractHash": "choice-engine|{\"range\":100}"
+    },
+    {
+      "id": "bank-ce1-1",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "cibles",
+      "pool": null,
+      "contractHash": "math-input|{\"nbFleches\":5,\"skin\":\"money\",\"type\":\"cibles\",\"zones\":[1,2,5,10,20]}"
+    },
+    {
+      "id": "ce1-monnaie-decimale-lecture",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "choice-engine",
+      "paramsType": "factual-qcm",
+      "pool": "data/math_word_problems_cycle2.json::ce1-monnaie-decimale",
+      "contractHash": "choice-engine|{\"category\":\"ce1-monnaie-decimale\",\"dataFile\":\"data/math_word_problems_cycle2.json\",\"type\":\"factual-qcm\"}"
+    },
+    {
+      "id": "ce1-cibles-adresse",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "cibles",
+      "pool": null,
+      "contractHash": "math-input|{\"nbFleches\":3,\"type\":\"cibles\",\"zones\":[5,10,25]}"
+    },
+    {
+      "id": "carre-ce1-1",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "carre-somme",
+      "pool": null,
+      "contractHash": "math-input|{\"gridSize\":9,\"showSum\":false,\"targetMax\":50,\"targetMin\":50,\"type\":\"carre-somme\"}"
     },
     {
       "id": "ce1-addition-posee-colonnes",
@@ -3715,26 +3671,15 @@
       "contractHash": "choice-engine|{\"category\":\"ce1-fractions\",\"dataFile\":\"data/math_word_problems_cycle2.json\",\"type\":\"factual-qcm\"}"
     },
     {
-      "id": "ce1-monnaie-decimale-lecture",
+      "id": "ce1-fractions-visuel",
       "kind": "exercise",
       "level": "ce1",
       "subjectId": "ce1-maths",
       "subthemeId": "ce1-nombres-calculs",
-      "engine": "choice-engine",
-      "paramsType": "factual-qcm",
-      "pool": "data/math_word_problems_cycle2.json::ce1-monnaie-decimale",
-      "contractHash": "choice-engine|{\"category\":\"ce1-monnaie-decimale\",\"dataFile\":\"data/math_word_problems_cycle2.json\",\"type\":\"factual-qcm\"}"
-    },
-    {
-      "id": "ce1-encadrement-centaines",
-      "kind": "exercise",
-      "level": "ce1",
-      "subjectId": "ce1-maths",
-      "subthemeId": "ce1-nombres-calculs",
-      "engine": "board-interactive",
-      "paramsType": "number-line-frame",
-      "pool": "data/board_number_line_ce1.json::ce1_number_line_frame_centaines",
-      "contractHash": "board-interactive|{\"category\":\"ce1_number_line_frame_centaines\",\"dataFile\":\"data/board_number_line_ce1.json\",\"type\":\"number-line-frame\"}"
+      "engine": "math-input",
+      "paramsType": "fraction-view",
+      "pool": null,
+      "contractHash": "math-input|{\"maxDenom\":5,\"type\":\"fraction-view\"}"
     },
     {
       "id": "ce1-fractions-ligne-graduee",
@@ -3748,26 +3693,26 @@
       "contractHash": "board-interactive|{\"category\":\"ce1_fractions_ligne_graduee\",\"dataFile\":\"data/board_number_line_ce1.json\",\"type\":\"number-line-place\"}"
     },
     {
-      "id": "ce1-addition-posee-centaines",
+      "id": "ce1-comp-200",
       "kind": "exercise",
       "level": "ce1",
       "subjectId": "ce1-maths",
       "subthemeId": "ce1-nombres-calculs",
-      "engine": "math-input",
-      "paramsType": "operation-posed",
+      "engine": "choice-engine",
+      "paramsType": null,
       "pool": null,
-      "contractHash": "math-input|{\"level\":2,\"maxResult\":1000,\"operator\":\"add\",\"type\":\"operation-posed\"}"
+      "contractHash": "choice-engine|{\"range\":200}"
     },
     {
-      "id": "ce1-soustraction-posee-centaines",
+      "id": "ce1-comparer-1000",
       "kind": "exercise",
       "level": "ce1",
       "subjectId": "ce1-maths",
       "subthemeId": "ce1-nombres-calculs",
-      "engine": "math-input",
-      "paramsType": "operation-posed",
+      "engine": "choice-engine",
+      "paramsType": null,
       "pool": null,
-      "contractHash": "math-input|{\"level\":2,\"operator\":\"sub\",\"type\":\"operation-posed\"}"
+      "contractHash": "choice-engine|{\"range\":1000}"
     },
     {
       "id": "ce1-decomposition-cdu",
@@ -3792,26 +3737,103 @@
       "contractHash": "math-input|{\"ask\":\"value\",\"digitCount\":3,\"type\":\"place-value\"}"
     },
     {
-      "id": "ce1-comparer-1000",
+      "id": "ce1-encadrement-centaines",
       "kind": "exercise",
       "level": "ce1",
       "subjectId": "ce1-maths",
       "subthemeId": "ce1-nombres-calculs",
-      "engine": "choice-engine",
-      "paramsType": null,
-      "pool": null,
-      "contractHash": "choice-engine|{\"range\":1000}"
+      "engine": "board-interactive",
+      "paramsType": "number-line-frame",
+      "pool": "data/board_number_line_ce1.json::ce1_number_line_frame_centaines",
+      "contractHash": "board-interactive|{\"category\":\"ce1_number_line_frame_centaines\",\"dataFile\":\"data/board_number_line_ce1.json\",\"type\":\"number-line-frame\"}"
     },
     {
-      "id": "ce1-fractions-visuel",
+      "id": "ce1-addition-posee-centaines",
       "kind": "exercise",
       "level": "ce1",
       "subjectId": "ce1-maths",
       "subthemeId": "ce1-nombres-calculs",
       "engine": "math-input",
-      "paramsType": "fraction-view",
+      "paramsType": "operation-posed",
       "pool": null,
-      "contractHash": "math-input|{\"maxDenom\":4,\"type\":\"fraction-view\"}"
+      "contractHash": "math-input|{\"level\":2,\"maxResult\":1000,\"operator\":\"add\",\"type\":\"operation-posed\"}"
+    },
+    {
+      "id": "ce1-soustraction-posee-centaines",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "operation-posed",
+      "pool": null,
+      "contractHash": "math-input|{\"level\":2,\"operator\":\"sub\",\"type\":\"operation-posed\"}"
+    },
+    {
+      "id": "ce1-maths-appariement",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "matching",
+      "paramsType": null,
+      "pool": "data/math_matching.json::matching_math_ce1_nombres",
+      "contractHash": "matching|{\"category\":\"matching_math_ce1_nombres\",\"dataFile\":\"data/math_matching.json\"}"
+    },
+    {
+      "id": "ce1-maths-memoire",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "board-interactive",
+      "paramsType": "memory-match",
+      "pool": "data/board_memory_match_ce1.json::ce1_memory_match_maths",
+      "contractHash": "board-interactive|{\"category\":\"ce1_memory_match_maths\",\"dataFile\":\"data/board_memory_match_ce1.json\",\"type\":\"memory-match\"}"
+    },
+    {
+      "id": "ce1-bonus-complements-100",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "complement",
+      "pool": null,
+      "contractHash": "math-input|{\"multipleOf\":5,\"target\":100,\"type\":\"complement\"}"
+    },
+    {
+      "id": "ce1-bonus-additions-100",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "add-simple",
+      "pool": null,
+      "contractHash": "math-input|{\"maxSum\":150,\"min\":10,\"type\":\"add-simple\"}"
+    },
+    {
+      "id": "ce1-bonus-additions-999",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "add-simple",
+      "pool": null,
+      "contractHash": "math-input|{\"maxSum\":999,\"min\":100,\"type\":\"add-simple\"}"
+    },
+    {
+      "id": "ce1-bonus-soustractions-999",
+      "kind": "exercise",
+      "level": "ce1",
+      "subjectId": "ce1-maths",
+      "subthemeId": "ce1-nombres-calculs",
+      "engine": "math-input",
+      "paramsType": "sub-simple",
+      "pool": null,
+      "contractHash": "math-input|{\"max\":999,\"min\":100,\"type\":\"sub-simple\"}"
     },
     {
       "id": "ce1-lesson-formes-planes",
@@ -3942,8 +3964,8 @@
       "subthemeId": "ce1-geometrie-mesures-subtheme",
       "engine": "matching",
       "paramsType": null,
-      "pool": "data/math_matching.json::matching_math_ce1",
-      "contractHash": "matching|{\"category\":\"matching_math_ce1\",\"dataFile\":\"data/math_matching.json\"}"
+      "pool": "data/math_matching.json::matching_math_ce1_mesures",
+      "contractHash": "matching|{\"category\":\"matching_math_ce1_mesures\",\"dataFile\":\"data/math_matching.json\"}"
     },
     {
       "id": "ce1-bonus-geo-lire-heure",
@@ -4019,30 +4041,8 @@
       "subthemeId": "ce1-problemes-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/math_word_problems_cycle2.json::ce1-problemes-mixtes",
-      "contractHash": "choice-engine|{\"category\":\"ce1-problemes-mixtes\",\"dataFile\":\"data/math_word_problems_cycle2.json\",\"type\":\"factual-qcm\"}"
-    },
-    {
-      "id": "ce1-oiseau-calcul",
-      "kind": "exercise",
-      "level": "ce1",
-      "subjectId": "ce1-maths",
-      "subthemeId": "ce1-problemes-subtheme",
-      "engine": "math-input",
-      "paramsType": "oiseau-math",
-      "pool": null,
-      "contractHash": "math-input|{\"max\":20,\"min\":5,\"type\":\"oiseau-math\",\"vitesse\":8}"
-    },
-    {
-      "id": "ce1-cibles-adresse",
-      "kind": "exercise",
-      "level": "ce1",
-      "subjectId": "ce1-maths",
-      "subthemeId": "ce1-problemes-subtheme",
-      "engine": "math-input",
-      "paramsType": "cibles",
-      "pool": null,
-      "contractHash": "math-input|{\"nbFleches\":3,\"type\":\"cibles\",\"zones\":[5,10,25]}"
+      "pool": "data/math_word_problems_cycle2.json::ce1-problemes-defi",
+      "contractHash": "choice-engine|{\"category\":\"ce1-problemes-defi\",\"dataFile\":\"data/math_word_problems_cycle2.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce1-lesson-dictee-mots",
@@ -4834,7 +4834,7 @@
       "engine": "choice-engine",
       "paramsType": "grammar-cloze",
       "pool": null,
-      "contractHash": "choice-engine|{\"category\":\"grammar_cloze_ce1\",\"type\":\"grammar-cloze\"}"
+      "contractHash": "choice-engine|{\"category\":\"grammar_cloze_ce1_defi\",\"type\":\"grammar-cloze\"}"
     },
     {
       "id": "ce1-gram-classes-mots",
@@ -5295,8 +5295,8 @@
       "subthemeId": "ce1-geo-reperage-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/geography_ce1.json::ce1-reperage",
-      "contractHash": "choice-engine|{\"category\":\"ce1-reperage\",\"dataFile\":\"data/geography_ce1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/geography_ce1.json::ce1-reperage-defi",
+      "contractHash": "choice-engine|{\"category\":\"ce1-reperage-defi\",\"dataFile\":\"data/geography_ce1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce1-lesson-paysages-du-quotidien",
@@ -5350,8 +5350,8 @@
       "subthemeId": "ce1-geo-paysages-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/geography_ce1.json::ce1-paysages",
-      "contractHash": "choice-engine|{\"category\":\"ce1-paysages\",\"dataFile\":\"data/geography_ce1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/geography_ce1.json::ce1-paysages-reconnaitre",
+      "contractHash": "choice-engine|{\"category\":\"ce1-paysages-reconnaitre\",\"dataFile\":\"data/geography_ce1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce1-geo-appariement",
@@ -5394,8 +5394,8 @@
       "subthemeId": "ce1-geo-paysages-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/geography_ce1.json::ce1-mer-montagne",
-      "contractHash": "choice-engine|{\"category\":\"ce1-mer-montagne\",\"dataFile\":\"data/geography_ce1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/geography_ce1.json::ce1-paysages-france-defi",
+      "contractHash": "choice-engine|{\"category\":\"ce1-paysages-france-defi\",\"dataFile\":\"data/geography_ce1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce1-lesson-transports-france",
@@ -5438,8 +5438,8 @@
       "subthemeId": "ce1-geo-transports-subtheme",
       "engine": "choice-engine",
       "paramsType": "factual-qcm",
-      "pool": "data/geography_ce1.json::ce1-transports-france",
-      "contractHash": "choice-engine|{\"category\":\"ce1-transports-france\",\"dataFile\":\"data/geography_ce1.json\",\"type\":\"factual-qcm\"}"
+      "pool": "data/geography_ce1.json::ce1-se-deplacer-france",
+      "contractHash": "choice-engine|{\"category\":\"ce1-se-deplacer-france\",\"dataFile\":\"data/geography_ce1.json\",\"type\":\"factual-qcm\"}"
     },
     {
       "id": "ce1-geo-trajets-quotidiens",
@@ -5988,8 +5988,8 @@
       "subthemeId": "ce1-emc-regles-subtheme",
       "engine": "matching",
       "paramsType": null,
-      "pool": "data/emc_matching.json::matching_emc_ce1",
-      "contractHash": "matching|{\"category\":\"matching_emc_ce1\",\"dataFile\":\"data/emc_matching.json\"}"
+      "pool": "data/emc_matching.json::matching_emc_ce1_emotions",
+      "contractHash": "matching|{\"category\":\"matching_emc_ce1_emotions\",\"dataFile\":\"data/emc_matching.json\"}"
     },
     {
       "id": "ce1-bonus-emc-regles-expert",
@@ -17743,8 +17743,7 @@
     },
     "data/board_memory_match_ce1.json": {
       "categories": {
-        "ce1_memory_match_maths": 5,
-        "ce1_memory_match": 8
+        "ce1_memory_match_maths": 5
       }
     },
     "data/board_memory_match_ce2.json": {
@@ -17949,27 +17948,14 @@
     "data/emc_matching.json": {
       "categories": {
         "matching_emc_cp": 8,
-        "matching_emc_ce1": 8,
+        "matching_emc_ce1": 4,
         "matching_emc_ce2": 6,
         "matching_emc_cm1": 7,
         "matching_emc_ce2_symboles": 3,
         "matching_emc_cm1_quotidien": 5,
         "matching_emc_cm2_institutions": 4,
-        "matching_emc_cm2_engagement": 5
-      }
-    },
-    "data/french_ce1_comprehension.json": {
-      "categories": {
-        "ce1_comprehension_courte": 10
-      }
-    },
-    "data/french_ce1_reading.json": {
-      "categories": {
-        "ce1_lire_phrases_courtes": 101,
-        "ce1_comprendre_phrase_courte": 108,
-        "ce1_lecture_mot_contexte": 100,
-        "ce1_lecture_ordre_evenements": 100,
-        "ce1_lecture_inference_simple": 100
+        "matching_emc_cm2_engagement": 5,
+        "matching_emc_ce1_emotions": 4
       }
     },
     "data/french_ce2_reading.json": {
@@ -18050,7 +18036,11 @@
         "ce1-lieux-publics": 8,
         "ce1-services-quartier": 12,
         "ce1-mer-montagne": 16,
-        "ce1-village-ville": 8
+        "ce1-village-ville": 8,
+        "ce1-reperage-defi": 12,
+        "ce1-paysages-reconnaitre": 10,
+        "ce1-paysages-france-defi": 10,
+        "ce1-se-deplacer-france": 10
       }
     },
     "data/geography_ce2.json": {
@@ -18145,7 +18135,7 @@
       "categories": {
         "ce1-temps": 10,
         "ce1-vie-autrefois": 18,
-        "ce1-monuments-personnages": 10,
+        "ce1-monuments-personnages": 14,
         "ce1-ecole-autrefois": 10,
         "ce1-objets-passe": 20,
         "ce1-calendrier-reperes": 16,
@@ -18276,14 +18266,15 @@
     "data/math_matching.json": {
       "categories": {
         "matching_math_cp": 8,
-        "matching_math_ce1": 10,
+        "matching_math_ce1_nombres": 6,
         "matching_math_ce2": 5,
         "matching_math_cm1": 4,
         "matching_math_cm2": 7,
         "matching_geo_math_ce2": 5,
         "matching_math_cm1_mesures": 4,
         "matching_math_cm1_nombres": 3,
-        "matching_math_cm2_figures": 5
+        "matching_math_cm2_figures": 5,
+        "matching_math_ce1_mesures": 4
       }
     },
     "data/math_probabilites_algo_cm2.json": {
@@ -18305,7 +18296,8 @@
         "ce1-monnaie-decimale": 10,
         "cp-problemes-quotidien": 10,
         "cp-problemes-defi": 14,
-        "cp-problemes-deux-etapes-defi": 11
+        "cp-problemes-deux-etapes-defi": 11,
+        "ce1-problemes-defi": 14
       }
     },
     "data/math_word_problems_cycle3.json": {
