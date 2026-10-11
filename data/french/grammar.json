@@ -633,10 +633,10 @@
     ],
     "gender_ce2_objets": [
         {
-            "word": "BUREAU",
+            "word": "BALLON",
             "gender": "masculin",
             "article": "un",
-            "icon": "🪑"
+            "icon": "⚽"
         },
         {
             "word": "FENÊTRE",
@@ -645,10 +645,10 @@
             "icon": "🪟"
         },
         {
-            "word": "TABLEAU",
+            "word": "MIROIR",
             "gender": "masculin",
             "article": "un",
-            "icon": "⬛"
+            "icon": "🪞"
         },
         {
             "word": "PORTE",
@@ -657,10 +657,10 @@
             "icon": "🚪"
         },
         {
-            "word": "BANC",
+            "word": "PARAPLUIE",
             "gender": "masculin",
             "article": "un",
-            "icon": "🪑"
+            "icon": "☂️"
         },
         {
             "word": "CHAUSSURE",
@@ -679,6 +679,30 @@
             "gender": "féminin",
             "article": "une",
             "icon": "🥄"
+        },
+        {
+            "word": "LIT",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "🛏️"
+        },
+        {
+            "word": "LAMPE",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "💡"
+        },
+        {
+            "word": "CLÉ",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "🔑"
+        },
+        {
+            "word": "TÉLÉPHONE",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "☎️"
         }
     ],
     "gender_ce2_elision": [
@@ -757,10 +781,10 @@
             "icon": "🎒"
         },
         {
-            "word": "GOMME",
+            "word": "LOUPE",
             "gender": "féminin",
             "article": "une",
-            "icon": "🧽"
+            "icon": "🔍"
         },
         {
             "word": "CRAYON",
@@ -769,10 +793,10 @@
             "icon": "✏️"
         },
         {
-            "word": "TROUSSE",
+            "word": "CLOCHE",
             "gender": "féminin",
             "article": "une",
-            "icon": "🧵"
+            "icon": "🔔"
         },
         {
             "word": "CAHIER",
@@ -793,10 +817,34 @@
             "icon": "🖊️"
         },
         {
-            "word": "AGRAFEUSE",
+            "word": "PLUME",
             "gender": "féminin",
             "article": "une",
-            "icon": "📎"
+            "icon": "🪶"
+        },
+        {
+            "word": "LIVRE",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "📖"
+        },
+        {
+            "word": "PEINTURE",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "🎨"
+        },
+        {
+            "word": "GLOBE",
+            "gender": "masculin",
+            "article": "un",
+            "icon": "🌍"
+        },
+        {
+            "word": "CARTE",
+            "gender": "féminin",
+            "article": "une",
+            "icon": "🗺️"
         }
     ],
     "gender_ce2_elision_2": [
@@ -1315,6 +1363,42 @@
                 "L'"
             ],
             "answer": "L'"
+        },
+        {
+            "question": "___ château est très ancien.",
+            "choices": [
+                "Le",
+                "La",
+                "L'"
+            ],
+            "answer": "Le"
+        },
+        {
+            "question": "___ montagne est couverte de neige.",
+            "choices": [
+                "La",
+                "Le",
+                "L'"
+            ],
+            "answer": "La"
+        },
+        {
+            "question": "___ fenêtre est restée ouverte.",
+            "choices": [
+                "La",
+                "Le",
+                "L'"
+            ],
+            "answer": "La"
+        },
+        {
+            "question": "___ hibou chasse la nuit.",
+            "choices": [
+                "Le",
+                "La",
+                "L'"
+            ],
+            "answer": "Le"
         }
     ],
     "plural_choice_ce2": [
@@ -1359,7 +1443,7 @@
             "choices": [
                 "s",
                 "x",
-                ""
+                "aucune lettre"
             ],
             "answer": "s"
         },
@@ -1368,7 +1452,7 @@
             "choices": [
                 "s",
                 "x",
-                ""
+                "aucune lettre"
             ],
             "answer": "x"
         },
@@ -1377,7 +1461,7 @@
             "choices": [
                 "s",
                 "x",
-                ""
+                "aucune lettre"
             ],
             "answer": "s"
         },
@@ -1386,9 +1470,45 @@
             "choices": [
                 "s",
                 "x",
-                ""
+                "aucune lettre"
             ],
             "answer": "x"
+        },
+        {
+            "sentence": "Les bateau___ sont au port.",
+            "choices": [
+                "x",
+                "s",
+                "aucune lettre"
+            ],
+            "answer": "x"
+        },
+        {
+            "sentence": "Les voiture___ roulent vite.",
+            "choices": [
+                "s",
+                "x",
+                "aucune lettre"
+            ],
+            "answer": "s"
+        },
+        {
+            "question": "___ pomme tombe de l'arbre.",
+            "choices": [
+                "La",
+                "Les",
+                "Des"
+            ],
+            "answer": "La"
+        },
+        {
+            "question": "___ enfants jouent dans la cour.",
+            "choices": [
+                "Les",
+                "Le",
+                "Un"
+            ],
+            "answer": "Les"
         }
     ],
     "word_class_choice_ce2": [
@@ -1429,7 +1549,7 @@
             "answer": "un nom"
         },
         {
-            "sentence": "Dans Le petit chat dort, chat est...",
+            "question": "Dans « Le petit chat dort », le mot « chat » est…",
             "choices": [
                 "un nom",
                 "un verbe",
@@ -1438,7 +1558,7 @@
             "answer": "un nom"
         },
         {
-            "sentence": "Dans Mila chante, chante est...",
+            "question": "Dans « Mila chante », le mot « chante » est…",
             "choices": [
                 "un verbe",
                 "un nom",
@@ -1447,7 +1567,7 @@
             "answer": "un verbe"
         },
         {
-            "sentence": "Dans une grande maison, grande est...",
+            "question": "Dans « une grande maison », le mot « grande » est…",
             "choices": [
                 "un adjectif",
                 "un nom",
@@ -1456,11 +1576,47 @@
             "answer": "un adjectif"
         },
         {
-            "sentence": "Dans les enfants, les est...",
+            "question": "Dans « les enfants », le mot « les » est…",
             "choices": [
                 "un déterminant",
                 "un verbe",
                 "un nom"
+            ],
+            "answer": "un déterminant"
+        },
+        {
+            "question": "Dans « Un gros ballon rouge roule », le mot « gros » est…",
+            "choices": [
+                "un adjectif",
+                "un nom",
+                "un verbe"
+            ],
+            "answer": "un adjectif"
+        },
+        {
+            "question": "Dans « Mon frère mange une pomme », le mot « pomme » est…",
+            "choices": [
+                "un nom",
+                "un verbe",
+                "un adjectif"
+            ],
+            "answer": "un nom"
+        },
+        {
+            "question": "Dans « Les oiseaux chantent le matin », le mot « chantent » est…",
+            "choices": [
+                "un verbe",
+                "un nom",
+                "un adjectif"
+            ],
+            "answer": "un verbe"
+        },
+        {
+            "question": "Dans « Ma petite sœur dessine », le mot « Ma » est…",
+            "choices": [
+                "un déterminant",
+                "un nom",
+                "un verbe"
             ],
             "answer": "un déterminant"
         }
@@ -2479,24 +2635,24 @@
             "explanation": "« Écharpe » est féminin singulier : on dit « une écharpe »."
         },
         {
-            "sentence": "Les enfants ___ dans la cour.",
-            "answer": "jouent",
+            "sentence": "Nous écoutons ___ histoire de la maîtresse.",
             "choices": [
-                "jouent",
-                "joue",
-                "jouer"
+                "l'",
+                "la",
+                "le"
             ],
-            "explanation": "Avec « les enfants » (3e personne du pluriel), le verbe « jouer » se conjugue « jouent »."
+            "answer": "l'",
+            "explanation": "« Histoire » est féminin et commence par une voyelle : « la » devient « l' ». On dit « l'histoire »."
         },
         {
-            "sentence": "Le soleil ___ derrière les nuages.",
-            "answer": "brille",
+            "sentence": "Paul range ___ jouets dans le coffre.",
             "choices": [
-                "brille",
-                "brillent",
-                "briller"
+                "les",
+                "le",
+                "la"
             ],
-            "explanation": "Avec « le soleil » (3e personne du singulier), le verbe « briller » se conjugue « brille »."
+            "answer": "les",
+            "explanation": "« Jouets » est masculin pluriel : on dit « les jouets »."
         }
     ],
     "grammar_agreement_ce2": [
@@ -2505,7 +2661,7 @@
             "choices": [
                 "chat",
                 "chats",
-                "chatent"
+                "chates"
             ],
             "answer": "chats"
         },
@@ -2514,7 +2670,7 @@
             "choices": [
                 "rouge",
                 "rouges",
-                "rouger"
+                "rougee"
             ],
             "answer": "rouge"
         },
@@ -2532,7 +2688,7 @@
             "choices": [
                 "jaune",
                 "jaunes",
-                "jaun"
+                "jaunnes"
             ],
             "answer": "jaunes"
         },
@@ -2768,18 +2924,18 @@
         {
             "sentence": "La maîtresse range des ___.",
             "choices": [
-                "cahier",
                 "cahiers",
-                "cahierss"
+                "cahier",
+                "cahierx"
             ],
             "answer": "cahiers"
         },
         {
             "sentence": "Le jardinier coupe des ___.",
             "choices": [
-                "rose",
                 "roses",
-                "rosex"
+                "rose",
+                "rosse"
             ],
             "answer": "roses"
         },
@@ -2804,9 +2960,9 @@
         {
             "sentence": "Le pirate cache des ___.",
             "choices": [
-                "trésor",
                 "trésors",
-                "trésore"
+                "trésor",
+                "trésorx"
             ],
             "answer": "trésors"
         },
@@ -2829,22 +2985,22 @@
             "answer": "animaux"
         },
         {
-            "sentence": "Le cheval / les ___",
-            "answer": "chevaux",
+            "sentence": "Sur la plage, les enfants ramassent des ___.",
             "choices": [
-                "chevals",
-                "chevaux",
-                "chevaus"
-            ]
+                "coquillage",
+                "coquillages",
+                "coquillagex"
+            ],
+            "answer": "coquillages"
         },
         {
-            "sentence": "Le journal / les ___",
-            "answer": "journaux",
+            "sentence": "Au marché, le maraîcher vend des ___.",
             "choices": [
-                "journals",
-                "journaux",
-                "journales"
-            ]
+                "chou",
+                "choux",
+                "chous"
+            ],
+            "answer": "choux"
         }
     ],
     "grammar_cloze_cm1": [
@@ -5908,6 +6064,108 @@
             ],
             "answer": "une",
             "explanation": "« Banane » est féminin singulier : on dit « une banane »."
+        }
+    ],
+    "grammar_cloze_ce2_ecrit": [
+        {
+            "question": "Maman prépare ___ gâteau au chocolat.",
+            "choices": [
+                "un",
+                "une",
+                "des"
+            ],
+            "answer": "un",
+            "explanation": "« Gâteau » est masculin singulier : on dit « un gâteau »."
+        },
+        {
+            "question": "___ oiseaux construisent un nid dans l'arbre.",
+            "choices": [
+                "Les",
+                "Le",
+                "La"
+            ],
+            "answer": "Les",
+            "explanation": "« Oiseaux » est au pluriel : on dit « les oiseaux »."
+        },
+        {
+            "question": "Le facteur apporte ___ lettre à la maîtresse.",
+            "choices": [
+                "une",
+                "un",
+                "des"
+            ],
+            "answer": "une",
+            "explanation": "« Lettre » est féminin singulier : on dit « une lettre »."
+        },
+        {
+            "question": "Dans la cour, ___ enfants jouent aux billes.",
+            "choices": [
+                "les",
+                "le",
+                "la"
+            ],
+            "answer": "les",
+            "explanation": "« Enfants » est au pluriel : on dit « les enfants »."
+        },
+        {
+            "question": "Le chat dort sur ___ canapé du salon.",
+            "choices": [
+                "le",
+                "la",
+                "les"
+            ],
+            "answer": "le",
+            "explanation": "« Canapé » est masculin singulier : on dit « le canapé »."
+        },
+        {
+            "question": "J'ai trouvé ___ clé sous le paillasson.",
+            "choices": [
+                "une",
+                "un",
+                "des"
+            ],
+            "answer": "une",
+            "explanation": "« Clé » est féminin singulier : on dit « une clé »."
+        },
+        {
+            "question": "___ école ouvre ses portes à huit heures.",
+            "choices": [
+                "L'",
+                "La",
+                "Le"
+            ],
+            "answer": "L'",
+            "explanation": "« École » commence par une voyelle : « la » devient « l' ». On dit « l'école »."
+        },
+        {
+            "question": "Paul regarde ___ nuages dans le ciel.",
+            "choices": [
+                "les",
+                "le",
+                "la"
+            ],
+            "answer": "les",
+            "explanation": "« Nuages » est au pluriel : on dit « les nuages »."
+        },
+        {
+            "question": "Nous mangeons ___ fraises du jardin.",
+            "choices": [
+                "des",
+                "un",
+                "une"
+            ],
+            "answer": "des",
+            "explanation": "« Fraises » est au pluriel : on dit « des fraises »."
+        },
+        {
+            "question": "Ma sœur lit ___ livre sur les dinosaures.",
+            "choices": [
+                "un",
+                "une",
+                "des"
+            ],
+            "answer": "un",
+            "explanation": "« Livre » est masculin singulier : on dit « un livre »."
         }
     ]
 }
