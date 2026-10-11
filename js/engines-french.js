@@ -171,7 +171,16 @@
         if (!pool || !pool.length) return Engines.fallback("Catégorie vide");
         const picked = Engines.utils.pickUnused(pool, p.usedSet);
         const rawQ = SecurityUtils.escapeHtml(picked.sentence || picked.q || "");
-        return { isVisual: true, visualType: "homophones", inputType: "qcm", question: `<span class="small-question">${rawQ.replace(/(\.\.\.|___)/g, '<span style="color:var(--primary)">_____</span>')}</span>`, answer: picked.answer || picked.a, data: { choices: picked.choices || cat.split("_") } };
+        const choices = picked.choices || cat.split("_");
+        // Une phrase qui commence par le mot (« On … ») porte une réponse en majuscule initiale alors que
+        // les boutons sont en minuscules : la réponse reprend la graphie du bouton (23 tirages sur 40
+        // avaient une réponse absente des choix à la comparaison stricte).
+        let answer = picked.answer || picked.a;
+        if (!choices.includes(answer)) {
+            const jumeau = choices.find((c) => String(c).toLowerCase() === String(answer).toLowerCase());
+            if (jumeau !== undefined) answer = jumeau;
+        }
+        return { isVisual: true, visualType: "homophones", inputType: "qcm", question: `<span class="small-question">${rawQ.replace(/(\.\.\.|___)/g, '<span style="color:var(--primary)">_____</span>')}</span>`, answer, data: { choices } };
     },
 
     reading(params, lib) {

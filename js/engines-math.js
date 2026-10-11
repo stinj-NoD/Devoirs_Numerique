@@ -32,7 +32,11 @@
                 // en la retrouvant sous toutes ses formes qu'elle est « mémorisée » (CE2).
                 const mode = ['facteur', 'division', 'mixte'].includes(p.mode) ? p.mode : 'produit';
                 if (mode === 'produit') {
-                    b = rnd(0, 10);
+                    // Une table se récite de « × 1 » à « × 10 » : « × 0 » n'est enseigné nulle part
+                    // en cycle 2 et sortait dans 1 tirage sur 11 (réponse 0). Dix valeurs pour dix
+                    // questions : avec `Engines.unique`, une série pose la table entière, sans
+                    // répétition (11 valeurs pour 10 questions laissaient « × 0 » ou « × 1 »).
+                    b = rnd(1, 10);
                     return { question: `${a} × ${b} = ?`, answer: a * b, explanation: `${a} × ${b} = ${a * b}` };
                 }
                 b = rnd(2, 10);
@@ -883,6 +887,10 @@
         if (level >= 3) {
             data.caption = "Écris l'heure sur 24 heures.";
             data.captionHint = "Jour : de 8 h à 20 h. Nuit : de 20 h à 8 h.";
+        } else {
+            // Niveaux 1 et 2 : la réponse se tape en quatre chiffres (« 0515 » pour 5 h 15) et
+            // rien ne le disait : l'enfant voyait deux blocs de deux chiffres sans consigne.
+            data.caption = "Écris l'heure en chiffres : deux chiffres pour l'heure, deux pour les minutes.";
         }
         if (level >= 4) data.minuteTicks = true;
         return { isVisual: true, visualType: 'clock', inputType: 'numeric', data, answer: h.toString().padStart(2, '0') + m.toString().padStart(2, '0') };
