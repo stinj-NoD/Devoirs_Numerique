@@ -149,6 +149,11 @@ qu'à partir du niveau 3 (cadran à 24 heures).
 la consigne « Écris l'heure en chiffres : deux chiffres pour l'heure, deux pour les minutes » (la réponse se tape en quatre chiffres) ;
 `homophone-duel` reprend la graphie du bouton quand la réponse n'en diffère que par la casse (phrase qui commence par « On »).
 
+¹⁵ Ajustements de la passe « Mineurs du CE2 » (v4.67.0), sans nouveau paramètre : `division-posed` en mode `ask: reste` ne tire plus un dividende
+multiple du diviseur (il est décalé de 1, vers le haut ou vers le bas selon la borne), de sorte que le reste n'est jamais nul ; `cibles` (fléchettes)
+affiche la consigne « Additionne les points des flèches : chacune vaut le nombre de sa zone. » hors habillage `skin: money` (la question était vide) ;
+`conjugation` passe par `Engines.unique` (la clé d'unicité inclut pronom, infinitif et temps : une même forme n'est plus posée deux fois dans une série).
+
 **Alias normalisés en entrée** (`js/engines.js`) : `compare`/`choice` → `choice-engine` ;
 `oiseau` → `math-input` + `type:oiseau-math`.
 
