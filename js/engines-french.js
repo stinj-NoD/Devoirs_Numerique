@@ -51,7 +51,20 @@
         }
 
         const verb = Engines.utils.pick(filteredPool.length ? filteredPool : pool);
-        const pIdx = Engines.utils.rnd(0, 8);
+        // Passé composé avec « être » : le participe s'accorde avec le sujet, et rien à l'écran ne
+        // dit si « je », « tu », « on », « nous » ou « vous » désignent un garçon, une fille ou un
+        // groupe. Le moteur écrivait toujours le masculin (« je suis montée » était refusé alors
+        // qu'il est juste). On ne tire donc que les sujets dont le genre et le nombre se lisent :
+        // il, elle, ils, elles.
+        const accordeAvecSujet = isCompound && normalizeToken(verb.aux) === "etre";
+        // `persons` restreint les sujets tirés (ex. ["Je", "Tu", "Il", "Elle"] au CP : les six
+        // personnes d'être et d'avoir sont un attendu de CE1). Sans lui, les neuf sujets.
+        const sujetsAutorises = Array.isArray(p.persons)
+            ? p.persons.map((x) => pronouns.findIndex((y) => normalizeToken(y) === normalizeToken(x))).filter((i) => i >= 0)
+            : [];
+        const sujets = sujetsAutorises.length ? sujetsAutorises : [0, 1, 2, 3, 4, 5, 6, 7, 8];
+        const sujetsLisibles = accordeAvecSujet ? sujets.filter((i) => [2, 3, 7, 8].includes(i)) : sujets;
+        const pIdx = Engines.utils.pick(sujetsLisibles.length ? sujetsLisibles : sujets);
         const cIdx = [0, 1, 2, 2, 2, 3, 4, 5, 5][pIdx];
         let answer = "";
 
@@ -73,13 +86,23 @@
             }
         }
 
+        // « Je » devant une voyelle ou un h muet s'écrit « J' » : l'écran
+        // affichait « Je ai » et « Je aime ». Le pronom est seulement un repère
+        // visuel (la saisie attendue reste le verbe, « ai »), donc rien d'autre
+        // ne change. Un h aspiré (hurler, heurter...) garde « Je ».
+        const H_ASPIRE_VERBES = ["hurler", "heurter", "hausser", "hisser", "hacher", "hanter", "harceler", "hocher", "haïr", "hennir"];
+        const premiereLettre = answer.trim().charAt(0).toLowerCase();
+        const voyelleInitiale = /[aeiouyàâäéèêëîïôöûùüœ]/.test(premiereLettre);
+        const hMuet = premiereLettre === "h" && !H_ASPIRE_VERBES.includes((verb.infinitive || "").toLowerCase());
+        const pronom = (pronouns[pIdx] === "Je" && (voyelleInitiale || hMuet)) ? "J'" : pronouns[pIdx];
+
         return {
             isVisual: true,
             visualType: "conjugation",
             inputType: "alpha",
             answer: answer.toLowerCase().trim(),
             data: {
-                pronoun: pronouns[pIdx],
+                pronoun: pronom,
                 infinitive: (verb.infinitive || "").toUpperCase(),
                 tense: selectedTense.toUpperCase(),
                 isCompound
@@ -107,11 +130,15 @@
         // le dise correctement (ex. tiret remplacé par un espace) sans que
         // ça change jamais ce qui est accepté comme réponse écrite.
         const audioText = (picked.audio || answer).toString().trim().replace(/-/g, " ");
+        const unit = /\s/.test(answer.trim()) ? 'phrase' : (p.unit === 'syllabe' ? 'syllabe' : 'mot');
         return {
             isVisual: true,
             visualType: "audioSpelling",
             inputType: "alpha",
-            question: `<span class="small-question">Écoute le mot puis écris-le.</span>`,
+            // La consigne suit ce qui est réellement dicté : une phrase, une syllabe ou un mot.
+            question: `<span class="small-question">${unit === 'phrase'
+                ? 'Écoute la phrase puis écris-la.'
+                : (unit === 'syllabe' ? 'Écoute la syllabe puis écris-la.' : 'Écoute le mot puis écris-le.')}</span>`,
             answer: answer.toLowerCase(),
             data: {
                 audioText,
@@ -121,7 +148,8 @@
                 speechRate: Number.isFinite(Number(p.speechRate)) ? Number(p.speechRate) : 0.72,
                 speechPitch: Number.isFinite(Number(p.speechPitch)) ? Number(p.speechPitch) : 1.15,
                 speechVolume: Number.isFinite(Number(p.speechVolume)) ? Number(p.speechVolume) : 0.9,
-                category: cat
+                category: cat,
+                unit
             }
         };
     },
@@ -129,15 +157,30 @@
     homophones(p, lib) {
         if (!lib?.homophones) return Engines.fallback("Lib manquante");
         let cat = p.category;
+        // `level` (ce1, ce2, cm1, cm2) : ne garde que les phrases écrites pour ce niveau. Une phrase
+        // sans champ `level` reste disponible pour tous, et un exercice sans `level` voit tout le
+        // vivier (comportement d'origine). Une même paire (a/à, son/sont...) se travaille sur
+        // quatre années ; c'est le champ `level` des phrases qui fait croître la difficulté.
+        const level = typeof p.level === "string" ? p.level : "";
+        const forLevel = (arr) => (level ? arr.filter((item) => !item.level || item.level === level) : arr);
         if (cat === "mix_all" || cat === "mix_auto") {
-            const keys = Object.keys(lib.homophones).filter((k) => Array.isArray(lib.homophones[k]));
+            const keys = Object.keys(lib.homophones).filter((k) => Array.isArray(lib.homophones[k]) && forLevel(lib.homophones[k]).length);
             cat = Engines.utils.pick(keys);
         }
-        const pool = lib.homophones[cat];
+        const pool = forLevel(lib.homophones[cat] || []);
         if (!pool || !pool.length) return Engines.fallback("Catégorie vide");
         const picked = Engines.utils.pickUnused(pool, p.usedSet);
         const rawQ = SecurityUtils.escapeHtml(picked.sentence || picked.q || "");
-        return { isVisual: true, visualType: "homophones", inputType: "qcm", question: `<span class="small-question">${rawQ.replace(/(\.\.\.|___)/g, '<span style="color:var(--primary)">_____</span>')}</span>`, answer: picked.answer || picked.a, data: { choices: picked.choices || cat.split("_") } };
+        const choices = picked.choices || cat.split("_");
+        // Une phrase qui commence par le mot (« On … ») porte une réponse en majuscule initiale alors que
+        // les boutons sont en minuscules : la réponse reprend la graphie du bouton (23 tirages sur 40
+        // avaient une réponse absente des choix à la comparaison stricte).
+        let answer = picked.answer || picked.a;
+        if (!choices.includes(answer)) {
+            const jumeau = choices.find((c) => String(c).toLowerCase() === String(answer).toLowerCase());
+            if (jumeau !== undefined) answer = jumeau;
+        }
+        return { isVisual: true, visualType: "homophones", inputType: "qcm", question: `<span class="small-question">${rawQ.replace(/(\.\.\.|___)/g, '<span style="color:var(--primary)">_____</span>')}</span>`, answer, data: { choices } };
     },
 
     reading(params, lib) {
@@ -168,7 +211,8 @@
                 text,
                 syllables,
                 silent,
-                choices
+                choices,
+                plain: picked.plain === true
             }
         };
     },
@@ -218,9 +262,20 @@
 
     /**
      * Variante saisie libre de grammarCloze : la même phrase à trou, mais
-     * l'enfant tape la réponse au clavier au lieu de choisir parmi des
-     * propositions — réutilise les mêmes données grammar_cloze_* déjà
-     * présentes dans la bibliothèque française, juste un autre inputType.
+     * l'enfant tape la réponse au clavier — réutilise les mêmes données
+     * grammar_cloze_* déjà présentes dans la bibliothèque française, juste un
+     * autre inputType.
+     *
+     * Les `choices` de l'élément sont AFFICHÉES sous la phrase (mélangées),
+     * et l'enfant tape le bon mot parmi elles. Ce n'est pas un détail : ces
+     * banques ont été écrites pour un QCM, donc la plupart des phrases
+     * admettent plusieurs mots justes dans l'absolu (« Le / Un / Ce chat »,
+     * « un tronc large / gros / épais ») et un seul est accepté. Sans les
+     * propositions, l'enfant ne peut pas deviner lequel, et sa bonne réponse
+     * est comptée fausse. Avec elles, une seule convient : c'est la consigne.
+     * Un élément sans `choices`, ou dont les `choices` ne contiennent pas la
+     * réponse (donnée défectueuse : on ne montre jamais une liste fausse),
+     * garde l'ancien comportement sans propositions.
      */
     clozeFillIn(params, lib) {
         const pool = lib?.grammar?.[params.category];
@@ -235,8 +290,18 @@
         const prompt = escapedSentence.includes("___")
             ? escapedSentence.replace(/___/g, '<span style="color:var(--primary); font-weight:800;">_____</span>')
             : `${escapedSentence} <span style="color:var(--primary); font-weight:800;">_____</span>`;
+        const norm = (s) => s.toString().trim().toLowerCase();
+        const proposals = Array.isArray(picked.choices)
+            ? picked.choices.map((c) => (c == null ? "" : c).toString().trim()).filter(Boolean)
+            : [];
+        const showProposals = proposals.length > 1 && proposals.some((c) => norm(c) === norm(answer));
+        const proposalsHtml = showProposals
+            ? `<br><span style="display:inline-block; margin-top:8px; font-weight:700;">Propositions : ${
+                Engines.utils.shuffle([...proposals]).map((c) => `<b>${SecurityUtils.escapeHtml(c)}</b>`).join(" · ")
+            }</span>`
+            : "";
         return {
-            question: `<span class="small-question">${prompt}</span>`,
+            question: `<span class="small-question">${prompt}${proposalsHtml}</span>`,
             answer,
             inputType: "alpha",
             isVisual: false,
@@ -250,9 +315,33 @@
         const item = Engines.utils.pickUnused(cat, params.usedSet);
         if (!item || !item.word) return { question: "Erreur Lib", answer: "ok" };
         let expected;
-        const choices = [...(params.options || ["un", "une"])];
-        const voyelles = ["a", "e", "i", "o", "u", "y", "h", "à", "â", "é", "è", "ê", "ë", "î", "ï", "ô", "ù", "û", "ü"];
-        const needsElision = voyelles.includes(item.word[0].toLowerCase());
+        const options = params.options || ["un", "une"];
+        // Défi « mélange » (options un/une ET le/la) : pour un même nom, les
+        // deux familles donnent chacune une bonne réponse — « un chat » comme
+        // « le chat » — alors que le QCM n'en accepte qu'une. L'ancien code
+        // attendait toujours l'indéfini et comptait « le chat » faux. On tire
+        // donc UNE famille par question et on ne propose que ses articles :
+        // le mélange se fait d'une question à l'autre, jamais dans les choix.
+        const definis = options.filter((o) => ["le", "la", "l'"].includes(o));
+        const indefinis = options.filter((o) => ["un", "une"].includes(o));
+        const famille = definis.length && indefinis.length
+            ? (Math.random() < 0.5 ? indefinis : definis)
+            : options;
+        const choices = [...famille];
+        // Le « h » ne s'élide que s'il est muet (« l'horloge », « l'hôpital ») ;
+        // devant un h aspiré on garde l'article plein (« le hibou », « le
+        // hérisson », « la hache »). L'ancienne liste de voyelles contenait
+        // « h » et attendait « l'hibou ». Par défaut un h initial est muet
+        // (cas le plus fréquent dans les banques) : tout mot à h aspiré doit
+        // figurer ici. Comparaison sans accents, en majuscules.
+        const H_ASPIRE = new Set(["HACHE", "HACHOIR", "HAIE", "HAILLON", "HAINE", "HALL", "HALLE", "HALTE", "HAMAC",
+            "HAMBURGER", "HAMEAU", "HAMSTER", "HANCHE", "HANDBALL", "HANGAR", "HARENG", "HARICOT", "HARNAIS", "HARPE",
+            "HASARD", "HAUTEUR", "HERISSON", "HERON", "HEROS", "HIBOU", "HOCKEY", "HOMARD", "HONTE", "HOQUET", "HOTTE",
+            "HOUX", "HUBLOT", "HUTTE"]);
+        const motNormalise = item.word.normalize("NFD").replace(/[̀-ͯ]/g, "").toUpperCase();
+        const voyelles = ["a", "e", "i", "o", "u", "y", "à", "â", "é", "è", "ê", "ë", "î", "ï", "ô", "ù", "û", "ü"];
+        const initiale = item.word[0].toLowerCase();
+        const needsElision = voyelles.includes(initiale) || (initiale === "h" && !H_ASPIRE.has(motNormalise));
         if (choices.includes("un") || choices.includes("une")) {
             expected = item.article;
         } else if (choices.includes("mon") || choices.includes("ma")) {
@@ -272,6 +361,6 @@
         const displayWord = isCp
             ? item.word.toUpperCase()
             : item.word.charAt(0).toUpperCase() + item.word.slice(1).toLowerCase();
-        return { question: "Choisis le bon petit mot :", answer: expected, inputType: "qcm", isVisual: true, visualType: "spelling", data: { word: displayWord, icon: item.icon, img: item.img || `assets/img/${item.word.toLowerCase()}.png`, choices } };
+        return { question: "Choisis le bon petit mot :", answer: expected, inputType: "qcm", isVisual: true, visualType: "spelling", data: { word: displayWord, icon: item.icon, img: item.img, choices } };
     }
 };

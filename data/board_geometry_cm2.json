@@ -135,7 +135,7 @@
                 "tolerance": 0
             },
             {
-                "prompt": "Place le point F en (8 ; 8).",
+                "prompt": "Place le point F en (8 ; 6).",
                 "board": {
                     "width": 10,
                     "height": 8,
@@ -144,10 +144,7 @@
                 "task": {
                     "type": "place-point",
                     "label": "F",
-                    "target": [
-                        8,
-                        8
-                    ]
+                    "target": [8, 6]
                 },
                 "tolerance": 0
             },
@@ -169,7 +166,7 @@
                 "tolerance": 0
             },
             {
-                "prompt": "Place le point H en (10 ; 3).",
+                "prompt": "Place le point H en (7 ; 3).",
                 "board": {
                     "width": 10,
                     "height": 8,
@@ -178,10 +175,7 @@
                 "task": {
                     "type": "place-point",
                     "label": "H",
-                    "target": [
-                        10,
-                        3
-                    ]
+                    "target": [7, 3]
                 },
                 "tolerance": 0
             }
@@ -940,7 +934,7 @@
         ],
         "cm2_angles_droits_tap": [
             {
-                "prompt": "Touche tous les angles droits de la figure.",
+                "prompt": "Touche tous les angles droits de la figure. S'il n'y en a aucun, valide sans rien toucher.",
                 "board": {
                     "width": 10,
                     "height": 6,
@@ -994,7 +988,8 @@
                             "x": 2,
                             "y": 5
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
@@ -1024,7 +1019,7 @@
                 ]
             },
             {
-                "prompt": "Touche tous les angles droits de la figure.",
+                "prompt": "Touche tous les angles droits de la figure. S'il n'y en a aucun, valide sans rien toucher.",
                 "board": {
                     "width": 10,
                     "height": 6,
@@ -1057,7 +1052,8 @@
                             "x": 2,
                             "y": 5
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
@@ -1081,7 +1077,7 @@
                 ]
             },
             {
-                "prompt": "Touche tous les angles droits « en coin » de la figure (pas l'angle rentrant).",
+                "prompt": "Touche tous les angles droits de la figure (un angle rentrant n'est pas un angle droit). S'il n'y en a aucun, valide sans rien toucher.",
                 "board": {
                     "width": 10,
                     "height": 6,
@@ -1152,7 +1148,8 @@
                             "x": 2,
                             "y": 5
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
@@ -1194,7 +1191,7 @@
                 ]
             },
             {
-                "prompt": "Touche tous les angles droits de la figure.",
+                "prompt": "Touche tous les angles droits de la figure. S'il n'y en a aucun, valide sans rien toucher.",
                 "board": {
                     "width": 10,
                     "height": 6,
@@ -1238,7 +1235,8 @@
                             "x": 1.5,
                             "y": 1
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
@@ -1268,7 +1266,7 @@
                 ]
             },
             {
-                "prompt": "Touche tous les angles droits de la figure.",
+                "prompt": "Touche tous les angles droits de la figure. S'il n'y en a aucun, valide sans rien toucher.",
                 "board": {
                     "width": 10,
                     "height": 6,
@@ -1300,7 +1298,8 @@
                             "x2": 2,
                             "y2": 1
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
@@ -1330,7 +1329,7 @@
                 ]
             },
             {
-                "prompt": "Touche tous les angles droits de la figure.",
+                "prompt": "Touche tous les angles droits de la figure. S'il n'y en a aucun, valide sans rien toucher.",
                 "board": {
                     "width": 10,
                     "height": 6,
@@ -1381,7 +1380,8 @@
                             "x": 4.5,
                             "y": 4.5
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
@@ -1464,7 +1464,8 @@
                             "x": 6.8,
                             "y": 3
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
@@ -1533,7 +1534,8 @@
                             "x": 2.5,
                             "y": 2.5
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
@@ -1602,7 +1604,8 @@
                             "x": 3.5,
                             "y": 5
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
@@ -1664,7 +1667,8 @@
                             "x2": 9.5,
                             "y2": 3.8
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
@@ -1733,7 +1737,8 @@
                             "x": 1.5,
                             "y": 5
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {
@@ -1795,7 +1800,8 @@
                             "x2": 4.5,
                             "y2": 2.4
                         }
-                    ]
+                    ],
+                    "markersOnReveal": true
                 },
                 "features": [
                     {

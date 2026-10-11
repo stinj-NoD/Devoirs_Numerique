@@ -26,7 +26,8 @@ const UIVisuals = {
             svg += `<circle cx="${tx}" cy="${ty}" r="6" fill="black" stroke="white" stroke-width="2"/>`;
         });
 
-        return `<div class="visual-card visual-card--target">${svg}</svg></div>`;
+        const legende = d.caption ? `<div class="clock-caption">${SecurityUtils.escapeHtml(String(d.caption))}</div>` : '';
+        return `<div class="visual-card visual-card--target">${legende}${svg}</svg></div>`;
     },
 
     getDivisionSteps(dividend, divisor) {
@@ -114,8 +115,8 @@ const UIVisuals = {
             const y1 = center + radius * Math.sin(a1);
             const x2 = center + radius * Math.cos(a2);
             const y2 = center + radius * Math.sin(a2);
-            const color = i < n ? 'var(--primary)' : 'white';
-            paths += `<path d="M ${center} ${center} L ${x1} ${y1} A ${radius} ${radius} 0 0 1 ${x2} ${y2} Z" fill="${color}" stroke="var(--dark)" stroke-width="2" />`;
+            const color = i < n ? 'var(--color-primary)' : 'white';
+            paths += `<path d="M ${center} ${center} L ${x1} ${y1} A ${radius} ${radius} 0 0 1 ${x2} ${y2} Z" fill="${color}" stroke="var(--color-text)" stroke-width="2" />`;
         }
         return paths;
     },
@@ -125,7 +126,8 @@ const UIVisuals = {
         const denom = d.d || 1;
         const num = d.n || 0;
         const paths = this.drawFractionWedges(num, denom, 60, 80);
-        return `<div class="fraction-display visual-card visual-card--fraction"><svg viewBox="0 0 160 160" width="140" height="140">${paths}</svg></div>`;
+        // Sans énoncé, « ? / 4 » ne disait pas ce qu'on attend : on nomme la tâche.
+        return `<div class="fraction-display visual-card visual-card--fraction"><div class="fraction-caption">Combien de parts sont coloriées ?</div><svg viewBox="0 0 160 160" width="140" height="140">${paths}</svg></div>`;
     },
 
     drawFractionOperation(p) {
@@ -162,20 +164,34 @@ const UIVisuals = {
         const ma = (mins / 60) * 360;
         const ha = ((hours % 12) / 12) * 360 + (mins / 60) * 30;
 
-        const periodInfo = `<div class="period-badge">${d.periodIcon || '\u{1F550}'} ${d.periodText || ''}</div>`;
+        const periodInfo = (d.periodText ? `<div class="period-badge">${d.periodIcon || '\u{1F550}'} ${SecurityUtils.escapeHtml(String(d.periodText))}</div>` : '')
+            + (d.caption ? `<div class="clock-caption">${SecurityUtils.escapeHtml(String(d.caption))}${d.captionHint ? `<span class="clock-caption-hint">${SecurityUtils.escapeHtml(String(d.captionHint))}</span>` : ''}</div>` : '');
 
-        let svg = `<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}"><circle cx="${c}" cy="${c}" r="${r}" fill="white" stroke="var(--dark)" stroke-width="3"/>`;
+        // Cadran blanc : chiffres, aiguilles et contour gardent la couleur du texte du thème CLAIR (#243447).
+        // Avec var(--color-text), le thème sombre les peignait en clair sur le blanc : chiffres et aiguille des heures illisibles.
+        let svg = `<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}"><circle cx="${c}" cy="${c}" r="${r}" fill="white" stroke="#243447" stroke-width="3"/>`;
+
+        // Graduations des minutes (cadran lu « à la minute près ») : 60 traits, plus longs toutes
+        // les 5 minutes. Sans elles, seule l'estimation à l'œil permettait de lire 13 h 33.
+        if (d.minuteTicks) {
+            for (let i = 0; i < 60; i++) {
+                const a = (i * 6) * (Math.PI / 180);
+                const outer = r - 1;
+                const inner = r - (i % 5 === 0 ? 8 : 5);
+                svg += `<line x1="${c + outer * Math.sin(a)}" y1="${c - outer * Math.cos(a)}" x2="${c + inner * Math.sin(a)}" y2="${c - inner * Math.cos(a)}" stroke="#243447" stroke-width="${i % 5 === 0 ? 2 : 1}"/>`;
+            }
+        }
 
         for (let i = 1; i <= 12; i++) {
             const a = (i * 30) * (Math.PI / 180);
             const x = c + (r - 16) * Math.sin(a);
             const y = c - (r - 16) * Math.cos(a);
-            svg += `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="12px" font-weight="bold" fill="var(--dark)">${i}</text>`;
+            svg += `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="12px" font-weight="bold" fill="#243447">${i}</text>`;
         }
 
-        svg += `<line x1="${c}" y1="${c}" x2="${c + 35 * Math.sin(ha * Math.PI / 180)}" y2="${c - 35 * Math.cos(ha * Math.PI / 180)}" stroke="var(--dark)" stroke-width="6" stroke-linecap="round"/>`;
-        svg += `<line x1="${c}" y1="${c}" x2="${c + 52 * Math.sin(ma * Math.PI / 180)}" y2="${c - 52 * Math.cos(ma * Math.PI / 180)}" stroke="var(--secondary)" stroke-width="4" stroke-linecap="round"/>`;
-        svg += `<circle cx="${c}" cy="${c}" r="4" fill="var(--dark)"/>`;
+        svg += `<line x1="${c}" y1="${c}" x2="${c + 35 * Math.sin(ha * Math.PI / 180)}" y2="${c - 35 * Math.cos(ha * Math.PI / 180)}" stroke="#243447" stroke-width="6" stroke-linecap="round"/>`;
+        svg += `<line x1="${c}" y1="${c}" x2="${c + 52 * Math.sin(ma * Math.PI / 180)}" y2="${c - 52 * Math.cos(ma * Math.PI / 180)}" stroke="var(--color-secondary)" stroke-width="4" stroke-linecap="round"/>`;
+        svg += `<circle cx="${c}" cy="${c}" r="4" fill="#243447"/>`;
         svg += `</svg>`;
 
         return `<div class="visual-card visual-card--clock clock-card">${periodInfo}${svg}</div>`;
@@ -214,7 +230,7 @@ const UIVisuals = {
                 <div class="money-token money-token--${spec.kind} money-token--${spec.tone}">
                     ${billExtras}
                     <span class="money-token-value">${val}</span>
-                    <span class="money-token-currency">EUR</span>
+                    <span class="money-token-currency">€</span>
                 </div>`;
         }).join('');
 
@@ -238,7 +254,7 @@ const UIVisuals = {
             return `
                 <div class="bar-chart-col">
                     <div class="bar-chart-value">${SecurityUtils.escapeHtml(String(bar.value))}</div>
-                    <div class="bar-chart-bar bar-chart-bar--${tone}" style="--bar-height:${heightPercent}%"></div>
+                    <div class="bar-chart-bar bar-chart-bar--${tone}" style="--bar-frac:${(heightPercent / 100).toFixed(3)}"></div>
                     <div class="bar-chart-label">${SecurityUtils.escapeHtml(String(bar.label))}</div>
                 </div>`;
         }).join('');
@@ -347,6 +363,9 @@ const UIVisuals = {
         if (d.type === 'masse') cols = ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'];
         if (d.type === 'capacite') cols = ['kL', 'hL', 'daL', 'L', 'dL', 'cL', 'mL'];
         if (d.type === 'aire') cols = ['m²', 'dm²', 'cm²', 'mm²'];
+        // Unités restreintes au programme du niveau : pas de tableau à 7 colonnes (hg, dag... hors
+        // programme), mais la relation entre les deux unités (d.memo, calculée par le moteur).
+        const restricted = Array.isArray(d.units) && d.units.length > 0;
 
         const headerHtml = cols.map((unit) => {
             const isHighlight = unit === d.u1 || unit === d.u2;
@@ -362,10 +381,10 @@ const UIVisuals = {
                     <span class="conversion-target-value">?</span>
                     <span class="conversion-target">${d.u2}</span>
                 </div>
-                <div class="conversion-grid">
+                ${restricted ? '' : `<div class="conversion-grid">
                     ${headerHtml}
-                </div>
-                <div class="conversion-hint">Utilise le tableau pour t'aider.</div>
+                </div>`}
+                <div class="conversion-hint">${restricted ? SecurityUtils.escapeHtml(String(d.memo || '')) : "Utilise le tableau pour t'aider."}</div>
             </div>`;
     },
 
@@ -412,11 +431,13 @@ const UIVisuals = {
         };
 
         // En mode "Reste", le dernier reste ne doit pas apparaître en clair
-        // dans le calcul : c'est justement la valeur demandée. Le quotient,
-        // lui, n'apparaît déjà jamais dans la grille (il n'est affiché que
-        // dans le panneau latéral) — on applique la même règle au reste.
+        // dans le calcul : c'est justement la valeur demandée.
+        // En mode "Quotient", la grille ne montre que le dividende : chaque produit
+        // soustrait (diviseur × chiffre du quotient) laissait lire le quotient en
+        // divisant ces produits par le diviseur (« 1 958 : 15 » affichait 15, 45, 0 → 130).
         let workRows = buildRow('', divStr, 0);
-        steps.forEach((step, stepIndex) => {
+        const visibleSteps = d.askRemainder ? steps : [];
+        visibleSteps.forEach((step, stepIndex) => {
             const subStr = step.sub.toString();
             const subStart = step.endIndex - subStr.length + 1;
             const fullRemStr = `${step.rem}${step.nextDigit || ''}`;
@@ -457,22 +478,73 @@ const UIVisuals = {
         const b = d.b || 0;
         const operator = d.operator || 'add';
         const symbol = d.operatorSymbol || '+';
-        const aStr = a.toString();
-        const bStr = b.toString();
-        const width = Math.max(aStr.length, bStr.length) + (operator === 'mult' ? 1 : 0);
+        const decimals = Number(d.decimals) || 0;
+        // Colonne virgule sur les lignes d'opérande : seulement pour add/sub
+        // (les 2 opérandes partagent le même nombre de décimales, la virgule
+        // tombe donc dans la même colonne sur les deux lignes). Pour mult
+        // (décimal × entier), la convention française pose la multiplication
+        // comme si les 2 facteurs étaient entiers — virgule ignorée pendant
+        // le calcul, replacée seulement dans le résultat — donc pas de
+        // colonne virgule sur les lignes d'opérande, seulement sur celle du
+        // résultat.
+        const operandsShowComma = decimals > 0 && operator !== 'mult';
+        // padStart garantit au moins 1 chiffre avant la virgule (ex.
+        // value=7, decimals=1 → "07" → "0,7") ; jamais déclenché par les
+        // plages rnd() actuelles (toutes ≥10) mais robuste si un futur
+        // contenu combinait un niveau bas avec decimals=2.
+        const padScaled = (value, withComma) => withComma ? value.toString().padStart(decimals + 1, '0') : value.toString();
+        const aStr = padScaled(a, operandsShowComma);
+        const bStr = padScaled(b, operandsShowComma);
+        const result = operator === 'add' ? a + b : (operator === 'sub' ? a - b : a * b);
+        const resultStr = padScaled(result, decimals > 0);
+        // width couvre l'historique (opérandes + le "+1" existant pour
+        // mult) ET la vraie longueur du résultat, qui peut dépasser celle
+        // des opérandes (retenue qui crée un chiffre de plus, produit d'une
+        // multiplication) — correctif au passage, purement cosmétique
+        // (jamais lié à la validation) : la ligne de résultat n'affichait
+        // pas assez de cellules "?" dans ce cas. +1 case en plus quand une
+        // virgule doit être affichée (elle occupe sa propre colonne).
+        const legacyWidth = Math.max(aStr.length, bStr.length) + (operator === 'mult' ? 1 : 0) + (operandsShowComma ? 1 : 0);
+        const width = Math.max(legacyWidth, resultStr.length + (decimals > 0 ? 1 : 0));
+        // Colonne absolue (depuis la gauche) où la virgule tombe, commune à
+        // toutes les lignes qui en affichent une (opérandes, retenues,
+        // résultat) : `decimals` cases avant la fin de la ligne.
+        const commaCol = decimals > 0 ? width - decimals - 1 : -1;
 
-        const buildDigitRow = (value, colorClass = '') => {
-            const str = value.toString();
-            const pad = width - str.length;
-            const cells = Array.from({ length: pad }, () => '<span class="operation-cell">&nbsp;</span>').join('');
-            const digits = str.split('').map((ch) => `<span class="operation-cell${colorClass ? ' ' + colorClass : ''}">${ch}</span>`).join('');
-            return cells + digits;
+        // Construit une ligne de `width` cases en partant de la droite : les
+        // `decimals` derniers chiffres, une virgule si `showComma`, puis le
+        // reste des chiffres, puis des cases vides pour compléter à `width`.
+        const buildRow = (str, showComma, colorClass = '', blankTail = 0) => {
+            const chars = str.split('');
+            const cellsFromRight = [];
+            if (showComma) {
+                for (let k = 0; k < decimals; k++) {
+                    // `blankTail` : cases laissées vides à droite (« 12,4 » posé sur deux décimales).
+                    const chiffre = chars.pop() || '';
+                    cellsFromRight.push(`<span class="operation-cell${colorClass ? ' ' + colorClass : ''}">${k < blankTail ? '&nbsp;' : chiffre}</span>`);
+                }
+                cellsFromRight.push('<span class="operation-cell operation-cell--comma">,</span>');
+            }
+            while (chars.length) {
+                cellsFromRight.push(`<span class="operation-cell${colorClass ? ' ' + colorClass : ''}">${chars.pop()}</span>`);
+            }
+            while (cellsFromRight.length < width) {
+                cellsFromRight.push('<span class="operation-cell">&nbsp;</span>');
+            }
+            return cellsFromRight.reverse().join('');
         };
+        const buildDigitRow = (str, colorClass = '', blankTail = 0) => buildRow(str, operandsShowComma, colorClass, blankTail);
+        // Premier terme à une seule décimale (`mixed`) : la dernière case reste vide, à compléter par un zéro.
+        const aBlankTail = operandsShowComma && Number.isInteger(d.aDecimals) && d.aDecimals < decimals ? decimals - d.aDecimals : 0;
 
         // Calcule les retenues (addition) ou emprunts (soustraction) colonne
         // par colonne, de droite à gauche, pour les afficher au-dessus du
         // premier terme — c'est le repère visuel qui manque le plus aux
-        // enfants pour comprendre où "ça déborde".
+        // enfants pour comprendre où "ça déborde". Opère sur les chiffres
+        // bruts (virgule ignorée) : add/sub partagent le même nombre de
+        // décimales des deux côtés, donc une addition/soustraction chiffre
+        // à chiffre sur les entiers à l'échelle équivaut exactement à
+        // l'opération décimale alignée par la virgule.
         const carries = [];
         if (operator === 'add') {
             let carry = 0;
@@ -495,20 +567,28 @@ const UIVisuals = {
         }
         const hasCarryRow = operator !== 'mult' && carries.some((c) => c);
         const carryRowHtml = hasCarryRow
-            ? `<div class="operation-row operation-row--carry">${carries.map((c) => `<span class="operation-cell operation-cell--carry">${c ? (operator === 'add' ? '1' : '•') : '&nbsp;'}</span>`).join('')}</div>`
+            ? `<div class="operation-row operation-row--carry">${carries.map((c, i) => i === commaCol
+                ? '<span class="operation-cell">&nbsp;</span>'
+                : `<span class="operation-cell operation-cell--carry">${c ? (operator === 'add' ? '1' : '•') : '&nbsp;'}</span>`
+              ).join('')}</div>`
             : '';
+
+        const resultCells = Array.from({ length: width }, (_, i) => i === commaCol
+            ? '<span class="operation-cell operation-cell--comma">,</span>'
+            : '<span class="operation-cell operation-cell--empty">?</span>'
+        ).join('');
 
         return `
             <div class="operation-posed-card visual-card visual-card--operation-posed">
                 <div class="operation-layout" style="--operation-width:${width};">
                     ${carryRowHtml}
-                    <div class="operation-row">${buildDigitRow(a)}</div>
+                    <div class="operation-row">${buildDigitRow(aStr, '', aBlankTail)}</div>
                     <div class="operation-row operation-row--operand">
                         <span class="operation-sign">${symbol}</span>
-                        ${buildDigitRow(b)}
+                        ${buildDigitRow(bStr)}
                     </div>
                     <div class="operation-line"></div>
-                    <div class="operation-row operation-row--result">${Array.from({ length: width }, () => `<span class="operation-cell operation-cell--empty">?</span>`).join('')}</div>
+                    <div class="operation-row operation-row--result">${resultCells}</div>
                 </div>
             </div>`;
     }

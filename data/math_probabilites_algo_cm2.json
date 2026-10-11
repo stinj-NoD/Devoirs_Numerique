@@ -1,0 +1,414 @@
+{
+    "title": "Probabilités et algorithmique - CM2",
+    "subjectId": "maths",
+    "categories": {
+        "cm2_probabilites_vocabulaire": [
+            {
+                "question": "On lance un dé ordinaire à six faces. Obtenir un nombre plus petit que 7 est un événement…",
+                "choices": [
+                    "certain",
+                    "possible",
+                    "impossible"
+                ],
+                "answer": "certain",
+                "explanation": "Toutes les faces d'un dé portent un nombre de 1 à 6, tous plus petits que 7 : cela arrive à tous les coups."
+            },
+            {
+                "question": "Obtenir un 9 en lançant un dé ordinaire à six faces est un événement…",
+                "choices": [
+                    "certain",
+                    "possible",
+                    "impossible"
+                ],
+                "answer": "impossible",
+                "explanation": "Le dé ne porte que les nombres de 1 à 6 : le 9 n'y figure pas, il ne peut donc jamais sortir."
+            },
+            {
+                "question": "Obtenir un nombre pair en lançant un dé ordinaire est un événement…",
+                "choices": [
+                    "certain",
+                    "possible",
+                    "impossible"
+                ],
+                "answer": "possible",
+                "explanation": "Trois faces sur six portent un nombre pair (2, 4, 6) : cela peut arriver, mais ce n'est pas sûr."
+            },
+            {
+                "question": "Un sac ne contient que des billes rouges. Tirer une bille verte est un événement…",
+                "choices": [
+                    "certain",
+                    "possible",
+                    "impossible"
+                ],
+                "answer": "impossible",
+                "explanation": "Aucune bille verte ne se trouve dans le sac : ce tirage ne peut pas se produire."
+            },
+            {
+                "question": "Un sac ne contient que des billes rouges. Tirer une bille rouge est un événement…",
+                "choices": [
+                    "certain",
+                    "possible",
+                    "impossible"
+                ],
+                "answer": "certain",
+                "explanation": "Toutes les billes du sac sont rouges : quel que soit le tirage, la bille sera rouge."
+            },
+            {
+                "question": "On tire une carte dans un jeu ordinaire. Obtenir un cœur est un événement…",
+                "choices": [
+                    "certain",
+                    "possible",
+                    "impossible"
+                ],
+                "answer": "possible",
+                "explanation": "Le jeu contient des cœurs parmi d'autres couleurs : le tirage peut arriver sans être garanti."
+            },
+            {
+                "question": "En lançant une pièce, obtenir pile est un événement…",
+                "choices": [
+                    "certain",
+                    "possible",
+                    "impossible"
+                ],
+                "answer": "possible",
+                "explanation": "La pièce a deux faces : pile peut sortir, mais face aussi. Rien n'est garanti à l'avance."
+            },
+            {
+                "question": "En lançant une pièce, obtenir pile ou face est un événement…",
+                "choices": [
+                    "certain",
+                    "possible",
+                    "impossible"
+                ],
+                "answer": "certain",
+                "explanation": "Une pièce retombe forcément sur l'une de ses deux faces : l'un des deux résultats se produit toujours."
+            },
+            {
+                "question": "En lançant une pièce une seule fois, obtenir à la fois pile et face est un événement…",
+                "choices": [
+                    "certain",
+                    "possible",
+                    "impossible"
+                ],
+                "answer": "impossible",
+                "explanation": "Une pièce ne montre qu'une face à la fois : les deux résultats ne peuvent pas arriver ensemble."
+            },
+            {
+                "question": "Dans une classe de 25 élèves, qu'au moins un élève soit né un lundi est un événement…",
+                "choices": [
+                    "certain",
+                    "possible",
+                    "impossible"
+                ],
+                "answer": "possible",
+                "explanation": "C'est très vraisemblable, mais pas garanti : on pourrait imaginer que personne ne soit né un lundi."
+            }
+        ],
+        "cm2_probabilites_comparer": [
+            {
+                "question": "Un sac contient 8 billes rouges et 2 bleues. Quel tirage est le plus probable ?",
+                "choices": [
+                    "Tirer une bille rouge",
+                    "Tirer une bille bleue",
+                    "Les deux ont autant de chances"
+                ],
+                "answer": "Tirer une bille rouge",
+                "explanation": "8 cas favorables sur 10 pour la rouge contre 2 sur 10 pour la bleue : la rouge est nettement plus probable."
+            },
+            {
+                "question": "Un sac contient 5 billes vertes et 5 billes jaunes. Que peut-on dire du tirage ?",
+                "choices": [
+                    "Les deux ont autant de chances",
+                    "Tirer une verte est plus probable",
+                    "Tirer une jaune est impossible"
+                ],
+                "answer": "Les deux ont autant de chances",
+                "explanation": "Il y a autant de billes de chaque couleur, 5 contre 5 : aucune couleur n'est avantagée."
+            },
+            {
+                "question": "Une roue est partagée en 6 secteurs égaux : 4 rouges et 2 bleus. Quelle couleur sort le plus souvent ?",
+                "choices": [
+                    "Le rouge, avec 4 secteurs sur 6",
+                    "Le bleu, avec 2 secteurs sur 6",
+                    "Les deux couleurs autant l'une que l'autre"
+                ],
+                "answer": "Le rouge, avec 4 secteurs sur 6",
+                "explanation": "Les secteurs étant égaux, chacun a la même chance de sortir. Le rouge en occupe 4 sur 6, le bleu seulement 2."
+            },
+            {
+                "question": "Avec un dé ordinaire, qu'est-il le plus probable d'obtenir ?",
+                "choices": [
+                    "Un nombre pair",
+                    "Le nombre 6",
+                    "Les deux sont aussi probables"
+                ],
+                "answer": "Un nombre pair",
+                "explanation": "Trois faces donnent un nombre pair (2, 4, 6) contre une seule face pour le 6 : le nombre pair est trois fois plus probable."
+            },
+            {
+                "question": "Une urne contient 3 jetons marqués A et 7 jetons marqués B. Quel tirage est le moins probable ?",
+                "choices": [
+                    "Tirer un jeton A",
+                    "Tirer un jeton B",
+                    "Les deux sont aussi probables"
+                ],
+                "answer": "Tirer un jeton A",
+                "explanation": "Il y a 3 jetons A contre 7 jetons B : le A est le moins nombreux, donc le moins probable."
+            },
+            {
+                "question": "Un sac contient 10 billes rouges et 1 bille noire. Comment qualifier le tirage de la noire ?",
+                "choices": [
+                    "Peu probable, mais possible",
+                    "Totalement impossible",
+                    "Aussi probable qu'une rouge"
+                ],
+                "answer": "Peu probable, mais possible",
+                "explanation": "La bille noire est bien présente : le tirage peut arriver. Avec 1 cas sur 11, il reste toutefois rare."
+            },
+            {
+                "question": "Une boîte contient 12 chocolats au lait et 4 chocolats noirs. Lequel a-t-on le plus de chances de prendre ?",
+                "choices": [
+                    "Un chocolat au lait",
+                    "Un chocolat noir",
+                    "Les deux autant l'un que l'autre"
+                ],
+                "answer": "Un chocolat au lait",
+                "explanation": "12 chocolats au lait contre 4 noirs : le chocolat au lait occupe trois fois plus de cas favorables."
+            },
+            {
+                "question": "Dans une classe de 15 filles et 15 garçons, on désigne un élève au hasard. Que peut-on dire ?",
+                "choices": [
+                    "Fille ou garçon, c'est aussi probable",
+                    "Une fille est plus probable",
+                    "Un garçon est plus probable"
+                ],
+                "answer": "Fille ou garçon, c'est aussi probable",
+                "explanation": "Les effectifs sont égaux, 15 contre 15 : le tirage ne favorise ni les filles ni les garçons."
+            },
+            {
+                "question": "Avec un dé ordinaire, qu'est-il le plus probable d'obtenir ?",
+                "choices": [
+                    "Un nombre plus grand que 2",
+                    "Un nombre plus grand que 4",
+                    "Les deux sont aussi probables"
+                ],
+                "answer": "Un nombre plus grand que 2",
+                "explanation": "Quatre faces dépassent 2 (3, 4, 5, 6) contre deux faces seulement qui dépassent 4 (5 et 6)."
+            },
+            {
+                "question": "Un sac contient une bille rouge, une bleue et une verte. Que peut-on dire du tirage ?",
+                "choices": [
+                    "Les trois couleurs ont autant de chances",
+                    "Le rouge sort toujours en premier",
+                    "Le vert est impossible à tirer"
+                ],
+                "answer": "Les trois couleurs ont autant de chances",
+                "explanation": "Chaque couleur est présente une seule fois : il y a 1 cas favorable sur 3 pour chacune, sans avantage."
+            }
+        ],
+        "cm2_algorithmique": [
+            {
+                "question": "Programme : « répète 4 fois : avance de 3 cases ». De combien de cases le robot avance-t-il en tout ?",
+                "choices": [
+                    "12 cases",
+                    "7 cases",
+                    "3 cases"
+                ],
+                "answer": "12 cases",
+                "explanation": "La boucle répète quatre fois un déplacement de 3 cases : 4 × 3 = 12 cases."
+            },
+            {
+                "question": "Programme : « avance de 5 cases, puis recule de 2 cases ». De combien de cases le robot s'est-il éloigné de son départ ?",
+                "choices": [
+                    "3 cases",
+                    "7 cases",
+                    "5 cases"
+                ],
+                "answer": "3 cases",
+                "explanation": "Il avance de 5 puis revient de 2 : 5 - 2 = 3 cases d'écart avec la case de départ."
+            },
+            {
+                "question": "Programme : « répète 4 fois : avance de 1 case, tourne à droite ». Quelle figure le robot trace-t-il ?",
+                "choices": [
+                    "Un carré",
+                    "Un triangle",
+                    "Une ligne droite"
+                ],
+                "answer": "Un carré",
+                "explanation": "Quatre côtés de même longueur séparés par quatre quarts de tour : le robot revient à son point de départ après avoir tracé un carré."
+            },
+            {
+                "question": "Dans un algorithme, à quoi sert une boucle ?",
+                "choices": [
+                    "À répéter plusieurs fois les mêmes instructions",
+                    "À arrêter définitivement le programme en cours",
+                    "À choisir entre deux directions différentes"
+                ],
+                "answer": "À répéter plusieurs fois les mêmes instructions",
+                "explanation": "La boucle évite de réécrire une instruction identique. Choisir entre deux cas est le rôle de l'instruction conditionnelle."
+            },
+            {
+                "question": "« Si la case est bleue, avance ; sinon, tourne à droite. » Comment appelle-t-on ce type d'instruction ?",
+                "choices": [
+                    "Une instruction conditionnelle",
+                    "Une boucle de répétition",
+                    "Une instruction de déplacement"
+                ],
+                "answer": "Une instruction conditionnelle",
+                "explanation": "L'instruction commence par « si » : elle ne s'exécute que dans certains cas, selon une condition à vérifier."
+            },
+            {
+                "question": "Programme A : « avance de 2, tourne à gauche ». Programme B : « tourne à gauche, avance de 2 ». Donnent-ils le même résultat ?",
+                "choices": [
+                    "Non, l'ordre des instructions change tout",
+                    "Oui, ils ont les mêmes instructions",
+                    "Oui, car tourner ne déplace pas le robot"
+                ],
+                "answer": "Non, l'ordre des instructions change tout",
+                "explanation": "Tourner ne déplace pas le robot mais change sa direction : les 2 cases ne sont donc pas parcourues dans le même sens."
+            },
+            {
+                "question": "Programme : « répète 10 fois : avance de 1 case ». Combien de cases le robot parcourt-il ?",
+                "choices": [
+                    "10 cases",
+                    "1 case",
+                    "11 cases"
+                ],
+                "answer": "10 cases",
+                "explanation": "La boucle répète dix fois un déplacement d'une seule case : 10 × 1 = 10 cases."
+            },
+            {
+                "question": "Un robot part de la case A1 et exécute « avance de 3 cases vers la droite ». Sur quelle case arrive-t-il ?",
+                "choices": [
+                    "D1",
+                    "C1",
+                    "A4"
+                ],
+                "answer": "D1",
+                "explanation": "En partant de A1 et en avançant de 3 colonnes, on passe par B1, C1 puis D1. La ligne, elle, ne change pas."
+            },
+            {
+                "question": "Que peut-il se passer si on inverse deux instructions dans un algorithme ?",
+                "choices": [
+                    "Le résultat peut devenir différent",
+                    "Le résultat reste toujours le même",
+                    "Le programme refuse de démarrer"
+                ],
+                "answer": "Le résultat peut devenir différent",
+                "explanation": "Les instructions s'exécutent dans l'ordre écrit : en changer l'ordre change souvent le résultat, même si les instructions sont les mêmes."
+            },
+            {
+                "question": "Programme : « répète 3 fois : avance de 2 cases, tourne à droite ». Combien de quarts de tour le robot fait-il ?",
+                "choices": [
+                    "3 quarts de tour",
+                    "2 quarts de tour",
+                    "6 quarts de tour"
+                ],
+                "answer": "3 quarts de tour",
+                "explanation": "Chaque passage dans la boucle contient un seul « tourne à droite », et la boucle tourne 3 fois : 3 quarts de tour."
+            }
+        ],
+        "cm2_algebre_egalites": [
+            {
+                "question": "Quel nombre manque dans ? + 17 = 45 ?",
+                "choices": [
+                    "28",
+                    "62",
+                    "38"
+                ],
+                "answer": "28",
+                "explanation": "On défait l'addition par une soustraction : 45 - 17 = 28. On vérifie, 28 + 17 = 45."
+            },
+            {
+                "question": "Quel nombre manque dans 6 × ? = 54 ?",
+                "choices": [
+                    "9",
+                    "48",
+                    "60"
+                ],
+                "answer": "9",
+                "explanation": "On défait la multiplication par une division : 54 ÷ 6 = 9. On vérifie, 6 × 9 = 54."
+            },
+            {
+                "question": "Quel nombre manque dans ? - 12 = 30 ?",
+                "choices": [
+                    "42",
+                    "18",
+                    "22"
+                ],
+                "answer": "42",
+                "explanation": "Le nombre cherché est celui dont on retire 12 pour obtenir 30 : 30 + 12 = 42."
+            },
+            {
+                "question": "Quel nombre manque dans 72 ÷ ? = 8 ?",
+                "choices": [
+                    "9",
+                    "64",
+                    "80"
+                ],
+                "answer": "9",
+                "explanation": "Si 72 divisé par un nombre donne 8, ce nombre vaut 72 ÷ 8 = 9. On vérifie, 72 ÷ 9 = 8."
+            },
+            {
+                "question": "Quel nombre manque dans 25 + ? = 100 ?",
+                "choices": [
+                    "75",
+                    "125",
+                    "85"
+                ],
+                "answer": "75",
+                "explanation": "On soustrait pour retrouver le complément : 100 - 25 = 75."
+            },
+            {
+                "question": "Quel nombre manque dans ? × 7 = 56 ?",
+                "choices": [
+                    "8",
+                    "49",
+                    "63"
+                ],
+                "answer": "8",
+                "explanation": "On divise pour défaire la multiplication : 56 ÷ 7 = 8. On vérifie, 8 × 7 = 56."
+            },
+            {
+                "question": "Quel nombre manque dans 100 - ? = 37 ?",
+                "choices": [
+                    "63",
+                    "137",
+                    "73"
+                ],
+                "answer": "63",
+                "explanation": "On cherche ce qu'il faut retirer de 100 pour obtenir 37 : 100 - 37 = 63."
+            },
+            {
+                "question": "L'égalité 14 + 6 = 20 + 1 est-elle vraie ?",
+                "choices": [
+                    "Non, 20 n'est pas égal à 21",
+                    "Oui, les deux côtés contiennent une addition",
+                    "Oui, tous les nombres sont différents"
+                ],
+                "answer": "Non, 20 n'est pas égal à 21",
+                "explanation": "À gauche 14 + 6 = 20, à droite 20 + 1 = 21. Le signe égal exige la même valeur des deux côtés : l'égalité est fausse."
+            },
+            {
+                "question": "Quelle égalité est vraie ?",
+                "choices": [
+                    "5 × 4 = 10 + 10",
+                    "5 × 4 = 30 - 5",
+                    "5 × 4 = 2 × 9"
+                ],
+                "answer": "5 × 4 = 10 + 10",
+                "explanation": "5 × 4 = 20, et 10 + 10 = 20 : les deux côtés se valent. Les deux autres propositions donnent 25 et 18."
+            },
+            {
+                "question": "Quel nombre manque dans ? ÷ 5 = 12 ?",
+                "choices": [
+                    "60",
+                    "17",
+                    "7"
+                ],
+                "answer": "60",
+                "explanation": "Si un nombre divisé par 5 donne 12, ce nombre vaut 12 × 5 = 60. On vérifie, 60 ÷ 5 = 12."
+            }
+        ]
+    }
+}

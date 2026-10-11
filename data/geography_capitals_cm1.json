@@ -2,7 +2,7 @@
     "title": "Capitales du monde",
     "subjectId": "geography",
     "categories": {
-        "cm1-capitales-europe": [
+        "cm2-capitales-europe": [
             {
                 "question": "Quelle est la capitale de la France ?",
                 "choices": [
@@ -643,7 +643,7 @@
                     "N'Djamena"
                 ],
                 "answer": "Djibouti",
-                "explanation": "La capitale de Djibouti est Djibouti."
+                "explanation": "La capitale de Djibouti est la ville de Djibouti : elle porte le même nom que le pays."
             },
             {
                 "question": "Quelle est la capitale de la Somalie ?",
@@ -930,9 +930,9 @@
             {
                 "question": "Quelle est la capitale du Brunei ?",
                 "choices": [
-                    "Islamabad",
                     "Bandar Seri Begawan",
-                    "Naypyidaw"
+                    "Kuala Lumpur",
+                    "Phnom Penh"
                 ],
                 "answer": "Bandar Seri Begawan",
                 "explanation": "La capitale du Brunei est Bandar Seri Begawan."
@@ -1038,14 +1038,14 @@
                 "explanation": "La capitale de l'Iran est Téhéran."
             },
             {
-                "question": "Quelle est la capitale d'Israël ?",
+                "question": "Quelle ville Israël considère-t-il comme sa capitale ?",
                 "choices": [
                     "Jérusalem",
                     "Oulan-Bator",
                     "Islamabad"
                 ],
                 "answer": "Jérusalem",
-                "explanation": "La capitale d'Israël est Jérusalem."
+                "explanation": "Israël a proclamé Jérusalem sa capitale ; la France, comme de nombreux pays, a son ambassade à Tel-Aviv, car le statut de la ville reste discuté."
             },
             {
                 "question": "Quelle est la capitale du Japon ?",
@@ -1095,7 +1095,7 @@
                     "Koweït"
                 ],
                 "answer": "Koweït",
-                "explanation": "La capitale du Koweït est Koweït."
+                "explanation": "La capitale du Koweït est la ville de Koweït : elle porte le même nom que le pays."
             },
             {
                 "question": "Quelle est la capitale du Laos ?",
@@ -1215,14 +1215,14 @@
                     "Manille"
                 ],
                 "answer": "Singapour",
-                "explanation": "La capitale de Singapour est Singapour."
+                "explanation": "La capitale de Singapour est la ville de Singapour : elle porte le même nom que le pays."
             },
             {
                 "question": "Quelle est la capitale du Sri Lanka ?",
                 "choices": [
-                    "Bangkok",
                     "Sri Jayawardenapura Kotte",
-                    "Séoul"
+                    "Bandar Seri Begawan",
+                    "Kuala Lumpur"
                 ],
                 "answer": "Sri Jayawardenapura Kotte",
                 "explanation": "La capitale du Sri Lanka est Sri Jayawardenapura Kotte."
@@ -1337,7 +1337,7 @@
                     "Ottawa"
                 ],
                 "answer": "Guatemala",
-                "explanation": "La capitale du Guatemala est Guatemala."
+                "explanation": "La capitale du Guatemala est la ville de Guatemala : elle porte le même nom que le pays."
             },
             {
                 "question": "Quelle est la capitale du Belize ?",
@@ -1397,7 +1397,7 @@
                     "Tegucigalpa"
                 ],
                 "answer": "Panama",
-                "explanation": "La capitale du Panama est Panama."
+                "explanation": "La capitale du Panama est la ville de Panama : elle porte le même nom que le pays."
             },
             {
                 "question": "Quelle est la capitale de Cuba ?",
@@ -1522,14 +1522,14 @@
                 "explanation": "La capitale du Brésil est Brasília."
             },
             {
-                "question": "Quelle est la capitale de la Bolivie ?",
+                "question": "Quelle est la capitale constitutionnelle de la Bolivie ?",
                 "choices": [
+                    "Sucre",
                     "Buenos Aires",
-                    "Quito",
-                    "Sucre"
+                    "Quito"
                 ],
                 "answer": "Sucre",
-                "explanation": "La capitale de la Bolivie est Sucre."
+                "explanation": "Sucre est la capitale constitutionnelle de la Bolivie ; le gouvernement siège à La Paz."
             },
             {
                 "question": "Quelle est la capitale du Paraguay ?",
@@ -1570,6 +1570,128 @@
                 ],
                 "answer": "Montevideo",
                 "explanation": "La capitale de l'Uruguay est Montevideo."
+            }
+        ],
+        "cm1-capitales-europe-proche": [
+            {
+                "question": "Quelle est la capitale de la France ?",
+                "choices": [
+                    "Paris",
+                    "Berlin",
+                    "Amsterdam"
+                ],
+                "answer": "Paris",
+                "explanation": "La capitale de la France est Paris."
+            },
+            {
+                "question": "Quelle est la capitale de l'Espagne ?",
+                "choices": [
+                    "Londres",
+                    "Madrid",
+                    "Luxembourg"
+                ],
+                "answer": "Madrid",
+                "explanation": "La capitale de l'Espagne est Madrid."
+            },
+            {
+                "question": "Quelle est la capitale du Portugal ?",
+                "choices": [
+                    "Dublin",
+                    "Berne",
+                    "Lisbonne"
+                ],
+                "answer": "Lisbonne",
+                "explanation": "La capitale du Portugal est Lisbonne."
+            },
+            {
+                "question": "Quelle est la capitale de l'Italie ?",
+                "choices": [
+                    "Rome",
+                    "Bruxelles",
+                    "Vienne"
+                ],
+                "answer": "Rome",
+                "explanation": "La capitale de l'Italie est Rome."
+            },
+            {
+                "question": "Quelle est la capitale de l'Allemagne ?",
+                "choices": [
+                    "Amsterdam",
+                    "Berlin",
+                    "Paris"
+                ],
+                "answer": "Berlin",
+                "explanation": "La capitale de l'Allemagne est Berlin."
+            },
+            {
+                "question": "Quelle est la capitale du Royaume-Uni ?",
+                "choices": [
+                    "Luxembourg",
+                    "Madrid",
+                    "Londres"
+                ],
+                "answer": "Londres",
+                "explanation": "La capitale du Royaume-Uni est Londres."
+            },
+            {
+                "question": "Quelle est la capitale de l'Irlande ?",
+                "choices": [
+                    "Dublin",
+                    "Berne",
+                    "Lisbonne"
+                ],
+                "answer": "Dublin",
+                "explanation": "La capitale de l'Irlande est Dublin."
+            },
+            {
+                "question": "Quelle est la capitale de la Belgique ?",
+                "choices": [
+                    "Vienne",
+                    "Bruxelles",
+                    "Rome"
+                ],
+                "answer": "Bruxelles",
+                "explanation": "La capitale de la Belgique est Bruxelles."
+            },
+            {
+                "question": "Quelle est la capitale des Pays-Bas ?",
+                "choices": [
+                    "Paris",
+                    "Berlin",
+                    "Amsterdam"
+                ],
+                "answer": "Amsterdam",
+                "explanation": "La capitale des Pays-Bas est Amsterdam."
+            },
+            {
+                "question": "Quelle est la capitale du Luxembourg ?",
+                "choices": [
+                    "Luxembourg",
+                    "Madrid",
+                    "Londres"
+                ],
+                "answer": "Luxembourg",
+                "explanation": "La capitale du Luxembourg est la ville de Luxembourg : elle porte le même nom que le pays."
+            },
+            {
+                "question": "Quelle est la capitale de la Suisse ?",
+                "choices": [
+                    "Lisbonne",
+                    "Berne",
+                    "Dublin"
+                ],
+                "answer": "Berne",
+                "explanation": "La capitale de la Suisse est Berne."
+            },
+            {
+                "question": "Quelle est la capitale de l'Autriche ?",
+                "choices": [
+                    "Rome",
+                    "Bruxelles",
+                    "Vienne"
+                ],
+                "answer": "Vienne",
+                "explanation": "La capitale de l'Autriche est Vienne."
             }
         ]
     }

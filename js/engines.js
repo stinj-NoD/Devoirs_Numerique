@@ -28,16 +28,16 @@ const Engines = {
             switch (engineType) {
                 case 'math-input':
                     if (params.type === 'spelling') result = this.generators.spelling(params, lib);
-                    else if (params.type === 'clock') result = this.generators.clock(params);
-                    else if (params.type === 'fraction-view') result = this.generators.fractionView(params);
-                    else if (params.type === 'fraction-operation') result = this.generators.fractionOperation(params);
-                    else if (params.type === 'number-spelling') result = this.generators.numberSpelling(params);
+                    else if (params.type === 'clock') result = this.unique(params, () => this.generators.clock(params));
+                    else if (params.type === 'fraction-view') result = this.unique(params, () => this.generators.fractionView(params));
+                    else if (params.type === 'fraction-operation') result = this.unique(params, () => this.generators.fractionOperation(params));
+                    else if (params.type === 'number-spelling') result = this.unique(params, () => this.generators.numberSpelling(params));
                     else if (params.type === 'carre-somme') result = this.generators.carreSomme(params);
-                    else result = this.generators.calculate(params);
+                    else result = this.unique(params, () => this.generators.calculate(params));
                     break;
 
                 case 'conversion':
-                    result = this.generators.conversion(params);
+                    result = this.unique(params, () => this.generators.conversion(params));
                     break;
 
                 case 'choice-engine':
@@ -47,7 +47,7 @@ const Engines = {
                     else if (params.type === 'grammar-cloze') result = this.generators.grammarCloze(params, lib);
                     else if (params.type === 'homophone-duel') result = this.generators.homophones(params, lib);
                     else if (params.type === 'factual-qcm') result = this.generators.factualQcm(params);
-                    else result = this.generators.compare(params);
+                    else result = this.unique(params, () => this.generators.compare(params));
                     break;
 
                 case 'board-interactive':
@@ -74,9 +74,9 @@ const Engines = {
                     result = this.generators.clozeFillIn(params, lib);
                     break;
 
-                case 'conjugation': result = this.generators.conjugation(params, lib); break;
-                case 'clock': result = this.generators.clock(params); break;
-                case 'counting': result = this.generators.counting(params); break;
+                case 'conjugation': result = this.unique(params, () => this.generators.conjugation(params, lib)); break;
+                case 'clock': result = this.unique(params, () => this.generators.clock(params)); break;
+                case 'counting': result = this.unique(params, () => this.generators.counting(params)); break;
                 case 'timeline': result = this.generators.timeline(params); break;
 
                 default:
@@ -91,6 +91,31 @@ const Engines = {
             console.error("CRASH ENGINE :", e);
             return this.fallback("Erreur technique de l'exercice");
         }
+    },
+
+    /**
+     * Évite qu'une même question revienne dans une série pour les générateurs procéduraux.
+     * Les banques le font déjà (`pickUnused`) ; les générateurs, eux, tiraient sans mémoire : sur
+     * un petit espace de valeurs (5 totaux de pièces, 10 doubles) la même question revenait
+     * dans toutes les séries. On retire jusqu'à 30 fois (tirages peu coûteux) tant que la question et sa réponse figurent
+     * déjà dans `params.usedSet` ; si l'espace est plus petit que la série, on garde le dernier
+     * tirage (la série reste jouable, comme avant). Les clés texte (`q:`) cohabitent avec les
+     * index numériques des banques sans les gêner.
+     */
+    unique(params, genere) {
+        const used = params && params.usedSet instanceof Set ? params.usedSet : null;
+        let result = genere();
+        if (!used || !result) return result;
+        const cle = (r) => {
+            const d = (r && r.data) || {};
+            const hits = Array.isArray(d.hits)
+                ? d.hits.map((h) => (h && typeof h === 'object' ? h.val : h)).sort((a, b) => a - b).join('+')
+                : '';
+            return 'q:' + JSON.stringify([r && r.question, r && r.answer, hits, d.val, d.u1, d.u2, d.hours, d.minutes, d.n, d.d, d.a, d.b, d.dividend, d.divisor, d.question, d.pronoun, d.infinitive, d.tense]);
+        };
+        for (let essai = 0; essai < 30 && used.has(cle(result)); essai++) result = genere();
+        used.add(cle(result));
+        return result;
     },
 
     /**
@@ -219,7 +244,15 @@ function numberToFrench(n) {
             else {
                 let t = Math.floor(r / 10);
                 let u = r % 10;
-                if (t === 7 || t === 9) res += tens[t - 1] + (u === 1 ? "-et-" : "-") + teens[u];
+                // 70-79 : « soixante-dix », « soixante-et-onze ».
+                // 80-99 : « quatre-vingts » ne prend son « s » que seul (80), et
+                // 81 et 91 n'ont pas de « et » : « quatre-vingt-un »,
+                // « quatre-vingt-onze ». L'ancienne branche commune 7/9 (et 8 via
+                // `tens`) écrivait « quatre-vingts-cinq », « quatre-vingts-et-un » :
+                // un enfant qui écrivait juste était compté faux.
+                if (t === 7) res += "soixante" + (u === 1 ? "-et-" : "-") + teens[u];
+                else if (t === 8) res += u === 0 ? "quatre-vingts" : "quatre-vingt-" + units[u];
+                else if (t === 9) res += "quatre-vingt-" + teens[u];
                 else res += tens[t] + (u === 1 ? "-et-" : (u > 0 ? "-" : "")) + units[u];
             }
         }
@@ -233,7 +266,10 @@ function numberToFrench(n) {
 
     if (b > 0) result += getBelowThousand(b) + " milliard" + (b > 1 ? "s" : "") + " ";
     if (m > 0) result += getBelowThousand(m) + " million" + (m > 1 ? "s" : "") + " ";
-    if (k > 0) result += (k === 1 ? "" : getBelowThousand(k) + " ") + "mille ";
+    // « cent » et « vingt » perdent leur « s » devant « mille », qui est un
+    // adjectif numéral (« deux cent mille », « quatre-vingt mille ») ; devant
+    // « million » et « milliard », qui sont des noms, ils le gardent.
+    if (k > 0) result += (k === 1 ? "" : getBelowThousand(k).replace(/(cent|vingt)s$/, "$1") + " ") + "mille ";
     if (r > 0) result += getBelowThousand(r);
 
     return result.trim();

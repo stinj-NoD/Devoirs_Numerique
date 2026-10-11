@@ -26,12 +26,13 @@
                         {
                             "id": "add-2",
                             "title": "Additions jusqu'à 20",
-                            "subtitle": "Additionner sans dépasser 20",
+                            "subtitle": "Des sommes de 11 à 20",
                             "engine": "math-input",
                             "params": {
                                 "type": "add-simple",
                                 "maxSum": 20,
-                                "questions": 5
+                                "questions": 5,
+                                "min": 11
                             }
                         },
                         {
@@ -41,7 +42,7 @@
                             "engine": "math-input",
                             "params": {
                                 "type": "add-trou",
-                                "min": 1,
+                                "min": 3,
                                 "max": 20,
                                 "questions": 5
                             }
@@ -71,14 +72,15 @@
                         {
                             "id": "cp-bonus-addition-defi",
                             "title": "Défi : super additions",
-                            "subtitle": "Additionner jusqu'à 50",
+                            "subtitle": "Des sommes de 11 à 50",
                             "engine": "math-input",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "add-simple",
                                 "maxSum": 50,
-                                "questions": 8
+                                "questions": 8,
+                                "min": 11
                             }
                         }
                     ],
@@ -423,13 +425,83 @@
                         },
                         {
                             "id": "cp-doubles-moities",
-                            "title": "Doubles et moitiés",
-                            "subtitle": "Deux fois plus, deux fois moins",
+                            "title": "Les doubles",
+                            "subtitle": "Deux fois plus",
                             "engine": "math-input",
                             "params": {
                                 "type": "double",
                                 "min": 1,
                                 "max": 10,
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cp-ligne-numerique-0-10",
+                            "title": "La ligne numérique (0 à 10)",
+                            "subtitle": "Place le nombre au bon endroit",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "number-line-place",
+                                "dataFile": "data/board_number_line_cp.json",
+                                "category": "cp_number_line_0_10",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-ligne-numerique-0-100",
+                            "title": "La ligne numérique (0 à 100)",
+                            "subtitle": "Place la dizaine au bon endroit",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "number-line-place",
+                                "dataFile": "data/board_number_line_cp.json",
+                                "category": "cp_number_line_0_100",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-encadrement-dizaines",
+                            "title": "Encadrer entre deux dizaines",
+                            "subtitle": "Trouve les deux dizaines qui entourent un nombre",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "number-line-frame",
+                                "dataFile": "data/board_number_line_cp.json",
+                                "category": "cp_number_line_frame_dizaines",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-moities",
+                            "title": "Les moitiés",
+                            "subtitle": "Deux fois moins",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "half",
+                                "min": 1,
+                                "max": 10,
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cp-ranger-croissant",
+                            "title": "Du plus petit au plus grand",
+                            "subtitle": "Ranger une série de nombres",
+                            "engine": "word-order",
+                            "params": {
+                                "dataFile": "data/math_geometry_cp.json",
+                                "category": "cp-ranger-croissant",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cp-ranger-decroissant",
+                            "title": "Du plus grand au plus petit",
+                            "subtitle": "Ranger une série de nombres",
+                            "engine": "word-order",
+                            "params": {
+                                "dataFile": "data/math_geometry_cp.json",
+                                "category": "cp-ranger-decroissant",
                                 "questions": 5
                             }
                         }
@@ -588,6 +660,219 @@
                                     ],
                                     "answer": "3 bonbons",
                                     "explanation": "Je cherche la moitié de 6 : deux parts égales de 3, car 3 et 3 font 6."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-ligne-numerique",
+                            "title": "La ligne numérique",
+                            "subtitle": "Repérer et placer un nombre",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une ligne numérique graduée est une droite sur laquelle des marques régulières, appelées graduations, représentent les nombres dans l'ordre, de gauche à droite."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Sur une ligne graduée de 1 en 1, le nombre 7 se trouve en comptant 7 graduations à partir du 0. Sur une ligne graduée de 10 en 10, 3 graduations après le 0 donnent 30."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "Les graduations sont toutes à la même distance les unes des autres",
+                                        "Le 0 est toujours tout à gauche de la ligne",
+                                        "Plus un nombre est grand, plus il est placé loin vers la droite"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour placer un nombre, je pars du 0, je regarde ce que vaut une graduation (1, 5 ou 10) et je compte vers la droite."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur une ligne graduée régulière de 0 à 10, où se trouve le nombre 4 ?",
+                                    "choices": [
+                                        "À 4 graduations du 0",
+                                        "À 4 graduations du 10",
+                                        "Au milieu de la ligne"
+                                    ],
+                                    "answer": "À 4 graduations du 0",
+                                    "explanation": "Comme pour tout nombre sur la ligne, je compte à partir du 0 : 4 graduations plus loin, j'arrive sur le nombre 4."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur une ligne numérique, le nombre 9 est-il plus près ou plus loin du 0 que le nombre 3 ?",
+                                    "choices": [
+                                        "Plus loin, car 9 est plus grand que 3",
+                                        "Plus près, car 9 est plus petit que 3",
+                                        "Ils sont à la même distance du 0"
+                                    ],
+                                    "answer": "Plus loin, car 9 est plus grand que 3",
+                                    "explanation": "Plus un nombre est grand, plus il est placé loin vers la droite : 9 est donc plus loin du 0 que 3."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-signes-comparer",
+                            "title": "Comparer avec <, = et >",
+                            "subtitle": "Le signe s'ouvre vers le plus grand",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour comparer deux nombres, on utilise des signes. Le signe < veut dire « plus petit que ». Le signe > veut dire « plus grand que ». Le signe = veut dire « égal »."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "3 < 7 : 3 est plus petit que 7. 9 > 4 : 9 est plus grand que 4. 5 = 5 : c'est le même nombre."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Pour ne pas se tromper",
+                                    "items": [
+                                        "La pointe du signe regarde le plus petit nombre.",
+                                        "L'ouverture du signe regarde le plus grand nombre.",
+                                        "Le signe = est entre deux nombres égaux."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le signe s'ouvre toujours vers le plus grand nombre."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Quel est le bon signe pour comparer 12 et 9 ?",
+                                    "choices": [
+                                        "12 > 9",
+                                        "12 < 9",
+                                        "12 = 9"
+                                    ],
+                                    "answer": "12 > 9",
+                                    "explanation": "12 est plus grand que 9. Le signe s'ouvre vers 12, donc on écrit 12 > 9."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léa a 8 billes. Tom a 14 billes. Quelle phrase est juste ?",
+                                    "choices": [
+                                        "8 < 14, car Léa en a moins",
+                                        "8 > 14, car Léa en a moins",
+                                        "8 = 14, car ils ont des billes"
+                                    ],
+                                    "answer": "8 < 14, car Léa en a moins",
+                                    "explanation": "Léa a moins de billes que Tom : 8 est plus petit que 14. La pointe du signe < regarde 8."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-encadrement",
+                            "title": "Encadrer un nombre",
+                            "subtitle": "Trouver la dizaine juste avant et juste après",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Encadrer un nombre, c'est trouver la dizaine qui vient juste avant lui et la dizaine qui vient juste après lui. Le nombre se trouve toujours entre les deux, jamais collé sur l'une d'elles."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le nombre 23 est encadré par 20 et 30 : 20 est juste avant, 30 est juste après. On peut écrire 20 < 23 < 30."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "Je cherche d'abord la dizaine juste en dessous du nombre",
+                                        "Je cherche ensuite la dizaine juste au-dessus",
+                                        "Les deux dizaines choisies ne sont jamais le nombre lui-même"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour trouver vite les deux dizaines, je regarde le chiffre des dizaines du nombre : pour 56, ce chiffre est 5, donc les bornes sont 50 et 60."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Entre quelles deux dizaines se trouve le nombre 78 ?",
+                                    "choices": [
+                                        "70 et 80",
+                                        "80 et 90",
+                                        "60 et 70"
+                                    ],
+                                    "answer": "70 et 80",
+                                    "explanation": "78 est plus grand que 70 et plus petit que 80 : il est donc encadré par 70 et 80."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Nora doit encadrer le nombre 65. Laquelle de ces réponses est correcte ?",
+                                    "choices": [
+                                        "65 est entre 60 et 70",
+                                        "65 est entre 50 et 60",
+                                        "65 est entre 70 et 80"
+                                    ],
+                                    "answer": "65 est entre 60 et 70",
+                                    "explanation": "Le chiffre des dizaines de 65 est 6 : la dizaine juste avant est 60 et celle juste après est 70."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-ranger-nombres",
+                            "title": "Ranger des nombres",
+                            "subtitle": "Ordre croissant, ordre décroissant",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Ranger des nombres, c'est les écrire l'un après l'autre en suivant leur taille."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "Dans l'ordre croissant, je vais du plus petit au plus grand. Dans l'ordre décroissant, je fais l'inverse."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Avec 8, 3 et 5 : dans l'ordre croissant, j'écris 3, 5, 8."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "je cherche le plus petit et je l'écris",
+                                        "je recommence avec les nombres qui restent",
+                                        "croissant = je monte ; décroissant = je descends"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Sur la ligne numérique, les nombres croissants se lisent de gauche à droite."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Range 12, 7 et 20 dans l'ordre croissant.",
+                                    "choices": [
+                                        "7, 12, 20",
+                                        "20, 12, 7",
+                                        "12, 7, 20"
+                                    ],
+                                    "answer": "7, 12, 20",
+                                    "explanation": "Le plus petit est 7, puis vient 12, puis 20. La suite 20, 12, 7 descend au lieu de monter."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Chloé doit ranger 4, 9 et 6 dans l'ordre décroissant. Par quel nombre commence-t-elle ?",
+                                    "choices": [
+                                        "Par 9",
+                                        "Par 4",
+                                        "Par 6"
+                                    ],
+                                    "answer": "Par 9",
+                                    "explanation": "Dans l'ordre décroissant, on part du plus grand de tous, donc de 9. Chloé écrira ensuite 6, puis 4."
                                 }
                             ]
                         }
@@ -834,8 +1119,8 @@
                         },
                         {
                             "id": "carre-1",
-                            "title": "Carré Magique 1",
-                            "subtitle": "Aide visuelle",
+                            "title": "Trouve la paire (1)",
+                            "subtitle": "Deux nombres qui font 10, avec aide",
                             "engine": "math-input",
                             "params": {
                                 "type": "carre-somme",
@@ -849,8 +1134,8 @@
                         },
                         {
                             "id": "carre-2",
-                            "title": "Carré Magique 2",
-                            "subtitle": "Calcul mental",
+                            "title": "Trouve la paire (2)",
+                            "subtitle": "Deux nombres qui font 10",
                             "engine": "math-input",
                             "params": {
                                 "type": "carre-somme",
@@ -864,8 +1149,8 @@
                         },
                         {
                             "id": "carre-3",
-                            "title": "Carré Magique 3",
-                            "subtitle": "Trouver 15",
+                            "title": "Trouve la paire (3)",
+                            "subtitle": "Deux nombres qui font 15",
                             "engine": "math-input",
                             "params": {
                                 "type": "carre-somme",
@@ -879,8 +1164,8 @@
                         },
                         {
                             "id": "cp-bonus-carre-magique-defi",
-                            "title": "Défi : Carré Magique Expert",
-                            "subtitle": "Trouver 20, sans aide",
+                            "title": "Défi : trouve la paire",
+                            "subtitle": "Deux nombres qui font 20, sans aide",
                             "engine": "math-input",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -898,105 +1183,105 @@
                     "lessons": [
                         {
                             "id": "cp-lesson-defi-chercher",
-                            "title": "Résoudre un petit problème",
-                            "subtitle": "Lire, choisir, calculer",
+                            "title": "Deux nombres qui font 10",
+                            "subtitle": "Chercher ce qui manque",
                             "format": "lesson-card",
                             "blocks": [
                                 {
-                                    "text": "Pour résoudre un problème, je lis la question et je choisis le bon calcul.",
+                                    "text": "Pour trouver deux nombres qui font 10, je pars d'un nombre et je cherche ce qui lui manque pour arriver à 10.",
                                     "type": "paragraph"
                                 },
                                 {
                                     "label": "Exemple",
-                                    "content": "J'ai 6 images et j'en colle 2 de plus dans mon cahier : 6 + 2 = 8.",
+                                    "content": "Avec 7, il manque 3 pour faire 10 : 7 + 3 = 10.",
                                     "type": "example"
                                 },
                                 {
                                     "items": [
-                                        "je lis",
-                                        "je choisis",
-                                        "je calcule"
+                                        "je choisis un nombre",
+                                        "je cherche ce qui lui manque pour faire 10",
+                                        "je vérifie en additionnant"
                                     ],
                                     "type": "bullets"
                                 },
                                 {
                                     "label": "À retenir",
-                                    "content": "Un problème simple donne des nombres et une question précise à calculer.",
+                                    "content": "Deux nombres qui font 10 forment une paire : 8 et 2, 9 et 1, 5 et 5.",
                                     "type": "tip"
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans un panier il y a 9 pommes. Papa en prend 3 pour le goûter. Combien reste-t-il de pommes ?",
+                                    "question": "Quel nombre va avec 6 pour faire 10 ?",
                                     "choices": [
-                                        "6 pommes",
-                                        "12 pommes",
-                                        "3 pommes"
+                                        "4",
+                                        "16",
+                                        "5"
                                     ],
-                                    "answer": "6 pommes",
-                                    "explanation": "Papa retire des pommes du panier, donc j'enlève : 9 - 3 = 6 pommes."
+                                    "answer": "4",
+                                    "explanation": "Il manque 4 à 6 pour arriver à 10 : 6 + 4 = 10. 16 est la somme de 6 et de 10, et 6 + 5 fait 11."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Zoé a 4 autocollants et sa maîtresse lui en offre 5. Quel calcul répond à la question « Combien en a-t-elle maintenant ? »",
+                                    "question": "Quelles paires font 15 ensemble ?",
                                     "choices": [
-                                        "4 + 5",
-                                        "5 - 4",
-                                        "4 + 4"
+                                        "9 et 6",
+                                        "9 et 5",
+                                        "8 et 8"
                                     ],
-                                    "answer": "4 + 5",
-                                    "explanation": "Zoé reçoit des autocollants en plus : je réunis les deux quantités, 4 + 5 = 9 autocollants."
+                                    "answer": "9 et 6",
+                                    "explanation": "9 + 6 = 15. Avec 9 et 5 on obtient 14, un de moins, et avec 8 et 8 on obtient 16, un de plus."
                                 }
                             ]
                         },
                         {
                             "id": "cp-lesson-defi-verifier",
-                            "title": "Vérifier un calcul",
-                            "subtitle": "Recompter et corriger",
+                            "title": "Vérifier une paire",
+                            "subtitle": "Additionner puis ajuster",
                             "format": "lesson-card",
                             "blocks": [
                                 {
-                                    "text": "Je vérifie pour savoir si mon calcul est juste.",
+                                    "text": "Quand je cherche deux nombres qui font un total donné, j'additionne mes deux nombres pour vérifier.",
                                     "type": "paragraph"
                                 },
                                 {
                                     "label": "Exemple",
-                                    "content": "Je refais le calcul pour voir si j'obtiens le même résultat.",
+                                    "content": "Pour faire 15, je choisis 8 et 6 : 8 + 6 = 14, ce n'est pas 15. Je change 6 en 7 : 8 + 7 = 15.",
                                     "type": "example"
                                 },
                                 {
                                     "items": [
-                                        "je relis la consigne",
-                                        "je refais le calcul",
-                                        "je corrige si besoin"
+                                        "j'additionne mes deux nombres",
+                                        "je compare avec le total demandé",
+                                        "je change un nombre si c'est trop petit ou trop grand"
                                     ],
                                     "type": "bullets"
                                 },
                                 {
                                     "label": "À retenir",
-                                    "content": "Vérifier évite les erreurs.",
+                                    "content": "Si le total est trop petit, je prends un nombre plus grand ; s'il est trop grand, un nombre plus petit.",
                                     "type": "tip"
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un élève a écrit : 5 + 4 = 8. En recomptant, que découvre-t-on ?",
+                                    "question": "On cherche deux nombres qui font 12. Léa a choisi 7 et 4. Que doit-elle faire ?",
                                     "choices": [
-                                        "C'est faux, le résultat est 9",
-                                        "C'est juste, le résultat est bien 8",
-                                        "C'est faux, le résultat est 1"
+                                        "Prendre 5 à la place de 4",
+                                        "Prendre 3 à la place de 4",
+                                        "Garder 7 et 4"
                                     ],
-                                    "answer": "C'est faux, le résultat est 9",
-                                    "explanation": "Je recompte à partir de 5 : 6, 7, 8, 9. J'avance de 4 pas et j'arrive à 9, pas à 8."
+                                    "answer": "Prendre 5 à la place de 4",
+                                    "explanation": "7 + 4 = 11, il manque 1 pour arriver à 12 : il faut un nombre plus grand, 5, car 7 + 5 = 12."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un problème demande combien il reste de billes, et un élève trouve un résultat plus grand que le nombre de départ. Que faut-il penser ?",
+                                    "question": "Pour faire 20, Hugo prend 9 et 12. Est-ce que c'est bon ?",
                                     "choices": [
-                                        "Il s'est trompé, il a sûrement ajouté au lieu d'enlever",
-                                        "C'est normal, il reste toujours plus de billes",
-                                        "Il faut recopier ce résultat sans rien changer"
+                                        "Non, 9 + 12 = 21, c'est un de trop",
+                                        "Oui, 9 + 12 = 20",
+                                        "Non, 9 + 12 = 19, c'est un de moins"
                                     ],
-                                    "answer": "Il s'est trompé, il a sûrement ajouté au lieu d'enlever",
-                                    "explanation": "Quand on enlève des billes, il en reste forcément moins qu'au départ : un résultat plus grand montre une erreur d'opération."
+                                    "answer": "Non, 9 + 12 = 21, c'est un de trop",
+                                    "explanation": "9 + 12 fait 21 : c'est 1 de plus que 20. Il faut un nombre plus petit, par exemple 11."
                                 }
                             ]
                         }
@@ -1145,11 +1430,11 @@
                                     "type": "check",
                                     "question": "Range ces trois moments dans l'ordre de la journée.",
                                     "choices": [
-                                        "Petit-déjeuner, récréation de 15 h, coucher",
-                                        "Coucher, petit-déjeuner, récréation de 15 h",
-                                        "Récréation de 15 h, coucher, petit-déjeuner"
+                                        "Petit-déjeuner, récréation de l'après-midi, coucher",
+                                        "Coucher, petit-déjeuner, récréation de l'après-midi",
+                                        "Récréation de l'après-midi, coucher, petit-déjeuner"
                                     ],
-                                    "answer": "Petit-déjeuner, récréation de 15 h, coucher",
+                                    "answer": "Petit-déjeuner, récréation de l'après-midi, coucher",
                                     "explanation": "On mange au réveil, on joue en récréation l'après-midi, et on se couche en dernier, quand la nuit tombe."
                                 },
                                 {
@@ -1277,7 +1562,7 @@
                             "blocks": [
                                 {
                                     "type": "paragraph",
-                                    "text": "Un quadrillage est fait de cases. On peut repérer un endroit en comptant les colonnes (de gauche à droite) puis les lignes (de haut en bas)."
+                                    "text": "Un quadrillage est fait de cases. On peut repérer un endroit en comptant les colonnes (de gauche à droite) puis les lignes (de haut en bas). Les numéros commencent à 0, tout en haut à gauche."
                                 },
                                 {
                                     "type": "example",
@@ -1317,7 +1602,7 @@
                                         "Oui, car ce sont les mêmes nombres"
                                     ],
                                     "answer": "Non, ce sont deux cases différentes",
-                                    "explanation": "L'ordre compte : la première case est loin à droite et tout en haut, la seconde est à gauche et plus bas."
+                                    "explanation": "Colonne 4 ligne 1 est loin à droite, près du haut. Colonne 1 ligne 4 est près de la gauche, plus bas. L'ordre compte : la colonne se dit avant la ligne."
                                 }
                             ]
                         }
@@ -1491,6 +1776,32 @@
                             }
                         },
                         {
+                            "id": "cp-decomposition-dizaines-unites",
+                            "title": "Dizaines et unités",
+                            "icon": "📘",
+                            "subtitle": "Trouver le chiffre demandé",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "place-value",
+                                "digitCount": 2,
+                                "ask": "digit",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-valeur-chiffre-dizaines-unites",
+                            "title": "La valeur d'un chiffre",
+                            "icon": "📘",
+                            "subtitle": "Combien vaut ce chiffre ?",
+                            "engine": "math-input",
+                            "params": {
+                                "type": "place-value",
+                                "digitCount": 2,
+                                "ask": "value",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "id": "cp-bonus-dictee-nombres-defi",
                             "title": "Défi : écrire les nombres",
                             "subtitle": "De 0 à 69, sans erreur",
@@ -1571,12 +1882,13 @@
                                 },
                                 {
                                     "label": "Exemple",
-                                    "content": "34 = 3 dizaines et 4 unités.",
+                                    "content": "34 = 3 dizaines et 4 unités. Le chiffre 3 vaut 30, car 3 dizaines, c'est 30.",
                                     "type": "example"
                                 },
                                 {
                                     "items": [
                                         "1 dizaine = 10",
+                                        "le chiffre des dizaines vaut 10 fois plus : 8 dizaines, c'est 80",
                                         "les unités vont de 0 à 9",
                                         "je peux compter par paquets de 10"
                                     ],
@@ -1633,14 +1945,14 @@
                         {
                             "id": "cp-bonus-problemes-expert",
                             "title": "Défi : petits problèmes",
-                            "subtitle": "Tous les problèmes, sans erreur",
+                            "subtitle": "Écart, complément et comparaison, sans erreur",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/math_word_problems_cycle2.json",
-                                "category": "cp-problemes-simples",
+                                "category": "cp-problemes-defi",
                                 "questions": 10
                             }
                         },
@@ -1652,7 +1964,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/math_word_problems_cycle2.json",
-                                "category": "cp-problemes-simples",
+                                "category": "cp-problemes-quotidien",
                                 "questions": 6
                             }
                         },
@@ -1671,14 +1983,14 @@
                         {
                             "id": "cp-bonus-problemes-deux-etapes-defi",
                             "title": "Défi : problèmes à deux étapes",
-                            "subtitle": "Tous les problèmes, sans erreur",
+                            "subtitle": "Deux calculs à la suite, jusqu'à 20",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/math_word_problems_cycle2.json",
-                                "category": "cp-problemes-deux-etapes",
+                                "category": "cp-problemes-deux-etapes-defi",
                                 "questions": 8
                             }
                         }
@@ -1893,7 +2205,7 @@
                                 },
                                 {
                                     "label": "Exemple",
-                                    "content": "Si je vois un chat, je dis le mot chat : j'entends [ch] puis [a], alors j'écris ch puis a.",
+                                    "content": "Si je vois un chat, je dis le mot chat : j'entends [ch] puis [a], alors j'écris ch puis a, et je n'oublie pas le t qu'on n'entend pas.",
                                     "type": "example"
                                 },
                                 {
@@ -2000,6 +2312,29 @@
                             }
                         },
                         {
+                            "id": "cp-audio-syllabes",
+                            "title": "Les syllabes",
+                            "subtitle": "Écoute la syllabe et écris-la",
+                            "engine": "audio-spelling",
+                            "params": {
+                                "category": "cp_syllabes_dictee",
+                                "speechRate": 0.7,
+                                "questions": 6,
+                                "unit": "syllabe"
+                            }
+                        },
+                        {
+                            "id": "cp-audio-phrase-courte",
+                            "title": "Une petite phrase",
+                            "subtitle": "Écoute la phrase et écris-la",
+                            "engine": "audio-spelling",
+                            "params": {
+                                "category": "cp_phrases_courtes_dictee",
+                                "speechRate": 0.7,
+                                "questions": 5
+                            }
+                        },
+                        {
                             "id": "cp-bonus-dictee-audio-defi",
                             "title": "Défi : super dictée audio",
                             "subtitle": "Écoute et écris, version longue",
@@ -2063,6 +2398,111 @@
                                     ],
                                     "answer": "ph",
                                     "explanation": "Dans « photo », le son [f] s'écrit avec deux lettres : p et h. Un son peut s'écrire avec plusieurs lettres."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-ecrire-syllabe-dictee",
+                            "title": "Écrire une syllabe",
+                            "subtitle": "Une consonne, puis une voyelle",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une syllabe est un petit morceau de mot que je dis d'un seul coup. Le plus souvent, elle est faite d'une consonne suivie d'une voyelle."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "J'entends la syllabe « mu ». J'écris la consonne m, puis la voyelle u : mu."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "je dis la syllabe tout doucement",
+                                        "j'entends la consonne du début",
+                                        "j'entends la voyelle qui suit",
+                                        "j'écris les deux lettres dans cet ordre"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Quand j'écris toutes les syllabes à la suite, j'écris le mot entier."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "J'entends la syllabe « ri ». Quelle lettre est-ce que j'écris en premier ?",
+                                    "choices": [
+                                        "La lettre r",
+                                        "La lettre i",
+                                        "La lettre e"
+                                    ],
+                                    "answer": "La lettre r",
+                                    "explanation": "Dans « ri », j'entends d'abord la consonne r, puis la voyelle i. J'écris donc r avant i, sinon j'obtiens « ir »."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans lequel de ces mots est-ce que j'entends la syllabe « cha » ?",
+                                    "choices": [
+                                        "Chapeau",
+                                        "Cheval",
+                                        "Bateau"
+                                    ],
+                                    "answer": "Chapeau",
+                                    "explanation": "« Chapeau » commence bien par cha. « Cheval » commence par che, et « bateau » ne contient pas du tout cette syllabe."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-ecrire-phrase-dictee",
+                            "title": "Écrire une phrase dictée",
+                            "subtitle": "Des mots séparés par des espaces",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Quand on me dicte une phrase, j'écris plusieurs mots à la suite. Je laisse un espace entre deux mots pour bien les séparer."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "J'entends « le chat dort ». J'écris trois mots : le, chat, dort."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "j'écoute la phrase en entier",
+                                        "je compte les mots dans ma tête",
+                                        "j'écris un mot, un espace, puis le mot suivant"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Une phrase dictée peut être courte : trois ou quatre mots suffisent souvent. Ici, on écrit seulement les mots, sans majuscule ni point."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "J'entends la phrase « la lune est ronde ». Combien de mots est-ce que j'écris ?",
+                                    "choices": [
+                                        "4 mots",
+                                        "2 mots",
+                                        "14 mots"
+                                    ],
+                                    "answer": "4 mots",
+                                    "explanation": "Je compte chaque mot : la, lune, est, ronde. Cela fait 4 mots, même si la phrase contient 14 lettres."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tom a écrit « lechiencourt » d'un seul morceau. Que doit-il changer ?",
+                                    "choices": [
+                                        "Séparer les trois mots par des espaces",
+                                        "Écrire la phrase encore plus vite",
+                                        "Remplacer les lettres par des chiffres"
+                                    ],
+                                    "answer": "Séparer les trois mots par des espaces",
+                                    "explanation": "Il a bien entendu les lettres, mais il a tout collé. Il faut un espace entre chaque mot : le chien court."
                                 }
                             ]
                         }
@@ -2131,12 +2571,12 @@
                         {
                             "id": "cp-bonus-mots-outils-defi",
                             "title": "Défi : tous les mots outils",
-                            "subtitle": "Révision générale, version longue",
+                            "subtitle": "Les 30 mots des cinq périodes",
                             "engine": "audio-spelling",
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "params": {
-                                "category": "cp_mots_outils_p5",
+                                "category": "cp_mots_outils_revision",
                                 "speechRate": 0.72,
                                 "questions": 9
                             }
@@ -2161,7 +2601,7 @@
                                 {
                                     "type": "tip",
                                     "label": "À retenir",
-                                    "content": "Pour a et à, on apprend la différence dans les exercices d'homophones."
+                                    "content": "Attention : « a » (il a un chat) et « à » (il va à l'école) se disent pareil ; c'est la phrase qui aide à choisir."
                                 },
                                 {
                                     "type": "check",
@@ -2607,8 +3047,8 @@
                         },
                         {
                             "id": "cp-lecture-oeu",
-                            "title": "Le son œu",
-                            "subtitle": "Entendre le son dans le mot",
+                            "title": "Les lettres œu",
+                            "subtitle": "Les voir dans le mot",
                             "engine": "reading",
                             "params": {
                                 "category": "cp_son_oeu",
@@ -2665,12 +3105,13 @@
                                     "type": "example"
                                 },
                                 {
+                                    "type": "bullets",
                                     "items": [
                                         "je cherche les morceaux du mot",
                                         "je lis dans l'ordre",
-                                        "je relis le mot entier"
-                                    ],
-                                    "type": "bullets"
+                                        "je relis le mot entier",
+                                        "à l'écrit, le e de la fin compte aussi : sa-la-de a trois morceaux"
+                                    ]
                                 },
                                 {
                                     "label": "À retenir",
@@ -2708,7 +3149,7 @@
                             "format": "lesson-card",
                             "blocks": [
                                 {
-                                    "text": "Une phrase commence par une majuscule et se termine par un point.",
+                                    "text": "Une phrase commence par une majuscule et se termine par un point, un point d'interrogation ou un point d'exclamation.",
                                     "type": "paragraph"
                                 },
                                 {
@@ -2777,7 +3218,7 @@
                         },
                         {
                             "id": "cp-le-la",
-                            "title": "Le ou La ?",
+                            "title": "Le, la ou l' ?",
                             "subtitle": "Articles définis",
                             "engine": "choice-engine",
                             "params": {
@@ -3016,6 +3457,17 @@
                                 "category": "word_order_cp",
                                 "questions": 4
                             }
+                        },
+                        {
+                            "id": "cp-gram-singulier-pluriel",
+                            "title": "Un seul ou plusieurs ?",
+                            "subtitle": "Choisir le bon petit mot",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "plural-choice",
+                                "category": "plural_choice_cp",
+                                "questions": 8
+                            }
                         }
                     ],
                     "lessons": [
@@ -3026,7 +3478,7 @@
                             "format": "lesson-card",
                             "blocks": [
                                 {
-                                    "text": "Une phrase commence par une majuscule et se termine par un point. Elle exprime une idée complète.",
+                                    "text": "Une phrase commence par une majuscule et se termine par un point, un point d'interrogation ou un point d'exclamation. Elle exprime une idée complète.",
                                     "type": "paragraph"
                                 },
                                 {
@@ -3044,7 +3496,7 @@
                                 },
                                 {
                                     "label": "À retenir",
-                                    "content": "Sans majuscule ni point, ce n'est pas une vraie phrase !",
+                                    "content": "Une phrase dit une idée complète : les mots doivent être dans le bon ordre.",
                                     "type": "tip"
                                 },
                                 {
@@ -3070,6 +3522,50 @@
                                     "explanation": "On ne sait pas qui fait quoi dans le jardin. « Le chien court dans le jardin. » dit une idée complète : c'est une phrase."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cp-lesson-singulier-pluriel",
+                            "title": "Un seul ou plusieurs ?",
+                            "subtitle": "Le singulier et le pluriel",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Quand on parle d'une seule chose, on est au singulier. Quand on parle de plusieurs, on est au pluriel. Le petit mot placé devant le nom change : le, la ou l' pour un seul, les pour plusieurs."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "« le chat » : il y en a un seul. « les chats » : il y en a plusieurs. Le nom prend souvent un s à la fin quand il y en a plusieurs."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "Astuce",
+                                    "content": "Avant d'écrire, je compte. Un seul, j'écris le, la ou l'. Plusieurs, j'écris les."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tu vois trois ballons. Pourquoi écrit-on « les ballons » et non « le ballon » ?",
+                                    "choices": [
+                                        "Parce qu'on regarde combien il y en a, pas le genre du mot",
+                                        "Parce que ballon est un mot masculin, comme le mot le",
+                                        "Parce que le mot ballon se termine par les lettres -on"
+                                    ],
+                                    "answer": "Parce qu'on regarde combien il y en a, pas le genre du mot",
+                                    "explanation": "Le choix entre « le » et « les » dépend du nombre : un seul ou plusieurs. Masculin ou féminin ne sert qu'à choisir entre « le » et « la », quand il n'y en a qu'un."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans la phrase « Les fleurs sont jolies », combien y a-t-il de fleurs ?",
+                                    "choices": [
+                                        "Plusieurs : le mot « les » le montre",
+                                        "Une seule : le mot fleur est au singulier",
+                                        "On ne peut pas le savoir sans voir l'image"
+                                    ],
+                                    "answer": "Plusieurs : le mot « les » le montre",
+                                    "explanation": "« Les » annonce toujours plusieurs. S'il n'y en avait qu'une, on écrirait « la fleur est jolie »."
+                                }
+                            ]
                         }
                     ]
                 },
@@ -3081,7 +3577,7 @@
                         {
                             "id": "cp-conj-etre-avoir",
                             "title": "Être et avoir au présent",
-                            "subtitle": "Conjuguer être et avoir",
+                            "subtitle": "Je, tu, il, elle",
                             "engine": "conjugation",
                             "params": {
                                 "category": "etre_avoir_p",
@@ -3090,13 +3586,19 @@
                                     "avoir"
                                 ],
                                 "tenses": "présent",
+                                "persons": [
+                                    "Je",
+                                    "Tu",
+                                    "Il",
+                                    "Elle"
+                                ],
                                 "questions": 5
                             }
                         },
                         {
                             "id": "cp-conj-verbes-simples",
                             "title": "Verbes en -er au présent",
-                            "subtitle": "Manger, chanter, jouer...",
+                            "subtitle": "Je, tu, il, elle : manger, chanter, jouer...",
                             "engine": "conjugation",
                             "params": {
                                 "category": "present_1",
@@ -3107,13 +3609,19 @@
                                     "aimer"
                                 ],
                                 "tenses": "présent",
+                                "persons": [
+                                    "Je",
+                                    "Tu",
+                                    "Il",
+                                    "Elle"
+                                ],
                                 "questions": 5
                             }
                         },
                         {
                             "id": "cp-bonus-conj-etre-avoir",
                             "title": "Défi : être et avoir",
-                            "subtitle": "Toutes les personnes",
+                            "subtitle": "Je, tu, il, elle : la série longue",
                             "engine": "conjugation",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -3124,6 +3632,12 @@
                                     "avoir"
                                 ],
                                 "tenses": "présent",
+                                "persons": [
+                                    "Je",
+                                    "Tu",
+                                    "Il",
+                                    "Elle"
+                                ],
                                 "questions": 8
                             }
                         }
@@ -3141,19 +3655,19 @@
                                 },
                                 {
                                     "label": "Être au présent",
-                                    "content": "je suis — tu es — il/elle est — nous sommes — vous êtes — ils/elles sont",
+                                    "content": "je suis — tu es — il/elle est",
                                     "type": "example"
                                 },
                                 {
                                     "label": "Avoir au présent",
-                                    "content": "j'ai — tu as — il/elle a — nous avons — vous avez — ils/elles ont",
+                                    "content": "j'ai — tu as — il/elle a",
                                     "type": "example"
                                 },
                                 {
                                     "items": [
                                         "être : je suis, tu es, il est...",
                                         "avoir : j'ai, tu as, il a...",
-                                        "ces verbes changent beaucoup : il faut les apprendre par coeur"
+                                        "ces verbes changent beaucoup : il faut les apprendre par cœur"
                                     ],
                                     "type": "bullets"
                                 },
@@ -3164,25 +3678,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Complète : « Nous ... un chien à la maison. »",
+                                    "question": "Complète : « Tu ... un chien à la maison. »",
                                     "choices": [
-                                        "avons",
-                                        "sommes",
-                                        "avez"
+                                        "as",
+                                        "es",
+                                        "a"
                                     ],
-                                    "answer": "avons",
-                                    "explanation": "Le chien nous appartient : c'est le verbe avoir. Avec « nous », on dit nous avons."
+                                    "answer": "as",
+                                    "explanation": "Le chien t'appartient : c'est le verbe avoir. Avec « tu », on dit tu as."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Malo écrit : « Ils sont trois ans. » Quelle est son erreur ?",
+                                    "question": "Malo écrit : « Elle est sept ans. » Quelle est son erreur ?",
                                     "choices": [
-                                        "Il fallait écrire « Ils ont trois ans. »",
-                                        "Il fallait écrire « Ils es trois ans. »",
-                                        "Il fallait écrire « Ils est trois ans. »"
+                                        "Il fallait écrire « Elle a sept ans. »",
+                                        "Il fallait écrire « Elle es sept ans. »",
+                                        "Il fallait écrire « Elle ai sept ans. »"
                                     ],
-                                    "answer": "Il fallait écrire « Ils ont trois ans. »",
-                                    "explanation": "Pour l'âge, le français utilise avoir : ils ont trois ans. « sont » vient du verbe être."
+                                    "answer": "Il fallait écrire « Elle a sept ans. »",
+                                    "explanation": "Pour l'âge, le français utilise avoir : elle a sept ans. « est » vient du verbe être."
                                 }
                             ]
                         }
@@ -3275,6 +3789,52 @@
                             },
                             "isBonus": true,
                             "bonusThreshold": 2
+                        },
+                        {
+                            "id": "cp-histoire-jour-nuit",
+                            "title": "Le jour et la nuit",
+                            "subtitle": "Un cycle qui revient toujours",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cp.json",
+                                "category": "cp-jour-nuit",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-histoire-mois-annee",
+                            "title": "Les mois de l'année",
+                            "subtitle": "12 mois du plus tôt au plus tard",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/history_cp.json",
+                                "category": "cp-mois-annee",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-histoire-mois-ordre",
+                            "title": "Ranger les mois",
+                            "subtitle": "Remets les mois dans l'ordre",
+                            "engine": "word-order",
+                            "params": {
+                                "dataFile": "data/history_cp.json",
+                                "category": "cp-mois-ordre",
+                                "questions": 5
+                            }
+                        },
+                        {
+                            "id": "cp-histoire-ordonner-evenements",
+                            "title": "Raconter dans le bon ordre",
+                            "subtitle": "D'abord, ensuite, enfin",
+                            "engine": "word-order",
+                            "params": {
+                                "dataFile": "data/history_cp.json",
+                                "category": "cp-evenements-ordre",
+                                "questions": 5
+                            }
                         }
                     ],
                     "lessons": [
@@ -3300,19 +3860,19 @@
                                 },
                                 {
                                     "label": "À retenir",
-                                    "content": "Les repères du temps me permettent de raconter dans l'ordre. Plus tard, j'apprendrai aussi à me repérer avec le mois et l'année.",
+                                    "content": "Les repères du temps me permettent de raconter dans l'ordre.",
                                     "type": "tip"
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Nous sommes mercredi. Chloé dit : « Demain, je suis allée à la piscine. » Pourquoi sa phrase est-elle bizarre ?",
+                                    "question": "Chloé dit : « Demain, j'ai nagé. » Pourquoi est-ce bizarre ?",
                                     "choices": [
-                                        "Elle raconte comme déjà fait un moment pas encore arrivé",
-                                        "Elle a oublié de préciser quel jour de la semaine on est aujourd'hui",
-                                        "On ne va jamais à la piscine le jeudi, seulement le mercredi matin"
+                                        "« Demain » parle du futur, « j'ai nagé » du passé",
+                                        "Elle n'a pas dit à quelle heure elle nage",
+                                        "On ne va jamais à la piscine le jeudi"
                                     ],
-                                    "answer": "Elle raconte comme déjà fait un moment pas encore arrivé",
-                                    "explanation": "« Demain » vient après maintenant : Chloé doit dire « j'irai ». Dire quel jour on est ne réglerait rien, et le jour de la piscine n'a rien à voir : c'est le mot du temps qui ne va pas avec le verbe."
+                                    "answer": "« Demain » parle du futur, « j'ai nagé » du passé",
+                                    "explanation": "« Demain » vient après maintenant : il faut dire « je nagerai ». Dire l'heure n'y change rien."
                                 },
                                 {
                                     "type": "check",
@@ -3382,6 +3942,162 @@
                                     "explanation": "Les jours tournent sans jamais s'arrêter : après dimanche, une semaine neuve démarre à lundi. On n'attend pas, et on ne revient pas en arrière vers samedi, qui est déjà passé."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cp-lesson-jour-nuit",
+                            "title": "Le jour et la nuit",
+                            "subtitle": "Un cycle qui revient toujours",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le jour et la nuit se suivent sans arrêt. Il fait jour quand le Soleil éclaire notre ciel, et il fait nuit quand sa lumière ne nous arrive plus."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le matin, le Soleil se lève et il fait jour. Le soir, il se couche et la nuit arrive."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "le jour : le Soleil éclaire notre ciel",
+                                        "la nuit : on voit la Lune et les étoiles",
+                                        "un jour et une nuit qui se suivent font 24 heures"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Ce cycle se répète sans fin : après chaque nuit, un nouveau jour arrive."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "En hiver, à 6 heures du soir, Tom voit qu'il fait déjà tout noir dehors. Pourquoi ?",
+                                    "choices": [
+                                        "Le Soleil est déjà couché",
+                                        "Le Soleil s'est éteint pour de bon",
+                                        "Les nuages ont caché le Soleil toute la journée"
+                                    ],
+                                    "answer": "Le Soleil est déjà couché",
+                                    "explanation": "En hiver, le Soleil se couche très tôt : la nuit commence plus tôt qu'en été. Le Soleil ne s'éteint jamais, et des nuages laisseraient quand même passer un peu de lumière."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Papi voit le Soleil apparaître à l'horizon. Comment appelle-t-on ce moment ?",
+                                    "choices": [
+                                        "Le lever du Soleil",
+                                        "Le coucher du Soleil",
+                                        "Le milieu de la nuit"
+                                    ],
+                                    "answer": "Le lever du Soleil",
+                                    "explanation": "Quand le Soleil apparaît et que le ciel s'éclaire, on dit qu'il se lève : c'est le lever du Soleil. Le soir, c'est l'inverse, il se couche."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-mois-annee",
+                            "title": "Les mois de l'année",
+                            "subtitle": "12 mois qui se suivent",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Une année compte 12 mois. Ils se suivent toujours dans le même ordre, de janvier jusqu'à décembre."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Après septembre vient octobre, puis novembre, puis décembre."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "janvier, février, mars, avril",
+                                        "mai, juin, juillet, août",
+                                        "septembre, octobre, novembre, décembre"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le calendrier montre tous les mois : il aide à repérer les fêtes, les vacances et les anniversaires."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léa fête son anniversaire le mois qui vient juste avant janvier. Quel mois est-ce ?",
+                                    "choices": [
+                                        "Décembre",
+                                        "Février",
+                                        "Novembre"
+                                    ],
+                                    "answer": "Décembre",
+                                    "explanation": "Janvier est le premier mois de l'année : le mois juste avant est donc le dernier, décembre. Février vient après janvier, et novembre est encore plus tôt."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur son calendrier, Hugo compte : il reste 2 mois avant les vacances de Noël, en décembre. En quel mois est-il ?",
+                                    "choices": [
+                                        "Octobre",
+                                        "Février",
+                                        "Janvier"
+                                    ],
+                                    "answer": "Octobre",
+                                    "explanation": "Je recule de 2 mois depuis décembre : novembre, puis octobre. Hugo est donc en octobre. Février et janvier viennent après décembre, pas avant."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-ordonner-evenements",
+                            "title": "Raconter dans le bon ordre",
+                            "subtitle": "D'abord, ensuite, enfin",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour raconter, je dis les évènements dans l'ordre où ils se sont passés. Des petits mots m'aident à relier ces moments."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "D'abord je mets mes chaussures, ensuite j'ouvre la porte, enfin je sors dans la rue."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "d'abord = le tout premier moment",
+                                        "ensuite = ce qui vient après",
+                                        "enfin = le dernier moment"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Si je change l'ordre, mon histoire ne veut plus rien dire."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Lou dit : « Enfin, je plonge. Ensuite, je mets mon maillot. D'abord, j'arrive. » Que fait-elle ?",
+                                    "choices": [
+                                        "Elle raconte les moments à l'envers",
+                                        "Elle oublie de dire son âge",
+                                        "Elle répète trois fois le même mot"
+                                    ],
+                                    "answer": "Elle raconte les moments à l'envers",
+                                    "explanation": "Lou commence par la fin et termine par le début. Dans l'ordre : elle arrive à la piscine, elle met son maillot, puis elle plonge."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour préparer un gâteau, que fait-on en premier ?",
+                                    "choices": [
+                                        "On sort les ingrédients",
+                                        "On mange le gâteau",
+                                        "On sort le gâteau du four"
+                                    ],
+                                    "answer": "On sort les ingrédients",
+                                    "explanation": "On prépare toujours avant de cuire, et on cuit avant de manger. Manger le gâteau est le tout dernier moment de la recette."
+                                }
+                            ]
                         }
                     ]
                 },
@@ -3428,8 +4144,8 @@
                         },
                         {
                             "id": "cp-bonus-histoire-vie-defi",
-                            "title": "Defi : vie autrefois",
-                            "subtitle": "Maitre du temps qui passe",
+                            "title": "Défi : vie autrefois",
+                            "subtitle": "Maître du temps qui passe",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -3457,25 +4173,25 @@
                         {
                             "id": "cp-lesson-vivre-autrefois",
                             "title": "Vivre autrefois",
-                            "subtitle": "À la maison et à l'école",
+                            "subtitle": "À la maison",
                             "format": "lesson-card",
                             "blocks": [
                                 {
-                                    "text": "Autrefois, la vie quotidienne était différente : les objets, l'école et les habits n'étaient pas les mêmes.",
+                                    "text": "Autrefois, la vie à la maison était différente : on s'éclairait, on se chauffait et on lavait le linge autrement.",
                                     "type": "paragraph"
                                 },
                                 {
                                     "label": "Exemple",
-                                    "content": "On pouvait écrire à la plume et utiliser des objets anciens.",
+                                    "content": "On s'éclairait à la bougie et on allait chercher l'eau à la fontaine du village.",
                                     "type": "example"
                                 },
                                 {
+                                    "type": "bullets",
                                     "items": [
-                                        "les objets changent",
-                                        "l'école change",
-                                        "la vie quotidienne change"
-                                    ],
-                                    "type": "bullets"
+                                        "on s'éclairait à la bougie",
+                                        "on lavait le linge au lavoir",
+                                        "on allait chercher l'eau à la fontaine"
+                                    ]
                                 },
                                 {
                                     "label": "À retenir",
@@ -3484,14 +4200,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans un dessin qui montre la vie autrefois, un enfant a ajouté une télévision. Pourquoi est-ce une erreur ?",
+                                    "question": "Sur un dessin d'autrefois, un enfant a mis une télévision. Pourquoi est-ce une erreur ?",
                                     "choices": [
-                                        "Cet objet n'existait pas encore à cette époque",
-                                        "Les enfants d'autrefois n'aimaient pas la télévision",
-                                        "On ne dessine jamais d'objets sur une image du passé"
+                                        "Cet objet n'existait pas encore",
+                                        "Les enfants n'aimaient pas la télévision",
+                                        "On ne dessine pas d'objets du passé"
                                     ],
-                                    "answer": "Cet objet n'existait pas encore à cette époque",
-                                    "explanation": "Un objet ne peut pas être là avant d'avoir été inventé. Ce n'est pas une question de goût, et on a bien le droit de dessiner des objets du passé : ce sont eux qui racontent la vie d'avant."
+                                    "answer": "Cet objet n'existait pas encore",
+                                    "explanation": "Un objet ne peut pas être là avant d'avoir été inventé. Ce n'est pas une question de goût, et on a le droit de dessiner des objets du passé."
                                 },
                                 {
                                     "type": "check",
@@ -3547,14 +4263,14 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pour écrire à la plume, il fallait la tremper souvent dans l'encre. Qu'est-ce que cela changeait pour l'élève ?",
+                                    "question": "Une plume se trempe souvent dans l'encre. Qu'est-ce que cela change pour l'élève ?",
                                     "choices": [
-                                        "Il s'arrêtait souvent et faisait attention aux taches",
-                                        "Il écrivait bien plus vite qu'avec un stylo",
-                                        "Il n'avait plus besoin de cahier"
+                                        "Il s'arrête souvent et fait attention aux taches",
+                                        "Il écrit bien plus vite qu'avec un stylo",
+                                        "Il n'a plus besoin de cahier"
                                     ],
-                                    "answer": "Il s'arrêtait souvent et faisait attention aux taches",
-                                    "explanation": "La plume ne garde pas l'encre longtemps : on s'arrête pour la retremper, et une goutte fait vite une tache. Elle est donc plus lente qu'un stylo, et le cahier restait bien nécessaire pour écrire."
+                                    "answer": "Il s'arrête souvent et fait attention aux taches",
+                                    "explanation": "La plume ne garde pas l'encre longtemps : on s'arrête pour la retremper, et une goutte fait vite une tache. Elle est donc plus lente qu'un stylo, et le cahier reste nécessaire."
                                 }
                             ]
                         }
@@ -3614,18 +4330,6 @@
                             "subtitle": "Traces de la vie d'autrefois"
                         },
                         {
-                            "id": "cp-emc-partager-materiel",
-                            "title": "Partager le matériel",
-                            "subtitle": "Prêter, rendre, aider",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/emc_cp.json",
-                                "category": "cp-partager-materiel",
-                                "questions": 6
-                            }
-                        },
-                        {
                             "id": "cp-bonus-traces-passe-defi",
                             "title": "Défi : grand musée du passé",
                             "subtitle": "Traces et objets anciens, version longue",
@@ -3672,13 +4376,13 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sacha trouve au grenier un cartable en cuir usé, avec le nom de son papi écrit dedans. Que peut-il apprendre ?",
+                                    "question": "Sacha trouve au grenier un vieux cartable avec le nom de son papi. Que peut-il apprendre ?",
                                     "choices": [
-                                        "Comment son papi allait à l'école quand il était enfant",
-                                        "Quel âge a son papi aujourd'hui, en comptant les bougies",
-                                        "Ce que son papi va manger demain midi à la maison"
+                                        "Comment son papi allait à l'école enfant",
+                                        "Quel âge a son papi aujourd'hui",
+                                        "Ce que son papi mangera demain midi"
                                     ],
-                                    "answer": "Comment son papi allait à l'école quand il était enfant",
+                                    "answer": "Comment son papi allait à l'école enfant",
                                     "explanation": "Un objet gardé parle du moment où on s'en servait : ce cartable raconte l'école de papi enfant. Il ne dit pas son âge d'aujourd'hui, et une trace du passé ne raconte jamais demain."
                                 },
                                 {
@@ -3790,25 +4494,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Léa veut montrer à un nouvel élève où se trouve le toboggan dans la cour. Elle hésite entre le plan de l'école et une photo prise depuis la porte. Pourquoi le plan l'aide-t-il mieux ?",
+                                    "question": "Léa montre le toboggan. Pourquoi un plan aide-t-il mieux qu'une photo ?",
                                     "choices": [
-                                        "Rien ne peut se cacher derrière un mur",
-                                        "La photo montre de plus jolies couleurs",
-                                        "Le plan tient sur une plus grande feuille"
+                                        "On voit tout d'en haut",
+                                        "Les couleurs sont plus jolies",
+                                        "La feuille est plus grande"
                                     ],
-                                    "answer": "Rien ne peut se cacher derrière un mur",
-                                    "explanation": "Vu d'en haut, aucun mur ni arbre ne masque quoi que ce soit : on voit toute la cour d'un coup. La couleur ne change rien, une photo en a aussi. Et la taille de la feuille ne compte pas : un petit plan montre déjà tout l'espace."
+                                    "answer": "On voit tout d'en haut",
+                                    "explanation": "Vu d'en haut, aucun mur ne cache rien : on voit toute la cour. Les couleurs et la taille de la feuille ne changent rien."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Tom dessine le plan de sa chambre. Il dessine son lit comme il le voit quand il est debout devant, avec le dossier bien droit. Que doit-il changer ?",
+                                    "question": "Tom dessine son lit de face, avec le dossier. Que doit-il changer ?",
                                     "choices": [
-                                        "Le regarder depuis le plafond",
-                                        "Le dessiner beaucoup plus petit",
-                                        "Écrire le mot « lit » à côté"
+                                        "Le dessiner vu d'en haut",
+                                        "Le dessiner plus petit",
+                                        "Écrire « lit » à côté"
                                     ],
-                                    "answer": "Le regarder depuis le plafond",
-                                    "explanation": "Sur un plan, on regarde toujours d'en haut : le lit devient un rectangle vu du dessus. Le dessiner plus petit ne corrigerait pas le point de vue, qui reste faux. Écrire le mot aide un peu, mais le dessin serait encore vu de face."
+                                    "answer": "Le dessiner vu d'en haut",
+                                    "explanation": "Sur un plan, on regarde toujours d'en haut : le lit devient un rectangle. Plus petit ou avec un mot, il resterait vu de face."
                                 }
                             ]
                         },
@@ -3842,25 +4546,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Papa dit : « Je descends acheter le pain, je reviens dans cinq minutes à pied. » Qu'est-ce que cela nous apprend sur la boulangerie ?",
+                                    "question": "Papa va chercher le pain à pied et revient en cinq minutes. Où est la boulangerie ?",
                                     "choices": [
-                                        "Elle est dans le quartier",
-                                        "Elle est dans une autre ville",
-                                        "Elle est très loin de la maison"
+                                        "Dans le quartier",
+                                        "Dans une autre ville",
+                                        "Très loin de la maison"
                                     ],
-                                    "answer": "Elle est dans le quartier",
-                                    "explanation": "Cinq minutes à pied, c'est tout près de la maison : c'est l'espace proche, donc le quartier. Une autre ville demanderait un long trajet en voiture ou en train. Et un lieu très loin ne se ferait pas à pied en cinq minutes."
+                                    "answer": "Dans le quartier",
+                                    "explanation": "Cinq minutes à pied, c'est tout près : c'est dans le quartier. Une autre ville est trop loin pour y aller à pied."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur quoi peut-on se mettre d'accord quand on parle d'un quartier ?",
+                                    "question": "Que peut-on faire dans un quartier ?",
                                     "choices": [
-                                        "On peut en faire le tour à pied",
-                                        "Il y a toujours exactement dix rues",
-                                        "Tous les habitants s'y connaissent"
+                                        "Le parcourir à pied",
+                                        "Y compter toujours dix rues",
+                                        "Y connaître tous les habitants"
                                     ],
-                                    "answer": "On peut en faire le tour à pied",
-                                    "explanation": "Un quartier est une petite partie de la ville : on le parcourt à pied. Le nombre de rues change d'un quartier à l'autre, il n'y a pas de règle. Et dans un quartier, beaucoup d'habitants ne se connaissent pas du tout."
+                                    "answer": "Le parcourir à pied",
+                                    "explanation": "Un quartier est petit : on peut le parcourir à pied. Le nombre de rues change, et on ne connaît pas tous les habitants."
                                 }
                             ]
                         }
@@ -3893,8 +4597,8 @@
                         },
                         {
                             "id": "cp-geo-se-reperer",
-                            "title": "Se reperer dans l'espace",
-                            "subtitle": "Gauche, droite, devant, derriere",
+                            "title": "Se repérer dans l'espace",
+                            "subtitle": "Gauche, droite, devant, derrière",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -3906,7 +4610,7 @@
                         {
                             "id": "cp-plan-lieux-publics",
                             "title": "Les lieux publics du quartier",
-                            "subtitle": "Mairie, poste, marche, mediatheque...",
+                            "subtitle": "Mairie, poste, bibliothèque...",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -3941,10 +4645,10 @@
                                 "category": "cp-se-reperer",
                                 "type": "factual-qcm"
                             },
-                            "title": "Se repérer à l'école",
+                            "title": "Plan, trajets et positions",
                             "engine": "choice-engine",
                             "id": "cp-geo-ecole-trajets",
-                            "subtitle": "Trajets et positions"
+                            "subtitle": "Se repérer sur un plan"
                         },
                         {
                             "params": {
@@ -3959,6 +4663,30 @@
                             "subtitle": "Retrouver les espaces du quotidien"
                         },
                         {
+                            "id": "cp-geo-points-cardinaux",
+                            "title": "Les points cardinaux",
+                            "subtitle": "Nord, sud, est, ouest",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cp.json",
+                                "category": "cp-points-cardinaux",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-geo-rose-des-vents",
+                            "title": "La rose des vents",
+                            "subtitle": "Lire les directions d'une carte",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cp.json",
+                                "category": "cp-rose-des-vents",
+                                "questions": 6
+                            }
+                        },
+                        {
                             "params": {
                                 "questions": 10,
                                 "dataFile": "data/geography_cp.json",
@@ -3971,6 +4699,18 @@
                             "isBonus": true,
                             "bonusThreshold": 2,
                             "id": "cp-bonus-reperage-defi"
+                        },
+                        {
+                            "id": "cp-geo-gauche-droite",
+                            "title": "Gauche ou droite ?",
+                            "subtitle": "Je me repère avec mes mains",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cp.json",
+                                "category": "cp-gauche-droite",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -4002,25 +4742,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Deux élèves se font face. Nino dit : « Le tableau est à ma droite. » Sa camarade en face répond : « Non, il est à ma gauche ! » Qui a raison ?",
+                                    "question": "Face à face, Nino dit « à ma droite », sa camarade « à ma gauche ». Qui a raison ?",
                                     "choices": [
-                                        "Les deux : ils ne sont pas placés du même côté",
-                                        "Nino, parce qu'il a parlé le premier",
-                                        "Sa camarade, parce qu'elle est en face du tableau"
+                                        "Les deux, ils ne sont pas du même côté",
+                                        "Nino, car il parle le premier",
+                                        "Sa camarade, car elle est en face"
                                     ],
-                                    "answer": "Les deux : ils ne sont pas placés du même côté",
-                                    "explanation": "Quand on se fait face, la droite de l'un est la gauche de l'autre : chacun décrit depuis sa place. L'ordre dans lequel on parle ne rend personne plus juste. Et être en face du tableau ne donne pas raison non plus : les deux disent vrai depuis leur position."
+                                    "answer": "Les deux, ils ne sont pas du même côté",
+                                    "explanation": "Quand on se fait face, la droite de l'un est la gauche de l'autre. Chacun décrit depuis sa place."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Une maîtresse veut dire où est rangé le ballon sans qu'aucun élève ne se trompe. Quelle phrase est la plus sûre ?",
+                                    "question": "Quelle phrase aide le mieux à trouver le ballon ?",
                                     "choices": [
-                                        "Dans le placard, près de la porte de la cour",
-                                        "Juste derrière, tout au fond de la salle",
-                                        "Là-bas, à gauche, vers le grand mur"
+                                        "Dans le placard, près de la porte",
+                                        "Là-bas, à gauche, vers le mur",
+                                        "Juste derrière, tout au fond"
                                     ],
-                                    "answer": "Dans le placard, près de la porte de la cour",
-                                    "explanation": "Cette phrase s'appuie sur un repère que tous voient pareil : la porte de la cour ne bouge pas. « Derrière » dépend de la personne qui parle et d'où elle est tournée. « À gauche » change aussi selon la place de chacun dans la classe."
+                                    "answer": "Dans le placard, près de la porte",
+                                    "explanation": "La porte ne bouge pas : tout le monde la voit pareil. « Derrière » et « à gauche » changent selon la place de chacun."
                                 }
                             ],
                             "title": "Se repérer à l'école",
@@ -4059,25 +4799,131 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Zoé écrit avec sa main gauche. Que peut-on dire de sa main droite ?",
+                                    "question": "Zoé écrit de la main gauche. Quelle main tient sa feuille ?",
                                     "choices": [
-                                        "C'est celle qui tient la feuille pendant qu'elle écrit",
-                                        "C'est celle qui tient le crayon pour former les lettres",
-                                        "Elle n'a pas de main droite, elle n'a qu'une seule main"
+                                        "La main droite",
+                                        "La main gauche",
+                                        "Aucune main"
                                     ],
-                                    "answer": "C'est celle qui tient la feuille pendant qu'elle écrit",
-                                    "explanation": "Zoé est gauchère : elle écrit de la main gauche, donc c'est l'autre main, la droite, qui tient la feuille. Elle n'écrit pas de la main droite, puisqu'elle écrit de la gauche. Et tout le monde a une main droite et une main gauche, gaucher ou droitier."
+                                    "answer": "La main droite",
+                                    "explanation": "Zoé écrit de la main gauche : c'est sa main droite qui tient la feuille."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un enfant lève son bras gauche. Sans bouger, il pose son autre main sur son épaule. Sur quelle épaule sa main s'est-elle posée ?",
+                                    "question": "Léo lève le bras gauche. Sur quelle épaule pose-t-il son autre main ?",
                                     "choices": [
-                                        "Son épaule droite",
-                                        "Son épaule gauche",
-                                        "On ne peut pas le savoir"
+                                        "Sur l'épaule droite",
+                                        "Sur l'épaule gauche",
+                                        "On ne peut pas savoir"
                                     ],
-                                    "answer": "Son épaule droite",
-                                    "explanation": "Le bras gauche est levé, donc la main qui reste libre est la main droite, et elle se pose du même côté : l'épaule droite. Ce n'est pas l'épaule gauche, car de ce côté le bras est en l'air. On peut donc bien le savoir : chaque main va avec son côté."
+                                    "answer": "Sur l'épaule droite",
+                                    "explanation": "Le bras gauche est levé : l'autre main est la droite. Elle se pose sur l'épaule droite."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-points-cardinaux",
+                            "title": "Les quatre points cardinaux",
+                            "subtitle": "Le nord, le sud, l'est et l'ouest",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour dire dans quelle direction on va, on utilise quatre repères : le nord, le sud, l'est et l'ouest. On les appelle les points cardinaux."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le matin, le soleil se lève du côté de l'est. Le soir, il se couche du côté de l'ouest."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "le nord",
+                                        "le sud",
+                                        "l'est",
+                                        "l'ouest"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le nord et le sud sont opposés, comme l'est et l'ouest."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Camille marche vers l'est, puis fait demi-tour. Vers où marche-t-elle ?",
+                                    "choices": [
+                                        "Vers l'ouest",
+                                        "Vers le nord",
+                                        "Vers l'est, comme avant"
+                                    ],
+                                    "answer": "Vers l'ouest",
+                                    "explanation": "Faire demi-tour, c'est partir dans la direction opposée : l'opposé de l'est est l'ouest."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur une carte, le nord est en haut. Où est le sud ?",
+                                    "choices": [
+                                        "Tout en bas",
+                                        "Tout en haut aussi",
+                                        "Sur le côté droit"
+                                    ],
+                                    "answer": "Tout en bas",
+                                    "explanation": "Le sud est l'opposé du nord : si le nord est en haut, le sud est en bas. Les côtés sont pour l'est et l'ouest."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-rose-des-vents",
+                            "title": "La rose des vents",
+                            "subtitle": "Trouver les directions sur une carte",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Sur une carte, un petit dessin en étoile indique les directions : c'est la rose des vents."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Autour de l'étoile, je lis les lettres N, S, E et O."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "N : nord",
+                                        "S : sud",
+                                        "E : est",
+                                        "O : ouest"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Je regarde la rose des vents avant de dire où se trouve un lieu sur la carte."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Léo cherche un village situé au sud sur sa carte. Que doit-il regarder en premier ?",
+                                    "choices": [
+                                        "Le dessin en étoile avec les lettres",
+                                        "Le titre écrit en haut de la page",
+                                        "La couleur des routes dessinées"
+                                    ],
+                                    "answer": "Le dessin en étoile avec les lettres",
+                                    "explanation": "Seule la rose des vents dit où se trouve le sud sur cette carte. Le titre donne le nom de la carte et la couleur des routes n'indique aucune direction."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sur son plan, Nina voit une maison placée du côté de la lettre S. Où se trouve cette maison ?",
+                                    "choices": [
+                                        "Au sud du plan",
+                                        "Au nord du plan",
+                                        "Au milieu du plan"
+                                    ],
+                                    "answer": "Au sud du plan",
+                                    "explanation": "La lettre S marque le sud : un lieu placé de ce côté est donc au sud. Le nord est la direction opposée, marquée par la lettre N, et le milieu du plan n'est pas une direction."
                                 }
                             ]
                         }
@@ -4113,21 +4959,9 @@
                             "subtitle": "Mer, ville, campagne, montagne"
                         },
                         {
-                            "id": "cp-geo-transports-lieux",
-                            "title": "Transports et lieux",
-                            "subtitle": "Bus, velo, voiture, pieton...",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/geography_cp.json",
-                                "category": "cp-transports-lieux",
-                                "questions": 6
-                            }
-                        },
-                        {
                             "id": "cp-bonus-geo-paysages-defi",
-                            "title": "Defi : paysages et deplacements",
-                            "subtitle": "Reconnaitre et decrire son environnement",
+                            "title": "Défi : les paysages",
+                            "subtitle": "Reconnaître et décrire son environnement",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -4171,25 +5005,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sur une photo, on voit des bateaux amarrés, du sable et de l'eau salée à perte de vue. Quel indice prouve que l'on est au bord de la mer, et pas à la campagne ?",
+                                    "question": "Une photo montre des bateaux, du sable et de l'eau à perte de vue. Quel paysage est-ce ?",
                                     "choices": [
-                                        "L'eau salée à perte de vue",
-                                        "La présence de sable jaune",
-                                        "Le ciel bleu au-dessus"
+                                        "Le bord de la mer",
+                                        "La montagne",
+                                        "La campagne"
                                     ],
-                                    "answer": "L'eau salée à perte de vue",
-                                    "explanation": "Seule la mer forme une étendue d'eau salée si grande qu'on n'en voit pas le bout : c'est le signe sûr du littoral. Du sable, on en trouve aussi dans un bac à sable ou une carrière, loin de la mer. Et le ciel bleu se voit partout, dans tous les paysages."
+                                    "answer": "Le bord de la mer",
+                                    "explanation": "Des bateaux et de l'eau à perte de vue : c'est la mer. La montagne et la campagne n'ont pas de bateaux."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Malo affirme : « Il y a des arbres sur la photo, donc c'est la campagne. » Pourquoi peut-il se tromper ?",
+                                    "question": "Malo dit : « Il y a des arbres, donc c'est la campagne. » A-t-il raison ?",
                                     "choices": [
-                                        "Parce qu'il y a aussi des arbres en ville, en montagne et au bord de la mer",
-                                        "Parce qu'à la campagne il n'y a jamais d'arbres, seulement des champs vides",
-                                        "Parce qu'on ne voit jamais bien les arbres quand ils sont pris en photo"
+                                        "Non, il y a aussi des arbres en ville",
+                                        "Oui, il n'y a d'arbres qu'à la campagne",
+                                        "Oui, les arbres sont toujours en forêt"
                                     ],
-                                    "answer": "Parce qu'il y a aussi des arbres en ville, en montagne et au bord de la mer",
-                                    "explanation": "Un arbre tout seul ne dit pas quel paysage on regarde : il en pousse partout, même dans les rues des villes. Il y a bien des arbres à la campagne, mais ils n'y sont pas réservés. Et la photo montre très bien les arbres : le problème est qu'ils ne suffisent pas comme indice."
+                                    "answer": "Non, il y a aussi des arbres en ville",
+                                    "explanation": "Il y a des arbres partout : en ville, en montagne, au bord de la mer. Un arbre ne suffit pas pour reconnaître un paysage."
                                 }
                             ]
                         }
@@ -4295,25 +5129,225 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "La famille de Sacha part en vacances à l'autre bout de la France, avec de grosses valises. Quel transport est le plus adapté ?",
+                                    "question": "Sacha part à l'autre bout de la France avec de grosses valises. Quel transport choisir ?",
                                     "choices": [
                                         "Le train",
                                         "Le vélo",
                                         "La trottinette"
                                     ],
                                     "answer": "Le train",
-                                    "explanation": "Pour une très longue distance avec des bagages lourds, le train avance vite et porte les valises. À vélo, il faudrait des jours et on ne pourrait pas emporter de grosses valises. La trottinette sert aux tout petits trajets, pas à traverser le pays."
+                                    "explanation": "Le train va vite sur une longue distance et porte les valises. À vélo ou en trottinette, ce serait trop long et trop lourd."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un élève dit : « La voiture est le meilleur transport, c'est le plus rapide. » Que peut-on lui répondre ?",
+                                    "question": "Léa dit : « La voiture est toujours la plus rapide. » Que lui répondre ?",
                                     "choices": [
-                                        "Pour aller à l'école d'à côté, marcher est souvent plus rapide",
-                                        "C'est vrai, la voiture est toujours la plus rapide",
-                                        "Il faut prendre la voiture même pour traverser la rue"
+                                        "Pour aller tout près, marcher va souvent plus vite",
+                                        "Oui, la voiture est toujours la plus rapide",
+                                        "Il faut la prendre même pour traverser la rue"
                                     ],
-                                    "answer": "Pour aller à l'école d'à côté, marcher est souvent plus rapide",
-                                    "explanation": "Sur un trajet très court, le temps de sortir la voiture et de se garer, on est déjà arrivé à pied. La voiture n'est donc pas toujours la plus rapide : cela dépend du trajet. Et la prendre pour traverser la rue n'aurait aucun intérêt."
+                                    "answer": "Pour aller tout près, marcher va souvent plus vite",
+                                    "explanation": "Sur un tout petit trajet, on est arrivé à pied avant d'avoir garé la voiture. Cela dépend donc du trajet."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "cp-geo-representations-monde-subtheme",
+                    "title": "Des représentations du monde",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "cp-geo-globe-planisphere",
+                            "title": "Le globe et le planisphère",
+                            "subtitle": "Deux façons de montrer la Terre",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cp.json",
+                                "category": "cp-representations-monde",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-geo-terre-mer-ocean",
+                            "title": "La terre et les océans",
+                            "subtitle": "Lire les couleurs du planisphère",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/geography_cp.json",
+                                "category": "cp-terre-mer-ocean",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-geo-carte-monde-continents",
+                            "title": "Le planisphère des continents",
+                            "subtitle": "Touche le continent demandé",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "map-locate",
+                                "dataFile": "data/board_map_locate_cp.json",
+                                "mapFile": "data/maps/world-continents.svg",
+                                "mapId": "world-continents",
+                                "category": "cp_map_continents_monde",
+                                "questions": 4
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "cp-lesson-globe-planisphere",
+                            "title": "Le globe et le planisphère",
+                            "subtitle": "Deux façons de représenter la Terre",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "La Terre est une immense boule. Pour la montrer en classe, on utilise deux objets différents."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le globe est une petite boule posée sur un support. Le planisphère est la Terre dessinée à plat, sur une feuille ou dans un livre."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Sur le globe, je tourne la boule pour découvrir l'autre côté de la Terre. Sur le planisphère, je vois toute la Terre d'un seul coup d'œil."
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Le globe et le planisphère montrent la même chose : la Terre entière."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "La maîtresse veut afficher la Terre entière au mur de la classe. Que choisit-elle ?",
+                                    "choices": [
+                                        "Un planisphère",
+                                        "Un globe",
+                                        "Une boussole"
+                                    ],
+                                    "answer": "Un planisphère",
+                                    "explanation": "Le planisphère est plat : il s'accroche au mur et montre toute la Terre d'un coup. Le globe est une boule, il se pose mais ne s'affiche pas. La boussole, elle, sert à trouver le nord."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Tom regarde un globe posé sur la table. L'Australie est cachée derrière. Que doit-il faire ?",
+                                    "choices": [
+                                        "Faire tourner le globe",
+                                        "Découper le globe en deux",
+                                        "Regarder le globe de plus loin"
+                                    ],
+                                    "answer": "Faire tourner le globe",
+                                    "explanation": "Le globe est une boule : les pays cachés derrière apparaissent dès qu'on le tourne. Le couper l'abîmerait pour rien, et s'éloigner ne fait pas apparaître l'autre côté."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-terre-mer-ocean",
+                            "title": "La terre et les océans",
+                            "subtitle": "Lire les couleurs d'un planisphère",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Sur un globe ou un planisphère, les couleurs ont un sens. Le bleu montre l'eau ; le vert et le marron montrent les terres."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Sur le planisphère de la classe, la grande zone bleue à côté de l'Europe est de l'eau salée."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "le bleu : les mers et les océans",
+                                        "le vert et le marron : les terres",
+                                        "les très grandes terres : les continents"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Il y a bien plus d'eau que de terre sur notre planète."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Sacha cherche sur un planisphère l'endroit où vivent les poissons de mer. Quelle couleur doit-il regarder ?",
+                                    "choices": [
+                                        "Le bleu",
+                                        "Le vert",
+                                        "Le marron"
+                                    ],
+                                    "answer": "Le bleu",
+                                    "explanation": "Les poissons de mer vivent dans l'eau salée, et sur une carte l'eau est toujours coloriée en bleu. Le vert et le marron montrent les terres, où un poisson ne pourrait pas nager."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pourquoi appelle-t-on la Terre « la planète bleue » ?",
+                                    "choices": [
+                                        "Parce que l'eau y occupe une très grande place",
+                                        "Parce que le ciel est bleu au-dessus des maisons",
+                                        "Parce que les cartes sont imprimées en bleu"
+                                    ],
+                                    "answer": "Parce que l'eau y occupe une très grande place",
+                                    "explanation": "Vue de l'espace, la Terre paraît bleue car les océans recouvrent une part énorme de sa surface. Ce n'est pas la couleur du ciel qui compte, ni celle de l'encre des cartes."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-continents",
+                            "title": "Les continents",
+                            "subtitle": "Les très grandes terres de la Terre",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Sur la Terre, il y a de très grandes terres : ce sont les continents. Chaque continent a un nom. On les voit tous sur un planisphère."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "La France est en Europe. Les éléphants et les girafes vivent en Afrique. Le Canada est tout en haut, à gauche du planisphère."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "label": "Les sept continents",
+                                    "items": [
+                                        "L'Europe, l'Afrique et l'Asie, le plus grand.",
+                                        "L'Amérique du Nord (le Canada) et l'Amérique du Sud (le Brésil).",
+                                        "L'Océanie (l'Australie) et l'Antarctique, tout en bas, couvert de glace."
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Pour retrouver un continent, je pense à un pays ou à un animal que je connais."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Les kangourous vivent en Australie. Sur quel continent les trouve-t-on ?",
+                                    "choices": [
+                                        "En Océanie",
+                                        "En Afrique",
+                                        "En Europe"
+                                    ],
+                                    "answer": "En Océanie",
+                                    "explanation": "L'Australie fait partie de l'Océanie. L'Afrique est le continent des éléphants et des girafes, et l'Europe celui de la France."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Le Canada et le Brésil sont sur deux continents différents. Lesquels ?",
+                                    "choices": [
+                                        "Le Nord et le Sud de l'Amérique",
+                                        "L'Europe et l'Asie ensemble",
+                                        "L'Afrique et l'Océanie ensemble"
+                                    ],
+                                    "answer": "Le Nord et le Sud de l'Amérique",
+                                    "explanation": "Le Canada est en Amérique du Nord et le Brésil en Amérique du Sud : ce sont deux continents. Les autres paires ne contiennent ni l'un ni l'autre."
                                 }
                             ]
                         }
@@ -4353,6 +5387,30 @@
                                 "dataFile": "data/science_cp.json",
                                 "category": "cp-animaux-plantes-quotidien",
                                 "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-sciences-tri-trois-categories",
+                            "title": "Vivant, non vivant, élaboré",
+                            "subtitle": "Trier en trois groupes",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cp.json",
+                                "category": "cp-tri-trois-categories",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-sciences-memoire-origine-vivant",
+                            "title": "Jeu de mémoire : d'où ça vient ?",
+                            "subtitle": "Relie chaque objet à l'être vivant dont il vient",
+                            "engine": "board-interactive",
+                            "params": {
+                                "type": "memory-match",
+                                "dataFile": "data/board_memory_match_cp.json",
+                                "category": "cp_memory_match_sciences",
+                                "questions": 3
                             }
                         },
                         {
@@ -4473,7 +5531,7 @@
                                         "L'escargot n'est pas vivant"
                                     ],
                                     "answer": "L'escargot se déplace, même lentement",
-                                    "explanation": "Ce qui compte, c'est de se déplacer, pas d'aller vite : l'escargot bouge, c'est un animal. Il ne pousse pas comme une fleur, et il est bien vivant."
+                                    "explanation": "Ce qui compte, c'est que l'escargot se déplace, même lentement : il bouge, c'est un animal. Il ne pousse pas comme une fleur, et il est bien vivant."
                                 }
                             ]
                         },
@@ -4529,6 +5587,80 @@
                                     "explanation": "La graine a grandi et est devenue une pousse : seul un vivant fait ça. Ne pas bouger n'empêche pas d'être vivant, et la taille ne dit rien du tout."
                                 }
                             ]
+                        },
+                        {
+                            "id": "cp-lesson-vivant-fabrique",
+                            "title": "Élaboré par des êtres vivants",
+                            "subtitle": "Un troisième groupe pour trier",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Je sais déjà reconnaître ce qui est vivant et ce qui ne l'est pas. Mais certaines choses ne sont pas vivantes et viennent pourtant d'un être vivant."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Un pull en laine ne grandit pas et ne mange pas : il n'est pas vivant. Pourtant, sa laine a poussé sur le dos d'un mouton."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "la laine vient du mouton",
+                                        "le bois vient de l'arbre",
+                                        "le cuir vient de la peau d'une vache",
+                                        "le miel vient des abeilles"
+                                    ]
+                                },
+                                {
+                                    "type": "mini-table",
+                                    "headers": [
+                                        "Groupe",
+                                        "Exemple"
+                                    ],
+                                    "rows": [
+                                        [
+                                            "vivant",
+                                            "le mouton"
+                                        ],
+                                        [
+                                            "non vivant",
+                                            "le caillou"
+                                        ],
+                                        [
+                                            "élaboré par un vivant",
+                                            "le pull en laine"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Je trie maintenant en trois groupes au lieu de deux."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Dans quel groupe ranger une feuille de papier ?",
+                                    "choices": [
+                                        "Élaborée à partir du bois d'un arbre",
+                                        "Vivante, puisqu'elle vient d'un arbre",
+                                        "Non vivante, sans aucun lien avec le vivant"
+                                    ],
+                                    "answer": "Élaborée à partir du bois d'un arbre",
+                                    "explanation": "Le papier est fabriqué avec le bois des arbres : il vient donc bien d'un être vivant. Mais la feuille, elle, ne grandit pas et ne se nourrit pas : elle n'est pas vivante."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Théo range un caillou et une écharpe en laine ensemble, dans le groupe « non vivant ». Qu'en penses-tu ?",
+                                    "choices": [
+                                        "L'écharpe vient d'un animal, elle a son propre groupe",
+                                        "Il a raison, ces deux choses sont pareilles",
+                                        "Le caillou devrait aller dans le groupe des vivants"
+                                    ],
+                                    "answer": "L'écharpe vient d'un animal, elle a son propre groupe",
+                                    "explanation": "Ni le caillou ni l'écharpe ne sont vivants, mais l'écharpe est faite de la laine d'un mouton : elle va dans le troisième groupe. Le caillou, lui, n'a aucun lien avec le vivant."
+                                }
+                            ]
                         }
                     ]
                 },
@@ -4539,8 +5671,8 @@
                     "exercises": [
                         {
                             "id": "cp-sciences-matiere",
-                            "title": "Matière et lumière",
-                            "subtitle": "Eau, bois, lampe, glace",
+                            "title": "La matière",
+                            "subtitle": "Eau, bois, glace, sable",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -4550,20 +5682,8 @@
                             }
                         },
                         {
-                            "id": "cp-sciences-objets-usages",
-                            "title": "Objets et usages",
-                            "subtitle": "À quoi servent les objets ?",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/science_cp.json",
-                                "category": "cp-objets-usages",
-                                "questions": 6
-                            }
-                        },
-                        {
                             "id": "cp-bonus-sciences-matiere-defi",
-                            "title": "Défi : matière et lumière",
+                            "title": "Défi : la matière",
                             "subtitle": "Sans erreur",
                             "engine": "choice-engine",
                             "isBonus": true,
@@ -4603,7 +5723,7 @@
                                 },
                                 {
                                     "label": "À retenir",
-                                    "content": "Un objet peut changer d'état sans disparaître.",
+                                    "content": "Une matière peut changer d'état sans disparaître.",
                                     "type": "tip"
                                 },
                                 {
@@ -4656,10 +5776,10 @@
                                 "category": "cp-corps-sens",
                                 "type": "factual-qcm"
                             },
-                            "title": "Les cinq sens",
+                            "title": "Le corps et les sens",
                             "engine": "choice-engine",
                             "id": "cp-sciences-cinq-sens",
-                            "subtitle": "Voir, toucher, sentir"
+                            "subtitle": "Les sens, le sommeil, le sport"
                         },
                         {
                             "params": {
@@ -4697,6 +5817,18 @@
                                 "dataFile": "data/science_cp.json",
                                 "category": "cp-corps-sens",
                                 "questions": 10
+                            }
+                        },
+                        {
+                            "id": "cp-sciences-corps-sens",
+                            "title": "Révision : le corps et les sens",
+                            "subtitle": "Voir, entendre, toucher, goûter, sentir et prendre soin de soi",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cp.json",
+                                "category": "cp-corps-sens",
+                                "questions": 6
                             }
                         }
                     ],
@@ -4842,8 +5974,8 @@
                         },
                         {
                             "id": "cp-sciences-habits-saison",
-                            "title": "S'habiller selon la saison",
-                            "subtitle": "Choisir les bons vêtements",
+                            "title": "Les saisons : le mélange",
+                            "subtitle": "Un peu de tout sur les saisons",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -4982,8 +6114,8 @@
                         },
                         {
                             "id": "cp-sciences-maison-jardin",
-                            "title": "La maison et le jardin",
-                            "subtitle": "Les petites bêtes autour de nous",
+                            "title": "Les milieux de vie : le mélange",
+                            "subtitle": "Forêt, mare, jardin, bord de mer",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -4993,21 +6125,9 @@
                             }
                         },
                         {
-                            "id": "cp-sciences-corps-sens",
-                            "title": "Révision : les cinq sens",
-                            "subtitle": "Voir, entendre, toucher, goûter, sentir",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/science_cp.json",
-                                "category": "cp-corps-sens",
-                                "questions": 6
-                            }
-                        },
-                        {
                             "id": "cp-bonus-sciences-milieux-defi",
-                            "title": "Défi : milieux et sens",
-                            "subtitle": "Animal dans son milieu et organes des sens",
+                            "title": "Défi : les milieux de vie",
+                            "subtitle": "Encore plus de questions sur les milieux de vie",
                             "engine": "choice-engine",
                             "isBonus": true,
                             "bonusThreshold": 2,
@@ -5146,8 +6266,8 @@
                         },
                         {
                             "id": "cp-sciences-objets-materiaux",
-                            "title": "En quoi c'est fait ?",
-                            "subtitle": "Bois, plastique, métal, papier, tissu",
+                            "title": "Objets : usage et matière",
+                            "subtitle": "À quoi ça sert, en quoi c'est fait",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
@@ -5165,18 +6285,6 @@
                                 "type": "factual-qcm",
                                 "dataFile": "data/science_cp.json",
                                 "category": "cp-objets-usages",
-                                "questions": 6
-                            }
-                        },
-                        {
-                            "id": "cp-sciences-hygiene",
-                            "title": "L'hygiène au quotidien",
-                            "subtitle": "Prendre soin de son corps",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/science_cp.json",
-                                "category": "cp-hygiene-quotidienne",
                                 "questions": 6
                             }
                         },
@@ -5304,6 +6412,150 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "id": "cp-sciences-temperature-subtheme",
+                    "title": "Chaud, froid et température",
+                    "icon": "📘",
+                    "exercises": [
+                        {
+                            "id": "cp-sciences-chaud-froid",
+                            "title": "Chaud, tiède ou froid",
+                            "subtitle": "Comparer la chaleur",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cp.json",
+                                "category": "cp-chaud-froid",
+                                "questions": 6
+                            }
+                        },
+                        {
+                            "id": "cp-sciences-thermometre",
+                            "title": "La température en degrés",
+                            "subtitle": "Chaud, froid et degrés",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/science_cp.json",
+                                "category": "cp-temperature-thermometre",
+                                "questions": 6
+                            }
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "cp-lesson-chaud-froid-tiede",
+                            "title": "Chaud, tiède ou froid",
+                            "subtitle": "Les mots pour comparer la chaleur",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour parler de la chaleur, j'utilise des mots précis : chaud, tiède ou froid. Tiède veut dire un peu chaud, entre les deux."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Le chocolat qui fume est chaud, l'eau du bain est tiède, le glaçon est froid."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "brûlant",
+                                        "chaud",
+                                        "tiède",
+                                        "froid",
+                                        "glacé"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Ma main peut me tromper : après l'eau chaude, l'eau du robinet semble glacée."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Un bol de soupe bien chaude est oublié une heure sur la table. Comment est la soupe ensuite ?",
+                                    "choices": [
+                                        "Elle a refroidi",
+                                        "Elle est devenue brûlante",
+                                        "Elle n'a pas changé du tout"
+                                    ],
+                                    "answer": "Elle a refroidi",
+                                    "explanation": "Un plat chaud laissé à l'air perd peu à peu sa chaleur : il devient tiède, puis froid. Il ne peut pas se réchauffer tout seul et ne reste pas chaud sans arrêt."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Maya sort d'une piscine chauffée et met la main sous le robinet. L'eau lui semble très froide, alors qu'elle est tiède. Pourquoi ?",
+                                    "choices": [
+                                        "Sa main compare avec l'eau chaude de la piscine",
+                                        "Le robinet donne toujours de l'eau glacée",
+                                        "L'eau tiède refroidit dès qu'on la touche"
+                                    ],
+                                    "answer": "Sa main compare avec l'eau chaude de la piscine",
+                                    "explanation": "La peau ne mesure pas la chaleur, elle compare : après une eau bien chaude, une eau tiède paraît froide. Le robinet ne donne pas que de l'eau glacée, et toucher l'eau ne la refroidit pas."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "cp-lesson-thermometre-degres",
+                            "title": "Mesurer avec un thermomètre",
+                            "subtitle": "La température se dit en degrés",
+                            "format": "lesson-card",
+                            "blocks": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Pour savoir exactement s'il fait chaud ou froid, on ne se fie pas à sa main : on mesure la température avec un thermomètre."
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le thermomètre indique un nombre. Ce nombre est la température et il se dit en degrés."
+                                },
+                                {
+                                    "type": "example",
+                                    "label": "Exemple",
+                                    "content": "Dans la classe, le thermomètre indique 20 degrés. Dehors, il indique 8 degrés : il fait donc plus froid dehors."
+                                },
+                                {
+                                    "type": "bullets",
+                                    "items": [
+                                        "je pose le thermomètre à l'endroit à mesurer",
+                                        "j'attends un petit moment",
+                                        "je lis le nombre indiqué",
+                                        "je dis : il fait tant de degrés"
+                                    ]
+                                },
+                                {
+                                    "type": "tip",
+                                    "label": "À retenir",
+                                    "content": "Plus le nombre est grand, plus il fait chaud."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Le matin, le thermomètre du jardin indique 5 degrés. L'après-midi, il indique 14 degrés. Que s'est-il passé ?",
+                                    "choices": [
+                                        "L'air s'est réchauffé",
+                                        "L'air s'est refroidi",
+                                        "Rien n'a changé dehors"
+                                    ],
+                                    "answer": "L'air s'est réchauffé",
+                                    "explanation": "14 est plus grand que 5 : le nombre a monté, donc il fait plus chaud l'après-midi. Si l'air s'était refroidi, le nombre aurait baissé."
+                                },
+                                {
+                                    "type": "check",
+                                    "question": "Pour connaître la température de l'air dehors, où faut-il poser le thermomètre ?",
+                                    "choices": [
+                                        "Dehors, à l'ombre",
+                                        "Dans le frigo de la cuisine",
+                                        "Juste au-dessus du radiateur"
+                                    ],
+                                    "answer": "Dehors, à l'ombre",
+                                    "explanation": "Le thermomètre donne la température de l'endroit où il se trouve : pour mesurer l'air du dehors, il doit être dehors. Dans le frigo ou sur le radiateur, il mesurerait le froid ou la chaleur de ces endroits."
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -5363,6 +6615,18 @@
                                 "dataFile": "data/emc_matching.json",
                                 "questions": 3
                             }
+                        },
+                        {
+                            "id": "cp-emc-sec-politesse",
+                            "title": "Les mots de politesse",
+                            "subtitle": "Les mots de politesse au quotidien",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cp.json",
+                                "category": "cp-politesse-classe",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -5397,25 +6661,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Deux élèves veulent raconter leur week-end en même temps. Pourquoi vaut-il mieux parler l'un après l'autre ?",
+                                    "question": "Deux élèves parlent en même temps. Pourquoi vaut-il mieux parler l'un après l'autre ?",
                                     "choices": [
-                                        "Parce que si les deux parlent ensemble, on ne comprend ni l'un ni l'autre",
-                                        "Parce que raconter son week-end est interdit en classe le matin",
-                                        "Parce que c'est le plus rapide à parler qui a le droit de continuer"
+                                        "Sinon, on ne comprend ni l'un ni l'autre",
+                                        "Parce que raconter est interdit en classe",
+                                        "Parce que le plus rapide a le droit de parler"
                                     ],
-                                    "answer": "Parce que si les deux parlent ensemble, on ne comprend ni l'un ni l'autre",
-                                    "explanation": "Chacun son tour sert à quelque chose : deux voix en même temps se couvrent et personne n'est entendu. Raconter son week-end n'est pas interdit, et être le plus rapide ne donne aucun droit de parler avant les autres."
+                                    "answer": "Sinon, on ne comprend ni l'un ni l'autre",
+                                    "explanation": "Deux voix en même temps se couvrent et personne n'est entendu. Raconter n'est pas interdit, et être rapide ne donne aucun droit de parler avant les autres."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Sacha a fini son dessin. Il reste une seule boîte de feutres pour toute la table. Que fait-il ?",
+                                    "question": "Sacha a fini son dessin. Il reste une boîte de feutres pour la table. Que fait-il ?",
                                     "choices": [
-                                        "Il pose la boîte au milieu pour que les autres s'en servent",
-                                        "Il garde la boîte tout près de lui, au cas où il en aurait besoin",
-                                        "Il range la boîte dans son cartable pour la retrouver demain"
+                                        "Il la pose au milieu de la table",
+                                        "Il la garde près de lui au cas où",
+                                        "Il la range dans son cartable"
                                     ],
-                                    "answer": "Il pose la boîte au milieu pour que les autres s'en servent",
-                                    "explanation": "Le matériel de la table sert à toute la table. Garder la boîte « au cas où » alors qu'on a fini bloque les autres pour rien, et la mettre dans son cartable prend ce qui appartient à la classe."
+                                    "answer": "Il la pose au milieu de la table",
+                                    "explanation": "Le matériel de la table sert à toute la table. La garder « au cas où » bloque les autres, et la mettre dans son cartable prend ce qui est à la classe."
                                 }
                             ]
                         },
@@ -5450,25 +6714,25 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans la classe, tous les élèves crient leur réponse en même temps. Que se passe-t-il ?",
+                                    "question": "Tous les élèves crient leur réponse en même temps. Que se passe-t-il ?",
                                     "choices": [
-                                        "La maîtresse n'entend aucune réponse clairement",
+                                        "La maîtresse n'entend aucune réponse",
                                         "Tout le monde apprend plus vite",
                                         "Les réponses deviennent toutes justes"
                                     ],
-                                    "answer": "La maîtresse n'entend aucune réponse clairement",
+                                    "answer": "La maîtresse n'entend aucune réponse",
                                     "explanation": "Voilà pourquoi on lève le doigt : quand tout le monde crie, les voix se mélangent et rien n'est entendu. Crier ne fait pas apprendre plus vite et ne rend aucune réponse juste."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Nora trouve une paire de ciseaux par terre à la fin de l'activité. Que fait-elle ?",
+                                    "question": "Nora trouve des ciseaux par terre après l'activité. Que fait-elle ?",
                                     "choices": [
-                                        "Elle la range à sa place pour qu'on la retrouve demain",
-                                        "Elle la laisse là, ce n'est pas elle qui l'a fait tomber",
-                                        "Elle la met dans sa trousse pour la garder"
+                                        "Elle les range à leur place",
+                                        "Elle les laisse, ce n'est pas elle",
+                                        "Elle les met dans sa trousse"
                                     ],
-                                    "answer": "Elle la range à sa place pour qu'on la retrouve demain",
-                                    "explanation": "Ranger sert à ce que la classe retrouve son matériel. Laisser par terre parce que « ce n'est pas moi » fait quand même perdre les ciseaux, et les garder dans sa trousse prive les autres d'un objet commun."
+                                    "answer": "Elle les range à leur place",
+                                    "explanation": "Ranger sert à ce que la classe retrouve son matériel. Les laisser parce que « ce n'est pas moi » fait quand même perdre les ciseaux, et les garder prive les autres d'un objet commun."
                                 }
                             ]
                         },
@@ -5503,24 +6767,24 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Tom dit : « J'ai le droit d'apprendre, alors j'ai le droit de faire du bruit quand je veux. » Qu'est-ce qu'il oublie ?",
+                                    "question": "Tom dit : « J'ai le droit d'apprendre, donc je fais du bruit quand je veux. » Qu'oublie-t-il ?",
                                     "choices": [
-                                        "Que son bruit empêche les autres d'apprendre aussi",
+                                        "Que son bruit gêne les autres élèves",
                                         "Qu'il n'a pas le droit d'apprendre",
-                                        "Que le bruit est le seul moyen d'apprendre"
+                                        "Que le bruit aide à apprendre"
                                     ],
-                                    "answer": "Que son bruit empêche les autres d'apprendre aussi",
-                                    "explanation": "Le droit d'apprendre est le même pour tous : Tom l'a bien, mais ses camarades aussi, et son bruit leur prend le leur. Personne ne lui retire son droit, et le bruit n'aide personne à apprendre."
+                                    "answer": "Que son bruit gêne les autres élèves",
+                                    "explanation": "Le droit d'apprendre est le même pour tous : le bruit de Tom prend celui de ses camarades. Personne ne lui retire son droit, et le bruit n'aide personne à apprendre."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Dans la classe, chaque élève a le droit d'être écouté. Qu'est-ce que cela demande à Tom ?",
+                                    "question": "Chaque élève a le droit d'être écouté. Qu'est-ce que cela demande à Tom ?",
                                     "choices": [
-                                        "Qu'il écoute les autres quand c'est leur tour",
-                                        "Qu'il parle le plus souvent possible",
-                                        "Qu'il choisisse qui a le droit de parler"
+                                        "Écouter les autres à leur tour",
+                                        "Parler le plus souvent possible",
+                                        "Choisir qui a le droit de parler"
                                     ],
-                                    "answer": "Qu'il écoute les autres quand c'est leur tour",
+                                    "answer": "Écouter les autres à leur tour",
                                     "explanation": "Un droit que tout le monde possède crée un devoir pour chacun : si Tom veut être écouté, il doit écouter aussi. Parler beaucoup ou décider qui parle enlèverait ce droit aux autres."
                                 }
                             ]
@@ -5607,18 +6871,6 @@
                             "engine": "choice-engine",
                             "id": "cp-emc-etre-prudent",
                             "subtitle": "Règles et sécurité"
-                        },
-                        {
-                            "id": "cp-emc-sec-politesse",
-                            "title": "Politesse en classe",
-                            "subtitle": "Les mots de politesse au quotidien",
-                            "engine": "choice-engine",
-                            "params": {
-                                "type": "factual-qcm",
-                                "dataFile": "data/emc_cp.json",
-                                "category": "cp-politesse-classe",
-                                "questions": 6
-                            }
                         }
                     ],
                     "lessons": [
@@ -5716,6 +6968,18 @@
                                 "category": "cp-partager-materiel",
                                 "questions": 5
                             }
+                        },
+                        {
+                            "id": "cp-emc-partager-materiel",
+                            "title": "Prêter et rendre",
+                            "subtitle": "Prêter, rendre, aider",
+                            "engine": "choice-engine",
+                            "params": {
+                                "type": "factual-qcm",
+                                "dataFile": "data/emc_cp.json",
+                                "category": "cp-partager-materiel",
+                                "questions": 6
+                            }
                         }
                     ],
                     "lessons": [
@@ -5799,7 +7063,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/emc_cp.json",
-                                "category": "cp-emotions",
+                                "category": "cp-emotions-exprimer",
                                 "questions": 8
                             }
                         },
@@ -5811,7 +7075,7 @@
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/emc_cp.json",
-                                "category": "cp-emotions",
+                                "category": "cp-emotions-reconnaitre",
                                 "questions": 6
                             }
                         },
@@ -5838,7 +7102,7 @@
                             "format": "lesson-card",
                             "blocks": [
                                 {
-                                    "text": "Les émotions sont des sentiments que tout le monde ressent. Elles nous informent sur ce qu'on vit.",
+                                    "text": "Tout le monde ressent des émotions. Elles nous informent sur ce qu'on vit.",
                                     "type": "paragraph"
                                 },
                                 {
@@ -5847,13 +7111,14 @@
                                     "type": "example"
                                 },
                                 {
+                                    "type": "bullets",
+                                    "label": "Par exemple",
                                     "items": [
                                         "la joie : quand quelque chose de bien arrive",
                                         "la peur : quand on pense qu'il y a un danger",
                                         "la tristesse : quand on perd quelque chose ou quelqu'un",
                                         "la colère : quand quelque chose ne va pas comme on veut"
-                                    ],
-                                    "type": "bullets"
+                                    ]
                                 },
                                 {
                                     "label": "À retenir",
@@ -5914,24 +7179,24 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Un camarade a pris le jeu de Rayan sans demander. Rayan est très en colère. Que peut-il faire ?",
+                                    "question": "Un camarade a pris le jeu de Rayan sans demander. Rayan est en colère. Que peut-il faire ?",
                                     "choices": [
-                                        "Lui expliquer pourquoi il est fâché, avec des mots",
-                                        "Le pousser très fort pour reprendre le jeu tout de suite",
-                                        "Ne rien dire du tout et garder sa colère au fond de lui"
+                                        "Lui dire avec des mots qu'il est fâché",
+                                        "Le pousser pour reprendre le jeu",
+                                        "Ne rien dire et garder sa colère"
                                     ],
-                                    "answer": "Lui expliquer pourquoi il est fâché, avec des mots",
+                                    "answer": "Lui dire avec des mots qu'il est fâché",
                                     "explanation": "Dire sa colère et sa raison permet à l'autre de comprendre et de rendre le jeu. Pousser fait mal et crée un deuxième problème ; se taire laisse la colère grandir sans rien régler."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Pourquoi dire « je suis triste » aide-t-il, alors que cela ne fait pas disparaître le problème ?",
+                                    "question": "Pourquoi dire « je suis triste » aide-t-il ?",
                                     "choices": [
-                                        "Parce que les autres peuvent alors comprendre et aider",
-                                        "Parce que dire un mot efface toujours la tristesse",
-                                        "Parce qu'il est interdit d'être triste à l'école"
+                                        "Les autres peuvent comprendre et aider",
+                                        "Un mot efface toujours la tristesse",
+                                        "Il est interdit d'être triste à l'école"
                                     ],
-                                    "answer": "Parce que les autres peuvent alors comprendre et aider",
+                                    "answer": "Les autres peuvent comprendre et aider",
                                     "explanation": "Personne ne devine ce qu'on ressent : le dire est ce qui permet à un adulte ou à un camarade de venir aider. Les mots ne font pas disparaître la tristesse d'un coup, et être triste n'est jamais interdit."
                                 }
                             ]
@@ -5958,12 +7223,12 @@
                         {
                             "id": "cp-emc-vote-vivre-ensemble",
                             "title": "Voter ensemble",
-                            "subtitle": "Les règles pour bien vivre en groupe",
+                            "subtitle": "Décider ensemble par un vote",
                             "engine": "choice-engine",
                             "params": {
                                 "type": "factual-qcm",
                                 "dataFile": "data/emc_cp.json",
-                                "category": "cp-vivre-ensemble",
+                                "category": "cp-vote",
                                 "questions": 5
                             }
                         },
@@ -6115,24 +7380,24 @@
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Adam laisse le robinet couler pendant qu'il se savonne les mains. Pourquoi vaut-il mieux le fermer ?",
+                                    "question": "Adam laisse couler le robinet en se savonnant les mains. Pourquoi vaut-il mieux le fermer ?",
                                     "choices": [
-                                        "Parce que l'eau part dans le tuyau sans servir à personne",
-                                        "Parce que le savon ne marche pas avec l'eau",
-                                        "Parce qu'il est interdit de se laver les mains"
+                                        "L'eau part sans servir à personne",
+                                        "Le savon ne marche pas avec l'eau",
+                                        "Il est interdit de se laver les mains"
                                     ],
-                                    "answer": "Parce que l'eau part dans le tuyau sans servir à personne",
+                                    "answer": "L'eau part sans servir à personne",
                                     "explanation": "L'eau qui coule pendant qu'on se savonne est perdue pour rien : c'est du gaspillage. Le savon a bien besoin d'eau pour rincer, et se laver les mains est important pour la santé."
                                 },
                                 {
                                     "type": "check",
-                                    "question": "Une gourde et une bouteille en plastique servent toutes les deux à boire. Pourquoi la gourde protège-t-elle mieux la nature ?",
+                                    "question": "Pourquoi une gourde protège-t-elle mieux la nature qu'une bouteille en plastique ?",
                                     "choices": [
-                                        "Parce qu'on la réutilise au lieu de jeter un déchet chaque jour",
-                                        "Parce que l'eau qu'elle contient est plus propre",
-                                        "Parce qu'elle est plus jolie à regarder"
+                                        "On la réutilise au lieu de jeter un déchet",
+                                        "L'eau qu'elle contient est plus propre",
+                                        "Elle est plus jolie à regarder"
                                     ],
-                                    "answer": "Parce qu'on la réutilise au lieu de jeter un déchet chaque jour",
+                                    "answer": "On la réutilise au lieu de jeter un déchet",
                                     "explanation": "La gourde sert des centaines de fois, alors qu'une bouteille jetée chaque jour fait des centaines de déchets. Ce n'est pas une question de propreté de l'eau, ni une question de goût."
                                 }
                             ]

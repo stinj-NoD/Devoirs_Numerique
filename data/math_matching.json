@@ -84,16 +84,16 @@
                 "explanation": "Mémoriser les petites additions simples est une première étape pour bien calculer."
             }
         ],
-        "matching_math_ce1": [
+        "matching_math_ce1_nombres": [
             {
-                "title": "Relie chaque chiffre à son nom.",
+                "title": "Relie chaque nombre à son écriture en lettres.",
                 "pairs": [
-                    ["2", "deux"],
-                    ["5", "cinq"],
-                    ["8", "huit"],
-                    ["10", "dix"]
+                    ["35", "trente-cinq"],
+                    ["58", "cinquante-huit"],
+                    ["71", "soixante et onze"],
+                    ["96", "quatre-vingt-seize"]
                 ],
-                "explanation": "Connaître le nom des nombres aide à lire et écrire les chiffres."
+                "explanation": "Les nombres en lettres s'écrivent avec des traits d'union, sauf quand il y a « et » : soixante et onze."
             },
             {
                 "title": "Relie chaque nombre à son écriture en lettres.",
@@ -106,84 +106,44 @@
                 "explanation": "Savoir écrire les nombres en lettres est une compétence de base en français et en maths."
             },
             {
-                "title": "Relie chaque opération à son résultat.",
+                "title": "Relie chaque addition à son résultat.",
                 "pairs": [
-                    ["2 + 3", "5"],
-                    ["4 + 4", "8"],
-                    ["7 + 2", "9"],
-                    ["5 + 5", "10"]
+                    ["25 + 10", "35"],
+                    ["40 + 30", "70"],
+                    ["18 + 7", "25"],
+                    ["36 + 20", "56"]
                 ],
-                "explanation": "Mémoriser les petites additions aide à calculer plus rapidement."
+                "explanation": "On ajoute les dizaines, puis les unités : 25 + 10, c'est 2 dizaines et 1 dizaine, donc 35."
             },
             {
-                "title": "Relie chaque opération à son résultat.",
+                "title": "Relie chaque soustraction à son résultat.",
                 "pairs": [
-                    ["10 - 3", "7"],
-                    ["8 - 5", "3"],
-                    ["6 - 2", "4"],
-                    ["9 - 4", "5"]
+                    ["50 - 20", "30"],
+                    ["43 - 3", "40"],
+                    ["25 - 7", "18"],
+                    ["70 - 25", "45"]
                 ],
-                "explanation": "Mémoriser les petites soustractions aide à calculer plus rapidement."
+                "explanation": "Pour soustraire, on peut reculer d'abord des dizaines, puis des unités : 70 - 25, c'est 70 - 20 = 50, puis 50 - 5 = 45."
             },
             {
-                "title": "Relie chaque forme à son nom.",
+                "title": "Relie chaque multiplication à son résultat.",
                 "pairs": [
-                    ["un rond", "le cercle"],
-                    ["un carré", "4 côtés égaux"],
-                    ["un triangle", "3 côtés"],
-                    ["un rectangle", "4 angles droits"]
+                    ["4 × 3", "12"],
+                    ["5 × 4", "20"],
+                    ["3 × 5", "15"],
+                    ["10 × 7", "70"]
                 ],
-                "explanation": "Reconnaître les formes géométriques et leurs propriétés est la base de la géométrie."
-            },
-            {
-                "title": "Relie chaque unité à ce qu'elle mesure.",
-                "pairs": [
-                    ["le centimètre", "une longueur"],
-                    ["le kilogramme", "une masse"],
-                    ["le litre", "une contenance"],
-                    ["l'heure", "une durée"]
-                ],
-                "explanation": "Chaque unité de mesure correspond à une grandeur précise."
-            },
-            {
-                "title": "Relie chaque moment de la journée à son heure approximative.",
-                "pairs": [
-                    ["le matin", "7 heures"],
-                    ["le midi", "12 heures"],
-                    ["l'après-midi", "15 heures"],
-                    ["le soir", "20 heures"]
-                ],
-                "explanation": "Se repérer dans la journée aide à comprendre le temps qui passe."
-            },
-            {
-                "title": "Relie chaque table de multiplication à son résultat.",
-                "pairs": [
-                    ["2 × 3", "6"],
-                    ["2 × 5", "10"],
-                    ["2 × 4", "8"],
-                    ["2 × 6", "12"]
-                ],
-                "explanation": "La table de 2 est la première table de multiplication à mémoriser."
+                "explanation": "Les tables de 3, 4, 5 et 10 se retrouvent en comptant de 3 en 3, de 4 en 4, de 5 en 5 ou de 10 en 10."
             },
             {
                 "title": "Relie chaque nombre à sa décomposition.",
                 "pairs": [
-                    ["13", "10 + 3"],
-                    ["17", "10 + 7"],
-                    ["24", "20 + 4"],
-                    ["35", "30 + 5"]
+                    ["46", "40 + 6"],
+                    ["82", "80 + 2"],
+                    ["137", "100 + 30 + 7"],
+                    ["205", "200 + 5"]
                 ],
-                "explanation": "Décomposer un nombre aide à comprendre la valeur de chaque chiffre."
-            },
-            {
-                "title": "Relie chaque solide à son nom.",
-                "pairs": [
-                    ["une balle", "la sphère"],
-                    ["une boîte de jus", "le cube ou le pavé"],
-                    ["un cornet de glace", "le cône"],
-                    ["une boîte de conserve", "le cylindre"]
-                ],
-                "explanation": "Les solides sont des formes en 3 dimensions qu'on retrouve dans les objets du quotidien."
+                "explanation": "Décomposer un nombre aide à comprendre la valeur de chaque chiffre : centaines, dizaines, unités."
             }
         ],
         "matching_math_ce2": [
@@ -218,54 +178,24 @@
                 "explanation": "La table de 5 est reconnaissable : les résultats finissent toujours par 0 ou 5."
             },
             {
-                "title": "Relie chaque figure géométrique à sa propriété.",
-                "pairs": [
-                    ["le carré", "4 côtés égaux et 4 angles droits"],
-                    ["le rectangle", "4 angles droits, côtés opposés égaux"],
-                    ["le triangle rectangle", "un angle droit"],
-                    ["le losange", "4 côtés égaux"]
-                ],
-                "explanation": "Chaque figure géométrique possède des propriétés précises qui permettent de l'identifier."
-            },
-            {
-                "title": "Relie chaque unité à son équivalence.",
-                "pairs": [
-                    ["1 km", "1 000 m"],
-                    ["1 m", "100 cm"],
-                    ["1 kg", "1 000 g"],
-                    ["1 heure", "60 minutes"]
-                ],
-                "explanation": "Connaître les conversions simples est indispensable pour résoudre des problèmes de mesure."
-            },
-            {
                 "title": "Relie chaque nombre à son écriture en lettres.",
                 "pairs": [
-                    ["40", "quarante"],
-                    ["60", "soixante"],
-                    ["80", "quatre-vingts"],
-                    ["100", "cent"]
+                    ["1 250", "mille deux cent cinquante"],
+                    ["3 080", "trois mille quatre-vingts"],
+                    ["7 106", "sept mille cent six"],
+                    ["9 999", "neuf mille neuf cent quatre-vingt-dix-neuf"]
                 ],
-                "explanation": "L'écriture en lettres des dizaines peut parfois être irrégulière en français."
+                "explanation": "On écrit d'abord les milliers, puis les centaines, les dizaines et les unités."
             },
             {
-                "title": "Relie chaque opération à son vocabulaire.",
+                "title": "Relie chaque mot du calcul à sa définition.",
                 "pairs": [
-                    ["3 + 5 = 8", "une addition"],
-                    ["9 - 4 = 5", "une soustraction"],
-                    ["3 × 6 = 18", "une multiplication"],
-                    ["12 ÷ 4 = 3", "une division"]
+                    ["la somme", "le résultat d'une addition"],
+                    ["la différence", "le résultat d'une soustraction"],
+                    ["le produit", "le résultat d'une multiplication"],
+                    ["le quotient", "le résultat d'une division"]
                 ],
-                "explanation": "Connaître le nom des opérations aide à comprendre les consignes en mathématiques."
-            },
-            {
-                "title": "Relie chaque mesure de longueur à un exemple concret.",
-                "pairs": [
-                    ["1 cm", "la largeur d'un ongle"],
-                    ["1 m", "la largeur d'une porte"],
-                    ["1 km", "environ 15 minutes à pied"],
-                    ["10 cm", "la longueur d'un crayon"]
-                ],
-                "explanation": "Associer une unité à un exemple du quotidien aide à comprendre son ordre de grandeur."
+                "explanation": "Connaître ces quatre mots aide à comprendre les consignes : somme, différence, produit et quotient."
             }
         ],
         "matching_math_cm1": [
@@ -273,31 +203,11 @@
                 "title": "Relie chaque figure géométrique à sa propriété principale.",
                 "pairs": [
                     ["le triangle équilatéral", "3 côtés égaux"],
-                    ["le parallélogramme", "côtés opposés parallèles et égaux"],
-                    ["le trapèze", "une seule paire de côtés parallèles"],
+                    ["le triangle rectangle", "un angle droit"],
+                    ["le carré", "4 côtés égaux et 4 angles droits"],
                     ["le cercle", "tous les points à égale distance du centre"]
                 ],
                 "explanation": "Chaque figure géométrique se définit par ses propriétés de côtés et d'angles."
-            },
-            {
-                "title": "Relie chaque unité de mesure à la grandeur qu'elle exprime.",
-                "pairs": [
-                    ["le mètre carré (m²)", "une aire"],
-                    ["le mètre cube (m³)", "un volume"],
-                    ["le kilomètre (km)", "une distance"],
-                    ["le kilogramme (kg)", "une masse"]
-                ],
-                "explanation": "Chaque grandeur physique possède ses propres unités de mesure."
-            },
-            {
-                "title": "Relie chaque terme de division à sa définition.",
-                "pairs": [
-                    ["le dividende", "le nombre qu'on divise"],
-                    ["le diviseur", "le nombre par lequel on divise"],
-                    ["le quotient", "le résultat de la division"],
-                    ["le reste", "ce qui reste quand la division n'est pas exacte"]
-                ],
-                "explanation": "Connaître le vocabulaire de la division aide à comprendre les étapes du calcul posé."
             },
             {
                 "title": "Relie chaque angle à sa mesure approximative.",
@@ -310,6 +220,246 @@
                 "explanation": "Reconnaître les types d'angles par leur mesure est essentiel en géométrie."
             },
             {
+                "title": "Relie chaque calcul à ce qu'il permet de trouver.",
+                "pairs": [
+                    ["5 × 5", "l'aire d'un carré de 5 cm de côté"],
+                    ["5 × 3", "l'aire d'un rectangle de 5 cm sur 3 cm"],
+                    ["4 × 5", "le périmètre d'un carré de 5 cm de côté"],
+                    ["2 × (5 + 3)", "le périmètre d'un rectangle de 5 cm sur 3 cm"]
+                ],
+                "explanation": "L'aire se calcule avec une multiplication des côtés, le périmètre en comptant le tour de la figure."
+            },
+            {
+                "title": "Relie chaque outil à son usage.",
+                "pairs": [
+                    ["l'équerre", "vérifier ou tracer un angle droit"],
+                    ["le compas", "tracer un cercle ou reporter une longueur"],
+                    ["le rapporteur", "mesurer un angle en degrés"],
+                    ["la règle graduée", "mesurer ou tracer un segment"]
+                ],
+                "explanation": "Chaque instrument de géométrie a son usage propre."
+            }
+        ],
+        "matching_math_cm2": [
+            {
+                "title": "Relie chaque fraction à son écriture décimale.",
+                "pairs": [
+                    [
+                        "1/2",
+                        "0,5"
+                    ],
+                    [
+                        "1/4",
+                        "0,25"
+                    ],
+                    [
+                        "3/4",
+                        "0,75"
+                    ],
+                    [
+                        "1/10",
+                        "0,1"
+                    ]
+                ],
+                "explanation": "Fractions et nombres décimaux sont deux façons d'écrire un même nombre."
+            },
+            {
+                "title": "Relie chaque fraction à son équivalent en pourcentage.",
+                "pairs": [
+                    [
+                        "1/2",
+                        "50 %"
+                    ],
+                    [
+                        "1/4",
+                        "25 %"
+                    ],
+                    [
+                        "3/4",
+                        "75 %"
+                    ],
+                    [
+                        "1/10",
+                        "10 %"
+                    ]
+                ],
+                "explanation": "Les pourcentages sont des fractions dont le dénominateur est 100."
+            },
+            {
+                "title": "Relie chaque nombre décimal à sa fraction.",
+                "pairs": [
+                    [
+                        "0,2",
+                        "1/5"
+                    ],
+                    [
+                        "0,4",
+                        "2/5"
+                    ],
+                    [
+                        "0,01",
+                        "1/100"
+                    ],
+                    [
+                        "1,5",
+                        "3/2"
+                    ]
+                ],
+                "explanation": "Un nombre décimal s'écrit aussi comme une fraction : 0,2 = 2/10 = 1/5 et 1,5 = 15/10 = 3/2."
+            },
+            {
+                "title": "Relie chaque terme au vocabulaire des fractions.",
+                "pairs": [
+                    [
+                        "le numérateur",
+                        "le nombre au-dessus de la barre"
+                    ],
+                    [
+                        "le dénominateur",
+                        "le nombre en dessous de la barre"
+                    ],
+                    [
+                        "une fraction supérieure à 1",
+                        "une fraction dont le numérateur est plus grand que le dénominateur"
+                    ],
+                    [
+                        "une fraction égale à 1",
+                        "une fraction dont le numérateur et le dénominateur sont égaux"
+                    ]
+                ],
+                "explanation": "Le numérateur compte les parts prises ; le dénominateur dit en combien de parts égales on a partagé le tout."
+            },
+            {
+                "title": "Relie chaque conversion à son résultat.",
+                "pairs": [
+                    [
+                        "1,5 km",
+                        "1 500 m"
+                    ],
+                    [
+                        "2,5 kg",
+                        "2 500 g"
+                    ],
+                    [
+                        "0,25 m",
+                        "25 cm"
+                    ],
+                    [
+                        "3,5 heures",
+                        "3 h 30"
+                    ]
+                ],
+                "explanation": "On multiplie ou on divise selon le sens : 1 km = 1 000 m, 1 kg = 1 000 g, 1 m = 100 cm et une demi-heure vaut 30 minutes."
+            },
+            {
+                "title": "Relie chaque opération à son terme manquant.",
+                "pairs": [
+                    [
+                        "? + 35 = 100",
+                        "65"
+                    ],
+                    [
+                        "200 − ? = 125",
+                        "75"
+                    ],
+                    [
+                        "? × 6 = 48",
+                        "8"
+                    ],
+                    [
+                        "84 ÷ ? = 12",
+                        "7"
+                    ]
+                ],
+                "explanation": "Pour trouver le terme manquant, on utilise l'opération inverse : 100 − 35 = 65, 200 − 125 = 75, 48 ÷ 6 = 8 et 84 ÷ 12 = 7."
+            },
+            {
+                "title": "Relie chaque nombre à sa moitié.",
+                "pairs": [
+                    [
+                        "10",
+                        "5"
+                    ],
+                    [
+                        "1",
+                        "0,5"
+                    ],
+                    [
+                        "0,5",
+                        "0,25"
+                    ],
+                    [
+                        "3",
+                        "1,5"
+                    ]
+                ],
+                "explanation": "La moitié d'un nombre, c'est ce nombre divisé par 2 : 1 ÷ 2 = 0,5 et 0,5 ÷ 2 = 0,25."
+            }
+        ],
+        "matching_geo_math_ce2": [
+            {
+                "title": "Relie chaque figure géométrique à sa propriété.",
+                "pairs": [
+                    ["le carré", "4 côtés égaux et 4 angles droits"],
+                    ["le rectangle", "4 angles droits, mais une longueur et une largeur différentes"],
+                    ["le triangle rectangle", "3 côtés dont un angle droit"],
+                    ["le losange", "4 côtés égaux, mais pas d'angle droit"]
+                ],
+                "explanation": "Chaque figure a une propriété qui permet de la reconnaître : seul le carré a à la fois 4 côtés égaux et 4 angles droits."
+            },
+            {
+                "title": "Relie chaque unité à son équivalence.",
+                "pairs": [
+                    ["1 km", "1 000 m"],
+                    ["1 m", "100 cm"],
+                    ["1 kg", "1 000 g"],
+                    ["1 heure", "60 minutes"]
+                ],
+                "explanation": "Connaître les conversions simples est indispensable pour résoudre des problèmes de mesure."
+            },
+            {
+                "title": "Relie chaque mesure de longueur à un exemple concret.",
+                "pairs": [
+                    ["1 cm", "la largeur d'un ongle"],
+                    ["10 cm", "la largeur d'une main"],
+                    ["1 m", "la taille d'un enfant de 5 ans"],
+                    ["1 km", "environ 15 minutes à pied"]
+                ],
+                "explanation": "Associer une unité à un exemple du quotidien aide à comprendre son ordre de grandeur."
+            },
+            {
+                "title": "Relie chaque solide à sa description.",
+                "pairs": [
+                    ["le cube", "6 faces carrées"],
+                    ["la pyramide", "des faces triangulaires qui se rejoignent en un sommet"],
+                    ["la boule", "aucune face plane, tout est arrondi"],
+                    ["le cylindre", "2 disques reliés par une surface courbe"]
+                ],
+                "explanation": "Chaque solide se reconnaît à la forme de ses faces."
+            },
+            {
+                "title": "Relie chaque mesure à l'unité qui convient.",
+                "pairs": [
+                    ["la distance entre deux villes", "le kilomètre"],
+                    ["la longueur d'une cour d'école", "le mètre"],
+                    ["la largeur d'un cahier", "le centimètre"],
+                    ["l'épaisseur d'une pièce de monnaie", "le millimètre"]
+                ],
+                "explanation": "On choisit l'unité selon la taille de ce qu'on mesure : du millimètre pour les très petites choses au kilomètre pour les grandes distances."
+            }
+        ],
+        "matching_math_cm1_mesures": [
+            {
+                "title": "Relie chaque unité de mesure à la grandeur qu'elle exprime.",
+                "pairs": [
+                    ["le mètre carré (m²)", "une aire"],
+                    ["le mètre cube (m³)", "un volume"],
+                    ["le kilomètre (km)", "une distance"],
+                    ["le kilogramme (kg)", "une masse"]
+                ],
+                "explanation": "Chaque grandeur physique possède ses propres unités de mesure."
+            },
+            {
                 "title": "Relie chaque conversion à son résultat.",
                 "pairs": [
                     ["2 km", "2 000 m"],
@@ -320,9 +470,41 @@
                 "explanation": "Maîtriser les conversions permet de comparer et d'utiliser les mesures dans les problèmes."
             },
             {
+                "title": "Relie chaque durée à sa conversion.",
+                "pairs": [
+                    ["1 h 30", "90 minutes"],
+                    ["3 minutes", "180 secondes"],
+                    ["2 jours", "48 heures"],
+                    ["un quart d'heure", "15 minutes"]
+                ],
+                "explanation": "On convertit les durées avec 1 h = 60 min, 1 min = 60 s et 1 jour = 24 h."
+            },
+            {
+                "title": "Relie chaque grandeur à l'unité qui convient.",
+                "pairs": [
+                    ["la masse d'une pomme", "le gramme"],
+                    ["la masse d'un camion", "la tonne"],
+                    ["la longueur d'un terrain de football", "le mètre"],
+                    ["la contenance d'une bouteille", "le litre"]
+                ],
+                "explanation": "On choisit l'unité selon la taille de ce qu'on mesure."
+            }
+        ],
+        "matching_math_cm1_nombres": [
+            {
+                "title": "Relie chaque terme de division à sa définition.",
+                "pairs": [
+                    ["le dividende", "le nombre qu'on divise"],
+                    ["le diviseur", "le nombre par lequel on divise"],
+                    ["le quotient", "le résultat de la division"],
+                    ["le reste", "ce qui reste quand la division n'est pas exacte"]
+                ],
+                "explanation": "Connaître le vocabulaire de la division aide à comprendre les étapes du calcul posé."
+            },
+            {
                 "title": "Relie chaque multiple de 10 à son écriture en lettres.",
                 "pairs": [
-                    ["1 000", "mille"],
+                    ["250 000", "deux cent cinquante mille"],
                     ["10 000", "dix mille"],
                     ["100 000", "cent mille"],
                     ["1 000 000", "un million"]
@@ -330,47 +512,17 @@
                 "explanation": "Connaître les grandes valeurs de notre système décimal est indispensable en CM1."
             },
             {
-                "title": "Relie chaque formule à la figure correspondante.",
+                "title": "Relie chaque fraction à sa lecture.",
                 "pairs": [
-                    ["côté × côté", "l'aire du carré"],
-                    ["longueur × largeur", "l'aire du rectangle"],
-                    ["4 × côté", "le périmètre du carré"],
-                    ["2 × (longueur + largeur)", "le périmètre du rectangle"]
+                    ["1/2", "la moitié"],
+                    ["1/4", "le quart"],
+                    ["3/4", "les trois quarts"],
+                    ["1/10", "un dixième"]
                 ],
-                "explanation": "Les formules de périmètre et d'aire permettent de calculer sans mesurer chaque fois."
+                "explanation": "Le dénominateur dit en combien de parts égales on partage, le numérateur combien de parts on prend."
             }
         ],
-        "matching_math_cm2": [
-            {
-                "title": "Relie chaque fraction à son écriture décimale.",
-                "pairs": [
-                    ["1/2", "0,5"],
-                    ["1/4", "0,25"],
-                    ["3/4", "0,75"],
-                    ["1/10", "0,1"]
-                ],
-                "explanation": "Fractions et nombres décimaux sont deux façons d'écrire un même nombre."
-            },
-            {
-                "title": "Relie chaque fraction à son équivalent en pourcentage.",
-                "pairs": [
-                    ["1/2", "50 %"],
-                    ["1/4", "25 %"],
-                    ["3/4", "75 %"],
-                    ["1/10", "10 %"]
-                ],
-                "explanation": "Les pourcentages sont des fractions dont le dénominateur est 100."
-            },
-            {
-                "title": "Relie chaque figure à sa formule d'aire.",
-                "pairs": [
-                    ["le carré", "côté²"],
-                    ["le rectangle", "longueur × largeur"],
-                    ["le triangle", "base × hauteur ÷ 2"],
-                    ["le losange", "diagonale1 × diagonale2 ÷ 2"]
-                ],
-                "explanation": "Chaque figure géométrique possède sa propre formule pour calculer l'aire."
-            },
+        "matching_math_cm2_figures": [
             {
                 "title": "Relie chaque type d'angle à sa mesure.",
                 "pairs": [
@@ -382,44 +534,86 @@
                 "explanation": "La mesure d'un angle en degrés permet de le classer et de l'identifier précisément."
             },
             {
-                "title": "Relie chaque terme au vocabulaire des fractions.",
-                "pairs": [
-                    ["le numérateur", "le nombre au-dessus de la barre"],
-                    ["le dénominateur", "le nombre en dessous de la barre"],
-                    ["une fraction irréductible", "une fraction qu'on ne peut plus simplifier"],
-                    ["une fraction impropre", "une fraction dont le numérateur est plus grand que le dénominateur"]
-                ],
-                "explanation": "Maîtriser le vocabulaire des fractions aide à comprendre les opérations qui les concernent."
-            },
-            {
-                "title": "Relie chaque conversion à son résultat.",
-                "pairs": [
-                    ["1,5 km", "1 500 m"],
-                    ["2,5 kg", "2 500 g"],
-                    ["0,25 m", "25 cm"],
-                    ["3,5 heures", "3 h 30"]
-                ],
-                "explanation": "Convertir des mesures avec des nombres décimaux est une compétence clé de CM2."
-            },
-            {
                 "title": "Relie chaque propriété à la figure géométrique correspondante.",
                 "pairs": [
                     ["4 côtés égaux et 4 angles droits", "le carré"],
-                    ["3 côtés égaux et 3 angles de 60°", "le triangle équilatéral"],
-                    ["un seul axe de symétrie", "le triangle isocèle"],
-                    ["aucun axe de symétrie", "le triangle scalène"]
+                    ["4 angles droits, mais des côtés qui ne sont pas tous égaux", "le rectangle"],
+                    ["4 côtés égaux, mais pas d'angle droit", "le losange"],
+                    ["3 côtés de même longueur", "le triangle équilatéral"]
                 ],
-                "explanation": "Identifier une figure à partir de ses propriétés est une compétence de géométrie raisonnée."
+                "explanation": "Chaque figure se reconnaît à ses côtés et à ses angles : seul le carré a à la fois 4 côtés égaux et 4 angles droits."
             },
             {
-                "title": "Relie chaque opération à son terme manquant.",
+                "title": "Relie chaque figure ou solide à son calcul d'aire ou de volume.",
                 "pairs": [
-                    ["? + 35 = 100", "65"],
-                    ["200 - ? = 125", "75"],
-                    ["? × 6 = 48", "8"],
-                    ["84 ÷ ? = 12", "7"]
+                    ["le carré", "côté × côté"],
+                    ["le rectangle", "longueur × largeur"],
+                    ["le triangle rectangle", "la moitié d'un rectangle : longueur × largeur ÷ 2"],
+                    ["le pavé droit", "longueur × largeur × hauteur"]
                 ],
-                "explanation": "Trouver le terme manquant d'une opération développe le raisonnement algébrique."
+                "explanation": "L'aire d'un carré ou d'un rectangle se calcule avec deux longueurs ; le triangle rectangle est la moitié d'un rectangle ; le volume du pavé droit demande une hauteur en plus."
+            },
+            {
+                "title": "Relie chaque mot de géométrie à sa définition.",
+                "pairs": [
+                    ["des droites parallèles", "elles ne se coupent jamais et gardent le même écart"],
+                    ["des droites perpendiculaires", "elles se coupent en formant un angle droit"],
+                    ["le rayon d'un cercle", "un segment qui va du centre à un point du cercle"],
+                    ["le diamètre d'un cercle", "un segment qui passe par le centre et relie deux points du cercle"]
+                ],
+                "explanation": "Le diamètre passe par le centre et vaut deux rayons ; deux droites parallèles ne se rencontrent jamais."
+            },
+            {
+                "title": "Relie chaque figure à son nombre d'axes de symétrie.",
+                "pairs": [
+                    ["le carré", "4 axes de symétrie"],
+                    ["le rectangle", "2 axes de symétrie"],
+                    ["le triangle équilatéral", "3 axes de symétrie"],
+                    ["un parallélogramme quelconque", "aucun axe de symétrie"]
+                ],
+                "explanation": "Le carré a 4 axes, le rectangle 2 (un horizontal, un vertical), le triangle équilatéral 3 (un par sommet) ; un parallélogramme quelconque n'en a aucun."
+            }
+        ],
+        "matching_math_ce1_mesures": [
+            {
+                "title": "Relie chaque forme à sa description.",
+                "pairs": [
+                    ["un rond", "le cercle"],
+                    ["un carré", "4 côtés égaux et 4 angles droits"],
+                    ["un triangle", "3 côtés"],
+                    ["un rectangle", "2 grands côtés et 2 petits côtés"]
+                ],
+                "explanation": "Reconnaître les formes géométriques et leurs propriétés est la base de la géométrie."
+            },
+            {
+                "title": "Relie chaque unité à ce qu'elle mesure.",
+                "pairs": [
+                    ["le centimètre", "une longueur"],
+                    ["le kilogramme", "une masse"],
+                    ["le litre", "une contenance"],
+                    ["l'heure", "une durée"]
+                ],
+                "explanation": "Chaque unité de mesure correspond à une grandeur précise."
+            },
+            {
+                "title": "Relie chaque moment de la journée à ce que l'on y fait.",
+                "pairs": [
+                    ["le matin", "je prends mon petit-déjeuner"],
+                    ["le midi", "je déjeune"],
+                    ["le soir", "je dîne"],
+                    ["la nuit", "je dors"]
+                ],
+                "explanation": "Chaque moment de la journée a ses habitudes : on se réveille le matin, on déjeune à midi, on dîne le soir et on dort la nuit."
+            },
+            {
+                "title": "Relie chaque solide à son nom.",
+                "pairs": [
+                    ["une balle", "la sphère"],
+                    ["une boîte de jus", "le pavé droit"],
+                    ["un cornet de glace", "le cône"],
+                    ["une boîte de conserve", "le cylindre"]
+                ],
+                "explanation": "Les solides sont des formes en 3 dimensions qu'on retrouve dans les objets du quotidien."
             }
         ]
     }

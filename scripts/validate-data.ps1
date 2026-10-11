@@ -124,6 +124,13 @@ function Validate-Exercise($path, $themeId, $exercise) {
     if ($exercise.params.dataFile -and -not (Is-DataFilePath $exercise.params.dataFile)) {
         Add-Issue("${path}: dataFile invalide pour $($exercise.id)")
     }
+    if ($null -ne $exercise.timeLimitSeconds) {
+        $timeLimitVal = 0
+        $timeLimitOk = [int]::TryParse([string]$exercise.timeLimitSeconds, [ref]$timeLimitVal)
+        if (-not $timeLimitOk -or $timeLimitVal -lt 5 -or $timeLimitVal -gt 600) {
+            Add-Issue("${path}: timeLimitSeconds invalide pour $($exercise.id)")
+        }
+    }
     if ($exercise.params.choices -and ((-not ($exercise.params.choices -is [System.Collections.IList])) -or $exercise.params.choices.Count -lt 2)) {
         Add-Issue("${path}: choices invalide pour $($exercise.id)")
     }
@@ -196,6 +203,187 @@ function Validate-Exercise($path, $themeId, $exercise) {
             }
         }
     }
+    if ($exercise.params.type -eq 'operation-posed') {
+        if ($null -ne $exercise.params.operator -and $exercise.params.operator -notin @('add', 'sub', 'mult')) {
+            Add-Issue("${path}: operator invalide pour $($exercise.id)")
+        }
+        if ($null -ne $exercise.params.level) {
+            $opPosedLevelVal = 0
+            $opPosedLevelOk = [int]::TryParse([string]$exercise.params.level, [ref]$opPosedLevelVal)
+            if (-not $opPosedLevelOk -or $opPosedLevelVal -lt 1 -or $opPosedLevelVal -gt 5) {
+                Add-Issue("${path}: level invalide pour $($exercise.id)")
+            }
+        }
+        if ($null -ne $exercise.params.maxResult) {
+            $opPosedMaxResultVal = 0
+            $opPosedMaxResultOk = [int]::TryParse([string]$exercise.params.maxResult, [ref]$opPosedMaxResultVal)
+            if (-not $opPosedMaxResultOk -or $opPosedMaxResultVal -lt 20 -or $opPosedMaxResultVal -gt 20000) {
+                Add-Issue("${path}: maxResult invalide pour $($exercise.id)")
+            }
+        }
+        if ($null -ne $exercise.params.decimals) {
+            $opPosedDecimalsVal = 0
+            $opPosedDecimalsOk = [int]::TryParse([string]$exercise.params.decimals, [ref]$opPosedDecimalsVal)
+            if (-not $opPosedDecimalsOk -or $opPosedDecimalsVal -lt 0 -or $opPosedDecimalsVal -gt 2) {
+                Add-Issue("${path}: decimals invalide pour $($exercise.id)")
+            }
+        }
+        if ($null -ne $exercise.params.carry -and $exercise.params.carry -isnot [bool]) {
+            Add-Issue("${path}: carry invalide pour $($exercise.id)")
+        }
+        if ($null -ne $exercise.params.mixed -and $exercise.params.mixed -isnot [bool]) {
+            Add-Issue("${path}: mixed invalide pour $($exercise.id)")
+        }
+    }
+    if ($exercise.params.type -eq 'division-posed') {
+        # divisors : liste d'entiers 2-99 ; dividend : [min, max] entiers croissants (10 a 99999).
+        if ($null -ne $exercise.params.divisors) {
+            $dpDivsOk = ($exercise.params.divisors -is [System.Collections.IList]) -and $exercise.params.divisors.Count -ge 1
+            if ($dpDivsOk) {
+                foreach ($rawDpDiv in $exercise.params.divisors) {
+                    $dpDivVal = 0
+                    if (-not [int]::TryParse([string]$rawDpDiv, [ref]$dpDivVal) -or $dpDivVal -lt 2 -or $dpDivVal -gt 99) { $dpDivsOk = $false; break }
+                }
+            }
+            if (-not $dpDivsOk) { Add-Issue("${path}: divisors invalide pour $($exercise.id)") }
+        }
+        if ($null -ne $exercise.params.dividend) {
+            $dpDividendOk = ($exercise.params.dividend -is [System.Collections.IList]) -and $exercise.params.dividend.Count -eq 2
+            if ($dpDividendOk) {
+                $dp0 = 0; $dp1 = 0
+                $dpDividendOk = [int]::TryParse([string]$exercise.params.dividend[0], [ref]$dp0) -and [int]::TryParse([string]$exercise.params.dividend[1], [ref]$dp1) `
+                    -and $dp0 -ge 10 -and $dp1 -le 99999 -and $dp1 -ge $dp0
+            }
+            if (-not $dpDividendOk) { Add-Issue("${path}: dividend invalide pour $($exercise.id)") }
+        }
+    }
+    if ($exercise.params.type -eq 'mult') {
+        # mode : forme sous laquelle la table est demandee ; tables : tables tirees quand table vaut mix.
+        if ($null -ne $exercise.params.mode -and $exercise.params.mode -notin @('produit', 'facteur', 'division', 'mixte')) {
+            Add-Issue("${path}: mode invalide pour $($exercise.id)")
+        }
+        if ($null -ne $exercise.params.tables) {
+            $multTablesOk = ($exercise.params.tables -is [System.Collections.IList]) -and $exercise.params.tables.Count -ge 1
+            if ($multTablesOk) {
+                foreach ($rawTable in $exercise.params.tables) {
+                    $multTableVal = 0
+                    if (-not [int]::TryParse([string]$rawTable, [ref]$multTableVal) -or $multTableVal -lt 2 -or $multTableVal -gt 12) { $multTablesOk = $false; break }
+                }
+            }
+            if (-not $multTablesOk) { Add-Issue("${path}: tables invalide pour $($exercise.id)") }
+        }
+    }
+    if ($exercise.params.type -eq 'complement' -and $null -ne $exercise.params.multipleOf) {
+        $complementStepVal = 0
+        if (-not [int]::TryParse([string]$exercise.params.multipleOf, [ref]$complementStepVal) -or $complementStepVal -lt 2 -or $complementStepVal -gt 50) {
+            Add-Issue("${path}: multipleOf invalide pour $($exercise.id)")
+        }
+    }
+    if ($exercise.params.type -eq 'decimal-place' -and $null -ne $exercise.params.decimals) {
+        if ([string]$exercise.params.decimals -notin @('2', '3')) {
+            Add-Issue("${path}: decimals invalide pour $($exercise.id)")
+        }
+    }
+    if (($exercise.engine -eq 'clock' -or $exercise.params.type -eq 'clock') -and $null -ne $exercise.params.level) {
+        $clockLevelVal = 0
+        if (-not [int]::TryParse([string]$exercise.params.level, [ref]$clockLevelVal) -or $clockLevelVal -lt 1 -or $clockLevelVal -gt 4) {
+            Add-Issue("${path}: level invalide pour $($exercise.id)")
+        }
+    }
+    if ($exercise.params.type -eq 'homophone-duel' -and $null -ne $exercise.params.level) {
+        if ($exercise.params.level -notin @('ce1', 'ce2', 'cm1', 'cm2')) {
+            Add-Issue("${path}: level invalide pour $($exercise.id)")
+        }
+    }
+    if ($exercise.params.type -eq 'division-simple' -or $exercise.params.type -eq 'division-reste') {
+        # divisors : liste d'entiers 2-99 ; quotient : [min, max] entiers croissants ; ask (division-reste) : quotient | reste.
+        if ($null -ne $exercise.params.divisors) {
+            $divsOk = ($exercise.params.divisors -is [System.Collections.IList]) -and $exercise.params.divisors.Count -ge 1
+            if ($divsOk) {
+                foreach ($rawDiv in $exercise.params.divisors) {
+                    $divVal = 0
+                    if (-not [int]::TryParse([string]$rawDiv, [ref]$divVal) -or $divVal -lt 2 -or $divVal -gt 99) { $divsOk = $false; break }
+                }
+            }
+            if (-not $divsOk) { Add-Issue("${path}: divisors invalide pour $($exercise.id)") }
+        }
+        if ($null -ne $exercise.params.quotient) {
+            $qtOk = ($exercise.params.quotient -is [System.Collections.IList]) -and $exercise.params.quotient.Count -eq 2
+            if ($qtOk) {
+                $q0 = 0; $q1 = 0
+                $qtOk = [int]::TryParse([string]$exercise.params.quotient[0], [ref]$q0) -and [int]::TryParse([string]$exercise.params.quotient[1], [ref]$q1) `
+                    -and $q0 -ge 1 -and $q1 -ge $q0
+            }
+            if (-not $qtOk) { Add-Issue("${path}: quotient invalide pour $($exercise.id)") }
+        }
+        if ($null -ne $exercise.params.ask) {
+            if ($exercise.params.type -ne 'division-reste' -or $exercise.params.ask -notin @('quotient', 'reste')) {
+                Add-Issue("${path}: ask invalide pour $($exercise.id)")
+            }
+        }
+    }
+    if ($exercise.params.type -eq 'pourcentage' -and $null -ne $exercise.params.minMultiple) {
+        $minMultVal = 0
+        if (-not [int]::TryParse([string]$exercise.params.minMultiple, [ref]$minMultVal) -or $minMultVal -lt 1 -or $minMultVal -gt 50) {
+            Add-Issue("${path}: minMultiple invalide pour $($exercise.id)")
+        }
+    }
+    if ($exercise.params.type -eq 'compare-decimals') {
+        if ($null -ne $exercise.params.wholeParts -and $exercise.params.wholeParts -notin @('same', 'mix')) {
+            Add-Issue("${path}: wholeParts invalide pour $($exercise.id)")
+        }
+        if ($null -ne $exercise.params.distinctWriting -and $exercise.params.distinctWriting -isnot [bool]) {
+            Add-Issue("${path}: distinctWriting invalide pour $($exercise.id)")
+        }
+    }
+    if ($exercise.params.type -eq 'calc-mental') {
+        # Convention propre a ce type : operateurs symboliques (x / + -),
+        # la ou operation-posed attend add/sub/mult. Absent = multiplication.
+        if ($null -ne $exercise.params.operator -and $exercise.params.operator -notin @('x', '/', '+', '-')) {
+            Add-Issue("${path}: operator invalide pour $($exercise.id)")
+        }
+        if ($null -ne $exercise.params.range) {
+            $calcRange = $exercise.params.range
+            $rangeOk = ($calcRange -is [System.Collections.IList]) -and $calcRange.Count -eq 2
+            if ($rangeOk) {
+                $r0 = 0; $r1 = 0
+                $rangeOk = [int]::TryParse([string]$calcRange[0], [ref]$r0) -and [int]::TryParse([string]$calcRange[1], [ref]$r1) `
+                    -and $r0 -ge 0 -and $r1 -ge $r0
+            }
+            if (-not $rangeOk) {
+                Add-Issue("${path}: range invalide pour $($exercise.id)")
+            }
+        }
+        if ($null -ne $exercise.params.operands) {
+            $calcOperands = $exercise.params.operands
+            $operandsOk = ($calcOperands -is [System.Collections.IList]) -and $calcOperands.Count -ge 1
+            if ($operandsOk) {
+                foreach ($rawOperand in $calcOperands) {
+                    $operandVal = 0
+                    if (-not [int]::TryParse([string]$rawOperand, [ref]$operandVal) -or $operandVal -le 0) {
+                        $operandsOk = $false
+                        break
+                    }
+                }
+            }
+            if (-not $operandsOk) {
+                Add-Issue("${path}: operands invalide pour $($exercise.id)")
+            }
+        }
+    }
+    if ($exercise.params.type -eq 'place-value') {
+        # 10 = nombre de rangs nommes par le moteur (unites -> milliards).
+        if ($null -ne $exercise.params.digitCount) {
+            $placeDigitsVal = 0
+            $placeDigitsOk = [int]::TryParse([string]$exercise.params.digitCount, [ref]$placeDigitsVal)
+            if (-not $placeDigitsOk -or $placeDigitsVal -lt 2 -or $placeDigitsVal -gt 10) {
+                Add-Issue("${path}: digitCount invalide pour $($exercise.id)")
+            }
+        }
+        if ($null -ne $exercise.params.ask -and $exercise.params.ask -notin @('digit', 'value')) {
+            Add-Issue("${path}: ask invalide pour $($exercise.id)")
+        }
+    }
     if ($exercise.engine -eq 'matching' -and -not (Is-NonEmptyString $exercise.params.category)) {
         Add-Issue("${path}: category manquante pour matching ($($exercise.id))")
     }
@@ -206,7 +394,7 @@ function Validate-Exercise($path, $themeId, $exercise) {
         Add-Issue("${path}: category manquante pour cloze-fill-in ($($exercise.id))")
     }
     if ($exercise.engine -eq 'board-interactive') {
-        $validBoardTypes = @('tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete', 'map-locate', 'memory-match', 'fraction-build', 'angle-classify', 'angle-measure', 'construction-report')
+        $validBoardTypes = @('tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete', 'map-locate', 'memory-match', 'fraction-build', 'angle-classify', 'angle-measure', 'construction-report', 'number-line-place', 'number-line-frame')
         if (-not (Is-NonEmptyString $exercise.params.type) -or $exercise.params.type -notin $validBoardTypes) {
             Add-Issue("${path}: type board-interactive invalide pour $($exercise.id)")
         }
@@ -274,6 +462,48 @@ function Validate-Exercise($path, $themeId, $exercise) {
             if (-not $rangeOk) {
                 Add-Issue("${path}: range invalide pour metric-area ($($exercise.id))")
             }
+        }
+        if ($exercise.params.subtype -eq 'metric' -and $null -ne $exercise.params.decimals) {
+            if ([string]$exercise.params.decimals -notin @('0', '1', '2')) {
+                Add-Issue("${path}: decimals invalide pour metric ($($exercise.id))")
+            }
+        }
+        if ($exercise.params.subtype -eq 'metric' -and $null -ne $exercise.params.units) {
+            $metricUnits = @{
+                'longueur' = @('km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm')
+                'masse'    = @('kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg')
+                'capacite' = @('kL', 'hL', 'daL', 'L', 'dL', 'cL', 'mL')
+            }
+            $unitTypeKey = if ($exercise.params.unitType) { [string]$exercise.params.unitType } else { 'longueur' }
+            $unitsOk = $metricUnits.ContainsKey($unitTypeKey) -and ($exercise.params.units -is [System.Collections.IList]) -and $exercise.params.units.Count -ge 2
+            if ($unitsOk) {
+                foreach ($u in $exercise.params.units) {
+                    # -ccontains : sensible à la casse (« L » et « l » ne sont pas la même unité)
+                    if (-not ($metricUnits[$unitTypeKey] -ccontains [string]$u)) { $unitsOk = $false }
+                }
+            }
+            if (-not $unitsOk) {
+                Add-Issue("${path}: units invalide pour metric (au moins 2 unités du unitType demandé) ($($exercise.id))")
+            }
+        }
+    }
+    if ($exercise.engine -eq 'audio-spelling' -and $null -ne $exercise.params.unit) {
+        # unit : ce que la dictee fait ecrire (mot ou syllabe) ; une phrase est reconnue a ses espaces.
+        if ($exercise.params.unit -notin @('mot', 'syllabe')) {
+            Add-Issue("${path}: unit invalide pour audio-spelling ($($exercise.id))")
+        }
+    }
+    if ($exercise.engine -eq 'conjugation' -and $null -ne $exercise.params.persons) {
+        $validPersons = @('Je', 'Tu', 'Il', 'Elle', 'On', 'Nous', 'Vous', 'Ils', 'Elles')
+        $personsOk = ($exercise.params.persons -is [System.Collections.IList]) -and $exercise.params.persons.Count -ge 1
+        if ($personsOk) {
+            foreach ($pr in $exercise.params.persons) {
+                # -ccontains : sensible à la casse (« Je » et « je » ne sont pas la même valeur déclarée)
+                if (-not ($validPersons -ccontains [string]$pr)) { $personsOk = $false }
+            }
+        }
+        if (-not $personsOk) {
+            Add-Issue("${path}: persons invalide pour conjugation (liste non vide parmi Je, Tu, Il, Elle, On, Nous, Vous, Ils, Elles) ($($exercise.id))")
         }
     }
 
@@ -675,7 +905,19 @@ function Validate-WordOrderDataset($ref, $dataSet) {
         } else {
             $sentenceSafe = (Is-SafeLessonText $item.sentence) -and ($item.sentence.Trim() -split '\s+').Count -ge 3
         }
-        if (-not (Is-PlainObject $item) -or -not $sentenceSafe -or -not $instructionSafe -or -not $explanationSafe) {
+        # variantes : autres phrases correctes, faites exactement des mêmes mots que `sentence`
+        $variantesOk = $true
+        if ($null -ne $item.variantes) {
+            if (-not ($item.variantes -is [System.Collections.IList]) -or ($item.sentences -is [System.Collections.IList]) -or $item.sentence -isnot [string]) {
+                $variantesOk = $false
+            } else {
+                $motsAttendus = (($item.sentence.Trim() -split '\s+') | Sort-Object -CaseSensitive) -join [char]1
+                foreach ($v in $item.variantes) {
+                    if (-not (Is-SafeLessonText $v) -or ((($v.Trim() -split '\s+') | Sort-Object -CaseSensitive) -join [char]1) -cne $motsAttendus) { $variantesOk = $false }
+                }
+            }
+        }
+        if (-not (Is-PlainObject $item) -or -not $sentenceSafe -or -not $instructionSafe -or -not $explanationSafe -or -not $variantesOk) {
             Add-Issue("$($ref.DataFile): phrase de remise en ordre invalide ou non sure dans $($ref.Category)")
             break
         }
@@ -762,6 +1004,27 @@ function Validate-BoardDataset($ref, $dataSet) {
                 Add-Issue("$($ref.DataFile): point-on-grid invalide dans $($ref.Category)")
                 break
             }
+            # La grille a width colonnes et height lignes, numérotées à partir de 0 : une cible au-delà n'a aucune intersection.
+            if ($null -ne $item.board -and $null -ne $item.board.width -and $null -ne $item.board.height) {
+                $largeur = [double]$item.board.width
+                $hauteur = [double]$item.board.height
+                if ([double]$target[0] -lt 0 -or [double]$target[1] -lt 0 -or [double]$target[0] -gt ($largeur - 1) -or [double]$target[1] -gt ($hauteur - 1)) {
+                    Add-Issue("$($ref.DataFile): point-on-grid : cible hors du quadrillage dans $($ref.Category)")
+                    break
+                }
+            }
+            # board.outline (facultatif) : contour dessiné derrière la grille, suite de points [x, y].
+            if ($null -ne $item.board -and $item.board.PSObject.Properties.Name -contains 'outline') {
+                $contour = @($item.board.outline)
+                $contourValide = $contour.Count -ge 3
+                foreach ($p in $contour) {
+                    if (-not ($p -is [System.Collections.IList]) -or $p.Count -ne 2) { $contourValide = $false }
+                }
+                if (-not $contourValide) {
+                    Add-Issue("$($ref.DataFile): point-on-grid : contour invalide dans $($ref.Category)")
+                    break
+                }
+            }
         }
 
         if ($ref.Type -eq 'symmetry-complete') {
@@ -769,6 +1032,42 @@ function Validate-BoardDataset($ref, $dataSet) {
             $targetPointsValid = ($item.targetPoints -is [System.Collections.IList]) -and $item.targetPoints.Count -gt 0
             if (-not $givenPointsValid -or -not $targetPointsValid) {
                 Add-Issue("$($ref.DataFile): symmetry-complete invalide dans $($ref.Category)")
+                break
+            }
+        }
+
+        if ($ref.Type -eq 'number-line-place') {
+            $tickCountVal = 0
+            $boardValid = (Is-PlainObject $item.board) -and [int]::TryParse([string]$item.board.tickCount, [ref]$tickCountVal) -and $tickCountVal -ge 2
+            $targetIndexVal = -1
+            $targetValid = $boardValid -and (Is-PlainObject $item.task) -and [int]::TryParse([string]$item.task.targetIndex, [ref]$targetIndexVal) -and $targetIndexVal -ge 0 -and $targetIndexVal -lt $tickCountVal
+            if (-not $boardValid -or -not $targetValid) {
+                Add-Issue("$($ref.DataFile): number-line-place invalide dans $($ref.Category)")
+                break
+            }
+        }
+
+        if ($ref.Type -eq 'number-line-frame') {
+            $tickCountVal = 0
+            $boardValid = (Is-PlainObject $item.board) -and [int]::TryParse([string]$item.board.tickCount, [ref]$tickCountVal) -and $tickCountVal -ge 2
+            $indices = $item.targetIndices
+            $indicesValid = $boardValid -and ($indices -is [System.Collections.IList]) -and $indices.Count -eq 2
+            if ($indicesValid) {
+                $parsedIndices = @()
+                foreach ($rawIndex in $indices) {
+                    $indexVal = -1
+                    if (-not [int]::TryParse([string]$rawIndex, [ref]$indexVal) -or $indexVal -lt 0 -or $indexVal -ge $tickCountVal) {
+                        $indicesValid = $false
+                        break
+                    }
+                    $parsedIndices += $indexVal
+                }
+                if ($indicesValid -and $parsedIndices[0] -eq $parsedIndices[1]) {
+                    $indicesValid = $false
+                }
+            }
+            if (-not $boardValid -or -not $indicesValid) {
+                Add-Issue("$($ref.DataFile): number-line-frame invalide dans $($ref.Category)")
                 break
             }
         }

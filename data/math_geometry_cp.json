@@ -62,7 +62,7 @@
                     "un ovale"
                 ],
                 "answer": "un triangle",
-                "explanation": "Le toit pointu d'une maison a la forme d'un triangle avec ses 3 côtés et son sommet en haut."
+                "explanation": "Le toit pointu d'une maison a la forme d'un triangle avec ses 3 côtés et sa pointe en haut."
             },
             {
                 "question": "Un livre ressemble souvent à...",
@@ -72,7 +72,7 @@
                     "un triangle"
                 ],
                 "answer": "un rectangle",
-                "explanation": "Un livre a la forme d'un rectangle : il est plus haut que large et a 4 angles droits."
+                "explanation": "Un livre a la forme d'un rectangle : il est plus haut que large et a 4 côtés."
             },
             {
                 "question": "Pour reconnaître une forme, on regarde surtout...",
@@ -95,44 +95,44 @@
                 "explanation": "Le carré a 4 coins et 4 côtés de la même longueur."
             },
             {
-                "question": "Combien de côtés a un rectangle ?",
+                "question": "Quelle forme a 2 côtés longs et 2 côtés courts ?",
                 "choices": [
-                    "4",
-                    "2",
-                    "5"
+                    "Le rectangle",
+                    "Le carré",
+                    "Le triangle"
                 ],
-                "answer": "4",
-                "explanation": "Le rectangle a 4 côtés : 2 grands et 2 petits, face à face."
+                "answer": "Le rectangle",
+                "explanation": "Le rectangle a 2 côtés longs et 2 côtés courts, face à face. Le carré a ses 4 côtés tous pareils."
             },
             {
                 "question": "Une pièce de monnaie a la forme...",
                 "choices": [
-                    "d'un rond",
+                    "d'un cercle",
                     "d'un triangle",
                     "d'un carré"
                 ],
-                "answer": "d'un rond",
+                "answer": "d'un cercle",
                 "explanation": "Les pièces sont rondes : elles roulent quand elles tombent !"
             },
             {
                 "question": "Une part de pizza ressemble souvent à...",
                 "choices": [
                     "un triangle",
-                    "un rond entier",
+                    "un cercle entier",
                     "un rectangle"
                 ],
                 "answer": "un triangle",
-                "explanation": "En coupant un rond en parts, on obtient des triangles à pointe !"
+                "explanation": "En coupant un cercle en parts, on obtient des triangles à pointe !"
             },
             {
-                "question": "Combien de coins a un rond ?",
+                "question": "Combien de coins a un cercle ?",
                 "choices": [
                     "Aucun",
                     "4",
                     "1"
                 ],
                 "answer": "Aucun",
-                "explanation": "Le rond n'a ni coin ni côté droit : son bord tourne sans s'arrêter."
+                "explanation": "Le cercle n'a ni coin ni côté droit : son bord tourne sans s'arrêter."
             },
             {
                 "question": "Une fenêtre ressemble souvent à...",
@@ -157,11 +157,11 @@
             {
                 "question": "Une assiette plate a la forme...",
                 "choices": [
-                    "d'un rond",
+                    "d'un cercle",
                     "d'un carré",
                     "d'un triangle"
                 ],
-                "answer": "d'un rond",
+                "answer": "d'un cercle",
                 "explanation": "La plupart des assiettes sont rondes, comme les verres vus de dessus."
             },
             {
@@ -185,20 +185,20 @@
                 "explanation": "La boule roule dans tous les sens : parfaite pour jouer au ballon !"
             },
             {
-                "question": "Quelle forme a 3 côtés, comme un morceau de pizza ?",
+                "question": "Un panneau « attention danger » a la forme d'un...",
                 "choices": [
-                    "Le triangle",
-                    "Le carré",
-                    "Le cercle"
+                    "triangle",
+                    "cercle",
+                    "carré"
                 ],
-                "answer": "Le triangle",
-                "explanation": "Le triangle a 3 côtés et 3 sommets, comme un morceau de pizza coupé !"
+                "answer": "triangle",
+                "explanation": "Les panneaux de danger sont des triangles, avec une pointe en haut."
             },
             {
                 "question": "Une tablette de chocolat ressemble à...",
                 "choices": [
                     "un rectangle",
-                    "un rond",
+                    "un cercle",
                     "une étoile"
                 ],
                 "answer": "un rectangle",
@@ -274,7 +274,7 @@
                     "une trousse"
                 ],
                 "answer": "une règle",
-                "explanation": "La règle est l'outil qu'on utilise pour mesurer des longueurs. Elle a des petits traits qui s'appellent des centimètres."
+                "explanation": "La règle est l'outil qu'on utilise pour mesurer des longueurs. Ses grands traits numérotés marquent les centimètres."
             },
             {
                 "question": "Si deux bâtons se terminent au même endroit, ils sont...",
@@ -364,7 +364,7 @@
                     "des euros"
                 ],
                 "answer": "des centimètres",
-                "explanation": "Chaque graduation de la règle marque un centimètre de plus."
+                "explanation": "Sur une règle, chaque nombre est un centimètre de plus : de 1 à 2, il y a 1 cm."
             }
         ],
         "cp-moments-journee": [
@@ -609,6 +609,110 @@
                 ],
                 "answer": "moins qu'un verre plein",
                 "explanation": "À moitié plein, c'est moins que plein. Il y a de la place pour encore plus de liquide !"
+            }
+        ],
+        "cp-ranger-croissant": [
+            {
+                "sentence": "3 5 8 9",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "Le plus petit est 3, puis vient 5, puis 8, et 9 est le plus grand."
+            },
+            {
+                "sentence": "1 4 6 10",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "Je commence par 1, puis 4, puis 6, et je termine par 10."
+            },
+            {
+                "sentence": "0 3 6 9",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "0 est le plus petit de tous, ensuite vient 3, puis 6, puis 9."
+            },
+            {
+                "sentence": "7 12 15 18",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "7 est plus petit que 12, qui est plus petit que 15, lui-même plus petit que 18."
+            },
+            {
+                "sentence": "11 13 17 20",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "En comptant, 11 arrive avant 13, puis 17, puis 20."
+            },
+            {
+                "sentence": "5 14 26 38",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "Je regarde les dizaines : 5, puis 14, puis 26, puis 38."
+            },
+            {
+                "sentence": "20 40 60 80",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "Ce sont des dizaines entières : 2 dizaines, 4 dizaines, 6 dizaines, 8 dizaines."
+            },
+            {
+                "sentence": "9 19 29 39",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "Ils finissent tous par 9 : je compare alors les dizaines, de 0 à 3 dizaines."
+            },
+            {
+                "sentence": "12 21 34 43",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "1 dizaine pour 12, 2 dizaines pour 21, 3 dizaines pour 34, 4 dizaines pour 43."
+            },
+            {
+                "sentence": "6 16 61 66",
+                "instruction": "Range ces nombres du plus petit au plus grand.",
+                "explanation": "6 n'a aucune dizaine, 16 en a une, puis viennent 61 et 66 qui en ont six."
+            }
+        ],
+        "cp-ranger-decroissant": [
+            {
+                "sentence": "9 8 5 3",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "Je commence par le plus grand, 9, puis 8, puis 5, et 3 termine."
+            },
+            {
+                "sentence": "10 6 4 1",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "10 est le plus grand, ensuite 6, puis 4, et 1 est le plus petit."
+            },
+            {
+                "sentence": "15 10 5 0",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "Je descends de 5 en 5 : 15, puis 10, puis 5, puis 0."
+            },
+            {
+                "sentence": "18 15 12 7",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "18 est le plus grand, puis 15, puis 12, et 7 est le plus petit."
+            },
+            {
+                "sentence": "20 17 13 11",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "En reculant dans la suite des nombres : 20, 17, 13, 11."
+            },
+            {
+                "sentence": "38 26 14 5",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "3 dizaines pour 38, 2 dizaines pour 26, 1 dizaine pour 14, et 5 n'a aucune dizaine."
+            },
+            {
+                "sentence": "80 60 40 20",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "8 dizaines, puis 6 dizaines, puis 4 dizaines, puis 2 dizaines."
+            },
+            {
+                "sentence": "39 29 19 9",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "Ils finissent tous par 9 : je compare les dizaines, de 3 dizaines à aucune."
+            },
+            {
+                "sentence": "43 34 21 12",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "43 a 4 dizaines, 34 en a 3, 21 en a 2, et 12 en a 1."
+            },
+            {
+                "sentence": "66 61 16 6",
+                "instruction": "Range ces nombres du plus grand au plus petit.",
+                "explanation": "66 et 61 ont six dizaines, mais 66 a plus d'unités ; ensuite viennent 16, puis 6."
             }
         ]
     }

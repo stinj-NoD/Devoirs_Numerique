@@ -427,6 +427,12 @@
         if (exercise.params.dataFile && !this.isDataFilePath(exercise.params.dataFile)) {
             return { valid: false, reason: 'dataFile invalide.' };
         }
+        if (exercise.timeLimitSeconds !== undefined) {
+            const t = Number(exercise.timeLimitSeconds);
+            if (!Number.isFinite(t) || !Number.isInteger(t) || t < 5 || t > 600) {
+                return { valid: false, reason: 'timeLimitSeconds invalide (5 à 600 secondes attendues).' };
+            }
+        }
         if (exercise.params.choices && (!Array.isArray(exercise.params.choices) || exercise.params.choices.length < 2)) {
             return { valid: false, reason: 'choices doit contenir au moins 2 options.' };
         }
@@ -477,6 +483,136 @@
                 }
             }
         }
+        if (exercise.params.type === 'operation-posed') {
+            if (exercise.params.operator !== undefined && !['add', 'sub', 'mult'].includes(exercise.params.operator)) {
+                return { valid: false, reason: 'operator invalide pour operation-posed.' };
+            }
+            if (exercise.params.level !== undefined) {
+                const lvl = Number(exercise.params.level);
+                if (!Number.isFinite(lvl) || lvl < 1 || lvl > 5) {
+                    return { valid: false, reason: 'level invalide pour operation-posed (1-5 attendu).' };
+                }
+            }
+            if (exercise.params.maxResult !== undefined) {
+                const mr = Number(exercise.params.maxResult);
+                if (!Number.isInteger(mr) || mr < 20 || mr > 20000) {
+                    return { valid: false, reason: 'maxResult invalide pour operation-posed (entier 20-20000 attendu).' };
+                }
+            }
+            if (exercise.params.decimals !== undefined) {
+                const dec = Number(exercise.params.decimals);
+                if (!Number.isFinite(dec) || dec < 0 || dec > 2) {
+                    return { valid: false, reason: 'decimals invalide pour operation-posed (0-2 attendu).' };
+                }
+            }
+            if (exercise.params.carry !== undefined && typeof exercise.params.carry !== 'boolean') {
+                return { valid: false, reason: 'carry invalide pour operation-posed (booléen attendu).' };
+            }
+            if (exercise.params.mixed !== undefined && typeof exercise.params.mixed !== 'boolean') {
+                return { valid: false, reason: 'mixed invalide pour operation-posed (booléen attendu).' };
+            }
+        }
+        if (exercise.params.type === 'division-posed') {
+            // divisors : liste d'entiers 2-99 ; dividend : [min, max] entiers croissants (10 à 99 999).
+            const dv = exercise.params.divisors;
+            if (dv !== undefined && (!Array.isArray(dv) || !dv.length || !dv.every((v) => Number.isInteger(v) && v >= 2 && v <= 99))) {
+                return { valid: false, reason: 'divisors invalide pour division-posed (entiers 2-99 attendus).' };
+            }
+            const dd = exercise.params.dividend;
+            if (dd !== undefined && (!Array.isArray(dd) || dd.length !== 2 || !dd.every((v) => Number.isInteger(v) && v >= 10 && v <= 99999) || dd[0] > dd[1])) {
+                return { valid: false, reason: 'dividend invalide pour division-posed ([min, max] entiers 10-99999 attendus).' };
+            }
+        }
+        if (exercise.params.type === 'mult') {
+            // mode : forme sous laquelle la table est demandée ; tables : tables tirées quand table vaut « mix ».
+            if (exercise.params.mode !== undefined && !['produit', 'facteur', 'division', 'mixte'].includes(exercise.params.mode)) {
+                return { valid: false, reason: 'mode invalide pour mult (produit, facteur, division ou mixte attendu).' };
+            }
+            const tb = exercise.params.tables;
+            if (tb !== undefined && (!Array.isArray(tb) || !tb.length || !tb.every((v) => Number.isInteger(v) && v >= 2 && v <= 12))) {
+                return { valid: false, reason: 'tables invalide pour mult (entiers 2-12 attendus).' };
+            }
+        }
+        if (exercise.params.type === 'complement' && exercise.params.multipleOf !== undefined) {
+            const step = Number(exercise.params.multipleOf);
+            if (!Number.isInteger(step) || step < 2 || step > 50) {
+                return { valid: false, reason: 'multipleOf invalide pour complement (entier 2-50 attendu).' };
+            }
+        }
+        if (exercise.params.type === 'decimal-place' && exercise.params.decimals !== undefined && ![2, 3].includes(exercise.params.decimals)) {
+            return { valid: false, reason: 'decimals invalide pour decimal-place (2 ou 3 attendu).' };
+        }
+        if ((exercise.engine === 'clock' || exercise.params.type === 'clock') && exercise.params.level !== undefined) {
+            const lvl = Number(exercise.params.level);
+            if (!Number.isInteger(lvl) || lvl < 1 || lvl > 4) {
+                return { valid: false, reason: 'level invalide pour clock (1-4 attendu).' };
+            }
+        }
+        if (exercise.params.type === 'homophone-duel' && exercise.params.level !== undefined
+            && !['ce1', 'ce2', 'cm1', 'cm2'].includes(exercise.params.level)) {
+            return { valid: false, reason: 'level invalide pour homophone-duel (ce1, ce2, cm1 ou cm2 attendu).' };
+        }
+        if (exercise.params.type === 'division-simple' || exercise.params.type === 'division-reste') {
+            // divisors : liste d'entiers 2-99 ; quotient : [min, max] entiers croissants ; ask (division-reste) : quotient | reste.
+            const dv = exercise.params.divisors;
+            if (dv !== undefined && (!Array.isArray(dv) || !dv.length || !dv.every((v) => Number.isInteger(v) && v >= 2 && v <= 99))) {
+                return { valid: false, reason: `divisors invalide pour ${exercise.params.type} (entiers 2-99 attendus).` };
+            }
+            const qt = exercise.params.quotient;
+            if (qt !== undefined && (!Array.isArray(qt) || qt.length !== 2 || !qt.every((v) => Number.isInteger(v) && v >= 1) || qt[0] > qt[1])) {
+                return { valid: false, reason: `quotient invalide pour ${exercise.params.type} ([min, max] attendu).` };
+            }
+            if (exercise.params.ask !== undefined && (exercise.params.type !== 'division-reste' || !['quotient', 'reste'].includes(exercise.params.ask))) {
+                return { valid: false, reason: 'ask invalide pour division-reste (quotient ou reste attendu).' };
+            }
+        }
+        if (exercise.params.type === 'pourcentage' && exercise.params.minMultiple !== undefined) {
+            const mm = Number(exercise.params.minMultiple);
+            if (!Number.isInteger(mm) || mm < 1 || mm > 50) {
+                return { valid: false, reason: 'minMultiple invalide pour pourcentage (entier 1-50 attendu).' };
+            }
+        }
+        if (exercise.params.type === 'compare-decimals') {
+            if (exercise.params.wholeParts !== undefined && !['same', 'mix'].includes(exercise.params.wholeParts)) {
+                return { valid: false, reason: 'wholeParts invalide pour compare-decimals (same ou mix attendu).' };
+            }
+            if (exercise.params.distinctWriting !== undefined && typeof exercise.params.distinctWriting !== 'boolean') {
+                return { valid: false, reason: 'distinctWriting invalide pour compare-decimals (booléen attendu).' };
+            }
+        }
+        if (exercise.params.type === 'calc-mental') {
+            // Convention propre à ce type : les opérateurs sont des symboles
+            // ('x', '/', '+', '-'), là où operation-posed attend 'add'/'sub'/'mult'.
+            // Opérateur absent = multiplication, comportement historique.
+            if (exercise.params.operator !== undefined && !['x', '/', '+', '-'].includes(exercise.params.operator)) {
+                return { valid: false, reason: "operator invalide pour calc-mental (x, /, + ou - attendu)." };
+            }
+            if (exercise.params.range !== undefined) {
+                const r = exercise.params.range;
+                if (!Array.isArray(r) || r.length !== 2 || !r.every((v) => Number.isInteger(v) && v >= 0) || r[0] > r[1]) {
+                    return { valid: false, reason: 'range invalide pour calc-mental (2 entiers croissants attendus).' };
+                }
+            }
+            if (exercise.params.operands !== undefined) {
+                const ops = exercise.params.operands;
+                if (!Array.isArray(ops) || !ops.length || !ops.every((v) => Number.isInteger(v) && v > 0)) {
+                    return { valid: false, reason: 'operands invalide pour calc-mental (entiers strictement positifs attendus).' };
+                }
+            }
+        }
+        if (exercise.params.type === 'place-value') {
+            // 10 = nombre de rangs nommés par le moteur (unités → milliards).
+            // Au-delà, il afficherait « position N » au lieu d'un nom de rang.
+            if (exercise.params.digitCount !== undefined) {
+                const digits = Number(exercise.params.digitCount);
+                if (!Number.isInteger(digits) || digits < 2 || digits > 10) {
+                    return { valid: false, reason: 'digitCount invalide pour place-value (2 à 10 attendu).' };
+                }
+            }
+            if (exercise.params.ask !== undefined && !['digit', 'value'].includes(exercise.params.ask)) {
+                return { valid: false, reason: 'ask invalide pour place-value (digit ou value attendu).' };
+            }
+        }
         if (exercise.engine === 'matching' && !this.isNonEmptyString(exercise.params.category)) {
             return { valid: false, reason: 'category manquante pour matching.' };
         }
@@ -487,7 +623,7 @@
             return { valid: false, reason: 'category manquante pour cloze-fill-in.' };
         }
         if (exercise.engine === 'board-interactive') {
-            if (!this.isNonEmptyString(exercise.params.type) || !['tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete', 'map-locate', 'memory-match', 'fraction-build', 'angle-classify', 'angle-measure', 'construction-report'].includes(exercise.params.type)) {
+            if (!this.isNonEmptyString(exercise.params.type) || !['tap-features', 'shape-classify', 'point-on-grid', 'symmetry-complete', 'map-locate', 'memory-match', 'fraction-build', 'angle-classify', 'angle-measure', 'construction-report', 'number-line-place', 'number-line-frame'].includes(exercise.params.type)) {
                 return { valid: false, reason: 'type board-interactive invalide.' };
             }
             if (exercise.params.type !== 'fraction-build' && !this.isNonEmptyString(exercise.params.category)) {
@@ -539,6 +675,34 @@
                     || Number(r[0]) < 0 || Number(r[1]) > 3 || Number(r[0]) > Number(r[1])) {
                     return { valid: false, reason: 'range invalide pour metric-area (attendu [0-3, 0-3]).' };
                 }
+            }
+            if (exercise.params.subtype === 'metric' && exercise.params.decimals !== undefined && ![0, 1, 2].includes(exercise.params.decimals)) {
+                return { valid: false, reason: 'decimals invalide pour metric (0, 1 ou 2 attendu).' };
+            }
+            if (exercise.params.subtype === 'metric' && exercise.params.units !== undefined) {
+                const metricUnits = {
+                    longueur: ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'],
+                    masse: ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'],
+                    capacite: ['kL', 'hL', 'daL', 'L', 'dL', 'cL', 'mL']
+                };
+                const allowedUnits = metricUnits[exercise.params.unitType || 'longueur'];
+                const u = exercise.params.units;
+                if (!allowedUnits || !Array.isArray(u) || u.length < 2 || u.some((x) => !allowedUnits.includes(x))) {
+                    return { valid: false, reason: 'units invalide pour metric (au moins 2 unités du unitType demandé).' };
+                }
+            }
+        }
+
+        if (exercise.engine === 'audio-spelling' && exercise.params.unit !== undefined && !['mot', 'syllabe'].includes(exercise.params.unit)) {
+            // unit : ce que la dictée fait écrire (la consigne le dit) ; une phrase est reconnue à ses espaces.
+            return { valid: false, reason: 'unit invalide pour audio-spelling (mot ou syllabe attendu).' };
+        }
+
+        if (exercise.engine === 'conjugation' && exercise.params.persons !== undefined) {
+            const validPersons = ['Je', 'Tu', 'Il', 'Elle', 'On', 'Nous', 'Vous', 'Ils', 'Elles'];
+            const pr = exercise.params.persons;
+            if (!Array.isArray(pr) || pr.length === 0 || pr.some((x) => !validPersons.includes(x))) {
+                return { valid: false, reason: 'persons invalide pour conjugation (liste non vide parmi Je, Tu, Il, Elle, On, Nous, Vous, Ils, Elles).' };
             }
         }
 
@@ -675,6 +839,20 @@
                 if (!this.isPlainObject(item.task) || !Array.isArray(target) || target.length !== 2) {
                     return { valid: false, reason: `point-on-grid invalide dans ${exercise.params.category}.` };
                 }
+                // La grille a width colonnes et height lignes, numérotées à partir de 0 :
+                // une cible au-delà (ex. (8 ; 8) sur 10 × 8) n'a aucune intersection à toucher.
+                const largeur = Number(item.board?.width);
+                const hauteur = Number(item.board?.height);
+                if (Number.isFinite(largeur) && Number.isFinite(hauteur)
+                    && (!(Number(target[0]) >= 0) || !(Number(target[1]) >= 0) || Number(target[0]) > largeur - 1 || Number(target[1]) > hauteur - 1)) {
+                    return { valid: false, reason: `point-on-grid : cible hors du quadrillage dans ${exercise.params.category}.` };
+                }
+                // board.outline (facultatif) : contour dessiné derrière la grille, suite de points [x, y] de la grille.
+                const contour = item.board?.outline;
+                if (contour !== undefined && (!Array.isArray(contour) || contour.length < 3
+                    || contour.some((p) => !Array.isArray(p) || p.length !== 2 || !Number.isFinite(Number(p[0])) || !Number.isFinite(Number(p[1]))))) {
+                    return { valid: false, reason: `point-on-grid : contour invalide dans ${exercise.params.category}.` };
+                }
             }
 
             if (exercise.params.type === 'symmetry-complete') {
@@ -682,6 +860,28 @@
                 const targetPoints = Array.isArray(item.targetPoints) && item.targetPoints.length > 0;
                 if (!givenPoints || !targetPoints) {
                     return { valid: false, reason: `symmetry-complete invalide dans ${exercise.params.category}.` };
+                }
+            }
+
+            if (exercise.params.type === 'number-line-place') {
+                const tickCount = Number(item.board?.tickCount);
+                const targetIndex = Number(item.task?.targetIndex);
+                const boardValid = this.isPlainObject(item.board) && Number.isInteger(tickCount) && tickCount >= 2;
+                const targetValid = this.isPlainObject(item.task) && Number.isInteger(targetIndex) && targetIndex >= 0 && targetIndex < tickCount;
+                if (!boardValid || !targetValid) {
+                    return { valid: false, reason: `number-line-place invalide dans ${exercise.params.category}.` };
+                }
+            }
+
+            if (exercise.params.type === 'number-line-frame') {
+                const tickCount = Number(item.board?.tickCount);
+                const boardValid = this.isPlainObject(item.board) && Number.isInteger(tickCount) && tickCount >= 2;
+                const indices = Array.isArray(item.targetIndices) ? item.targetIndices.map((value) => Number(value)) : [];
+                const indicesValid = indices.length === 2
+                    && indices.every((value) => Number.isInteger(value) && value >= 0 && value < tickCount)
+                    && indices[0] !== indices[1];
+                if (!boardValid || !indicesValid) {
+                    return { valid: false, reason: `number-line-frame invalide dans ${exercise.params.category}.` };
                 }
             }
 
@@ -776,6 +976,12 @@
             if (!sentenceOk) return true;
             if (item.instruction !== undefined && !this.isSafeLessonText(item.instruction)) return true;
             if (item.explanation !== undefined && !this.isSafeLessonText(item.explanation)) return true;
+            // variantes : autres phrases correctes, faites exactement des mêmes mots que `sentence`
+            if (item.variantes !== undefined) {
+                const mots = (s) => String(s).trim().split(/\s+/).sort().join('\u0001');
+                if (!Array.isArray(item.variantes) || Array.isArray(item.sentences) || typeof item.sentence !== 'string'
+                    || item.variantes.some((v) => !this.isSafeLessonText(v) || mots(v) !== mots(item.sentence))) return true;
+            }
             return false;
         });
 

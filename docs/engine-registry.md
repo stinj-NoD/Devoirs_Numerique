@@ -4,7 +4,8 @@ Référence lisible des 13 moteurs (`engine`) et de leurs sous-types (`params.ty
 Version humaine de **`data/engine-registry.json`**, la source machine-lisible.
 
 > **Ces deux fichiers sont de l'OUTILLAGE.** Ils ne sont pas embarqués dans
-> `js/data-bundle.js` et ne sont jamais lus au runtime — ils servent à l'agent
+> les bundles (`js/data-bundle-common.js`/`data-bundle-<niveau>.js`) et ne
+> sont jamais lus au runtime — ils servent à l'agent
 > `exercise-author` et au garde-fou de cohérence de `scripts/build-content-index.js`.
 > Ils n'ont **aucun** impact sur le poids servi ni sur le mode `file://`.
 
@@ -50,17 +51,17 @@ signal fort d'habillage redondant. Pour `library`/`generator`, un même contrat
 
 | `engine` | Nature | `params.type` | Ex. dans les données |
 |---|---|---|---|
-| `math-input` | generator | `add-simple`, `add-trou`, `sub-simple`, `mult`, `complement`, `decimal-place`, `dictée-nombres`, `calc-mental`, `oiseau-math`, `cibles`, `half`, `double`, `division-simple`, `division-reste`, `division-posed`, `operation-posed`, `place-value`, `proportionnalite`, `pourcentage`, `aire-rectangle`, `volume-pave`, `echelle`, `vitesse`, `bar-chart-read`, `data-table-read`, `pie-chart-read`, `average-compute`, `spelling`¹, `clock`, `fraction-view`, `fraction-operation`³, `number-spelling`, `carre-somme` | ~164 |
-| `choice-engine` | mixed | `factual-qcm` (**pool**), `gender-articles`, `article-choice`, `plural-choice`, `word-class-choice`, `grammar-cloze`, `homophone-duel` (library), `compare-decimals`, *(défaut)* `compare` | ~539 |
-| `board-interactive` | pool | `tap-features`, `shape-classify`, `point-on-grid`, `symmetry-complete`, `map-locate`, `memory-match`, `angle-classify`, `angle-measure`, `construction-report`, `fraction-build`² | ~42 |
-| `conversion` | generator | — (`modes`, `memo`), `metric-area`⁴ | ~28 |
-| `conjugation` | library | — | ~47 |
-| `reading` | library | — | ~51 |
-| `audio-spelling` | library | — | ~44 |
+| `math-input` | generator | `add-simple`, `add-trou`, `sub-simple`, `mult`¹², `complement`¹², `decimal-place`¹², `dictée-nombres`, `calc-mental`, `oiseau-math`, `cibles`, `half`, `double`, `division-simple`¹⁰, `division-reste`¹⁰, `division-posed`¹², `operation-posed`⁶¹², `place-value`, `proportionnalite`, `pourcentage`¹⁰, `aire-rectangle`, `volume-pave`, `echelle`, `vitesse`, `bar-chart-read`, `data-table-read`, `pie-chart-read`, `average-compute`, `spelling`¹, `clock`¹², `fraction-view`, `fraction-operation`³, `number-spelling`, `carre-somme` | ~164 |
+| `choice-engine` | mixed | `factual-qcm` (**pool**), `gender-articles`, `article-choice`, `plural-choice`, `word-class-choice`, `grammar-cloze`, `homophone-duel` (library)¹², `compare-decimals`¹⁰, *(défaut)* `compare` | ~539 |
+| `board-interactive` | pool | `tap-features`¹¹, `shape-classify`, `point-on-grid`⁹, `symmetry-complete`, `map-locate`, `memory-match`, `angle-classify`, `angle-measure`, `construction-report`, `fraction-build`², `number-line-place`⁵, `number-line-frame`⁵ | ~42 |
+| `conversion` | generator | — (`modes`, `memo`, `units`, `decimals`¹²), `metric-area`⁴ | ~29 |
+| `conjugation` | library | — (`persons`) | ~47 |
+| `reading` | library | — (item `plain`¹³) | ~51 |
+| `audio-spelling` | library | — (`unit`¹³) | ~44 |
 | `cloze-fill-in` | library | — | ~5 |
 | `matching` | pool | — (`dataFile`, `category`) | ~49 |
-| `word-order` | pool | — (`dataFile`, `category`) | ~13 |
-| `timeline` | pool | — (`dataFile`, `grade`, `mode`∈{order,place}, `timelineId`) | ~22 |
+| `word-order` | pool | — (`dataFile`, `category`), item `variantes`⁷ | ~13 |
+| `timeline` | pool | — (`dataFile`, `grade`, `mode`∈{order,place}, `timelineId`, `difficulty`)⁸ | ~22 |
 | `clock` | generator | — | ~6 |
 | `counting` | generator | — | ~2 |
 
@@ -75,6 +76,94 @@ donné dans l'énoncé, pas de PPCM demandé à l'élève ; cas général hors s
 ⁴ `metric-area` convertit cm²/dm²/m²/mm² avec une progression **x100** par
 palier, contrairement au subtype `metric` existant (x10) — tableau d'unités
 et facteurs dédiés dans `js/engines-math.js`.
+⁵ `number-line-place`/`number-line-frame` (ligne numérique graduée) n'acceptent
+que des graduations **discrètes indexées** (`board.tickCount`), jamais un
+placement continu avec marge d'erreur — le seul mode de validation réellement
+câblé par `App.validateAnswer()` est une égalité stricte de chaîne canonique.
+`number-line-place` : `task.targetIndex` (un point). `number-line-frame` :
+`targetIndices` (exactement 2, encadrement). La conversion valeur réelle
+(nombre entier, fraction...) → index de graduation se fait à l'écriture du
+contenu, jamais au runtime.
+⁶ `operation-posed` accepte un paramètre optionnel `decimals` (0-2, défaut 0) et un paramètre optionnel `maxResult` (entier 20-20000, addition seulement) qui plafonne la somme : `ce1-addition-posee-centaines` l'emploie (`maxResult: 1000`) pour tenir son titre « jusqu'à 1000 ». Absent, comportement historique inchangé (CE2 et CM1 partagent le niveau 2).
+pour poser des opérations avec des nombres décimaux — implémenté en entiers
+mis à l'échelle (jamais de flottant JS), formaté en chaîne virgule côté
+moteur avant `standardize()`. `mult` + `decimals>0` est restreint à
+décimal × entier (le second opérande reste toujours un entier), jamais
+décimal × décimal.
+
+⁷ `word-order` : un item de phrase accepte un champ optionnel `variantes` (tableau de
+phrases tout aussi justes, faites **exactement des mêmes mots** : adverbe avant ou
+après le participe, par ex.). Le moteur ignore toute variante qui n'a pas le même
+multiensemble de mots, et `App.validateAnswer` les accepte en plus de l'ordre attendu
+(jamais plus qu'une phrase identique mot pour mot) ; les deux validateurs refusent un
+item narratif (`sentences`) ou une variante dont les mots diffèrent.
+⁸ `timeline` mode `order` : la frise `timelineId` est un **vivier**. Dès qu'elle compte
+plus de 4 repères, le moteur en tire 4 au hasard à chaque question (puis les trie par
+année, puis par `order`) ; une frise de 4 repères sert donc toujours le même puzzle. Le
+quatuor n'est jamais reposé deux fois dans une séance (`usedSet`). Deux repères de même année
+portent un champ `order` (1, 2…) qui fixe leur classement : sans lui l'ordre attendu dépendait
+du tirage. Un vivier de 7 à 12 repères suffit à varier les puzzles.
+Mode `place` : `difficulty` (entier ou liste) filtre les repères ; chaque niveau doit
+compter au moins autant de repères que de questions. Les dates proposées en distracteurs
+sont écartées de plus de 2 ans de la bonne date tant que le vivier le permet.
+
+⁹ `point-on-grid` : la grille a `board.width` colonnes et `board.height` lignes,
+numérotées à partir de 0 ; une cible `task.target` hors de `[0, width − 1] × [0, height − 1]`
+n'a aucune intersection à toucher et est **refusée par les deux validateurs** (elle avait
+rendu deux exercices injouables au CM1 et au CM2). Champ facultatif `board.outline` : suite
+d'au moins 3 points `[x, y]` en coordonnées de la grille, dessinée derrière le quadrillage
+(contour de la France de `cm2_reperes_france_grille`).
+
+¹⁰ Paramètres de calcul ajoutés au CM2 (v4.63.0), tous optionnels, comportement historique inchangé s'ils sont absents :
+`division-simple` et `division-reste` acceptent `divisors` (liste des diviseurs tirés) et `quotient` (`[min, max]`) ;
+`division-reste` accepte en plus `ask: "reste"` pour demander le reste de la division plutôt que le quotient ;
+`pourcentage` accepte `minMultiple` (le nombre de départ vaut au moins `minMultiple` × le pas, ce qui écarte « 20 % de 10 ») ;
+`operation-posed` accepte `level` 4 et 5 (nombres de 5 et de 6 chiffres) pour l'addition et la soustraction ;
+`compare-decimals` accepte `wholeParts: "mix"` (parties entières différentes) et `distinctWriting: true` (jamais deux écritures identiques).
+`division-posed` n'affiche plus les produits partiels en mode quotient (ils laissaient lire le quotient) ; ils restent visibles en mode `ask: "reste"`.
+
+¹¹ `tap-features` : `drawing.markersOnReveal: true` ne dessine les chevrons d'angle droit qu'à la correction ;
+`drawing.texts` (liste `{ x, y, text, anchor }`, `anchor` ∈ {start, middle, end}) pose des étiquettes sur le dessin
+(noms des villes de `cm2_villes_france_tap`). Le dessin lui-même (`lines`, `circles`) ne porte aucune réponse.
+
+¹² Paramètres de **progression entre niveaux** (v4.64.0), tous optionnels, comportement historique inchangé s'ils sont absents. Ils servent à
+ce qu'un même exercice ne soit plus identique d'un niveau à l'autre (contrôle `contrat-identique` de `build-content-index.js`) :
+`mult` accepte `mode` (`produit` par défaut, `facteur` « 7 × ? = 56 », `division` « 56 : 7 = ? », `mixte`) et `tables` (tables tirées quand `table` vaut `mix`) ;
+`complement` accepte `multipleOf` (le nombre donné est un multiple de ce pas : dizaines entières, puis multiples de 5) ;
+`decimal-place` accepte `decimals: 3` (ajoute les millièmes) ;
+`division-posed` accepte `divisors` (liste d'entiers 2-99) et `dividend` (`[min, max]`, 10-99 999) qui recalibrent le niveau ;
+`operation-posed` accepte `carry: true` (au moins une retenue ou un emprunt, addition et soustraction) ;
+`conversion` `metric` accepte `decimals` (0, 1 ou 2 : valeur de départ décimale) ;
+`clock` accepte `level: 4` (lecture à la minute près, avec graduations des minutes) ;
+`homophone-duel` accepte `level` (`ce1`, `ce2`, `cm1`, `cm2`) : les phrases de `data/french/homophones.json` portent un champ `level`, et un exercice ne tire que
+celles de son niveau (une phrase sans champ reste disponible pour tous). `mix_all` tire d'abord une catégorie qui compte au moins une phrase du niveau.
+
+¹³ Ajouts de la passe « Mineurs du CP » (v4.65.0), optionnels : `audio-spelling` accepte `unit` (`mot` par défaut, `syllabe`) qui fixe
+la consigne affichée et lue (une réponse à espaces est reconnue comme phrase : « Écoute la phrase puis écris-la ») ; un item de `reading` accepte
+`plain: true` (le mot s'affiche d'un bloc, sans coloration des syllabes). Le générateur procédural d'un `math-input`, d'un `conversion`, d'un `clock`
+ou d'un `counting` ne répète plus une question dans une série (`Engines.unique` : jusqu'à 30 retirages) ; la pastille Jour/Nuit de `clock` n'apparaît
+qu'à partir du niveau 3 (cadran à 24 heures).
+
+¹⁴ Ajustements de la passe « Mineurs du CE1 » (v4.66.0), sans nouveau paramètre : `mult` en mode `produit` tire le second facteur de 1 à 10
+(« × 0 » n'est enseigné nulle part en cycle 2 ; dix valeurs pour dix questions, donc une série pose la table entière) ; `clock` des niveaux 1 et 2 affiche
+la consigne « Écris l'heure en chiffres : deux chiffres pour l'heure, deux pour les minutes » (la réponse se tape en quatre chiffres) ;
+`homophone-duel` reprend la graphie du bouton quand la réponse n'en diffère que par la casse (phrase qui commence par « On »).
+
+¹⁵ Ajustements de la passe « Mineurs du CE2 » (v4.67.0), sans nouveau paramètre : `division-posed` en mode `ask: reste` ne tire plus un dividende
+multiple du diviseur (il est décalé de 1, vers le haut ou vers le bas selon la borne), de sorte que le reste n'est jamais nul ; `cibles` (fléchettes)
+affiche la consigne « Additionne les points des flèches : chacune vaut le nombre de sa zone. » hors habillage `skin: money` (la question était vide) ;
+`conjugation` passe par `Engines.unique` (la clé d'unicité inclut pronom, infinitif et temps : une même forme n'est plus posée deux fois dans une série).
+
+¹⁶ Ajustements de la passe « Mineurs du CM1 » (v4.68.0). **Deux paramètres facultatifs nouveaux** (les deux validateurs et `data/engine-registry.json`
+sont à jour) : `operation-posed` accepte `mixed: true` (booléen, `add`/`sub`, `decimals: 2`) — une fois sur deux le premier terme n'a qu'une décimale
+(« 12,4 + 7,35 »), la case manquante reste vide dans la pose (`data.aDecimals`, `blankTail` côté `ui-visuals.js`), ce que la leçon des décimaux posés enseigne ;
+`dictée-nombres` accepte `min` (borne basse du tirage) : les trois dictées du CM1 couvrent trois paliers distincts (jusqu'à 100 000, de 100 000 à 999 999,
+de 500 000 au million). **Sans nouveau paramètre** : `validateAnswer` accepte un décimal saisi sans son zéro final (« 157 » = « 157,0 », comparaison numérique
+quand la cible a la forme `\d+,\d+`) ; `shape-classify` dessine la figure (SVG en ligne : carré, rectangle, losange, cercle, triangle, équilatéral, isocèle)
+dans chaque pastille ; `symmetry-complete` accepte `board.axis: { type: 'horizontal', y }` en plus de l'axe vertical ; `proportionnalite`, `bar-chart-read`
+et `data-table-read` élident « de » devant une voyelle (`deElide`) et mettent le libellé au singulier pour la quantité 1 ; `average-compute` borne la valeur
+dérivée à `maxValue` (plus de note de 39 sur 20) ; `place-value` en `ask: 'value'` ne demande que des chiffres non nuls ; `aire-rectangle` ne tire plus un
+carré ; `fraction-operation` en addition écarte le dénominateur 2 (`1/2 + 1/2`).
 
 **Alias normalisés en entrée** (`js/engines.js`) : `compare`/`choice` → `choice-engine` ;
 `oiseau` → `math-input` + `type:oiseau-math`.

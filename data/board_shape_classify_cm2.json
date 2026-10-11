@@ -19,7 +19,7 @@
                 "answer": { "f1": "angles-droits", "f2": "sans-angle-droit", "f3": "angles-droits", "f4": "sans-angle-droit" }
             },
             {
-                "prompt": "Range ces figures selon le nombre de côtés égaux.",
+                "prompt": "Range ces figures selon les longueurs de leurs côtés.",
                 "board": { "width": 10, "height": 6, "grid": false },
                 "figures": [
                     { "id": "f1", "label": "Carré", "shape": "carre" },
@@ -27,8 +27,8 @@
                     { "id": "f3", "label": "Rectangle", "shape": "rectangle" }
                 ],
                 "buckets": [
-                    { "id": "quatre-cotes-egaux", "label": "4 côtés égaux" },
-                    { "id": "cotes-deux-a-deux", "label": "Côtés égaux deux à deux" }
+                    { "id": "quatre-cotes-egaux", "label": "Les 4 côtés ont la même longueur" },
+                    { "id": "cotes-deux-a-deux", "label": "Deux longueurs de côtés différentes" }
                 ],
                 "answer": { "f1": "quatre-cotes-egaux", "f2": "quatre-cotes-egaux", "f3": "cotes-deux-a-deux" }
             },
@@ -119,18 +119,19 @@
                 "answer": { "f1": "regulier", "f2": "non-regulier", "f3": "regulier" }
             },
             {
-                "prompt": "Classe ces figures selon leur périmètre constant ou non par déformation.",
+                "prompt": "Classe ces figures : ont-elles un centre de symétrie ?",
                 "board": { "width": 10, "height": 6, "grid": false },
                 "figures": [
-                    { "id": "f1", "label": "Carré rigide", "shape": "carre" },
-                    { "id": "f2", "label": "Losange déformable", "shape": "losange" },
-                    { "id": "f3", "label": "Rectangle rigide", "shape": "rectangle" }
+                    { "id": "f1", "label": "Rectangle", "shape": "rectangle" },
+                    { "id": "f2", "label": "Triangle équilatéral", "shape": "triangle-equilateral" },
+                    { "id": "f3", "label": "Parallélogramme", "shape": "parallelogramme" },
+                    { "id": "f4", "label": "Pentagone", "shape": "pentagone" }
                 ],
                 "buckets": [
-                    { "id": "angles-fixes", "label": "Angles toujours droits" },
-                    { "id": "angles-variables", "label": "Angles peuvent varier" }
+                    { "id": "avec-centre", "label": "A un centre de symétrie" },
+                    { "id": "sans-centre", "label": "Pas de centre de symétrie" }
                 ],
-                "answer": { "f1": "angles-fixes", "f2": "angles-variables", "f3": "angles-fixes" }
+                "answer": { "f1": "avec-centre", "f2": "sans-centre", "f3": "avec-centre", "f4": "sans-centre" }
             },
             {
                 "prompt": "Range ces figures selon qu'elles sont des quadrilatères ou des triangles.",

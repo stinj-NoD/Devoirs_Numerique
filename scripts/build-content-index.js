@@ -57,7 +57,17 @@ function contractHash(ex) {
     for (const k of Object.keys(p).sort()) {
         if (CONTRACT_IGNORE.has(k)) continue;
         const v = p[k];
-        if (v === null || typeof v === 'object') continue; // params scalaires seulement
+        if (v === null) continue;
+        // Les tableaux de scalaires comptent dans le contrat : sur calc-mental,
+        // `range` et `operands` sont justement ce qui distingue deux exercices
+        // (×10/100/1000 contre les tables de 11 à 15). Les ignorer produisait
+        // de faux « contrat-identique » qui noyaient les vrais.
+        if (Array.isArray(v)) {
+            if (v.some((item) => item !== null && typeof item === 'object')) continue;
+            norm[k] = v;
+            continue;
+        }
+        if (typeof v === 'object') continue; // objets imbriqués : hors contrat
         norm[k] = v;
     }
     return ex.engine + '|' + JSON.stringify(norm);

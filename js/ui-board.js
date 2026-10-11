@@ -109,6 +109,10 @@ const UIBoard = {
                 return this.renderAngleMeasure(problem);
             case 'construction-report':
                 return this.renderConstructionReport(problem);
+            case 'number-line-place':
+                return this.renderNumberLinePlace(problem);
+            case 'number-line-frame':
+                return this.renderNumberLineFrame(problem);
             default:
                 return `<div class="board-card"><p>Moteur interactif prêt, activité non reconnue.</p></div>`;
         }
@@ -337,7 +341,15 @@ const UIBoard = {
             />
         `).join('');
 
-        const markers = (Array.isArray(drawing.markers) ? drawing.markers : []).map((marker) => {
+        // drawing.texts : étiquettes posées sur le dessin (nom d'une ville, d'un composant).
+        const texts = (Array.isArray(drawing.texts) ? drawing.texts : []).map((item) => `
+            <text x="${toX(item.x)}" y="${toY(item.y)}" class="board-map-label" text-anchor="${item.anchor === 'end' ? 'end' : (item.anchor === 'middle' ? 'middle' : 'start')}">${this._escape(item.text)}</text>
+        `).join('');
+
+        // drawing.markersOnReveal : le codage d'angle droit marque justement les sommets à toucher ;
+        // affiché d'emblée il dessine la réponse. Il n'apparaît alors qu'à la correction.
+        const showMarkers = !drawing.markersOnReveal || !!data.revealed;
+        const markers = (showMarkers ? (Array.isArray(drawing.markers) ? drawing.markers : []) : []).map((marker) => {
             if (marker.type !== 'right-angle') return '';
             const x = toX(marker.x);
             const y = toY(marker.y);
@@ -375,11 +387,28 @@ const UIBoard = {
                         ${lines}
                         ${circles}
                         ${markers}
+                        ${texts}
                         ${hotspots}
                     </svg>
                 </div>
             </div>
         `;
+    },
+
+    /** Petit dessin d'une figure du classement (contour en currentColor : lisible en thèmes clair et sombre). */
+    _shapeIcon(shape) {
+        const formes = {
+            carre: '<rect x="11" y="6" width="26" height="26" />',
+            rectangle: '<rect x="5" y="9" width="38" height="20" />',
+            losange: '<polygon points="24,3 44,19 24,35 4,19" />',
+            cercle: '<circle cx="24" cy="19" r="15" />',
+            triangle: '<polygon points="6,33 41,29 16,5" />',
+            'triangle-equilateral': '<polygon points="24,5 42,34 6,34" />',
+            'triangle-isocele': '<polygon points="24,3 36,35 12,35" />'
+        };
+        const dessin = formes[String(shape || '')];
+        if (!dessin) return '';
+        return `<svg class="board-shape-icon" viewBox="0 0 48 38" aria-hidden="true" focusable="false">${dessin}</svg>`;
     },
 
     renderShapeClassify(problem) {
@@ -400,6 +429,7 @@ const UIBoard = {
                 data-val="board-select-figure:${SecurityUtils.sanitizeId(figure.id)}"
                 ${revealed ? 'disabled' : ''}
             >
+                ${this._shapeIcon(figure.shape)}
                 <span class="board-chip-label">${this._escape(figure.label || figure.shape || figure.id)}</span>
             </button>
         `).join('');
@@ -460,6 +490,12 @@ const UIBoard = {
         const stepX = (size - margin * 2) / Math.max(cols - 1, 1);
         const stepY = (size - margin * 2) / Math.max(rows - 1, 1);
 
+        // board.outline : contour (ex. la France) dessiné derrière la grille, en coordonnées de la grille.
+        const contour = Array.isArray(board.outline) ? board.outline : [];
+        const outline = contour.length >= 3
+            ? `<polygon class="board-outline" points="${contour.map((p) => `${margin + Number(p[0]) * stepX},${margin + Number(p[1]) * stepY}`).join(' ')}" />`
+            : '';
+
         const verticals = Array.from({ length: cols }, (_, index) => {
             const x = margin + index * stepX;
             return `<line x1="${x}" y1="${margin}" x2="${x}" y2="${size - margin}" class="board-grid-line" />`;
@@ -469,6 +505,15 @@ const UIBoard = {
             const y = margin + index * stepY;
             return `<line x1="${margin}" y1="${y}" x2="${size - margin}" y2="${y}" class="board-grid-line" />`;
         }).join('');
+
+        // Numéros des axes, à partir de 0 comme les cibles des banques : le coin
+        // en haut à gauche est (0 ; 0). `board.axisLabels: false` les masque.
+        const axisLabels = board.axisLabels === false ? '' : [
+            ...Array.from({ length: cols }, (_, index) =>
+                `<text x="${margin + index * stepX}" y="${margin - 10}" class="board-axis-label" text-anchor="middle">${index}</text>`),
+            ...Array.from({ length: rows }, (_, index) =>
+                `<text x="${margin - 11}" y="${margin + index * stepY + 4}" class="board-axis-label" text-anchor="end">${index}</text>`)
+        ].join('');
 
         const points = [];
         for (let y = 0; y < rows; y++) {
@@ -499,8 +544,10 @@ const UIBoard = {
                 </div>
                 <div class="board-panel">
                     <svg class="board-svg" viewBox="0 0 ${size} ${size}" role="img" aria-label="Quadrillage interactif">
+                        ${outline}
                         ${verticals}
                         ${horizontals}
+                        ${axisLabels}
                         ${points.join('')}
                     </svg>
                 </div>
@@ -612,6 +659,146 @@ const UIBoard = {
         `;
     },
 
+    /**
+     * Rendu commun aux 2 sous-types number-line : une ligne horizontale avec
+     * tickCount graduations régulières, seules celles listées dans
+     * board.labels affichent leur valeur (évite de surcharger visuellement
+     * une ligne à beaucoup de graduations). Les positions cliquables sont
+     * les graduations elles-mêmes (nœuds discrets), jamais un point libre le
+     * long de la ligne — même principe que renderPointOnGrid.
+     *
+     * Deux modes pour board.labels selon sa longueur :
+     * - longueur === tickCount : labels positionnels, affichés tels quels à
+     *   chaque graduation (texte libre, ex. fractions "1/8", "2/8"...) — le
+     *   seul mode qui permette d'afficher un texte non numérique, car aucune
+     *   comparaison de valeur n'est possible sur une fraction.
+     * - longueur différente : ancien mode « sous-ensemble de valeurs » —
+     *   labels est une liste de valeurs numériques à faire correspondre à la
+     *   valeur réelle (min + pas régulier) de chaque graduation ; seules les
+     *   graduations correspondantes affichent leur valeur calculée.
+     */
+    _renderNumberLineTicks(board, width, margin, y) {
+        const tickCount = Math.max(2, Number(board.tickCount) || 2);
+        const min = Number(board.min) || 0;
+        const max = Number.isFinite(Number(board.max)) ? Number(board.max) : min + tickCount - 1;
+        const rawLabels = Array.isArray(board.labels) ? board.labels : [];
+        const positional = rawLabels.length === tickCount;
+        const numericLabels = positional ? [] : rawLabels.map((value) => Number(value));
+        const step = (width - margin * 2) / (tickCount - 1);
+        const ticks = [];
+        for (let index = 0; index < tickCount; index++) {
+            const x = margin + index * step;
+            const realValue = min + (index * (max - min)) / (tickCount - 1);
+            const showLabel = positional || numericLabels.some((value) => Math.abs(value - realValue) < 1e-6);
+            // Entiers à partir de 1 000 : « 10000 » s'écrit « 10 000 » (espace insécable)
+            const brut = positional ? rawLabels[index] : realValue;
+            const displayLabel = (typeof brut === 'number' && Number.isInteger(brut) && Math.abs(brut) >= 1000)
+                ? String(brut).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+                : String(brut);
+            ticks.push({ index, x, y, realValue, showLabel, displayLabel });
+        }
+        // Étiquettes qui se chevauchent : à 320 unités de large, 11 graduations laissent ~27 unités
+        // à chacune, un « 10 000 » en gras en demande ~47 (les étiquettes se touchaient et se lisaient
+        // « 10002000300040005000 »). On n'écrit alors qu'une étiquette sur deux, ou sur trois...
+        const labelled = ticks.filter((t) => t.showLabel);
+        if (labelled.length > 1) {
+            const widest = Math.max(...labelled.map((t) => Array.from(t.displayLabel).length * 7.8));
+            const gap = Math.min(...labelled.slice(1).map((t, k) => t.x - labelled[k].x));
+            const skip = Math.max(1, Math.ceil(widest / (gap * 0.95)));
+            if (skip > 1) labelled.forEach((t, k) => { if (k % skip !== 0) t.showLabel = false; });
+        }
+        return { ticks, y, step };
+    },
+
+    renderNumberLinePlace(problem) {
+        const data = problem.data || {};
+        const board = data.board || { min: 0, max: 10, tickCount: 11 };
+        const task = data.task || {};
+        const tickIndex = Number.isInteger(data.userState?.tickIndex) ? data.userState.tickIndex : null;
+        const revealed = !!data.revealed;
+        const width = 320;
+        const height = 70;
+        const margin = 24;
+        const { ticks, y } = this._renderNumberLineTicks(board, width, margin, height / 2);
+
+        const line = `<line x1="${margin}" y1="${y}" x2="${width - margin}" y2="${y}" class="board-numberline-line" />`;
+        const nodes = ticks.map(({ index, x, showLabel, displayLabel }) => {
+            const isActive = tickIndex === index;
+            const interactiveAttrs = revealed ? '' : `data-val="board-place-tick:${index}" role="button" tabindex="0" aria-label="Graduation ${this._escape(displayLabel)}" aria-pressed="${isActive}"`;
+            return `
+                <g class="board-grid-node ${isActive ? 'is-active' : ''}" ${interactiveAttrs}>
+                    <circle cx="${x}" cy="${y}" r="${isActive ? 12 : 10}" class="board-grid-hit"></circle>
+                    <circle cx="${x}" cy="${y}" r="${isActive ? 6 : 3.5}" class="board-grid-dot"></circle>
+                    ${showLabel ? `<text x="${x}" y="${y + 26}" class="board-numberline-label" text-anchor="middle">${this._escape(displayLabel)}</text>` : ''}
+                </g>
+            `;
+        }).join('');
+
+        return `
+            <div class="board-card">
+                <div class="board-toolbar">
+                    <div class="board-status">${revealed
+                        ? `${this._escape(task.label || 'Nombre')} : ${tickIndex !== null ? this._escape(ticks[tickIndex]?.displayLabel ?? '') : 'non placé'}`
+                        : (tickIndex !== null ? 'Point placé — vérifie bien avant de valider !' : 'Touche une graduation de la ligne.')}</div>
+                    <div class="board-toolbar-actions">
+                        <button type="button" class="btn board-action" data-val="board-reset" ${revealed ? 'disabled' : ''}>Réinitialiser</button>
+                        <button type="button" class="btn btn--success board-action" data-val="board-submit" ${revealed ? 'disabled' : ''}>Valider</button>
+                    </div>
+                </div>
+                <div class="board-panel">
+                    <svg class="board-svg board-svg--numberline" viewBox="0 0 ${width} ${height}" role="img" aria-label="Ligne numérique graduée">
+                        ${line}
+                        ${nodes}
+                    </svg>
+                </div>
+            </div>
+        `;
+    },
+
+    renderNumberLineFrame(problem) {
+        const data = problem.data || {};
+        const board = data.board || { min: 0, max: 100, tickCount: 11 };
+        const tickIndices = Array.isArray(data.userState?.tickIndices) ? data.userState.tickIndices : [];
+        const revealed = !!data.revealed;
+        const width = 320;
+        const height = 70;
+        const margin = 24;
+        const { ticks, y } = this._renderNumberLineTicks(board, width, margin, height / 2);
+
+        const line = `<line x1="${margin}" y1="${y}" x2="${width - margin}" y2="${y}" class="board-numberline-line" />`;
+        const nodes = ticks.map(({ index, x, showLabel, displayLabel }) => {
+            const isActive = tickIndices.includes(index);
+            const interactiveAttrs = revealed ? '' : `data-val="board-toggle-tick:${index}" role="button" tabindex="0" aria-label="Graduation ${this._escape(displayLabel)}" aria-pressed="${isActive}"`;
+            return `
+                <g class="board-grid-node ${isActive ? 'is-active' : ''}" ${interactiveAttrs}>
+                    <circle cx="${x}" cy="${y}" r="${isActive ? 12 : 10}" class="board-grid-hit"></circle>
+                    <circle cx="${x}" cy="${y}" r="${isActive ? 6 : 3.5}" class="board-grid-dot"></circle>
+                    ${showLabel ? `<text x="${x}" y="${y + 26}" class="board-numberline-label" text-anchor="middle">${this._escape(displayLabel)}</text>` : ''}
+                </g>
+            `;
+        }).join('');
+
+        return `
+            <div class="board-card">
+                <div class="board-toolbar">
+                    <div class="board-status">${revealed
+                        ? `Bornes choisies : ${tickIndices.length ? tickIndices.map((i) => this._escape(ticks[i]?.displayLabel ?? '')).join(' et ') : 'aucune'}`
+                        : `Touche les 2 graduations qui encadrent le nombre (${tickIndices.length}/2 choisies).`}</div>
+                    <div class="board-toolbar-actions">
+                        <button type="button" class="btn board-action" data-val="board-reset" ${revealed ? 'disabled' : ''}>Réinitialiser</button>
+                        <button type="button" class="btn btn--success board-action" data-val="board-submit" ${revealed || tickIndices.length !== 2 ? 'disabled' : ''}>Valider</button>
+                    </div>
+                </div>
+                <div class="board-panel">
+                    <svg class="board-svg board-svg--numberline" viewBox="0 0 ${width} ${height}" role="img" aria-label="Ligne numérique graduée">
+                        ${line}
+                        ${nodes}
+                    </svg>
+                </div>
+            </div>
+        `;
+    },
+
     renderSymmetryComplete(problem) {
         const data = problem.data || {};
         const board = data.board || { width: 10, height: 8 };
@@ -635,9 +822,12 @@ const UIBoard = {
             return `<line x1="${margin}" y1="${y}" x2="${size - margin}" y2="${y}" class="board-grid-line" />`;
         }).join('');
 
-        const axisLine = axis && axis.type === 'vertical'
-            ? `<line x1="${margin + Number(axis.x || 0) * stepX}" y1="${margin}" x2="${margin + Number(axis.x || 0) * stepX}" y2="${size - margin}" class="board-axis-line" />`
-            : '';
+        let axisLine = '';
+        if (axis && axis.type === 'vertical') {
+            axisLine = `<line x1="${margin + Number(axis.x || 0) * stepX}" y1="${margin}" x2="${margin + Number(axis.x || 0) * stepX}" y2="${size - margin}" class="board-axis-line" />`;
+        } else if (axis && axis.type === 'horizontal') {
+            axisLine = `<line x1="${margin}" y1="${margin + Number(axis.y || 0) * stepY}" x2="${size - margin}" y2="${margin + Number(axis.y || 0) * stepY}" class="board-axis-line" />`;
+        }
 
         const toKey = (point) => `${Number(point[0])},${Number(point[1])}`;
         const placedSet = new Set(placedPoints.map(toKey));

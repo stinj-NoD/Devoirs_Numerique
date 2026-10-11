@@ -84,6 +84,15 @@ const EnginesDocumentary = {
 
         const shuffled = shuffle(units.map((label, index) => ({ id: index, label })));
 
+        // `variantes` : autres phrases tout aussi correctes (ex. « a remis solennellement » / « a
+        // solennellement remis »). Une variante n'est gardée que si elle est faite des MÊMES mots :
+        // sinon une faute de frappe dans les données accepterait n'importe quoi.
+        const triMots = (liste) => liste.slice().sort().join('\u0001');
+        const variantes = (!isStorySequence && Array.isArray(item.variantes) ? item.variantes : [])
+            .filter((s) => typeof s === 'string')
+            .map((s) => s.trim().split(/\s+/))
+            .filter((mots) => mots.length === units.length && triMots(mots) === triMots(units));
+
         return {
             question: SecurityUtils.escapeHtml(item.instruction || (isStorySequence
                 ? "Remets les phrases dans le bon ordre pour reconstituer le récit."
@@ -97,6 +106,7 @@ const EnginesDocumentary = {
                 words: shuffled,
                 picked: [],
                 sentence: units,
+                variantes,
                 isStorySequence
             }
         };
@@ -132,12 +142,24 @@ const EnginesDocumentary = {
             const periodIds = [...new Set(items.map((item) => item.period).filter(Boolean))];
             const byYearThenOrder = (a, b) => (a.year - b.year) || ((a.order || 0) - (b.order || 0));
             const filteredItems = items.filter(matchesDifficulty);
+            // Quatre repères tirés dans le vivier, sans reposer deux fois le même quatuor dans une séance.
+            const tirerQuatre = (pool) => {
+                const signature = (liste) => liste.map((item) => item.id).sort().join('|');
+                for (let essai = 0; essai < 12; essai++) {
+                    const candidat = shuffle(pool).slice(0, 4);
+                    if (!(p.usedSet instanceof Set) || !p.usedSet.has(signature(candidat))) {
+                        if (p.usedSet instanceof Set) p.usedSet.add(signature(candidat));
+                        return candidat;
+                    }
+                }
+                return shuffle(pool).slice(0, 4);
+            };
             if (filteredItems.length >= 4) {
-                orderItems = shuffle(filteredItems).slice(0, 4).sort(byYearThenOrder);
+                orderItems = tirerQuatre(filteredItems).sort(byYearThenOrder);
             } else if (difficultyFilter.length > 0 && periodIds.length === 1) {
                 const periodItems = events.filter((event) => event.period === periodIds[0] && matchesDifficulty(event));
                 if (periodItems.length >= 4) {
-                    orderItems = shuffle(periodItems).slice(0, 4).sort(byYearThenOrder);
+                    orderItems = tirerQuatre(periodItems).sort(byYearThenOrder);
                 }
             }
 
@@ -197,7 +219,10 @@ const EnginesDocumentary = {
                 ...gridYears
             ])].filter((year) => year !== target.year);
 
-            const distractors = shuffle(candidatePool)
+            // Des dates à deux ans ou moins de la bonne (1969 et 1970) rendaient le choix arbitraire : on
+            // les écarte tant qu'il reste assez de dates plus éloignées.
+            const loin = candidatePool.filter((year) => Math.abs(year - target.year) > 2);
+            const distractors = shuffle(loin.length >= choiceCount - 1 ? loin : candidatePool)
                 .slice(0, Math.max(0, choiceCount - 1));
             const candidateMarkers = [...distractors, target.year].sort((a, b) => a - b);
             const targetYearText = Math.abs(Number(target.year)).toString();

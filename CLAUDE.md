@@ -28,6 +28,13 @@ node scripts/validate-maps.js       # à lancer après tout ajout de carte map-l
 node scripts/check-lesson-quiz.js   # à lancer après TOUTE modification d'un bloc `check` : couverture des quiz + les 5 règles éditoriales (docs/lesson-guidelines.md)
 ```
 
+**Filet anti-régression sur la totalité du contenu (`scripts/smoke-exercises.js`)** : démarre **chaque** exercice des 5 niveaux dans un vrai navigateur, génère plusieurs questions par exercice et signale tout ce qui rend un exercice injouable — sortie en `failSafeExit`, problème rejeté par les validateurs runtime, réponse vide, ou bonne réponse absente de ses propres `choices`. C'est le seul contrôle qui voie ces défauts : les validateurs hors-runtime vérifient la *forme* des données, pas ce qu'un moteur produit réellement sur un tirage donné. Il a trouvé 2 exercices d'angles droits injouables (énoncé « touche tous les angles droits » sur un parallélogramme qui n'en a aucun) passés au travers de toute la chaîne existante.
+```bash
+export NODE_PATH="C:/Users/fayne/AppData/Local/npm-cache/_npx/48b1ca104c3549f4/node_modules"
+node scripts/smoke-exercises.js     # démarre son propre serveur ; attendu : SMOKE_EXERCISES_OK
+```
+Playwright est emprunté au cache npx, **jamais** ajouté en dépendance du projet (même convention que la compétence `verify`).
+
 **Anti-doublon et référencement (`scripts/build-content-index.js`)** : `--check` échoue si un `id` d'exercice/leçon est dupliqué (les validateurs historiques ne vérifient l'unicité que *par fichier* ; or un `id` est une clé de record côté utilisateur), si le registre des moteurs (`data/engine-registry.json`) diverge de `Validators.knownEngines`/`$knownEngines`, si les routes de validation de dataset (`board-interactive`/`matching`/`word-order`/`cloze-fill-in`…) divergent entre `js/validators.js` (`validateExerciseData`) et `scripts/validate-data.ps1` (boucle `$script:ExerciseRefs`), si les énumérations imbriquées (types `board-interactive`, subtypes/modes `conversion`) divergent entre ces deux mêmes fichiers, ou si `CONTENT_INDEX.json` est périmé. Ce garde-fou de routes existe parce qu'un tel écart a déjà cassé au clic les exercices `word-order` narratifs en prod malgré un `validate-data.ps1` vert. Il rapporte en **avertissement** (non bloquant) les doublons « mous » légitimes du contenu historique (variantes bonus, banque étalée sur plusieurs exercices) — leur but est de rendre visibles les viviers `dataFile::category` déjà utilisés pour ne pas **en créer de nouveaux**. `CONTENT_INDEX.json` (racine, généré) et `data/engine-registry.json` sont de l'**outillage** exclu du bundle runtime (voir `regenerate-data-bundle.ps1`) ; le registre est documenté dans `docs/engine-registry.md`.
 
 **Vérification de syntaxe rapide sur un fichier JS modifié :**
@@ -62,7 +69,7 @@ En dev servi en local (`localhost`/`127.0.0.1`/`192.168.*`), `js/bootstrap.js` *
 Modules `engines-*.js` :
 - `engines-core.js` : utils partagés (`rnd`, `pick`, `pickUnused` — tirage sans répétition dans une session, `shuffle`, romanisation)
 - `engines-math.js`, `engines-french.js`, `engines-documentary.js` : générateurs par domaine
-- `engines-board.js` : activités interactives non-QCM (tap-features, shape-classify, point-on-grid, symmetry-complete, fraction-build, map-locate, memory-match, angle-classify, angle-measure, construction-report) — rendues par `ui-board.js`
+- `engines-board.js` : activités interactives non-QCM (tap-features, shape-classify, point-on-grid, symmetry-complete, fraction-build, map-locate, memory-match, angle-classify, angle-measure, construction-report, number-line-place, number-line-frame) — rendues par `ui-board.js`
 
 ### Structure du contenu (`data/`)
 
@@ -96,6 +103,25 @@ Pas de backend, donc la sécurité porte sur la robustesse des données et l'abs
 - `choices` dans un exercice à choix doit toujours contenir la valeur `answer`.
 - Préférer plusieurs petits lots de contenu cohérents à une grosse vague instable ; épaissir une catégorie trop faible avant d'ouvrir une nouvelle surface visible dessus.
 - Toute évolution significative doit être répercutée dans la doc concernée (`README.md`, `technicalaspect.md`, `SECURITY.md`, `docs/curriculum-delta-cp-cm2.md`).
+
+## Agents : deux au plus en même temps
+
+**Au plus 2 agents tournent en même temps, délégations comprises** (`curriculum-lead` qui confie un lot à `exercise-author`, cela fait 2). La règle vaut pour les audits (`curriculum-auditor`, `content-quality-auditor`), pour la production (`exercise-author`, `curriculum-lead`) et pour tout autre agent. *Limite passée de 1 à 2 le 2026-09-28, à la demande de l'utilisateur.*
+
+- **Pas de déploiement en masse sur tous les niveaux sans contrôle réel.** Le cycle est : rapport de l'agent → vérification de ses affirmations **dans les données** (jamais sur parole) → commit → lot suivant. Une demande du type « rafraîchis les quatre autres audits » se traite par lots de 2 au plus, jamais d'un seul coup.
+- **Au-delà de 2 agents simultanés, une validation explicite de l'utilisateur est obligatoire**, et elle ne peut pas être contournée par le mode auto ni par `bypassPermissions`. Ce n'est pas qu'une consigne, c'est appliqué par `.claude/hooks/agent-concurrency-guard.js`, branché dans `.claude/settings.json` :
+  - `PreToolUse` sur `Agent` : **refus** (`deny`) dès que 2 agents tournent déjà. Un `deny` de hook est respecté dans tous les modes, contrairement à un `ask`, que le classifieur du mode auto peut trancher seul ;
+  - seul l'utilisateur lève le refus, en écrivant **`#agents-simultanes-ok`** dans son propre message (hook `UserPromptSubmit`) : autorisation valable 10 minutes. **`#agents-reinitialiser`** vide le registre si un agent est mort sans signal de fin (sinon, péremption automatique au bout de 3 h) ;
+  - le registre des agents en cours est tenu par `SubagentStart` / `SubagentStop` dans `.claude/.etat-agents/` (ignoré par git, journal dans `journal.log`). Un hook anti-falsification refuse tout outil d'écriture ou toute commande shell qui y touche : l'assistant ne peut pas se fabriquer une autorisation.
+- **Ne jamais contourner, désactiver ou modifier ce garde-fou** (script, `settings.json`, `disableAllHooks`) sans demande explicite de l'utilisateur. Face au refus : attendre la fin d'un agent en cours, ou expliquer à l'utilisateur pourquoi davantage d'agents simultanés seraient nécessaires et le laisser décider.
+- **Pourquoi** : garder un contrôle réel. L'expérience l'a montré deux fois : 8 puis 5 agents lancés ensemble sont tous tombés sur la limite de session, et une partie du travail a été perdue. Exiger aussi de chaque agent qu'il **écrive son livrable tôt**, quitte à l'affiner ensuite.
+
+## Attente d'une réponse de l'utilisateur
+
+**Quand le traitement est fait et qu'une réponse de l'utilisateur est attendue, on s'arrête jusqu'à son retour. Point.** On le dit une seule fois (ce qui est fait, ce qui est attendu, les options), puis plus aucun message : pas de relance, pas de « j'attends toujours », pas de reformulation.
+
+- Aucun hook `Stop` (ni objectif `/goal`) ne doit forcer la reprise quand la suite dépend d'une décision de l'utilisateur. Un tel mécanisme a produit une trentaine de messages identiques en boucle le 2026-09-28. Il n'y a volontairement aucun hook `Stop` dans `.claude/settings.json`, et il ne faut pas en ajouter.
+- Les hooks du projet (garde-fou des agents, voir ci-dessus) ne relancent jamais la conversation : ils ne font que refuser ou enregistrer.
 
 ## Documentation existante (à consulter selon le sujet touché)
 

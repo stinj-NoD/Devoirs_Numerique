@@ -34,6 +34,19 @@ const EnginesBoard = {
         return [...new Set(matchedPairIds)].map(String).sort().join(',');
     },
 
+    canonicalizeTick(index) {
+        if (!Number.isFinite(Number(index))) return '';
+        return `${Number(index)}`;
+    },
+
+    canonicalizeTicks(indices) {
+        if (!Array.isArray(indices)) return '';
+        return [...new Set(indices.map((value) => Number(value)))]
+            .filter((value) => Number.isFinite(value))
+            .sort((a, b) => a - b)
+            .join(',');
+    },
+
     run(p = {}) {
         // fraction-build est généré procéduralement (comme math-input) plutôt
         // que pioché dans un fichier de données : il n'y a rien à varier
@@ -66,6 +79,10 @@ const EnginesBoard = {
                 return this.angleMeasure(entry);
             case 'construction-report':
                 return this.constructionReport(entry);
+            case 'number-line-place':
+                return this.numberLinePlace(entry);
+            case 'number-line-frame':
+                return this.numberLineFrame(entry);
             default:
                 return Engines.fallback("Type d'activité interactive inconnu");
         }
@@ -235,6 +252,49 @@ const EnginesBoard = {
                 tolerance: Number.isFinite(Number(entry.tolerance)) ? Number(entry.tolerance) : 0,
                 userState: {
                     point: null
+                }
+            }
+        };
+    },
+
+    // La ligne numérique n'accepte que des graduations discrètes indexées
+    // (jamais un placement continu avec marge d'erreur) : c'est le seul mode
+    // de validation réellement câblé par App.validateAnswer (égalité stricte
+    // de chaîne canonique). Même principe que point-on-grid, transposé en 1D.
+    numberLinePlace(entry) {
+        const board = entry.board || { min: 0, max: 10, tickCount: 11 };
+        const targetIndex = Number.isFinite(Number(entry.task?.targetIndex)) ? Number(entry.task.targetIndex) : null;
+        return {
+            question: SecurityUtils.escapeHtml(entry.prompt || "Place le nombre sur la ligne."),
+            answer: this.canonicalizeTick(targetIndex),
+            inputType: 'board',
+            isVisual: true,
+            visualType: 'geometry-board',
+            data: {
+                boardKind: 'number-line-place',
+                board,
+                task: entry.task || null,
+                userState: {
+                    tickIndex: null
+                }
+            }
+        };
+    },
+
+    numberLineFrame(entry) {
+        const board = entry.board || { min: 0, max: 100, tickCount: 11 };
+        const targetIndices = Array.isArray(entry.targetIndices) ? entry.targetIndices : [];
+        return {
+            question: SecurityUtils.escapeHtml(entry.prompt || "Encadre ce nombre entre deux graduations."),
+            answer: this.canonicalizeTicks(targetIndices),
+            inputType: 'board',
+            isVisual: true,
+            visualType: 'geometry-board',
+            data: {
+                boardKind: 'number-line-frame',
+                board,
+                userState: {
+                    tickIndices: []
                 }
             }
         };

@@ -1329,7 +1329,16 @@ const App = {
         { version: 1, icon: '🖼️', text: "Tes cartes en avatar : choisis ta préférée avec le bouton ✏️ de ton profil." },
         { version: 1, icon: '🧠', text: "Le Grand Quiz : 900 questions de culture générale — défie toute ta famille !" },
         { version: 1, icon: '📚', text: "Des centaines de nouvelles questions et leçons dans toutes les matières." },
-        { version: 1, icon: '✍️', text: "En CM : le passé simple et l'atelier d'écriture font leur entrée !" }
+        { version: 1, icon: '✍️', text: "En CM : le passé simple et l'atelier d'écriture font leur entrée !" },
+        { version: 2, icon: '📏', text: "La ligne graduée : place un nombre ou une fraction au bon endroit, du CP au CM1." },
+        { version: 2, icon: '🔢', text: "Les opérations à virgule : pose-les comme les grands, virgules bien alignées." },
+        { version: 2, icon: '🎲', text: "En CM2 : les probabilités, les algorithmes et le nombre manquant arrivent." },
+        { version: 2, icon: '➗', text: "En CE2 : additions, soustractions et multiplications posées, enfin au complet." },
+        { version: 2, icon: '🗺️', text: "La carte des régions de France arrive en CE1 et en CE2 : à toi de les retrouver !" },
+        { version: 2, icon: '🤝', text: "En EMC : stéréotypes et préjugés au CE1, la République et le maire au CE2." },
+        { version: 2, icon: '💻', text: "En CM : bien se comporter en ligne, et comprendre les traces qu'on y laisse." },
+        { version: 3, icon: '🔟', text: "En CM1 : les grands nombres jusqu'aux millions, la soustraction de fractions et la symétrie, chacun avec sa leçon." },
+        { version: 4, icon: '➕', text: "En CE1 : poser une addition ou une soustraction, et les signes < = > ont enfin leur leçon. Le quadrillage affiche ses numéros !" }
     ],
 
     get latestNewsVersion() {
@@ -2393,7 +2402,9 @@ const App = {
                 'fraction-build': { selectedSlices: [] },
                 'angle-classify': { selectedId: null },
                 'angle-measure': { selectedDegrees: null },
-                'construction-report': { selectedIndex: null }
+                'construction-report': { selectedIndex: null },
+                'number-line-place': { tickIndex: null },
+                'number-line-frame': { tickIndices: [] }
             };
             if (resetStates[d.boardKind]) d.userState = resetStates[d.boardKind];
             d.revealed = false;
@@ -2422,6 +2433,11 @@ const App = {
                 const index = d.userState?.selectedIndex;
                 const point = Number.isInteger(index) && Array.isArray(d.candidates) ? d.candidates[index] : null;
                 this.state.userInput = EnginesBoard.canonicalizePoint(point);
+            } else if (d.boardKind === 'number-line-place') {
+                this.state.userInput = EnginesBoard.canonicalizeTick(d.userState?.tickIndex);
+            } else if (d.boardKind === 'number-line-frame') {
+                const indices = Array.isArray(d.userState?.tickIndices) ? d.userState.tickIndices : [];
+                this.state.userInput = EnginesBoard.canonicalizeTicks(indices);
             }
             d.revealed = true;
             this.refreshUI();
@@ -2521,6 +2537,36 @@ const App = {
             if (idx > -1) d.userState.placedPoints.splice(idx, 1);
             else d.userState.placedPoints.push([x, y]);
             this.state.userInput = EnginesBoard.canonicalizePoints(d.userState.placedPoints);
+            this.refreshUI();
+            return;
+        }
+
+        if (val.startsWith('board-place-tick:') && d.boardKind === 'number-line-place') {
+            const index = parseInt(val.replace('board-place-tick:', ''), 10);
+            if (isNaN(index)) return;
+            if (!d.userState) d.userState = { tickIndex: null };
+            d.userState.tickIndex = index;
+            this.state.userInput = EnginesBoard.canonicalizeTick(index);
+            this.refreshUI();
+            return;
+        }
+
+        if (val.startsWith('board-toggle-tick:') && d.boardKind === 'number-line-frame') {
+            const index = parseInt(val.replace('board-toggle-tick:', ''), 10);
+            if (isNaN(index)) return;
+            if (!d.userState) d.userState = { tickIndices: [] };
+            if (!Array.isArray(d.userState.tickIndices)) d.userState.tickIndices = [];
+            const existingIdx = d.userState.tickIndices.indexOf(index);
+            if (existingIdx > -1) {
+                d.userState.tickIndices.splice(existingIdx, 1);
+            } else {
+                // Une seule paire de bornes à la fois : un 3e clic remplace la
+                // plus ancienne sélection plutôt que d'être ignoré ou de
+                // bloquer, pour rester fluide au tactile.
+                if (d.userState.tickIndices.length >= 2) d.userState.tickIndices.shift();
+                d.userState.tickIndices.push(index);
+            }
+            this.state.userInput = EnginesBoard.canonicalizeTicks(d.userState.tickIndices);
             this.refreshUI();
             return;
         }
@@ -2636,18 +2682,45 @@ const App = {
         let isCorrect = false;
         if (hasAnswered) {
             isCorrect = (uInput === tAnswer);
+            // Remise en ordre : la réponse est une suite de POSITIONS (« 0,1,2,3 »).
+            // Quand une phrase contient deux mots identiques (« le chien de la
+            // voisine de Léa »), permuter les deux « de » donne exactement la même
+            // phrase, mais une autre suite de positions : elle était comptée fausse.
+            // On compare donc les mots eux-mêmes, en plus des positions. Cela
+            // n'accepte jamais plus qu'une phrase identique mot pour mot.
+            if (!isCorrect && problemData.visualType === 'wordOrder' && Array.isArray(problemData.data?.sentence) && String(userInput || '').trim() !== '') {
+                const unites = problemData.data.sentence;
+                const enMots = (suite) => String(suite).split(',').map((i) => unites[Number(i)]);
+                const saisis = enMots(userInput);
+                const attendus = enMots(targetAnswer);
+                const memesMots = (liste) => saisis.length === liste.length
+                    && saisis.every((mot, i) => mot !== undefined && mot === liste[i]);
+                // + les variantes déclarées dans les données (adverbe avant ou après le participe...)
+                isCorrect = memesMots(attendus)
+                    || (Array.isArray(problemData.data.variantes) && problemData.data.variantes.some(memesMots));
+            }
             // Mots composés (spelling/audioSpelling) : le tiret/espace n'est
             // pas la compétence testée (c'est l'orthographe des lettres) —
             // on accepte "sous-marin", "sous marin" et "sousmarin" comme
             // équivalents, dans les deux sens (saisie et réponse attendue).
+            // Même logique pour « œ » : ce sont les lettres o et e, liées par
+            // la typographie. Un clavier physique AZERTY n'a pas de touche œ,
+            // donc « oeil » est accepté pour « œil », et inversement.
             if (!isCorrect && ['spelling', 'audioSpelling'].includes(problemData.visualType)) {
-                const collapse = s => s.replace(/[-\s]+/g, " ").trim();
-                const strip = s => s.replace(/[-\s]/g, "");
+                const lig = s => s.replace(/œ/g, "oe").replace(/æ/g, "ae");
+                const collapse = s => lig(s).replace(/[-\s]+/g, " ").trim();
+                const strip = s => lig(s).replace(/[-\s]/g, "");
                 isCorrect = collapse(uInput) === collapse(tAnswer) || strip(uInput) === strip(tAnswer);
             }
             // Tolérance horloge : accepte "1h30" écrit "130" sans le zéro initial (heures 1-9)
             if (!isCorrect && problemData.visualType === 'clock' && /^\d{3}$/.test(uInput) && /^\d{4}$/.test(tAnswer)) {
                 isCorrect = ("0" + uInput) === tAnswer;
+            }
+            // Réponse décimale : « 157 » vaut « 157,0 » et « 12,4 » vaut « 12,40 » (la leçon le dit :
+            // « 12,4 et 12,40 valent la même chose »). La comparaison de chaînes refusait un nombre
+            // juste dès que la réponse attendue finissait par un zéro (15 % des additions de dixièmes).
+            if (!isCorrect && /^\d+,\d+$/.test(tAnswer) && /^\d+(?:[.,]\d+)?$/.test(uInput)) {
+                isCorrect = Number(uInput.replace(',', '.')) === Number(tAnswer.replace(',', '.'));
             }
         }
 

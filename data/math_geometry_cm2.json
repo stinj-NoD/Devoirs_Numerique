@@ -470,14 +470,14 @@
                 "explanation": "Juste en dessous de 90° : encore aigu, à un degré près !"
             },
             {
-                "question": "La somme des angles d'un triangle vaut toujours...",
+                "question": "Au rapporteur, un élève lit 130° sur un angle nettement plus petit qu'un angle droit. Que doit-il faire ?",
                 "choices": [
-                    "180°",
-                    "90°",
-                    "360°"
+                    "Lire l'autre graduation : un angle aigu mesure moins de 90°, donc 50°",
+                    "Garder 130° : c'est la graduation la plus grande, donc la plus sûre",
+                    "Écrire 130° et noter que l'angle est obtus, car 130 est grand"
                 ],
-                "answer": "180°",
-                "explanation": "Quel que soit le triangle, ses trois angles totalisent 180° : une règle d'or de la géométrie !"
+                "answer": "Lire l'autre graduation : un angle aigu mesure moins de 90°, donc 50°",
+                "explanation": "Un rapporteur a deux graduations : on lit celle qui part du 0 posé sur un côté. Un angle plus petit qu'un angle droit est aigu, il mesure moins de 90° : 50° (et non 130°)."
             },
             {
                 "question": "Chaque angle d'un carré mesure...",
@@ -487,7 +487,7 @@
                     "180°"
                 ],
                 "answer": "90°",
-                "explanation": "4 angles droits de 90° : au total, 360°, comme tous les quadrilatères !"
+                "explanation": "Un carré a 4 angles droits : chacun mesure 90°, qu'il soit grand ou petit."
             },
             {
                 "question": "Un angle nul mesure...",
@@ -520,14 +520,14 @@
                 "explanation": "L'une sur le 12, l'autre sur le 6 : elles s'alignent en une droite, 180° !"
             },
             {
-                "question": "La bissectrice d'un angle est la demi-droite qui...",
+                "question": "Un angle droit est partagé en deux angles égaux. Combien mesure chacun d'eux ?",
                 "choices": [
-                    "le partage en deux angles égaux",
-                    "le double",
-                    "le mesure"
+                    "45°",
+                    "180°",
+                    "60°"
                 ],
-                "answer": "le partage en deux angles égaux",
-                "explanation": "« Bi-secare » = couper en deux : chaque moitié fait exactement le même angle."
+                "answer": "45°",
+                "explanation": "Partager un angle en deux angles égaux, c'est diviser sa mesure par 2 : 90° ÷ 2 = 45°. Chaque moitié est un angle aigu."
             }
         ],
         "cm2-symetrie-centrale": [
@@ -610,6 +610,66 @@
                 ],
                 "answer": "alignés",
                 "explanation": "Avoir OR = OR' ne suffit pas à garantir une symétrie centrale : il faut aussi que les trois points soient alignés, avec O entre R et R'. C'est cet alignement qui distingue le symétrique centrale d'un simple point à la même distance."
+            },
+            {
+                "question": "Le point A est à 3 cm à droite du centre O, sur la même horizontale. Où se trouve son symétrique A' ?",
+                "choices": [
+                    "À 3 cm à gauche de O, sur la même horizontale",
+                    "À 3 cm à droite de O, un peu plus haut",
+                    "À 6 cm à gauche de O, sur la même horizontale"
+                ],
+                "answer": "À 3 cm à gauche de O, sur la même horizontale",
+                "explanation": "O est le milieu de [AA'] : A' est du côté opposé, à la même distance, soit 3 cm à gauche de O. 6 cm est la longueur AA', pas la distance de A' à O."
+            },
+            {
+                "question": "Quelle lettre majuscule, en caractères d'imprimerie, a un centre de symétrie ?",
+                "choices": [
+                    "N",
+                    "E",
+                    "L"
+                ],
+                "answer": "N",
+                "explanation": "Un demi-tour autour du milieu de la lettre N donne encore un N. Le E a un axe de symétrie, mais pas de centre : un demi-tour le retourne."
+            },
+            {
+                "question": "Un parallélogramme a-t-il un centre de symétrie ?",
+                "choices": [
+                    "Oui : le point où se coupent ses diagonales",
+                    "Non : seuls le carré et le rectangle en ont un",
+                    "Oui : le milieu de son plus grand côté"
+                ],
+                "answer": "Oui : le point où se coupent ses diagonales",
+                "explanation": "Les diagonales d'un parallélogramme se coupent en leur milieu : ce point est son centre de symétrie. Le carré et le rectangle ne sont que des cas particuliers."
+            },
+            {
+                "question": "Un segment [AB] de 7 cm a pour symétrique [A'B'] par rapport à un point O. Combien mesure [A'B'] ?",
+                "choices": [
+                    "7 cm",
+                    "14 cm",
+                    "3,5 cm"
+                ],
+                "answer": "7 cm",
+                "explanation": "La symétrie centrale conserve les longueurs : [A'B'] mesure aussi 7 cm. La figure est retournée, pas agrandie ni réduite."
+            },
+            {
+                "question": "Quel est le symétrique du centre O lui-même ?",
+                "choices": [
+                    "O lui-même",
+                    "Un point situé à côté de O",
+                    "Il n'a pas de symétrique"
+                ],
+                "answer": "O lui-même",
+                "explanation": "Le centre ne bouge pas dans un demi-tour autour de lui : O est son propre symétrique."
+            },
+            {
+                "question": "Dans le carré ABCD de centre O, quel est le symétrique du sommet A par rapport à O ?",
+                "choices": [
+                    "Le sommet C, opposé à A",
+                    "Le sommet B, voisin de A",
+                    "Le milieu du côté [AB]"
+                ],
+                "answer": "Le sommet C, opposé à A",
+                "explanation": "Les diagonales [AC] et [BD] se coupent en O, leur milieu : C est donc le symétrique de A. B est un sommet voisin, pas aligné avec A et O."
             }
         ],
         "cm2-agrandissement-reduction": [
@@ -674,14 +734,84 @@
                 "explanation": "On retrouve le facteur en comparant une dimension avant/après : 20 ÷ 10 = 2 et 8 ÷ 4 = 2, le même facteur pour les deux côtés, ce qui confirme que les proportions sont respectées."
             },
             {
-                "question": "Un plan à l'échelle représente un jardin agrandi ou réduit par rapport à la réalité. Quel terme utilise-t-on en géométrie pour ce type de figure qui garde la même forme mais change de taille ?",
+                "question": "Sur un plan à l'échelle 1/50, une pièce mesure 8 cm de long. Quelle est sa longueur réelle ?",
                 "choices": [
-                    "Une figure à l'échelle, ou figure agrandie/réduite proportionnellement",
-                    "Une figure symétrique",
-                    "Une figure translatée"
+                    "400 cm, soit 4 m",
+                    "40 cm",
+                    "8 m"
                 ],
-                "answer": "Une figure à l'échelle, ou figure agrandie/réduite proportionnellement",
-                "explanation": "Agrandir ou réduire une figure en respectant les proportions produit une figure semblable à l'originale, souvent appelée figure « à l'échelle » : même forme, taille différente. Une figure symétrique est le résultat d'un miroir ou d'un demi-tour, pas d'un changement de taille ; une translation ne fait que déplacer la figure sans la redimensionner."
+                "answer": "400 cm, soit 4 m",
+                "explanation": "À l'échelle 1/50, 1 cm du plan représente 50 cm dans la réalité : 8 × 50 = 400 cm, soit 4 m."
+            },
+            {
+                "question": "Un côté mesure 12 cm. On réduit la figure avec un facteur 1/4. Combien mesure ce côté ?",
+                "choices": [
+                    "3 cm",
+                    "8 cm",
+                    "48 cm"
+                ],
+                "answer": "3 cm",
+                "explanation": "Réduire avec un facteur 1/4, c'est diviser par 4 : 12 ÷ 4 = 3 cm. 48 cm serait un agrandissement (12 × 4), et 8 cm vient d'une soustraction."
+            },
+            {
+                "question": "Un rectangle de 6 cm sur 4 cm est agrandi avec un facteur 3. Quelle est la nouvelle mesure du petit côté ?",
+                "choices": [
+                    "12 cm",
+                    "7 cm",
+                    "18 cm"
+                ],
+                "answer": "12 cm",
+                "explanation": "Le petit côté de 4 cm est multiplié par 3 : 4 × 3 = 12 cm. 7 cm vient d'une addition (4 + 3), et 18 cm est le nouveau grand côté (6 × 3)."
+            },
+            {
+                "question": "Un carré de 5 cm de côté est agrandi avec un facteur 2. Par combien son périmètre est-il multiplié ?",
+                "choices": [
+                    "2",
+                    "4",
+                    "10"
+                ],
+                "answer": "2",
+                "explanation": "Le côté passe de 5 cm à 10 cm : le périmètre passe de 20 cm à 40 cm. Il est multiplié par 2, comme chaque longueur. 4 est le nombre de côtés, pas le facteur."
+            },
+            {
+                "question": "Un élève agrandit un rectangle de 4 cm sur 6 cm en ajoutant 3 cm à chaque côté : il obtient 7 cm sur 9 cm. Est-ce un agrandissement ?",
+                "choices": [
+                    "Non : les longueurs n'ont pas été multipliées par le même nombre",
+                    "Oui : tous les côtés sont plus grands qu'avant",
+                    "Oui : le périmètre a augmenté, donc la figure est agrandie"
+                ],
+                "answer": "Non : les longueurs n'ont pas été multipliées par le même nombre",
+                "explanation": "Pour agrandir, on multiplie toutes les longueurs par le même nombre. De 4 à 7 et de 6 à 9, ce n'est pas la même multiplication : ajouter la même longueur à chaque côté déforme le rectangle."
+            },
+            {
+                "question": "Une photo de 10 cm sur 15 cm est réduite : sa largeur de 10 cm devient 5 cm. Quelle est alors sa longueur ?",
+                "choices": [
+                    "7,5 cm",
+                    "10 cm",
+                    "5 cm"
+                ],
+                "answer": "7,5 cm",
+                "explanation": "La largeur est divisée par 2 (10 ÷ 2 = 5), donc la longueur aussi : 15 ÷ 2 = 7,5 cm. 10 cm vient de la soustraction 15 − 5."
+            },
+            {
+                "question": "Une figure est agrandie avec un facteur 4. Un de ses côtés mesure 7 cm au départ. Quelle est sa nouvelle longueur ?",
+                "choices": [
+                    "28 cm",
+                    "11 cm",
+                    "21 cm"
+                ],
+                "answer": "28 cm",
+                "explanation": "On multiplie la longueur par le facteur : 7 × 4 = 28 cm. 11 cm vient d'une addition (7 + 4) et 21 cm d'une multiplication par 3."
+            },
+            {
+                "question": "On réduit une figure avec un facteur 1/2. Que deviennent ses angles ?",
+                "choices": [
+                    "Ils ne changent pas",
+                    "Ils sont divisés par 2",
+                    "Ils sont multipliés par 2"
+                ],
+                "answer": "Ils ne changent pas",
+                "explanation": "Seules les longueurs changent : une réduction (ou un agrandissement) conserve la forme, donc les angles gardent la même mesure. Un angle droit reste un angle droit."
             }
         ],
         "cm2-aire-figure-composee": [

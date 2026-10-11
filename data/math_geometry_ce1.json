@@ -174,18 +174,54 @@
                     "Le cercle"
                 ],
                 "answer": "Le losange",
-                "explanation": "Le losange a la silhouette d'un diamant : ses côtés sont égaux mais ses angles ne sont pas droits."
+                "explanation": "Le losange a la silhouette d'un diamant : ses 4 côtés sont égaux."
             },
             {
-                "question": "Qu'est-ce qui différencie le losange du carré ?",
+                "question": "Un losange a 4 côtés égaux. Que faut-il en plus pour que ce soit un carré ?",
                 "choices": [
-                    "Le losange n'a pas d'angle droit",
-                    "Le losange a 5 côtés",
-                    "Le losange n'a pas de côtés égaux"
+                    "4 angles droits",
+                    "2 grands côtés et 2 petits côtés",
+                    "3 côtés égaux"
                 ],
-                "answer": "Le losange n'a pas d'angle droit",
-                "explanation": "Le carré et le losange ont tous les deux 4 côtés égaux, mais seul le carré a des angles droits."
-            }
+                "answer": "4 angles droits",
+                "explanation": "Un losange a 4 côtés égaux. S'il a aussi 4 angles droits, c'est un carré."
+            },
+                {
+                    "question": "Combien de sommets a un carré ?",
+                    "choices": [
+                        "4 sommets",
+                        "3 sommets",
+                        "6 sommets"
+                    ],
+                    "answer": "4 sommets"
+                },
+                {
+                    "question": "Un sommet, dans une figure, c'est...",
+                    "choices": [
+                        "l'endroit où deux côtés se rejoignent",
+                        "le côté le plus long de la figure",
+                        "le trait qui fait le tour de la figure"
+                    ],
+                    "answer": "l'endroit où deux côtés se rejoignent"
+                },
+                {
+                    "question": "Combien de sommets a un triangle ?",
+                    "choices": [
+                        "3 sommets",
+                        "4 sommets",
+                        "1 sommet"
+                    ],
+                    "answer": "3 sommets"
+                },
+                {
+                    "question": "Quelle figure n'a aucun sommet ?",
+                    "choices": [
+                        "Le cercle",
+                        "Le carré",
+                        "Le triangle"
+                    ],
+                    "answer": "Le cercle"
+                }
         ],
         "ce1-longueurs-mesures": [
             {
@@ -228,7 +264,7 @@
                 "question": "Si deux segments mesurent 12 cm, ils sont...",
                 "choices": [
                     "de même longueur",
-                    "forcément perpendiculaires",
+                    "forcément côte à côte",
                     "de couleurs différentes"
                 ],
                 "answer": "de même longueur"
@@ -354,11 +390,11 @@
             {
                 "question": "L'après-midi vient...",
                 "choices": [
-                    "après midi",
+                    "après le midi",
                     "avant le matin",
-                    "avant l'aube"
+                    "avant le lever du soleil"
                 ],
-                "answer": "après midi"
+                "answer": "après le midi"
             },
             {
                 "question": "Le dîner se prend souvent...",
@@ -370,7 +406,7 @@
                 "answer": "le soir"
             },
             {
-                "question": "Ordre correct d'une journée:",
+                "question": "Quel est l'ordre correct d'une journée ?",
                 "choices": [
                     "matin, midi, après-midi, soir",
                     "soir, midi, matin, après-midi",
@@ -636,7 +672,7 @@
                     "la température"
                 ],
                 "answer": "la masse du corps",
-                "explanation": "Il affiche ton poids en kilogrammes : la balance des personnes !"
+                "explanation": "Il affiche ta masse en kilogrammes : c'est la balance des personnes !"
             },
             {
                 "question": "500 grammes, c'est ... qu'un kilogramme.",

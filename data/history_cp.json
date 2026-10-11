@@ -65,21 +65,21 @@
                 "explanation": "Sur une frise du temps, on lit de gauche à droite. Le passé est à gauche, le futur à droite."
             },
             {
-                "question": "Avant le petit-déjeuner, il se passe...",
+                "question": "Le petit-déjeuner se prend...",
                 "choices": [
                     "le matin",
-                    "la nuit",
-                    "demain"
+                    "le soir",
+                    "à minuit"
                 ],
                 "answer": "le matin",
-                "explanation": "Le petit-déjeuner se prend le matin. C'est le premier repas de la journée."
+                "explanation": "Le petit-déjeuner est le premier repas : on le prend le matin, au réveil."
             },
             {
                 "question": "Après hier vient...",
                 "choices": [
                     "aujourd'hui",
-                    "le Moyen Âge",
-                    "le train"
+                    "avant-hier",
+                    "la semaine dernière"
                 ],
                 "answer": "aujourd'hui",
                 "explanation": "Hier est le jour avant. Juste après hier, c'est aujourd'hui. C'est l'ordre des jours."
@@ -200,8 +200,8 @@
                 "question": "Autrefois, le lait était souvent livré...",
                 "choices": [
                     "par le laitier à la porte",
-                    "par satellite",
-                    "par drone"
+                    "par un satellite dans le ciel",
+                    "par un drone jusqu'à la fenêtre"
                 ],
                 "answer": "par le laitier à la porte",
                 "explanation": "Avant les supermarchés, le laitier passait chaque matin livrer le lait frais à la maison."
@@ -259,14 +259,14 @@
                 "explanation": "Observer un vieux château nous apprend comment les gens vivaient, se défendaient et habitaient avant."
             },
             {
-                "question": "Un vieux bâtiment encore debout aujourd'hui, c'est...",
+                "question": "Pourquoi un vieux pont de pierre est-il utile pour connaître l'histoire ?",
                 "choices": [
-                    "un vieux bâtiment",
-                    "un nuage",
-                    "un bruit"
+                    "Il a été construit il y a longtemps",
+                    "Il est tout neuf",
+                    "Il bouge avec le vent"
                 ],
-                "answer": "un vieux bâtiment",
-                "explanation": "Un vieux bâtiment existe depuis longtemps. Il est une trace visible du passé."
+                "answer": "Il a été construit il y a longtemps",
+                "explanation": "Un vieux pont a été construit il y a longtemps : en l'observant, on découvre comment on construisait avant."
             },
             {
                 "question": "Un vieux monument peut être une trace de...",
@@ -322,20 +322,20 @@
                 "question": "Une photo de mes grands-parents quand ils étaient enfants est...",
                 "choices": [
                     "une trace du passé de ma famille",
-                    "une photo d'aujourd'hui",
-                    "une photo du futur"
+                    "une photo faite hier à la maison",
+                    "une photo du futur de ma famille"
                 ],
                 "answer": "une trace du passé de ma famille",
                 "explanation": "Les photos de famille très anciennes nous montrent à quoi ressemblait la vie avant notre naissance."
             },
             {
-                "question": "Une vieille lettre écrite à la main est...",
+                "question": "Une vieille lettre écrite à la main nous raconte...",
                 "choices": [
-                    "une trace du passé",
-                    "un jouet",
-                    "une publicité"
+                    "la vie des gens d'avant",
+                    "la météo de demain",
+                    "une recette de gâteau"
                 ],
-                "answer": "une trace du passé",
+                "answer": "la vie des gens d'avant",
                 "explanation": "Les lettres anciennes racontent la vie des gens d'avant, avec leurs propres mots."
             },
             {
@@ -349,13 +349,13 @@
                 "explanation": "Au musée, les objets anciens sont protégés et tout le monde peut venir les découvrir."
             },
             {
-                "question": "Un vieux jouet retrouvé dans un grenier est...",
+                "question": "Un vieux jouet retrouvé dans un grenier nous montre...",
                 "choices": [
-                    "une trace du passé",
-                    "un jouet neuf",
-                    "un objet du futur"
+                    "à quoi jouaient les enfants d'autrefois",
+                    "les jeux qui n'existent pas encore",
+                    "les règles du football"
                 ],
-                "answer": "une trace du passé",
+                "answer": "à quoi jouaient les enfants d'autrefois",
                 "explanation": "Un jouet ancien nous montre à quoi jouaient les enfants d'autrefois."
             },
             {
@@ -379,13 +379,13 @@
                 "explanation": "Avant, les photos étaient sans couleurs : le noir et blanc est un indice d'ancienneté."
             },
             {
-                "question": "Une carte postale envoyée il y a très longtemps est...",
+                "question": "Une carte postale envoyée il y a très longtemps nous parle...",
                 "choices": [
-                    "une trace du passé",
-                    "un jeu vidéo",
-                    "une carte d'aujourd'hui"
+                    "d'un voyage ou d'un événement d'autrefois",
+                    "d'un jeu vidéo d'aujourd'hui",
+                    "de la météo de demain"
                 ],
-                "answer": "une trace du passé",
+                "answer": "d'un voyage ou d'un événement d'autrefois",
                 "explanation": "Une vieille carte postale raconte un voyage ou un événement d'autrefois."
             },
             {
@@ -402,8 +402,8 @@
                 "question": "Grâce aux traces du passé, on peut...",
                 "choices": [
                     "raconter l'histoire des gens d'avant",
-                    "prédire l'avenir",
-                    "voyager dans le temps"
+                    "prédire le temps qu'il fera demain",
+                    "voyager dans le temps en machine"
                 ],
                 "answer": "raconter l'histoire des gens d'avant",
                 "explanation": "Chaque objet, monument ou document est un morceau du puzzle de l'Histoire."
@@ -414,8 +414,8 @@
                 "question": "Lundi, mardi et mercredi sont...",
                 "choices": [
                     "des jours de la semaine",
-                    "des mois",
-                    "des années"
+                    "des mois de l'année",
+                    "des années d'école"
                 ],
                 "answer": "des jours de la semaine",
                 "explanation": "Une semaine compte 7 jours : lundi, mardi, mercredi, jeudi, vendredi, samedi et dimanche."
@@ -431,7 +431,7 @@
                 "explanation": "L'année est découpée en 4 saisons. Chacune a son climat et ses particularités."
             },
             {
-                "question": "Après le printemps vient souvent...",
+                "question": "Après le printemps vient...",
                 "choices": [
                     "l'été",
                     "l'hiver",
@@ -738,8 +738,8 @@
                 "question": "Observer un objet ancien aide à...",
                 "choices": [
                     "mieux connaître la vie d'autrefois",
-                    "faire une addition",
-                    "dessiner une carte"
+                    "faire une addition très longue",
+                    "dessiner la carte d'un pays"
                 ],
                 "answer": "mieux connaître la vie d'autrefois",
                 "explanation": "En regardant un objet ancien, on comprend à quoi il servait et comment on vivait à cette époque."
@@ -798,8 +798,8 @@
                 "question": "Un vieux livre peut nous apprendre...",
                 "choices": [
                     "des choses sur le passé",
-                    "à faire du vélo",
-                    "à nager"
+                    "à faire du vélo sans les mains",
+                    "à nager dans la piscine"
                 ],
                 "answer": "des choses sur le passé",
                 "explanation": "Un livre écrit autrefois parle de comment les gens vivaient, pensaient et s'exprimaient à cette époque."
@@ -839,11 +839,11 @@
             {
                 "question": "Quand papi avait mon âge, il était...",
                 "choices": [
-                    "un enfant, comme moi aujourd'hui",
-                    "déjà grand-père",
-                    "un bébé"
+                    "un enfant, comme moi",
+                    "déjà un grand-père très âgé",
+                    "un tout petit bébé"
                 ],
-                "answer": "un enfant, comme moi aujourd'hui",
+                "answer": "un enfant, comme moi",
                 "explanation": "Tout le monde a été enfant : c'était il y a longtemps pour papi."
             },
             {
@@ -870,8 +870,8 @@
                 "question": "Mes grands-parents peuvent me raconter...",
                 "choices": [
                     "comment c'était quand ils étaient petits",
-                    "ce qui se passera demain",
-                    "mes rêves de cette nuit"
+                    "ce qui se passera demain matin à l'école",
+                    "mes rêves de cette nuit passée"
                 ],
                 "answer": "comment c'était quand ils étaient petits",
                 "explanation": "Les aînés sont la mémoire de la famille : ils ont vécu le passé."
@@ -879,19 +879,19 @@
             {
                 "question": "Une génération, c'est...",
                 "choices": [
-                    "les personnes qui ont à peu près le même âge dans la famille",
-                    "un jeu de société",
-                    "une saison de l'année"
+                    "les personnes du même âge dans la famille",
+                    "un jeu de société pour toute la famille",
+                    "une saison de l'année, comme l'été"
                 ],
-                "answer": "les personnes qui ont à peu près le même âge dans la famille",
+                "answer": "les personnes du même âge dans la famille",
                 "explanation": "Enfants, parents, grands-parents : trois générations d'une même famille."
             },
             {
                 "question": "Qu'est-ce qui n'existait pas quand mamie était enfant ?",
                 "choices": [
                     "les tablettes tactiles",
-                    "les livres",
-                    "les vélos"
+                    "les livres d'images",
+                    "les vélos de course"
                 ],
                 "answer": "les tablettes tactiles",
                 "explanation": "Les écrans tactiles sont récents ; les livres et les vélos existaient déjà."
@@ -910,8 +910,8 @@
                 "question": "Dans une famille, les enfants des mêmes parents sont...",
                 "choices": [
                     "frères et sœurs",
-                    "cousins",
-                    "voisins"
+                    "cousins et cousines",
+                    "voisins du quartier"
                 ],
                 "answer": "frères et sœurs",
                 "explanation": "Frères et sœurs grandissent dans la même famille, avec les mêmes parents."
@@ -1002,8 +1002,8 @@
                 "question": "Le rémouleur passait dans les rues pour...",
                 "choices": [
                     "aiguiser les couteaux et les ciseaux",
-                    "vendre des glaces",
-                    "réparer les télévisions"
+                    "vendre des glaces aux enfants",
+                    "réparer les vieilles télévisions"
                 ],
                 "answer": "aiguiser les couteaux et les ciseaux",
                 "explanation": "Ce métier ambulant a presque disparu aujourd'hui."
@@ -1011,21 +1011,21 @@
             {
                 "question": "Autrefois, qui apportait l'eau dans les maisons sans robinet ?",
                 "choices": [
-                    "on allait la chercher au puits ou à la fontaine",
-                    "un camion-citerne la livrait",
-                    "elle arrivait par le toit"
+                    "on allait la chercher à la fontaine",
+                    "un camion-citerne la livrait chaque jour",
+                    "elle descendait du toit par un tuyau"
                 ],
-                "answer": "on allait la chercher au puits ou à la fontaine",
+                "answer": "on allait la chercher à la fontaine",
                 "explanation": "L'eau courante à la maison est une invention récente."
             },
             {
                 "question": "Le métier d'allumeur de réverbères consistait à...",
                 "choices": [
-                    "allumer les lampes des rues chaque soir",
-                    "réveiller les habitants",
-                    "éteindre les étoiles"
+                    "allumer les lampes des rues le soir",
+                    "réveiller les habitants le matin",
+                    "éteindre les étoiles dans le ciel"
                 ],
-                "answer": "allumer les lampes des rues chaque soir",
+                "answer": "allumer les lampes des rues le soir",
                 "explanation": "Avant l'électricité, on allumait les lampadaires à gaz un par un."
             },
             {
@@ -1041,11 +1041,11 @@
             {
                 "question": "Le crieur public servait à...",
                 "choices": [
-                    "annoncer les nouvelles sur la place du village",
+                    "annoncer les nouvelles au village",
                     "faire du bruit pour s'amuser",
-                    "vendre des journaux télévisés"
+                    "vendre des journaux à la télévision"
                 ],
-                "answer": "annoncer les nouvelles sur la place du village",
+                "answer": "annoncer les nouvelles au village",
                 "explanation": "Sans radio ni télévision, il informait les habitants à voix haute."
             },
             {
@@ -1057,6 +1057,414 @@
                 ],
                 "answer": "avec des chevaux ou des bœufs",
                 "explanation": "Les animaux de trait tiraient la charrue avant l'invention du tracteur."
+            }
+        ],
+        "cp-jour-nuit": [
+            {
+                "question": "Quand fait-il jour ?",
+                "choices": [
+                    "Quand le Soleil éclaire notre ciel",
+                    "Quand la Lune monte dans le ciel",
+                    "Quand on allume la lampe de la chambre"
+                ],
+                "answer": "Quand le Soleil éclaire notre ciel",
+                "explanation": "Il fait jour parce que le Soleil éclaire notre ciel. Une lampe, elle, éclaire seulement une pièce."
+            },
+            {
+                "question": "Que voit-on souvent dans le ciel pendant la nuit ?",
+                "choices": [
+                    "La Lune et les étoiles",
+                    "Le Soleil très haut dans le ciel",
+                    "Un grand arc-en-ciel de couleurs"
+                ],
+                "answer": "La Lune et les étoiles",
+                "explanation": "La nuit, le Soleil n'éclaire plus notre ciel : on voit alors la Lune et les étoiles."
+            },
+            {
+                "question": "Le soir, le Soleil disparaît à l'horizon. On dit qu'il...",
+                "choices": [
+                    "se couche",
+                    "se lève",
+                    "s'éteint pour toujours"
+                ],
+                "answer": "se couche",
+                "explanation": "Le soir, le Soleil se couche et la nuit arrive. Le matin, il se lève à nouveau."
+            },
+            {
+                "question": "Après la nuit, qu'est-ce qui revient toujours ?",
+                "choices": [
+                    "Le jour",
+                    "Une deuxième nuit",
+                    "L'hiver"
+                ],
+                "answer": "Le jour",
+                "explanation": "Le jour et la nuit se suivent sans arrêt : après chaque nuit, un nouveau jour se lève."
+            },
+            {
+                "question": "Un jour et la nuit qui suit durent ensemble...",
+                "choices": [
+                    "24 heures",
+                    "7 jours",
+                    "un mois"
+                ],
+                "answer": "24 heures",
+                "explanation": "Un jour et une nuit qui se suivent font ensemble 24 heures."
+            },
+            {
+                "question": "Pourquoi fait-il noir dehors pendant la nuit ?",
+                "choices": [
+                    "Le Soleil n'éclaire plus notre ciel",
+                    "Le Soleil se casse pendant la nuit",
+                    "Les nuages cachent toutes les étoiles"
+                ],
+                "answer": "Le Soleil n'éclaire plus notre ciel",
+                "explanation": "La nuit, notre côté de la Terre n'est plus tourné vers le Soleil : sa lumière ne nous arrive plus."
+            },
+            {
+                "question": "En une seule journée, combien de fois le Soleil se lève-t-il ?",
+                "choices": [
+                    "Une fois",
+                    "Deux fois",
+                    "Sept fois"
+                ],
+                "answer": "Une fois",
+                "explanation": "Le Soleil se lève une fois par journée, le matin, puis il se couche le soir."
+            },
+            {
+                "question": "Quel animal chasse surtout pendant la nuit ?",
+                "choices": [
+                    "La chouette",
+                    "Le papillon",
+                    "L'abeille"
+                ],
+                "answer": "La chouette",
+                "explanation": "La chouette voit très bien dans le noir : elle chasse la nuit. Le papillon et l'abeille volent le jour."
+            },
+            {
+                "question": "Les poules rentrent se coucher au poulailler...",
+                "choices": [
+                    "le soir, quand la nuit arrive",
+                    "le matin, quand le Soleil se lève",
+                    "à midi, quand il fait très chaud"
+                ],
+                "answer": "le soir, quand la nuit arrive",
+                "explanation": "Beaucoup d'animaux de la ferme dorment pendant la nuit et sortent pendant le jour, comme nous."
+            },
+            {
+                "question": "À quel moment les enfants dorment-ils le plus souvent ?",
+                "choices": [
+                    "La nuit",
+                    "Le matin à l'école",
+                    "À midi à la cantine"
+                ],
+                "answer": "La nuit",
+                "explanation": "Notre corps se repose pendant la nuit, quand il fait noir et calme."
+            },
+            {
+                "question": "Le Soleil brille-t-il encore dans notre ciel pendant la nuit ?",
+                "choices": [
+                    "Non, il n'éclaire plus notre ciel",
+                    "Oui, il brille encore très fort",
+                    "Oui, mais il devient tout bleu"
+                ],
+                "answer": "Non, il n'éclaire plus notre ciel",
+                "explanation": "Le Soleil ne s'éteint pas, mais pendant la nuit il n'éclaire plus notre côté de la Terre."
+            },
+            {
+                "question": "Le jour et la nuit reviennent-ils toujours dans le même ordre ?",
+                "choices": [
+                    "Oui, c'est un cycle qui se répète",
+                    "Non, c'est différent chaque fois",
+                    "Non, cela s'arrête en hiver"
+                ],
+                "answer": "Oui, c'est un cycle qui se répète",
+                "explanation": "Jour, nuit, jour, nuit : cet ordre se répète sans fin, pendant toute l'année."
+            }
+        ],
+        "cp-mois-annee": [
+            {
+                "question": "Combien de mois compte une année ?",
+                "choices": [
+                    "12 mois",
+                    "7 mois",
+                    "30 mois"
+                ],
+                "answer": "12 mois",
+                "explanation": "Une année est partagée en 12 mois. Ce sont les jours de la semaine qui sont au nombre de 7."
+            },
+            {
+                "question": "Quel est le premier mois de l'année ?",
+                "choices": [
+                    "Janvier",
+                    "Décembre",
+                    "Septembre"
+                ],
+                "answer": "Janvier",
+                "explanation": "L'année commence par janvier. Décembre est le dernier mois, septembre est au milieu."
+            },
+            {
+                "question": "Quel est le dernier mois de l'année ?",
+                "choices": [
+                    "Décembre",
+                    "Janvier",
+                    "Novembre"
+                ],
+                "answer": "Décembre",
+                "explanation": "Décembre termine l'année. Après lui, une nouvelle année commence par janvier."
+            },
+            {
+                "question": "Quel mois vient juste après janvier ?",
+                "choices": [
+                    "Février",
+                    "Mars",
+                    "Décembre"
+                ],
+                "answer": "Février",
+                "explanation": "Dans l'ordre des mois, janvier est suivi de février, puis de mars."
+            },
+            {
+                "question": "Quel mois vient juste après mars ?",
+                "choices": [
+                    "Avril",
+                    "Février",
+                    "Mai"
+                ],
+                "answer": "Avril",
+                "explanation": "Mars est suivi d'avril. Février vient avant mars, et mai arrive un mois plus tard."
+            },
+            {
+                "question": "Quel mois vient juste avant juillet ?",
+                "choices": [
+                    "Juin",
+                    "Août",
+                    "Mai"
+                ],
+                "answer": "Juin",
+                "explanation": "Juin vient juste avant juillet. Août arrive après juillet, et mai est encore plus tôt."
+            },
+            {
+                "question": "Quel mois se trouve entre mai et juillet ?",
+                "choices": [
+                    "Juin",
+                    "Avril",
+                    "Août"
+                ],
+                "answer": "Juin",
+                "explanation": "L'ordre est mai, juin, juillet : juin est bien celui du milieu."
+            },
+            {
+                "question": "Quel mois vient juste après août ?",
+                "choices": [
+                    "Septembre",
+                    "Juillet",
+                    "Novembre"
+                ],
+                "answer": "Septembre",
+                "explanation": "Août est suivi de septembre. Juillet, lui, vient avant août."
+            },
+            {
+                "question": "Quel mois vient juste avant novembre ?",
+                "choices": [
+                    "Octobre",
+                    "Décembre",
+                    "Septembre"
+                ],
+                "answer": "Octobre",
+                "explanation": "L'ordre est septembre, octobre, novembre : octobre se trouve juste avant novembre."
+            },
+            {
+                "question": "En France, dans quel mois a lieu la rentrée des classes ?",
+                "choices": [
+                    "En septembre",
+                    "En juillet",
+                    "En janvier"
+                ],
+                "answer": "En septembre",
+                "explanation": "L'école reprend en septembre, après les grandes vacances de juillet et d'août."
+            },
+            {
+                "question": "Les grandes vacances d'été ont lieu en juillet et en...",
+                "choices": [
+                    "août",
+                    "mars",
+                    "décembre"
+                ],
+                "answer": "août",
+                "explanation": "Juillet et août sont les deux mois des grandes vacances d'été."
+            },
+            {
+                "question": "Noël est fêté au mois de...",
+                "choices": [
+                    "décembre",
+                    "novembre",
+                    "janvier"
+                ],
+                "answer": "décembre",
+                "explanation": "Noël est fêté le 25 décembre, pendant le dernier mois de l'année."
+            },
+            {
+                "question": "Un mois, est-ce plus long ou plus court qu'une semaine ?",
+                "choices": [
+                    "Plus long qu'une semaine",
+                    "Plus court qu'une semaine",
+                    "Exactement pareil"
+                ],
+                "answer": "Plus long qu'une semaine",
+                "explanation": "Un mois contient environ quatre semaines : il est donc bien plus long qu'une semaine."
+            },
+            {
+                "question": "Que trouve-t-on sur un calendrier pour se repérer dans l'année ?",
+                "choices": [
+                    "Les mois et les jours",
+                    "Les noms de tous les animaux",
+                    "Les nombres jusqu'à mille"
+                ],
+                "answer": "Les mois et les jours",
+                "explanation": "Un calendrier montre les mois et, dans chaque mois, tous les jours : il sert à se repérer."
+            }
+        ],
+        "cp-mois-ordre": [
+            {
+                "sentence": "janvier février mars",
+                "instruction": "Remets ces mois dans l'ordre de l'année.",
+                "explanation": "L'année commence par janvier, puis vient février, puis mars."
+            },
+            {
+                "sentence": "février mars avril mai",
+                "instruction": "Remets ces mois dans l'ordre de l'année.",
+                "explanation": "Après février vient mars, puis avril, puis mai."
+            },
+            {
+                "sentence": "avril mai juin",
+                "instruction": "Remets ces mois dans l'ordre de l'année.",
+                "explanation": "Avril vient avant mai, et mai avant juin : c'est l'ordre de l'année."
+            },
+            {
+                "sentence": "mai juin juillet août",
+                "instruction": "Remets ces mois dans l'ordre de l'année.",
+                "explanation": "Mai, juin, juillet, août : l'été arrive juste après le printemps."
+            },
+            {
+                "sentence": "juillet août septembre",
+                "instruction": "Remets ces mois dans l'ordre de l'année.",
+                "explanation": "Juillet et août sont les grandes vacances, et septembre suit avec la rentrée."
+            },
+            {
+                "sentence": "septembre octobre novembre",
+                "instruction": "Remets ces mois dans l'ordre de l'année.",
+                "explanation": "Septembre vient avant octobre, puis vient novembre : c'est l'ordre de l'année."
+            },
+            {
+                "sentence": "octobre novembre décembre",
+                "instruction": "Remets ces mois dans l'ordre de l'année.",
+                "explanation": "Décembre est le dernier mois : il vient après octobre et novembre."
+            },
+            {
+                "sentence": "janvier avril juillet",
+                "instruction": "Remets ces mois dans l'ordre de l'année.",
+                "explanation": "Janvier est le premier, avril arrive ensuite, et juillet est le plus tard des trois."
+            },
+            {
+                "sentence": "mars juin septembre décembre",
+                "instruction": "Remets ces mois dans l'ordre de l'année.",
+                "explanation": "Mars, juin, septembre, décembre : un mois par saison, du plus tôt au plus tard."
+            },
+            {
+                "sentence": "juin juillet août septembre",
+                "instruction": "Remets ces mois dans l'ordre de l'année.",
+                "explanation": "Juin ouvre l'été, puis viennent juillet et août, et septembre arrive après."
+            }
+        ],
+        "cp-evenements-ordre": [
+            {
+                "sentences": [
+                    "Je mets mon manteau.",
+                    "Je sors de la maison.",
+                    "J'arrive à l'école."
+                ],
+                "instruction": "Remets les phrases dans l'ordre pour raconter le départ à l'école.",
+                "explanation": "On s'habille d'abord, ensuite on sort, et on arrive à l'école en dernier."
+            },
+            {
+                "sentences": [
+                    "Maman verse la pâte dans le moule.",
+                    "Le gâteau cuit dans le four.",
+                    "Nous mangeons le gâteau."
+                ],
+                "instruction": "Remets les phrases dans l'ordre pour raconter la recette du gâteau.",
+                "explanation": "On prépare la pâte d'abord, ensuite le gâteau cuit, et on le mange à la fin."
+            },
+            {
+                "sentences": [
+                    "Je prends mon bain.",
+                    "J'enfile mon pyjama.",
+                    "Je m'endors dans mon lit."
+                ],
+                "instruction": "Remets les phrases dans l'ordre pour raconter la soirée de Tom.",
+                "explanation": "Le bain vient d'abord, le pyjama ensuite, et le sommeil en dernier."
+            },
+            {
+                "sentences": [
+                    "Le facteur dépose une lettre.",
+                    "Papa ouvre la boîte aux lettres.",
+                    "Nous lisons la lettre."
+                ],
+                "instruction": "Remets les phrases dans l'ordre pour raconter l'arrivée du courrier.",
+                "explanation": "La lettre est déposée d'abord, ensuite on ouvre la boîte, et on lit la lettre après."
+            },
+            {
+                "sentences": [
+                    "La poule pond un œuf.",
+                    "Le poussin casse la coquille.",
+                    "Le poussin court dans la cour."
+                ],
+                "instruction": "Remets les phrases dans l'ordre pour raconter la naissance du poussin.",
+                "explanation": "L'œuf arrive d'abord, le poussin sort ensuite, et il court une fois sorti."
+            },
+            {
+                "sentences": [
+                    "La cloche sonne.",
+                    "Nous entrons en classe.",
+                    "La maîtresse fait l'appel."
+                ],
+                "instruction": "Remets les phrases dans l'ordre pour raconter le début de la matinée.",
+                "explanation": "La cloche sonne d'abord, ensuite on entre, et l'appel se fait une fois en classe."
+            },
+            {
+                "sentences": [
+                    "Je me lave les mains.",
+                    "Je m'assois à table.",
+                    "Je mange ma soupe."
+                ],
+                "instruction": "Remets les phrases dans l'ordre pour raconter le repas.",
+                "explanation": "On se lave les mains avant de s'asseoir, et on mange une fois installé."
+            },
+            {
+                "sentences": [
+                    "Papi cueille des pommes.",
+                    "Il coupe les pommes en morceaux.",
+                    "Il prépare une compote."
+                ],
+                "instruction": "Remets les phrases dans l'ordre pour raconter la compote de Papi.",
+                "explanation": "Il faut cueillir les pommes avant de les couper, et la compote arrive à la fin."
+            },
+            {
+                "sentences": [
+                    "Maman allume les bougies du gâteau.",
+                    "Je souffle les bougies.",
+                    "Nous mangeons le gâteau."
+                ],
+                "instruction": "Remets les phrases dans l'ordre pour raconter l'anniversaire de Lina.",
+                "explanation": "On allume les bougies d'abord, on les souffle ensuite, et on mange le gâteau après."
+            },
+            {
+                "sentences": [
+                    "Le jardinier plante une graine.",
+                    "La graine pousse et devient une plante.",
+                    "La plante donne des fleurs."
+                ],
+                "instruction": "Remets les phrases dans l'ordre pour raconter la vie d'une plante.",
+                "explanation": "On plante d'abord la graine, elle pousse ensuite, et la plante donne des fleurs à la fin."
             }
         ]
     }

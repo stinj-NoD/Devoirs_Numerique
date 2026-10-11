@@ -1,4 +1,7 @@
-﻿const EnginesMath = {
+﻿// « de » s'élide devant une voyelle : « le plus d'élèves », « combien d'œufs ».
+const deElide = (mot) => (/^[aeiouyàâäéèêëîïôöùûüœæ]/i.test(String(mot)) ? `d'${mot}` : `de ${mot}`);
+
+const EnginesMath = {
     calculate(p) {
         const { rnd, pick, shuffle } = Engines.utils;
         let a, b, total;
@@ -12,24 +15,74 @@
                 a = rnd(1, total - 1);
                 return { question: `${a} + ? = ${total}`, answer: total - a, explanation: `${a} + ${total - a} = ${total}, donc il manque ${total - a}.` };
             case 'sub-simple':
-                a = rnd(p.min || 5, p.max || 20);
-                b = rnd(0, a);
+                // Le second terme était tiré dans [0, a] : « 1 - 0 », « 2 - 2 », « 9 - 9 »
+                // sortaient dans 40 % des cas sur « Retirer jusqu'à 10 » (21 tirages sur
+                // 40 mesurés), des questions sans aucun calcul. On tire maintenant b dans
+                // [1, a - 1], donc ni « - 0 » ni « a - a », et un résultat toujours
+                // positif. Un premier terme de 1 n'a pas de soustraction utile : on part
+                // de 2 (les bornes `min`/`max` de chaque exercice sont conservées).
+                a = rnd(Math.max(2, p.min || 5), Math.max(2, p.max || 20));
+                b = rnd(1, a - 1);
                 return { question: `${a} - ${b} = ?`, answer: a - b, explanation: `${a} - ${b} = ${a - b}` };
-            case 'mult':
-                a = p.table === 'mix' ? rnd(2, 12) : (p.table || 2);
-                b = rnd(0, 10);
-                return { question: `${a} × ${b} = ?`, answer: a * b, explanation: `${a} × ${b} = ${a * b}` };
+            case 'mult': {
+                // `tables` borne la table tirée par « table: mix » (les tables du programme du
+                // niveau : 2, 3, 4, 5 et 10 au CE1) ; absent, 2 à 12 comme avant.
+                const tablesMix = Array.isArray(p.tables) && p.tables.length ? p.tables : null;
+                a = p.table === 'mix' ? (tablesMix ? pick(tablesMix) : rnd(2, 12)) : (p.table || 2);
+                // `mode` : produit (défaut, historique) | facteur (« 7 × ? = 56 ») | division
+                // (« 56 : 7 = ? ») | mixte (une des trois formes, le produit écrit dans les deux
+                // sens). Une table se mémorise d'abord dans le sens « a × b » (CE1) ; c'est
+                // en la retrouvant sous toutes ses formes qu'elle est « mémorisée » (CE2).
+                const mode = ['facteur', 'division', 'mixte'].includes(p.mode) ? p.mode : 'produit';
+                if (mode === 'produit') {
+                    // Une table se récite de « × 1 » à « × 10 » : « × 0 » n'est enseigné nulle part
+                    // en cycle 2 et sortait dans 1 tirage sur 11 (réponse 0). Dix valeurs pour dix
+                    // questions : avec `Engines.unique`, une série pose la table entière, sans
+                    // répétition (11 valeurs pour 10 questions laissaient « × 0 » ou « × 1 »).
+                    b = rnd(1, 10);
+                    return { question: `${a} × ${b} = ?`, answer: a * b, explanation: `${a} × ${b} = ${a * b}` };
+                }
+                b = rnd(2, 10);
+                total = a * b;
+                const forme = mode === 'mixte' ? pick(['produit', 'facteur', 'division']) : mode;
+                if (forme === 'facteur') {
+                    const manquantAGauche = Math.random() < 0.5;
+                    return { question: manquantAGauche ? `? × ${a} = ${total}` : `${a} × ? = ${total}`, answer: b, explanation: `${a} × ${b} = ${total}, donc le nombre cherché est ${b}.` };
+                }
+                if (forme === 'division') {
+                    return { question: `${total} : ${a} = ?`, answer: b, explanation: `${a} × ${b} = ${total}, donc ${total} : ${a} = ${b}.` };
+                }
+                return Math.random() < 0.5
+                    ? { question: `${a} × ${b} = ?`, answer: total, explanation: `${a} × ${b} = ${total}` }
+                    : { question: `${b} × ${a} = ?`, answer: total, explanation: `${b} × ${a} = ${total}` };
+            }
             case 'complement': {
                 const target = p.target || 100;
-                const cur = rnd(1, target - 1);
+                // `multipleOf` : le nombre donné est un multiple de ce pas (dizaines entières pour
+                // « 30 + ? = 100 », multiples de 5 ensuite) ; absent, n'importe quel entier.
+                const pas = Number.isInteger(p.multipleOf) && p.multipleOf > 1 && p.multipleOf < target ? p.multipleOf : 1;
+                const cur = pas > 1 ? rnd(1, Math.floor((target - 1) / pas)) * pas : rnd(1, target - 1);
                 return { question: `${cur} + ? = ${target}`, answer: target - cur, explanation: `${cur} + ${target - cur} = ${target}, donc il manque ${target - cur}.` };
             }
             case 'decimal-place': {
                 const trapMode = p.trap === true;
                 const intPart = trapMode ? Engines.utils.rnd(123, 987) : Engines.utils.rnd(0, 99);
-                const decPart = Engines.utils.rnd(11, 99);
+                // `decimals: 3` : trois chiffres après la virgule (le millième est un attendu du CM2) ;
+                // défaut 2 (dixièmes et centièmes, CM1). En trois chiffres, le dernier n'est jamais 0 :
+                // un décimal ne s'écrit pas « 4,350 ».
+                const withThousandths = p.decimals === 3;
+                let decPart;
+                if (withThousandths) {
+                    do { decPart = Engines.utils.rnd(101, 999); } while (decPart % 10 === 0);
+                } else {
+                    decPart = Engines.utils.rnd(11, 99);
+                }
                 const numberStr = `${intPart},${decPart}`;
-                const targets = [
+                const targets = withThousandths ? [
+                    { label: "chiffre des <b style='color:#e91e63'>dixièmes</b>", textLabel: "chiffre des dixièmes", ans: Math.floor(decPart / 100) },
+                    { label: "chiffre des <b style='color:#e91e63'>centièmes</b>", textLabel: "chiffre des centièmes", ans: Math.floor(decPart / 10) % 10 },
+                    { label: "chiffre des <b style='color:#e91e63'>millièmes</b>", textLabel: "chiffre des millièmes", ans: decPart % 10 }
+                ] : [
                     { label: "chiffre des <b style='color:#e91e63'>dixièmes</b>", textLabel: "chiffre des dixièmes", ans: Math.floor(decPart / 10) },
                     { label: "chiffre des <b style='color:#e91e63'>centièmes</b>", textLabel: "chiffre des centièmes", ans: decPart % 10 }
                 ];
@@ -48,18 +101,43 @@
                 };
             }
             case 'dictée-nombres': {
-                const nBig = rnd(1000, p.max || 1000000);
+                const nBig = rnd(p.min || 1000, p.max || 1000000);
                 return { question: `<span class="small-question">Écris en chiffres :<br><b>${numberToFrench(nBig)}</b></span>`, answer: nBig, explanation: `${numberToFrench(nBig)} s'écrit ${nBig}.` };
             }
             case 'calc-mental':
                 if (p.operator === "/") {
                     const ops = p.operands?.length ? p.operands : [2, 5, 10];
                     const diviseur = pick(ops);
-                    const ans = rnd(5, 50);
+                    // `range` borne le QUOTIENT, donc indirectement la taille du
+                    // dividende : c'est ce qui permet de calibrer un même
+                    // exercice de division par niveau. Défaut 5-50 inchangé.
+                    const ans = rnd(p.range?.[0] || 5, p.range?.[1] || 50);
                     return { question: `${ans * diviseur} : ${diviseur} = ?`, answer: ans, explanation: `${ans * diviseur} : ${diviseur} = ${ans}` };
                 }
+                // + et - tirent LES DEUX opérandes dans `range`, contrairement à
+                // add-simple (qui tire une somme puis la découpe, d'où ~20 % de
+                // tirages triviaux du type « 3 + 74 » sur des bornes CM2) et à
+                // sub-simple (dont le second opérande descend jusqu'à 0).
+                if (p.operator === "+") {
+                    a = rnd(p.range?.[0] || 2, p.range?.[1] || 10);
+                    b = rnd(p.range?.[0] || 2, p.range?.[1] || 10);
+                    return { question: `${a} + ${b} = ?`, answer: a + b, explanation: `${a} + ${b} = ${a + b}` };
+                }
+                if (p.operator === "-") {
+                    const x = rnd(p.range?.[0] || 2, p.range?.[1] || 10);
+                    const y = rnd(p.range?.[0] || 2, p.range?.[1] || 10);
+                    // Le plus grand passe devant : jamais de résultat négatif,
+                    // hors programme à l'école élémentaire.
+                    a = Math.max(x, y);
+                    b = Math.min(x, y);
+                    return { question: `${a} - ${b} = ?`, answer: a - b, explanation: `${a} - ${b} = ${a - b}` };
+                }
                 a = rnd(p.range?.[0] || 2, p.range?.[1] || 10);
-                b = rnd(2, 10);
+                // `operands` fournit les multiplicateurs quand ils doivent être
+                // choisis dans une liste (×10, ×100, ×1000) plutôt que tirés
+                // entre 2 et 10 — même rôle que pour la division. Absent, le
+                // comportement historique est inchangé.
+                b = p.operands?.length ? pick(p.operands) : rnd(2, 10);
                 return { question: `${a} × ${b} = ?`, answer: a * b, explanation: `${a} × ${b} = ${a * b}` };
             case 'oiseau-math': {
                 a = rnd(p.min || 1, p.max || 10);
@@ -75,7 +153,7 @@
                     touches.push({ val, angle: (i * (360 / (p.nbFleches || 3)) + rnd(0, 20)) * (Math.PI / 180) });
                 }
                 const totalScore = touches.reduce((acc, item) => acc + item.val, 0);
-                return { isVisual: true, visualType: p.skin === 'money' ? 'money' : 'target', data: { zonesDefinitions: zones, hits: touches }, answer: totalScore, explanation: `${touches.map(t => t.val).join(' + ')} = ${totalScore}` };
+                return { isVisual: true, visualType: p.skin === 'money' ? 'money' : 'target', data: { zonesDefinitions: zones, hits: touches, caption: p.skin === 'money' ? undefined : 'Additionne les points des flèches : chacune vaut le nombre de sa zone.' }, answer: totalScore, explanation: `${touches.map(t => t.val).join(' + ')} = ${totalScore}` };
             }
             case 'half': {
                 // min/max bornent la MOITIÉ demandée (ex: min 5, max 25 → moitié de 10 à 50)
@@ -86,29 +164,36 @@
                 const base = rnd(p.min || 5, p.max || 50);
                 return { question: `Double de ${base} ?`, answer: base * 2, explanation: `Le double de ${base} est ${base * 2}, car ${base} + ${base} = ${base * 2}.` };
             }
-            case 'division-simple':
-                b = rnd(2, 9);
-                total = rnd(2, 10);
+            case 'division-simple': {
+                // `divisors` (liste) et `quotient` ([min, max]) : défaut historique = diviseur 2-9, quotient 2-10.
+                b = Array.isArray(p.divisors) && p.divisors.length ? pick(p.divisors) : rnd(2, 9);
+                total = Array.isArray(p.quotient) ? rnd(p.quotient[0], p.quotient[1]) : rnd(2, 10);
                 a = b * total;
                 return { question: `${a} : ${b} = ?`, answer: total, explanation: `${a} : ${b} = ${total}, car ${b} × ${total} = ${a}.` };
+            }
             case 'division-reste': {
-                const diviseur = rnd(3, 9);
-                const quotient = rnd(2, 9);
+                // `divisors`, `quotient` : mêmes bornes optionnelles ; `ask: 'reste'` demande le reste (défaut : le quotient).
+                const diviseur = Array.isArray(p.divisors) && p.divisors.length ? pick(p.divisors) : rnd(3, 9);
+                const quotient = Array.isArray(p.quotient) ? rnd(p.quotient[0], p.quotient[1]) : rnd(2, 9);
                 const reste = rnd(1, diviseur - 1);
                 const dividende = (diviseur * quotient) + reste;
+                if (p.ask === 'reste') {
+                    return { question: `<span class="small-question">Quel est le reste de la division de <b>${dividende}</b> par <b>${diviseur}</b> ?</span>`, answer: reste, explanation: `${diviseur} × ${quotient} = ${dividende - reste} et ${dividende} - ${dividende - reste} = ${reste} : le reste est ${reste}, plus petit que ${diviseur}.` };
+                }
                 return { question: `<span class="small-question">Dans <b>${dividende}</b>,<br>combien de fois <b>${diviseur}</b> ?</span>`, answer: quotient, explanation: `${diviseur} × ${quotient} = ${dividende - reste}, et il reste ${reste} (${dividende} - ${dividende - reste} = ${reste}).` };
             }
             case 'proportionnalite': {
                 const contexts = p.contexts || [
-                    { item: 'pommes', unit: '€', label: 'pommes' },
-                    { item: 'œufs', unit: '€', label: 'œufs' },
-                    { item: 'bonbons', unit: '€', label: 'bonbons' },
-                    { item: 'litres de jus', unit: '€', label: 'litres' }
+                    { item: 'pommes', unit: '€', label: 'pommes', singular: 'pomme' },
+                    { item: 'œufs', unit: '€', label: 'œufs', singular: 'œuf' },
+                    { item: 'bonbons', unit: '€', label: 'bonbons', singular: 'bonbon' },
+                    { item: 'litres de jus', unit: '€', label: 'litres', singular: 'litre' }
                 ];
                 const rawCtx = pick(contexts);
                 const ctx = {
                     ...rawCtx,
                     label: SecurityUtils.escapeHtml((rawCtx.label || '').toString()),
+                    singular: SecurityUtils.escapeHtml((rawCtx.singular || rawCtx.label || '').toString()),
                     unit: SecurityUtils.escapeHtml((rawCtx.unit || '').toString())
                 };
                 const coef = rnd(2, p.maxCoef || 5);
@@ -117,12 +202,16 @@
                 const qty2 = baseQty * coef;
                 const prix2 = basePrix * coef;
                 const askPrix = Math.random() > 0.5;
+                // « Pour 1 pomme » (singulier) et « combien d'œufs » (élision) : l'énoncé généré
+                // accorde le libellé avec la quantité et élide « de » devant une voyelle.
+                const nom = (n) => (n === 1 ? ctx.singular : ctx.label);
+                const deMot = deElide;
                 const question = askPrix
-                    ? `Pour ${baseQty} ${ctx.label}, c'est ${basePrix} ${ctx.unit}.<br>Pour ${qty2} ${ctx.label}, combien de ${ctx.unit} ?`
-                    : `${basePrix} ${ctx.unit} pour ${baseQty} ${ctx.label}.<br>${prix2} ${ctx.unit} pour combien de ${ctx.label} ?`;
+                    ? `Pour ${baseQty} ${nom(baseQty)}, c'est ${basePrix} ${ctx.unit}.<br>Pour ${qty2} ${nom(qty2)}, combien ${deMot(ctx.unit)} ?`
+                    : `${basePrix} ${ctx.unit} pour ${baseQty} ${nom(baseQty)}.<br>${prix2} ${ctx.unit} pour combien ${deMot(nom(qty2))} ?`;
                 const propExplanation = askPrix
-                    ? `${qty2} ${ctx.label}, c'est ${coef} fois plus que ${baseQty} : ${basePrix} × ${coef} = ${prix2} ${ctx.unit}.`
-                    : `${prix2} ${ctx.unit}, c'est ${coef} fois plus que ${basePrix} : ${baseQty} × ${coef} = ${qty2} ${ctx.label}.`;
+                    ? `${qty2} ${nom(qty2)}, c'est ${coef} fois plus que ${baseQty} : ${basePrix} × ${coef} = ${prix2} ${ctx.unit}.`
+                    : `${prix2} ${ctx.unit}, c'est ${coef} fois plus que ${basePrix} : ${baseQty} × ${coef} = ${qty2} ${nom(qty2)}.`;
                 return { question: `<span class="small-question">${question}</span>`, answer: askPrix ? prix2 : qty2, inputType: 'numeric', explanation: propExplanation };
             }
             case 'pourcentage': {
@@ -130,13 +219,17 @@
                 const pct = pick(pourcentages);
                 const steps = [4, 5, 10, 20];
                 const step = steps.find(s => (100 / pct) % 1 === 0 && s % (100 / pct) === 0) || (100 / pct);
-                const base = rnd(1, p.maxMultiple || 10) * step;
+                // `minMultiple` écarte les bases triviales (« 20 % de 10 ») : la base vaut multiple × pas.
+                const minMult = Math.min(Math.max(1, Number(p.minMultiple) || 1), p.maxMultiple || 10);
+                const base = rnd(minMult, p.maxMultiple || 10) * step;
                 const result = (base * pct) / 100;
                 return { question: `<span class="small-question">${pct} % de ${base} = ?</span>`, answer: result, inputType: 'numeric', explanation: `${pct} % de ${base} = (${base} × ${pct}) ÷ 100 = ${result}.` };
             }
             case 'aire-rectangle': {
                 const longueur = rnd(2, p.max || 12);
-                const largeur = rnd(2, p.max || 12);
+                let largeur = rnd(2, p.max || 12);
+                // Un « rectangle » à deux côtés égaux est un carré : on le redessine.
+                if ((p.max || 12) >= 3) { while (largeur === longueur) largeur = rnd(2, p.max || 12); }
                 return { question: `<span class="small-question">Un rectangle mesure ${longueur} cm de longueur et ${largeur} cm de largeur.<br>Quelle est son aire (en cm²) ?</span>`, answer: longueur * largeur, inputType: 'numeric', explanation: `L'aire d'un rectangle = longueur × largeur = ${longueur} × ${largeur} = ${longueur * largeur} cm².` };
             }
             case 'volume-pave': {
@@ -179,43 +272,122 @@
                     d_divisor = rnd(15, 99);
                     d_dividend = rnd(500, 9999);
                 }
+                // `divisors` (liste) et `dividend` ([min, max]) recalibrent le niveau : « 20 à 99
+                // divisé par 2, 3, 4 ou 5 » au CE2 (division par un chiffre simple), « 1 000 à
+                // 9 999 divisé par un chiffre » en défi de CM1. Absents, le niveau décide.
+                if (Array.isArray(p.divisors) && p.divisors.length) d_divisor = pick(p.divisors);
+                if (Array.isArray(p.dividend) && p.dividend.length === 2) d_dividend = rnd(p.dividend[0], p.dividend[1]);
+                const askRemainder = p.ask === 'reste';
+                // Un exercice qui demande « ce qu'il reste » ne doit pas poser une division exacte
+                // (10 tirages sur 40 avaient pour réponse 0) : on décale le dividende d'une unité,
+                // dans ses bornes, ce qui donne un reste de 1 (ou de diviseur - 1 vers le bas).
+                if (askRemainder && d_dividend % d_divisor === 0) {
+                    const borneHaute = Array.isArray(p.dividend) && p.dividend.length === 2 ? p.dividend[1] : (level === 1 ? 900 : (level === 2 ? 2000 : 9999));
+                    d_dividend += d_dividend + 1 <= borneHaute ? 1 : -1;
+                }
                 const d_q = Math.floor(d_dividend / d_divisor);
                 const d_r = d_dividend % d_divisor;
-                const askRemainder = p.ask === 'reste';
                 const divExplanation = `${d_dividend} : ${d_divisor} : le quotient est ${d_q} (${d_divisor} × ${d_q} = ${d_divisor * d_q}) et il reste ${d_r}.`;
                 return { question: askRemainder ? "Quel est le reste ?" : "Quel est le quotient ?", answer: askRemainder ? d_r : d_q, isVisual: true, visualType: 'division', inputType: 'numeric', data: { dividend: d_dividend, divisor: d_divisor, askRemainder }, explanation: divExplanation };
             }
             case 'operation-posed': {
                 const level = p.level || 1;
                 const operator = p.operator || 'add';
+                // decimals : opérandes toujours des entiers bruts (mêmes tables rnd()
+                // ci-dessous, decimals=0 ou absent = comportement historique inchangé
+                // au bit près), simplement réinterprétés comme valeur × 10^decimals au
+                // formatage (formatScaled). Jamais de flottant JS : ça évite tout
+                // risque de précision et garde add/sub/mult exacts sur des entiers.
+                const decimals = [0, 1, 2].includes(p.decimals) ? p.decimals : 0;
                 let opA, opB;
-                if (operator === 'add') {
-                    if (level === 1) { opA = rnd(10, 99); opB = rnd(10, 99); }
-                    else if (level === 2) { opA = rnd(100, 999); opB = rnd(100, 999); }
-                    else { opA = rnd(1000, 9999); opB = rnd(1000, 9999); }
-                } else if (operator === 'sub') {
-                    if (level === 1) { opA = rnd(20, 99); opB = rnd(10, opA - 1); }
-                    else if (level === 2) { opA = rnd(200, 999); opB = rnd(100, opA - 1); }
-                    else { opA = rnd(2000, 9999); opB = rnd(1000, opA - 1); }
-                } else {
-                    if (level === 1) { opA = rnd(11, 99); opB = rnd(2, 9); }
-                    else if (level === 2) { opA = rnd(11, 99); opB = rnd(11, 99); }
-                    else { opA = rnd(100, 999); opB = rnd(11, 99); }
+                // `mixed: true` (décimaux au centième, add/sub) : le premier terme n'a parfois qu'un chiffre
+                // après la virgule (« 12,4 + 7,35 ») : il faut le compléter par un zéro avant de poser,
+                // comme l'enseigne la leçon. `aDecimals` dit combien de décimales sont affichées.
+                let aDecimals = decimals;
+                const tirerOperandes = () => {
+                    if (operator === 'add') {
+                        // niveaux 4 et 5 : nombres de 5 et de 6 chiffres (défis du CM2)
+                        if (level === 1) { opA = rnd(10, 99); opB = rnd(10, 99); }
+                        else if (level === 2) { opA = rnd(100, 999); opB = rnd(100, 999); }
+                        else if (level === 4) { opA = rnd(10000, 99999); opB = rnd(10000, 99999); }
+                        else if (level === 5) { opA = rnd(100000, 999999); opB = rnd(100000, 999999); }
+                        else { opA = rnd(1000, 9999); opB = rnd(1000, 9999); }
+                        // `maxResult` (optionnel) plafonne la SOMME : « Addition posée
+                        // jusqu'à 1000 » tirait deux nombres de 100 à 999, donc la
+                        // moitié des sommes dépassaient 1000 (jusqu'à 1 998). On garde
+                        // les bornes du niveau pour chaque opérande et on resserre
+                        // seulement le second. Sans ce paramètre, rien ne change au
+                        // bit près (CE2 et CM1 utilisent ce même niveau 2). Ignoré s'il
+                        // est trop petit pour laisser un choix au niveau demandé.
+                        const minOp = [10, 100, 1000, 10000, 100000][level - 1] || 1000;
+                        const maxOp = [99, 999, 9999, 99999, 999999][level - 1] || 9999;
+                        const maxResult = Number(p.maxResult);
+                        if (Number.isInteger(maxResult) && maxResult >= 2 * minOp) {
+                            opA = rnd(minOp, Math.min(maxOp, maxResult - minOp));
+                            opB = rnd(minOp, Math.min(maxOp, maxResult - opA));
+                        }
+                    } else if (operator === 'sub') {
+                        if (level === 1) { opA = rnd(20, 99); opB = rnd(10, opA - 1); }
+                        else if (level === 2) { opA = rnd(200, 999); opB = rnd(100, opA - 1); }
+                        else if (level === 4) { opA = rnd(20000, 99999); opB = rnd(10000, opA - 1); }
+                        else if (level === 5) { opA = rnd(200000, 999999); opB = rnd(100000, opA - 1); }
+                        else { opA = rnd(2000, 9999); opB = rnd(1000, opA - 1); }
+                    } else {
+                        if (level === 1) { opA = rnd(11, 99); opB = rnd(2, 9); }
+                        else if (level === 2) { opA = rnd(11, 99); opB = rnd(11, 99); }
+                        else { opA = rnd(100, 999); opB = rnd(11, 99); }
+                    }
+                };
+                const tirerOperandesMixtes = () => {
+                    tirerOperandes();
+                    aDecimals = decimals;
+                    if (p.mixed === true && decimals === 2 && operator !== 'mult' && rnd(0, 1) === 1) {
+                        const arrondi = Math.floor(opA / 10) * 10;
+                        if (operator === 'add' || arrondi > opB) { opA = arrondi; aDecimals = 1; }
+                    }
+                };
+                tirerOperandesMixtes();
+                // `carry: true` : l'énoncé annonce « avec retenue » ; sans cette garantie, un tirage
+                // pouvait n'avoir ni retenue ni emprunt à poser. On retire les opérandes jusqu'à ce
+                // qu'une colonne déborde (addition : somme des deux chiffres ≥ 10) ou emprunte
+                // (soustraction : chiffre du haut < chiffre du bas).
+                if (p.carry === true && operator !== 'mult') {
+                    const aUneRetenue = (x, y) => {
+                        let u = x, v = y;
+                        while (u > 0 || v > 0) {
+                            const du = u % 10, dv = v % 10;
+                            if (operator === 'add' ? du + dv >= 10 : du < dv) return true;
+                            u = Math.floor(u / 10);
+                            v = Math.floor(v / 10);
+                        }
+                        return false;
+                    };
+                    for (let essai = 0; essai < 200 && !aUneRetenue(opA, opB); essai++) tirerOperandesMixtes();
                 }
                 const result = operator === 'add' ? opA + opB : (operator === 'sub' ? opA - opB : opA * opB);
                 const opSymbol = operator === 'add' ? '+' : (operator === 'sub' ? '-' : '×');
+                // Met une valeur entière à l'échelle en chaîne virgule (jamais un
+                // point) : indispensable pour `answer`, standardize() (engines-core.js)
+                // fait juste answer.toString() sinon un flottant produirait un point
+                // qui ne matcherait jamais une saisie clavier virgule.
+                const formatScaled = (value) => {
+                    const str = value.toString();
+                    if (decimals === 0) return str;
+                    const padded = str.padStart(decimals + 1, '0');
+                    return `${padded.slice(0, -decimals)},${padded.slice(-decimals)}`;
+                };
                 const opExplanation = operator === 'add'
-                    ? `${opA} + ${opB} = ${result} (pense aux retenues quand une colonne dépasse 9).`
+                    ? `${formatScaled(opA)} + ${formatScaled(opB)} = ${formatScaled(result)} (pense aux retenues quand une colonne dépasse 9).`
                     : operator === 'sub'
-                        ? `${opA} - ${opB} = ${result} (pense aux emprunts quand le chiffre du haut est plus petit).`
-                        : `${opA} × ${opB} = ${result}.`;
+                        ? `${formatScaled(opA)} - ${formatScaled(opB)} = ${formatScaled(result)} (pense aux emprunts quand le chiffre du haut est plus petit).`
+                        : `${formatScaled(opA)} × ${opB} = ${formatScaled(result)}.`;
                 return {
                     question: "Quel est le résultat ?",
-                    answer: result,
+                    answer: formatScaled(result),
                     isVisual: true,
                     visualType: 'operationPosed',
                     inputType: 'numeric',
-                    data: { a: opA, b: opB, operator, operatorSymbol: opSymbol },
+                    data: { a: opA, b: opB, operator, operatorSymbol: opSymbol, decimals, aDecimals },
                     explanation: opExplanation
                 };
             }
@@ -225,23 +397,49 @@
                 const maxValue = Math.pow(10, digitCount) - 1;
                 const value = rnd(p.min || minValue, p.max || maxValue);
                 const valueStr = value.toString();
-                const placeNames = ['unités', 'dizaines', 'centaines', 'milliers', 'dizaines de milliers', 'centaines de milliers'];
+                // Groupage par classes de trois chiffres, séparées d'une espace
+                // insécable : c'est la convention scolaire française, et c'est
+                // déjà celle des leçons (cm1-lesson-position-valeur-grands-nombres
+                // écrit « 452 318 », cm1-lesson-classe-millions « 4 235 178 »).
+                // Sans ça l'exercice affichait « 452318 », en contradiction avec
+                // sa propre leçon — et illisible à 7 rangs ou plus. Seul
+                // l'AFFICHAGE est groupé : `answer` reste un nombre nu, comparé
+                // tel quel par App.validateAnswer.
+                const groupDigits = (n) => {
+                    const s = n.toString();
+                    return s.length >= 5 ? s.replace(/\B(?=(\d{3})+$)/g, ' ') : s;
+                };
+                const shown = groupDigits(value);
+                // Couvre jusqu'au milliard (10 rangs, digitCount max borné à 10
+                // par les 2 validateurs). Au-delà, le repli `position N` ci-dessous
+                // afficherait un libellé non pédagogique : il ne doit jamais être
+                // atteint par du contenu valide, il ne reste que par prudence.
+                const placeNames = ['unités', 'dizaines', 'centaines', 'milliers', 'dizaines de milliers', 'centaines de milliers', 'millions', 'dizaines de millions', 'centaines de millions', 'milliards'];
                 const askMode = p.ask || 'digit';
                 const positionsAvailable = valueStr.length;
-                const posFromRight = rnd(0, positionsAvailable - 1);
+                const askValue = askMode === 'value';
+                let posFromRight = rnd(0, positionsAvailable - 1);
+                if (askValue) {
+                    // « Quelle est la valeur du chiffre des … ? » : un chiffre 0 vaut 0, la question
+                    // n'enseigne rien (18 % des tirages d'un nombre à 7 chiffres). On ne demande la
+                    // valeur que d'un chiffre non nul.
+                    const nonNuls = [];
+                    for (let k = 0; k < positionsAvailable; k++) if (valueStr[positionsAvailable - 1 - k] !== '0') nonNuls.push(k);
+                    if (nonNuls.length) posFromRight = pick(nonNuls);
+                }
                 const posFromLeft = positionsAvailable - 1 - posFromRight;
                 const digit = Number(valueStr[posFromLeft]);
                 const placeName = placeNames[posFromRight] || `position ${posFromRight}`;
                 const placeVal = digit * Math.pow(10, posFromRight);
-                const askValue = askMode === 'value';
-                const pvQuestion = askValue
-                    ? `Dans <b>${value}</b>, quelle est la valeur du chiffre des <b style="color:#e91e63">${placeName}</b> ?`
-                    : `Dans <b>${value}</b>, quel est le chiffre des <b style="color:#e91e63">${placeName}</b> ?`;
+                // `pvQuestion` a été retiré : il construisait une seconde version
+                // de l'énoncé (« Dans <b>452318</b>, ... ») que rien ne lisait —
+                // vérifié, une seule occurrence dans tout js/. La laisser aurait
+                // signifié maintenir deux formats d'affichage divergents.
                 const pvExplanation = askValue
-                    ? `Dans ${value}, le chiffre des ${placeName} est ${digit}, ce qui représente ${placeVal}.`
-                    : `Dans ${value}, le chiffre des ${placeName} est ${digit}.`;
+                    ? `Dans ${shown}, le chiffre des ${placeName} est ${digit}, ce qui représente ${groupDigits(placeVal)}.`
+                    : `Dans ${shown}, le chiffre des ${placeName} est ${digit}.`;
                 return {
-                    question: `<div style="font-size:2.6rem; font-weight:bold; letter-spacing:2px;">${value}</div><div class="small-question" style="margin-top:10px;">${askValue ? `Quelle est la valeur du chiffre des ${placeName} ?` : `Quel est le chiffre des ${placeName} ?`}</div>`,
+                    question: `<div style="font-size:2.6rem; font-weight:bold; letter-spacing:2px;">${shown}</div><div class="small-question" style="margin-top:10px;">${askValue ? `Quelle est la valeur du chiffre des ${placeName} ?` : `Quel est le chiffre des ${placeName} ?`}</div>`,
                     answer: askValue ? placeVal : digit,
                     inputType: 'numeric',
                     explanation: pvExplanation
@@ -277,23 +475,25 @@
                 const kind = pick(questionKinds);
 
                 let question, answer, choices, explanation;
+                // « de » s'élide devant une voyelle : « le plus d'élèves présents ».
+                const deUnite = deElide(theme.unit);
                 if (kind === 'max') {
-                    question = `Quelle barre a le plus de ${theme.unit} ?`;
+                    question = `Quelle barre a le plus ${deUnite} ?`;
                     answer = maxBar.label;
                     choices = shuffle([maxBar.label, ...shuffle(bars.filter(b => b !== maxBar)).slice(0, 2).map(b => b.label)]);
                     explanation = `${maxBar.label} a la plus grande valeur : ${maxBar.value}.`;
                 } else if (kind === 'min') {
-                    question = `Quelle barre a le moins de ${theme.unit} ?`;
+                    question = `Quelle barre a le moins ${deUnite} ?`;
                     answer = minBar.label;
                     choices = shuffle([minBar.label, ...shuffle(bars.filter(b => b !== minBar)).slice(0, 2).map(b => b.label)]);
                     explanation = `${minBar.label} a la plus petite valeur : ${minBar.value}.`;
                 } else if (kind === 'value') {
                     const target = pick(bars);
-                    question = `Combien de ${theme.unit} pour « ${target.label} » ?`;
+                    question = `Combien ${deUnite} pour « ${target.label} » ?`;
                     answer = target.value;
                     explanation = `La barre « ${target.label} » indique ${target.value}.`;
                 } else if (kind === 'total') {
-                    question = `Quel est le total de ${theme.unit} ?`;
+                    question = `Quel est le total ${deUnite} ?`;
                     answer = total;
                     explanation = `${values.join(' + ')} = ${total}.`;
                 } else {
@@ -343,7 +543,7 @@
                 if (kind === 'cell') {
                     const r = rnd(0, rowCount - 1);
                     const c = rnd(0, colCount - 1);
-                    question = `Dans le tableau, combien de ${theme.unit} pour « ${rowLabels[r]} » à « ${colLabels[c]} » ?`;
+                    question = `Dans le tableau, combien ${deElide(theme.unit)} pour « ${rowLabels[r]} » à « ${colLabels[c]} » ?`;
                     answer = grid[r][c];
                     explanation = `La case « ${rowLabels[r]} » / « ${colLabels[c]} » indique ${grid[r][c]}.`;
                 } else if (kind === 'row-total') {
@@ -366,12 +566,12 @@
                     if (v1 === v2) {
                         // Repli déterministe sur une question de cellule pour
                         // éviter une comparaison sans réponse unique.
-                        question = `Dans le tableau, combien de ${theme.unit} pour « ${rowLabels[r1]} » à « ${colLabels[c]} » ?`;
+                        question = `Dans le tableau, combien ${deElide(theme.unit)} pour « ${rowLabels[r1]} » à « ${colLabels[c]} » ?`;
                         answer = v1;
                         explanation = `La case « ${rowLabels[r1]} » / « ${colLabels[c]} » indique ${v1}.`;
                     } else {
                         const winner = v1 > v2 ? rowLabels[r1] : rowLabels[r2];
-                        question = `Pour « ${colLabels[c]} », qui a le plus de ${theme.unit} : « ${rowLabels[r1]} » ou « ${rowLabels[r2]} » ?`;
+                        question = `Pour « ${colLabels[c]} », qui a le plus ${deElide(theme.unit)} : « ${rowLabels[r1]} » ou « ${rowLabels[r2]} » ?`;
                         answer = winner;
                         explanation = `« ${rowLabels[r1]} » = ${v1}, « ${rowLabels[r2]} » = ${v2}, donc « ${winner} » a le plus.`;
                     }
@@ -414,8 +614,13 @@
                 const minSlice = slices.reduce((best, s) => (s.pct < best.pct ? s : best), slices[0]);
                 const halfSlice = slices.find((s) => s.pct === 50);
 
-                const questionKinds = p.questionKinds || (halfSlice ? ['max', 'min', 'half'] : ['max', 'min']);
-                const kind = pick(questionKinds);
+                // « la plus petite (grande) part » n'est demandée que si elle est unique : deux parts à 25 %
+                // donnaient deux réponses justes dont une seule était acceptée.
+                const maxUnique = slices.filter((s) => s.pct === maxSlice.pct).length === 1;
+                const minUnique = slices.filter((s) => s.pct === minSlice.pct).length === 1;
+                const kindsPossibles = [maxUnique ? 'max' : null, minUnique ? 'min' : null, halfSlice ? 'half' : null].filter(Boolean);
+                const questionKinds = (p.questionKinds || kindsPossibles).filter((k) => kindsPossibles.includes(k));
+                const kind = pick(questionKinds.length ? questionKinds : (kindsPossibles.length ? kindsPossibles : ['max']));
 
                 let question, answer, explanation;
                 if (kind === 'max') {
@@ -446,31 +651,23 @@
             case 'average-compute': {
                 const seriesLength = p.length || rnd(4, 5);
                 const perValueMax = p.maxValue || 20;
-                // Tire seriesLength-1 valeurs libres puis dérive la dernière
-                // pour que la somme totale soit un multiple exact de
-                // seriesLength (moyenne entière garantie, sans décimaux).
-                const values = [];
-                for (let i = 0; i < seriesLength - 1; i++) values.push(rnd(1, perValueMax));
-                const partialSum = values.reduce((a, b) => a + b, 0);
-                const targetAverage = rnd(1, perValueMax);
-                let lastValue = (targetAverage * seriesLength) - partialSum;
-                // Rejette un tirage qui donnerait une dernière valeur hors bornes
-                // raisonnables (négative ou disproportionnée) en la recalculant
-                // depuis une moyenne cible dérivée directement de la série tirée.
-                if (lastValue < 1 || lastValue > perValueMax * 2) {
-                    const filler = rnd(1, perValueMax);
-                    values.push(filler);
-                    const total = values.reduce((a, b) => a + b, 0);
-                    // Ajuste la dernière valeur ajoutée pour que le total soit un
-                    // multiple de seriesLength, en restant positive.
-                    const remainder = total % seriesLength;
-                    if (remainder !== 0) {
-                        values[values.length - 1] += (seriesLength - remainder);
-                    }
-                } else {
-                    values.push(lastValue);
+                // Toutes les valeurs restent dans [1, maxValue] (une « note » ne dépasse pas 20) :
+                // on tire la série entière et on ne garde que celles dont la somme est un
+                // multiple exact de seriesLength (moyenne entière, sans décimaux).
+                const somme = (liste) => liste.reduce((a, b) => a + b, 0);
+                let values = [];
+                for (let essai = 0; essai < 200; essai++) {
+                    values = [];
+                    for (let i = 0; i < seriesLength; i++) values.push(rnd(1, perValueMax));
+                    if (somme(values) % seriesLength === 0) break;
                 }
-                const sum = values.reduce((a, b) => a + b, 0);
+                if (somme(values) % seriesLength !== 0) {
+                    // Repli (200 échecs de suite : quasi impossible) : on ajuste la dernière valeur.
+                    const sansDerniere = somme(values.slice(0, -1));
+                    const cible = Array.from({ length: perValueMax }, (_, i) => i + 1).find((v) => (sansDerniere + v) % seriesLength === 0);
+                    values[values.length - 1] = cible || 1;
+                }
+                const sum = somme(values);
                 const average = sum / seriesLength;
                 const contexts = p.contexts || [
                     'notes obtenues à des contrôles',
@@ -546,14 +743,48 @@
             const units = unitSets[unitType];
             const factors = [1000, 100, 10, 1, 0.1, 0.01, 0.001];
             let range = p.range || [0, 6];
-            const idx1 = rnd(range[0], range[1]);
-            let idx2 = rnd(Math.max(range[0], idx1 - 3), Math.min(range[1], idx1 + 3));
-            while (idx1 === idx2) idx2 = rnd(range[0], range[1]);
+            // `units` restreint le tirage aux unités du programme du niveau (ex. ['kg', 'g'] au
+            // CE2) : avec `range` seul, [0, 3] donnait kg, hg, dag, g et kL, hL, daL, L, donc
+            // des hectolitres sous un titre « Litres et millilitres » et jamais un millilitre.
+            const allowed = Array.isArray(p.units) ? p.units.map((u) => units.indexOf(u)).filter((i) => i >= 0) : [];
+            const restricted = allowed.length >= 2;
+            let idx1, idx2;
+            if (restricted) {
+                idx1 = Engines.utils.pick(allowed);
+                const others = allowed.filter((i) => i !== idx1);
+                const near = others.filter((i) => Math.abs(i - idx1) <= 3);
+                idx2 = Engines.utils.pick(near.length ? near : others);
+            } else {
+                idx1 = rnd(range[0], range[1]);
+                idx2 = rnd(Math.max(range[0], idx1 - 3), Math.min(range[1], idx1 + 3));
+                while (idx1 === idx2) idx2 = rnd(range[0], range[1]);
+            }
             const u1 = units[idx1], u2 = units[idx2], f1 = factors[idx1], f2 = factors[idx2];
-            const val = idx1 < idx2 ? rnd(1, 10) : rnd(1, 9) * 1000;
+            let val = idx1 < idx2 ? rnd(1, 10) : rnd(1, 9) * 1000;
+            // `decimals` (1 ou 2) : la valeur de départ est un décimal (« 4,5 km = ? m »), la
+            // compétence de fin de cycle 3. Vers une unité plus petite, c'est le nombre lui-même
+            // (4,5 ou 2,35) ; vers une unité plus grande, un nombre dont le résultat porte 1 ou 2
+            // décimales (4 500 m = 4,5 km). Deux décimales exigent au moins 2 rangs d'écart pour
+            // rester un nombre entier de petites unités. Absent : entiers, comportement d'origine.
+            const decimales = [1, 2].includes(p.decimals) ? p.decimals : 0;
+            if (decimales > 0) {
+                const ecart = Math.abs(idx1 - idx2);
+                const d = decimales === 2 && (idx1 < idx2 || ecart >= 2) ? 2 : 1;
+                const unites = d === 2 ? rnd(101, 999) : rnd(11, 99);
+                if (idx1 < idx2) val = unites / Math.pow(10, d);
+                else val = (unites * Math.pow(10, ecart)) / Math.pow(10, d);
+            }
             const result = Math.round((val * (f1 / f2)) * 1000) / 1000;
             const resultStr = result.toString().replace('.', ',');
-            return { question: "Convertis :", answer: resultStr, inputType: 'numeric', isVisual: true, visualType: 'conversionTable', data: { val, u1, u2, type: unitType }, explanation: `${val} ${u1} = ${resultStr} ${u2}.` };
+            const data = { val: decimales > 0 ? val.toString().replace('.', ',') : val, u1, u2, type: unitType };
+            if (restricted) {
+                // Le tableau à 7 colonnes montrerait des unités hors programme : on donne la relation.
+                const big = Math.min(idx1, idx2), small = Math.max(idx1, idx2);
+                const ratio = String(Math.round(factors[big] / factors[small])).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+                data.units = allowed.map((i) => units[i]);
+                data.memo = `1 ${units[big]} = ${ratio} ${units[small]}`;
+            }
+            return { question: "Convertis :", answer: resultStr, inputType: 'numeric', isVisual: true, visualType: 'conversionTable', data, explanation: `${data.val} ${u1} = ${resultStr} ${u2}.` };
         }
         if (p.subtype === 'metric-area') {
             // Unités et facteurs LOCAUX à cette branche : l'aire progresse en x100
@@ -662,12 +893,38 @@
         } else if (level === 2) {
             h = rnd(1, 12);
             m = [0, 15, 30, 45][rnd(0, 3)];
+        } else if (level >= 4) {
+            // Niveau 4 : à la minute près (le CE2 lit les cadrans de 5 en 5, le CM2 lit toutes
+            // les graduations). Les minutes multiples de 5 restent possibles, sans être la règle.
+            h = rnd(0, 23);
+            m = rnd(0, 59);
         } else {
             h = rnd(0, 23);
             m = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55][rnd(0, 11)];
         }
         const isDay = h >= 8 && h < 20;
-        return { isVisual: true, visualType: 'clock', inputType: 'numeric', data: { hours: h, minutes: m, periodIcon: isDay ? "☀️" : "\u{1F319}", periodText: isDay ? "Jour" : "Nuit" }, answer: h.toString().padStart(2, '0') + m.toString().padStart(2, '0') };
+        const data = { hours: h, minutes: m };
+        // La pastille Jour/Nuit n'a de sens que sur le cadran à 24 heures (niveau 3 et plus). Sur un
+        // cadran de 12 heures, de 1 h à 7 h elle annonçait « Nuit » (27 tirages sur 40 au CP) alors
+        // qu'un enfant de 7 ans lit « 7 h » le matin, et 3 h 30 peut être de l'après-midi.
+        if (level >= 3) {
+            data.periodIcon = isDay ? "☀️" : "\u{1F319}";
+            data.periodText = isDay ? "Jour" : "Nuit";
+        }
+        // Niveau 3 : le cadran est à 12 heures mais la réponse s'écrit sur 24 heures (« 2250 » pour
+        // 10 h 50 du soir). Rien ne le disait à l'écran : un enfant qui recopiait le cadran
+        // (« 1050 ») était compté faux sans savoir pourquoi. La pastille Jour/Nuit lève l'ambiguïté
+        // matin/après-midi, à condition que sa règle soit écrite.
+        if (level >= 3) {
+            data.caption = "Écris l'heure sur 24 heures.";
+            data.captionHint = "Jour : de 8 h à 20 h. Nuit : de 20 h à 8 h.";
+        } else {
+            // Niveaux 1 et 2 : la réponse se tape en quatre chiffres (« 0515 » pour 5 h 15) et
+            // rien ne le disait : l'enfant voyait deux blocs de deux chiffres sans consigne.
+            data.caption = "Écris l'heure en chiffres : deux chiffres pour l'heure, deux pour les minutes.";
+        }
+        if (level >= 4) data.minuteTicks = true;
+        return { isVisual: true, visualType: 'clock', inputType: 'numeric', data, answer: h.toString().padStart(2, '0') + m.toString().padStart(2, '0') };
     },
     fractionView(p) {
         const d = Engines.utils.rnd(2, p.maxDenom || 8);
@@ -679,28 +936,48 @@
         const level = p.level || 1;
         const operator = p.operator || 'add';
 
+        // En soustraction, deux numérateurs égaux donnent « 3/6 - 3/6 = 0 » :
+        // une question sans calcul. Avec un tirage libre, c'était le cas de
+        // près d'une question sur deux au level 1 (mesuré : 20 tirages sur 40),
+        // le dénominateur 2 n'offrant qu'un seul numérateur possible. En mode
+        // `sub`, on exige donc un dénominateur d'au moins 3 et on tire n2
+        // parmi les valeurs différentes de n1 (tirage uniforme, sans boucle).
+        // En addition, le dénominateur 2 donnait toujours « 1/2 + 1/2 = 2/2 » (25 % des
+        // tirages au CM1) : le dénominateur minimum est 3 dans les deux modes.
+        const isSub = operator === 'sub';
+        const drawOther = (max, avoid) => {
+            const v = rnd(1, max - 1);
+            return v >= avoid ? v + 1 : v;
+        };
+
         let d1, d2, n1, n2, commonD;
         if (level === 1) {
-            d1 = d2 = commonD = rnd(2, p.maxDenom || 6);
+            const minD = 3;
+            d1 = d2 = commonD = rnd(minD, Math.max(minD, p.maxDenom || 6));
             n1 = rnd(1, commonD - 1);
-            n2 = rnd(1, commonD - 1);
+            n2 = isSub ? drawOther(commonD - 1, n1) : rnd(1, commonD - 1);
         } else if (level === 2) {
             d1 = d2 = commonD = rnd(4, p.maxDenom || 10);
             n1 = rnd(1, commonD - 1);
-            n2 = rnd(1, commonD - 1);
+            n2 = isSub ? drawOther(commonD - 1, n1) : rnd(1, commonD - 1);
         } else {
             // level 3 : dénominateurs différents mais d2 multiple de d1 ; le
             // dénominateur commun (le plus grand des deux) est donné dans la
-            // question, on ne demande pas à l'élève de le trouver (aucune
-            // notion d'équivalence de fractions n'est enseignée dans l'appli
-            // à ce jour). Le cas général (dénominateurs non multiples,
-            // nécessitant un vrai PPCM) est volontairement hors scope.
+            // question, on ne demande pas à l'élève de le trouver.
+            // L'équivalence de fractions est désormais enseignée
+            // (cm1-lesson-fractions-equivalentes, exercée par
+            // cm1-fractions-equivalentes-droite), mais sur ligne graduée :
+            // aucun contenu ne demande encore de convertir avant de calculer.
+            // Le cas général (dénominateurs non multiples, nécessitant un
+            // vrai PPCM) est volontairement hors scope.
             d1 = rnd(2, p.maxDenom ? Math.floor(p.maxDenom / 2) : 5);
             const multiplier = rnd(2, 3);
             d2 = d1 * multiplier;
             commonD = d2;
             n1 = rnd(1, d1 - 1);
-            n2 = rnd(1, d2 - 1);
+            // Ici l'égalité se joue après mise au même dénominateur :
+            // n2 / d2 vaut n1 / d1 quand n2 = n1 × multiplier.
+            n2 = isSub ? drawOther(d2 - 1, n1 * multiplier) : rnd(1, d2 - 1);
         }
 
         const scaledN1 = level === 3 ? n1 * (commonD / d1) : n1;
@@ -741,15 +1018,34 @@
         const { rnd } = Engines.utils;
         let n1, n2, d1, d2;
         if (p.type === 'compare-decimals') {
+            // Valeurs construites à partir d'entiers : `base + Number(Math.random().toFixed(2))` donnait
+            // des écritures parasites (« 7,5600000000000005 »), et l'ajout d'un « 0 » à un premier nombre
+            // ENTIER affichait « 76 ... 760 » avec la réponse « = ».
             const base = rnd(0, 100);
-            n1 = base + Number(Math.random().toFixed(1));
-            n2 = (Math.random() < 0.3) ? n1 : base + Number(Math.random().toFixed(2));
+            n1 = (base * 10 + rnd(0, 9)) / 10;
+            // `wholeParts: 'mix'` : la partie entière du second nombre diffère souvent de celle du premier
+            // (la règle « je compare d'abord la partie entière » sert enfin). Défaut : même partie entière.
+            const mix = p.wholeParts === 'mix';
+            const egal = Math.random() < (mix ? 0.15 : 0.3);
+            if (egal) {
+                n2 = n1;
+            } else if (mix && Math.random() < 0.6) {
+                const autre = Math.max(0, base + (Math.random() < 0.5 ? -1 : 1) * rnd(1, 3));
+                n2 = ((autre === base ? base + 1 : autre) * 100 + rnd(0, 99)) / 100;
+            } else {
+                n2 = (base * 100 + rnd(0, 99)) / 100;
+            }
             d1 = n1.toString().replace('.', ',');
-            d2 = (n1 === n2 && Math.random() > 0.5) ? d1 + "0" : n2.toString().replace('.', ',');
+            // même nombre écrit avec un zéro de plus (« 7,5 » et « 7,50 », « 76 » et « 76,0 »)
+            // `distinctWriting` : deux nombres égaux ne s'écrivent jamais de la même façon.
+            const memeEcriture = n1 === n2 && (p.distinctWriting === true || Math.random() > 0.5);
+            d2 = memeEcriture ? (d1.includes(',') ? d1 + "0" : d1 + ",0") : n2.toString().replace('.', ',');
         } else {
             const max = p.range || 100;
             n1 = rnd(0, max);
-            n2 = (Math.random() < 0.2) ? n1 : rnd(0, max);
+            // Une égalité forcée une fois sur cinq, plus le hasard, donnait près d'un quart de
+            // réponses « = » (13 tirages sur 40 au CP) : 10 % forcés, le hasard fait le reste.
+            n2 = (Math.random() < 0.1) ? n1 : rnd(0, max);
             d1 = n1.toString();
             d2 = n2.toString();
         }

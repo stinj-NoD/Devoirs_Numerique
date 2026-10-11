@@ -94,7 +94,7 @@ Responsables de :
 - la génération des questions
 - la normalisation des sorties moteur
 - les moteurs maths, français et documentaires
-- `engines-board.js` : activités interactives non-QCM (cartes à toucher, classement de figures, mémoire, point sur quadrillage, symétrie, fraction à construire, carte à localiser, lecture de graphique)
+- `engines-board.js` : activités interactives non-QCM (cartes à toucher, classement de figures, mémoire, point sur quadrillage, symétrie, fraction à construire, carte à localiser, ligne numérique graduée — placement d'un nombre ou encadrement entre deux graduations —, lecture de graphique)
 
 ### `storage.js`
 
@@ -240,9 +240,16 @@ Deux couches doivent rester synchronisées :
   - [validators.js](js/validators.js)
 - validation hors runtime :
   - [validate-data.ps1](scripts/validate-data.ps1)
+- validation au runtime réel, sur la totalité du contenu :
+  - [smoke-exercises.js](scripts/smoke-exercises.js) — démarre les 1082 exercices dans un navigateur
 
 Règle absolue :
 - aucun changement de contrat JSON sans mise à jour des deux validateurs
+
+Les deux validateurs vérifient la **forme** des données. Ils ne peuvent pas
+voir qu'un moteur, sur un tirage donné, produit une question sans réponse ou un
+QCM dont la bonne réponse n'est pas proposée : seul `smoke-exercises.js`, qui
+exécute réellement les moteurs, attrape ces cas.
 
 ## 7. Bundle et offline
 

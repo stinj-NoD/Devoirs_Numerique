@@ -2199,6 +2199,13 @@ button,
     text-align: center;
 }
 
+/* Thème sombre : l'accent « fort » des matières (vert, brun, violet, bleu foncé) se lit mal sur fond sombre.
+   On l'éclaircit en gardant sa teinte ; le gris clair sert de repli aux navigateurs sans color-mix. */
+#app.theme-dark .game-instruction {
+    color: #dfe7ee;
+    color: color-mix(in srgb, var(--subject-accent-strong) 35%, #ffffff);
+}
+
 .math-problem {
     width: 100%;
     display: flex;
@@ -2688,6 +2695,10 @@ button,
 }
 
 .board-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     min-height: var(--touch-target-min);
     border-radius: 999px;
     border: 1px solid rgba(74, 144, 226, 0.24);
@@ -2697,6 +2708,19 @@ button,
     text-align: center;
     cursor: pointer;
     transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+}
+
+.board-shape-icon {
+    width: 40px;
+    height: 32px;
+    flex: 0 0 auto;
+}
+
+.board-shape-icon * {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.6;
+    stroke-linejoin: round;
 }
 
 .board-chip.is-selected {
@@ -2966,6 +2990,26 @@ button,
 .board-map-svg--flat .board-map-zone:nth-of-type(6n+5) { fill: #f2bfc6; }
 .board-map-svg--flat .board-map-zone:nth-of-type(6n+6) { fill: #a9dcd4; }
 
+/* Régions de France : l'alternance ci-dessus donnait la même couleur à trois paires de
+   régions voisines (Hauts-de-France et Grand Est, Île-de-France et Bourgogne-Franche-Comté,
+   Centre-Val de Loire et Auvergne-Rhône-Alpes), sans trait entre elles : on ne voyait plus où
+   l'une s'arrêtait. Coloration par nom : deux régions voisines n'ont jamais la même couleur
+   (4 couleurs suffisent sur le continent, la Corse prend la 5e). Le repli nth-of-type
+   ci-dessus reste valable pour toute autre carte « flat ». */
+.board-map-svg--flat .board-map-zone[data-zone-name="Bretagne"],
+.board-map-svg--flat .board-map-zone[data-zone-name="Hauts-de-France"],
+.board-map-svg--flat .board-map-zone[data-zone-name="Centre-Val de Loire"],
+.board-map-svg--flat .board-map-zone[data-zone-name="Occitanie"] { fill: #a8c8ec; }
+.board-map-svg--flat .board-map-zone[data-zone-name="Normandie"],
+.board-map-svg--flat .board-map-zone[data-zone-name="Grand Est"],
+.board-map-svg--flat .board-map-zone[data-zone-name="Auvergne-Rhône-Alpes"] { fill: #b8e0b9; }
+.board-map-svg--flat .board-map-zone[data-zone-name="Pays de la Loire"],
+.board-map-svg--flat .board-map-zone[data-zone-name="Île-de-France"],
+.board-map-svg--flat .board-map-zone[data-zone-name="Provence-Alpes-Côte d'Azur"] { fill: #f5d5a0; }
+.board-map-svg--flat .board-map-zone[data-zone-name="Nouvelle-Aquitaine"],
+.board-map-svg--flat .board-map-zone[data-zone-name="Bourgogne-Franche-Comté"] { fill: #d8bfe8; }
+.board-map-svg--flat .board-map-zone[data-zone-name="Corse"] { fill: #f2bfc6; }
+
 .board-map-svg--flat .board-map-zone:hover {
     fill: rgba(74, 144, 226, 0.6);
 }
@@ -2998,6 +3042,23 @@ button,
 #app.theme-dark .board-map-svg--flat .board-map-zone:nth-of-type(6n+5) { fill: #8a4d5c; }
 #app.theme-dark .board-map-svg--flat .board-map-zone:nth-of-type(6n+6) { fill: #3d7a72; }
 
+/* Régions de France en thème sombre : même répartition par nom que le thème clair
+   (voisines toujours de couleurs différentes) ; l'alternance ci-dessus ne reste que
+   comme repli pour une autre carte « flat ». */
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Bretagne"],
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Hauts-de-France"],
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Centre-Val de Loire"],
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Occitanie"] { fill: #3d5a80; }
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Normandie"],
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Grand Est"],
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Auvergne-Rhône-Alpes"] { fill: #3f6b47; }
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Pays de la Loire"],
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Île-de-France"],
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Provence-Alpes-Côte d'Azur"] { fill: #8a6d3b; }
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Nouvelle-Aquitaine"],
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Bourgogne-Franche-Comté"] { fill: #6b4d8a; }
+#app.theme-dark .board-map-svg--flat .board-map-zone[data-zone-name="Corse"] { fill: #8a4d5c; }
+
 #app.theme-dark .board-map-svg--flat .board-map-zone:hover {
     fill: rgba(96, 165, 250, 0.6);
 }
@@ -3024,10 +3085,56 @@ button,
     stroke-width: 1;
 }
 
+/* Contour (ex. la France) derrière le quadrillage : il situe les points sans en dire les coordonnées. */
+.board-outline {
+    fill: rgba(59, 130, 246, 0.12);
+    stroke: rgba(37, 99, 235, 0.7);
+    stroke-width: 3;
+    stroke-linejoin: round;
+    pointer-events: none;
+}
+
+#app.theme-dark .board-outline {
+    fill: rgba(147, 197, 253, 0.16);
+    stroke: rgba(147, 197, 253, 0.85);
+}
+
+.board-svg--numberline {
+    max-width: 420px;
+}
+
+.board-numberline-line {
+    stroke: rgba(100, 116, 139, 0.6);
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+/* Numéros des colonnes (en haut) et des lignes (à gauche) du quadrillage :
+   sans eux, « colonne 3, ligne 2 » obligeait à compter les intersections. */
+.board-axis-label {
+    font-size: 11px;
+    font-weight: 700;
+    fill: var(--color-text, rgba(51, 65, 85, 0.92));
+    pointer-events: none;
+}
+
+.board-numberline-label {
+    font-size: 13px;
+    font-weight: 700;
+    fill: var(--color-text, rgba(51, 65, 85, 0.92));
+    pointer-events: none;
+}
+
 .board-shape-line {
     stroke: rgba(30, 41, 59, 0.9);
     stroke-width: 5;
     stroke-linecap: round;
+}
+
+/* Thème sombre : le trait foncé (contraste ~1,1:1 sur le panneau) rendait les figures
+   des plateaux invisibles (angles, récipients, volcan, figures « touche les angles droits »). */
+#app.theme-dark .board-shape-line {
+    stroke: rgba(226, 232, 240, 0.92);
 }
 
 .board-right-angle-marker {
@@ -3174,6 +3281,33 @@ button,
     border-radius: 20px;
     font-weight: bold;
     margin-bottom: 15px;
+    font-size: var(--font-size-sm);
+}
+
+/* Consigne de l'horloge sur 24 h (niveau 3) : sans elle, l'enfant recopie le cadran. */
+.clock-caption {
+    margin-bottom: 12px;
+    text-align: center;
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+}
+
+.clock-caption-hint {
+    display: block;
+    margin-top: 2px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+/* Énoncé au-dessus du dessin des fractions (fraction-view). */
+.visual-card--fraction {
+    flex-direction: column;
+    gap: 8px;
+}
+
+.fraction-caption {
+    text-align: center;
+    font-weight: 700;
     font-size: var(--font-size-sm);
 }
 
@@ -3444,13 +3578,18 @@ button,
     margin-bottom: 14px;
 }
 
+/* Hauteur DÉFINIE : avec `min-height`, le `height: 100%` de la colonne puis le pourcentage de
+   la barre ne se résolvaient pas, et la barre mesurait 0 px (le diagramme n'affichait que des
+   nombres). La barre prend une fraction de la hauteur utile (hauteur du graphique moins la place
+   du nombre au-dessus et du libellé en dessous). */
 .bar-chart-grid {
+    --chart-h: 220px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    gap: 14px;
-    min-height: 180px;
-    padding: 0 8px;
+    gap: 8px;
+    height: var(--chart-h);
+    padding: 0 4px;
 }
 
 .bar-chart-col {
@@ -3459,7 +3598,8 @@ button,
     align-items: center;
     justify-content: flex-end;
     flex: 1;
-    max-width: 70px;
+    min-width: 0;
+    max-width: 80px;
     height: 100%;
 }
 
@@ -3472,7 +3612,7 @@ button,
 
 .bar-chart-bar {
     width: 100%;
-    height: var(--bar-height, 10%);
+    height: calc((var(--chart-h) - 72px) * var(--bar-frac, 0.1));
     border-radius: 8px 8px 4px 4px;
     box-shadow: 0 4px 10px rgba(45, 55, 72, 0.18);
     transition: height 0.3s ease;
@@ -3486,11 +3626,14 @@ button,
 
 .bar-chart-label {
     margin-top: 8px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 700;
     color: var(--color-text-soft, var(--color-text));
     text-align: center;
-    word-break: break-word;
+    /* « Mercredi » ne se coupait pas aux syllabes (« Mercre / di ») : coupure typographique (lang="fr") */
+    hyphens: auto;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 .visual-card--datatable {
@@ -3529,6 +3672,25 @@ button,
     background: #f8fbff;
     font-weight: 700;
     text-align: left;
+    color: var(--color-text);
+}
+
+/* Thème sombre : le texte devient clair (--color-text) mais les fonds restaient clairs, soit un
+   contraste d'environ 1,1:1 sur les en-têtes de lignes et de colonnes que l'on doit justement lire. */
+#app.theme-dark .data-table-grid th,
+#app.theme-dark .data-table-grid td {
+    border-color: rgba(148, 163, 184, 0.4);
+}
+
+#app.theme-dark .data-table-grid thead th {
+    background: #2a3a4f;
+}
+
+#app.theme-dark .data-table-grid tbody th {
+    background: #223043;
+}
+
+#app.theme-dark .data-table-grid td {
     color: var(--color-text);
 }
 
@@ -3928,6 +4090,11 @@ button,
     color: var(--subject-accent-strong);
     background: var(--subject-accent-soft);
     border-radius: 6px;
+}
+
+.operation-cell--comma {
+    color: var(--color-text);
+    font-weight: 800;
 }
 
 .answer-display.shake { animation: shake 0.4s; }
@@ -7843,4 +8010,36 @@ button.collection-map--fact {
 #app.quiet-mode .progress-streak,
 #app.quiet-mode .confetti {
     display: none !important;
+}
+
+/* Frise « placer » en thème sombre : le texte clair posait sur des fonds blancs codés en dur (contraste 1,14:1). */
+#app.theme-dark .timeline-target {
+    background: #223043;
+    border-color: rgba(147, 197, 253, 0.45);
+}
+#app.theme-dark .timeline-slot-label {
+    background: linear-gradient(180deg, #2a3a4f 0%, #223043 100%);
+    border-color: rgba(148, 163, 184, 0.4);
+    color: var(--color-text);
+    box-shadow: none;
+}
+#app.theme-dark .timeline-slot-tick {
+    background: #223043;
+    box-shadow: none;
+}
+#app.theme-dark .timeline-slot-stem {
+    background: rgba(147, 197, 253, 0.6);
+}
+#app.theme-dark .timeline-slot.is-selected .timeline-slot-label {
+    background: linear-gradient(180deg, rgba(74, 144, 226, 0.35) 0%, #223043 100%);
+    border-color: var(--subject-accent);
+    color: #ffffff;
+}
+
+/* Étiquettes posées sur un plateau « toucher » (noms de villes) */
+.board-map-label {
+    font-size: 13px;
+    font-weight: 800;
+    fill: var(--color-text);
+    pointer-events: none;
 }
